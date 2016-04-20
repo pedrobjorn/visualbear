@@ -1,7 +1,6 @@
-
 #visualbear portfolio
 
-<img align="right" height="300" src="../../img/icons/logo_default.svg">
+<img align="right" height="300" src="app/img/icons/logo_default.png">
 
 ---
 
