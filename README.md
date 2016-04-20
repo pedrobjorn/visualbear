@@ -1,6 +1,5 @@
 #visualbear portfolio
 
-<img align="right" height="300" src="https://bitbucket.org/visualbear/visualbearweb/raw/master/app/img/icons/logo_default.svg">
 
 ---
 
