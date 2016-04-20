@@ -1,0 +1,33 @@
+<article class="outer-container ">
+  <div  class="inner-container">
+    <div class="text-container" id="contact-text">
+      <h3>Say hello.</h3>
+      <form class="contact_form form-group" name="contact_form" id="mailForm" role="form" data-parsley-validate>
+        <ul class="row">
+          <li class="col-md-8">
+            <input type="text" class="form-group form-text" name="name" id="InputName" placeholder="Your Name*" data-parsley-minlength="2" required/>
+          </li>
+          <li class="col-md-8">
+            <input type="text" class="form-group form-text" id="InputEmail" name="email" placeholder="Your Email*" data-parsley-type="email" required />
+          </li>
+          <li class="col-md-12">
+            <textarea type="text" class="form-group form-text" rows=3 cols=30 name="message" id="InputMessage" placeholder="What's on your mind?" data-parsley-maxlength="200"/> </textarea>
+          </li>
+          <li class="col-md-12">
+            <input type="submit" name="submit" id="submit" value="Send" class="btn vb-submit pull-left">
+          </li>
+        </ul>
+        <ul class="feedback"  id="success" >
+          <div  class="alert alert-success fade in" role="alert" >
+            <strong>Thank you for your contact. I'll be sure to get back to you soon! </strong>
+          </div>
+        </ul>
+        <ul class="text-block ">
+          <li class="col-md-12">
+            <p>You can also reach me at <a href="mailto:hello@visualbear.com?Subject=Hello%20visualbear!" target="_top"> hello@visualbear.com</a></p>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+</article>

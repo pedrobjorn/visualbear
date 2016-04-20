@@ -1,0 +1,183 @@
+
+
+blockquote {
+    font-style: italic;
+    border-left: 4px solid $vb-grey;
+    padding-left: 16px;
+    footer {
+        padding: 0;
+        height: auto;
+    }
+}
+
+.label {
+    @include border-radius(0);
+    font-family: $vb-body-font-family;
+    font-weight: 200;
+}
+
+@media (min-width: $break-huge) {
+    .text-block {
+        padding: 32px 0;
+        li {
+            padding-bottom: 16px;
+        }
+    }
+    .text-container {
+        width: 900px;
+        margin: auto;
+    }
+    .gallery-text {
+        font-weight: $font-light;
+        font-size: $base-font-size;
+        line-height: $font-semi-bold-line-height;
+    }
+}
+
+@media (max-width: $break-huge) and (min-width: $break-large) {
+    .text-block {
+        padding: 32px 0;
+        li {
+            padding-bottom: 16px;
+        }
+    }
+    .text-container {
+        width: 900px;
+        margin: auto;
+    }
+    .jumbo-text {
+        font-weight: $font-light;
+        font-size: $base-h0-size;
+        text-align: left;
+        width: 900px;
+        margin: 0 auto;
+    }
+    .gallery-text {
+        font-weight: $font-light;
+        font-size: $base-font-size;
+        line-height: $font-semi-bold-line-height;
+    }
+}
+
+@media (max-width: $break-large) and (min-width: $break-big) {
+    .text-container {
+        width: 900px;
+        margin: auto;
+    }
+    .text-block {
+        padding: 32px 0;
+        li {
+            padding-bottom: 16px;
+        }
+    }
+    .jumbo-text {
+        font-weight: $font-light;
+        font-size: $base-h1-size;
+        text-align: left;
+        width: 642px;
+        margin: 0 auto;
+    }
+    .gallery-text {
+        font-weight: $font-light;
+        font-size: $base-font-size;
+        line-height: $font-semi-bold-line-height;
+    }
+}
+
+@media (max-width: $break-big) and (min-width: $break-medium) {
+    .text-block {
+        padding: 16px 0;
+        li {
+            padding-bottom: 8px;
+        }
+    }
+    .text-container {
+        padding: 0 64px;
+        max-width: 900px;
+        margin: auto;
+    }
+    .jumbo-text {
+        font-weight: $font-light;
+        font-size: $base-h1-size;
+        text-align: left;
+        width: 556px;
+        margin: 0 auto;
+    }
+    .gallery-text {
+        font-weight: $font-light;
+        font-size: $middle-font-size;
+        line-height: $font-semi-bold-line-height;
+    }
+}
+
+@media (max-width: $break-medium) and (min-width: $break-small) {
+    .text-block {
+        padding: 16px 0;
+        li {
+            padding-bottom: 8px;
+        }
+    }
+    .text-container {
+        padding: 0 32px;
+    }
+    .jumbo-text {
+        font-weight: $font-light;
+        font-size: $mobile-h0-size;
+        text-align: left;
+        width: 428px;
+        margin: 0 auto;
+    }
+    .gallery-text {
+        font-weight: $font-light;
+        font-size: $mobile-font-size;
+        line-height: $font-semi-bold-line-height;
+    }
+}
+
+@media (max-width: $break-small) and (min-width: $break-tiny) {
+    .text-block {
+        padding: 16px 0;
+        li {
+            padding-bottom: 8px;
+        }
+    }
+    .gallery-text {
+        font-weight: $font-light;
+        font-size: $mobile-font-size;
+        line-height: $font-semi-bold-line-height;
+    }
+    .jumbo-text {
+        font-weight: $font-light;
+        font-size: $mobile-h1-size;
+        text-align: left;
+        width: 256px;
+        margin: 0 auto;
+    }
+    .text-container {
+        padding: 0 32px;
+    }
+}
+
+@media (max-width: $break-tiny) {
+    .text-block {
+        padding: 16px 0;
+        li {
+            padding-bottom: 8px;
+        }
+    }
+    .text-container {
+        padding: 0 32px;
+    }
+    .jumbo-text {
+        font-weight: $font-light;
+        font-size: $mobile-h1-size;
+        text-align: left;
+        width: 256px;
+        margin: 0 auto;
+    }
+    .gallery-text {
+        font-weight: $font-light;
+        font-size: $mobile-font-size;
+        line-height: $font-semi-bold-line-height;
+    }
+}

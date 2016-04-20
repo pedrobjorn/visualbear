@@ -1,0 +1,62 @@
+.section#jumbo {
+    background-color: $vb-grey;
+    color: $vb-light;
+}
+
+.section {
+    background-color: $vb-light;
+    color: $vb-grey;
+    .emphasis {
+        color: $vb-grey;
+    }
+}
+
+#barbus_container {
+    color: $vb-grey;
+    background-color: #e2eaec;
+    .gallery-image {
+        background-color: #e2eaec;
+    }
+}
+
+#visualbear_container {
+    color: $vb-grey;
+    background-color: #ebf5ff;
+    .gallery-image {
+        background-color: #ebf5ff;
+    }
+}
+
+#adhops_container {
+    color: $vb-grey;
+    background-color: #e9e5e4;
+    .gallery-image {
+        background-color: #e9e5e4;
+    }
+}
+
+#dukebox_container {
+    color: $vb-grey;
+    background-color: #e1d2cd;
+    .gallery-image {
+        background-color: #e1d2cd;
+    }
+}
+
+#lynx_container {
+    color: $vb-grey;
+    background-color: #f8edd1;
+    .gallery-image {
+        background-color: #f8edd1;
+        color: $vb-light;
+    }
+}
+
+#sos_container {
+    color: $vb-grey;
+    background-color: #fef6e9;
+    .gallery-image {
+        background-color: #fef6e9;
+        color: $vb-light;
+    }
+}

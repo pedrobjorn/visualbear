@@ -1,0 +1,311 @@
+.navbar-brand {
+    .pre-hover {
+        display: initial;
+    }
+    .post-hover {
+        display: none;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+        .pre-hover {
+            display: none;
+        }
+        .post-hover {
+            display: initial;
+        }
+    }
+}
+
+.navmenu {
+    overflow: none;
+}
+
+.navmenu-fixed-right {
+    overflow-y: hidden !important;
+    height: 100%;
+    padding-bottom: 64px;
+}
+
+nav.navmenu {
+    overflow: none;
+    z-index: 9999;
+    width: 356px;
+    background-color: $vb-dark;
+    border: none;
+    color: $vb-light;
+    li {
+        padding: 16px 0;
+        font-size: $base-h2-size;
+        font-weight: $font-light;
+        text-align: center;
+        border: 2px solid $vb-dark;
+        border-left: 0px;
+        border-right: 0px;
+        &:hover,
+        &:focus {
+            cursor: pointer;
+            background-color: $vb-primary;
+        }
+    }
+    a {
+        text-decoration: none;
+        color: $vb-light;
+    }
+    #close {
+        height: auto;
+        padding: 0 24px;
+        background-color: $vb-dark;
+        color: $vb-light;
+        .fa-close {
+            font-size: 36px;
+        }
+    }
+}
+
+.navigation > a.active {
+    z-index: 999;
+    li {
+        background-color: $vb-primary;
+    }
+    color: $vb-light;
+}
+
+.navigation > a.inactive {
+    background-color: $vb-active;
+    color: $vb-light;
+}
+
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+
+.navbar {
+    @include border-radius(0);
+    border: 0;
+    z-index: 9998;
+    width: 100%;
+    margin:0;
+    .fa-bars {
+        font-size: 36px;
+    }
+    height: 48px;
+    padding: 0;
+    background-color: $vb-grey;
+    .dropdown-menu li {
+        &:hover,
+        &:focus {
+            background-color: $vb-primary;
+            color: $vb-light;
+        }
+    }
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    background-color: $vb-primary;
+    color: $vb-light;
+}
+
+//>2500px
+// @media (min-width: $break-huge) {
+//     nav.navmenu {
+//         li {
+//             font-size: $base-2k-size;
+//             font-weight: $font-light;
+//             text-align: center;
+//             &:hover,
+//             &:focus {
+//                 opacity: 0.5;
+//             }
+//         }
+//         a {
+//             text-decoration: none;
+//             color: $vb-light;
+//         }
+//         #close {
+//        height: auto;
+//            padding: 0 24px;
+//             background-color: $vb-dark;
+//             .fa-close {
+//                 font-size: 72px;
+//             }
+//         }
+//         width: 728px;
+//         z-index: 9999;
+//         background-color: $vb-dark;
+//         border: none;
+//         .social {
+//             a {
+//                 padding: 0;
+//                 margin: 0;
+//                 &:hover,
+//                 &:focus,
+//                 &:active {
+//                     background-color: $vb-grey;
+//                 }
+//             }
+//             img {
+//                 width: 48px;
+//             }
+
+//             margin: auto;
+//             .icon {
+//                 float: left;
+//                 &:last-child:after {
+//                     padding: 32px;
+//                 }
+//                 width: auto;
+//             }
+//         }
+//     }
+//     #links > a.active {
+//         background-color: $vb-primary;
+//         color: $vb-light;
+//     }
+//     .navbar {
+//         li {
+//             height: 64px;
+//         }
+//         z-index: 1;
+//         width: 100%;
+//         .fa-bars {
+//             font-size: 72px;
+//         }
+//         height: 96px;
+//         padding: 8px;
+//         background-color: $vb-grey;
+//         .dropdown-menu li {
+//             &:hover,
+//             &:focus {
+//                 opacity: 0.5;
+//             }
+//         }
+//     }
+//     .navbar-brand {
+//         width: 96px;
+//         height: 96px;
+//         padding: 16px;
+//     }
+// }
+@media (min-width: $break-huge) {
+    .navbar-brand {
+        height: 50px;
+        width: 50px;
+        padding: 9px;
+    }
+}
+
+//2500px< & >1200px
+@media (max-width: $break-huge) and (min-width: $break-large) {
+    .navbar-brand {
+        height: 50px;
+        width: 50px;
+        padding: 9px;
+    }
+}
+
+//1200px< & >767px
+@media (max-width: $break-large) and (min-width: $break-medium) {
+    .navbar-brand {
+        height: 50px;
+        width: 50px;
+        padding: 9px;
+    }
+}
+
+//767px< & >480px
+@media (max-width: $break-medium) and (min-width: $break-small) {
+    .navbar-brand {
+        height: 50px;
+        width: 50px;
+        padding: 9px;
+    }
+    nav.navmenu {
+        img {
+            width: 48px;
+        }
+        li {
+            font-size: $base-font-size;
+            font-weight: $font-light;
+            text-align: center;
+        }
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+        #close {
+            height: auto;
+            padding: 0 24px;
+            background-color: $vb-dark;
+            color: $vb-light;
+            .fa-close {
+                font-size: 36px;
+            }
+        }
+        width: 100%;
+        z-index: 9999;
+        background-color: $vb-dark;
+        border: none;
+    }
+    #links > a.active {
+        background-color: $vb-primary;
+        color: $vb-light;
+    }
+}
+
+//480px< & >320px
+@media (max-width: $break-small) and (min-width: $break-tiny) {
+    .navbar-brand {
+        height: 50px;
+        width: 50px;
+        padding: 9px;
+    }
+    nav.navmenu {
+        img {
+            width: 48px;
+        }
+        width: 100%;
+        z-index: 9999;
+        background-color: $vb-dark;
+        border: none;
+        li {
+            font-size: $base-font-size;
+            font-weight: $font-light;
+            text-align: center;
+        }
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+        #close {
+            height: auto;
+            padding: 0 24px;
+            background-color: $vb-dark;
+            .fa-close {
+                font-size: 36px;
+            }
+        }
+    }
+    #links > a.active {
+        background-color: $vb-primary;
+        color: $vb-light;
+    }
+}
+
+//320px<
+@media (max-width: $break-tiny) {
+    .navbar-brand {
+        height: 50px;
+        width: 50px;
+        padding: 9px;
+    }
+}
+
+.canvas-sliding {
+    -moz-transition: top 0.6s,left 0.6s,bottom 0.6s,right 0.6s;
+    -o-transition: top 0.6s,left 0.6s,bottom 0.6s,right 0.6s;
+    -webkit-transition: top 0.6s,left 0.6s,bottom 0.6s,right 0.6s;
+    transition: top 0.6s,left 0.6s,bottom 0.6s,right 0.6s;
+}
