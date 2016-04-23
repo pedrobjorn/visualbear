@@ -27,6 +27,15 @@ blockquote {
         width: 900px;
         margin: auto;
     }
+    .jumbo-text {
+        padding:64px;
+        border:8px solid $vb-light;
+        font-weight: $font-light;
+        font-size: $base-h0-size;
+        text-align: left;
+        width: 900px;
+        margin: 0 auto;
+    }
     .gallery-text {
         font-weight: $font-light;
         font-size: $base-font-size;
@@ -45,8 +54,8 @@ blockquote {
         width: 900px;
         margin: auto;
     }
-        .jumbo-text {
-        padding:32px;
+    .jumbo-text {
+        padding:64px;
         border:8px solid $vb-light;
         font-weight: $font-light;
         font-size: $base-h0-size;
@@ -72,7 +81,7 @@ blockquote {
             padding-bottom: 16px;
         }
     }
-        .jumbo-text {
+    .jumbo-text {
         padding:32px;
         border:8px solid $vb-light;
         font-weight: $font-light;
@@ -100,7 +109,7 @@ blockquote {
         max-width: 900px;
         margin: auto;
     }
-        .jumbo-text {
+    .jumbo-text {
         padding:32px;
         border:6px solid $vb-light;
         font-weight: $font-light;
@@ -126,7 +135,7 @@ blockquote {
     .text-container {
         padding: 0 32px;
     }
-        .jumbo-text {
+    .jumbo-text {
         padding:32px;
         border:6px solid $vb-light;
         font-weight: $font-light;

@@ -115,33 +115,35 @@ $(document).ready(function() {
 
     var jumboId = document.getElementById('jumbo');
     var workId = document.getElementById('work');
-    var anchor_offset ;
-    if(workId != null){
-        anchor_offset = $('#work').offset().top;   
-    }
+    var anchor_offset;
+
     var navBar = document.getElementsByClassName('navbar');
-
-    if ($(window).scrollTop() < (anchor_offset - 48)) {
-
-        navBar[0].style.backgroundColor = "transparent";
-                if(screen.width < 480){
-                    navBar[0].style.display = "none";
-                }
+    
+    if (workId != null) {
+        anchor_offset = $('#work').offset().top;
     }
 
-    if (jumboId === null){
-        navBar[0].style.backgroundColor = "#313135";
-        navBar[0].style.display = "inherit";
-    }
+        if ($(window).scrollTop() < (anchor_offset - 48)) {
 
+            navBar[0].style.backgroundColor = "transparent";
+            if (screen.width < 767) {
+                navBar[0].style.display = "none";
+            }
+        }
+    for (var i = 0; i < navBar.length;i++) {
+        if (jumboId === null) {
+            navBar[i].style.backgroundColor = "#313135";
+            navBar[i].style.display = "inherit";
+        }
+    }
     $(window).scroll(function() {
-        if(anchor_offset != null){
+        if (anchor_offset != null) {
             if ($(window).scrollTop() > (anchor_offset - 48)) {
                 navBar[0].style.backgroundColor = "#313135";
                 navBar[0].style.display = "inherit";
             } else {
                 navBar[0].style.backgroundColor = "transparent";
-                if(screen.width < 480){
+                if (screen.width < 767) {
                     navBar[0].style.display = "none";
                 }
             }
