@@ -54,7 +54,7 @@ nav.navmenu {
     }
     #close {
         height: auto;
-        padding: 0 24px;
+        padding: 0;
         background-color: $vb-dark;
         color: $vb-light;
         .fa-close {
@@ -72,7 +72,7 @@ nav.navmenu {
 }
 
 .navigation > a.inactive {
-    background-color: $vb-active;
+    background-color: $vb-primary;
     color: $vb-light;
 }
 
@@ -93,7 +93,6 @@ nav.navmenu {
     }
     height: 48px;
     padding: 0;
-    background-color: $vb-grey;
     .dropdown-menu li {
         &:hover,
         &:focus {
@@ -126,7 +125,7 @@ nav.navmenu {
 //         }
 //         #close {
 //        height: auto;
-//            padding: 0 24px;
+//            
 //             background-color: $vb-dark;
 //             .fa-close {
 //                 font-size: 72px;
@@ -190,6 +189,9 @@ nav.navmenu {
 //     }
 // }
 @media (min-width: $break-huge) {
+    .navbar {
+        display:inherit;
+    }
     .navbar-brand {
         height: 50px;
         width: 50px;
@@ -199,6 +201,9 @@ nav.navmenu {
 
 //2500px< & >1200px
 @media (max-width: $break-huge) and (min-width: $break-large) {
+    .navbar {
+        display:inherit;
+    }
     .navbar-brand {
         height: 50px;
         width: 50px;
@@ -208,6 +213,9 @@ nav.navmenu {
 
 //1200px< & >767px
 @media (max-width: $break-large) and (min-width: $break-medium) {
+    .navbar {
+        display:inherit;
+    }
     .navbar-brand {
         height: 50px;
         width: 50px;
@@ -217,6 +225,9 @@ nav.navmenu {
 
 //767px< & >480px
 @media (max-width: $break-medium) and (min-width: $break-small) {
+    .navbar {
+        display:none;
+    }
     .navbar-brand {
         height: 50px;
         width: 50px;
@@ -237,7 +248,7 @@ nav.navmenu {
         }
         #close {
             height: auto;
-            padding: 0 24px;
+            
             background-color: $vb-dark;
             color: $vb-light;
             .fa-close {
@@ -257,6 +268,9 @@ nav.navmenu {
 
 //480px< & >320px
 @media (max-width: $break-small) and (min-width: $break-tiny) {
+    .navbar {
+        display:none;
+    }
     .navbar-brand {
         height: 50px;
         width: 50px;
@@ -281,7 +295,7 @@ nav.navmenu {
         }
         #close {
             height: auto;
-            padding: 0 24px;
+            
             background-color: $vb-dark;
             .fa-close {
                 font-size: 36px;
@@ -296,6 +310,9 @@ nav.navmenu {
 
 //320px<
 @media (max-width: $break-tiny) {
+    .navbar {
+        display:none;
+    }
     .navbar-brand {
         height: 50px;
         width: 50px;

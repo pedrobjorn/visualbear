@@ -35,14 +35,14 @@ li {
 
 ::-moz-selection {
     text-shadow: none;
-    background: $vb-selection;
+    background: $vb-secondary;
     color:$vb-light;
     background-color: none;
 }
 
 ::selection {
     text-shadow: none;
-    background:$vb-selection;
+    background:$vb-secondary;
     color:$vb-light;
     background-color: none;
 }

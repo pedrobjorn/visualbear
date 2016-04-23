@@ -38,10 +38,11 @@ var linkFinder = function(hash) {
     if (storeHash != hash || storeHash.length == 0) {
         for (var i = 0, l = els_length; i < l; i++) {
             var el = els[i];
+
             if (el.href === '/' + hash) {
+
                 storeHash = hash;
 
-                console.log(el.href);
             }
         }
     }
@@ -108,8 +109,44 @@ $(document).ready(function() {
     });
 
     // $(window).scroll(function() {
-    //     console.log(($('#about-text').offset().top < $(this).height() + $(this).scrollTop()) || ($('#about-text').height > $(this).height() + $(this).scrollTop()));
+
+    //     console.log(($('#about').offset().top < $(this).height() + $(this).scrollTop()) || ($('#about').height > $(this).height() + $(this).scrollTop()));
     // });
+
+    var jumboId = document.getElementById('jumbo');
+    var workId = document.getElementById('work');
+    var anchor_offset ;
+    if(workId != null){
+        anchor_offset = $('#work').offset().top;   
+    }
+    var navBar = document.getElementsByClassName('navbar');
+
+    if ($(window).scrollTop() < (anchor_offset - 48)) {
+
+        navBar[0].style.backgroundColor = "transparent";
+                if(screen.width < 480){
+                    navBar[0].style.display = "none";
+                }
+    }
+
+    if (jumboId === null){
+        navBar[0].style.backgroundColor = "#313135";
+        navBar[0].style.display = "inherit";
+    }
+
+    $(window).scroll(function() {
+        if(anchor_offset != null){
+            if ($(window).scrollTop() > (anchor_offset - 48)) {
+                navBar[0].style.backgroundColor = "#313135";
+                navBar[0].style.display = "inherit";
+            } else {
+                navBar[0].style.backgroundColor = "transparent";
+                if(screen.width < 480){
+                    navBar[0].style.display = "none";
+                }
+            }
+        }
+    });
 
     $("#jumbo").mouseover(function() {
         linkFinder("#jumbo");
@@ -325,8 +362,7 @@ $(document).ready(function() {
             }
         })
 
-        if (this.options.disableScrolling)
-        {
+        if (this.options.disableScrolling) {
             this.disableScrolling()
         }
 

@@ -56,23 +56,15 @@
     }
 }
 
-
-.icon-container{
-  width: 100%;
-   height: 4em;
-   margin-bottom: 0.2em;
-   display: block;
-}
-
 .vb-btn {
     font-size: 12px;
-    background-color: $vb-grey;
+    background-color: transparent;
     height: 50px;
     width: 50px;
     position: relative;
     overflow: hidden;
     margin: 0;
-    padding: 6px 6px 0 6px;
+    // padding: 6px 6px 0 6px;
     cursor: pointer;
     color: $vb-primary;
     font-weight: 500;
@@ -120,7 +112,7 @@
 .vb-btn-text {
     font-size: 24px;
     background-color: $vb-grey;
-    height: 45px;
+    height: 48px;
     position: relative;
     overflow: hidden;
     margin: 0;
@@ -132,7 +124,7 @@
     &:hover,
     &:focus {
         padding: 4px 16px 0 16px;
-        height: 46px;
+        height: 48px;
         color: $vb-light;
         background-color: $vb-primary;
     }
@@ -143,7 +135,7 @@
     background-color: $vb-dark;
     &:hover,
     &:focus {
-        height: 46px;
+        height: 48px;
         background-color: $vb-primary;
     }
 }
@@ -166,8 +158,8 @@
 }
 
 .vb-btn-dark {
-    height: 50px;
-    width: 50px;
+    height: 48px;
+    width: 48px;
     font-size: 28px;
     font-weight: 500;
     color: #fff;
@@ -730,7 +722,7 @@
 }
 
 .btn-default {
-    @include button-variant($vb-active, transparentize(white, 1), $vb-active);
+    @include button-variant($vb-primary, transparentize(white, 1), $vb-primary);
     &:hover,
     &:focus {}
 }*/

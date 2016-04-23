@@ -1,6 +1,26 @@
 .section#jumbo {
-    background-color: $vb-grey;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff621a+0,313135+91 */
+    background: #ff621a; /* Old browsers */
+    background: -moz-linear-gradient(top, #ff621a 0%, #313135 91%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #ff621a 0%,#313135 91%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #ff621a 0%,#313135 91%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff621a', endColorstr='#313135',GradientType=0 ); /* IE6-9 */
+
     color: $vb-light;
+a {
+    color: $vb-light;
+    font-weight:400;
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        color: $vb-light;
+        background-color: $vb-primary;
+    }
+}
+}
+
+.section-top-padding{
+    padding-top:48px;
 }
 
 .section {

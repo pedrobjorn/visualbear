@@ -17,6 +17,10 @@ small{
     font-size: 100%;
 }
 
+p{
+    margin:0;
+}
+
 h0,
 h1,
 h2,
@@ -76,6 +80,7 @@ label {
 
 a {
     color: $vb-primary;
+    font-weight:700;
     &:hover,
     &:focus {
         text-decoration: none;
