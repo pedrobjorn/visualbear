@@ -1,3 +1,5 @@
+
+
 .btn {
     text-transform: uppercase;
     font-weight: 400;
@@ -297,7 +299,7 @@
 //     }
 // }
 @media (min-width: $break-huge) {
-    .btn-navbar-brand{
+    .navbar-brand {
         height: 50px;
         width: 50px;
         padding: 9px;
@@ -386,7 +388,8 @@
 
 //2500px< & >1200px
 @media (max-width: $break-huge) and (min-width: $break-large) {
-    .btn-navbar-brand{
+    
+    .navbar-brand {
         height: 50px;
         width: 50px;
         padding: 9px;
@@ -475,7 +478,7 @@
 
 //1200px< & >767px
 @media (max-width: $break-large) and (min-width: 815px) {
-    .btn-navbar-brand{
+    .navbar-brand {
         height: 50px;
         width: 50px;
         padding: 9px;
@@ -565,12 +568,11 @@
 
 //767px< & >480px
 @media (max-width: 815px) and (min-width: $break-small) {
-    .btn-navbar-brand{
+    .navbar-brand {
         height: 50px;
         width: 50px;
         padding: 9px;
     }
-
     .data-nav {
         .options-button {
             @include border-radius(0);
@@ -652,7 +654,7 @@
 
 //480px< & >320px
 @media (max-width: $break-small) and (min-width: $break-tiny) {
-    .btn-navbar-brand{
+    .navbar-brand {
         height: 50px;
         width: 50px;
         padding: 9px;
@@ -740,7 +742,7 @@
 
 //320px<
 @media (max-width: $break-tiny) {
-    .btn-navbar-brand{
+    .navbar-brand {
         height: 50px;
         width: 50px;
         padding: 9px;
