@@ -1,5 +1,3 @@
-
-
 .btn {
     text-transform: uppercase;
     font-weight: 400;
@@ -8,19 +6,48 @@
     transition: all .3s ease-in-out;
 }
 
-.dropdown-menu{
-    padding:0;
-    margin:0;
-    background-color:transparent;
-    outline:none;
-    border:none;
-    @include box-shadow(0,0,0,0);
+.btn-navbar-brand{
+    .pre-hover {
+        display: initial;
+    }
+
+    .post-hover {
+        display: none;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        .pre-hover {
+            display: none;
+        }
+
+        .post-hover {
+            display: initial;
+        }
+    }
 }
 
-.data-nav{
-    z-index:1;
-    width:auto;
-    float:right;
+.dropdown-menu {
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    outline: none;
+    border: none;
+
+    @include box-shadow(0, 0, 0, 0);
+
+    li {
+        .btn {
+            width: 100%;
+        }
+    }
+}
+
+.data-nav {
+    z-index: 1;
+    width: auto;
+    float: right;
 }
 
 .active {
@@ -28,8 +55,8 @@
     background-color: $vb-primary;
 }
 
-  .btn:active, .btn.active {
-    @include box-shadow(0,0,0,0);
+.btn:active, .btn.active {
+    @include box-shadow(0, 0, 0, 0);
 }
 
 .data-menu {
@@ -41,14 +68,16 @@
 
 .data-button {
     @include border-radius(0);
+
     margin: 0;
     background-color: $vb-grey;
     width: auto;
     color: #fff;
-    height:48px;
+    height: 48px;
     padding: 8px 16px;
     font-weight: 300;
     float: left;
+
     &:hover,
     &:focus {
         color: $vb-light;
@@ -64,17 +93,30 @@
     position: relative;
     overflow: hidden;
     margin: 0;
+
     // padding: 6px 6px 0 6px;
     cursor: pointer;
     color: $vb-primary;
     font-weight: 500;
+
     @include border-radius(0);
-    &:hover,
-    &:focus {
-        padding: 3px 4px 0 4px;
+
+    border: solid 2px transparent;
+
+    &:hover{
         color: $vb-light;
         background-color: $vb-primary;
     }
+
+    &:active,
+    &:focus  {
+        height: 50px;
+        width: 50px;
+        color: $vb-light;
+        background-color: $vb-secondary;
+        border: solid 2px $vb-secondary;
+    }
+
     .bar {
         &:before {
             content: "";
@@ -90,20 +132,23 @@
 }
 
 .vb-btn-icon {
-    cursor:pointer;
+    cursor: pointer;
     float: left;
     width: 48px;
     padding: 0;
     margin: 0;
+
     &:hover,
     &:focus {
         opacity: 0.5;
     }
+
     &:hover,
     &:focus,
     &:active {
         background-color: $vb-grey;
     }
+
     &:last-child:after {
         padding: 32px;
     }
@@ -120,7 +165,9 @@
     width: auto;
     cursor: pointer;
     color: $vb-primary;
+
     @include border-radius(0);
+
     &:hover,
     &:focus {
         padding: 4px 16px 0 16px;
@@ -132,7 +179,9 @@
 
 .vb-btn-text-dark {
     @extend .vb-btn-text;
+
     background-color: $vb-dark;
+
     &:hover,
     &:focus {
         height: 48px;
@@ -144,7 +193,9 @@
     font-size: 1.2em;
     cursor: default;
     background-color: $vb-grey;
+
     @include border-radius(0);
+
     a {
         &:hover,
         &:focus,
@@ -164,19 +215,30 @@
     font-weight: 500;
     color: #fff;
     border: 0;
+
     @extend .vb-btn;
+
     padding: 0;
     background-color: $vb-dark;
-    &:hover,
-    &:focus {
+
+    &:hover{
         padding: 0;
         background-color: $vb-primary;
+    }
+
+    &:active,
+    &:focus  {
+        height: 48px;
+        width: 48px;
+        color: $vb-light;
+        background-color: $vb-secondary;
+        border: solid 2px $vb-secondary;
     }
 }
 
 // //>2500px
 // @media (min-width: $break-huge) {
-//     .vb-submit {
+//     .vb-btn-submit {
 //         background-color: $vb-primary;
 //         position: relative;
 //         overflow: hidden;
@@ -235,35 +297,47 @@
 //     }
 // }
 @media (min-width: $break-huge) {
+    .btn-navbar-brand{
+        height: 50px;
+        width: 50px;
+        padding: 9px;
+    }
+
     .data-nav {
-        .options-button{
+        .options-button {
             @include border-radius(0);
+
             margin: 0;
-            height:48px;
+            height: 48px;
             background-color: $vb-grey;
             border: solid $vb-grey;
             color: #fff;
             padding: 8px;
             font-weight: 300;
             float: left;
+
             &:hover,
             &:focus {
                 color: $vb-light;
                 background-color: $vb-primary;
             }
-            display:none;
+
+            display: none;
         }
+
         .data-button {
             @extend .option-button;
-            display:inherit;
+
+            display: inherit;
         }
+
         .active {
             color: $vb-light;
             background-color: $vb-primary;
         }
     }
 
-    .vb-submit {
+    .vb-btn-submit {
         background-color: $vb-primary;
         position: relative;
         overflow: hidden;
@@ -274,18 +348,29 @@
         height: 64px;
         cursor: pointer;
         color: $vb-light;
+
         @include border-radius(0);
-        &:hover,
-        &:focus {
+
+        &:hover {
             color: $vb-primary;
             background-color: $vb-light;
         }
+
+        &:active,
+        &:focus  {
+            color: $vb-light;
+            background-color: $vb-secondary;
+            border: solid 2px $vb-secondary;
+        }
     }
+
     .vb-btn-down {
         font-size: 0.6em;
         cursor: default;
         background-color: $vb-grey;
+
         @include border-radius(0);
+
         a {
             &:hover,
             &:focus,
@@ -301,35 +386,47 @@
 
 //2500px< & >1200px
 @media (max-width: $break-huge) and (min-width: $break-large) {
+    .btn-navbar-brand{
+        height: 50px;
+        width: 50px;
+        padding: 9px;
+    }
+
     .data-nav {
-        .options-button{
+        .options-button {
             @include border-radius(0);
+
             margin: 0;
-            height:48px;
+            height: 48px;
             background-color: $vb-grey;
             border: solid $vb-grey;
             color: #fff;
             padding: 8px;
             font-weight: 300;
             float: left;
+
             &:hover,
             &:focus {
                 color: $vb-light;
                 background-color: $vb-primary;
             }
-            display:none;
+
+            display: none;
         }
+
         .data-button {
             @extend .option-button;
-            display:inherit;
+
+            display: inherit;
         }
+
         .active {
             color: $vb-light;
             background-color: $vb-primary;
         }
     }
 
-    .vb-submit {
+    .vb-btn-submit {
         background-color: $vb-primary;
         position: relative;
         overflow: hidden;
@@ -340,18 +437,29 @@
         height: 64px;
         cursor: pointer;
         color: $vb-light;
+
         @include border-radius(0);
-        &:hover,
-        &:focus {
+
+        &:hover {
             color: $vb-primary;
             background-color: $vb-light;
         }
+
+        &:active,
+        &:focus  {
+            color: $vb-light;
+            background-color: $vb-secondary;
+            border: solid 2px $vb-secondary;
+        }
     }
+
     .vb-btn-down {
         font-size: 0.6em;
         cursor: default;
         background-color: $vb-grey;
+
         @include border-radius(0);
+
         a {
             &:hover,
             &:focus,
@@ -367,11 +475,18 @@
 
 //1200px< & >767px
 @media (max-width: $break-large) and (min-width: 815px) {
+    .btn-navbar-brand{
+        height: 50px;
+        width: 50px;
+        padding: 9px;
+    }
+
     .data-nav {
-        .options-button{
+        .options-button {
             @include border-radius(0);
+
             margin: 0;
-            height:48px;
+            height: 48px;
             background-color: $vb-grey;
             border: solid $vb-grey;
             color: #fff;
@@ -379,24 +494,29 @@
             font-weight: 300;
             font-size: 11px;
             float: left;
+
             &:hover,
             &:focus {
                 color: $vb-light;
                 background-color: $vb-primary;
             }
-            display:none;
+
+            display: none;
         }
+
         .data-button {
             @extend .option-button;
-            display:inherit;
+
+            display: inherit;
         }
+
         .active {
             color: $vb-light;
             background-color: $vb-primary;
         }
     }
 
-    .vb-submit {
+    .vb-btn-submit {
         background-color: $vb-primary;
         position: relative;
         overflow: hidden;
@@ -407,18 +527,29 @@
         height: 64px;
         cursor: pointer;
         color: $vb-light;
+
         @include border-radius(0);
-        &:hover,
-        &:focus {
+
+        &:hover {
             color: $vb-primary;
             background-color: $vb-light;
         }
+
+        &:active,
+        &:focus  {
+            color: $vb-light;
+            background-color: $vb-secondary;
+            border: solid 2px $vb-secondary;
+        }
     }
+
     .vb-btn-down {
         font-size: 0.6em;
         cursor: default;
         background-color: $vb-grey;
+
         @include border-radius(0);
+
         a {
             &:hover,
             &:focus,
@@ -434,33 +565,45 @@
 
 //767px< & >480px
 @media (max-width: 815px) and (min-width: $break-small) {
+    .btn-navbar-brand{
+        height: 50px;
+        width: 50px;
+        padding: 9px;
+    }
+
     .data-nav {
-        .options-button{
+        .options-button {
             @include border-radius(0);
+
             margin: 0;
-            height:48px;
+            height: 48px;
             background-color: $vb-grey;
             margin: 4px 0;
             color: #fff;
             padding: 8px;
             font-weight: 300;
             float: left;
+
             &:hover,
             &:focus {
                 color: $vb-light;
                 background-color: $vb-primary;
             }
-            display:inherit;
+
+            display: inherit;
         }
+
         .data-button {
             @extend .option-button;
         }
+
         .active {
             color: $vb-light;
             background-color: $vb-primary;
         }
     }
-    .vb-submit {
+
+    .vb-btn-submit {
         background-color: $vb-primary;
         position: relative;
         overflow: hidden;
@@ -471,18 +614,29 @@
         height: 64px;
         cursor: pointer;
         color: $vb-light;
+
         @include border-radius(0);
-        &:hover,
-        &:focus {
+
+        &:hover {
             color: $vb-primary;
             background-color: $vb-light;
         }
+
+        &:active,
+        &:focus  {
+            color: $vb-light;
+            background-color: $vb-secondary;
+            border: solid 2px $vb-secondary;
+        }
     }
+
     .vb-btn-down {
         font-size: 0.6em;
         cursor: default;
         background-color: $vb-grey;
+
         @include border-radius(0);
+
         a {
             &:hover,
             &:focus,
@@ -498,12 +652,20 @@
 
 //480px< & >320px
 @media (max-width: $break-small) and (min-width: $break-tiny) {
+    .btn-navbar-brand{
+        height: 50px;
+        width: 50px;
+        padding: 9px;
+    }
+
     .data-nav {
-        .options-button{
-            display:inherit;
+        .options-button {
+            display: inherit;
+
             @include border-radius(0);
+
             margin: 0;
-            height:48px;
+            height: 48px;
             background-color: $vb-grey;
             margin: 4px 0;
             width: 100%;
@@ -511,21 +673,25 @@
             padding: 8px;
             font-weight: 300;
             float: left;
+
             &:hover,
             &:focus {
                 color: $vb-light;
                 background-color: $vb-primary;
             }
         }
+
         .data-button {
             @extend .option-button;
         }
+
         .active {
             color: $vb-light;
             background-color: $vb-primary;
         }
     }
-    .vb-submit {
+
+    .vb-btn-submit {
         background-color: $vb-primary;
         position: relative;
         overflow: hidden;
@@ -536,18 +702,29 @@
         height: 64px;
         cursor: pointer;
         color: $vb-light;
+
         @include border-radius(0);
-        &:hover,
-        &:focus {
+
+        &:hover {
             color: $vb-primary;
             background-color: $vb-light;
         }
+
+        &:active,
+        &:focus  {
+            color: $vb-light;
+            background-color: $vb-secondary;
+            border: solid 2px $vb-secondary;
+        }
     }
+
     .vb-btn-down {
         font-size: 0.5em;
         cursor: default;
         background-color: $vb-grey;
+
         @include border-radius(0);
+
         a {
             &:hover,
             &:focus,
@@ -563,13 +740,20 @@
 
 //320px<
 @media (max-width: $break-tiny) {
+    .btn-navbar-brand{
+        height: 50px;
+        width: 50px;
+        padding: 9px;
+    }
 
     .data-nav {
-        .options-button{
-            display:inherit;
+        .options-button {
+            display: inherit;
+
             @include border-radius(0);
+
             margin: 0;
-            height:48px;
+            height: 48px;
             background-color: $vb-grey;
             margin: 4px 0;
             width: 100%;
@@ -577,21 +761,25 @@
             padding: 8px;
             font-weight: 300;
             float: left;
+
             &:hover,
             &:focus {
                 color: $vb-light;
                 background-color: $vb-primary;
             }
         }
+
         .data-button {
             @extend .option-button;
         }
+
         .active {
             color: $vb-light;
             background-color: $vb-primary;
         }
     }
-    .vb-submit {
+
+    .vb-btn-submit {
         background-color: $vb-primary;
         position: relative;
         overflow: hidden;
@@ -602,18 +790,29 @@
         height: 64px;
         cursor: pointer;
         color: $vb-light;
+
         @include border-radius(0);
-        &:hover,
-        &:focus {
+
+        &:hover {
             color: $vb-primary;
             background-color: $vb-light;
         }
+
+        &:active,
+        &:focus  {
+            color: $vb-light;
+            background-color: $vb-secondary;
+            border: solid 2px $vb-secondary;
+        }
     }
+
     .vb-btn-down {
         font-size: 0.5em;
         cursor: default;
         background-color: $vb-grey;
+
         @include border-radius(0);
+
         a {
             &:hover,
             &:focus,

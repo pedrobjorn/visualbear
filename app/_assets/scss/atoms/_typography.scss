@@ -79,6 +79,7 @@ label {
 }
 
 a {
+    text-decoration: underline;
     color: $vb-primary;
     font-weight:700;
     &:hover,
@@ -86,6 +87,12 @@ a {
         text-decoration: none;
         color: $vb-light;
         background-color: $vb-primary;
+    }
+    &:visited,
+    &:active{
+        text-decoration: none;
+        color: $vb-light;
+        background-color: $vb-secondary;
     }
 }
 
@@ -101,6 +108,10 @@ a {
 .emphasis {
     font-weight: $font-semi-bold;
     color: #fff;
+}
+
+.center-justified {
+    text-align: center;
 }
 
 li#center-justified {

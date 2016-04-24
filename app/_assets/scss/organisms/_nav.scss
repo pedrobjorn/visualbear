@@ -1,22 +1,3 @@
-.navbar-brand {
-    .pre-hover {
-        display: initial;
-    }
-    .post-hover {
-        display: none;
-    }
-    &:hover,
-    &:focus,
-    &:active {
-        .pre-hover {
-            display: none;
-        }
-        .post-hover {
-            display: initial;
-        }
-    }
-}
-
 .navmenu {
     overflow: none;
 }
