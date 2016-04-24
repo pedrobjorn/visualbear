@@ -1,4 +1,9 @@
 
+button{
+    background-color:transparent;
+    border:0;
+    @include box-shadow(0, 0, 0, 0);
+}
 
 .btn {
     text-transform: uppercase;
@@ -8,7 +13,14 @@
     transition: all .3s ease-in-out;
 }
 
-.btn-navbar-brand{
+.btn-container{
+    display:block;
+    height:64px;
+    width:100%;
+    background-color:$vb-grey;
+}
+
+.btn-navbar-brand{ 
     .pre-hover {
         display: initial;
     }
@@ -28,6 +40,39 @@
             display: initial;
         }
     }
+}
+
+.vb-btn-full{
+    background-color: $vb-primary;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    border: solid $vb-primary;
+    border:2px 1px 2px 1px;
+    font-size: 22px;
+    height: 64px;
+    cursor: pointer;
+    color: $vb-light;
+
+    @include border-radius(0);
+
+
+    &:hover {
+        color: $vb-primary;
+        background-color: $vb-light;
+    }
+
+    &:active,
+    &:focus  {
+        color: $vb-light;
+        background-color: $vb-secondary;
+        border: solid 2px $vb-secondary;
+    }
+}
+
+.vb-btn-disabled{
+    @extend  .vb-btn-full;
+    opacity:1;   
 }
 
 .dropdown-menu {
@@ -338,6 +383,13 @@
             background-color: $vb-primary;
         }
     }
+    
+    .btn-nav-container{
+        padding: 16px 0 0 0;
+        margin: 0;
+        width: 100%;
+        display:block;
+    }
 
     .vb-btn-submit {
         background-color: $vb-primary;
@@ -355,7 +407,7 @@
 
         &:hover {
             color: $vb-primary;
-            background-color: $vb-light;
+            background-color: transparent;
         }
 
         &:active,
@@ -445,7 +497,7 @@
 
         &:hover {
             color: $vb-primary;
-            background-color: $vb-light;
+            background-color: transparent;
         }
 
         &:active,
@@ -535,7 +587,7 @@
 
         &:hover {
             color: $vb-primary;
-            background-color: $vb-light;
+            background-color: transparent;
         }
 
         &:active,
@@ -621,7 +673,7 @@
 
         &:hover {
             color: $vb-primary;
-            background-color: $vb-light;
+            background-color: transparent;
         }
 
         &:active,
@@ -709,7 +761,7 @@
 
         &:hover {
             color: $vb-primary;
-            background-color: $vb-light;
+            background-color: transparent;
         }
 
         &:active,
@@ -797,7 +849,7 @@
 
         &:hover {
             color: $vb-primary;
-            background-color: $vb-light;
+            background-color: transparent;
         }
 
         &:active,

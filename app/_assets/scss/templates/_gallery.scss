@@ -11,20 +11,20 @@
 }
 
 .box {
-    width: 100%;
+    width:100%;
     display: inline-block;
     vertical-align: top;
 }
 
-.container{
-    padding:16px 0 0 0;
-    margin:0;
-    width:100%;
+.container {
+    padding: 16px 0 0 0;
+    margin: 0;
+    width: 100%;
 }
 
- .nav-top-padding{
-    padding-top:48px;
- }
+.nav-top-padding {
+    padding-top: 48px;
+}
 
 //>2500px
 // @media (min-width: $break-huge) {
@@ -106,12 +106,14 @@
     .desktop {
         display: initial;
     }
+
     .mobile {
         display: none;
     }
-    .container {
 
-        padding-bottom:16px;
+    .container {
+        padding-bottom: 16px;
+
         .gallery-image {
             img {
                 width: 1440px;
@@ -120,6 +122,7 @@
             }
         }
     }
+
     .gallery-text {
         padding: 128px;
         margin: auto;
@@ -128,54 +131,68 @@
         word-wrap: break-word;
         display: block;
     }
+
     .image_container {
         .col-lg-12 {
             padding: 0  128px;
         }
+
         .col-xs-12 {
             padding: 0;
         }
     }
+
     .gallery {
         height: 100%;
         width: 100%;
         display: inline-block;
         position: relative;
     }
+
     div.gallerytile {
         height: 512px;
         padding: 0;
-        background-color:#39393D;
+        background-color: #39393D;
+
         span.gallery-image {
             height: 100%;
             background-repeat: no-repeat;
         }
     }
+
     span.header-image {
         height: $tile-height-medium;
         background-repeat: no-repeat;
     }
+
     .header-block {
         color: $vb-light;
     }
+
     #prettyugly {
         @include background-image("../img/work/thumbs/gallery_thumb_prettyugly.jpg");
     }
+
     #barbus {
         @include background-image("../img/work/thumbs/gallery_thumb_copafeel.jpg");
     }
+
     #adhop {
         @include background-image("../img/work/thumbs/gallery_thumb_adhop.jpg");
     }
+
     #dukebox {
         @include background-image("../img/work/thumbs/gallery_thumb_dukebox.jpg");
     }
+
     #visualbear {
         @include background-image("../img/work/thumbs/gallery_thumb_visualbear.jpg");
     }
+
     #lynx {
         @include background-image("../img/work/thumbs/gallery_thumb_lynx.jpg");
     }
+
     #sos {
         @include background-image("../img/work/thumbs/gallery_thumb_sos.jpg");
     }
@@ -183,14 +200,18 @@
 
 //2500px< & >1200px
 @media (max-width: $break-huge) and (min-width: $break-large) {
+
     .desktop {
         display: initial;
     }
+
     .mobile {
         display: none;
     }
+
     .container {
-        padding-bottom:16px;
+        padding-bottom: 16px;
+
         .gallery-image {
             img {
                 width: 1200px;
@@ -199,6 +220,7 @@
             }
         }
     }
+
     .gallery-text {
         padding: 128px;
         margin: auto;
@@ -207,56 +229,69 @@
         word-wrap: break-word;
         display: block;
     }
+
     .image_container {
         .col-lg-12 {
             padding: 0  128px;
         }
+
         .col-xs-12 {
             padding: 0;
         }
     }
-    .gallery {
 
+    .gallery {
         height: 100%;
         width: auto;
         margin: auto;
         display: inline-block;
         position: relative;
     }
+
     div.gallerytile {
         height: 512px;
         padding: 0;
-        background-color:$vb-grey;
+        background-color: $vb-grey;
+
         span.gallery-image {
             height: 100%;
             background-repeat: no-repeat;
         }
     }
+
     span.header-image {
         height: $tile-height-medium;
         background-repeat: no-repeat;
     }
+
     .header-block {
         color: $vb-light;
     }
+
     #prettyugly {
         @include background-image("../img/work/thumbs/gallery_thumb_prettyugly.jpg");
     }
+
     #barbus {
         @include background-image("../img/work/thumbs/gallery_thumb_copafeel.jpg");
     }
+
     #adhop {
         @include background-image("../img/work/thumbs/gallery_thumb_adhop.jpg");
     }
+
     #dukebox {
         @include background-image("../img/work/thumbs/gallery_thumb_dukebox.jpg");
     }
+
     #visualbear {
         @include background-image("../img/work/thumbs/gallery_thumb_visualbear.jpg");
     }
+
     #lynx {
         @include background-image("../img/work/thumbs/gallery_thumb_lynx.jpg");
     }
+
     #sos {
         @include background-image("../img/work/thumbs/gallery_thumb_sos.jpg");
     }
@@ -264,14 +299,18 @@
 
 //1280px< & >900px
 @media (max-width: $break-large) and (min-width: $break-big) {
+
     .desktop {
         display: initial;
     }
+
     .mobile {
         display: none;
     }
+
     .container {
-        padding-bottom:16px;
+        padding-bottom: 16px;
+
         .gallery-image {
             img {
                 width: 900px;
@@ -280,6 +319,7 @@
             }
         }
     }
+
     .gallery-text {
         margin: auto;
         padding: 64px 0;
@@ -288,56 +328,68 @@
         word-wrap: break-word;
         display: block;
     }
+
     .image_container {
         .col-lg-12 {
             padding: 0;
         }
+
         .col-xs-12 {
             padding: 0;
         }
     }
-    .gallery {
 
+    .gallery {
         height: 100%;
         display: inline-block;
         position: relative;
         width: 100%;
     }
+
     .gallerytile {
         height: 512px;
-
-        background-color:#39393D;
+        background-color: #39393D;
         padding: 0;
+
         span.gallery-image {
             height: 100%;
             background-repeat: no-repeat;
         }
     }
+
     span.header-image {
         height: $tile-height-medium;
         background-repeat: no-repeat;
     }
+
     .header-block {
         color: $vb-light;
     }
+
     #prettyugly {
         @include background-image("../img/work/thumbs/gallery_thumb_prettyugly.jpg");
     }
+
     #barbus {
         @include background-image("../img/work/thumbs/gallery_thumb_copafeel.jpg");
     }
+
     #adhop {
         @include background-image("../img/work/thumbs/gallery_thumb_adhop.jpg");
     }
+
     #dukebox {
         @include background-image("../img/work/thumbs/gallery_thumb_dukebox.jpg");
     }
+
     #visualbear {
         @include background-image("../img/work/thumbs/gallery_thumb_visualbear.jpg");
     }
+
     #lynx {
         @include background-image("../img/work/thumbs/gallery_thumb_lynx.jpg");
     }
+
     #sos {
         @include background-image("../img/work/thumbs/gallery_thumb_sos.jpg");
     }
@@ -345,37 +397,45 @@
 
 //960< & >767px
 @media (max-width: $break-big) and (min-width: $break-medium) {
+
     .desktop {
         display: initial;
     }
+
     .mobile {
         display: none;
     }
+
     .gallery-text {
         word-wrap: break-word;
         display: block;
         padding: 64px;
     }
+
     .container {
-        padding-bottom:16px;
+        padding-bottom: 16px;
     }
+
     .image_container {
         .col-lg-12 {
             padding: 0;
         }
+
         .col-xs-12 {
             padding: 0;
         }
     }
-    .gallery {
 
+    .gallery {
         height: 100%;
         display: inline-block;
         position: relative;
         width: 100%;
+
         .container {
-        padding-bottom:16px;
+            padding-bottom: 16px;
             padding-top: 48px;
+
             .image_container {
                 padding-top: 32px;
                 width: 900px;
@@ -383,40 +443,50 @@
             }
         }
     }
+
     .gallerytile {
         padding: 0;
+        background-color: #39393D;
 
-        background-color:#39393D;
         span.gallery-image {
             height: $tile-height-big;
             background-repeat: no-repeat;
         }
     }
+
     span.header-image {
         height: $tile-height-medium;
         background-repeat: no-repeat;
     }
+
     .header-block {
         color: $vb-light;
     }
+
     #prettyugly {
         @include background-image("../img/work/thumbs/gallery_thumb_prettyugly.jpg");
     }
+
     #barbus {
         @include background-image("../img/work/thumbs/gallery_thumb_copafeel.jpg");
     }
+
     #adhop {
         @include background-image("../img/work/thumbs/gallery_thumb_adhop.jpg");
     }
+
     #dukebox {
         @include background-image("../img/work/thumbs/gallery_thumb_dukebox.jpg");
     }
+
     #visualbear {
         @include background-image("../img/work/thumbs/gallery_thumb_visualbear.jpg");
     }
+
     #lynx {
         @include background-image("../img/work/thumbs/gallery_thumb_lynx.jpg");
     }
+
     #sos {
         @include background-image("../img/work/thumbs/gallery_thumb_sos.jpg");
     }
@@ -424,69 +494,85 @@
 
 //767px< & >480px
 @media (max-width: $break-medium) and (min-width: $break-small) {
+
     .desktop {
         display: none;
     }
+
     .mobile {
         display: initial;
     }
+
     .container {
-        padding-bottom:16px;
+        padding-bottom: 16px;
     }
+
     .gallery-text {
         word-wrap: break-word;
         display: block;
         padding: 32px;
     }
+
     .image_container {
         .col-lg-12 {
             padding: 0;
         }
+
         .col-xs-12 {
             padding: 0;
         }
     }
-    .gallery {
 
+    .gallery {
         height: 100%;
         display: inline-block;
         position: relative;
         width: 100%;
     }
+
     .gallerytile {
         padding: 0;
+        background-color: #39393D;
 
-        background-color:#39393D;
         span.gallery-image {
             height: $tile-height-medium;
             background-repeat: no-repeat;
         }
     }
+
     span.header-image {
         height: $tile-height-medium;
         background-repeat: no-repeat;
     }
+
     .header-block {
         color: $vb-light;
     }
+
     #prettyugly {
         @include background-image("../img/work/thumbs/gallery_thumb_prettyugly_mobile.jpg");
     }
+
     #barbus {
         @include background-image("../img/work/thumbs/gallery_thumb_copafeel_mobile.jpg");
     }
+
     #adhop {
         @include background-image("../img/work/thumbs/gallery_thumb_adhop_mobile.jpg");
     }
+
     #dukebox {
         @include background-image("../img/work/thumbs/gallery_thumb_dukebox_mobile.jpg");
     }
+
     #visualbear {
         @include background-image("../img/work/thumbs/gallery_thumb_visualbear_mobile.jpg");
     }
+
     #lynx {
         @include background-image("../img/work/thumbs/gallery_thumb_lynx_mobile.jpg");
     }
+
     #sos {
         @include background-image("../img/work/thumbs/gallery_thumb_sos_mobile.jpg");
     }
@@ -494,70 +580,86 @@
 
 //480px< & >320px
 @media (max-width: $break-small) and (min-width: $break-tiny) {
+
     .desktop {
         display: none;
     }
+
     .mobile {
         display: initial;
     }
+
     .container {
-        padding-bottom:16px;
+        padding-bottom: 16px;
     }
+
     .gallery-text {
         word-wrap: break-word;
         display: block;
         padding: 32px;
         margin: auto;
     }
+
     .image_container {
         .col-lg-12 {
             padding: 0;
         }
+
         .col-xs-12 {
             padding: 0;
         }
     }
-    .gallery {
 
+    .gallery {
         height: 100%;
         display: inline-block;
         position: relative;
         width: 100%;
     }
+
     .gallerytile {
         padding: 0;
+        background-color: #39393D;
 
-        background-color:#39393D;
         span.gallery-image {
             height: $tile-height-medium;
             background-repeat: no-repeat;
         }
     }
+
     span.header-image {
         height: 192px;
         background-repeat: no-repeat;
     }
+
     .header-block {
         color: $vb-light;
     }
+
     #prettyugly {
         @include background-image("../img/work/thumbs/gallery_thumb_prettyugly_mobile.jpg");
     }
+
     #barbus {
         @include background-image("../img/work/thumbs/gallery_thumb_copafeel_mobile.jpg");
     }
+
     #adhop {
         @include background-image("../img/work/thumbs/gallery_thumb_adhop_mobile.jpg");
     }
+
     #dukebox {
         @include background-image("../img/work/thumbs/gallery_thumb_dukebox_mobile.jpg");
     }
+
     #visualbear {
         @include background-image("../img/work/thumbs/gallery_thumb_visualbear_mobile.jpg");
     }
+
     #lynx {
         @include background-image("../img/work/thumbs/gallery_thumb_lynx_mobile.jpg");
     }
+
     #sos {
         @include background-image("../img/work/thumbs/gallery_thumb_sos_mobile.jpg");
     }
@@ -565,71 +667,87 @@
 
 //320px<
 @media (max-width: $break-tiny) {
+
     .desktop {
         display: none;
     }
+
     .mobile {
         display: initial;
     }
+
     .container {
-        padding-bottom:16px;
+        padding-bottom: 16px;
     }
+
     .gallery-text {
         word-wrap: break-word;
         display: block;
         padding: 32px;
         margin: auto;
     }
+
     .image_container {
         .col-lg-12 {
             padding: 0;
         }
+
         .col-xs-12 {
             padding: 0;
         }
     }
-    .gallery {
 
+    .gallery {
         height: 100%;
         display: inline-block;
         position: relative;
         width: 100%;
     }
+
     .gallerytile {
         padding: 0;
+        background-color: #39393D;
 
-        background-color:#39393D;
         span.gallery-image {
             height: $tile-height-medium;
             background-repeat: no-repeat;
         }
     }
+
     span.header-image {
         color: $vb-light;
         height: 128px;
         background-repeat: no-repeat;
     }
+
     .header-block {
         color: $vb-light;
     }
+
     #prettyugly {
         @include background-image("../img/work/thumbs/gallery_thumb_prettyugly_mobile.jpg");
     }
+
     #barbus {
         @include background-image("../img/work/thumbs/gallery_thumb_copafeel_mobile.jpg");
     }
+
     #adhop {
         @include background-image("../img/work/thumbs/gallery_thumb_adhop_mobile.jpg");
     }
+
     #dukebox {
         @include background-image("../img/work/thumbs/gallery_thumb_dukebox_mobile.jpg");
     }
+
     #visualbear {
         @include background-image("../img/work/thumbs/gallery_thumb_visualbear_mobile.jpg");
     }
+
     #lynx {
         @include background-image("../img/work/thumbs/gallery_thumb_lynx_mobile.jpg");
     }
+
     #sos {
         @include background-image("../img/work/thumbs/gallery_thumb_sos_mobile.jpg");
     }

@@ -17,6 +17,14 @@ small{
     font-size: 100%;
 }
 
+.left-align{
+    text-align:left;
+}
+
+.right-align{
+    text-align:right;
+}
+
 p{
     margin:0;
 }
@@ -149,6 +157,7 @@ i {
 }
 
 .subtitle {
+    width:auto;
     font-weight: $font-light;
 }
 

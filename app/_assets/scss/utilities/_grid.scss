@@ -34,7 +34,7 @@ section {
     margin: 0;
 }
 
-.col-md-4, .col-md-6{
+.col-md-4, .col-md-6, .col-xs-6{
     margin:0;
     padding:0;
 }
@@ -53,6 +53,7 @@ section {
         vertical-align: middle;
 
         .text-container {
+            padding:32px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -70,6 +71,7 @@ section {
         display: inline-block;
 
         .text-container {
+            padding:32px 0;
             padding-top: 128px;
             padding-bottom: 128px;
         }
@@ -87,6 +89,7 @@ section {
         max-height: 100%;
 
         .text-container {
+            padding:32px 0;
             padding-top: 128px;
             padding-bottom: 128px;
         }
@@ -102,6 +105,7 @@ section {
         max-height: 100%;
 
         .text-container {
+            padding:32px 0;
             padding-top: 128px;
             padding-bottom: 128px;
         }
@@ -117,6 +121,7 @@ section {
         max-height: 100%;
 
         .text-container {
+            padding:32px;
             padding-top: 128px;
             padding-bottom: 128px;
         }
@@ -132,6 +137,7 @@ section {
         border-bottom: solid 2px $vb-grey;
 
         .text-container {
+            padding:32px;
             padding-top: 64px;
             padding-bottom: 64px;
         }
@@ -147,6 +153,7 @@ section {
         max-height: 100%;
 
         .text-container {
+            padding:32px;
             padding-top: 64px;
             padding-bottom: 64px;
         }
