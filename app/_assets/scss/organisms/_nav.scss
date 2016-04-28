@@ -23,10 +23,14 @@ nav.navmenu {
         border: 2px solid $vb-dark;
         border-left: 0px;
         border-right: 0px;
-        &:hover,
-        &:focus {
+        &:hover{
             cursor: pointer;
             background-color: $vb-primary;
+        }
+        &:active,
+        &:focus{
+            color:$vb-light;
+            background-color: $vb-secondary;
         }
     }
     a {

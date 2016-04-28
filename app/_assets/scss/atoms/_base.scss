@@ -9,6 +9,7 @@ body {
 
 body {
     webkit-tap-highlight-color: transparentize($vb-light, 0.8);
+    position:relative;
 }
 
 span {
@@ -72,17 +73,65 @@ li#left-justified {
     font-weight: $font-bold;
 }
 
+.absolute-corner{
+        z-index:999;
+        position:absolute;
+        width:256px;
+        height:256px;
+        cursor: pointer;
+}
+
 //>1200px
-@media (min-width: $break-large) {}
+@media (min-width: $break-large) {
+        .absolute-corner{
+        z-index:999;
+        position:absolute;
+        width:256px;
+        height:256px;
+        cursor: pointer;
+    }
+}
 
 //1200px< & >767px
-@media (max-width: $break-large) and (min-width: $break-medium) {}
+@media (max-width: $break-large) and (min-width: $break-medium) {
+        .absolute-corner{
+        z-index:999;
+        position:absolute;
+        width:256px;
+        height:256px;
+        cursor: pointer;
+    }
+}
 
 //767px< & >480px
-@media (max-width: $break-medium) and (min-width: $break-small) {}
+@media (max-width: $break-medium) and (min-width: $break-small) {
+        .absolute-corner{
+        z-index:999;
+        position:absolute;
+        width:256px;
+        height:256px;
+        cursor: pointer;
+    }
+}
 
 //480px< & >320px
-@media (max-width: $break-small) and (min-width: $break-tiny) {}
+@media (max-width: $break-small) and (min-width: $break-tiny) {
+        .absolute-corner{
+        z-index:999;
+        position:absolute;
+        width:256px;
+        height:256px;
+        cursor: pointer;
+    }
+}
 
 //320px<
-@media (max-width: $break-tiny) {}
+@media (max-width: $break-tiny) {
+    .absolute-corner{
+        z-index:999;
+        position:absolute;
+        width:128px;
+        height:128px;
+        cursor: pointer;
+    }
+}

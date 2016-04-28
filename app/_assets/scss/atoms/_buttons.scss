@@ -1,7 +1,7 @@
+button {
+    background-color: transparent;
+    border: 0;
 
-button{
-    background-color:transparent;
-    border:0;
     @include box-shadow(0, 0, 0, 0);
 }
 
@@ -13,14 +13,14 @@ button{
     transition: all .3s ease-in-out;
 }
 
-.btn-container{
-    display:block;
-    height:64px;
-    width:100%;
-    background-color:$vb-grey;
+.btn-container {
+    display: block;
+    height: 64px;
+    width: 100%;
+    background-color: $vb-grey;
 }
 
-.btn-navbar-brand{ 
+.btn-navbar-brand {
     .pre-hover {
         display: initial;
     }
@@ -42,13 +42,12 @@ button{
     }
 }
 
-.vb-btn-full{
-    background-color: $vb-primary;
+.vb-btn-full {
+    background-color: $vb-grey;
     position: relative;
     overflow: hidden;
     width: 100%;
-    border: solid $vb-primary;
-    border:2px 1px 2px 1px;
+    border: 2px 1px 2px 1px;
     font-size: 22px;
     height: 64px;
     cursor: pointer;
@@ -56,23 +55,22 @@ button{
 
     @include border-radius(0);
 
-
     &:hover {
-        color: $vb-primary;
-        background-color: $vb-light;
+        color: $vb-light;
+        background-color: $vb-primary;
     }
 
     &:active,
-    &:focus  {
+    &:focus {
         color: $vb-light;
         background-color: $vb-secondary;
-        border: solid 2px $vb-secondary;
     }
 }
 
-.vb-btn-disabled{
-    @extend  .vb-btn-full;
-    opacity:1;   
+.vb-btn-disabled {
+    @extend .vb-btn-full;
+
+    opacity: 1;
 }
 
 .dropdown-menu {
@@ -150,13 +148,13 @@ button{
 
     border: solid 2px transparent;
 
-    &:hover{
+    &:hover {
         color: $vb-light;
         background-color: $vb-primary;
     }
 
     &:active,
-    &:focus  {
+    &:focus {
         height: 50px;
         width: 50px;
         color: $vb-light;
@@ -268,13 +266,13 @@ button{
     padding: 0;
     background-color: $vb-dark;
 
-    &:hover{
+    &:hover {
         padding: 0;
         background-color: $vb-primary;
     }
 
     &:active,
-    &:focus  {
+    &:focus {
         height: 48px;
         width: 48px;
         color: $vb-light;
@@ -345,6 +343,7 @@ button{
 // }
 @media (min-width: $break-huge) {
     .navbar-brand {
+        z-index: 9999;
         height: 50px;
         width: 50px;
         padding: 9px;
@@ -383,12 +382,12 @@ button{
             background-color: $vb-primary;
         }
     }
-    
-    .btn-nav-container{
+
+    .btn-nav-container {
         padding: 16px 0 0 0;
         margin: 0;
         width: 100%;
-        display:block;
+        display: block;
     }
 
     .vb-btn-submit {
@@ -411,7 +410,7 @@ button{
         }
 
         &:active,
-        &:focus  {
+        &:focus {
             color: $vb-light;
             background-color: $vb-secondary;
             border: solid 2px $vb-secondary;
@@ -440,8 +439,8 @@ button{
 
 //2500px< & >1200px
 @media (max-width: $break-huge) and (min-width: $break-large) {
-    
     .navbar-brand {
+        z-index: 9999;
         height: 50px;
         width: 50px;
         padding: 9px;
@@ -501,7 +500,7 @@ button{
         }
 
         &:active,
-        &:focus  {
+        &:focus {
             color: $vb-light;
             background-color: $vb-secondary;
             border: solid 2px $vb-secondary;
@@ -531,6 +530,7 @@ button{
 //1200px< & >767px
 @media (max-width: $break-large) and (min-width: 815px) {
     .navbar-brand {
+        z-index: 9999;
         height: 50px;
         width: 50px;
         padding: 9px;
@@ -591,7 +591,7 @@ button{
         }
 
         &:active,
-        &:focus  {
+        &:focus {
             color: $vb-light;
             background-color: $vb-secondary;
             border: solid 2px $vb-secondary;
@@ -621,10 +621,12 @@ button{
 //767px< & >480px
 @media (max-width: 815px) and (min-width: $break-small) {
     .navbar-brand {
+        z-index: 9999;
         height: 50px;
         width: 50px;
         padding: 9px;
     }
+
     .data-nav {
         .options-button {
             @include border-radius(0);
@@ -677,7 +679,7 @@ button{
         }
 
         &:active,
-        &:focus  {
+        &:focus {
             color: $vb-light;
             background-color: $vb-secondary;
             border: solid 2px $vb-secondary;
@@ -707,6 +709,7 @@ button{
 //480px< & >320px
 @media (max-width: $break-small) and (min-width: $break-tiny) {
     .navbar-brand {
+        z-index: 9999;
         height: 50px;
         width: 50px;
         padding: 9px;
@@ -765,7 +768,7 @@ button{
         }
 
         &:active,
-        &:focus  {
+        &:focus {
             color: $vb-light;
             background-color: $vb-secondary;
             border: solid 2px $vb-secondary;
@@ -795,6 +798,7 @@ button{
 //320px<
 @media (max-width: $break-tiny) {
     .navbar-brand {
+        z-index: 9999;
         height: 50px;
         width: 50px;
         padding: 9px;
@@ -853,7 +857,7 @@ button{
         }
 
         &:active,
-        &:focus  {
+        &:focus {
             color: $vb-light;
             background-color: $vb-secondary;
             border: solid 2px $vb-secondary;

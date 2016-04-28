@@ -234,14 +234,20 @@ a {
     a {
         .gallery-image {
             color: $vb-light;
-            &:hover,
-            &:focus {
+            &:hover{
                 .image-block {
                     padding:16px;
                     margin: auto;
                     color: $vb-light;
                     background-color: $vb-primary;
                 }
+            }
+            &:active,
+            &:focus{
+                padding:16px;
+                margin: auto;
+                color: $vb-light;
+                background-color: $vb-secondary;
             }
         }
     }
@@ -288,13 +294,18 @@ a {
     a {
         .gallery-image {
             color: $vb-light;
-            &:hover,
-            &:focus {
+            &:hover{
                 .image-block {
                     padding:16px;
                     color: $vb-light;
                     background-color: $vb-primary;
                 }
+            }
+            &:active,
+            &:focus{
+                padding:16px;
+                color: $vb-light;
+                background-color: $vb-secondary;
             }
         }
     }
@@ -341,13 +352,17 @@ a {
     a {
         .gallery-image {
             color: $vb-light;
-            &:hover,
-            &:focus {
+            padding:16px;
+            &:hover{
                 .image-block {
-                    padding:16px;
                     color: $vb-light;
                     background-color: $vb-primary;
                 }
+            }
+            &:active,
+            &:focus{
+                color: $vb-light;
+                background-color: $vb-secondary;
             }
         }
     }
@@ -394,13 +409,17 @@ a {
     a {
         .gallery-image {
             color: $vb-light;
-            &:hover,
-            &:focus {
+            padding:16px;
+            &:hover {
                 .image-block {
-                    padding:16px;
                     color: $vb-light;
                     background-color: $vb-primary;
                 }
+            }
+            &:active,
+            &:focus{
+                color: $vb-light;
+                background-color: $vb-secondary;
             }
         }
     }
