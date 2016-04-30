@@ -23,6 +23,10 @@ blockquote {
     color: $vb-light;
 }
 
+.text-container {
+    line-height: $base-line-height;
+}
+
 @media (min-width: $break-huge) {
     .text-block {
         padding: 32px 0;
@@ -227,7 +231,8 @@ blockquote {
     }
 
     .text-container {
-        padding: 32px;
+        width: 90%;
+        padding: 32px 0;
 
         .col-md-6 {
             padding-right: 16px;
@@ -245,7 +250,8 @@ blockquote {
     }
 
     .text-container {
-        padding: 32px;
+        width: 90%;
+        padding: 32px 0;
 
         .col-md-6 {
             padding-right: 16px;

@@ -15,6 +15,9 @@ body {
 
 small{
     font-size: 100%;
+    margin:0;
+    padding:0;
+    line-height:0;
 }
 
 .left-align{
@@ -89,14 +92,13 @@ label {
 a {
     text-decoration: underline;
     color: $vb-primary;
-    font-weight:700;
+    font-weight:400;
     &:hover,
     &:focus {
         text-decoration: none;
         color: $vb-light;
         background-color: $vb-primary;
     }
-    &:visited,
     &:active{
         text-decoration: none;
         color: $vb-light;

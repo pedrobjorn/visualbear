@@ -76,15 +76,17 @@ button {
 .dropdown-menu {
     padding: 0;
     margin: 0;
+    left:0;
     background-color: transparent;
     outline: none;
     border: none;
-
+    width:auto;
     @include box-shadow(0, 0, 0, 0);
-
     li {
+        float:left;
         .btn {
-            width: 100%;
+           
+             width:256px;
         }
     }
 }
@@ -113,16 +115,15 @@ button {
 
 .data-button {
     @include border-radius(0);
-
     margin: 0;
     background-color: $vb-grey;
-    width: auto;
+    // width: auto;
     color: #fff;
     height: 48px;
     padding: 8px 16px;
     font-weight: 300;
     float: left;
-
+    // width:128px;
     &:hover,
     &:focus {
         color: $vb-light;
