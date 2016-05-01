@@ -1,16 +1,11 @@
-
-
-footer {
-    font-family: $vb-body-font-family;
-    font-size: 10px;
-}
-
 .foot {
     background-color: $vb-grey;
     color: $vb-light;
 }
 
 footer {
+    font-family: $vb-body-font-family;
+    font-size: 10px;
     position: relative;
     bottom: 0;
     width: 100%;
@@ -19,6 +14,10 @@ footer {
         line-height: $base-line-height;
     p {
         margin: 0;
+    }
+    img{
+        width:48px;
+        height:48px;
     }
 }
 

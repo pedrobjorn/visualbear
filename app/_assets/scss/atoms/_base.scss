@@ -5,6 +5,7 @@ body {
     font-size: 1.5em; /* 1 */
     -webkit-text-size-adjust: 1.5em; /* 2 */
     -ms-text-size-adjust: 1.5em; /* 2 */
+    background-color:$vb-grey;
 }
 
 body {
@@ -16,9 +17,6 @@ span {
     display: block;
 }
 
-img {
-    width: 100%;
-}
 ul{
     padding:0;
 }
@@ -56,6 +54,9 @@ img::-moz-selection {
     background: transparent;
 }
 
+.noscriptmsg{
+    display:none;
+}
 
 li#center-justified {
     text-align: center;
@@ -119,8 +120,8 @@ li#left-justified {
         .absolute-corner{
         z-index:999;
         position:absolute;
-        width:256px;
-        height:256px;
+        width:156px;
+        height:156px;
         cursor: pointer;
     }
 }
@@ -130,8 +131,8 @@ li#left-justified {
     .absolute-corner{
         z-index:999;
         position:absolute;
-        width:128px;
-        height:128px;
+        width:156px;
+        height:156px;
         cursor: pointer;
     }
 }

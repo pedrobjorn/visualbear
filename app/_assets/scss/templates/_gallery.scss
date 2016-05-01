@@ -11,7 +11,7 @@
 }
 
 .box {
-    width:100%;
+    width: 100%;
     display: inline-block;
     vertical-align: top;
 }
@@ -24,6 +24,12 @@
 
 .nav-top-padding {
     padding-top: 48px;
+}
+
+.content-container {
+    img {
+        width: 100%;
+    }
 }
 
 //>2500px
@@ -103,6 +109,16 @@
 //     }
 // }
 @media (min-width: $break-huge) {
+    .headshot-container {
+        padding: 32px 0;
+
+        img {
+            margin: auto;
+            height: 196px;
+            width: 196px;
+        }
+    }
+
     .desktop {
         display: initial;
     }
@@ -200,6 +216,15 @@
 
 //2500px< & >1200px
 @media (max-width: $break-huge) and (min-width: $break-large) {
+    .headshot-container {
+        padding: 64px 0;
+        img {
+            display: block;
+            margin: auto;
+            height: 196px;
+            width: 196px;
+        }
+    }
 
     .desktop {
         display: initial;
@@ -299,6 +324,16 @@
 
 //1280px< & >900px
 @media (max-width: $break-large) and (min-width: $break-big) {
+    .headshot-container {
+                padding: 64px 0;
+
+        img {
+            display: block;
+            margin: auto;
+            height: 196px;
+            width: 196px;
+        }
+    }
 
     .desktop {
         display: initial;
@@ -397,6 +432,16 @@
 
 //960< & >767px
 @media (max-width: $break-big) and (min-width: $break-medium) {
+    .headshot-container {
+        padding: 64px 0;
+
+        img {
+            display: block;
+            margin: auto;
+            height: 196px;
+            width: 196px;
+        }
+    }
 
     .desktop {
         display: initial;
@@ -494,6 +539,16 @@
 
 //767px< & >480px
 @media (max-width: $break-medium) and (min-width: $break-small) {
+    .headshot-container {
+        padding: 32px 0;
+
+        img {
+            display: block;
+            margin: auto;
+            height: 128px;
+            width: 128px;
+        }
+    }
 
     .desktop {
         display: none;
@@ -580,6 +635,16 @@
 
 //480px< & >320px
 @media (max-width: $break-small) and (min-width: $break-tiny) {
+    .headshot-container {
+        padding: 32px 0;
+
+        img {
+            display: block;
+            margin: auto;
+            height: 128px;
+            width: 128px;
+        }
+    }
 
     .desktop {
         display: none;
@@ -667,6 +732,16 @@
 
 //320px<
 @media (max-width: $break-tiny) {
+    .headshot-container {
+        padding: 32px 0;
+
+        img {
+            display: block;
+            margin: auto;
+            height: 128px;
+            width: 128px;
+        }
+    }
 
     .desktop {
         display: none;

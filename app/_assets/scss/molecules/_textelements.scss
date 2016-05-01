@@ -21,6 +21,7 @@ blockquote {
     font-weight: $font-light;
     background-color: $vb-grey;
     color: $vb-light;
+    padding: 32px;
 }
 
 .text-container {
@@ -181,6 +182,7 @@ blockquote {
     }
 
     .text-container {
+        font-size: $mobile-font-size;
         padding: 32px;
 
         .col-md-6 {
@@ -231,6 +233,7 @@ blockquote {
     }
 
     .text-container {
+        font-size: $mobile-font-size;
         width: 90%;
         padding: 32px 0;
 
@@ -250,6 +253,7 @@ blockquote {
     }
 
     .text-container {
+        font-size: $mobile-font-size;
         width: 90%;
         padding: 32px 0;
 
