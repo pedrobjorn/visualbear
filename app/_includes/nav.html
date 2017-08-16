@@ -1,10 +1,37 @@
 <div class="navbar navbar-fixed-top col-sm-12" role="navigation">
-  <li class="col-md-12 ">
-    <a class="navbar-brand" href="/">
-      <img src="../../img/icons/logo_default.svg" alt="home" height="32px" width="32px">   
-    </a>
-    <button type="button" class="btn vb-btn bar pull-right" data-toggle="offcanvas" data-target=".navmenu">
-    <span class="bar"></span>
-    </button>
-  </li>
+    <ul class="col-md-12">
+        <li>
+            <a class="navbar-brand" href="/">
+                <img src="../../img/icons/logo_default.svg" alt="home" height="32px" width="32px">
+            </a>
+            <ul class="list-inline navigation pull-right mobile-hide" id="links">
+                <li>
+                    <a href="/#work" class="inactive" id="link">
+
+                          Work
+
+                      </a>
+                </li>
+                <li>
+                    <a href="/#about" class="inactive" id="link">
+
+                          About
+                      </a>
+
+                </li>
+                <li>
+                    <a href="/#contact" class="inactive" id="link">
+
+                          Contact
+                      </a>
+
+                </li>
+            </ul>
+
+            <button type="button" class="btn vb-btn pull-right mobile-show" data-toggle="offcanvas" data-target=".navmenu">
+                                    <!-- <span class="bar"></span> -->
+                                    <span class="vb-btn-nav-icon"><img src="../../img/icons/menu-icon.png" width="24" height="24"></span>
+                                </button>
+        </li>
+    </ul>
 </div>
