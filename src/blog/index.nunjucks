@@ -1,0 +1,22 @@
+{% extends '_layouts/base.nunjucks' %}
+
+
+{% import "_modules/link/link.nunjucks" as link %}
+{% import "_modules/molecules/gallery/gallery.nunjucks" as gallery %}
+
+
+
+{% block config %}
+  {# Correct base url pathing for this page #}
+  {% set baseUrl = '../' %}
+{% endblock %}
+
+{% block content %}
+<div class="main-container">
+
+
+{{gallery.content({content:'blog'})}}
+
+</div>
+<code class="version">v2.0.1</code>
+{% endblock %}

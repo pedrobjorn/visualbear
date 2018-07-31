@@ -1,0 +1,25 @@
+{% macro content(spec) %}
+
+{% set spec = spec or {} %}
+{% set _class = spec.class or '' %}
+
+{% set _content = spec.content or 'work' %}
+
+{% if _content == 'work' %}
+<div class="{{_class}}">
+  <p>This is an example paragraph for the work gallery module</p>
+</div>
+
+{% elif _content == 'play' %}
+<div class="{{_class}}">
+  <p>This is an example paragraph for the play gallery module</p>
+</div>
+
+{% elif _content == 'blog' %}
+<div class="{{_class}}">
+  <p>This is an example paragraph for the blog module</p>
+</div>
+
+
+{% endif %}
+{% endmacro %}

@@ -1,0 +1,31 @@
+{% import "_modules/link/link.nunjucks" as link %}
+{% macro content(spec) %}
+{% set spec = spec or {} %}
+{% set _class = spec.class or '' %}
+<div class="{{_class}}">
+	
+
+
+	{{link.content({
+	href: '../#work',
+	text: 'Work'
+	})}}
+
+	{{link.content({
+	href: '../play',
+	text: 'Play'
+	})}}
+
+	{{link.content({
+	href: '../blog',
+	text: 'Blog'
+	})}}
+
+	{{link.content({
+	href: '../',
+	text: 'About'
+	})}}
+
+	
+</div>
+{% endmacro %}

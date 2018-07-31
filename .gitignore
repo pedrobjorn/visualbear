@@ -1,2 +1,6 @@
 node_modules
-_site
+*.log
+build
+tmp
+.grunt
+.DS_Store
