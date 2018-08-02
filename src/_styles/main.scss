@@ -2,7 +2,15 @@
 @import 'node_modules/normalize.css/normalize';
 
 // Import Modules
-@import '../_modules/link/link';
+@import '../_modules/atom/link/link';
+
+@import '../_modules/molecules/nav/nav';
+@import '../_modules/molecules/card/card';
+
+
+
+@import '../_modules/organisms/gallery/gallery';
+@import '../_modules/organisms/hero/hero';
 
 // Box sizing partial styles:
 // Apply a natural box layout model to all elements
@@ -21,16 +29,44 @@
   margin-right: auto;
 }
 
+html,
+body{
+   margin:0;
+   padding:0;
+   height:100%;
+}
+
+body{
+    background: #ff621a; /* Old browsers */
+}
+
+
+.container{
+   min-height:100%;
+   position:relative;
+   width:100%;
+   padding-bottom: 128px;
+}
+
+.content{
+  margin:auto;
+  max-width: 916px;
+  // padding:0 16px;
+}
+
+footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 128px;
+}
+
 .version {
   font-size: 14px;
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
   position: absolute;
   bottom: 10px;
   right: 10px;
-}
-
-.logo {
-  margin-top: 15px;
 }
 
 // Styling on warning for users on IE7 or below
@@ -47,5 +83,5 @@ color:red;
 }
 
 .nav2{
-  color:green;
+  color:black;
 }

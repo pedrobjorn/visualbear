@@ -1,31 +1,30 @@
-{% import "_modules/link/link.nunjucks" as link %}
+{% import "_modules/atom/link/link.nunjucks" as link %}
 {% macro content(spec) %}
+
 {% set spec = spec or {} %}
 {% set _class = spec.class or '' %}
-<div class="{{_class}}">
+
+{% set _links = spec.links or [{}] %}
+
+<nav class="{{_class}}">
+	<div class="content">
+	<a href="">
+	<div class="icon">
+		<img src="../images/work/fullsize/visualbear/visualbear_square.jpg" width="64" height="64">
+	</div>
+	</a>
 	
+	<div class="links">
+		{% for var in _links %}
+		
+		{{link.content({
+		href: var.href,
+		text: var.linkname
+		})}}
 
+		{% endfor %}
+	</div>
 
-	{{link.content({
-	href: '../#work',
-	text: 'Work'
-	})}}
-
-	{{link.content({
-	href: '../play',
-	text: 'Play'
-	})}}
-
-	{{link.content({
-	href: '../blog',
-	text: 'Blog'
-	})}}
-
-	{{link.content({
-	href: '../',
-	text: 'About'
-	})}}
-
-	
-</div>
+	</div>
+</nav>
 {% endmacro %}

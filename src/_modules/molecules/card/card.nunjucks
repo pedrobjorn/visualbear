@@ -1,0 +1,29 @@
+{% macro content(spec) %}
+
+
+{% set spec = spec or {} %}
+{% set _id = spec.id or '' %}
+{% set _class = spec.class or '' %}
+{% set _href = spec.href or '#' %}
+{% set _target = spec.target or '_self' %}
+{% set _card = spec.card or [] %}
+{% set _title = spec.title or 'Default Title' %}
+{% set _subtitle = spec.subtitle or 'Default Subtitle' %}
+
+
+
+<a
+  id="{{_id}}"
+  class="{{_class}}"
+  href="{{_card.href}}"
+  target="{{_card.target}}"
+>
+<div class="card">
+<p><b>{{_card.title}}</b></p>
+<p>{{_card.subtitle}}</p>
+</div>
+</a>
+
+
+
+{% endmacro %}

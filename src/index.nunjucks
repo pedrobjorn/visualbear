@@ -1,15 +1,20 @@
 {% extends '_layouts/base.nunjucks' %}
 
 
-{% import "_modules/link/link.nunjucks" as link %}
-{% import "_modules/molecules/gallery/gallery.nunjucks" as gallery %}
+{% import "_modules/atom/link/link.nunjucks" as link %}
+{% import "_modules/organisms/gallery/gallery.nunjucks" as gallery %}
+
+{% import "_modules/organisms/hero/hero.nunjucks" as hero %}
+
 
 {% block content %}
-<div class="main-container">
 
 
-{{gallery.content({})}}
+{{hero.content({content:site.data.about,class:hero-about})}}
+
+<div id="work">
+
+{{gallery.content({content:site.data.work, contentType:''})}}
 
 </div>
-<code class="version">v2.0.1</code>
 {% endblock %}

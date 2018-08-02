@@ -4,15 +4,10 @@
   {# Otherwise default to relative pathing #}
   {% set baseUrl = config.baseUrl or './' %}
 {% endblock %}
-
-
-
 {% import "_modules/molecules/nav/nav.nunjucks" as nav %}
 {% import "_modules/molecules/footer/footer.nunjucks" as footer %}
-
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-
   <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -21,23 +16,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="{{baseUrl}}styles/main.css"/>
     {% block stylesheets %}{% endblock %}
-
   </head>
   <body>
-    {{nav.content({})}}
+
+    <div class="container">
+    {{nav.content({links:site.data.sitemap})}}
     <!--[if lt IE 11]>
     <p class="browsehappy">
       You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
     </p>
     <![endif]-->
-
+  
     {% block content %}{% endblock %}
+    
+    <footer>
+      {{footer.content({})}}
+    </footer>
 
-
+    </div>
     <script src="{{baseUrl}}scripts/main.js"></script>
     {% block scripts %}{% endblock %}
-
+  
   </body>
-{{footer.content({})}}
-
 </html>
