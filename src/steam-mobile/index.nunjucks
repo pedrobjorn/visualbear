@@ -6,5 +6,5 @@
 {% endblock %}
 
 {% block content %}
-<p>steam-mobile page</p>
+
 {% endblock %}

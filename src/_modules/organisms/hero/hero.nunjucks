@@ -4,8 +4,8 @@
 {% set _content = spec.content or '' %}
 <div class="hero {{_class}}">
 	<div class="content">
-		<b>{{_content.title}}</b>
-		<div>{{_content.body}}</div>
+		<title>{{_content.title}}</title>
+		<subtitle>{{_content.body}}</subtitle>
 	</div>
 </div>
 {% endmacro %}

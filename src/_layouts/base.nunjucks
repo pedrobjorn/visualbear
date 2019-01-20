@@ -19,7 +19,7 @@
   </head>
   <body>
 
-    <div class="container">
+    <div class="vb-container">
     {{nav.content({links:site.data.sitemap})}}
     <!--[if lt IE 11]>
     <p class="browsehappy">

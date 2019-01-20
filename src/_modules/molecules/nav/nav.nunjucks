@@ -1,30 +1,24 @@
 {% import "_modules/atom/link/link.nunjucks" as link %}
 {% macro content(spec) %}
-
 {% set spec = spec or {} %}
 {% set _class = spec.class or '' %}
-
 {% set _links = spec.links or [{}] %}
-
-<nav class="{{_class}}">
-	<div class="content">
-	<a href="">
-	<div class="icon">
-		<img src="../images/work/fullsize/visualbear/visualbear_square.jpg" width="64" height="64">
-	</div>
-	</a>
-	
-	<div class="links">
-		{% for var in _links %}
+<nav>
+	<div class="content nav-wrapper">
+		<a href="" class="icon">
+			<img src="../images/work/fullsize/visualbear/visualbear_square.jpg" width="48" height="48">
+		</a>
 		
-		{{link.content({
-		href: var.href,
-		text: var.linkname
-		})}}
-
-		{% endfor %}
-	</div>
-
+		<ul id="nav-mobile" class="links">
+			{% for var in _links %}
+				<li>
+					{{link.content({
+					href: var.href,
+					text: var.linkname
+					})}}
+				</li>
+			{% endfor %}
+		</ul>
 	</div>
 </nav>
 {% endmacro %}
