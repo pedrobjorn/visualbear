@@ -1,10 +1,13 @@
-{% extends '_layouts/base.nunjucks' %}
+{% extends '_layouts/work.nunjucks' %}
+
+{% import "_modules/organisms/headline/headline.nunjucks" as headline %}
 
 {% block config %}
-  {# Correct base url pathing for this page #}
   {% set baseUrl = '../' %}
 {% endblock %}
 
 {% block content %}
+
+{{headline.content({content:site.data.playhero,class:hero-about})}}
 
 {% endblock %}

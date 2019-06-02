@@ -1,0 +1,60 @@
+{% macro content(spec) %}
+{% set spec = spec or {} %}
+{% set _class = spec.class or '' %}
+{% set _content = spec.content or '' %}
+<article class="section section-top-padding" id="steammobile_container">
+	<section class="gallery-container">
+		<div class="container container--gradient_light" style="padding-bottom:0;">
+			<div class="document-text text-box">
+				<div class="logo-image">
+					<img src="../../img/work/fullsize/steam/details/logo_main.png" title="Image"  width="auto" height="auto">
+				</div>
+				<h2 class="center-justified">Redesigning the biggest mobile game client in the world.</h2>
+				<div class="paragraph-container center-justified">
+					<div class="row">
+						<div class="col m12">
+							<h3>Released</h3>
+							<p>August 20th 2017</p>
+						</div>
+						<div class="col m6 s12">
+							<h3>Responsibilities</h3>
+							<p>UX, UI &amp; Visual Design</p>
+						</div>
+						<div class="col m6 s12">
+							<h3>Tools</h3>
+							<p>Paper &amp; Pen, TextEdit, Illustrator, Photoshop</p>
+						</div>
+					</div>
+				</div>
+				<div class="paragraph-container">
+					<p>Steam, created by Valve Software, is the biggest gaming client in the world, with 12.5 million active users. </p>
+					<p>The Steam Mobile App, the mobile equivalent of Steam, released in 2012, has maintained a lot of UI patterns from the time, with few updates to
+					its design and usability.</p>
+				</div>
+				<div class="paragraph-container row">
+					<div class="col m6">
+						<h3>Challenge</h3>
+						<p>To improve Steam Mobiles user interface, both functionally and visually, whilst
+						maintaining its vast functionality.</p>
+					</div>
+					<div class="col m6">
+						<h3>Goals</h3>
+						<ul>
+							<li>
+								<p>- Refine usability by changing the app
+								structure, navigation, and UI elements.</p>
+							</li>
+							<li>
+								<p>- Update visual identity to better match the contemporary Steam App, and to better suit higher resolution devices.</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="gallery-image">
+					<img src="../../img/work/fullsize/steam/details/profile-screen_sneek.png" title="Image"  width="auto" height="auto">
+				</div>
+			</div>
+		</div>
+	</section>
+</article>
+{% endmacro %}

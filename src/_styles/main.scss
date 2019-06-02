@@ -3,8 +3,8 @@
 // Normalize Styles
 @import "node_modules/normalize.css/normalize";
 
-// @import "node_modules/materialize-css/sass/materialize";
 
+// @import "node_modules/materialize-css/sass/materialize";
 
 // Color
 @import "node_modules/materialize-css/sass/components/color-variables";
@@ -18,17 +18,21 @@
 
 // components
 @import "node_modules/materialize-css/sass/components/global";
+
 // @import "node_modules/materialize-css/sass/components/badges";
 // @import "node_modules/materialize-css/sass/components/icons-material-design";
-// @import "node_modules/materialize-css/sass/components/grid";
+@import "node_modules/materialize-css/sass/components/grid";
 @import "node_modules/materialize-css/sass/components/navbar";
+
 // @import "node_modules/materialize-css/sass/components/typography";
 // @import "node_modules/materialize-css/sass/components/transitions";
 @import "node_modules/materialize-css/sass/components/cards";
+
 // @import "node_modules/materialize-css/sass/components/toast";
 // @import "node_modules/materialize-css/sass/components/tabs";
 // @import "node_modules/materialize-css/sass/components/tooltip";
 @import "node_modules/materialize-css/sass/components/buttons";
+
 // @import "node_modules/materialize-css/sass/components/dropdown";
 // @import "node_modules/materialize-css/sass/components/waves";
 // @import "node_modules/materialize-css/sass/components/modal";
@@ -52,7 +56,10 @@
 
 @import "mixin";
 @import "variables";
-
+//Oldies
+@import "grid";
+@import "typography";
+@import "gallery";
 
 // Import Modules
 @import "../_modules/atom/link/link";
@@ -93,43 +100,45 @@ body {
     /* Old browsers */
 }
 
-  body {
+body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-  }
+}
 
-  main {
+main {
     flex: 1 0 auto;
-  }
+}
 
 .vb-container {
     // display: flex;
     min-height: 100%;
     position: relative;
-    max-width: 100% ; 
+    max-width: 100%;
     padding-bottom: 128px;
 }
 
-.container{
+.container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
 .item {
-    width:auto;
- flex-order: 1;
-  flex-grow: 0; /* default 0 */
+    width: auto;
+    flex-order: 1;
+    flex-grow: 0;
+
+    /* default 0 */
 }
 
 .content {
     margin: auto;
     max-width: 916px;
-    display:flex;
+    display: flex;
+
     // padding:0 16px;
 }
-
 
 .version {
     font-size: 14px;
