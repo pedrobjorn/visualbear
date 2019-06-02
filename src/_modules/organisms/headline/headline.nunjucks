@@ -3,7 +3,7 @@
 {% set _class = spec.class or '' %}
 {% set _content = spec.content or '' %}
 <article class="section section-top-padding" id="steammobile_container">
-	<section class="gallery-container">
+	<section class="gallery-container ">
 		<div class="container container--gradient_light" style="padding-bottom:0;">
 			<div class="document-text text-box">
 				<div class="logo-image">
