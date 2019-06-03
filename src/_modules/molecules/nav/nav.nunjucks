@@ -5,7 +5,7 @@
 {% set _links = spec.links or [{}] %}
 <nav>
 	<div class="content nav-wrapper">
-		<a href="" class="icon">
+		<a href="/" class="icon">
 			<img src="../images/work/fullsize/visualbear/visualbear_square.jpg" width="48" height="48">
 		</a>
 		

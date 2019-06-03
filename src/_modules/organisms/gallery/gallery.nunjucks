@@ -19,7 +19,7 @@
 
 {% if _contentType == 'work' %}
 
-	<div class="{{_class}}">
+	<div style="width:100%">
 		{% for val in _content %}
 		
 		{{card.content({card:val})}}
@@ -29,7 +29,7 @@
 	</div>
 
 	{% elif _contentType == 'play' %}
-	<div class="{{_class}}">
+	<div  style="width:100%">
 		{% for val in _content %}
 		
 		{{card.content({card:val})}}
@@ -38,7 +38,7 @@
 	</div>
 	
 	{% elif _contentType == 'blog' %}
-	<div class="{{_class}}">
+	<div  style="width:100%">
 		{% for val in _content %}
 		
 		{{card.content({card:val})}}

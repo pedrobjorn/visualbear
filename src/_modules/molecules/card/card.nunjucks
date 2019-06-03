@@ -10,7 +10,7 @@
 {% set _title = spec.title or 'Default Title' %}
 {% set _subtitle = spec.subtitle or 'Default Subtitle' %}
 
-
+<!-- ../images/work/thumbs/gallery_thumb_steam.jpg -->
 
 <a
   id="{{_id}}"
@@ -20,17 +20,22 @@
 >
   <div class="row">
     <div class="col s12 m12">
-      <div class="card large">
-        <div class="card-image">
-          <img src="../images/work/thumbs/gallery_thumb_steam.jpg">
-          <span class="card-title">{{_card.title}}</span>
+      <div class="card small">
+        <div class="card-image" style="background-image: url({{_card.img}})">
+          <!-- <img src="../images/work/thumbs/gallery_thumb_steam.jpg"> -->
+          <span class="card-title">
+            <h2>
+              {{_card.title}}
+
+            </h2>
+          </span>
         </div>
-        <div class="card-content">
+<!--         <div class="card-content">
           <p>{{_card.subtitle}}</p>
         </div>
         <div class="card-action">
           <a href="#">This is a link</a>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
