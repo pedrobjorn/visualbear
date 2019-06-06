@@ -13,8 +13,6 @@
 
 {% block content %}
 
-{{hero.content({content:site.data.playhero,class:hero-about})}}
-
 {{gallery.content({content:site.data.blog, contentType:'blog'})}}
 
 {% endblock %}

@@ -1,10 +1,17 @@
 {% extends '_layouts/base.nunjucks' %}
 
+
+{% import "_modules/atom/link/link.nunjucks" as link %}
+
+{% import "_modules/organisms/hero/hero.nunjucks" as hero %}
+
 {% block config %}
   {# Correct base url pathing for this page #}
   {% set baseUrl = '../' %}
 {% endblock %}
 
 {% block content %}
-<p>about page</p>
+
+{{hero.content({content:site.data.play-hero,class:hero-about})}}
+
 {% endblock %}

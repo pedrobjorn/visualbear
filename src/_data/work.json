@@ -1,11 +1,26 @@
 [{
   "title": "Steam Mobile",
-  "subtitle": "UX Mobile Project",
+  "subtitle": "UX, UI & visual design",
   "href":"../steam-mobile",
   "img":"../images/work/thumbs/gallery_thumb_steam.jpg"
 },{
   "title": "visualbear",
-  "subtitle": "test",
+  "subtitle": "Brand, UI & front-end design",
   "href":"../visualbear",
   "img":"../images/work/thumbs/gallery_thumb_visualbear.jpg"
+},{
+  "title": "Pretty Ugly Data",
+  "subtitle": "UI & front-end design",
+  "href":"../pretty-ugly-data",
+  "img":"../images/work/thumbs/gallery_thumb_prettyugly.jpg"
+},{
+  "title": "Projecto Lynx",
+  "subtitle": "Brand design",
+  "href":"../projecto-lynx",
+  "img":"../images/work/thumbs/gallery_thumb_lynx.jpg"
+},{
+  "title": "Ad Hops",
+  "subtitle": "Brand design",
+  "href":"../adhops",
+  "img":"../images/work/thumbs/gallery_thumb_adhop.jpg"
 }]

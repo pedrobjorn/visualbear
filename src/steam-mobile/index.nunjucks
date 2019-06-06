@@ -12,5 +12,4 @@
 {{headline.content({content:site.data.playhero,class:hero-about})}}
 
 
-
 {% endblock %}

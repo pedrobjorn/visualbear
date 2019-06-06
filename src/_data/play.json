@@ -1,11 +1,11 @@
 [{
-  "title": "play1",
-  "subtitle": "UX Mobile Project",
+  "title": "First Play project",
+  "subtitle": "My first play project",
   "href":"../play/play1",
   "img":"../images/play1-card.jpg"
 },{
-  "title": "play2",
-  "subtitle": "play2",
+  "title": "Second Play project",
+  "subtitle": "My first play project",
   "href":"../play/play2",
   "img":"../images/play2-card.jpg"
 }]

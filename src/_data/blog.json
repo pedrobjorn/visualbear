@@ -1,11 +1,11 @@
 [{
-  "title": "blog 2",
-  "subtitle": "test",
+  "title": "First blog post",
+  "subtitle": "This is my first blog post",
   "href":"../blog/blog2",
-  "img":"../images/visualbear-card.jpg"
+  "img":"../images/work/thumbs/gallery_thumb_prettyugly.jpg"
 },{
-  "title": "Blog 1",
-  "subtitle": "UX Mobile Project",
+  "title": "Second blog post",
+  "subtitle": "This is my second blog post",
   "href":"../blog/blog1",
-  "img":"../images/steam-card.jpg"
+  "img":"../images/work/thumbs/gallery_thumb_prettyugly.jpg"
 }]
