@@ -50,6 +50,35 @@
 // @import "node_modules/materialize-css/sass/components/datepicker";
 // @import "node_modules/materialize-css/sass/components/timepicker";
 
+
+//Helpers
+@import "utilities/variables";
+@import "utilities/mixins";
+@import "utilities/reset";
+@import "utilities/grid";
+@import "utilities/jansy";
+
+
+//Base
+@import "atoms/base";
+@import "atoms/typography";
+@import "atoms/icons";
+@import "atoms/buttons";
+
+//Components
+@import "molecules/forms";
+@import "molecules/d3";
+@import "molecules/textelements";
+
+// //layout
+@import "organisms/nav";
+@import "organisms/footer";
+
+
+@import "templates/gallery.scss";
+@import "templates/pages.scss";
+@import "templates/resume.scss";
+
 // Color
 @import "colour-variables";
 @import "colour-classes";
@@ -59,7 +88,6 @@
 //Oldies
 @import "grid";
 @import "typography";
-@import "gallery";
 
 // Import Modules
 @import "../_modules/atom/link/link";
@@ -118,7 +146,8 @@ main {
     padding-bottom: 128px;
 }
 
-.container {
+.container, .container__open {
+    max-width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

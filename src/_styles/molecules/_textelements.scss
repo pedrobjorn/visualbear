@@ -1,0 +1,456 @@
+blockquote {
+    font-style: italic;
+    border-left: 4px solid $vb-grey;
+    padding-left: 16px;
+
+    footer {
+        padding: 0;
+        height: auto;
+    }
+}
+
+.label {
+    @include border-radius(0);
+
+    font-family: $vb-body-font-family;
+    font-weight: 200;
+}
+
+.secondary-container {
+    font-size: $middle-font-size;
+    font-weight: $font-light;
+    background-color: $vb-grey;
+    color: $vb-light;
+    padding: 32px;
+}
+
+.paragraph-container {
+    padding: 64px 0;
+
+    .col-md-6, .col-md-12, .col-md-4 {
+        padding: 16px;
+    }
+
+    img {
+        padding: 16px 0;
+    }
+
+    .sub-container {
+        padding-bottom: 32px;
+
+        li {
+            padding-left: 8px;
+        }
+    }
+}
+
+.paragraph-container--unpadded {
+    .col-md-6, .col-md-12, .col-md-4 {
+        padding: 32px;
+    }
+
+    padding: 0 0 64px 0;
+}
+
+.text-container {
+    line-height: $base-line-height;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.paragraph-container {
+    p {
+        padding: 8px 0;
+    }
+}
+
+@media (min-width: $break-huge) {
+    .paragraph-container--unpadded {
+        .col-md-6, .col-md-12, .col-md-4 {
+            padding: 32px;
+        }
+
+        padding: 0 0 64px 0;
+    }
+
+    .text-block {
+        padding: 32px 0;
+    }
+
+    .text-block > ul > li {
+        padding-bottom: 16px;
+    }
+
+    .text-container {
+        padding: 32px;
+        width: 900px;
+        margin: auto;
+
+        .col-md-6 {
+            padding-right: 16px;
+        }
+    }
+
+    .text-container-small {
+        padding: 16px 0;
+    }
+
+    .jumbo-text {
+        padding: 64px;
+        font-weight: $font-light;
+        font-size: $base-jumbo-size;
+        text-align: left;
+
+        // width: 900px;
+        margin: 0 auto;
+    }
+
+    .gallery-text {
+        font-weight: $font-light;
+        font-size: $base-font-size;
+        line-height: $font-semi-bold-line-height;
+    }
+
+    .document-text {
+        font-weight: $font-light;
+        font-size: $base-font-size / 1.5;
+        line-height: $base-line-height;
+    }
+}
+
+@media (max-width: $break-huge) and (min-width: $break-large) {
+    .paragraph-container--unpadded {
+        .col-md-6, .col-md-12, .col-md-4 {
+            padding: 32px;
+        }
+
+        padding: 0 0 64px 0;
+    }
+
+    .text-block {
+        padding: 32px 0;
+    }
+
+    .text-block > ul > li {
+        padding-bottom: 16px;
+    }
+
+    .text-container {
+        padding: 32px;
+        width: 900px;
+        margin: auto;
+
+        .col-md-6 {
+            padding-right: 16px;
+        }
+    }
+
+    .text-container-small {
+        padding: 16px 0;
+    }
+
+    .jumbo-text {
+        padding: 64px;
+        font-weight: $font-light;
+        font-size: $base-jumbo-size;
+        text-align: left;
+
+        // width: 900px;
+        margin: 0 auto;
+    }
+
+    .gallery-text {
+        font-weight: $font-light;
+        font-size: $base-font-size;
+        line-height: $font-semi-bold-line-height;
+    }
+
+    .document-text {
+        font-weight: $font-light;
+        font-size: $base-font-size / 1.5;
+        line-height: $base-line-height;
+    }
+}
+
+@media (max-width: $break-large) and (min-width: $break-big) {
+    .paragraph-container--unpadded {
+        .col-md-6, .col-md-12, .col-md-4 {
+            padding: 32px;
+        }
+
+        padding: 0 0 64px 0;
+    }
+
+    .text-container {
+        padding: 32px;
+        width: 900px;
+        margin: auto;
+
+        .col-md-6 {
+            padding-right: 16px;
+        }
+    }
+
+    .text-block {
+        padding: 32px 0;
+    }
+
+    .text-block > ul > li {
+        padding-bottom: 16px;
+    }
+
+    .text-container-small {
+        padding: 16px 0;
+    }
+
+    .jumbo-text {
+        padding: 32px;
+        font-weight: $font-light;
+        font-size: $base-jumbo-size;
+        text-align: left;
+
+        // width: 642px;
+        margin: 0 auto;
+    }
+
+    .gallery-text {
+        font-weight: $font-light;
+        font-size: $base-font-size;
+        line-height: $font-semi-bold-line-height;
+    }
+
+    .document-text {
+        font-weight: $font-light;
+        font-size: $base-font-size / 1.5;
+        line-height: $base-line-height;
+    }
+}
+
+@media (max-width: $break-big) and (min-width: $break-medium) {
+    .paragraph-container--unpadded {
+        .col-md-6, .col-md-12, .col-md-4 {
+            padding: 32px;
+        }
+
+        padding: 0 0 32px 0;
+    }
+
+    .text-block {
+        padding: 16px 0;
+    }
+
+    .text-block > ul > li {
+        padding-bottom: 8px;
+    }
+
+    .text-container-small {
+        padding: 8px 0;
+    }
+
+    .text-container {
+        padding: 32px;
+        max-width: 900px;
+        margin: auto;
+
+        .col-md-6 {
+            padding-right: 16px;
+        }
+    }
+
+    .jumbo-text {
+        padding: 32px;
+        font-weight: $font-light;
+        font-size: $base-h0-size;
+        text-align: left;
+
+        // width: 556px;
+        margin: 0 auto;
+    }
+
+    .gallery-text {
+        font-weight: $font-light;
+        font-size: $base-font-size;
+        line-height: $font-semi-bold-line-height;
+    }
+
+    .document-text {
+        font-weight: $font-light;
+        font-size: $base-font-size / 1.25;
+        line-height: $base-line-height;
+    }
+}
+
+@media (max-width: $break-medium) and (min-width: $break-small) {
+    .paragraph-container--unpadded {
+        .col-md-6, .col-md-12, .col-md-4 {
+            padding: 32px;
+        }
+
+        padding: 0 0 64px 0;
+    }
+
+    .paragraph-container {
+        padding: 32px 0;
+    }
+
+    .text-block {
+        padding: 16px 0;
+    }
+
+    .text-block > ul > li {
+        padding-bottom: 8px;
+    }
+
+    .text-container {
+        font-size: $base-font-size;
+        padding: 32px;
+
+        .col-md-6 {
+            padding-right: 16px;
+        }
+    }
+
+    .text-container-small {
+        padding: 8px 0;
+    }
+
+    .jumbo-text {
+        padding: 32px;
+        font-weight: $font-light;
+        font-size: $base-h0-size;
+        text-align: left;
+
+        // width: 428px;
+        margin: 0 auto;
+    }
+
+    .gallery-text {
+        font-weight: $font-light;
+        font-size: $base-font-size;
+        line-height: $font-semi-bold-line-height;
+    }
+
+    .document-text {
+        font-weight: $font-light;
+        font-size: $base-font-size;
+        line-height: $base-line-height;
+    }
+}
+
+@media (max-width: $break-small) and (min-width: $break-tiny) {
+    .paragraph-container--unpadded {
+        .col-md-6, .col-md-12, .col-md-4 {
+            padding: 32px;
+        }
+
+        padding: 0 0 32px 0;
+    }
+
+    .paragraph-container {
+        padding: 32px 0;
+    }
+
+    .text-block {
+        padding: 16px 0;
+    }
+
+    .text-block > ul > li {
+        padding-bottom: 8px;
+    }
+
+    .gallery-text {
+        font-weight: $font-light;
+        font-size: $mobile-font-size;
+        line-height: $font-semi-bold-line-height;
+    }
+
+    .document-text {
+        font-weight: $font-light;
+        font-size: $mobile-font-size;
+        line-height: $base-line-height;
+    }
+
+    .text-container-small {
+        padding: 8px 0;
+    }
+
+    .jumbo-text {
+        padding: 16px;
+        font-weight: $font-light;
+        font-size: $mobile-h0-size;
+        text-align: left;
+
+        // width: 298px;
+        margin: 0 auto;
+    }
+
+    .text-container {
+        font-size: $mobile-font-size;
+        width: 90%;
+        padding: 32px 0;
+
+        .col-md-6 {
+            padding-right: 16px;
+        }
+    }
+}
+
+@media (max-width: $break-tiny) {
+    .paragraph-container--unpadded {
+        .col-md-6, .col-md-12, .col-md-4 {
+            padding: 32px;
+        }
+
+        padding: 0 0 32px 0;
+    }
+
+    .paragraph-container {
+        padding: 32px 0;
+    }
+
+    .text-block {
+        padding: 16px 0;
+    }
+
+    .text-block > ul > li {
+        padding-bottom: 8px;
+    }
+
+    .text-container {
+        font-size: $mobile-font-size;
+        width: 90%;
+        padding: 32px 0;
+
+        .col-md-6 {
+            padding-right: 16px;
+        }
+    }
+
+    .text-container-small {
+        padding: 8px 0;
+    }
+
+    .jumbo-text {
+        padding: 16px;
+        font-weight: $font-light;
+        font-size: $mobile-h0-size;
+        text-align: left;
+
+        // width: 298px;
+        margin: 0 auto;
+    }
+
+    .gallery-text {
+        font-weight: $font-light;
+        font-size: $mobile-font-size;
+        line-height: $font-semi-bold-line-height;
+    }
+
+    .document-text {
+        font-weight: $font-light;
+        font-size: $mobile-font-size;
+        line-height: $base-line-height;
+    }
+}

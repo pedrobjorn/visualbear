@@ -1,0 +1,90 @@
+//Colours
+$vb-primary: #f63f3c !default;
+$vb-secondary: #79a6d2 !default;
+$vb-light: #E6F2FF !default;
+$vb-very-light-grey: lighten( #000, 75% ) !default;
+$vb-light-grey: lighten( #000, 60% ) !default;
+$vb-grey: #313135 !default;
+$vb-dark: #18181B !default;
+
+$vb-body-font-family: 'Ubuntu', Arial, sans-serif;
+$vb-secondary-font-family:  "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+$fa-font-path: "../bower_components/font-awesome/fonts";
+
+// Font weights
+$font-bold: 700;
+$font-semi-bold: 400;
+$font-light: 300;
+
+// Base Font
+$small-font-size: 0.45em;
+$middle-font-size: 0.85em;
+$base-font-size: 1.2em;
+
+$base-jumbo-size: 4em;
+$base-h0-size: 3.6em;
+$base-h1-size: 2em;
+$base-h2-size: 1.5em;
+$base-h3-size: 1.17em;
+$base-h4-size: 1em;
+$base-h5-size: 0.83em;
+$base-h6-size: 0.75em;
+
+
+$tiny-2k-size: 0.9em;
+$small-2k-size: 1.9em;
+$font-semi-bold-2k-size: 2.7em;
+$base-2k-size: 3em;
+$big-2k-size: 4em;
+
+$base-line-height: 1.35;
+$font-semi-bold-line-height: 1.5;
+$big-line-height: 3;
+
+// Fixed Font
+$fixed-font-family: monospace;
+$fixed-font-size: 85%;
+$fixed-line-height: $base-line-height;
+
+$lineheight-loose: 3;
+$lineheight-base: 1.35;
+$lineheight-tight: 1.5;
+
+
+// Mobile Font
+$mobile-font-size: 0.75em;
+
+$mobile-jumbo-size: 2.4em;
+$mobile-h0-size: 2em;
+$mobile-h1-size: 1.8em;
+$mobile-h2-size: 1.3em;
+$mobile-h3-size: 1em;
+$mobile-h4-size: 0.9em;
+$mobile-h5-size: 0.7em;
+$mobile-h6-size: 0.6em;
+
+$mobile-lineheight-loose: 2;
+$mobile-lineheight-base: 1;
+$mobile-lineheight-tight: 1.5;
+
+//Proportions
+$base-nav-padding-constant: 8px 0 8px 0;
+$mobile-nav-padding-constant: 8px 24px 11.5px 24px;
+
+$tile-height-small: 128px;
+$tile-height-medium: 256px;
+$tile-height-big: 512px;
+$tile-height-2k: 768px;
+
+// Media Queries
+
+$break-huge: 2400px;
+$break-large: 1279px;
+$break-big: 991px;
+$break-medium: 767px;
+$break-small: 480px;
+$break-tiny: 320px;
+
+//Effects
+$shadow: 1px 1px 4px #000;

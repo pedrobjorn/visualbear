@@ -1,10 +1,68 @@
 {% extends '_layouts/base.nunjucks' %}
-
+{% import "_modules/organisms/headline/headline.nunjucks" as headline %}
 {% block config %}
-  {# Correct base url pathing for this page #}
-  {% set baseUrl = '../' %}
+	{# Correct base url pathing for this page #}
+	{% set baseUrl = '../' %}
 {% endblock %}
-
 {% block content %}
-<p>visualbear page</p>
+	<article class="section section-top-padding" id="steammobile_container">
+		<section class="gallery-container">
+			
+			{{headline.content({content:site.data.playhero,class:hero-about})}}
+			<div class="container">
+				<div class="document-text text-box">
+					<div class="paragraph-container">
+						<h3>The Styleguide</h3>
+						<p>
+							The <a href="../styleguide" alt="Styleguide Link"> websites pattern library </a> represents the design involved in creating this site, which is closely tied to the identity.
+						</p>
+					</div>
+				</div>
+				<div class="col-xs-12 gallery-image">
+					<a href="../images/work/fullsize/visualbear/visualbear_first.jpg" alt="Visualbear logo">
+						<img src="../images/work/fullsize/visualbear/visualbear_first.jpg" title="Visualbear logo" width="900" height="425">
+					</a>
+					<a href="../images/work/fullsize/visualbear/visualbear_alt.jpg" alt="Visualbear alternate logo">
+						<img src="../images/work/fullsize/visualbear/visualbear_alt.jpg" title="visualbear alternate logo image" width="900" height="425">
+					</a>
+					<a href="../images/work/fullsize/visualbear/visualbear_grid1.jpg" alt="Visualbear logo grid">
+						<img src="../images/work/fullsize/visualbear/visualbear_grid1.jpg" title="visualbear logo grid" width="1024" height="774">
+					</a>
+					<a href="../images/work/fullsize/visualbear/visualbear_grid2.jpg" alt="Visualbear logo grid">
+						<img src="../images/work/fullsize/visualbear/visualbear_grid2.jpg" title="visualbear logo grid" width="900" height="422">
+					</a>
+					<a href="../images/work/fullsize/visualbear/visualbear_grid3.jpg" alt="Visualbear logo grid">
+						<img src="../images/work/fullsize/visualbear/visualbear_grid3.jpg" title="visualbear logo grid" width="900" height="422">
+					</a>
+					<a href="../images/work/fullsize/visualbear/visualbear_grid4.jpg" alt="Visualbear logo grid">
+						<img src="../images/work/fullsize/visualbear/visualbear_grid4.jpg" title="visualbear logo grid" width="900" height="422">
+					</a>
+					<a href="../images/work/fullsize/visualbear/visualbear_bw.jpg" alt="Visualbear logo black and white">
+						<img src="../images/work/fullsize/visualbear/visualbear_bw.jpg" title="visualbear logo black and white" width="900" height="422">
+					</a>
+					<a href="../images/work/fullsize/visualbear/visualbear_pedrobjorn.jpg" alt="Visualbear pedro bjorn logos">
+						<img src="../images/work/fullsize/visualbear/visualbear_pedrobjorn.jpg" title="Visualbear pedro bjorn logos" width="900" height="422">
+					</a>
+					<a href="../images/work/fullsize/visualbear/visualbear_card.jpg" alt="Visualbear business card">
+						<img src="../images/work/fullsize/visualbear/visualbear_card.jpg" title="visualbear business card image" width="900" height="320">
+					</a>
+					<a href="../images/work/fullsize/visualbear/visualbear_pres.jpg" alt="Visualbear brand summarys">
+						<img src="../images/work/fullsize/visualbear/visualbear_pres.jpg" title="visualbear logo application stationary image" width="900" height="899">
+					</a>
+				</div>
+			</div>
+			<div class="btn-container">
+				<a href="/pretty-ugly-data" class="col-xs-6">
+					<button type="button" class="btn vb-btn-full left-align">
+					Prev
+					</button>
+				</a>
+				<a href="/steam-mobile" class=" col-sm-offset-6 col-xs-6">
+					<button type="button" class="btn vb-btn-full right-align">
+					Next >
+					</button>
+				</a>
+			</div>
+		</section>
+	</article>
 {% endblock %}

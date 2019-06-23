@@ -10,7 +10,7 @@
 {% block content %}
 
 
-{{hero.content({content:site.data.about,class:hero-about})}}
+{{hero.content({content:site.data.index,class:hero-about})}}
 
 <div id="work">
 
