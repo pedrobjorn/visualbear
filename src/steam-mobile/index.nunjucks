@@ -13,7 +13,7 @@
 				<div class="document-text text-box center-justified">
 					<h1>PROCESS</h1>
 					<div class="paragraph-container--icons center-justified row">
-						<div class="col-md-4">
+						<div class="col m4 s12">
 							<h3>Research</h3>
 							<img class="img-small" src="../images/work/fullsize/steam/details/research_icon.jpg" title="Image"  width="256" height="256">
 							<ul>
@@ -25,7 +25,7 @@
 								</li>
 							</ul>
 						</div>
-						<div class="col-md-4">
+						<div class="col m4 s12">
 							<h3>Ideation</h3>
 							<img class="img-small" src="../images/work/fullsize/steam/details/ideation_icon.jpg" title="Image" width="256" height="256">
 							<ul>
@@ -37,7 +37,7 @@
 								</li>
 							</ul>
 						</div>
-						<div class="col-md-4">
+						<div class="col m4 s12">
 							<h3>Iterations</h3>
 							<img class="img-small" src="../images/work/fullsize/steam/details/iterate_icon.jpg" title="Image"  width="256" height="256">
 							<ul>
@@ -313,13 +313,13 @@
                 </div>
         </div>
     </div>
-    <div class="btn-container">
-        <a href="/visualbear" class="col-xs-6">
+    <div class="btn-container row">
+        <a href="/visualbear" class="col s6">
             <button type="button" class="btn vb-btn-full left-align">
             Prev
             </button>
         </a>
-        <div class=" col-sm-offset-6 col-xs-6">
+        <div class="col s6">
             <!-- <a href="/steammobile" class=" col-sm-offset-6 col-xs-6"> -->
             <button type="button" class="btn vb-btn-disabled right-align" disabled>
             Next >

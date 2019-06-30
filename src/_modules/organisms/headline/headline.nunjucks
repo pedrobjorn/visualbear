@@ -11,7 +11,7 @@
 		<h2 class="center-justified">{{_content.description}}</h2>
 		<div class="paragraph-container center-justified">
 			<div class="row">
-				<div class="col m12">
+				<div class="col m12 s12">
 					<h3>Released</h3>
 					<p>{{_content.released}}</p>
 				</div>

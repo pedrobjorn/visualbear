@@ -9,50 +9,51 @@
 		<section class="gallery-container">
 			
 			{{headline.content({content:site.data.playhero,class:hero-about})}}
-
-			<div class="container">
-			<div class="col-xs-12 gallery-image">
-				<a href="../images/work/fullsize/lynx/lynx_redesign.jpg" alt="Projecto Lynx redesign process image">
-					<img src="../images/work/fullsize/lynx/lynx_redesign.jpg" title="Projecto Lynx redesign process image"  width="1024" height="483">
+			<div class="container--padded">
+				<div class="document-text text-box">
+					<div class="gallery-image">
+						<a href="../images/work/fullsize/lynx/lynx_redesign.jpg" alt="Projecto Lynx redesign process image">
+							<img src="../images/work/fullsize/lynx/lynx_redesign.jpg" title="Projecto Lynx redesign process image"  width="1024" height="483">
+						</a>
+						<a href="../images/work/fullsize/lynx/lynx_iterations.jpg" alt="Projecto Lynx logo iterations image">
+							<img src="../images/work/fullsize/lynx/lynx_iterations.jpg" title="Projecto Lynx logo iterations image"  width="1024" height="483">
+						</a>
+						<a href="../images/work/fullsize/lynx/lynx_first.jpg" alt="Projecto Lynx logo image">
+							<img src="../images/work/fullsize/lynx/lynx_first.jpg" title="Projecto Lynx logo image" width="1024" height="484">
+						</a>
+						<a href="../images/work/fullsize/lynx/lynx_alt.jpg" alt="Projecto Lynx alternate logo image">
+							<img src="../images/work/fullsize/lynx/lynx_alt.jpg" title="Projecto Lynx alternate logo image" width="1024" height="480">
+						</a>
+						<a href="../images/work/fullsize/lynx/lynx_small.jpg" alt="Projecto Lynx small logo image">
+							<img src="../images/work/fullsize/lynx/lynx_small.jpg" title="Projecto Lynx small logo image" width="1024" height="483">
+						</a>
+						<a href="../images/work/fullsize/lynx/lynx_bw.jpg" alt="Projecto Lynx black and white logo image">
+							<img src="../images/work/fullsize/lynx/lynx_bw.jpg" title="Projecto Lynx black and white logo image"  width="1024" height="490">
+						</a>
+						<a href="../images/work/fullsize/lynx/lynx_card.jpg" alt="Projecto Lynx post card example image">
+							<img src="../images/work/fullsize/lynx/lynx_card.jpg" title="Projecto Lynx post card example image" width="1024" height="482">
+						</a>
+						<a href="../images/work/fullsize/lynx/lynx_print.jpg" alt="Projecto Lynx printed logo photo">
+							<img src="../images/work/fullsize/lynx/lynx_print.jpg" title="Projecto Lynx printed logo photo" width="1024" height="490">
+						</a>
+						<a href="../images/work/fullsize/lynx/lynx_pres.jpg" alt="Projecto Lynx application image">
+							<img src="../images/work/fullsize/lynx/lynx_pres.jpg" title="Projecto Lynx application image" width="1024" height="930">
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="btn-container row">
+				<a href="/adhops" class="col s6">
+					<button type="button" class="btn vb-btn-full left-align">
+					Prev
+					</button>
 				</a>
-				<a href="../images/work/fullsize/lynx/lynx_iterations.jpg" alt="Projecto Lynx logo iterations image">
-					<img src="../images/work/fullsize/lynx/lynx_iterations.jpg" title="Projecto Lynx logo iterations image"  width="1024" height="483">
-				</a>
-				<a href="../images/work/fullsize/lynx/lynx_first.jpg" alt="Projecto Lynx logo image">
-					<img src="../images/work/fullsize/lynx/lynx_first.jpg" title="Projecto Lynx logo image" width="1024" height="484">
-				</a>
-				<a href="../images/work/fullsize/lynx/lynx_alt.jpg" alt="Projecto Lynx alternate logo image">
-					<img src="../images/work/fullsize/lynx/lynx_alt.jpg" title="Projecto Lynx alternate logo image" width="1024" height="480">
-				</a>
-				<a href="../images/work/fullsize/lynx/lynx_small.jpg" alt="Projecto Lynx small logo image">
-					<img src="../images/work/fullsize/lynx/lynx_small.jpg" title="Projecto Lynx small logo image" width="1024" height="483">
-				</a>
-				<a href="../images/work/fullsize/lynx/lynx_bw.jpg" alt="Projecto Lynx black and white logo image">
-					<img src="../images/work/fullsize/lynx/lynx_bw.jpg" title="Projecto Lynx black and white logo image"  width="1024" height="490">
-				</a>
-				<a href="../images/work/fullsize/lynx/lynx_card.jpg" alt="Projecto Lynx post card example image">
-					<img src="../images/work/fullsize/lynx/lynx_card.jpg" title="Projecto Lynx post card example image" width="1024" height="482">
-				</a>
-				<a href="../images/work/fullsize/lynx/lynx_print.jpg" alt="Projecto Lynx printed logo photo">
-					<img src="../images/work/fullsize/lynx/lynx_print.jpg" title="Projecto Lynx printed logo photo" width="1024" height="490">
-				</a>
-				<a href="../images/work/fullsize/lynx/lynx_pres.jpg" alt="Projecto Lynx application image">
-					<img src="../images/work/fullsize/lynx/lynx_pres.jpg" title="Projecto Lynx application image" width="1024" height="930">
+				<a href="/steam-mobile" class="col s6">
+					<button type="button" class="btn vb-btn-full right-align">
+					Next >
+					</button>
 				</a>
 			</div>
-		</div>
-		<div class="btn-container">
-			<a href="/adhops" class=" col-sm-offset-6 col-xs-6">
-				<button type="button" class="btn vb-btn-full left-align">
-				Prev
-				</button>
-			</a>
-			<a href="/pretty-ugly-data" class=" col-sm-offset-6 col-xs-6">
-				<button type="button" class="btn vb-btn-full right-align">
-				Next >
-				</button>
-			</a>
-		</div>
 		</section>
 	</article>
 {% endblock %}

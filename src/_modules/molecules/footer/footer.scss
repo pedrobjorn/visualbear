@@ -1,8 +1,26 @@
 // footer styles
 
 footer {
+	background-color: red;
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 128px;
+// Footer
+.page-footer {
+  padding-top: 20px;
+  color: $footer-font-color;
+  background-color: $footer-bg-color;
+
+  .footer-copyright {
+    overflow: hidden;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0px;
+    color: $footer-copyright-font-color;
+    background-color: $footer-copyright-bg-color;
+  }
+}
 }

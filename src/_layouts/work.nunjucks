@@ -28,9 +28,7 @@
       <div class="container__open">
         {% block content %}{% endblock %}
       </div>
-      <footer>
-        <!-- {{footer.content({})}} -->
-      </footer>
+        {{footer.content({})}}
     </div>
     <script src="{{baseUrl}}scripts/main.js"></script>
     {% block scripts %}{% endblock %}
