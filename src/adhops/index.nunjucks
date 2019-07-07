@@ -75,4 +75,6 @@
 					</button>
 				</a>
 			</div>
-		{% endblock %}
+		</section>
+	</article>
+{% endblock %}
