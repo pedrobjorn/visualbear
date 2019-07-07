@@ -84,6 +84,13 @@
     /* IE6-9 */
 }
 
+.text-box {
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
 .gallery-body {
     background-color: #999;
     width: 100%;
@@ -231,7 +238,6 @@
     }
 
     .container--padded {
-
         padding: 128px 0;
     }
 
@@ -402,7 +408,6 @@
     }
 
     .container--padded {
-
         padding: 128px 0;
     }
 
@@ -574,7 +579,6 @@
     }
 
     .container--padded {
-
         padding: 128px 0;
     }
 
@@ -692,6 +696,7 @@
 
         padding: 64px 0;
     }
+
     .gallery-image {
         height: 100%;
 
@@ -756,7 +761,6 @@
     }
 
     .container--padded {
-
         padding: 128px 0;
     }
 
@@ -866,6 +870,7 @@
 
         padding: 64px 0;
     }
+
     .gallery-image {
         height: 100%;
 
@@ -918,7 +923,6 @@
     }
 
     .container--padded {
-
         padding: 64px 0;
     }
 
@@ -1029,6 +1033,7 @@
 
         padding: 64px 0;
     }
+
     .gallery-image {
         height: 100%;
 
@@ -1081,7 +1086,6 @@
     }
 
     .container--padded {
-
         padding: 64px 0;
     }
 
@@ -1235,7 +1239,6 @@
     }
 
     .container--padded {
-
         padding: 32px 0;
     }
 

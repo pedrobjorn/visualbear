@@ -458,7 +458,7 @@ blockquote {
     padding: 32px;
 }
 
-.paragraph-container {
+.paragraph-container, .paragraph-container--unpadded {
     padding: 64px 0;
 
     .m6, .m12, .m4 {
@@ -478,7 +478,7 @@ blockquote {
     }
 }
 
-.paragraph-container--unpadded {
+.paragraph-container, .paragraph-container--unpadded--unpadded {
     .m6, .m12, .m4 {
         padding: 32px;
     }
@@ -494,14 +494,14 @@ blockquote {
     text-align: right;
 }
 
-.paragraph-container {
+.paragraph-container, .paragraph-container--unpadded {
     p {
         padding: 8px 0;
     }
 }
 
 @media (min-width: $break-huge) {
-    .paragraph-container--unpadded {
+    .paragraph-container, .paragraph-container--unpadded--unpadded {
         .m6, .m12, .m4 {
             padding: 32px;
         }
@@ -555,7 +555,7 @@ blockquote {
 }
 
 @media (max-width: $break-huge) and (min-width: $break-large) {
-    .paragraph-container--unpadded {
+    .paragraph-container, .paragraph-container--unpadded--unpadded {
         .m6, .m12, .m4 {
             padding: 32px;
         }
@@ -609,7 +609,7 @@ blockquote {
 }
 
 @media (max-width: $break-large) and (min-width: $break-big) {
-    .paragraph-container--unpadded {
+    .paragraph-container, .paragraph-container--unpadded--unpadded {
         .m6, .m12, .m4 {
             padding: 32px;
         }
@@ -663,7 +663,7 @@ blockquote {
 }
 
 @media (max-width: $break-big) and (min-width: $break-medium) {
-    .paragraph-container--unpadded {
+    .paragraph-container, .paragraph-container--unpadded--unpadded {
         .m6, .m12, .m4 {
             padding: 32px;
         }
@@ -717,7 +717,7 @@ blockquote {
 }
 
 @media (max-width: $break-medium) and (min-width: $break-small) {
-    .paragraph-container--unpadded {
+    .paragraph-container, .paragraph-container--unpadded--unpadded {
         .m6, .m12, .m4 {
             padding: 32px;
         }
@@ -725,7 +725,7 @@ blockquote {
         padding: 0 0 64px 0;
     }
 
-    .paragraph-container {
+    .paragraph-container, .paragraph-container--unpadded {
         padding: 32px 0;
     }
 
@@ -774,7 +774,7 @@ blockquote {
 }
 
 @media (max-width: $break-small) and (min-width: $break-tiny) {
-    .paragraph-container--unpadded {
+    .paragraph-container, .paragraph-container--unpadded--unpadded {
         .m6, .m12, .m4 {
             padding: 32px;
         }
@@ -782,7 +782,7 @@ blockquote {
         padding: 0 0 32px 0;
     }
 
-    .paragraph-container {
+    .paragraph-container, .paragraph-container--unpadded {
         padding: 32px 0;
     }
 
@@ -832,7 +832,7 @@ blockquote {
 }
 
 @media (max-width: $break-tiny) {
-    .paragraph-container--unpadded {
+    .paragraph-container, .paragraph-container--unpadded--unpadded {
         .m6, .m12, .m4 {
             padding: 32px;
         }
@@ -840,7 +840,7 @@ blockquote {
         padding: 0 0 32px 0;
     }
 
-    .paragraph-container {
+    .paragraph-container, .paragraph-container--unpadded {
         padding: 32px 0;
     }
 
