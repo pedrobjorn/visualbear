@@ -1,17 +1,32 @@
 {% macro content(spec) %}
 {% set spec = spec or {} %}
 {% set _class = spec.class or '' %}
-<footer class="page-footer">
-  <div class="container">
-      <div class="item">
-        <h5 class="white-text">Footer Content</h5>
-        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-      </div>
-  </div>
-  <div class="footer-copyright">
-    <div class="container">
-      © 2014 Copyright Text
+<!-- Footer -->
+<section class="text-block foot">
+  <article>
+    <ul class="socialContainer">
+      <a id="follow-button" class="vb-btn-icon " title="Follow @pedrobjorn on Twitter" href="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Flocalh…rc=twsrc%5Etfw&region=follow_link&screen_name=pedrobjorn&tw_p=followbutton" title="Follow @pedrobjorn on Twitter">
+        <img src="../../img/icons/twitter_icon_64.jpg" alt="Twitter Icon" width="48px" height="48px">
+      </a>
+      <a href="https://www.behance.net/visualbear" class="vb-btn-icon " title="Visit linkedin">
+        <img src="../../img/icons/behance_icon_64.jpg" alt="Behance Icon" width="48px" height="48px">
+      </a>
+      <a href="https://se.linkedin.com/pub/pedro-björn/4b/732/741" class="vb-btn-icon " title="Visit linkedin">
+        <img src="../../img/icons/linkdin_icon_64.jpg" alt="LinkedIn Icon" width="48px" height="48px">
+      </a>
+    </ul>
+  </article>
+  <footer>
+    <div class="text-center">
+      <p>Made by Pedro Bj&#246;rn. </p>
+      <p>&copy; 2017 visualbear All Rights Reserved.</p>
+      <p style="font-size:12px ;padding:16px 0;">
+        <a href="https://assets.fastcompany.com/image/upload/w_596,c_limit,q_auto:best,f_auto,fl_lossy/fc/3033256-inline-i-bearpage.png" title="All rights belong to USA Today." style="text-decoration: none;" target="_blank">
+          🐻
+        </a>
+      </p>
     </div>
-  </div>
-</footer>
+  </footer>
+</section>
+
 {% endmacro %}

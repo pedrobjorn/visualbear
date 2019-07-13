@@ -22,3 +22,8 @@
 	</div>
 </nav>
 {% endmacro %}
+
+<!-- {
+  "linkname": "Play",
+  "href": "../play"
+}, -->

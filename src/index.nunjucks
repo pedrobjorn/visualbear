@@ -2,10 +2,16 @@
 
 
 {% import "_modules/atom/link/link.nunjucks" as link %}
+{% import "_modules/molecules/card/card.nunjucks" as card %}
 {% import "_modules/organisms/gallery/gallery.nunjucks" as gallery %}
 
 {% import "_modules/organisms/hero/hero.nunjucks" as hero %}
-
+{% set _cardPlay = {
+    "title": "Play",
+    "subtitle": "Illustration & Graphic design",
+    "href": "../play",
+    "img": "../images/work/thumbs/"
+} %}
 
 {% block content %}
 
@@ -16,5 +22,10 @@
 
 {{gallery.content({content:site.data.work, contentType:''})}}
 
+{{card.content({card:_cardPlay})}}
+
+</div>
+<div id="contact">
+Hello
 </div>
 {% endblock %}
