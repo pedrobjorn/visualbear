@@ -1,4 +1,4 @@
-{% extends '_layouts/base.nunjucks' %}
+{% extends '_layouts/info.nunjucks' %}
 {% import "_modules/atom/link/link.nunjucks" as link %}
 {% import "_modules/organisms/hero/hero.nunjucks" as hero %}
 {% block config %}
@@ -32,9 +32,9 @@
 						I love <b>design</b>, <b>technology</b> and <b>art</b>, which is why I really enjoy bringing them together.
 					</p>
 					<br>
-					<p>Feel free to <a href="#visual" class="highlight"  onclick="scroller('gallery')"><b>check out my work</b></a>,
-					my <a href="resume" class="highlight"><b>online resume</b></a>,and don't forget to
-					<a href="#hello" class="highlight"  onclick="scroller('contact')"><b>say hello!</b></a></p>
+					<p>Feel free to <a href="../#work" class="highlight"  onclick="scroller('gallery')"><b>check out my work</b></a>,
+					my <a href="../resume" class="highlight"><b>online resume</b></a>,and don't forget to
+					<a href="../#contact" class="highlight"  onclick="scroller('contact')"><b>say hello!</b></a></p>
 					
 				</div>
 			</div>

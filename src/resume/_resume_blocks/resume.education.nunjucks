@@ -1,0 +1,30 @@
+{% macro content(spec) %}
+{% set spec = spec or {} %}
+{% set _class = spec.class or '' %}
+{% set _content = spec.content or '{}' %}
+{% block config %}
+  {# Correct base url pathing for this page #}
+  {% set baseUrl = '../' %}
+{% endblock %}
+
+<div class="col-md-12">
+  <div class="col-md-3 sub-title">Education</div>
+  <div class="col-md-9 division-line">&nbsp;</div>
+</div>
+<div class="col-md-12">
+  <ul>
+    <li>
+      <b>2011 - Professional Degree in Game Design</b> - <a href="http://www.futuregames.se/" target="_blank">Future Games</a>, <i>Sweden</i>
+    </li>
+    <li>
+      <b>2009 - Bachelors in Design, <i>Erasmus</i></b> - <a href="http://www.iuav.it/homepage/" target="_blank">IUAV Universita de Venezia</a>, <i>Italy</i>
+    </li>
+    <li>
+      <b>2006 - Bachelors in Design</b> - <a href="http://www.iade.pt/en/homepage.aspx" target="_blank">IADE University</a>, <i>Portugal</i>
+    </li>
+    <li>
+      <b>2002 - GCSE &amp; IB Diplomas</b> - <a href="http://www.stjulians.com/" target="_blank">St. Julian’s School</a>, <i>Portugal</i>
+    </li>
+  </ul>
+</div>
+{% endmacro %}

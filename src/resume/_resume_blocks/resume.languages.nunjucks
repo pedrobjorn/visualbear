@@ -1,0 +1,31 @@
+{% macro content(spec) %}
+{% set spec = spec or {} %}
+{% set _class = spec.class or '' %}
+{% set _content = spec.content or '{}' %}
+{% block config %}
+  {# Correct base url pathing for this page #}
+  {% set baseUrl = '../' %}
+{% endblock %}
+
+<div class="col-md-12">
+  <div class="col-md-3 sub-title">Languages</div>
+    <div class="col-md-9 division-line">&nbsp;</div>
+</div>
+<div class="col-md-12">
+  <ul>
+    <li>
+      - English <span class="side-text">Fluent</span>
+    </li>
+    <li>
+      - Portuguese <span class="side-text">Fluent</span>
+    </li>
+    <li>
+      - Swedish <span class="side-text">Proficient</span>
+    </li>
+    <li>
+      - Spanish <span class="side-text">Minimum</span>
+    </li>
+  </ul>
+</div>
+
+{% endmacro %}

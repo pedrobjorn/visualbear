@@ -1,0 +1,51 @@
+{% macro content(spec) %}
+{% set spec = spec or {} %}
+{% set _class = spec.class or '' %}
+{% set _content = spec.content or '{}' %}
+{% block config %}
+  {# Correct base url pathing for this page #}
+  {% set baseUrl = '../' %}
+{% endblock %}
+<div class="col-md-4 title">
+  <ul>
+    <li>
+      <img src="../../img/misc/pedrobjorn_logo.png" alt="Pedro Bjorn logo" width="512" height="103">
+    </li>
+    <li>
+      Product Designer
+    </li>
+  </ul>
+</div>
+<div class="col-md-4 small-title">
+  <ul>
+    <li class="micro-text">
+      Location
+    </li>
+    <li class="sub-text">
+      <a href="https://www.google.se/maps/place/Stockholm/@59.3260668,17.8474654,11z/data=!3m1!4b1!4m5!3m4!1s0x465f763119640bcb:0xa80d27d3679d7766!8m2!3d59.3293235!4d18.0685808?hl=en" target="_blank">Stockholm, Sweden</a>
+    </li>
+    <li class="micro-text">
+      Mobile Contact
+    </li>
+    <li class="sub-text">
+      <a href="tel://0046-737-490-374">Call me</a>
+    </li>
+  </ul>
+</div>
+<div class="col-md-4 small-title">
+  <ul>
+    <li class="micro-text">
+      Email
+    </li>
+    <li class="sub-text">
+      <a href="mailto:visualbear.bjorn@gmail.com"> visualbear.bjorn@gmail.com </a>
+    </li>
+    <li class="micro-text">
+     Skype
+    </li>
+    <li class="sub-text">
+      <a href="skype:pedro.bjorn?call">Add me</a>
+    </li>
+  </ul>
+</div>
+{% endmacro %}

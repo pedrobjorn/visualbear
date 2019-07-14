@@ -1,4 +1,4 @@
-{% extends '_layouts/base.nunjucks' %}
+{% extends '_layouts/gallery.nunjucks' %}
 
 
 {% import "_modules/atom/link/link.nunjucks" as link %}
@@ -12,6 +12,9 @@
 {% endblock %}
 
 {% block content %}
+
+
+{{hero.content({content:site.data.play-hero,class:hero-about})}}
 
 {{gallery.content({content:site.data.blog, contentType:'blog'})}}
 

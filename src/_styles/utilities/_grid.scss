@@ -61,8 +61,18 @@ section {
     }
 }
 
+.container, .container__open {
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin:auto;
+}
+
 //>2500px
 @media (min-width: $break-huge) {
+
+
     .outer-container {
         display: table;
         width: 100%;

@@ -1,0 +1,83 @@
+{% macro content(spec) %}
+{% set spec = spec or {} %}
+{% set _class = spec.class or '' %}
+{% set _content = spec.content or '{}' %}
+{% block config %}
+  {# Correct base url pathing for this page #}
+  {% set baseUrl = '../' %}
+{% endblock %}
+
+<div class="col-md-12 text-container-small">
+  <div class="col-md-3 sub-title">Core Skills</div>
+  <div class="col-md-9 division-line">&nbsp;</div>
+  <div class="col-md-4">
+    <ul>
+      <li>
+        - Product Design
+      </li>
+      <li>
+        - UI <span class="side-text">User Interface Design</span>
+      </li>
+      <li>
+        - Visual Design
+      </li>
+      <li>
+        - UX <span class="side-text">User Experience Design</span>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <ul>
+      <li>
+        - Web Design
+      </li>
+      <li>
+        - Brand Identity
+      </li>
+      <li>
+        - Agile / SCRUM
+      </li>
+      <li>
+        - Front-end development
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="col-md-12 text-container-small">
+  <div class="col-md-3 sub-title">Technical Skills</div>
+  <div class="col-md-9 division-line">&nbsp;</div>
+  <div class="col-md-4">
+    <ul>
+      <li>
+        - Sketch
+      </li>
+      <li>
+        - InVision
+      </li>
+      <li>
+        - Photoshop
+      </li>
+      <li>
+        - Illustrator
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <ul>
+      <li>
+        - HTML5
+      </li>
+      <li>
+        - CSS3 <span class="side-text">i.e Sass</span>
+      </li>
+      <li>
+        - Javascript <span class="side-text">i.e AngularJS </span>
+      </li>
+      <li>
+        - Git / SVN
+      </li>
+    </ul>
+  </div>
+</div>
+
+{% endmacro %}

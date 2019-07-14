@@ -1,0 +1,69 @@
+{% extends '_layouts/info.nunjucks' %}
+
+{% import "resume/_resume_blocks/resume.title.nunjucks" as title %}
+{% import "resume/_resume_blocks/resume.intro.nunjucks" as intro %}
+{% import "resume/_resume_blocks/resume.skills.nunjucks" as skills %}
+{% import "resume/_resume_blocks/resume.experience.nunjucks" as experience %}
+{% import "resume/_resume_blocks/resume.experience.nunjucks" as education %}
+{% import "resume/_resume_blocks/resume.interests.nunjucks" as interests %}
+{% import "resume/_resume_blocks/resume.languages.nunjucks" as languages %}
+{% import "resume/_resume_blocks/resume.end.nunjucks" as end %}
+
+{% block config %}
+  {# Correct base url pathing for this page #}
+  {% set baseUrl = '../' %}
+{% endblock %}
+
+{% block content %}
+<section class="section section-top-padding"  id="resume_container">
+  <article class="text-container">
+    
+    <!--Title Row-->
+    <div class="row">
+		{{title.content()}}
+
+    </div>
+    
+    <!--Introduction Row-->
+    <div class="row">
+      {{intro.content()}}
+    </div>
+    
+    <!--Skills Rows-->
+    <div class="row">
+       {{skills.content()}}
+    </div>
+
+        <!--Experience Rows-->
+    <div class="row">
+       {{experience.content()}}
+    </div>
+
+    <!--Education Row-->
+    <div class="row">
+      {{education.content()}}
+    </div>
+
+    <!--Interests Row-->
+    <div class="row">
+      {{interests.content()}}
+    </div>
+
+    <!--Languages Row-->
+    <div class="row">
+          {{languages.content()}}
+    </div>
+
+  
+
+    
+    <!--Drivers License Row-->
+    <div class="row">
+      {{end.content()}}
+    </div>
+
+    <section class="section section-top-padding"  id="resume_container">
+  <article class="text-container">
+    
+   
+{% endblock %}

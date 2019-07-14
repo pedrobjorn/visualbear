@@ -1,0 +1,169 @@
+{% macro content(spec) %}
+{% set spec = spec or {} %}
+{% set _class = spec.class or '' %}
+{% set _content = spec.content or '{}' %}
+{% block config %}
+  {# Correct base url pathing for this page #}
+  {% set baseUrl = '../' %}
+{% endblock %}
+
+
+<div class="col-md-12">
+  <div class="col-md-3 sub-title">Experience</div>
+  <div class="col-md-9 division-line">&nbsp;</div>
+</div>
+<!--Experience Row Granditude-->
+<div class="col-md-12">
+  <div class="col-md-4">
+    <h3>2018 - 01</h3>
+  </div>
+  <div class="col-md-8">
+    <h3><a href="http://www.granditude.com" target="_blank">Sportamore AB</a> - UX / UI Designer</h3>
+  </div>
+  <div class="col-md-12">
+    <p class="text-container-small">
+      Brought on to to elevate the Sportamore e-shop user experience to the next level, and reconcile the UI visual identity.
+    </p>
+  </div>
+  <div class="col-md-12 text-container-small">
+    <div class="sub-title">Key Responsibilities</div>
+    <div class="col-md-12">
+      <ul>
+        <li>
+          - UI design
+        </li>
+        <li>
+          - UX design
+        </li>
+        <li>
+          - Visual Design
+        </li>
+      </ul>
+    </div>
+  </div>
+<!--   <div class="col-md-12 text-container-small">
+    <div class="sub-title">Key Achievements</div>
+    <div class="col-md-12">
+      <ul>
+        <li>
+          - Designed, developed and managed the development of the data app.
+        </li>
+        <li>
+          - Designed and developed the web-site and marketing.
+        </li>
+        <li>
+          - Refined the brand identity.
+        </li>
+        <li>
+          - Worked as a UI and front-end design consultant.
+        </li>
+      </ul>
+    </div>
+  </div> -->
+</div>
+<!--Experience Row Granditude-->
+<div class="col-md-12">
+  <div class="col-md-4">
+    <h3>2014 - 09</h3>
+  </div>
+  <div class="col-md-8">
+    <h3><a href="http://www.granditude.com" target="_blank">Granditude AB</a> - Product Designer</h3>
+  </div>
+  <div class="col-md-12">
+    <p class="text-container-small">
+      Initially tasked with the development of a prototype for the companies data analytics cloud solution, I  ended up handling the Product Design, User Experience, Brand Identity, Marketing, and worked as a UX / Product Design consultant.
+    </p>
+  </div>
+  <div class="col-md-12 text-container-small">
+    <div class="sub-title">Key Responsibilities</div>
+    <div class="col-md-12">
+      <ul>
+        <li>
+          - Product Design
+        </li>
+        <li>
+          - UI design
+        </li>
+        <li>
+          - UX design
+        </li>
+        <li>
+          - Front-end Development
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-12 text-container-small">
+    <div class="sub-title">Key Achievements</div>
+    <div class="col-md-12">
+      <ul>
+        <li>
+          - Designed, developed and managed the development of the data app.
+        </li>
+        <li>
+          - Designed and developed the web-site and marketing.
+        </li>
+        <li>
+          - Refined the brand identity.
+        </li>
+        <li>
+          - Worked as a UI and front-end design consultant.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!--Experience Row Plotago-->
+<div class="col-md-12 upper-space">
+  <div class="col-md-4">
+    <h3>2013 - 01</h3>
+  </div>
+  <div class="col-md-8">
+    <h3><a href="http://www.plotagon.com" target="_blank">Plotagon AB</a> - Junior Technical Artist</h3>
+  </div>
+  <div class="col-md-12">
+    <p class="text-container-small">
+      After a 6 month internship, I was hired as a Junior Unity Developer, and worked with the implementation of art assets into the <a href="https://unity3d.com" target="_blank">Unity engine</a>, and ensured the content was consistent.
+    </p>
+  </div>
+  <div class="col-md-12 text-container-small">
+    <div class="sub-title">Key Responsibilities</div>
+    <div class="col-md-12">
+      <ul>
+        <li>
+          - Content Quality Inspector
+        </li>
+        <li>
+          - Unity Scene Lighting
+        </li>
+        <li>
+          - Unity Environment Art
+        </li>
+        <li>
+          - Developing Unity Tools
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-12 text-container-small">
+    <div class="sub-title">Key Achievements</div>
+    <div class="col-md-12">
+      <ul>
+        <li>
+          - Constructed environments out of provided assets.
+        </li>
+        <li>
+          - Tested the app for bugs and maintained quality.
+        </li>
+        <li>
+          - Provided tools that facilitated the artists' workflow.
+        </li>
+        <li>
+          - Coordinated between the artists and developers.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% endmacro %}

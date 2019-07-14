@@ -146,14 +146,6 @@ main {
     padding-bottom: 128px;
 }
 
-.container, .container__open {
-    max-width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin:auto;
-}
-
 .item {
     width: auto;
     flex-order: 1;

@@ -2,7 +2,7 @@
 {% set spec = spec or {} %}
 {% set _class = spec.class or '' %}
 <!-- Footer -->
-<section class="text-block foot">
+<section class="foot">
   <article>
     <ul class="socialContainer">
       <a id="follow-button" class="vb-btn-icon " title="Follow @pedrobjorn on Twitter" href="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Flocalh…rc=twsrc%5Etfw&region=follow_link&screen_name=pedrobjorn&tw_p=followbutton" title="Follow @pedrobjorn on Twitter">
