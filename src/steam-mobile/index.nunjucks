@@ -1,12 +1,15 @@
-{% extends '_layouts/work.nunjucks' %}
+{% extends "_layouts/work.nunjucks" %}
 {% import "_modules/organisms/headline/headline.nunjucks" as headline %}
 {% block config %}
-    {% set baseUrl = '../' %}
+    {% set baseUrl = "../" %}
 {% endblock %}
 {% block content %}
+
     <article class="section section-top-padding" id="steammobile_container">
         <section class="gallery-container">
-            {{headline.content({content:site.data.steammobile,class:hero-about})}}
+
+            {{headline.content({content:site.data.project_steam,class:"container--gradient_light"})}}
+
             <!-- PROCESS -->
             <div class="container--padded dark-bg">
                 <div class="document-text text-box center-justified">

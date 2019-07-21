@@ -2,57 +2,64 @@
 {% set spec = spec or {} %}
 {% set _class = spec.class or '' %}
 {% set _content = spec.content or '{}' %}
-
-<div class="container container--gradient_light" style="padding-bottom:0;">
-	<div class="document-text text-box">
-		<div class="logo-image">
-			<img src="../images/work/fullsize/steam/details/logo_main.png" title="Image"  width="auto" height="auto">
-		</div>
-		<h2 class="center-justified">{{_content.description}}</h2>
-		<div class="paragraph-container center-justified">
-			<div class="row">
-				<div class="col m12 s12">
-					<h3>Released</h3>
-					<p>{{_content.released}}</p>
-				</div>
-				<div class="col m6 s12">
-					<h3>Responsibilities</h3>
-					<p>{{_content.responsibilities}}</p>
-				</div>
-				<div class="col m6 s12">
-					<h3>Tools</h3>
-					<p>{{_content.tools}}</p>
+{% block content %}
+	<div class="container {{_class}}" style="padding-bottom:0;">
+		<div class="document-text text-box">
+			<div class="logo-image">
+				<img src="{{_content.logoImg}}" title="Image"  width="auto" height="auto">
+			</div>
+			<h2 class="center-justified">{{_content.description}}</h2>
+			<div class="paragraph-container center-justified">
+				<div class="row">
+					<div class="col m12 s12">
+						<h3>Released</h3>
+						<p>{{_content.released}}</p>
+					</div>
+					<div class="col m6 s12">
+						<h3>Responsibilities</h3>
+						<p>{{_content.responsibilities}}</p>
+					</div>
+					<div class="col m6 s12">
+						<h3>Tools</h3>
+						<p>{{_content.tools}}</p>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="paragraph-container">
-			<p>Steam, created by Valve Software, is the biggest gaming client in the world, with 12.5 million active users. </p>
-			<p>The Steam Mobile App, the mobile equivalent of Steam, released in 2012, has maintained a lot of UI patterns from the time, with few updates to
-			its design and usability.</p>
-		</div>
-		<div class="paragraph-container row">
-			<div class="col m6">
-				<h3>Challenge</h3>
-				<p>To improve Steam Mobiles user interface, both functionally and visually, whilst
-				maintaining its vast functionality.</p>
+			<div class="paragraph-container">
+				{% for paragraph in _content.intro %}
+					
+					
+					<p>{{paragraph.paragraph}}</p>
+					
+					
+				{% endfor %}
 			</div>
-			<div class="col m6">
-				<h3>Goals</h3>
-				<ul>
-					<li>
-						<p>- Refine usability by changing the app
-						structure, navigation, and UI elements.</p>
-					</li>
-					<li>
-						<p>- Update visual identity to better match the contemporary Steam App, and to better suit higher resolution devices.</p>
-					</li>
-				</ul>
+			<div class="paragraph-container row">
+				<div class="col m6">
+					<h3>Challenge</h3>
+					<p>{{_content.challenge}}</p>
+				</div>
+				<div class="col m6">
+					<h3>Goals</h3>
+					<ul>
+						{% for goal in _content.goals %}
+							
+							<li>
+								<p>{{goal.goal}}</p>
+							</li>
+							
+						{% endfor %}
+						
+					</ul>
+				</div>
 			</div>
-		</div>
-		<div class="gallery-image">
-			<img src="../images/work/fullsize/steam/details/profile-screen_sneek.png" title="Image"  width="auto" height="auto">
-			
+			{% if _content.headline_img %}
+			<div class="gallery-image">
+				<img src="{{_content.headline_img}}" title="Image"  width="auto" height="auto">
+				
+			</div>
+			{% endif %}
 		</div>
 	</div>
-</div>
+{% endblock %}
 {% endmacro %}

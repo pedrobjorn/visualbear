@@ -1,0 +1,25 @@
+{
+  "title": "Brand Design",
+  "subtitle": "Brand Design",
+  "href": "../projecto-lynx",
+  "img": "",
+  "logoImg": "../images/work/fullsize/lynx/projecto-lynx_logo.svg",
+  "description": "The design of my personal brand and portfolio identity.",
+  "released": "August 15th 2014",
+  "responsibilities": "Brand Design",
+  "tools": "Paper &amp; Pen, Illustrator, Photoshop",  
+  "intro": [{
+    "paragraph":"Designed for an Iberian lynx awareness group, <a href=\"https://www.facebook.com/projectolynx?fref=nf\" target=\"_blank\" alt=\"Facebook page  link\">Projecto Lynx</a>, was made as a good will project to support the endangered wild Iberian lynx. The group had an existing brand, however it needed to be remade."
+  },{
+    "paragraph":"This included a logo and brand direction, with research made into animal-based logos, and other lynx themed logos."
+  },{
+    "paragraph":"There was an effort to avoid likeness to sports teams logos, which tend to have a very specific styling. Instead, a more minimal, frontal approach to the lynx head was taken."
+  }],
+  "challenge":"Projecto Lynx was in need of a logo redesign. Having an established brand and identity, they wanted to take their cause to the next level, and this required an icon and logo that would enforce their legitimacy.",
+  "goals":[{
+   "goal":"- Redsign the existing logo so as to elevate the Projecto Lynx identity and reputability."
+  },{
+   "goal":"- Provide assets and guidelines so existing and future Projecto Lynx members can use the Logo and updated identity accordingly."
+  }]
+}
+

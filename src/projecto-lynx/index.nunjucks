@@ -5,10 +5,11 @@
 	{% set baseUrl = '../' %}
 {% endblock %}
 {% block content %}
-	<article class="section section-top-padding" id="steammobile_container">
+	<article class="section section-top-padding" id="lynx_container">
 		<section class="gallery-container">
 			
-			{{headline.content({content:site.data.playhero,class:hero-about})}}
+			{{headline.content({content:site.data.project_lynx,class:hero-about})}}
+			
 			<div class="container--padded">
 				<div class="document-text text-box">
 					<div class="gallery-image">
