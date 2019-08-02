@@ -13,7 +13,7 @@
 			<div class="container--padded">
 				<div class="document-text text-box">
 					<div class="headshot-container">
-						<img src="../../img/misc/profile_photo.png" height="192px" width="192px">
+						<img src="../images/misc/profile_photo.png" height="192px" width="192px">
 					</div>
 					<p>
 						Hi! I'm <b>Pedro Björn</b>.

@@ -13,6 +13,12 @@
 {% set _target = spec.target or '_self' %}
 {% set _title = spec.title or 'Default Link' %}
 {% set _subtitle = spec.subtitle or 'Default Link' %}
+{% set _cardPlay = {
+    "title": "Play",
+    "subtitle": "Illustration & Graphic design",
+    "href": "../play",
+    "img": "../images/work/thumbs/"
+} %}
 
 <div class="content gallery">
 	
@@ -23,8 +29,13 @@
 		{% for val in _content %}
 		
 		{{card.content({card:val})}}
+
+
 			
 		{% endfor %}
+
+		
+{{card.content({card:_cardPlay})}}
 
 	</div>
 
