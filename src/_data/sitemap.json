@@ -9,5 +9,5 @@
   "href": "../about"
 },{
   "linkname": "Contact",
-  "href": "../#contact"
+  "href": "#contact"
 }]

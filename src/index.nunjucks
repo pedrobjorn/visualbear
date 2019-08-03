@@ -18,7 +18,4 @@
 
 
 </div>
-<div id="contact">
-Hello
-</div>
 {% endblock %}

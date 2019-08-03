@@ -8,7 +8,7 @@ dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
+figure, figcaption, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
   margin: 0;
@@ -61,6 +61,10 @@ small {
     margin: 0;
     padding: 0;
     line-height: 0;
+}
+
+.text-center{
+    text-align: center;
 }
 
 .left-align {
@@ -136,7 +140,7 @@ label {
 
 a {
     text-decoration: underline;
-    color: $vb-primary;
+    color: $vb-light;
     font-weight: 400;
 
     &:hover,
@@ -322,7 +326,7 @@ a {
 
     .title {
         margin: 0;
-        padding-bottom: 32px;
+        padding: 0px;
     }
 }
 
@@ -375,7 +379,7 @@ a {
 
     .title {
         margin: 0;
-        padding-bottom: 32px;
+        padding: 0px;
     }
 }
 
@@ -428,7 +432,7 @@ a {
 
     .title {
         margin: 0;
-        padding-bottom: 32px;
+        padding: 0px;
     }
 }
 

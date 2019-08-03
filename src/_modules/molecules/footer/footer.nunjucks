@@ -2,8 +2,15 @@
 {% set spec = spec or {} %}
 {% set _class = spec.class or '' %}
 <!-- Footer -->
-<section class="foot">
-  <article>
+<article class="foot">
+  <section class="content container--padded" id="contact">
+    <div>
+      <h2 class="title"> Contact </h2>
+      <h3>Want to get in touch? Just email me at</h3>
+      <h3> <a href="mailto:hello@visualbear.com?Subject=Hello%20visualbear!" target="_top">hello@visualbear.com</a></h3>
+    </div>
+  </section>
+  <section class="container">
     <ul class="socialContainer">
       <a id="follow-button" class="vb-btn-icon " title="Follow @pedrobjorn on Twitter" href="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Flocalh…rc=twsrc%5Etfw&region=follow_link&screen_name=pedrobjorn&tw_p=followbutton" title="Follow @pedrobjorn on Twitter">
         <img src="../images/icons/twitter_icon_64.jpg" alt="Twitter Icon" width="48px" height="48px">
@@ -15,7 +22,7 @@
         <img src="../images/icons/linkdin_icon_64.jpg" alt="LinkedIn Icon" width="48px" height="48px">
       </a>
     </ul>
-  </article>
+  </section>
   <footer>
     <div class="text-center">
       <p>Made by Pedro Bj&#246;rn. </p>
@@ -27,6 +34,5 @@
       </p>
     </div>
   </footer>
-</section>
-
+</article>
 {% endmacro %}
