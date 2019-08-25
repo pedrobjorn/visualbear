@@ -24,7 +24,6 @@
 
 .container--padded {
     @extend .container;
-
     padding: 128px 0;
 }
 
@@ -109,8 +108,9 @@
 }
 
 .logo-image {
-    // @extend .gallery-image;
-    // width:100%;
+    @extend .gallery-image;
+    width:40%;
+    margin: auto;
     img {
         margin: auto;
         display: block;
@@ -342,6 +342,13 @@
 
     #sos {
         @include background-image("../img/work/thumbs/gallery_thumb_sos.jpg");
+    }
+}
+
+.gallery-image--full{
+    // @extend .gallery-image;
+    img{
+        max-width:100%;
     }
 }
 
@@ -686,8 +693,6 @@
     }
 
     .logo-image {
-        // @extend .gallery-image;
-        width: auto;
 
         img {
             width: 50%;
@@ -868,8 +873,7 @@
     }
 
     .logo-image {
-        // @extend .gallery-image;
-        width: auto;
+        width: 50%;
 
         img {
             width: 50%;
@@ -1023,8 +1027,7 @@
     }
 
     .logo-image {
-        // @extend .gallery-image;
-        width: auto;
+        width: 50%;
 
         img {
             width: 50%;
@@ -1269,8 +1272,7 @@
     }
 
     .logo-image {
-        // @extend .gallery-image;
-        width: auto;
+        width: 50%;
 
         img {
             width: 75%;
