@@ -1,11 +1,46 @@
 // hero styles
 
 .hero {
-    // background: -moz-linear-gradient(top, #e64900 0%, #313135 100%); /* FF3.6-15
-    //    background: -webkit-linear-gradient(top, #e64900 0%,#313135 100%); /* Chrome10-25,Safari5.1-6
-    //    background: linear-gradient(to bottom, #e64900 0%,#313135 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+
-    //    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff621a', endColorstr='#313135',GradientType=0 ); /* IE6-9 */
+    color: $vb-light;
     width: 100%;
-    height: 75vh;
-    padding: 128px 0;
+    height: 100vh;
+    padding: 20vh 16px;
+
+    a {
+        text-decoration: none;
+        color: $vb-light;
+        font-weight: bold;
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+            color: $vb-light;
+            background-color: $vb-primary;
+        }
+    }
+
+}
+
+
+@include mq($until: mobile) {
+    // hero styles
+
+}
+
+
+// Apply styling up to devices smaller than tablets (exclude tablets)
+@include mq($from: mobile, $until: tablet) {
+
+}
+
+
+// Same thing, in landscape orientation
+@include mq($until: tablet, $and: "(orientation: landscape)") {
+    nav {}
+}
+
+
+// Apply styling to tablets up to desktop (exclude desktop)
+@include mq(desktop) {
+    nav {}
 }

@@ -7,11 +7,11 @@
   {% set baseUrl = '../' %}
 {% endblock %}
   <div class="col-md-12">
-    <div class="col-md-3 sub-title">Interests</div>
-    <div class="col-md-9 division-line">&nbsp;</div>
+    <h2 class="col-md-3 sub-title">Interests</h2>
+    
   </div>
   <div class="col-md-12">
-    <p>When I'm not playing with personal projects, I like to draw, play games, and I'm a big fan of cinema as well. I really enjoy attending art and design exhibitions, as well as live shows whenever possible.</p>
+    <p>When I'm not playing with personal projects, I like to draw, play table-top games, and I'm a big fan of cinema as well. I really enjoy attending art and design exhibitions, as well as live shows whenever possible.</p>
   </div>
   
 {% endmacro %}

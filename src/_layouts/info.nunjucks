@@ -27,9 +27,10 @@
       <![endif]-->
       <div class="container__open">
         {% block content %}{% endblock %}
+
       </div>
-        {{footer.content({})}}
     </div>
+        {{footer.content({})}}
     <script src="{{baseUrl}}scripts/main.js"></script>
     {% block scripts %}{% endblock %}
     

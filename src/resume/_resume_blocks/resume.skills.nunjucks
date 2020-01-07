@@ -8,8 +8,7 @@
 {% endblock %}
 
 <div class="col-md-12 text-container-small">
-  <div class="col-md-3 sub-title">Core Skills</div>
-  <div class="col-md-9 division-line">&nbsp;</div>
+  <h2 class="col-md-3 sub-title">Core Skills</h2>
   <div class="col-md-4">
     <ul>
       <li>
@@ -44,8 +43,8 @@
   </div>
 </div>
 <div class="col-md-12 text-container-small">
-  <div class="col-md-3 sub-title">Technical Skills</div>
-  <div class="col-md-9 division-line">&nbsp;</div>
+  <h2 class="col-md-3 sub-title">Technical Skills</h2>
+  
   <div class="col-md-4">
     <ul>
       <li>

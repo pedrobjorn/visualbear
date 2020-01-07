@@ -9,16 +9,17 @@
 
 
 <div class="col-md-12">
-  <div class="col-md-3 sub-title">Experience</div>
-  <div class="col-md-9 division-line">&nbsp;</div>
+  <h2 class="col-md-3 sub-title">Experience</h2>
 </div>
-<!--Experience Row Granditude-->
+
+
+<!--Experience Row Sportamore-->
 <div class="col-md-12">
   <div class="col-md-4">
     <h3>2018 - 01</h3>
   </div>
   <div class="col-md-8">
-    <h3><a href="http://www.granditude.com" target="_blank">Sportamore AB</a> - UX / UI Designer</h3>
+    <h3><a href="http://www.granditude.com" target="_blank">Sportamore AB</a> - Digital Product Designer</h3>
   </div>
   <div class="col-md-12">
     <p class="text-container-small">
@@ -26,9 +27,12 @@
     </p>
   </div>
   <div class="col-md-12 text-container-small">
-    <div class="sub-title">Key Responsibilities</div>
+    <h4 class="sub-title">Key Responsibilities</h4>
     <div class="col-md-12">
       <ul>
+        <li>
+          - Digital Product Design
+        </li>
         <li>
           - UI design
         </li>
@@ -41,25 +45,25 @@
       </ul>
     </div>
   </div>
-<!--   <div class="col-md-12 text-container-small">
-    <div class="sub-title">Key Achievements</div>
+  <div class="col-md-12 text-container-small">
+    <h4 class="sub-title">Key Achievements</h4>
     <div class="col-md-12">
       <ul>
         <li>
-          - Designed, developed and managed the development of the data app.
+          - Responsible for UX, UI and Visual Design redesign of the ecommerce web pages Sportamore and Sportamore Outlet.
         </li>
         <li>
-          - Designed and developed the web-site and marketing.
+          - Set up and assisted in the implementation of the Design System and Pattern Library.
         </li>
         <li>
-          - Refined the brand identity.
+          - Established and introduced user research into decision making and other processes.
         </li>
         <li>
-          - Worked as a UI and front-end design consultant.
+          - Worked in the improvement of dev and design collaboration and processes.
         </li>
       </ul>
     </div>
-  </div> -->
+  </div>
 </div>
 <!--Experience Row Granditude-->
 <div class="col-md-12">
@@ -75,7 +79,7 @@
     </p>
   </div>
   <div class="col-md-12 text-container-small">
-    <div class="sub-title">Key Responsibilities</div>
+    <h4 class="sub-title">Key Responsibilities</h4>
     <div class="col-md-12">
       <ul>
         <li>
@@ -94,7 +98,7 @@
     </div>
   </div>
   <div class="col-md-12 text-container-small">
-    <div class="sub-title">Key Achievements</div>
+    <h4 class="sub-title">Key Achievements</h4>
     <div class="col-md-12">
       <ul>
         <li>
@@ -127,7 +131,7 @@
     </p>
   </div>
   <div class="col-md-12 text-container-small">
-    <div class="sub-title">Key Responsibilities</div>
+    <h4 class="sub-title">Key Responsibilities</h4>
     <div class="col-md-12">
       <ul>
         <li>
@@ -146,7 +150,7 @@
     </div>
   </div>
   <div class="col-md-12 text-container-small">
-    <div class="sub-title">Key Achievements</div>
+    <h4 class="sub-title">Key Achievements</h4>
     <div class="col-md-12">
       <ul>
         <li>

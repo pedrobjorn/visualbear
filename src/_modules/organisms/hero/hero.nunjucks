@@ -4,8 +4,15 @@
 {% set _content = spec.content or '' %}
 <div class="hero {{_class}}">
 	<div class="content">
-		<title>{{_content.title}}</title>
-		<subtitle>{{_content.body}}</subtitle>
+		<div class="jumbo-text">
+			<a href="#work" alt="Title link work">
+				{{_content.title}}
+			</a>
+			<p><a href="./about" alt="Title link work">
+				{{_content.body}}
+			</a>
+		</p>
 	</div>
+</div>
 </div>
 {% endmacro %}

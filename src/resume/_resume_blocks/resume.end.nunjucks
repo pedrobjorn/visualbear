@@ -9,7 +9,7 @@
 
 <!-- <div class="col-md-12">
   <div class="col-md-3 sub-title">Drivers License</div>
-  <div class="col-md-9 division-line">&nbsp;</div>
+  
 </div>
 <div class="col-md-12">
   <p>Yes.</p>
@@ -18,7 +18,7 @@
 <!--References-->
 <!-- <div class="col-md-12 upper-space">
   <div class="col-md-3 sub-title">References</div>
-  <div class="col-md-9 division-line">&nbsp;</div>
+  
 </div>
 <div class="col-md-12">
   <p><a href="mailto:visualbear.bjorn@gmail.com?subject=Request for job references">Available upon request</a></p>
@@ -26,13 +26,12 @@
 
 <!--Download-->
 <div class="col-md-12">
-  <div class="col-md-3 sub-title">Download</div>
-  <div class="col-md-9 division-line">&nbsp;</div>
+  <h2 class="col-md-3 sub-title">Download</h2>
 </div>
 <div class="col-md-12">
   <ul>
     <li>
-      <a href="../images/work/resume/Resume-Pedro-Bjorn.pdf" download="Resume-Pedro-Bjorn">Download Resume</a></p>
+      <a href="../images/work/resume/Resume-Pedro-Bjorn.pdf" download="Resume-Pedro-Bjorn">Download Resume</a>
     </li>
 <!--     <li>
       <a href="../images/work/resume/Resume-Pedro-Bjorn-Full.pdf" download="Resume-Pedro-Bjorn-Full">Download Resume - Long</a></p>

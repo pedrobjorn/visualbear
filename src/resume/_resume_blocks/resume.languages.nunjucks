@@ -8,8 +8,8 @@
 {% endblock %}
 
 <div class="col-md-12">
-  <div class="col-md-3 sub-title">Languages</div>
-    <div class="col-md-9 division-line">&nbsp;</div>
+  <h2 class="col-md-3 sub-title">Languages</h2>
+    
 </div>
 <div class="col-md-12">
   <ul>
