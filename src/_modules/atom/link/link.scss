@@ -1,21 +1,29 @@
 // link styles
 
-// unvisited link
-a:link {
-    color: #ff0000;
-}
+a {
+    text-decoration: underline;
+    color: $vb-light;
+    font-weight: 400;
 
-// visited link
-a:visited {
-    color: #00ff00;
-}
+    &:link {
+        color: $vb-primary;
+        text-decoration: underline;
+    }
 
-// mouse over link
-a:hover {
-     color: $vb-light;
-}
+    &:visited {
+        color: darken($vb-primary, 20);
+    }
 
-// selected link
-a:active {
-    color: #0000ff;
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        color: $vb-light;
+        background-color: $vb-primary;
+    }
+
+    &:active {
+        text-decoration: none;
+        color: $vb-light;
+        background-color: $vb-secondary;
+    }
 }
