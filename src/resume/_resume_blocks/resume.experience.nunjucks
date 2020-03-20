@@ -14,7 +14,7 @@
 
 
 <!--Experience Row Sportamore-->
-<div class="col-md-12">
+<div class="col-md-12  upper-space">
   <div class="col-md-4">
     <h3>2018 - 01</h3>
   </div>
@@ -66,7 +66,7 @@
   </div>
 </div>
 <!--Experience Row Granditude-->
-<div class="col-md-12">
+<div class="col-md-12  upper-space">
   <div class="col-md-4">
     <h3>2014 - 09</h3>
   </div>

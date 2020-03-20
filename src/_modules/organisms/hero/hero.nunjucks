@@ -5,14 +5,14 @@
 <div class="hero {{_class}}">
 	<div class="content">
 		<div class="jumbo-text">
-			<a href="#work" alt="Title link work">
-				{{_content.title}}
-			</a>
-			<p><a href="./about" alt="Title link work">
-				{{_content.body}}
-			</a>
-		</p>
+			<ul>
+				<li>Hej!</li>
+				<li>I'm <a href="./about" alt="Title link about me"> Pedro Bj&ouml;rn</a>.</li>
+				<li>
+					<a href="#work" alt="Title link work">Checkout my work</a> or <a href="#contact" alt="Title link contact me"> get in touch</a>.
+				</li>
+			</ul>
+		</div>
 	</div>
-</div>
 </div>
 {% endmacro %}

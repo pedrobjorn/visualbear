@@ -70,11 +70,6 @@
 @import "molecules/d3";
 @import "molecules/textelements";
 
-// //layout
-@import "organisms/nav";
-@import "organisms/footer";
-
-
 @import "templates/gallery.scss";
 @import "templates/pages.scss";
 @import "templates/resume.scss";
@@ -94,6 +89,7 @@
 
 @import "../_modules/molecules/nav/nav";
 @import "../_modules/molecules/card/card";
+@import "../_modules/molecules/footer/footer";
 
 @import "../_modules/organisms/gallery/gallery";
 @import "../_modules/organisms/hero/hero";

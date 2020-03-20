@@ -1,0 +1,24 @@
+{
+  "title": "art ent app",
+  "subtitle": "Branding, Product Design, Front-end",
+  "href": "../art_ent",
+  "img": "../images/work/thumbs/gallery_thumb_artent.jpg",
+  "headline_img":"../images/work/fullsize/steam/details/profile-screen_sneek.png",
+  "logoImg": "../images/work/fullsize/steam/details/logo_main.png",
+  "description": "Connecting artist and potential students.",
+  "released": "August 20th 2020",
+  "responsibilities": "Branding, Product Design, Front-end",
+  "tools": "Paper &amp; Pen, TextEdit, Illustrator, Photoshop",
+  "intro": [{
+    "paragraph":"Steam, created by Valve Software, is the biggest gaming client in the world, with 12.5 million active users."
+  },{
+    "paragraph":"The Steam Mobile App, the mobile equivalent of Steam, released in 2012, has maintained a lot of UI patterns from the time, with few updates to its design and usability."
+  }],
+  "challenge":"To improve Steam Mobiles user interface, both functionally and visually, whilst maintaining its vast functionality.",
+  "goals":[{
+   "goal":"- Refine usability by changing the app structure, navigation, and UI elements."
+  },{
+   "goal":"- Update visual identity to better match the contemporary Steam App, and to better suit higher resolution devices."
+  }]
+}
+
