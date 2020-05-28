@@ -13,9 +13,7 @@
 {{hero.content({content:site.data.index,class:hero-about})}}
 
 <div id="work">
-
 {{gallery.content({content:site.data.work, contentType:''})}}
-
-
 </div>
+
 {% endblock %}

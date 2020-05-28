@@ -34,7 +34,7 @@
 					<br>
 					<p>Feel free to <a href="../#work" class="highlight"  onclick="scroller('gallery')"><b>check out my work</b></a>,
 					my <a href="../resume" class="highlight"><b>online resume</b></a>,and don't forget to
-					<a href="../#contact" class="highlight"  onclick="scroller('contact')"><b>say hello!</b></a></p>
+					<a href="#contact" class="highlight"  onclick="scroller('contact')"><b>say hello!</b></a></p>
 					
 				</div>
 			</div>

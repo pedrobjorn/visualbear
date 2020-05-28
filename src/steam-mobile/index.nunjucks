@@ -1,5 +1,7 @@
 {% extends "_layouts/work.nunjucks" %}
 {% import "_modules/organisms/headline/headline.nunjucks" as headline %}
+
+{% import "_modules/molecules/buttonslider/buttonslider.nunjucks" as buttonslider %}
 {% block config %}
     {% set baseUrl = "../" %}
 {% endblock %}
@@ -312,20 +314,11 @@
                     </div>
                 </div>
             </div>
-            <div class="btn-container row">
-                <a href="/visualbear" class="col s6">
-                    <button type="button" class="btn vb-btn-full left-align">
-                    Prev
-                    </button>
-                </a>
-                <div class="col s6">
-                    <!-- <a href="/steammobile" class=" col-sm-offset-6 col-xs-6"> -->
-                    <button type="button" class="btn vb-btn-disabled right-align" disabled>
-                    Next >
-                    </button>
-                    <!-- </a> -->
-                </div>
-            </div>
+                          {{buttonslider.content({
+          nexthref: site.data.project_steam.nexthref,
+          prevhref: site.data.project_steam.prevhref,
+          text: var.linkname
+          })}}
         </section>
     </article>
 {% endblock %}

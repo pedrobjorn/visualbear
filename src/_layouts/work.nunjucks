@@ -6,6 +6,7 @@
 {% endblock %}
 {% import "_modules/molecules/nav/nav.nunjucks" as nav %}
 {% import "_modules/molecules/footer/footer.nunjucks" as footer %}
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
   <head>

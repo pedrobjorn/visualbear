@@ -1,5 +1,6 @@
 {% extends '_layouts/work.nunjucks' %}
 {% import "_modules/organisms/headline/headline.nunjucks" as headline %}
+{% import "_modules/molecules/buttonslider/buttonslider.nunjucks" as buttonslider %}
 {% block config %}
 	{# Correct base url pathing for this page #}
 	{% set baseUrl = '../' %}
@@ -9,7 +10,6 @@
 		<section class="gallery-container">
 			
 			{{headline.content({content:site.data.project_visualbear,class:hero-about})}}
-
 			<div class="container--padded ">
 				<div class="document-text text-box">
 					<div class="paragraph-container--icons row">
@@ -53,18 +53,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="btn-container row">
-				<a href="/projecto-lynx" class="col s6">
-					<button type="button" class="btn vb-btn-full left-align">
-					Prev
-					</button>
-				</a>
-				<a href="/steam-mobile" class="col s6">
-					<button type="button" class="btn vb-btn-full right-align">
-					Next >
-					</button>
-				</a>
-			</div>
+			{{buttonslider.content({
+			nexthref: site.data.project_visualbear.nexthref,
+			prevhref: site.data.project_visualbear.prevhref,
+			text: var.linkname
+			})}}
 		</section>
 	</article>
 {% endblock %}

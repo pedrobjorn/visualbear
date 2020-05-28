@@ -2,6 +2,8 @@
   "title": "art ent app",
   "subtitle": "Branding, Product Design, Front-end",
   "href": "../art_ent",
+  "prevhref": "../steam-mobile",
+  "nexthref": "../disabled",
   "img": "../images/work/thumbs/gallery_thumb_artent.jpg",
   "headline_img":"../images/work/fullsize/steam/details/profile-screen_sneek.png",
   "logoImg": "../images/work/fullsize/steam/details/logo_main.png",

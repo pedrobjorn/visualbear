@@ -13,9 +13,10 @@
 
 {% block content %}
 
-{{hero.content({content:site.data.play-hero,class:hero-about})}}
+{{hero.content({content:site.data.playhero,class:hero-about})}}
 
-
+<div id="play">
 {{gallery.content({content:site.data.play, contentType:'play'})}}
+</div>
 
 {% endblock %}

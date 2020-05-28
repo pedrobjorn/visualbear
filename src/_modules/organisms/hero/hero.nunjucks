@@ -5,13 +5,7 @@
 <div class="hero {{_class}}">
 	<div class="content">
 		<div class="jumbo-text">
-			<ul>
-				<li>Hej!</li>
-				<li>I'm <a href="./about" alt="Title link about me"> Pedro Bj&ouml;rn</a>.</li>
-				<li>
-					<a href="#work" alt="Title link work">Checkout my work</a> or <a href="#contact" alt="Title link contact me"> get in touch</a>.
-				</li>
-			</ul>
+			{{_content.title}}
 		</div>
 	</div>
 </div>

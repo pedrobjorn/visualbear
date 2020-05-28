@@ -1,5 +1,7 @@
 {% extends '_layouts/work.nunjucks' %}
 {% import "_modules/organisms/headline/headline.nunjucks" as headline %}
+
+{% import "_modules/molecules/buttonslider/buttonslider.nunjucks" as buttonslider %}
 {% block config %}
 	{# Correct base url pathing for this page #}
 	{% set baseUrl = '../' %}
@@ -61,20 +63,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="btn-container row">
-				<div class="col s6">
-					<!-- <a href="/ad-hops" class="col-xs-6"> -->
-					<button type="button" class="btn vb-btn-full left-align" disabled>
-					Prev
-					</button>
-					<!-- </a> -->
-				</div>
-				<a href="/projecto-lynx" class="col s6">
-					<button type="button" class="btn vb-btn-full right-align">
-					Next >
-					</button>
-				</a>
-			</div>
+                          {{buttonslider.content({
+          nexthref: site.data.project_adhops.nexthref,
+          prevhref: site.data.project_adhops.prevhref,
+          text: var.linkname
+          })}}
 		</section>
 	</article>
 {% endblock %}

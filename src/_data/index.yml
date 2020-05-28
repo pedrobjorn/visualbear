@@ -1,2 +1,8 @@
 name: about
-title: Hi! I'm Pedro.
+title: <ul>
+        <li>Hej!</li>
+        <li>I'm <a href="./about" alt="Title link about me">Pedro Bj&ouml;rn</a>.</li>
+        <li>
+          <a href="#work" alt="Title link work">Checkout my work</a> or <a href="#contact" alt="Title link contact me"> get in touch</a>.
+        </li>
+      </ul>

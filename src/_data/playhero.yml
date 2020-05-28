@@ -1,0 +1,10 @@
+name: play
+title: <ul>
+        <li>Hello!</li>
+        <li>I'm a <a href="../about" alt="Title link about me">Pedro Bj&ouml;rn</a>.</li>
+        <li>
+          <a href="#play" alt="Title link work">Checkout my play.</a> or if you want 
+          <a href="#contact" alt="Title link contact me"> reach out</a>!
+        </li>
+      </ul>
+body: This is the body
