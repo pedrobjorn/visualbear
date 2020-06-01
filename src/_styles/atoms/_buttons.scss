@@ -11,13 +11,21 @@ button {
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
-    padding: 16px 0;
+    padding: 16px;
 }
 
 .btn-container {
     display: block;
     width: 100%;
-    background-color: $vb-grey;
+    background-color: $vb-dark;
+
+    a.btn{
+        text-decoration: none;
+        color: vb-light;
+    }
+    .col{
+        padding: 0;
+    }
 }
 
 .btn-navbar-brand {
