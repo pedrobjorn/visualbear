@@ -1,11 +1,16 @@
 [{
-  "title": "First Play project",
-  "subtitle": "My first play project",
-  "href":"../play/play1",
-  "img":"../images/play1-card.jpg"
+  "title": "Graphic Design",
+  "subtitle": "My Bachelor Degree paying off",
+  "href":"../play/play_graphic_design",
+  "img":"../images/play-graphic_design-card.jpg"
 },{
-  "title": "Second Play project",
-  "subtitle": "My first play project",
-  "href":"../play/play2",
-  "img":"../images/play2-card.jpg"
+  "title": "Drawings & Sketches",
+  "subtitle": "Class doodling skills",
+  "href":"../play/play_drawings",
+  "img":"../images/play-drawings-card.jpg"
+},{
+  "title": "Photography",
+  "subtitle": "I have a phone with a camera",
+  "href":"../play/play_photography",
+  "img":"../images/play-photography-card.jpg"
 }]

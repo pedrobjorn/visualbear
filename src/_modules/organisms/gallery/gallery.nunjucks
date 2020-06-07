@@ -15,7 +15,7 @@
 {% set _subtitle = spec.subtitle or 'Default Link' %}
 {% set _cardPlay = {
     "title": "Play",
-    "subtitle": "Illustration & Graphic design",
+    "subtitle": "Illustration & Graphic design fun",
     "href": "../play",
     "img": "../images/work/thumbs/"
 } %}

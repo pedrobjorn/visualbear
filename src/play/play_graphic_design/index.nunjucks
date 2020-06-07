@@ -1,0 +1,15 @@
+{% extends '_layouts/work.nunjucks' %}
+
+{% import "_modules/atom/link/link.nunjucks" as link %}
+{% import "_modules/organisms/gallery/gallery.nunjucks" as gallery %}
+
+{% import "_modules/organisms/headline/headline.nunjucks" as headline %}
+
+{% import "_modules/molecules/buttonslider/buttonslider.nunjucks" as buttonslider %}
+{% block config %}
+	{# Correct base url pathing for this page #}
+	{% set baseUrl = '../' %}
+{% endblock %}
+{% block content %}
+
+{% endblock %}

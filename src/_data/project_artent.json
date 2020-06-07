@@ -1,15 +1,15 @@
 {
   "title": "art ent app",
-  "subtitle": "Branding, Product Design, Front-end",
+  "subtitle": "Brand, Product Design, front-end",
   "href": "../art_ent",
   "prevhref": "../steam-mobile",
   "nexthref": "../disabled",
   "img": "../images/work/thumbs/gallery_thumb_artent.jpg",
   "headline_img":"../images/work/fullsize/steam/details/profile-screen_sneek.png",
   "logoImg": "../images/work/fullsize/steam/details/logo_main.png",
-  "description": "Connecting artist and potential students.",
+  "description": "Connecting artist and students.",
   "released": "August 20th 2020",
-  "responsibilities": "Branding, Product Design, Front-end",
+  "responsibilities": "Brand, Product Design, front-end",
   "tools": "Paper &amp; Pen, TextEdit, Illustrator, Photoshop",
   "intro": [{
     "paragraph":"Steam, created by Valve Software, is the biggest gaming client in the world, with 12.5 million active users."

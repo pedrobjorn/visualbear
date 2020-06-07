@@ -18,62 +18,51 @@
         - UI <span class="side-text">User Interface Design</span>
       </li>
       <li>
-        - Visual Design
+        - UX <span class="side-text">User Experience Design</span>
       </li>
       <li>
-        - UX <span class="side-text">User Experience Design</span>
+        - Visual Design
       </li>
     </ul>
   </div>
   <div class="col-md-4">
     <ul>
       <li>
-        - Web Design
+        - Branding
       </li>
       <li>
-        - Brand Identity
-      </li>
-      <li>
-        - Agile / SCRUM
-      </li>
-      <li>
-        - Front-end development
+        - Web development
       </li>
     </ul>
   </div>
 </div>
 <div class="col-md-12 text-container-small">
   <h2 class="col-md-3 sub-title">Technical Skills</h2>
-  
   <div class="col-md-4">
     <ul>
       <li>
-        - Sketch
+        - UI Design Tools <span class="side-text">e.g Sketch, Figma</span>
       </li>
       <li>
-        - InVision
+        - Adobe Suite <span class="side-text">e.g Photoshop, Illustrator</span>
       </li>
       <li>
-        - Photoshop
-      </li>
-      <li>
-        - Illustrator
+        - Prototyping Tools <span class="side-text">e.g Invision, Figma</span>
       </li>
     </ul>
   </div>
   <div class="col-md-4">
     <ul>
       <li>
-        - HTML5
+        - Project Management Tools <span class="side-text">e.g Jira, Trello </span>
       </li>
       <li>
-        - CSS3 <span class="side-text">i.e Sass</span>
+        - Front-end <span class="side-text">e.g HTML, CSS, Javascript</span>
       </li>
       <li>
-        - Javascript <span class="side-text">i.e AngularJS </span>
+        - Versioning <span class="side-text">e.g Git, SVN</span>
       </li>
       <li>
-        - Git / SVN
       </li>
     </ul>
   </div>
