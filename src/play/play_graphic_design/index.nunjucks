@@ -8,8 +8,12 @@
 {% import "_modules/molecules/buttonslider/buttonslider.nunjucks" as buttonslider %}
 {% block config %}
 	{# Correct base url pathing for this page #}
-	{% set baseUrl = '../' %}
+	{% set baseUrl = '../../' %}
 {% endblock %}
 {% block content %}
-
+<article class="section section-top-padding" id="artent_container">
+        <section class="gallery-container">
+        	test
+    	</section>
+</article>
 {% endblock %}

@@ -6,7 +6,7 @@
 <nav>
 	<div class="content nav-wrapper">
 		<a href="/" class="icon">
-			<img src="../images/icons/logo_default.svg" width="48" height="48">
+			<img src="../../images/icons/logo_default.svg" width="48" height="48">
 		</a>
 		
 		<ul id="nav-mobile" class="links">
