@@ -1,0 +1,41 @@
+{% extends '_layouts/work.nunjucks' %}
+{% import "styleguide/_styleguide_blocks/styleguide.intro.nunjucks" as intro %}
+{% import "styleguide/_styleguide_blocks/styleguide.core.nunjucks" as core %}
+{% import "styleguide/_styleguide_blocks/styleguide.modules.nunjucks" as modules %}
+{% import "styleguide/_styleguide_blocks/styleguide.containers.nunjucks" as containers %}
+{% import "styleguide/_styleguide_blocks/styleguide.templates.nunjucks" as templates %}
+{% block config %}
+	{# Correct base url pathing for this page #}
+	{% set baseUrl = '../' %}
+{% endblock %}
+{% block content %}
+	<section class="section section-top-padding"  id="resume_container">
+		<article class="text-container">
+			
+			<!--Title Row-->
+			<div class="row">
+				{{intro.content()}}
+			</div>
+		</article>
+		<article class="text-container">
+			<div class="row">
+				{{core.content()}}
+			</div>
+		</article>
+		<article class="text-container">
+			<div class="row">
+				{{modules.content()}}
+			</div>
+		</article>
+		<article class="text-container">
+			<div class="row">
+				{{containers.content()}}
+			</div>
+		</article>
+		<article class="text-container">
+			<div class="row">
+				{{templates.content()}}
+			</div>
+		</article>
+	</section>
+{% endblock %}

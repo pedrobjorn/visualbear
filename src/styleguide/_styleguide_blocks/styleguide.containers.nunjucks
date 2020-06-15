@@ -1,0 +1,178 @@
+{% macro content(spec) %}
+{% set spec = spec or {} %}
+{% set _class = spec.class or '' %}
+{% set _content = spec.content or '{}' %}
+{% block config %}
+  {# Correct base url pathing for this page #}
+  {% set baseUrl = '../' %}
+{% endblock %}
+<article class="gallery-text">
+  <small  class="page-header">Containers</small>
+  <div class="text-block">
+    <p>Containers will consist of one or more module within a block / container element. This is used to group modules into chunks that serve a purpose.</p>
+  </div>
+  <div class="text-block">
+    <h4 class="page-header">Navigation Header</h4>
+    <div class="navbar col-sm-12" role="navigation" style="z-index: 999">
+      <ul class="col-md-12">
+        <li>
+          <a class="navbar-brand" href="/">
+            <img src="../../images/icons/logo_default.svg" alt="home" height="32px" width="32px">
+          </a>
+          <button type="button" class="btn vb-btn pull-right" data-toggle="offcanvas" data-target=".navmenu">
+          <!-- <span class="bar"></span> -->
+          <span class="vb-btn-nav-icon"><img src="../../images/icons/menu-icon.png" width="24" height="24"></span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="text-block">
+    <h4 class="page-header">Navigation Menu</h4>
+    <nav class="navmenu" role="navigation" style="height:1024px">
+      <ul id="close">
+        <button type="button" class="btn vb-btn-dark pull-right" data-toggle="offcanvas" data-target=".navmenu">
+        <!--<i class="fa fa-close fa-lg"></i>-->
+        <!-- <b>X</b> -->
+        <span class="vb-btn-nav-icon"><img src="../../img/icons/menu-icon-close.png" width="24" height="24"></span>
+        </button>
+        <!--<button type="button" class="btn vb-btn-text-dark  pull-right" data-toggle="offcanvas" data-target=".navmenu">
+        Close
+        </button>-->
+      </ul>
+      <ul class="center" id="links">
+        <span class="v-align">
+          <div class="box">
+            <div class="navigation">
+              <a href="/" class="inactive" id="link">
+                <li>
+                  Home
+                </li>
+              </a>
+              <a href="/#work" class="inactive" id="link">
+                <li>
+                  Work
+                </li>
+              </a>
+              <a href="/#about" class="inactive" id="link">
+                <li>
+                  About
+                </li>
+              </a>
+              <a href="/#contact" class="inactive" id="link">
+                <li>
+                  Contact
+                </li>
+              </a>
+            </div>
+            <div class="socialContainer">
+              <a  class="vb-btn-icon " id="follow-button" title="Follow @pedrobjorn on Twitter">
+                <img src="./../images/icons/twitter_icon_64.jpg" alt="Twitter Icon" width="48px" height="48px">
+              </a>
+              <a class="vb-btn-icon "  id="follow-button" title="Visit Behance">
+                <img src="./../images/icons/behance_icon_64.jpg" alt="Behance Icon" width="48px" height="48px">
+              </a>
+              <a class="vb-btn-icon " id="follow-button" title="Visit linkedin">
+                <img src="./../images/icons/linkdin_icon_64.jpg" alt="LinkedIn Icon" width="48px" height="48px">
+              </a>
+            </div>
+          </div>
+        </span>
+      </ul>
+    </nav>
+  </div>
+  <div class="text-block ">
+    <h4 class="page-header" id="galleryimg">Image Link </h4>
+    <div class="gallerytile">
+      <a  href="#galleryimg"class=" center">
+        <span class="gallery-image v-align" id="visualbear" >
+          <div class="image-block box">
+            <h0> Visualbear
+            <small>Brand & Front-end Design</small>
+            </h0>
+          </div>
+        </span>
+      </a>
+    </div>
+  </div>
+  <div class="text-block ">
+    <h4 class="page-header" id="galleryimg"> Gallery Header</h4>
+    <div class="image_container">
+      <div  class=" center">
+        <span   class="header-image v-align" id="visualbear">
+          <div class=" header-block box">
+            <h0>Visualbear</h0>
+            <h3 class="subtitle">Brand & Front-end Design</h3>
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="text-block ">
+    <h4 class="page-header" id="galleryimg"> Text Container</h4>
+    <div class="container">
+      <div class="gallery-text">
+        <p>The objective was to define an identity for my web presence,
+          but also as an excercise in designing an identity, from logo to website,
+        with an element of freedom.</p>
+        <p>Focusing on the central aspect of "björn" (bear in Swedish, and also my last name),
+          the emphasis on the word "bear" and the logo tie it all together.
+          The dark grey contrasting with the blue are selected due to their contrast that's
+        less harsh than simply black on white.</p>
+      </div>
+    </div>
+  </div>
+  <div class="text-block">
+    <h4 class="page-header" id="galleryimg">Secondary Container</h4>
+    <div class="secondary-container">
+      <div class="text-container row">
+        <h3 class="page-header">
+        Pretty Ugly Data
+        <small>Displaying Data in a minimal way</small>
+        </h3>
+        <div class="col-md-6">
+          <p>This project uses real world data to create colourful, abstract forms.</p>
+          <p>Developed over the span of one week, the objective was to try to take important, dry data and give it new life.</p>
+          <p>This is the first of many projects that hope to take otherwise boring data and present it in a more interesting and engaging manner.</p>
+        </div>
+        <div class="col-md-6">
+          <p><i>Hint: Don't move the mouse to hide information</i></p>
+          &nbsp;
+          <p>Data sources from:</p>
+          <p><a href="#galleryimg" target="_blank">Quandl</a></p>
+          <p>Built using:</p>
+          <ul>
+            <li><a href="#galleryimg" target="_blank">jQuery</a></li>
+            <li><a href="#galleryimg" target="_blank">Bootstrap</a></li>
+            <li><a href="#galleryimg" target="_blank">D3 - Data Driven Documents</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-block ">
+    <h4 class="page-header" id="galleryimg">Footer</h4>
+    <section class="text-block foot">
+      <article class="foot">
+        <ul class="socialContainer">
+          <a id="follow-button" class="vb-btn-icon " title="Follow @pedrobjorn on Twitter">
+            <img src="./../images/icons//twitter_icon_64.jpg" alt="Smiley face" width="48px" height="48px">
+          </a>
+          <a  class="vb-btn-icon ">
+            <img src="./../images/icons//behance_icon_64.jpg" alt="Smiley face" width="48px" height="48px">
+          </a>
+          <a  class="vb-btn-icon ">
+            <img src="./../images/icons//linkdin_icon_64.jpg" alt="Smiley face" width="48px" height="48px">
+          </a>
+        </ul>
+        <footer>
+          <div class="text-center">
+            <p>Made by Pedro Bj&#246;rn. </p>
+            <p>&copy; 2015 visualbear All Rights Reserved.</p>
+          </div>
+        </footer>
+      </article>
+      <section>
+      </div>
+    </article>
+      {% endmacro %}

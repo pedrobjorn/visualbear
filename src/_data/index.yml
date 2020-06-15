@@ -1,8 +1,11 @@
 name: about
 title: <ul>
         <li>Hej!</li>
-        <li>I'm <a href="./about" alt="Title link about me">Pedro Bj&ouml;rn</a>.</li>
+        <li><a href="./about" alt="Title link about me">I'm Pedro Bj&ouml;rn</a>.</li>
         <li>
-          <a href="#work" alt="Title link work">Checkout my work</a> or <a href="#contact" alt="Title link contact me"> get in touch</a>.
+          <a href="#work" alt="Title link work">Checkout my work</a>
+        </li>
+        <li>
+          or <a href="#contact" alt="Title link contact me"> get in touch</a>.
         </li>
       </ul>
