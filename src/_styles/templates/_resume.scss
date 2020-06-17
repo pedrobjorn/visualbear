@@ -1,4 +1,11 @@
-
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
 
 @media (min-width: $break-huge) {
     #resume_container {
@@ -10,22 +17,19 @@
         }
 
         .row {
-            margin: 64px 0;
+            margin: 1.2rem 0;
         }
 
         .upper-space {
             margin-top: 32px;
-
         }
-
-
 
         .sub-title {
             color: $vb-light-grey;
         }
 
         .side-text {
-            font-size: 0.9em;
+            font-size: $middle-font-size;
             color: $vb-light-grey;
         }
 
@@ -76,21 +80,19 @@
         }
 
         .row {
-            margin: 64px 0;
+            margin: 1.2rem 0;
         }
 
         .upper-space {
             margin-top: 32px;
         }
 
-
-
         .sub-title {
             color: $vb-light-grey;
         }
 
         .side-text {
-            font-size: 0.9em;
+            font-size: $middle-font-size;
             color: $vb-light-grey;
         }
 
@@ -141,7 +143,7 @@
         }
 
         .row {
-            margin: 64px 0;
+            margin: 1.2rem 0;
         }
 
         .upper-space {
@@ -155,7 +157,7 @@
         }
 
         .side-text {
-            font-size: 0.9em;
+            font-size: $middle-font-size;
             color: $vb-light-grey;
         }
 
@@ -216,7 +218,7 @@
         }
 
         .row {
-            margin: 64px 0;
+            margin: 1.2rem 0;
         }
 
         .upper-space {
@@ -230,7 +232,7 @@
         }
 
         .side-text {
-            font-size: 0.9em;
+            font-size: $middle-font-size;
             color: $vb-light-grey;
         }
 
@@ -305,7 +307,7 @@
         background-color: #ebf5ff;
 
         .row {
-            margin: 32px 0;
+            margin: 0.6rem 0;
         }
 
         .upper-space {
@@ -319,7 +321,7 @@
         }
 
         .side-text {
-            font-size: 0.9em;
+            font-size: $middle-font-size;
             color: $vb-light-grey;
         }
 
@@ -384,7 +386,7 @@
         background-color: #ebf5ff;
 
         .row {
-            margin: 32px 0;
+            margin: 0.6rem 0;
         }
 
         .upper-space {
@@ -398,7 +400,7 @@
         }
 
         .side-text {
-            font-size: 0.9em;
+            font-size: $middle-font-size;
             color: $vb-light-grey;
         }
 
@@ -463,7 +465,7 @@
         background-color: #ebf5ff;
 
         .row {
-            margin: 32px 0;
+            margin: 0.6rem 0;
         }
 
         .upper-space {
@@ -477,7 +479,7 @@
         }
 
         .side-text {
-            font-size: 0.9em;
+            font-size: $middle-font-size;
             color: $vb-light-grey;
         }
 
