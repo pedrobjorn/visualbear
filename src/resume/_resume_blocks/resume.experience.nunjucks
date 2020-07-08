@@ -11,12 +11,12 @@
   <div class="col m4 sub-title">Experience</div>
 </div>
 <div class="row">
-  <h2 class="row">
+  <div class="row">
     <div class="col m8 s12">
       <h3><a href="http://www.sportamore.se" target="_blank">Sportamore AB</a> - Product Designer</h3>
       <h4 class="sub-title">2018 - 01</h4>
     </div>
-  </h2>
+  </div>
   <div class="row">
     <p class="col m12">
       At Sportamore I was responsible for introducing a formal UX and UI design process for a big update of the ecommerce sites, as well as establishing the process of collaboration between design and development.
@@ -56,12 +56,12 @@
 </div>
 <!--Experience Row Granditude-->
 <div class="row">
-  <h2 class="row">
+  <div class="row">
     <div class="col m8 s12">
       <h3><a href="http://www.granditude.com" target="_blank">Granditude AB</a> - Product Designer</h3>
       <h4 class="sub-title">2014 - 09</h4>
     </div>
-  </h2>
+  </div>
   <div class="row">
     <p class="col m12">
       Initially tasked with the development of a prototype for the companies data analytics cloud solu- tion, I also ended up handling the brand identity, user experience, marketing, and worked as a UX / front-end design consultant for some clients as well.
@@ -104,12 +104,12 @@
 </div>
 <!--Experience Row Plotagon-->
 <div class="row">
-  <h2 class="row">
+  <div class="row">
     <div class="col m12">
       <h3><a href="http://www.plotagon.com" target="_blank">Plotagon AB</a> - Junior Technical Artist</h3>
       <h4 class="sub-title">2013 - 01</h4>
     </div>
-  </h2>
+  </div>
   <div class="row">
     <p class="col m12">
       After a 6 month internship, I was hired as a Junior Unity Developer, and worked with the implementation of art assets into the <a href="https://unity3d.com" target="_blank">Unity engine</a>, and ensured the content was consistent.

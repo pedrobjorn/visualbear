@@ -1,4 +1,19 @@
 [{
+    "title": "art ent",
+    "subtitle": "Brand, Product Design, front-end",
+    "href": "../art_ent",
+    "img": "../images/work/thumbs/gallery_thumb_artent.jpg",
+    "content": {
+        "title": "art ent",
+        "subtitle": "Branding, Product Design, Front-end",
+        "href": "../art_ent",
+        "img": "../images/work/thumbs/gallery_thumb_artent.jpg",
+        "description": "Connecting artist to students.",
+        "released": "August 20th 2020",
+        "responsibilities": "UX, UI &amp; Visual Design",
+        "tools": "Paper &amp; Pen, TextEdit, Illustrator, Photoshop"
+    }
+},{
     "title": "Steam Mobile",
     "subtitle": "UX, UI & visual design",
     "href": "../steam-mobile",
@@ -15,17 +30,17 @@
     }
 }, {
     "title": "visualbear",
-    "subtitle": "Brand identity, UI & front-end development",
+    "subtitle": "Brand, UI & front-end design",
     "href": "../visualbear",
     "img": "../images/work/thumbs/gallery_thumb_visualbear.jpg"
 }, {
     "title": "Projecto Lynx",
-    "subtitle": "Brand identity",
+    "subtitle": "Brand design",
     "href": "../projecto-lynx",
     "img": "../images/work/thumbs/gallery_thumb_lynx.jpg"
 }, {
     "title": "Ad Hops",
-    "subtitle": "Brand identity",
+    "subtitle": "Brand design",
     "href": "../adhops",
     "img": "../images/work/thumbs/gallery_thumb_adhop.jpg"
 }]

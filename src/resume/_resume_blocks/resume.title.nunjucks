@@ -6,7 +6,7 @@
   {# Correct base url pathing for this page #}
   {% set baseUrl = '../' %}
 {% endblock %}
-<div class="col m6 s12 title">
+<div class="col m3 s12 title">
   <ul>
     <li>
       <img src="../images/misc/pedrobjorn_logo.png" alt="Pedro Bjorn logo" width="512" height="103">

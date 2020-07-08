@@ -204,10 +204,6 @@ hr {
         color: $vb-grey;
         background-color: #ebf5ff;
 
-        h3 {
-            margin: 8px 0;
-        }
-
         li {
             padding: 4px 0;
         }
@@ -243,7 +239,7 @@ hr {
                 margin: 0;
 
                 li.sub-text {
-                    font-size: 0.9em;
+                    font-size: 0.8em;
                     padding-bottom: 16px;
                 }
 
@@ -279,9 +275,6 @@ hr {
 //767px< & >480px
 @media (max-width: $break-medium) and (min-width: $break-small) {
     #resume_container {
-        h3 {
-            margin: 8px 0;
-        }
 
         li {
             padding: 4px 0;
@@ -368,10 +361,6 @@ hr {
 //480px< & >320px
 @media (max-width: $break-small) and (min-width: $break-tiny) {
     #resume_container {
-        h3 {
-            margin: 8px 0;
-        }
-
         li {
             padding: 4px 0;
         }
@@ -447,9 +436,6 @@ hr {
 //320px<
 @media (max-width: $break-tiny) {
     #resume_container {
-        h3 {
-            margin: 8px 0;
-        }
 
         li {
             padding: 4px 0;
