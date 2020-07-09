@@ -11,7 +11,8 @@ button {
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
-    padding: 16px;
+    padding: 16px 8px;
+    text-align: center;
 }
 
 .btn-container {
@@ -20,6 +21,9 @@ button {
     background-color: $vb-dark;
 
     a.btn{
+        &:visited {
+            color: $vb-light;
+        }
         text-decoration: none;
         color: vb-light;
     }
@@ -56,8 +60,8 @@ button {
     overflow: hidden;
     width: 100%;
     border: 2px 1px 2px 1px;
-    font-size: 22px;
-    height: 63px;
+    font-size: $middle-font-size;
+    height: 64px;
     cursor: pointer;
     color: $vb-light;
 

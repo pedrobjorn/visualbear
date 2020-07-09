@@ -23,7 +23,7 @@
       <a href="https://www.behance.net/visualbear" class="vb-btn-icon " title="Visit Behance" target="_blank">
         <img src="../../images/icons/behance_icon_64.jpg" alt="Behance Icon" width="48px" height="48px">
       </a>
-      <a href="https://se.linkedin.com/in/pedro-bjorn-7417324b/sv-se" class="vb-btn-icon " title="Visit LinkedIn" target="_blank">
+      <a href="https://www.linkedin.com/in/pedro-bjorn-7417324b" class="vb-btn-icon " title="Visit LinkedIn" target="_blank">
         <img src="../../images/icons/linkdin_icon_64.jpg" alt="LinkedIn Icon" width="48px" height="48px">
       </a>
     </ul>

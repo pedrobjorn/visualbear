@@ -9,19 +9,19 @@
 <div class="btn-container row">
 	
 	<div class="col s6">
-	{% if _prevhref !== "../disabled" %}
+	{% if _prevhref.link !== "../disabled" %}
 		
-		<a href="{{_prevhref}}" class="btn vb-btn-full left-align">
-			&lt; Prev
+		<a href="{{_prevhref.link}}" class="btn vb-btn-full left-align">
+			&lt; {{_prevhref.text}}
 		</a>
 	{% endif %}
 
 </div>
 
 	<div class="col s6 ">
-	{% if _nexthref !== "../disabled" %}
-	<a href="{{_nexthref}}" class="btn vb-btn-full right-align">
-		Next &gt; 
+	{% if _nexthref.link !== "../disabled" %}
+	<a href="{{_nexthref.link}}" class="btn vb-btn-full right-align">
+		{{_nexthref.text}} &gt; 
 	</a>
 	{% endif %}
 </div>
