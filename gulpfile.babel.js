@@ -58,9 +58,12 @@ gulp.task('build', [
   'imagemin',
   // 'markdown',
   'nunjucks',
-  'sass',
-  'browserify'
+  'sass:build',
+  'browserify',
+  'browserSync',
+  'watch'
 ]);
+
 
 // Server tasks with watch
 gulp.task('serve', [
@@ -68,7 +71,7 @@ gulp.task('serve', [
   'copy',
   // 'markdown',
   'nunjucks',
-  'sass',
+  'sass:dev',
   'browserify',
   'browserSync',
   'watch'
