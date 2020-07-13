@@ -2,10 +2,17 @@
 {% set spec = spec or {} %}
 {% set _class = spec.class or '' %}
 {% set _content = spec.content or '{}' %}
+
 {% block config %}
   {# Correct base url pathing for this page #}
   {% set baseUrl = '../' %}
 {% endblock %}
+
+{% import "_modules/molecules/nav/nav.nunjucks" as nav %}
+{% import "_modules/molecules/footer/footer.nunjucks" as footer %}
+
+{% block content %}
+
 <article class="gallery-text">
   <small  class="page-header">Containers</small>
   <div class="text-block">
@@ -13,73 +20,9 @@
   </div>
   <div class="text-block">
     <h4 class="page-header">Navigation Header</h4>
-    <div class="navbar col-sm-12" role="navigation" style="z-index: 999">
-      <ul class="col-md-12">
-        <li>
-          <a class="navbar-brand" href="/">
-            <img src="../../images/icons/logo_default.svg" alt="home" height="32px" width="32px">
-          </a>
-          <button type="button" class="btn vb-btn pull-right" data-toggle="offcanvas" data-target=".navmenu">
-          <!-- <span class="bar"></span> -->
-          <span class="vb-btn-nav-icon"><img src="../../images/icons/menu-icon.png" width="24" height="24"></span>
-          </button>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div class="text-block">
-    <h4 class="page-header">Navigation Menu</h4>
-    <nav class="navmenu" role="navigation" style="height:1024px">
-      <ul id="close">
-        <button type="button" class="btn vb-btn-dark pull-right" data-toggle="offcanvas" data-target=".navmenu">
-        <!--<i class="fa fa-close fa-lg"></i>-->
-        <!-- <b>X</b> -->
-        <span class="vb-btn-nav-icon"><img src="../../img/icons/menu-icon-close.png" width="24" height="24"></span>
-        </button>
-        <!--<button type="button" class="btn vb-btn-text-dark  pull-right" data-toggle="offcanvas" data-target=".navmenu">
-        Close
-        </button>-->
-      </ul>
-      <ul class="center" id="links">
-        <span class="v-align">
-          <div class="box">
-            <div class="navigation">
-              <a href="/" class="inactive" id="link">
-                <li>
-                  Home
-                </li>
-              </a>
-              <a href="/#work" class="inactive" id="link">
-                <li>
-                  Work
-                </li>
-              </a>
-              <a href="/#about" class="inactive" id="link">
-                <li>
-                  About
-                </li>
-              </a>
-              <a href="/#contact" class="inactive" id="link">
-                <li>
-                  Contact
-                </li>
-              </a>
-            </div>
-            <div class="socialContainer">
-              <a  class="vb-btn-icon " id="follow-button" title="Follow @pedrobjorn on Twitter">
-                <img src="./../images/icons/twitter_icon_64.jpg" alt="Twitter Icon" width="48px" height="48px">
-              </a>
-              <a class="vb-btn-icon "  id="follow-button" title="Visit Behance">
-                <img src="./../images/icons/behance_icon_64.jpg" alt="Behance Icon" width="48px" height="48px">
-              </a>
-              <a class="vb-btn-icon " id="follow-button" title="Visit linkedin">
-                <img src="./../images/icons/linkdin_icon_64.jpg" alt="LinkedIn Icon" width="48px" height="48px">
-              </a>
-            </div>
-          </div>
-        </span>
-      </ul>
-    </nav>
+<div style="position:absolute">
+    {{nav.content({links:site.data.sitemap})}}
+</div>
   </div>
   <div class="text-block ">
     <h4 class="page-header" id="galleryimg">Image Link </h4>
@@ -175,4 +118,6 @@
       <section>
       </div>
     </article>
+
+{% endblock %}
       {% endmacro %}

@@ -17,22 +17,22 @@
 				{{intro.content()}}
 			</div>
 		</article>
-		<article class="text-container">
+		<article class="text-container" id="core">
 			<div class="row">
 				{{core.content()}}
 			</div>
 		</article>
-		<article class="text-container">
+		<article class="text-container" id="modules">
 			<div class="row">
 				{{modules.content()}}
 			</div>
 		</article>
-		<article class="text-container">
+		<article class="text-container" id="containers">
 			<div class="row">
 				{{containers.content()}}
 			</div>
 		</article>
-		<article class="text-container">
+		<article class="text-container" id="templates">
 			<div class="row">
 				{{templates.content()}}
 			</div>

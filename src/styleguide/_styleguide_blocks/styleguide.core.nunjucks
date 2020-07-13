@@ -151,46 +151,9 @@
     <p>The following snippet of text is <strong>rendered as bold text</strong>.</p>
     <p>The following snippet of text is <i>rendered as italicized text</i>.</p>
     <p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>
-    <p class="text-left">Left aligned text.</p>
-    <p class="text-center">Center aligned text.</p>
-    <p class="text-right">Right aligned text.</p>
-    <p class="text-justify">Justified text.</p>
-    <p class="text-muted">Muted: Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
-    <p class="text-primary">Primary: Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-    <p class="text-warning">Warning: Etiam porta sem malesuada magna mollis euismod.</p>
-    <p class="text-danger">Danger: Donec ullamcorper nulla non metus auctor fringilla.</p>
-    <p class="text-success">Success: Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
-    <p class="text-info">Info: Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-  </div>
-  <div class="text-block">
-    <h3 class="page-header">Inputs</h3>
-   <!--  <form>
-      <input type="text" class="form-group form-text" name="name" id="InputName" placeholder="*" data-parsley-minlength="2" required/></input>
-      <input type="text" class="form-group form-text"  id="disabledInput" name="name" id="InputName" placeholder="*" data-parsley-minlength="2"  disabled/></input>
-      <input type="text" class="form-group form-text input-sm" name="name" id="InputName" placeholder="*" data-parsley-minlength="2" required/></input>
-      <input type="text" class="form-group form-text input-sm" name="name" id="InputName" placeholder="*" data-parsley-minlength="2" disabled/></input>
-      <div class="row">
-        <div class="col-md-2 col-xs-6">
-          <input type="text" class="form-group form-text" name="name" id="InputName" placeholder="*" data-parsley-minlength="2" required/></input>
-        </div>
-        <div class="col-md-4 col-xs-8">
-          <input type="text" class="form-group form-text" name="name" id="InputName" placeholder="*" data-parsley-minlength="2" required/></input>
-        </div>
-        <div class="col-md-6 col-xs-10">
-          <input type="text" class="form-group form-text" name="name" id="InputName" placeholder="*" data-parsley-minlength="2" required/></input>
-        </div>
-      </div> -->
-      <!--       <div class="form-group has-success has-feedback">
-        <label class="control-label" for="inputSuccess2">Input with success</label>
-        <input type="text" class="form-group form-text" name="name" id="InputName" placeholder="*" data-parsley-minlength="2" required/></input>
-        <label class="control-label" for="inputWarning2">Input with warning</label>
-        <input type="text" class="form-group form-text" name="name" id="InputName" placeholder="*" data-parsley-minlength="2" required/></input>
-        <label class="control-label" for="inputError2">Input with error</label>
-        <input type="text" class="form-group form-text" name="name" id="InputName" placeholder="*" data-parsley-minlength="2" required/></input>
-      </div> -->
-<!--       <textarea type="text" class="form-group form-text" name="Address" rows=3 cols=30 name="message" id="InputMessage" placeholder="What's on your mind?" data-parsley-maxlength="200"/>
-      </textarea>
-    </form> -->
+    <p class="left-align">Left aligned text.</p>
+    <p class="center-align">Center aligned text.</p>
+    <p class="right-align">Right aligned text.</p>
   </div>
   <div class="text-block">
     <h3 class="page-header">Buttons</h3>
