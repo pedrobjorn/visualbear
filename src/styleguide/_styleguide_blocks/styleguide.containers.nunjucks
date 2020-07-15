@@ -1,4 +1,10 @@
 {% macro content(spec) %}
+{% import "_modules/molecules/card/card.nunjucks" as card %}
+{% import "_modules/organisms/headline/headline.nunjucks" as headline %}
+{% import "_modules/molecules/footer/footer.nunjucks" as footer %}
+{% import "_modules/molecules/buttonslider/buttonslider.nunjucks" as buttonslider %}
+
+
 {% set spec = spec or {} %}
 {% set _class = spec.class or '' %}
 {% set _content = spec.content or '{}' %}
@@ -10,46 +16,71 @@
 
 {% import "_modules/molecules/nav/nav.nunjucks" as nav %}
 {% import "_modules/molecules/footer/footer.nunjucks" as footer %}
+    {% set _cardPlay = {
+    "title": "Play",
+    "subtitle": "Illustration & Graphic design fun",
+    "href": "../play",
+    "img": "../images/work/thumbs/"
+} %}
+
+{% set _headlineExtra = {
+"title": "art ent app",
+  "subtitle": "Brand, Product Design, front-end",
+  "href": "../art_ent",
+  "prevhref": {"link":"../steam-mobile","text":"Steam Mobile"},
+  "nexthref": {"link":"../disabled"},
+  "img": "../images/work/thumbs/gallery_thumb_artent.jpg",
+  "headline_img":"../images/work/fullsize/steam/details/profile-screen_sneek.png",
+  "logoImg": "../images/work/fullsize/steam/details/logo_main.png",
+  "description": "Connecting artist and students.",
+  "released": "August 20th 2020",
+  "responsibilities": "Brand, Product Design, front-end",
+  "tools": "Paper &amp; Pen, TextEdit, Illustrator, Photoshop",
+  "intro": [{
+    "paragraph":"Steam, created by Valve Software, is the biggest gaming client in the world, with 12.5 million active users."
+  },{
+    "paragraph":"The Steam Mobile App, the mobile equivalent of Steam, released in 2012, has maintained a lot of UI patterns from the time, with few updates to its design and usability."
+  }],
+  "challenge":"To improve Steam Mobiles user interface, both functionally and visually, whilst maintaining its vast functionality.",
+  "goals":[{
+   "goal":"- Refine usability by changing the app structure, navigation, and UI elements."
+  },{
+   "goal":"- Update visual identity to better match the contemporary Steam App, and to better suit higher resolution devices."
+  }]
+} %}
 
 {% block content %}
+
 
 <article class="gallery-text">
   <small  class="page-header">Containers</small>
   <div class="text-block">
     <p>Containers will consist of one or more module within a block / container element. This is used to group modules into chunks that serve a purpose.</p>
   </div>
-  <div class="text-block">
-    <h4 class="page-header">Navigation Header</h4>
-<div style="position:absolute">
-    {{nav.content({links:site.data.sitemap})}}
-</div>
-  </div>
   <div class="text-block ">
-    <h4 class="page-header" id="galleryimg">Image Link </h4>
-    <div class="gallerytile">
-      <a  href="#galleryimg"class=" center">
-        <span class="gallery-image v-align" id="visualbear" >
-          <div class="image-block box">
-            <h0> Visualbear
-            <small>Brand & Front-end Design</small>
-            </h0>
-          </div>
-        </span>
-      </a>
-    </div>
+
   </div>
+
+
+  <div class="text-block ">
+    <h4 class="page-header" id="galleryimg"> Cart Gallery Container</h4>
+  {{card.content({card:_cardPlay})}} 
+  </div>
+  
+    <div class="text-block " style="max-height:auto;">
+    <h4 class="page-header" id="galleryimg">Button Slider</h4>
+      {{buttonslider.content({
+          nexthref: 'Next',
+          prevhref: 'Prev',
+          text: ''
+          })}}
+  </div>
+
+
   <div class="text-block ">
     <h4 class="page-header" id="galleryimg"> Gallery Header</h4>
-    <div class="image_container">
-      <div  class=" center">
-        <span   class="header-image v-align" id="visualbear">
-          <div class=" header-block box">
-            <h0>Visualbear</h0>
-            <h3 class="subtitle">Brand & Front-end Design</h3>
-          </div>
-        </span>
-      </div>
-    </div>
+    {{headline.content({content:_headlineExtra,class:"container--gradient_light"})}}
+
   </div>
   <div class="text-block ">
     <h4 class="page-header" id="galleryimg"> Text Container</h4>
@@ -65,57 +96,10 @@
       </div>
     </div>
   </div>
-  <div class="text-block">
-    <h4 class="page-header" id="galleryimg">Secondary Container</h4>
-    <div class="secondary-container">
-      <div class="text-container row">
-        <h3 class="page-header">
-        Pretty Ugly Data
-        <small>Displaying Data in a minimal way</small>
-        </h3>
-        <div class="col-md-6">
-          <p>This project uses real world data to create colourful, abstract forms.</p>
-          <p>Developed over the span of one week, the objective was to try to take important, dry data and give it new life.</p>
-          <p>This is the first of many projects that hope to take otherwise boring data and present it in a more interesting and engaging manner.</p>
-        </div>
-        <div class="col-md-6">
-          <p><i>Hint: Don't move the mouse to hide information</i></p>
-          &nbsp;
-          <p>Data sources from:</p>
-          <p><a href="#galleryimg" target="_blank">Quandl</a></p>
-          <p>Built using:</p>
-          <ul>
-            <li><a href="#galleryimg" target="_blank">jQuery</a></li>
-            <li><a href="#galleryimg" target="_blank">Bootstrap</a></li>
-            <li><a href="#galleryimg" target="_blank">D3 - Data Driven Documents</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
   <div class="text-block ">
     <h4 class="page-header" id="galleryimg">Footer</h4>
-    <section class="text-block foot">
-      <article class="foot">
-        <ul class="socialContainer">
-          <a id="follow-button" class="vb-btn-icon " title="Follow @pedrobjorn on Twitter">
-            <img src="./../images/icons//twitter_icon_64.jpg" alt="Smiley face" width="48px" height="48px">
-          </a>
-          <a  class="vb-btn-icon ">
-            <img src="./../images/icons//behance_icon_64.jpg" alt="Smiley face" width="48px" height="48px">
-          </a>
-          <a  class="vb-btn-icon ">
-            <img src="./../images/icons//linkdin_icon_64.jpg" alt="Smiley face" width="48px" height="48px">
-          </a>
-        </ul>
-        <footer>
-          <div class="text-center">
-            <p>Made by Pedro Bj&#246;rn. </p>
-            <p>&copy; 2015 visualbear All Rights Reserved.</p>
-          </div>
-        </footer>
-      </article>
-      <section>
+        {{footer.content({})}}
+
       </div>
     </article>
 
