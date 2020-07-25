@@ -12,7 +12,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
       gulp.watch([
         path.join(dirs.source, dirs.styles, '**/*.{scss,sass}'),
         path.join(dirs.source, dirs.modules, '**/*.{scss,sass}')
-      ], ['sass']);
+      ], ['sass:dev']);
 
       // Nunjucks Templates
       gulp.watch([

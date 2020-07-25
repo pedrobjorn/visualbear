@@ -1,17 +1,13 @@
 {% extends "_layouts/work.nunjucks" %}
 {% import "_modules/organisms/headline/headline.nunjucks" as headline %}
-
 {% import "_modules/molecules/buttonslider/buttonslider.nunjucks" as buttonslider %}
 {% block config %}
     {% set baseUrl = "../" %}
 {% endblock %}
 {% block content %}
-
     <article class="section section-top-padding" id="steammobile_container">
         <section class="gallery-container">
-
             {{headline.content({content:site.data.project_steam,class:"container--gradient_light"})}}
-
             <!-- PROCESS -->
             <div class="container--padded dark-bg">
                 <div class="document-text text-box center-justified">
@@ -129,6 +125,7 @@
                 <div class="document-text text-box">
                     <div class="paragraph-container--unpadded">
                         <h2>ICONS</h2>
+                        
                     </div>
                     <img src="../images/work/fullsize/steam/details/icons.svg" title="Image"  width="100%" height="100%">
                 </div>
@@ -154,7 +151,7 @@
                     </div>
                     <div class="paragraph-container--icons">
                         <h2>Profile</h2>
-                        <div class="gallery-image">
+                        <div class="gallery-image--medium center-align">
                             <a href="../images/work/fullsize/steam/screens/profile.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/profile.jpg" title="Image"  width="50%" height="50%">
                             </a>
@@ -220,7 +217,7 @@
                     </div>
                     <div class="paragraph-container--icons">
                         <h2>Store</h2>
-                        <div class="gallery-image">
+                        <div class="gallery-image--medium center-align">
                             <a href="../images/work/fullsize/steam/screens/store.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/store.jpg" title="Image"  width="100%" height="100%">
                             </a>
@@ -233,7 +230,7 @@
                     </div>
                     <div class="paragraph-container--icons">
                         <h2>Game Detail View</h2>
-                        <div class="gallery-image">
+                        <div class="gallery-image--medium center-align">
                             <a href="../images/work/fullsize/steam/screens/game-detail.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/game-detail.jpg" title="Image"  width="100%" height="100%">
                             </a>
@@ -246,7 +243,7 @@
                     </div>
                     <div class="paragraph-container">
                         <h2>UI Details - Action Button</h2>
-                        <div class="gallery-image">
+                        <div class="gallery-image--medium center-align">
                             <a href="../images/work/fullsize/steam/screens/ui-detail_action-buttons.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/ui-detail_action-buttons.jpg" title="Image"  width="100%" height="100%">
                             </a>
@@ -259,7 +256,7 @@
                     </div>
                     <div class="paragraph-container--icons">
                         <h2>Steam Community - Market</h2>
-                        <div class="gallery-image">
+                        <div class="gallery-image--medium center-align">
                             <a href="../images/work/fullsize/steam/screens/market.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/market.jpg" title="Image"  width="100%" height="100%">
                             </a>
@@ -272,7 +269,7 @@
                     </div>
                     <div class="paragraph-container--icons">
                         <h2>Steam Guard &amp; Confirmations</h2>
-                        <div class="gallery-image">
+                        <div class="gallery-image--medium center-align">
                             <a href="../images/work/fullsize/steam/screens/guard.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/guard.jpg" title="Image"  width="100%" height="100%">
                             </a>
@@ -314,11 +311,11 @@
                     </div>
                 </div>
             </div>
-                          {{buttonslider.content({
-          nexthref: site.data.project_steam.nexthref,
-          prevhref: site.data.project_steam.prevhref,
-          text: var.linkname
-          })}}
+            {{buttonslider.content({
+            nexthref: site.data.project_steam.nexthref,
+            prevhref: site.data.project_steam.prevhref,
+            text: var.linkname
+            })}}
         </section>
     </article>
 {% endblock %}

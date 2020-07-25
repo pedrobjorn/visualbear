@@ -108,26 +108,32 @@ h6 {
 
 h0 {
     font-size: $base-h0-size;
+    padding:16px 0;
 }
 
 h1 {
     font-size: $base-h1-size;
+    padding:16px 0;
 }
 
 h2 {
     font-size: $base-h2-size;
+    padding:8px 0;
 }
 
 h3 {
     font-size: $base-h3-size;
+    padding:8px 0;
 }
 
 h4 {
     font-size: $base-h4-size;
+    padding:4px 0;
 }
 
 h5 {
     font-size: $base-h5-size;
+    padding:4px 0;
 }
 
 h6 {
@@ -666,7 +672,7 @@ blockquote {
 @media (max-width: $break-big) and (min-width: $break-medium) {
     .paragraph-container, .paragraph-container--unpadded--unpadded {
         .m6, .m12, .m4 {
-            padding: 32px;
+            padding: 16px;
         }
 
         padding: 0 0 32px 0;
@@ -716,7 +722,7 @@ blockquote {
 @media (max-width: $break-medium) and (min-width: $break-small) {
     .paragraph-container, .paragraph-container--unpadded--unpadded {
         .m6, .m12, .m4 {
-            padding: 32px;
+            padding: 16px;
         }
 
         padding: 0 0 64px 0;
@@ -769,7 +775,7 @@ blockquote {
 @media (max-width: $break-small) and (min-width: $break-tiny) {
     .paragraph-container, .paragraph-container--unpadded--unpadded {
         .m6, .m12, .m4 {
-            padding: 32px;
+            padding: 16px 0;
         }
 
         padding: 0 0 32px 0;
@@ -823,7 +829,7 @@ blockquote {
 @media (max-width: $break-tiny) {
     .paragraph-container, .paragraph-container--unpadded--unpadded {
         .m6, .m12, .m4 {
-            padding: 32px;
+            padding: 16px 0;
         }
 
         padding: 0 0 32px 0;
