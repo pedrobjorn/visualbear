@@ -60,7 +60,6 @@
 			{% if _content.headline_img %}
 				<div class="gallery-image">
 					<img src="{{_content.headline_img}}" title="Image"  width="auto" height="auto">
-					
 				</div>
 			{% endif %}
 		</div>

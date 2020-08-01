@@ -85,8 +85,11 @@
 
 .text-box {
     img {
+        max-width:512px;
         width: 100%;
         height: auto;
+              display: block;
+                margin: auto;
     }
 }
 
@@ -116,7 +119,7 @@
         display: block;
     }
 
-    padding: 64px 0;
+    padding-bottom: 64px;
 }
 
 .nav-top-padding {
@@ -185,6 +188,7 @@
         img {
             width: 100%;
             height: 100%;
+
         }
 
         a {
@@ -274,6 +278,7 @@
         width: 100%;
         display: inline-block;
         position: relative;
+
     }
 
     .gallerytile {
@@ -282,8 +287,7 @@
         background-color: #39393D;
         border-top: solid 2px $vb-primary;
 
-        span.gallery-image {
-            height: 100%;
+       span.gallery-image {
             background-repeat: no-repeat;
 
             a {
@@ -410,6 +414,7 @@
             img {
                 display: block;
                 margin: auto;
+                     max-width: 768px;
             }
         }
     }
@@ -452,6 +457,7 @@
         margin: auto;
         display: inline-block;
         position: relative;
+
     }
 
     .gallerytile {
@@ -464,8 +470,7 @@
             background-color: #fff;
         }
 
-        span.gallery-image {
-            height: 100%;
+       span.gallery-image {
             background-repeat: no-repeat;
         }
     }
@@ -531,7 +536,7 @@
 
         img {
             width: 100%;
-            max-width: 900px;
+            max-width: 768px;
             height: 100%;
         }
 
@@ -574,16 +579,6 @@
         display: none;
     }
 
-    .container {
-        padding-bottom: 16px;
-
-        .gallery-image {
-            img {
-                display: block;
-                margin: auto;
-            }
-        }
-    }
 
     .container--padded {
         padding: 64px 0;
@@ -622,6 +617,7 @@
         display: inline-block;
         position: relative;
         width: 100%;
+
     }
 
     .gallerytile {
@@ -630,8 +626,7 @@
         padding: 0;
         border-top: solid 2px $vb-primary;
 
-        span.gallery-image {
-            height: 100%;
+       span.gallery-image {
             background-repeat: no-repeat;
         }
     }
@@ -699,7 +694,7 @@
             margin: auto;
         }
 
-        padding: 64px 0;
+        padding-bottom: 64px;
     }
 
     .gallery-image {
@@ -708,6 +703,8 @@
         img {
             width: 100%;
             height: auto;
+                  display: block;
+                margin: auto;
         }
 
         a {
@@ -750,11 +747,13 @@
     }
 
     .text-box {
+        margin: auto;
+        padding: 0 64px;
+        min-width: 768px;
+        max-width: 900px;
         word-wrap: break-word;
         display: block;
-        padding: 0 64px;
     }
-
     .gallery-text {
         word-wrap: break-word;
         display: block;
@@ -791,7 +790,6 @@
 
             .image_container {
                 padding-top: 32px;
-                width: 900px;
                 margin: auto;
             }
         }
@@ -880,7 +878,7 @@
             margin: auto;
         }
 
-        padding: 64px 0;
+        padding-bottom: 64px;
     }
 
     .gallery-image {
@@ -889,6 +887,8 @@
         img {
             width: 100%;
             height: auto;
+                  display: block;
+                margin: auto;
         }
 
         a {
@@ -931,11 +931,12 @@
     }
 
     .text-box {
+        margin: auto;
+        padding: 0 64px;
+        width: 100%;
         word-wrap: break-word;
         display: block;
-        padding: 0 32px;
     }
-
     .gallery-text {
         word-wrap: break-word;
         display: block;
@@ -957,6 +958,18 @@
         display: inline-block;
         position: relative;
         width: 100%;
+
+            .container {
+        padding-bottom: 16px;
+
+        .gallery-image {
+            img {
+                display: block;
+                margin: auto;
+            }
+        }
+    }
+
     }
 
     .gallerytile {
@@ -1034,7 +1047,7 @@
             margin: auto;
         }
 
-        padding: 64px 0;
+        padding-bottom: 64px;
     }
 
     .gallery-image {
@@ -1043,6 +1056,8 @@
         img {
             width: 100%;
             height: 100%;
+                  display: block;
+                margin: auto;
         }
 
         a {
@@ -1096,6 +1111,7 @@
     .text-box {
         word-wrap: break-word;
         display: block;
+        width:100%;
         padding: 0 32px;
         margin: auto;
     }
@@ -1122,6 +1138,8 @@
         display: inline-block;
         position: relative;
         width: 100%;
+
+
     }
 
     .gallerytile {
@@ -1197,6 +1215,8 @@
         img {
             width: 100%;
             height: 100%;
+                  display: block;
+                margin: auto;
         }
 
         a {
@@ -1250,6 +1270,7 @@
     .text-box {
         word-wrap: break-word;
         display: block;
+        width:100%;
         padding: 0 32px;
         margin: auto;
     }
@@ -1279,7 +1300,7 @@
             margin: auto;
         }
 
-        padding: 64px 0;
+        padding-bottom: 64px;
     }
 
     .gallery {
@@ -1287,6 +1308,17 @@
         display: inline-block;
         position: relative;
         width: 100%;
+
+            .container {
+        padding-bottom: 16px;
+
+        .gallery-image {
+            img {
+                display: block;
+                margin: auto;
+            }
+        }
+    }
     }
 
     .gallerytile {

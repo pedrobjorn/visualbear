@@ -124,8 +124,7 @@
             <div class="container--padded  container--gradient_dark">
                 <div class="document-text text-box">
                     <div class="paragraph-container--unpadded">
-                        <h2>ICONS</h2>
-                        
+                        <h2>ICONS</h2>    
                     </div>
                     <img src="../images/work/fullsize/steam/details/icons.svg" title="Image"  width="100%" height="100%">
                 </div>
