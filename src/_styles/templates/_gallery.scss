@@ -88,8 +88,8 @@
         max-width:512px;
         width: 100%;
         height: auto;
-              display: block;
-                margin: auto;
+        display: block;
+        margin: auto;
     }
 }
 
@@ -246,10 +246,9 @@
     }
 
     .text-box {
-        padding: 0 128px;
         margin: auto;
-        min-width: 1280px;
-        max-width: 1600px;
+        min-width: 768px;
+        max-width: 960px;
         word-wrap: break-word;
         display: block;
     }
@@ -257,8 +256,8 @@
     .gallery-text {
         padding: 128px;
         margin: auto;
-        min-width: 1280px;
-        max-width: 1600px;
+        min-width: 768px;
+        max-width: 960px;
         word-wrap: break-word;
         display: block;
     }
@@ -424,10 +423,10 @@
     }
 
     .text-box {
-        padding: 0 128px;
+        padding: 0 16px;
         margin: auto;
-        min-width: 1024px;
-        max-width: 1280px;
+        min-width: 768px;
+        max-width: 960px;
         word-wrap: break-word;
         display: block;
     }
@@ -435,8 +434,8 @@
     .gallery-text {
         padding: 128px;
         margin: auto;
-        min-width: 1024px;
-        max-width: 1280px;
+        min-width: 768px;
+        max-width: 960px;
         word-wrap: break-word;
         display: block;
     }
@@ -586,9 +585,9 @@
 
     .text-box {
         margin: auto;
-        padding: 0 64px;
+        padding: 0 16px;
         min-width: 768px;
-        max-width: 900px;
+        max-width: 960px;
         word-wrap: break-word;
         display: block;
     }
@@ -748,7 +747,7 @@
 
     .text-box {
         margin: auto;
-        padding: 0 64px;
+        padding: 0 16px;
         min-width: 768px;
         max-width: 900px;
         word-wrap: break-word;
@@ -757,7 +756,7 @@
     .gallery-text {
         word-wrap: break-word;
         display: block;
-        padding: 64px;
+        padding: 64px 16px;
     }
 
     .container {
@@ -932,7 +931,7 @@
 
     .text-box {
         margin: auto;
-        padding: 0 64px;
+        padding: 0 32px;
         width: 100%;
         word-wrap: break-word;
         display: block;

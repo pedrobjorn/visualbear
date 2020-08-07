@@ -150,7 +150,7 @@
                     </div>
                     <div class="paragraph-container--icons">
                         <h2>Profile</h2>
-                        <div class="gallery-image--medium center-align">
+                        <div class="gallery-image center-align">
                             <a href="../images/work/fullsize/steam/screens/profile.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/profile.jpg" title="Image"  width="50%" height="50%">
                             </a>
@@ -216,7 +216,7 @@
                     </div>
                     <div class="paragraph-container--icons">
                         <h2>Store</h2>
-                        <div class="gallery-image--medium center-align">
+                        <div class="gallery-image center-align">
                             <a href="../images/work/fullsize/steam/screens/store.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/store.jpg" title="Image"  width="100%" height="100%">
                             </a>
@@ -229,7 +229,7 @@
                     </div>
                     <div class="paragraph-container--icons">
                         <h2>Game Detail View</h2>
-                        <div class="gallery-image--medium center-align">
+                        <div class="gallery-image center-align">
                             <a href="../images/work/fullsize/steam/screens/game-detail.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/game-detail.jpg" title="Image"  width="100%" height="100%">
                             </a>
@@ -242,7 +242,7 @@
                     </div>
                     <div class="paragraph-container">
                         <h2>UI Details - Action Button</h2>
-                        <div class="gallery-image--medium center-align">
+                        <div class="gallery-image center-align">
                             <a href="../images/work/fullsize/steam/screens/ui-detail_action-buttons.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/ui-detail_action-buttons.jpg" title="Image"  width="100%" height="100%">
                             </a>
@@ -255,7 +255,7 @@
                     </div>
                     <div class="paragraph-container--icons">
                         <h2>Steam Community - Market</h2>
-                        <div class="gallery-image--medium center-align">
+                        <div class="gallery-image center-align">
                             <a href="../images/work/fullsize/steam/screens/market.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/market.jpg" title="Image"  width="100%" height="100%">
                             </a>
@@ -268,7 +268,7 @@
                     </div>
                     <div class="paragraph-container--icons">
                         <h2>Steam Guard &amp; Confirmations</h2>
-                        <div class="gallery-image--medium center-align">
+                        <div class="gallery-image center-align">
                             <a href="../images/work/fullsize/steam/screens/guard.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/guard.jpg" title="Image"  width="100%" height="100%">
                             </a>

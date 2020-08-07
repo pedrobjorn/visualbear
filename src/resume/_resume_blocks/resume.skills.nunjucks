@@ -9,7 +9,7 @@
 
 <div class="row col m12">
   <div class="sub-title">Core Skills</div>
-  <div class="col m4 s12">
+  <div class="col l4 m6 s12">
     <ul>
       <li>
         - Product Design
@@ -22,7 +22,7 @@
       </li>
     </ul>
   </div>
-  <div class="col m4 s12">
+  <div class="col l4 m6 s12">
     <ul>
       <li>
         - Visual Design
@@ -38,38 +38,39 @@
 </div>
 <div class="row col m12">
   <div class="sub-title">Technical Skills</div>
-  <div class="col m4 s12">
+  <div class="col l4 m6 s12">
     <ul>
       <li>
-        - UI Design Tools <p><span class="side-text">e.g Sketch, Figma</span></p>
+        - UI Design Tools <p><span class="side-text">e.g Sketch, Prototyping Tools</span></p>
       </li>
-      <li>
+<!--       <li>
         - Prototyping Tools <p><span class="side-text">e.g Figma, Invision</span></p>
-      </li>
-    </ul>
-  </div>
-  <div class="col m4 s12">
-    <ul>
+      </li> -->
       <li>
         - Adobe Suite <p><span class="side-text">e.g Photoshop, Illustrator</span></p>
       </li>
-      <li>
-        - Project Management<p><span class="side-text">e.g Jira, Trello </span></p>
-      </li>
     </ul>
   </div>
-  <div class="col m4 s12">
+  <div class="col l4 m6 s12">
     <ul>
+      <li>
+        - Product Management<p><span class="side-text">e.g Jira, Trello </span></p>
+      </li>
       <li>
         - Front-end <p><span class="side-text">e.g HTML, CSS, Javascript</span></p>
       </li>
+    </ul>
+  </div>
+<!--   <div class="col m4 s12">
+    <ul>
+
       <li>
         - Versioning <p><span class="side-text">e.g Git, SVN, Abstract</span></p>
       </li>
       <li>
       </li>
     </ul>
-  </div>
+  </div> -->
 </div>
 
 {% endmacro %}
