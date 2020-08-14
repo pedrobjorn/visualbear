@@ -50,7 +50,7 @@ glob.sync('./gulp/**/*.js').filter(function(file) {
 // Default task
 gulp.task('default', ['clean'], () => {
   gulp.start('build');
-});
+}, [process.env.NODE_ENV === 'production' ? 'production' : 'development']);
 
 // Build production-ready code
 gulp.task('build', [
