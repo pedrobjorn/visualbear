@@ -13,6 +13,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
 
   // Nunjucks template compile
   gulp.task('nunjucks', () => {
+    
     let siteData = {};
     if (fs.existsSync(dataPath)) {
       // Convert directory to JS Object

@@ -32,6 +32,21 @@
     }
 }
 
+#artent_container {
+    color: $vb-light;
+    background-color: #975FBF;
+    .gallery-image {
+        // background-color: #00a2de;
+    }
+    .dark-bg{
+        background-color:#18181B;
+    }
+    .light-bg{
+        color: $vb-dark;
+        background-color:#fff;
+    }
+}
+
 #steammobile_container {
     color: $vb-light;
     background-color: #00a2de;

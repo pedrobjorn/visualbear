@@ -5,22 +5,28 @@
   "prevhref": {"link":"../steam-mobile","text":"Steam Mobile"},
   "nexthref": {"link":"../disabled"},
   "img": "../images/work/thumbs/gallery_thumb_artent.jpg",
-  "headline_img":"../images/work/fullsize/steam/details/profile-screen_sneek.png",
-  "logoImg": "../images/work/fullsize/steam/details/logo_main.png",
-  "description": "Connecting artist and students.",
-  "released": "August 20th 2020",
+  "headline_img":"../images/work/fullsize/artent/details/profile-screen_sneek.png",
+  "logoImg": "../images/work/fullsize/artent/details/logo_main.png",
+  "description": "Connecting artist with students.",
+  "released": "September 15th 2020",
   "responsibilities": "Brand, Product Design, front-end",
   "tools": "Paper &amp; Pen, TextEdit, Illustrator, Photoshop",
   "intro": [{
-    "paragraph":"Steam, created by Valve Software, is the biggest gaming client in the world, with 12.5 million active users."
+    "paragraph":"art ent is an app that artists can use to find people to give lessons to, and to manage those lessons."
   },{
-    "paragraph":"The Steam Mobile App, the mobile equivalent of Steam, released in 2012, has maintained a lot of UI patterns from the time, with few updates to its design and usability."
+    "paragraph":"Students can find lessons, created by artists; view lessons and artist profiles, and contact them to book a lesson."
   }],
-  "challenge":"To improve Steam Mobiles user interface, both functionally and visually, whilst maintaining its vast functionality.",
+  "challenge":"Artists have no tool to connect with people who want to learn their skills, and have to resort to local announcement boards, public announcement boards, and word of mouth.",
   "goals":[{
-   "goal":"- Refine usability by changing the app structure, navigation, and UI elements."
+   "goal":"- Create a tool that allows artists to find students who want to pay for lessons of the arts."
   },{
-   "goal":"- Update visual identity to better match the contemporary Steam App, and to better suit higher resolution devices."
+   "goal":"- Provide both functionality for artists to post lessons, and students to browse them."
+  },{
+   "goal":"- Keep it usable without an account for potential students."
+  },{
+   "goal":"- Allow for artists to create a basic profile."
+  },{
+   "goal":"- Create a brand and visual identity to flesh out the app."
   }]
 }
 
