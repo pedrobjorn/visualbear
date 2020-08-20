@@ -18,15 +18,11 @@
   }],
   "challenge":"Artists have no tool to connect with people who want to learn their skills, and have to resort to local announcement boards, public announcement boards, and word of mouth.",
   "goals":[{
-   "goal":"- Create a tool that allows artists to find students who want to pay for lessons of the arts."
-  },{
-   "goal":"- Provide both functionality for artists to post lessons, and students to browse them."
-  },{
-   "goal":"- Keep it usable without an account for potential students."
+   "goal":"- Create a tool for artists to find students."
   },{
    "goal":"- Allow for artists to create a basic profile."
   },{
-   "goal":"- Create a brand and visual identity to flesh out the app."
+   "goal":"- Keep it usable without an account for students."
   }]
 }
 

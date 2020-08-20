@@ -83,6 +83,43 @@
     /* IE6-9 */
 }
 
+
+.container--gradient_artent {
+    background: #ff621a;
+
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #fff 0%, #c4a4db 100%);
+
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #fff 0%, #c4a4db 100%);
+
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #fff 0%, #c4a4db 100%);
+
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff', endColorstr='#c4a4db',GradientType=0 );
+
+    /* IE6-9 */
+}
+
+.container--gradient_artent-inverse {
+    background: #fff;
+
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #c4a4db 0%, #fff 100%);
+
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #c4a4db 0%, #fff 100%);
+
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #c4a4db 0%, #fff 100%);
+
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c4a4db', endColorstr='#fff',GradientType=0 );
+
+    /* IE6-9 */
+}
+
 .text-box {
     img {
         max-width:512px;
