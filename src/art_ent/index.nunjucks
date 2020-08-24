@@ -69,16 +69,18 @@
                 </div>
             </div>
             <!-- RESEARCH & IDEATION -->
-            <div class="container--padded" style="padding-bottom:0;">
+            <div class="container--padded">
                 <div class="document-text text-box">
                     <h1 class="center-justified">Research &amp; Ideation</h1>
                     
                     <p>Before jumping into the redesign itself, we must breakdown the existing app and understand it in full.</p>
                     <div class="paragraph-container">
                         <h2>Identifying the Problem and Market Research</h2>
-                        <p>Here we take a screen shot of every view, and organize its various elements into categories. This will help us keep track of everything as we reshape the app.</p>
+                        <p>We originally heard from circus arts students that they struggled a lot with booking and managing private lessons they gave on the side to make money.</p>
+                        <p>With further research we also found a lot of notice boards filled with posters promoting guitar lessons, drawing lessons and other arts.</p>
+                        <p>With competitive analysis only pointing at a cultural page listing art activities for children, we decided to create a Proof of Concept (POC) of an app that would facilitate the process of giving, and finding, lessons in the arts.</p>
                     </div>
-                    <img src="../images/work/fullsize/steam/details/taxonomy.png" title="Image"  width="100%" height="100%">
+                   <!--  <img src="../images/work/fullsize/artent/details/research.png" title="Image"  width="100%" height="100%"> -->
                 </div>
             </div>
             <div class="container light-bg">
