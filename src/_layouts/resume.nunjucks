@@ -2,17 +2,16 @@
 {% block config %}
   {# Setup site's base URL to match the "baseUrl" key within `package.json` #}
   {# Otherwise default to relative pathing #}
-  {% set baseUrl = config.baseUrl or './' %}
+  {% set baseUrl = config.baseUrl or '../../' %}
 {% endblock %}
 {% import "_modules/molecules/nav/nav.nunjucks" as nav %}
 {% import "_modules/molecules/footer/footer.nunjucks" as footer %}
-
 <!DOCTYPE html>
 <html lang="en" class="no-js">
   <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Work</title>
+    <title>Resume</title>
     <meta name="description" content="A new Yeogurt application"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="{{baseUrl}}styles/main.css"/>
@@ -28,9 +27,10 @@
       <![endif]-->
       <div class="container__open">
         {% block content %}{% endblock %}
+
       </div>
-        {{footer.content({})}}
     </div>
+        {{footer.content({})}}
     <script src="{{baseUrl}}scripts/main.js"></script>
     {% block scripts %}{% endblock %}
     

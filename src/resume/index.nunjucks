@@ -1,4 +1,4 @@
-{% extends '_layouts/info.nunjucks' %}
+{% extends '_layouts/resume.nunjucks' %}
 {% import "resume/_resume_blocks/resume.title.nunjucks" as title %}
 {% import "resume/_resume_blocks/resume.intro.nunjucks" as intro %}
 {% import "resume/_resume_blocks/resume.skills.nunjucks" as skills %}
