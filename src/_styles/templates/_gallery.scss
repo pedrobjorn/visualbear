@@ -452,6 +452,11 @@
                 margin: auto;
                      max-width: 768px;
             }
+            .gallery-image--medium{
+                img{
+                    max-width: 512px;
+                }
+            }
         }
     }
 
@@ -589,9 +594,11 @@
         }
     }
 
+
     .gallery-image--medium {
         img {
             width: 100%;
+              max-width: 512px;
             height: 100%;
         }
     }

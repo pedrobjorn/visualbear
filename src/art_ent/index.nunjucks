@@ -25,7 +25,7 @@
                                     Identifying the problem
                                 </li>
                                 <li>
-                                    Market research
+                                   Research
                                 </li>
                             </ul>
                         </div>
@@ -34,22 +34,13 @@
                             <img class="img-small" src="../images/work/fullsize/steam/details/ideation_icon.jpg" title="Image" width="256" height="256">
                             <ul>
                                 <li>
-                                    Sketching
+                                    Solution definition
                                 </li>
                                 <li>
-                                    New IA &amp; Sitemap
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col m3 s12">
-                            <h3>Ideation</h3>
-                            <img class="img-small" src="../images/work/fullsize/steam/details/iterate_icon.jpg" title="Image"  width="256" height="256">
-                            <ul>
-                                <li>
-                                    Feature Breakdown
+                                    Ideation
                                 </li>
                                 <li>
-                                    Finalization
+                                    Ecosystem &amp; Flow diagrams
                                 </li>
                             </ul>
                         </div>
@@ -58,10 +49,22 @@
                             <img class="img-small" src="../images/work/fullsize/steam/details/iterate_icon.jpg" title="Image"  width="256" height="256">
                             <ul>
                                 <li>
-                                    Feature Breakdown
+                                    Wireframing &amp; Live Prototyping
                                 </li>
                                 <li>
                                     Finalization
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col m3 s12">
+                            <h3>Implementation</h3>
+                            <img class="img-small" src="../images/work/fullsize/steam/details/iterate_icon.jpg" title="Image"  width="256" height="256">
+                            <ul>
+                                <li>
+                                    Development
+                                </li>
+                                <li>
+                                    Testing
                                 </li>
                             </ul>
                         </div>
@@ -71,14 +74,30 @@
             <!-- RESEARCH & IDEATION -->
             <div class="container--padded">
                 <div class="document-text text-box">
-                    <h1 class="center-justified">Research &amp; Ideation</h1>
+                    <h1 class="center-justified">Identifying the problem</h1>
                     
                     <p>Before jumping into the redesign itself, we must breakdown the existing app and understand it in full.</p>
                     <div class="paragraph-container">
-                        <h2>Identifying the Problem and Market Research</h2>
+                        <h2>Problem Statement</h2>
                         <p>We originally heard from circus arts students that they struggled a lot with booking and managing private lessons they gave on the side to make money.</p>
                         <p>With further research we also found a lot of notice boards filled with posters promoting guitar lessons, drawing lessons and other arts.</p>
                         <p>With competitive analysis only pointing at a cultural page listing art activities for children, we decided to create a Proof of Concept (POC) of an app that would facilitate the process of giving, and finding, lessons in the arts.</p>
+                    </div>
+                   <!--  <img src="../images/work/fullsize/artent/details/research.png" title="Image"  width="100%" height="100%"> -->
+                    <h1 class="center-justified">Research</h1>
+                    
+                    <p>Before jumping into the redesign itself, we must breakdown the existing app and understand it in full.</p>
+                    <div class="paragraph-container">
+                        <h2>Talking to people</h2>
+                        <p>We originally heard from circus arts students that they struggled a lot with booking and managing private lessons they gave on the side to make money.</p>
+                    </div>
+                    <div class="paragraph-container">
+                        <h2>Market</h2>
+                        <p>We originally heard from circus arts students that they struggled a lot with booking and managing private lessons they gave on the side to make money.</p>
+                    </div>
+                    <div class="paragraph-container">
+                        <h2>Defining the Narrative</h2>
+                        <p>We originally heard from circus arts students that they struggled a lot with booking and managing private lessons they gave on the side to make money.</p>
                     </div>
                    <!--  <img src="../images/work/fullsize/artent/details/research.png" title="Image"  width="100%" height="100%"> -->
                 </div>

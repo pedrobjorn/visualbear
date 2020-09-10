@@ -477,7 +477,7 @@ blockquote {
 .paragraph-container, .paragraph-container--unpadded {
     padding: 64px 0;
 
-    .m6, .m12, .m4 {
+    .m6, .m12, .m4, .m3 {
         padding: 16px;
     }
 
@@ -495,7 +495,7 @@ blockquote {
 }
 
 .paragraph-container, .paragraph-container--unpadded--unpadded {
-    .m6, .m12, .m4 {
+    .m6, .m12, .m4, .m3  {
         padding: 32px;
     }
 
@@ -518,7 +518,7 @@ blockquote {
 
 @media (min-width: $break-huge) {
     .paragraph-container, .paragraph-container--unpadded--unpadded {
-        .m6, .m12, .m4 {
+        .m6, .m12, .m4, .m3  {
             padding: 32px;
         }
 
@@ -569,7 +569,7 @@ blockquote {
 
 @media (max-width: $break-huge) and (min-width: $break-large) {
     .paragraph-container, .paragraph-container--unpadded--unpadded {
-        .m6, .m12, .m4 {
+        .m6, .m12, .m4, .m3  {
             padding: 32px;
         }
 
@@ -620,7 +620,7 @@ blockquote {
 
 @media (max-width: $break-large) and (min-width: $break-big) {
     .paragraph-container, .paragraph-container--unpadded--unpadded {
-        .m6, .m12, .m4 {
+        .m6, .m12, .m4, .m3  {
             padding: 32px;
         }
 
@@ -671,7 +671,7 @@ blockquote {
 
 @media (max-width: $break-big) and (min-width: $break-medium) {
     .paragraph-container, .paragraph-container--unpadded--unpadded {
-        .m6, .m12, .m4 {
+        .m6, .m12, .m4, .m3  {
             padding: 16px;
         }
 
@@ -721,7 +721,7 @@ blockquote {
 
 @media (max-width: $break-medium) and (min-width: $break-small) {
     .paragraph-container, .paragraph-container--unpadded--unpadded {
-        .m6, .m12, .m4 {
+        .m6, .m12, .m4, .m3  {
             padding: 16px;
         }
 
@@ -774,7 +774,7 @@ blockquote {
 
 @media (max-width: $break-small) and (min-width: $break-tiny) {
     .paragraph-container, .paragraph-container--unpadded--unpadded {
-        .m6, .m12, .m4 {
+        .m6, .m12, .m4, .m3  {
             padding: 16px 0;
         }
 
@@ -828,7 +828,7 @@ blockquote {
 
 @media (max-width: $break-tiny) {
     .paragraph-container, .paragraph-container--unpadded--unpadded {
-        .m6, .m12, .m4 {
+        .m6, .m12, .m4, .m3 {
             padding: 16px 0;
         }
 
