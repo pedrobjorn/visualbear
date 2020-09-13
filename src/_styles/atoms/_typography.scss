@@ -151,6 +151,14 @@ label {
     padding-bottom: 2px;
 }
 
+.image_text{
+    font-size: $middle-font-size;
+    font-weight: $font-light;
+    color:grey;
+    text-align: center;
+}
+
+
 a {
     text-decoration: underline;
     color: $vb-primary;

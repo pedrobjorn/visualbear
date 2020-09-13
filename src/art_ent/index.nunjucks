@@ -89,20 +89,48 @@
                     <p>Before jumping into the redesign itself, we must breakdown the existing app and understand it in full.</p>
                     <div class="paragraph-container">
                         <h2>Talking to people</h2>
-                        <p>We originally heard from circus arts students that they struggled a lot with booking and managing private lessons they gave on the side to make money.</p>
+                        <p>The approach to research for this project was relaxed and kept quite centered around the circus performers we knew, as well as immediate acquaintances.</p>
+
+                        <p>By talking to the performers we learned that they relied heavily on word of mouth, social media posts, and Notice boards to get their lessons out there.</p>
+
+                        <p>Talking to students (i.e anybody that's not an artist), they were limited to either hearing about it, or finding them on social media. Notice boards were not a big draw, due to their messy and unreadable state. They had no idea where to find such lessons otherwise.</p>
+                        
+                        <div class="gallery-image">
+                            <a href="../images/work/fullsize/artent/details/notice_board.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/artent/details/notice_board.jpg" title="Image"  width="100%" height="100%">
+                            </a>
+
+                        <p class="image_text">Can you find the various music or craft lesson notices?</p>
+                        </div>
+
                     </div>
                     <div class="paragraph-container">
                         <h2>Market</h2>
-                        <p>We originally heard from circus arts students that they struggled a lot with booking and managing private lessons they gave on the side to make money.</p>
+                        <p>Looking at the market, we found a lot of apps providing marketplaces for all sorts of services: utilities, technical lessons, lessons online, as well as a state sponsored children's cultural classes.</p>
+
+                        <p>However, we found no tool built for people wanting to teach the arts to be discovered and to manage their lessons taking place in physical space.</p>
+
+                        <div class="gallery-image--small">
+                            <a href="../images/work/fullsize/artent/details/market_example.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/artent/details/market_example.jpg" title="Image"  width="100%" height="100%">
+                            </a>
+                            
+                        <p class="image_text">The Cultural Institute Classes are great, but unfortunately are restricted to children.</p>
+                        </div>
+
                     </div>
                     <div class="paragraph-container">
                         <h2>Defining the Narrative</h2>
-                        <p>We originally heard from circus arts students that they struggled a lot with booking and managing private lessons they gave on the side to make money.</p>
+                        <p>Once upon a time there were circus performers that made a living solely performing. Every day they spent hours practicing, and occasionally performing, however since getting gigs was unpredictable, they had to rely on a side job to sustain themselves.</p>
+
+                        <p>One day they discovered they could earn extra money teaching their skill to others. Because of that they were able to have enough work to fill the gaps, as well as practice their craft even on their down time.</p>
+
+                        <p>Unfortunately, artists finding a way to reliably and consistently teach their skills to others is also very unreliable due to the lack of a medium through which to spread the word and organize their lives</p>
                     </div>
                    <!--  <img src="../images/work/fullsize/artent/details/research.png" title="Image"  width="100%" height="100%"> -->
                 </div>
             </div>
-            <div class="container light-bg">
+<!--             <div class="container light-bg">
                 <div class="document-text text-box">
                     <div class="paragraph-container">
                         <h2>Sitemap</h2>
@@ -114,6 +142,24 @@
                             <img src="../images/work/fullsize/steam/details/sitemap.png" title="Image"  width="100%" height="100%">
                             
                         </a>
+                    </div>
+                </div>
+            </div> -->
+            <div class="container light-bg">
+                <div class="document-text text-box">
+                    <div class="paragraph-container">
+                        <h2>Ideation</h2>
+                        <p>The ideation process took place over a few sessions of getting together and brainstorming basically anything we felt an app for artists would have to cover and feel like.</p>
+                        
+                        <p>Looking back, I should have taken the brainstorm sessions further with sketches and exercises. But this was enough to set us on a unified direction at least.</p>
+                    </div>
+                    <div class="gallery-image">
+                        <a href="../images/work/fullsize/artent/details/ideation_sketches.jpg" alt="Value Proposition Photo">
+                            <img src="../images/work/fullsize/artent/details/ideation_sketches.jpg" title="Image"  width="100%" height="100%">
+                            
+                        </a>
+
+                        <p class="image_text">We took 5 minute incraments to jot down action verbs in black and emotional experiences in yellow.</p>
                     </div>
                 </div>
             </div>

@@ -191,6 +191,13 @@
     }
 }
 
+.gallery-image--small {
+    img {
+        max-width: 30%;
+        height: 20%;
+    }
+}
+
 .paragraph-container {
     img {
         width: 100%;
