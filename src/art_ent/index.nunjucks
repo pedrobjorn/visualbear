@@ -163,18 +163,33 @@
                     </div>
                 </div>
             </div>
-            <div class="container--gradient_artent" style="padding-bottom:0;">
+            <div class="container">
                 <div class="document-text text-box">
                     <div class="paragraph-container">
                         <h2>Sketches</h2>
                         <p>With the new structure established, we begin sketching and ideating each view, with variations of UI elements, and structures. We then select the best candidates based on feedback and established patterns.</p>
                     </div>
-                    <div class="gallery-image">
-                        <a href="../images/work/fullsize/steam/details/sketches.png" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/steam/details/sketches.png" title="Image"  width="100%" height="100%">
+                   <div class="gallery-image">
+                        <a href="../images/work/fullsize/artent/details/sketches_example_3.jpg" alt="Value Proposition Photo">
+                            <img src="../images/work/fullsize/artent/details/sketches_example_3.jpg" title="Image"  width="100%" height="100%">
                             
                         </a>
                     </div>
+                    <div class="gallery-image">
+                        <a href="../images/work/fullsize/artent/details/sketches_example.jpg" alt="Value Proposition Photo">
+                            <img src="../images/work/fullsize/artent/details/sketches_example.jpg" title="Image"  width="100%" height="100%">
+                            
+                        </a>
+                    </div>
+                    <div class="gallery-image">
+                        <a href="../images/work/fullsize/artent/details/sketches_example_2.jpg" alt="Value Proposition Photo">
+                            <img src="../images/work/fullsize/artent/details/sketches_example_2.jpg" title="Image"  width="100%" height="100%">
+                            
+                        </a>
+
+                        <p class="image_text">Initial sketches were very abstract, and focused on behaviour flows and task objectives. Eventually sketches became more visual and UI focused. We even worked on the logo design via sketching. We didn't actually pick any from this direction, but it was a valuable exploration nonetheless. </p>
+                    </div>
+ 
                 </div>
             </div>
             <!-- VISUAL IDENTITY -->
