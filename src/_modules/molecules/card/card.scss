@@ -1,10 +1,25 @@
 // card styles
 
+@mixin card-radius{
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
+@mixin drop-shadow{
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(43,14,43,0.25);
+-moz-box-shadow: 0px 0px 8px 0px rgba(43,14,43,0.25);
+box-shadow: 0px 0px 8px 0px rgba(43,14,43,0.25);
+}
+
 .card {
+    &:first-child{
+        margin-top:0;
+    }
     position: relative;
-    margin: 0.5rem 0 0.5rem 0;
+    margin: 1rem 0;
     background-color: black;
-    border-radius: 2px;
+    @include card-radius;
 }
 
 .small.card {
@@ -29,6 +44,8 @@
         height: 100%;
         background-size: cover;
         background-position: center;
+        @include card-radius;
+        @include drop-shadow;
 
         .card-title {
             color: #fff;
@@ -37,6 +54,9 @@
             left: 0;
             max-width: 100%;
             padding: 16px;
+            h2,p{
+                padding:4px 0;
+            }
         }
                 &:active,
         &:focus,
@@ -53,3 +73,5 @@
         }
     }
 }
+
+

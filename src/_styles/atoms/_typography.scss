@@ -570,7 +570,7 @@ blockquote {
 
     .document-text {
         font-weight: $font-light;
-        font-size: $base-font-size / 1.5;
+        font-size: $base-font-size / 1.25;
         line-height: $base-line-height;
     }
 }
@@ -621,7 +621,7 @@ blockquote {
 
     .document-text {
         font-weight: $font-light;
-        font-size: $base-font-size / 1.5;
+        font-size: $base-font-size / 1.25;
         line-height: $base-line-height;
     }
 }
@@ -672,7 +672,7 @@ blockquote {
 
     .document-text {
         font-weight: $font-light;
-        font-size: $base-font-size / 1.5;
+        font-size: $base-font-size / 1.25;
         line-height: $base-line-height;
     }
 }
@@ -713,7 +713,7 @@ blockquote {
     .jumbo-text {
         padding: 32px;
         font-weight: $font-bold;
-        font-size: $base-h0-size;
+        font-size: $base-jumbo-size;
         text-align: left;
 
         // width: 428px;
@@ -760,7 +760,7 @@ blockquote {
     .jumbo-text {
         padding: 32px;
         font-weight: $font-bold;
-        font-size: $mobile-h0-size;
+        font-size: $mobile-jumbo-size;
         text-align: left;
 
         // width: 428px;
@@ -816,7 +816,7 @@ blockquote {
     .jumbo-text {
         padding: 16px;
         font-weight: $font-bold;
-        font-size: $mobile-h0-size;
+        font-size: $mobile-jumbo-size;
         text-align: left;
 
         // width: 298px;
@@ -868,7 +868,7 @@ blockquote {
     .jumbo-text {
         padding: 16px;
         font-weight: $font-bold;
-        font-size: $mobile-h0-size;
+        font-size: $mobile-jumbo-size;
         text-align: left;
 
         // width: 298px;
