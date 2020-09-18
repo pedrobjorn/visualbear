@@ -55,8 +55,7 @@ $small-font-size: 0.45rem;
 $middle-font-size: 0.5rem;
 $base-font-size: 1.2rem;
 
-$base-jumbo-size: 4rem;
-$base-h0-size: 3.6rem;
+$base-h0-size: 2.5rem;
 $base-h1-size: 2rem;
 $base-h2-size: 1.5rem;
 $base-h3-size: 1.17rem;
@@ -64,6 +63,7 @@ $base-h4-size: 1rem;
 $base-h5-size: 0.83rem;
 $base-h6-size: 0.75rem;
 
+$base-jumbo-size: $base-h2-size;
 
 $tiny-2k-size: 0.9rem;
 $small-2k-size: 1.9rem;

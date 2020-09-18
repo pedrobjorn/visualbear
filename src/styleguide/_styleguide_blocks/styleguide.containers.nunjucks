@@ -77,10 +77,13 @@
   </div>
 
 
-  <div class="text-block ">
+  <div class="text-block" style="width:100%; display:block;">
     <h4 class="page-header" id="galleryimg"> Gallery Header</h4>
-    {{headline.content({content:_headlineExtra,class:"container--gradient_light"})}}
-
+      <article class="section section-top-padding" id="steammobile_container">
+        <section class="gallery-container">
+          {{headline.content({content:_headlineExtra,class:"container--gradient_light"})}}
+        </section>
+      </article>
   </div>
   <div class="text-block ">
     <h4 class="page-header" id="galleryimg"> Text Container</h4>
