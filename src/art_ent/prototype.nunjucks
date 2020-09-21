@@ -15,11 +15,9 @@
             <!-- PROCESS -->
             <div class="container--padded dark-bg">
                 <div class="document-text text-box center-justified">
-                    <div class="gallery-image" style="max-width:100%;  overflow-x:hidden;">   
-                        <div class="center">
+                    <div class="gallery-image"> 
                             <iframe  class="iframe" width="438" src="//invis.io/Z9QJWVM7MNW" frameborder="0" allowfullscreen></iframe>
                         </div>  
-                    </div>
                 </div>
             </div>
           

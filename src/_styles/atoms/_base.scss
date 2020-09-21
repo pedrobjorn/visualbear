@@ -142,7 +142,7 @@ li#left-justified {
         cursor: pointer;
     }
     .iframe{
-        transform: scale(0.75)  translate(40%, 0%);
+        transform: scale(0.75)  translate(0%, 0%);
         height:900px;
     }
 }
@@ -163,7 +163,7 @@ li#left-justified {
         cursor: pointer;
     }
     .iframe{
-        transform: scale(0.5) translate(-25%, -25%);
+        transform: scale(0.5) translate(0%, 0%);
         height:900px;
     }
 
@@ -190,7 +190,7 @@ li#left-justified {
  
 
     .iframe{
-        transform: scale(0.5) translate(-25%, -25%);
+        transform: scale(0.5) translate(-35%, -25%);
         height:900px;
         position: relative;
         top: 96px;

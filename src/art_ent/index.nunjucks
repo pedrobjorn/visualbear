@@ -204,19 +204,29 @@
                         <p>At this point I was now building the front-end myself, so I used Mockups only as a jumping off point of discussion to get some feel for the visual direction. This is why a lot of these screens feel under developed. All UI iterations took place in the code, the true source of truth.</p>
                         <p>Most of the iterations continued on in code as we quickly iterated on ideas using CSS and Typescript.</p>
                         <div class="gallery-image">
-                            <a href="../images/work/fullsize/steam/screens/start.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/steam/screens/start.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/artent/screens/onboarding-multi.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/artent/screens/onboarding-multi.jpg" title="Image"  width="100%" height="100%">
                             </a>
+
+                            <subtitle class="subtitle">
+                            Onboarding was initially divided into two tracks, since we wanted to distniguish the process for students and artists to register.
+                            </subtitle>
                         </div>
-                        <subtitle class="subtitle">
-                        Start and Login Pages are streamlined. UI elements are given more space and confirmation pages are added.
-                        </subtitle>
+                   <div class="gallery-image">
+                            <a href="../images/work/fullsize/artent/screens/onboarding-multi.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/artent/screens/onboarding-multi.jpg" title="Image"  width="100%" height="100%">
+                            </a>
+                            
+                            <subtitle class="subtitle">
+                            Subtext
+                            </subtitle>
+                        </div>
                     </div>
                     <div class="paragraph-container" id="artent_prototype">
                         <h2>Prototype</h2>
                         <p>We also used the mockups to set up some quick prototypes to discuss around. This helps us visualize the early app layout and behavior before jumping into code. Once we got more comfortable with the structure, we left the Invision prototype behind and test only with the app.</p>
                         <div class="gallery-image" style="max-width:100%;  overflow-x:hidden;">   
-                            <div class="iframe-container">
+                            <div class="iframe-container center">
                                 <iframe  class="iframe" width="438" src="//invis.io/Z9QJWVM7MNW" frameborder="0" allowfullscreen></iframe>
                             </div>
                              <div class="prototype-link" style="padding:32px 0">
@@ -237,38 +247,22 @@
                     <p>These wireframes were minimal and intended to be just enough to have something to test.</p>
                     
                     <div class="paragraph-container">
-                        <h2>Development Details</h2>
-                        <p>One of the main goals of this project was to learn how to build a hybrid mobile app, from start to end. This turned out to be a a very enlightening experience due to the fact that we made a lot of mistakes along the way.</p>
-                        <p>We kicked off with Ionic 2.0, which at the time was one of the two big Hybrid app frameworks, the other being React Native.</p>
+                        <h2>Development</h2>
+                        <p>One of the main goals of this project was to learn how to build a hybrid mobile app, so we kicked off with <a href="https://ionicframework.com/" alt="Ionic Framework link"> Ionic 2.0</a>, which at the time was one of the two big Hybrid app frameworks, the other being React Native.</p>
+                        
+                        <div class="gallery-image">
+                            <a href="https://ionicframework.com/" alt="Ionic Framework link">
+                                <img src="../images/work/fullsize/artent/details/1200px-Ionic-logo-landscape.png" title="Image"  width="100%" height="100%">
+                            </a>
+                        </div>
+                        
                         <p>Having worked with Angular and Cordova before, Ionic was the natural choice for me. I didn't want to learn a brand new framework on top of learning hybrid app development.
                         &nbsp;
                         However, looking back, perhaps React Native would have been the better choice.</p>
-                        <div class="gallery-image">
-                            <a href="../images/work/fullsize/steam/screens/start.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/steam/screens/start.jpg" title="Image"  width="100%" height="100%">
-                            </a>
-                        </div>
-                        <subtitle class="subtitle">
-                        
-                        Start and Login Pages are streamlined. UI elements are given more space and confirmation pages are added.
-                        
-                        </subtitle>
+
+                        <p>Another important detail for me was to try to follow the Vendor Design Principles as closely as possible. This meant using the ios- (Apple's iOS UIKit) and mb- (Androids Material Design UI Kit) rules of the frame work as much as possible.</p>
                     </div>
-                    <div class="paragraph-container--icons">
-                        <h2>Vendor Design Details</h2>
-                        <p>One important detail for me was to try to follow the Verndor Design Principles as closely as possible. This meant using the ios- (Apple's iOS UIKit) and mb- (Androids Material Design UI Kit) rules of the frame work as much as possible.</p>
-                        <p>This ensured the app would feel legitimate and a lot of usability issues would be handled by the native app UI guidelines for us.</p>
-                        <div class="gallery-image">
-                            <a href="../images/work/fullsize/steam/screens/profile.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/steam/screens/profile.jpg" title="Image"  width="50%" height="50%">
-                            </a>
-                        </div>
-                        <subtitle class="subtitle">
-                        
-                        The Profile view maintains the section buttons, and new ones can be added. Here the user also has access to various sections such as Notifications, Settings, Confirmations and more, all from one core location.
-                        
-                        </subtitle>
-                    </div>
+
 
                     <h2>The app</h2>
                     <p>We settled on what we felt was an adequate prototype releasable as a Beta on the Play Store (pending). </p>
