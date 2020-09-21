@@ -1,0 +1,28 @@
+{% extends "_layouts/work.nunjucks" %}
+{% import "_modules/organisms/headline/headline.nunjucks" as headline %}
+
+{% import "_modules/molecules/buttonslider/buttonslider.nunjucks" as buttonslider %}
+{% block config %}
+    {% set baseUrl = "../" %}
+{% endblock %}
+{% block content %}
+
+    <article class="section section-top-padding" id="artent_container">
+        <section class="gallery-container">
+            <a href="/art_ent#artent_prototype" class="btn vb-btn-full left-align" style="position:fixed; top:48px; z-index:1;">
+            &lt; Back to artent
+            </a>
+            <!-- PROCESS -->
+            <div class="container--padded dark-bg">
+                <div class="document-text text-box center-justified">
+                    <div class="gallery-image" style="max-width:100%;  overflow-x:hidden;">   
+                        <div class="center">
+                            <iframe  class="iframe" width="438" src="//invis.io/Z9QJWVM7MNW" frameborder="0" allowfullscreen></iframe>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+          
+        </section>
+    </article>
+{% endblock %}

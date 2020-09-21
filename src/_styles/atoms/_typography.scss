@@ -236,6 +236,8 @@ i {
     margin: 0;
     width: auto;
     font-weight: $font-light;
+    font-style: italic;
+
 }
 
 .highlight {
@@ -253,7 +255,7 @@ i {
 
 a {
     .gallery-image {
-        color: $vb-light;
+        color: $vb-primary;
 
         &:hover,
         &:focus {

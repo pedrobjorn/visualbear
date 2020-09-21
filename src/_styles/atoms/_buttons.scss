@@ -63,7 +63,7 @@ button {
     font-size: $middle-font-size;
     height: 64px;
     cursor: pointer;
-    color: $vb-light;
+    color: $vb-light !important;
 
     @include border-radius(0);
 
@@ -226,7 +226,7 @@ button {
     padding: 4px 16px 0 16px;
     width: auto;
     cursor: pointer;
-    color: $vb-primary;
+    color: $vb-light;
 
     @include border-radius(0);
 
@@ -265,7 +265,7 @@ button {
             outline: none;
             border: none;
             text-decoration: none;
-            color: $vb-primary;
+            color: $vb-light;
         }
     }
 }
@@ -285,7 +285,7 @@ button {
 
     &:hover {
         padding: 0;
-        background-color: $vb-primary;
+        background-color: $vb-light;
     }
 
     &:active,
