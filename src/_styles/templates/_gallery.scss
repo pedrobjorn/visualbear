@@ -206,6 +206,9 @@
 }
 
 .paragraph-container--icons {
+    a{
+        color: $vb-light !important;
+    }
     @extend .paragraph-container;
 
     .col-md-4 {

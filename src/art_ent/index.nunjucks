@@ -15,66 +15,35 @@
             <!-- PROCESS -->
             <div class="container--padded dark-bg">
                 <div class="document-text text-box center-justified">
-                    <h1>Process</h1>
+                    <h1>The Process</h1>
                     <div class="paragraph-container--icons center-justified row">
                         <div class="col m3 s12">
-                            <h3>Discovery</h3>
-                            <img class="img-small" src="../images/work/fullsize/steam/details/research_icon.jpg" title="Image"  width="256" height="256">
-                            <ul>
-                                <li>
-                                    Identifying the problem
-                                </li>
-                                <li>
-                                   Research
-                                </li>
-                            </ul>
+                            <a href="#discovery" title="Discovery">
+                                <h4>1.Discover</h4>
+                            </a>
                         </div>
                         <div class="col m3 s12">
-                            <h3>Definition</h3>
-                            <img class="img-small" src="../images/work/fullsize/steam/details/ideation_icon.jpg" title="Image" width="256" height="256">
-                            <ul>
-                                <li>
-                                    Solution definition
-                                </li>
-                                <li>
-                                    Ideation
-                                </li>
-                                <li>
-                                    Ecosystem &amp; Flow diagrams
-                                </li>
-                            </ul>
+                            <a href="#definition" title="Definition">
+                                <h4>2.Define</h4>
+                            </a>
                         </div>
                         <div class="col m3 s12">
-                            <h3>Iteration</h3>
-                            <img class="img-small" src="../images/work/fullsize/steam/details/iterate_icon.jpg" title="Image"  width="256" height="256">
-                            <ul>
-                                <li>
-                                    Wireframing &amp; Live Prototyping
-                                </li>
-                                <li>
-                                    Finalization
-                                </li>
-                            </ul>
+                            <a href="#iteration" title="Iteration">
+                                <h4>3.Iterate</h4>
+                            </a>
                         </div>
                         <div class="col m3 s12">
-                            <h3>Implementation</h3>
-                            <img class="img-small" src="../images/work/fullsize/steam/details/iterate_icon.jpg" title="Image"  width="256" height="256">
-                            <ul>
-                                <li>
-                                    Development
-                                </li>
-                                <li>
-                                    Testing
-                                </li>
-                            </ul>
+                            <a href="#implementation" title="Implementation">
+                                <h4>4.Implement</h4>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- RESEARCH & IDEATION -->
-            <div class="container--padded">
+            <div class="container--padded" id="discovery">
                 <div class="document-text text-box">
-                    <h1 class="center-justified">Identifying the problem</h1>
+                    <h1 class="center-justified">1.Discover</h1>
                     
                     <p>Before jumping into the redesign itself, we must breakdown the existing app and understand it in full.</p>
                     <div class="paragraph-container">
@@ -84,10 +53,8 @@
                         <p>With competitive analysis only pointing at a cultural page listing art activities for children, we decided to create a Proof of Concept (POC) of an app that would facilitate the process of giving, and finding, lessons in the arts.</p>
                     </div>
                    <!--  <img src="../images/work/fullsize/artent/details/research.png" title="Image"  width="100%" height="100%"> -->
-                    <h1 class="center-justified">Research</h1>
-                    
-                    <p>Before jumping into the redesign itself, we must breakdown the existing app and understand it in full.</p>
                     <div class="paragraph-container">
+                        
                         <h2>Talking to people</h2>
                         <p>The approach to research for this project was relaxed and kept quite centered around the circus performers we knew, as well as immediate acquaintances.</p>
 
@@ -145,8 +112,11 @@
                     </div>
                 </div>
             </div> -->
-            <div class="container light-bg">
+            <div class="container light-bg" id="definition">
                 <div class="document-text text-box">
+                    <h1 class="center-justified">2.Define</h1>
+                    <p>With some research done and the problem identified, we proceed to explore solutions, starting off with brainstorming ideas, feelings and experiences.</p>
+                        
                     <div class="paragraph-container">
                         <h2>Ideation</h2>
                         <p>The ideation process took place over a few sessions of getting together and brainstorming basically anything we felt an app for artists would have to cover and feel like.</p>
@@ -195,13 +165,18 @@
             <!-- VISUAL IDENTITY -->
             <div class="container--padded">
                 <div class="document-text text-box">
-                    <h1 class="center-justified">Visual Identity</h1>
+                    <h2>Branding &amp; Visual Identity</h2>
                     
-                    <p>The visual identity is updated, adding Roboto as an interface typeface, a greater range of colors, and a brand new set of custom made icons inspired by the forms of the Steam Logo.</p>
- <!--                    <div class="paragraph-container">
-                        <h2>TYPEFACES</h2>
+                    <p>Although I will not be covering it in detail, we also worked on our own branding. It was kept minimal enough since it wasn't the focus of the project, however still done in such a way so that the app felt legitimate and had direction.</p>
+
+                    <div class="paragraph-container">
+                        <h2>Brand Principles</h2>
                     </div>
-                    <div class="paragraph-container--unpadded row">
+                    <p>As previously defined, we ensured the brand was bold yet simple, with no frills. Despite expectations, the artists we spoke to were not very tech focused, and were interested in getting lessons booked and tracked more easily.</p>
+
+                    <p>This meant big text and buttons, uncluttered screens and limited visual distractions.</p>
+
+<!--                     <div class="paragraph-container--unpadded row">
                         <div class="col-md-6">
                             <img src="../images/work/fullsize/steam/details/typeface-roboto.png" title="Image"  width="75%" height="75%">
                         </div>
@@ -211,28 +186,109 @@
                     </div> -->
                 </div>
             </div>
-<!--             <div class="container--padded light-bg">
+            <div class="container--padded light-bg">
                 <div class="document-text text-box">
                     <div class="paragraph-container--unpadded">
-                        <h2>COLORS</h2>
+                        <h2>Colours</h2>
                     </div>
-                    <img src="../images/work/fullsize/steam/details/colors.png" title="Image"  width="100%" height="100%">
+                    <p>
+                        We decided to go with purple due to it's association with creativity and unorthodoxy. It also would differentiate us since purple isn't a very common app colour.
+                    </p>
+                    <!-- <img src="../images/work/fullsize/steam/details/colors.png" title="Image"  width="100%" height="100%"> -->
                 </div>
             </div>
-            <div class="container--padded  container--gradient_dark">
+            <div class="container--padded  dark-bg">
                 <div class="document-text text-box">
                     <div class="paragraph-container--unpadded">
-                        <h2>ICONS</h2>
+                        <h2></h2>
                     </div>
-                    <img src="../images/work/fullsize/steam/details/icons.svg" title="Image"  width="100%" height="100%">
+                    <p></p>
+                    <!-- <img src="../images/work/fullsize/steam/details/icons.svg" title="Image"  width="100%" height="100%"> -->
                 </div>
-            </div> -->
-            <!-- RESULTS -->
-            <div class="container--padded">
+            </div>
+             <div class="container--padded light-bg" id="iteration">
                 <div class="document-text text-box">
-                    <h1 class="center-justified">The App</h1>
+                    <h1 class="center-justified">3.Iterate</h1>
+                    <h2>Wireframes</h2>
+                    <p>Very early wireframes were created for some developers we collaborated with to create a quick app prototype using the Ionic App framework.</p>
+                    <p>These wireframes were minimal and intended to be just enough to have something to test.</p>
                     
-                    <p>Finally we deliver UI rendered mockups of key screens sporting an updated navigation, visual identity and functionality.</p>
+                    <div class="paragraph-container">
+                        <h2>Mockups</h2>
+                        <p>At this point I was now building the front-end myself, so I used Mockups only as a jumping off point of discussion to get some feel for the visual direction. This is why a lot of these screens feel under developed. All UI iterations took place in the code, the true source of truth.</p>
+                        <p>Most of the iterations continued on in code as we quickly iterated on ideas using CSS and Typescript.</p>
+                        <div class="gallery-image">
+                            <a href="../images/work/fullsize/steam/screens/start.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/steam/screens/start.jpg" title="Image"  width="100%" height="100%">
+                            </a>
+                        </div>
+                        <subtitle class="subtitle">
+                        <i>
+                        Start and Login Pages are streamlined. UI elements are given more space and confirmation pages are added.
+                        </i>
+                        </subtitle>
+                    </div>
+                    <div class="paragraph-container--icons">
+                        <h2>Prototype</h2>
+                        <p>We also used the mockups to set up some quick prototypes to discuss around. This helps us visualize the early app layout and behavior before jumping into code. Once we got more comfortable with the structure, we left the Invision prototype behind and test only with the app.</p>
+                        <div class="gallery-image">
+                            <a href="../images/work/fullsize/steam/screens/profile.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/steam/screens/profile.jpg" title="Image"  width="50%" height="50%">
+                            </a>
+                        </div>
+                        <subtitle class="subtitle">
+                        <i>
+                        The Profile view maintains the section buttons, and new ones can be added. Here the user also has access to various sections such as Notifications, Settings, Confirmations and more, all from one core location.
+                        </i>
+                        </subtitle>
+                    </div>
+                </div>
+            </div>
+            <!-- RESULTS -->
+            <div class="container--padded" id="implementation">
+                <div class="document-text text-box">
+                    <h1 class="center-justified">4.Implement</h1>
+                    <p>Very early wireframes were created for some developers we collaborated with to create a quick app prototype using the Ionic App framework.</p>
+                    <p>These wireframes were minimal and intended to be just enough to have something to test.</p>
+                    
+                    <div class="paragraph-container">
+                        <h2>Development Details</h2>
+                        <p>One of the main goals of this project was to learn how to build a hybrid mobile app, from start to end. This turned out to be a a very enlightening experience due to the fact that we made a lot of mistakes along the way.</p>
+                        <p>We kicked off with Ionic 2.0, which at the time was one of the two big Hybrid app frameworks, the other being React Native.</p>
+                        <p>Having worked with Angular and Cordova before, Ionic was the natural choice for me. I didn't want to learn a brand new framework on top of learning hybrid app development.
+                        &nbsp;
+                        However, looking back, perhaps React Native would have been the better choice.</p>
+                        <div class="gallery-image">
+                            <a href="../images/work/fullsize/steam/screens/start.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/steam/screens/start.jpg" title="Image"  width="100%" height="100%">
+                            </a>
+                        </div>
+                        <subtitle class="subtitle">
+                        <i>
+                        Start and Login Pages are streamlined. UI elements are given more space and confirmation pages are added.
+                        </i>
+                        </subtitle>
+                    </div>
+                    <div class="paragraph-container--icons">
+                        <h2>Vendor Design Details</h2>
+                        <p>One important detail for me was to try to follow the Verndor Design Principles as closely as possible. This meant using the ios- (Apple's iOS UIKit) and mb- (Androids Material Design UI Kit) rules of the frame work as much as possible.</p>
+                        <p>This ensured the app would feel legitimate and a lot of usability issues would be handled by the native app UI guidelines for us.</p>
+                        <div class="gallery-image">
+                            <a href="../images/work/fullsize/steam/screens/profile.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/steam/screens/profile.jpg" title="Image"  width="50%" height="50%">
+                            </a>
+                        </div>
+                        <subtitle class="subtitle">
+                        <i>
+                        The Profile view maintains the section buttons, and new ones can be added. Here the user also has access to various sections such as Notifications, Settings, Confirmations and more, all from one core location.
+                        </i>
+                        </subtitle>
+                    </div>
+
+                    <h2>The app</h2>
+                    <p>We settled on what we felt was an adequate prototype releasable as a Beta on the Play Store (pending). </p>
+
+                    <p>Although I wish it were more refined and has better visual presentation, we felt this was a good first version of the app to get it to be useful and to be testable. </p>
                     <div class="paragraph-container">
                         <h2>Start &amp; Login</h2>
                         <div class="gallery-image">
