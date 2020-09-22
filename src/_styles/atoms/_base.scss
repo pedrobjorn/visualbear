@@ -85,15 +85,25 @@ li#left-justified {
         cursor: pointer;
 }
 
+.iframe{
+    transform: scale(1) translate(0%, 0%);
+    height:900px;
+}
+
+
+.iframe-container{
+    display: inherit;
+}
+
 //>1200px
 @media (min-width: $break-large) {
-        .mobile-hide{
-          display:initial;
-        }
-        .mobile-show{
-              display:none;
-        }
-        .absolute-corner{
+    .mobile-hide{
+      display:initial;
+    }
+    .mobile-show{
+          display:none;
+    }
+    .absolute-corner{
         z-index:999;
         position:absolute;
         width:256px;
@@ -102,22 +112,13 @@ li#left-justified {
     }
 }
 
-    .iframe{
-        transform: scale(1) translate(0%, 0%);
-        height:900px;
-    }
-
-
-    .iframe-container{
-        display: inherit;
-    }
-
 @media (min-width: $break-large) {
 
     .iframe-container{
         display: inherit;
     }
 }
+
 @media (min-width: $break-large) {
 
     .iframe{
@@ -128,13 +129,13 @@ li#left-justified {
 
 //1200px< & >767px
 @media (max-width: $break-large) and (min-width: $break-medium) {
-  .mobile-hide{
+    .mobile-hide{
     display:initial;
-  }
-  .mobile-show{
+    }
+    .mobile-show{
         display:none;
-  }
-        .absolute-corner{
+    }
+    .absolute-corner{
         z-index:999;
         position:absolute;
         width:256px;
@@ -149,13 +150,13 @@ li#left-justified {
 
 //767px< & >480px
 @media (max-width: $break-medium) and (min-width: $break-small) {
-  .mobile-hide{
+    .mobile-hide{
     display:none;
-  }
-  .mobile-show{
+    }
+    .mobile-show{
         display:initial;
-  }
-        .absolute-corner{
+    }
+    .absolute-corner{
         z-index:999;
         position:absolute;
         width:256px;
@@ -174,13 +175,13 @@ li#left-justified {
 
 //480px< & >320px
 @media (max-width: $break-small) and (min-width: $break-tiny) {
-  .mobile-hide{
+    .mobile-hide{
     display:none;
-  }
-  .mobile-show{
+    }
+    .mobile-show{
         display:initial;
-  }
-        .absolute-corner{
+    }
+    .absolute-corner{
         z-index:999;
         position:absolute;
         width:156px;
@@ -188,7 +189,6 @@ li#left-justified {
         cursor: pointer;
     }
  
-
     .iframe{
         transform: scale(0.5) translate(-35%, -25%);
         height:900px;
@@ -203,12 +203,12 @@ li#left-justified {
 
 //320px<
 @media (max-width: $break-tiny) {
-  .mobile-hide{
+    .mobile-hide{
     display:none;
-  }
-  .mobile-show{
+    }
+    .mobile-show{
         display:initial;
-  }
+    }
     .absolute-corner{
         z-index:999;
         position:absolute;
@@ -216,7 +216,6 @@ li#left-justified {
         height:156px;
         cursor: pointer;
     }
-
 
     .iframe{
         transform: scale(0.5) translate(-40%, -25%);
