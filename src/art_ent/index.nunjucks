@@ -195,31 +195,40 @@
                                 <img src="../images/work/fullsize/artent/details/wireflow_container.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
-                        <subtitle class="subtitle">
+                        <p class="image_text">
                         A wireflow was created as an early reference of the app. It's a but big, but we felt the app was small enough to map out in its entirety. It has since changes.
-                        </subtitle>
+                        </p>
                     </div>
                     <div class="paragraph-container">
                         <h2>Mockups</h2>
                         <p>At this point I was now building the front-end myself, so I used Mockups only as a jumping off point of discussion to get some feel for the visual direction. This is why a lot of these screens feel under developed. All UI iterations took place in the code, the true source of truth.</p>
-                        <p>Most of the iterations continued on in code as we quickly iterated on ideas using CSS and Typescript.</p>
+                        <p>Most of the iterations continued on in code as we quickly iterated on ideas using CSS and Typescript. Here are some quick examples of the Mockups:</p>
                         <div class="gallery-image">
                             <a href="../images/work/fullsize/artent/screens/onboarding-multi.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/artent/screens/onboarding-multi.jpg" title="Image"  width="100%" height="100%">
                             </a>
 
-                            <subtitle class="subtitle">
-                            Onboarding was initially divided into two tracks, since we wanted to distniguish the process for students and artists to register.
-                            </subtitle>
+                            <p class="image_text">
+                            <b>Onboarding</b> was initially divided into two tracks, since we wanted to distniguish the process for students and artists to register.
+                            </p>
                         </div>
-                   <div class="gallery-image">
-                            <a href="../images/work/fullsize/artent/screens/onboarding-multi.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/artent/screens/onboarding-multi.jpg" title="Image"  width="100%" height="100%">
+                        <div class="gallery-image">
+                            <a href="../images/work/fullsize/artent/screens/browsing-multi.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/artent/screens/browsing-multi.jpg" title="Image"  width="100%" height="100%">
                             </a>
                             
-                            <subtitle class="subtitle">
-                            Subtext
-                            </subtitle>
+                            <p class="image_text">
+                            <b>Lesson Browsing</b> was accessible for both users groups, and user groups had profile pages, requiring registration. The Lesson Browsing was also Grid Styled.
+                            </p>
+                        </div>
+                         <div class="gallery-image">
+                            <a href="../images/work/fullsize/artent/screens/create_lesson-multi.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/artent/screens/create_lesson-multi.jpg" title="Image"  width="100%" height="100%">
+                            </a>
+                            
+                            <p class="image_text">
+                            <b>Creating Lessons</b> have multiple steps as Artists go through the setup, allowing them to choose between Group and Private lessons, if they haven't yet, they are prompted to setup their payment system, and they get to Confirm the lesson summary.
+                            </p>
                         </div>
                     </div>
                     <div class="paragraph-container" id="artent_prototype">
@@ -229,7 +238,10 @@
                             <div class="iframe-container center">
                                 <iframe  class="iframe" width="438" src="//invis.io/Z9QJWVM7MNW" frameborder="0" allowfullscreen></iframe>
                             </div>
-                             <div class="prototype-link" style="padding:32px 0">
+                            <p class="image_text">
+                                The prototype was set up to explore the flows and help us find any gaps in the experience. It was a bit bloated, but it helped us experience the complex mix.
+                            </p>
+                            <div class="prototype-link" style="padding:32px 0">
                                 <a href="./prototype.html" alt="Value Proposition Photo">
                                 View the prototype
                                 </a>
@@ -250,7 +262,7 @@
                         <h2>Development</h2>
                         <p>One of the main goals of this project was to learn how to build a hybrid mobile app, so we kicked off with <a href="https://ionicframework.com/" alt="Ionic Framework link"> Ionic 2.0</a>, which at the time was one of the two big Hybrid app frameworks, the other being React Native.</p>
                         
-                        <div class="gallery-image">
+                        <div class="gallery-image--small">
                             <a href="https://ionicframework.com/" alt="Ionic Framework link">
                                 <img src="../images/work/fullsize/artent/details/1200px-Ionic-logo-landscape.png" title="Image"  width="100%" height="100%">
                             </a>
@@ -275,11 +287,11 @@
                                 <img src="../images/work/fullsize/steam/screens/start.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
-                        <subtitle class="subtitle">
+                        <p class="image_text">
                         
                         Start and Login Pages are streamlined. UI elements are given more space and confirmation pages are added.
                         
-                        </subtitle>
+                        </p>
                     </div>
                     <div class="paragraph-container--icons">
                         <h2>Profile</h2>
@@ -288,11 +300,11 @@
                                 <img src="../images/work/fullsize/steam/screens/profile.jpg" title="Image"  width="50%" height="50%">
                             </a>
                         </div>
-                        <subtitle class="subtitle">
+                        <p class="image_text">
                         
                         The Profile view maintains the section buttons, and new ones can be added. Here the user also has access to various sections such as Notifications, Settings, Confirmations and more, all from one core location.
                         
-                        </subtitle>
+                        </p>
                     </div>
                     <div class="paragraph-container">
                         <h2>UI Details - Header &amp; Tabs</h2>
@@ -301,11 +313,11 @@
                                 <img src="../images/work/fullsize/steam/screens/ui-detail_header.jpg" title="Image"  width="50%" height="50%">
                             </a>
                         </div>
-                        <subtitle class="subtitle">
+                        <p class="image_text">
                         
                         The header contains quick and fixed options that provide the user snappy navigation between key parts of the app, be it through buttons (Profile, Settings, Back), Tabs, or a app-wide search navigation option.
                         
-                        </subtitle>
+                        </p>
                     </div>
                     <div class="paragraph-container">
                         <h2>Library</h2>
@@ -314,11 +326,11 @@
                                 <img src="../images/work/fullsize/steam/screens/library.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
-                        <subtitle class="subtitle">
+                        <p class="image_text">
                         
                         The Library gives room to games, that can be expanded for more information, which is also given emphasis. Display and Filter options facilitate the navigation of content also.
                         
-                        </subtitle>
+                        </p>
                     </div>
                     <div class="paragraph-container">
                         <h2>UI Details - Search Navigation &amp; Filtering</h2>
@@ -327,11 +339,11 @@
                                 <img src="../images/work/fullsize/steam/screens/ui-detail_filters.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
-                        <subtitle class="subtitle">
+                        <p class="image_text">
                         
                         Search navigation and filtering are given an almost constant presence, and filtering is available in any view with a lot of content.
                         
-                        </subtitle>
+                        </p>
                     </div>
                     <div class="paragraph-container">
                         <h2>Steam Chat</h2>
@@ -340,12 +352,12 @@
                                 <img src="../images/work/fullsize/steam/screens/chat.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
-                        <subtitle class="subtitle">
+                        <p class="image_text">
                         
                         Communication and community is important for the Steam Mobile experience, and we make it more
                         contemporary with more options, and clearer content.
                         
-                        </subtitle>
+                        </p>
                     </div>
                     <div class="paragraph-container--icons">
                         <h2>Store</h2>
@@ -354,11 +366,11 @@
                                 <img src="../images/work/fullsize/steam/screens/store.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
-                        <subtitle class="subtitle">
+                        <p class="image_text">
                         
                         The centre of attention is the Steam Store. Again, the content is front and centre, with tabs and expandable content cards like in the Library.
                         
-                        </subtitle>
+                        </p>
                     </div>
                     <div class="paragraph-container--icons">
                         <h2>Game Detail View</h2>
@@ -367,11 +379,11 @@
                                 <img src="../images/work/fullsize/steam/screens/game-detail.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
-                        <subtitle class="subtitle">
+                        <p class="image_text">
                         
                         The Game Detail view has a lot of information, and has an action button that enables quick action from anywhere in the view.
                         
-                        </subtitle>
+                        </p>
                     </div>
                     <div class="paragraph-container">
                         <h2>UI Details - Action Button</h2>
@@ -380,11 +392,11 @@
                                 <img src="../images/work/fullsize/steam/screens/ui-detail_action-buttons.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
-                        <subtitle class="subtitle">
+                        <p class="image_text">
                         
                         The Action Button is a prevalent option that enables the user to take a related action, anywhere within the view.
                         
-                        </subtitle>
+                        </p>
                     </div>
                     <div class="paragraph-container--icons">
                         <h2>Steam Community - Market</h2>
@@ -393,11 +405,11 @@
                                 <img src="../images/work/fullsize/steam/screens/market.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
-                        <subtitle class="subtitle">
+                        <p class="image_text">
                         
                         The Steam Community is important, and one of the big areas is the Steam Market. A lot of options are grouped to focus set of actions.
                         
-                        </subtitle>
+                        </p>
                     </div>
                     <div class="paragraph-container--icons">
                         <h2>Steam Guard &amp; Confirmations</h2>
@@ -406,11 +418,11 @@
                                 <img src="../images/work/fullsize/steam/screens/guard.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
-                        <subtitle class="subtitle">
+                        <p class="image_text">
                         
                         Finally, Steam Guard, the most accessible option due to its immediacy of use, focuses on the delivery of a usable two factor authentication code.
                         
-                        </subtitle>
+                        </p>
                     </div>
                 </div>
             </div>
