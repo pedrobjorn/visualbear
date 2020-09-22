@@ -114,10 +114,19 @@
                     <div class="gallery-image">
                         <a href="../images/work/fullsize/artent/details/ideation_sketches.jpg" alt="Value Proposition Photo">
                             <img src="../images/work/fullsize/artent/details/ideation_sketches.jpg" title="Image"  width="100%" height="100%">
-                            
                         </a>
-
                         <p class="image_text">We took 5 minute incraments to jot down action verbs in black and emotional experiences in yellow.</p>
+                    </div>
+                    <div class="paragraph-container">
+                        <h2>Ecosystem & Flow diagrams</h2>
+                        <p>Once we had agreed upon some key principles for the app, we proceeded with exploring the flow both artists and students would take in order to achieve their goals.</p>
+                        <p>We kicked off with requiring sign-up for all users, and excluding Artists from browsing lessons. We also aimed to have Chat and Notification views</p>
+                    </div>
+                   <div class="gallery-image">
+                        <a href="../images/work/fullsize/artent/details/old-site_map.jpg" alt="Value Proposition Photo">
+                            <img src="../images/work/fullsize/artent/details/old-site_map.jpg" title="Image"  width="100%" height="100%">
+                        </a>
+                        <p class="image_text">The initial site-map was very shared, with artists unable to browse lessons, and all users needing to register for an account. </p>
                     </div>
                     <div class="paragraph-container">
                         <h2>Sketches</h2>
@@ -126,19 +135,16 @@
                    <div class="gallery-image">
                         <a href="../images/work/fullsize/artent/details/sketches_example_3.jpg" alt="Value Proposition Photo">
                             <img src="../images/work/fullsize/artent/details/sketches_example_3.jpg" title="Image"  width="100%" height="100%">
-                            
                         </a>
                     </div>
                     <div class="gallery-image">
                         <a href="../images/work/fullsize/artent/details/sketches_example.jpg" alt="Value Proposition Photo">
                             <img src="../images/work/fullsize/artent/details/sketches_example.jpg" title="Image"  width="100%" height="100%">
-                            
                         </a>
                     </div>
                     <div class="gallery-image">
                         <a href="../images/work/fullsize/artent/details/sketches_example_2.jpg" alt="Value Proposition Photo">
                             <img src="../images/work/fullsize/artent/details/sketches_example_2.jpg" title="Image"  width="100%" height="100%">
-                            
                         </a>
 
                         <p class="image_text">Initial sketches were very abstract, and focused on behaviour flows and task objectives. Eventually sketches became more visual and UI focused. We even worked on the logo design via sketching. We didn't actually pick any from this direction, but it was a valuable exploration nonetheless. </p>
@@ -171,16 +177,6 @@
                     </div>
                     <!-- <img src="../images/work/fullsize/steam/details/colors.png" title="Image"  width="100%" height="100%"> -->
 
-                </div>
-            </div>
- 
-            <div class="container--padded  dark-bg">
-                <div class="document-text text-box">
-                    <div class="paragraph-container--unpadded">
-                        <h2></h2>
-                    </div>
-                    <p></p>
-                    <!-- <img src="../images/work/fullsize/steam/details/icons.svg" title="Image"  width="100%" height="100%"> -->
                 </div>
             </div>
              <div class="container light-bg" id="iteration">
@@ -247,7 +243,22 @@
                     </div>
                 </div>
             </div>
-
+ 
+            <div class="container--padded  dark-bg">
+                <div class="document-text text-box">
+                    <div class="paragraph-container">
+                        <h2 class="center-justified">Pivoting the App</h2>
+                        <p>When we got into development, we started off with an on-boarding process for all users, and aimed to include a payment system (e.g Stripe) and full booking handling for artists. However, we quickly noticed that this would take a lot more work, and slow down adoption.</p>
+                        <p>We quickly pivoted to simplify the app, removing any payment system, and focusing on connecting students and artists. We also removed on-boarding at the start of the app, and only required an account creation for users that wanted to give lessons.</p>
+                    </div>
+                   <div class="gallery-image">
+                        <a href="../images/work/fullsize/artent/details/new-site_map.png" alt="Value Proposition Photo">
+                            <img src="../images/work/fullsize/artent/details/new-site_map.png" title="Image"  width="100%" height="100%">
+                        </a>
+                        <p class="image_text">The new site-map ensures everyone starts off as a Student, and expands the functionality when they register as an Artist.</p>
+                    </div>
+                </div>
+            </div>
             <!-- IMPLEMENT -->
             <div class="container--padded" id="implementation">
                 <div class="document-text text-box">
@@ -292,7 +303,7 @@
                     </div>
                     <div class="paragraph-container--icons">
                         <h2>Profile</h2>
-                        <div class="gallery-image">
+                        <div class="gallery-image--medium center-align">
                             <a href="../images/work/fullsize/steam/screens/profile.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/profile.jpg" title="Image"  width="50%" height="50%">
                             </a>
@@ -358,7 +369,7 @@
                     </div>
                     <div class="paragraph-container--icons">
                         <h2>Store</h2>
-                        <div class="gallery-image">
+                        <div class="gallery-image--medium center-align">
                             <a href="../images/work/fullsize/steam/screens/store.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/store.jpg" title="Image"  width="100%" height="100%">
                             </a>
@@ -371,7 +382,7 @@
                     </div>
                     <div class="paragraph-container--icons">
                         <h2>Game Detail View</h2>
-                        <div class="gallery-image">
+                        <div class="gallery-image--medium center-align">
                             <a href="../images/work/fullsize/steam/screens/game-detail.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/game-detail.jpg" title="Image"  width="100%" height="100%">
                             </a>
@@ -384,7 +395,7 @@
                     </div>
                     <div class="paragraph-container">
                         <h2>UI Details - Action Button</h2>
-                        <div class="gallery-image">
+                        <div class="gallery-image--medium center-align">
                             <a href="../images/work/fullsize/steam/screens/ui-detail_action-buttons.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/ui-detail_action-buttons.jpg" title="Image"  width="100%" height="100%">
                             </a>
@@ -397,7 +408,7 @@
                     </div>
                     <div class="paragraph-container--icons">
                         <h2>Steam Community - Market</h2>
-                        <div class="gallery-image">
+                        <div class="gallery-image--medium center-align">
                             <a href="../images/work/fullsize/steam/screens/market.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/market.jpg" title="Image"  width="100%" height="100%">
                             </a>
@@ -410,7 +421,7 @@
                     </div>
                     <div class="paragraph-container--icons">
                         <h2>Steam Guard &amp; Confirmations</h2>
-                        <div class="gallery-image">
+                        <div class="gallery-image--medium center-align">
                             <a href="../images/work/fullsize/steam/screens/guard.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/guard.jpg" title="Image"  width="100%" height="100%">
                             </a>
