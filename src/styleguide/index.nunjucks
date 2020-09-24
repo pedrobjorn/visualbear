@@ -32,10 +32,10 @@
 				{{containers.content()}}
 			</div>
 		</article>
-		<article class="text-container" id="templates">
+		<!-- <article class="text-container" id="templates">
 			<div class="row">
 				{{templates.content()}}
 			</div>
-		</article>
+		</article> -->
 	</section>
 {% endblock %}
