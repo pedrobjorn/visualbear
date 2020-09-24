@@ -1,7 +1,16 @@
 {% macro content(spec) %}
 {% set spec = spec or {} %}
+{% import "_modules/molecules/card/card.nunjucks" as card %}
 {% set _class = spec.class or '' %}
 {% set _content = spec.content or '{}' %}
+
+    {% set _cardPlay = {
+    "title": "Play",
+    "subtitle": "Illustration & Graphic design fun",
+    "href": "../play",
+    "img": "../images/work/thumbs/"
+} %}
+
 {% block config %}
   {# Correct base url pathing for this page #}
   {% set baseUrl = '../' %}
@@ -46,19 +55,11 @@
   <h3 class="page-header">Image Container</h3>
   <img src="./../images/work/fullsize/visualbear/visualbear_pedrobjorn.jpg" alt="visualbear logoimage">
 </div>
-<div class="text-block">
+
   <h3 class="page-header" id="linkblock">Link Block</h3>
-  <div class="gallerytile">
-    <a  href="#linkblock"class=" center">
-      <span class="gallery-image v-align">
-        <div class="image-block box">
-          <h0> visualbear
-          <small>Brand & Front-end Design</small>
-          </h0>
-        </div>
-      </span>
-    </a>
+    <div class="text-block ">
+    <h4 class="page-header" id="galleryimg"> Cart Gallery Container</h4>
+  {{card.content({card:_cardPlay})}} 
   </div>
-</div>
 </article>
   {% endmacro %}

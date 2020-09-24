@@ -81,7 +81,7 @@
     <h3 class="page-header">Fonts</h3>
     <ul>
       <li>
-        <p>Primary font: "<a href="https://www.google.com/fonts/specimen/Ubuntu" alt="Google fonts link" target="_blank">Ubuntu</a>", sans-serif;</p>
+        <p>Primary font: "<a href="https://www.google.com/fonts/specimen/Nunito" alt="Google fonts link" target="_blank">Nunito</a>", sans-serif;</p>
       </li>
       <li>
         <div class="center-justified">
@@ -95,8 +95,8 @@
         </div>
       </li>
       <li>
-        <p><i>Primary font italic: "Ubuntu" , sans-serif;</i></p>
-        <p class="bold">Primary font bold: "Ubuntu", sans-serif;</p>
+        <p><i>Primary font italic: "Nunito" , sans-serif;</i></p>
+        <p class="bold">Primary font bold: "Nunito", sans-serif;</p>
       </li>
       <li>
         <p class="font-secondary">Secondary font:  "HelveticaNeue", "Helvetica", "Arial", sans-serif;</p>
@@ -122,13 +122,13 @@
     <h3 class="page-header">Headings</h3>
     <ul>
       <!--HEADINGS-->
-      <li><h0>h0 Heading <small>Secondary text</small><h0></li>
-      <li><h1>h1 Heading  <small>Secondary text</small><h1></li>
-      <li><h2>h2 Heading  <small>Secondary text</small><h2></li>
-      <li><h3>h3 Heading  <small>Secondary text</small><h3></li>
-      <li><h4>h4 Heading  <small>Secondary text</small><h4></li>
-      <li><h5>h5 Heading  <small>Secondary text</small><h5></li>
-      <li><h6>h6 Heading  <small>Secondary text</small><h6></li>
+      <li><h0>h0 Heading <small>Secondary text</small></h0></li>
+      <li><h1>h1 Heading  <small>Secondary text</small></h1></li>
+      <li><h2>h2 Heading  <small>Secondary text</small></h2></li>
+      <li><h3>h3 Heading  <small>Secondary text</small></h3></li>
+      <li><h4>h4 Heading  <small>Secondary text</small></h4></li>
+      <li><h5>h5 Heading  <small>Secondary text</small></h5></li>
+      <li><h6>h6 Heading  <small>Secondary text</small></h6></li>
     </ul>
     <ul>
       <li><h2 class="page-header">h2 Page Header <small>With Secondary Text</small></h2></li>

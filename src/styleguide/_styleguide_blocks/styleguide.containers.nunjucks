@@ -1,5 +1,5 @@
 {% macro content(spec) %}
-{% import "_modules/molecules/card/card.nunjucks" as card %}
+
 {% import "_modules/organisms/headline/headline.nunjucks" as headline %}
 {% import "_modules/molecules/footer/footer.nunjucks" as footer %}
 {% import "_modules/molecules/buttonslider/buttonslider.nunjucks" as buttonslider %}
@@ -16,12 +16,7 @@
 
 {% import "_modules/molecules/nav/nav.nunjucks" as nav %}
 {% import "_modules/molecules/footer/footer.nunjucks" as footer %}
-    {% set _cardPlay = {
-    "title": "Play",
-    "subtitle": "Illustration & Graphic design fun",
-    "href": "../play",
-    "img": "../images/work/thumbs/"
-} %}
+
 
 {% set _headlineExtra = {
 "title": "art ent app",
@@ -62,10 +57,7 @@
   </div>
 
 
-  <div class="text-block ">
-    <h4 class="page-header" id="galleryimg"> Cart Gallery Container</h4>
-  {{card.content({card:_cardPlay})}} 
-  </div>
+
   
     <div class="text-block " style="max-height:auto;">
     <h4 class="page-header" id="galleryimg">Button Slider</h4>

@@ -154,6 +154,7 @@
                         <h3>Branding &amp; Visual Identity</h3>
                         
                         <p>Although I will not be covering it in detail, we also worked on our own branding. It was kept minimal enough since it wasn't the focus of the project, however still done in such a way so that the app felt legitimate and had direction.</p>
+                        
                     </div>
 
                     <div class="paragraph-container">
@@ -317,12 +318,15 @@
                     <h3>The app</h3>
                     <p>We settled on what we felt was an adequate prototype releasable as a Beta on the Play Store (pending). </p>
 
+
                     <p>Although I wish it were more refined and has better visual presentation, we felt this was a good first version of the app to get it to be useful and to be testable. </p>
+
+                    <p><i> Many the photos here were rendered using <a href="https://www.rotato.xyz/buy?f=a" title="Rotato XYZ link" target="_blank">Rotato XYZ</a>, a great mockup app.</i></p>
                     <div class="paragraph-container">
-                        <h3>Start &amp; Login</h3>
+                        <h3>Start screen</h3>
                         <div class="gallery-image">
-                            <a href="../images/work/fullsize/steam/screens/start.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/steam/screens/start.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/artent/screens/start.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/artent/screens/start.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         <p class="image_text">
@@ -332,10 +336,10 @@
                         </p>
                     </div>
                     <div class="paragraph-container--icons">
-                        <h3>Profile</h3>
+                        <h3>Open Lesson</h3>
                         <div class="gallery-image--medium center-align">
-                            <a href="../images/work/fullsize/steam/screens/profile.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/steam/screens/profile.jpg" title="Image"  width="50%" height="50%">
+                            <a href="../images/work/fullsize/artent/screens/lesson_open.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/artent/screens/lesson_open.jpg" title="Image"  width="50%" height="50%">
                             </a>
                         </div>
                         <p class="image_text">
@@ -344,24 +348,12 @@
                         
                         </p>
                     </div>
+
                     <div class="paragraph-container">
-                        <h3>UI Details - Header &amp; Tabs</h3>
+                        <h3>Lesson Browsing</h3>
                         <div class="gallery-image">
-                            <a href="../images/work/fullsize/steam/screens/ui-detail_header.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/steam/screens/ui-detail_header.jpg" title="Image"  width="50%" height="50%">
-                            </a>
-                        </div>
-                        <p class="image_text">
-                        
-                        The header contains quick and fixed options that provide the user snappy navigation between key parts of the app, be it through buttons (Profile, Settings, Back), Tabs, or a app-wide search navigation option.
-                        
-                        </p>
-                    </div>
-                    <div class="paragraph-container">
-                        <h3>Library</h3>
-                        <div class="gallery-image">
-                            <a href="../images/work/fullsize/steam/screens/library.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/steam/screens/library.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/artent/screens/lesson_browse.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/artent/screens/lesson_browse.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         <p class="image_text">
@@ -371,23 +363,10 @@
                         </p>
                     </div>
                     <div class="paragraph-container">
-                        <h3>UI Details - Search Navigation &amp; Filtering</h3>
+                        <h3>Lesson Details</h3>
                         <div class="gallery-image">
-                            <a href="../images/work/fullsize/steam/screens/ui-detail_filters.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/steam/screens/ui-detail_filters.jpg" title="Image"  width="100%" height="100%">
-                            </a>
-                        </div>
-                        <p class="image_text">
-                        
-                        Search navigation and filtering are given an almost constant presence, and filtering is available in any view with a lot of content.
-                        
-                        </p>
-                    </div>
-                    <div class="paragraph-container">
-                        <h3>Steam Chat</h3>
-                        <div class="gallery-image">
-                            <a href="../images/work/fullsize/steam/screens/chat.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/steam/screens/chat.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/artent/screens/lesson_details.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/artent/screens/lesson_details.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         <p class="image_text">

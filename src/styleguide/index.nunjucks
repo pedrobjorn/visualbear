@@ -10,7 +10,7 @@
 {% endblock %}
 {% block content %}
 	<section class="section section-top-padding"  id="resume_container">
-		<article class="text-container">
+		<article>
 			
 			<!--Title Row-->
 			<div class="row">
