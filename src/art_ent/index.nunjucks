@@ -151,7 +151,7 @@
                     </div>
                    </div>
                     <div class="paragraph-container">
-                        <h3>Branding &amp; Visual Identity</h3>
+                        <h3 class="center">Branding &amp; Visual Identity</h3>
                         
                         <p>Although I will not be covering it in detail, we also worked on our own branding. It was kept minimal enough since it wasn't the focus of the project, however still done in such a way so that the app felt legitimate and had direction.</p>
                         
@@ -331,20 +331,20 @@
                         </div>
                         <p class="image_text">
                         
-                        Start and Login Pages are streamlined. UI elements are given more space and confirmation pages are added.
+                        All users are presented with a collection of categories that each expand to reveal a list of sub-categories, or as we call them, Techniques.
                         
                         </p>
                     </div>
                     <div class="paragraph-container--icons">
                         <h3>Open Lesson</h3>
-                        <div class="gallery-image--medium center-align">
+                        <div class="gallery-image center-align">
                             <a href="../images/work/fullsize/artent/screens/lesson_open.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/artent/screens/lesson_open.jpg" title="Image"  width="50%" height="50%">
                             </a>
                         </div>
                         <p class="image_text">
                         
-                        The Profile view maintains the section buttons, and new ones can be added. Here the user also has access to various sections such as Notifications, Settings, Confirmations and more, all from one core location.
+                        Opening a Technique leads the users to a view describing the said Technique, and a button that will be enabled if there are any lessons available.
                         
                         </p>
                     </div>
@@ -357,9 +357,7 @@
                             </a>
                         </div>
                         <p class="image_text">
-                        
-                        The Library gives room to games, that can be expanded for more information, which is also given emphasis. Display and Filter options facilitate the navigation of content also.
-                        
+                            Here users can scroll through a list of date-sorted lessons. In this case, there's only one lesson available for Drawing Illustrations.
                         </p>
                     </div>
                     <div class="paragraph-container">
@@ -370,56 +368,38 @@
                             </a>
                         </div>
                         <p class="image_text">
-                        
-                        Communication and community is important for the Steam Mobile experience, and we make it more
-                        contemporary with more options, and clearer content.
-                        
+                        Tapping the lesson card leads users to a Lesson View, where they can inspect the lesson details, as well as find available booking times, and a button to contact the artist.
                         </p>
                     </div>
                     <div class="paragraph-container--icons">
-                        <h3>Store</h3>
-                        <div class="gallery-image--medium center-align">
-                            <a href="../images/work/fullsize/steam/screens/store.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/steam/screens/store.jpg" title="Image"  width="100%" height="100%">
+                        <h3>Becoming an Artist</h3>
+                        <div class="gallery-image center-align">
+                            <a href="../images/work/fullsize/artent/screens/register_intro.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/artent/screens/register_intro.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         <p class="image_text">
                         
-                        The centre of attention is the Steam Store. Again, the content is front and centre, with tabs and expandable content cards like in the Library.
+                        Anyone can go to the Settings to find the Registration / Sign in page. We did want to have a better prompt for this, but we never really got around to it on this first phase.
                         
                         </p>
                     </div>
                     <div class="paragraph-container--icons">
-                        <h3>Game Detail View</h3>
-                        <div class="gallery-image--medium center-align">
-                            <a href="../images/work/fullsize/steam/screens/game-detail.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/steam/screens/game-detail.jpg" title="Image"  width="100%" height="100%">
+                        <h3>Artist - Registration flow</h3>
+                        <div class="gallery-image center-align">
+                            <a href="../images/work/fullsize/artent/screens/register_flow.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/artent/screens/register_flow.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         <p class="image_text">
-                        
-                        The Game Detail view has a lot of information, and has an action button that enables quick action from anywhere in the view.
-                        
-                        </p>
-                    </div>
-                    <div class="paragraph-container">
-                        <h3>UI Details - Action Button</h3>
-                        <div class="gallery-image--medium center-align">
-                            <a href="../images/work/fullsize/steam/screens/ui-detail_action-buttons.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/steam/screens/ui-detail_action-buttons.jpg" title="Image"  width="100%" height="100%">
-                            </a>
-                        </div>
-                        <p class="image_text">
-                        
-                        The Action Button is a prevalent option that enables the user to take a related action, anywhere within the view.
                         
                         </p>
                     </div>
                     <div class="paragraph-container--icons">
-                        <h3>Steam Community - Market</h3>
-                        <div class="gallery-image--medium center-align">
-                            <a href="../images/work/fullsize/steam/screens/market.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/steam/screens/market.jpg" title="Image"  width="100%" height="100%">
+                        <h3>Artist - Lesson View</h3>
+                        <div class="gallery-image center-align">
+                            <a href="../images/work/fullsize/artent/screens/artist_lesson_browse.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/artent/screens/artist_lesson_browse.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         <p class="image_text">
@@ -428,11 +408,37 @@
                         
                         </p>
                     </div>
+                    <div class="paragraph-container">
+                        <h3>UI Details - Artist Lesson Card</h3>
+                        <div class="gallery-image center-align">
+                            <a href="../images/work/fullsize/artent/screens/card_detail.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/artent/screens/card_detail.jpg" title="Image"  width="100%" height="100%">
+                            </a>
+                        </div>
+                        <p class="image_text">
+                        
+                        The Lesson Card for Artists displays relevant infromation for Artists like time and Lesson Type, since artists can be giving different Technique Lessons back to back. These can also be expanded to see the Lesson Slots Artists have marked as booked.
+                        
+                        </p>
+                    </div>
                     <div class="paragraph-container--icons">
-                        <h3>Steam Guard &amp; Confirmations</h3>
-                        <div class="gallery-image--medium center-align">
-                            <a href="../images/work/fullsize/steam/screens/guard.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/steam/screens/guard.jpg" title="Image"  width="100%" height="100%">
+                        <h3>Artist - Create &amp; Edit Lesson</h3>
+                        <div class="gallery-image center-align">
+                            <a href="../images/work/fullsize/artent/screens/create_edit_lesson.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/artent/screens/create_edit_lesson.jpg" title="Image"  width="100%" height="100%">
+                            </a>
+                        </div>
+                        <p class="image_text">
+                        
+                        Artists can also create Lessons by tapping the FAB button in the Lesson View.
+                        
+                        </p>
+                    </div>
+                    <div class="paragraph-container--icons">
+                        <h3>Artist - Lesson Detail</h3>
+                        <div class="gallery-image center-align">
+                            <a href="../images/work/fullsize/artent/screens/artist_lesson_detail.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/artent/screens/artist_lesson_detail.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         <p class="image_text">
