@@ -288,26 +288,28 @@
             </div>
             <div class="container--padded container--gradient_light">
                 <div class="document-text text-box">
-                    <div class="paragraph-container--unpadded">
-                        <h1 class="center-justified">CONCLUSION</h1>
-                    </div>
-                    <div class="paragraph-container--unpadded">
-                        <p>The redesign proposes a more stripped down and focused experience, allowing gamers to focus on their gaming content, and less on looking for it. </p>
-                        <p>A clean, almost subdued visual design puts content first, retaining the existing brand identity, whilst the new app structure retains Steams complexity without overwhelming the user.</p>
-                    </div>
-                    
-                    
-                    <h2  class="center-justified">Lessons Learnt</h2>
+                     <h2  class="center-justified">LESSONS LEARNT</h2>
                     
                     <div class="paragraph-container--unpadded">
+
+                        <h4>Use the right tools</h4>   
                         <p>The motivation for this project was based on the fact that I myself am a Steam user, and found the app to have a lot of room for improvement, but also because I wanted to practice my UI design skills using Illustrator and Photoshop only. </p>
                         <p>In the end, this was a challenge, and I conclude that these tools are not optimal for UI design, especially since there are far better alternatives such as Sketch.</p>
                         
+                        <h4>Always do user research</h4>  
                         <p>I also lacked more in depth user research, testing and prototyping in this project. Although its focus was mostly conceptual and visual, the lack of actionable data made decisions feel unfounded.</p>
                         
                         <p>In future, I will be more formal in my process, focusing on users instead of personal research.</p>
+                    </div>
+
+                    <h2 class="center-justified">CONCLUSION</h2>
+                    <div class="paragraph-container--unpadded">
+                        <p>The redesign proposes a more stripped down and focused experience, allowing gamers to focus on their gaming content, and less on looking for it. </p>
+                        <p>A clean, almost subdued visual design puts content first, retaining the existing brand identity, whilst the new app structure retains Steams complexity without overwhelming the user.</p>
+
                         <p class="center-justified"><i>Thank you for your time.</i></p>
                     </div>
+                    
                 </div>
             </div>
             {{buttonslider.content({

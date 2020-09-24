@@ -49,9 +49,7 @@
                     <p>Before jumping into the redesign itself, we must breakdown the existing app and understand it in full.</p>
                     <div class="paragraph-container">
                         <h3>Problem Statement</h3>
-                        <p>We originally heard from circus arts students that they struggled a lot with booking and managing private lessons they gave on the side to make money.</p>
-                        <p>With further research we also found a lot of notice boards filled with posters promoting guitar lessons, drawing lessons and other arts.</p>
-                        <p>With competitive analysis only pointing at a cultural page listing art activities for children, we decided to create a Proof of Concept (POC) of an app that would facilitate the process of giving, and finding, lessons in the arts.</p>
+                        <p>We originally heard from circus students that they struggled a lot with booking and managing private lessons they gave on the side to make money.</p>
                     </div>
                    <!--  <img src="../images/work/fullsize/artent/details/research.png" title="Image"  width="100%" height="100%"> -->
                     <div class="paragraph-container">
@@ -59,7 +57,7 @@
                         <h3>Talking to people</h3>
                         <p>The approach to research for this project was relaxed and kept quite centered around the circus performers we knew, as well as immediate acquaintances.</p>
 
-                        <p>By talking to the performers we learned that they relied heavily on word of mouth, social media posts, and Notice boards to get their lessons out there.</p>
+                        <p>When talking to the performers we learned that they relied heavily on word of mouth, social media posts, and Notice boards to get their lessons out there.</p>
 
                         <p>Talking to students (i.e anybody that's not an artist), they were limited to either hearing about it, or finding them on social media. Notice boards were not a big draw, due to their messy and unreadable state. They had no idea where to find such lessons otherwise.</p>
                         
@@ -83,18 +81,18 @@
                                 <img src="../images/work/fullsize/artent/details/market_example.jpg" title="Image"  width="100%" height="100%">
                             </a>
                             
-                        <p class="image_text">The Cultural Institute Classes are great, but unfortunately are restricted to children.</p>
+                        <p class="image_text">The <a href="https://kulturskolan.stockholm.se/" title="Cultural Lesson site link" target="_blank">Cultural Institute Classes</a> are great, but unfortunately are restricted to children.</p>
                         </div>
 
                     </div>
-                    <div class="paragraph-container">
+                    <!-- <div class="paragraph-container">
                         <h3>Defining the Narrative</h3>
                         <p>Once upon a time there were circus performers that made a living solely performing. Every day they spent hours practicing, and occasionally performing, however since getting gigs was unpredictable, they had to rely on a side job to sustain themselves.</p>
 
                         <p>One day they discovered they could earn extra money teaching their skill to others. Because of that they were able to have enough work to fill the gaps, as well as practice their craft even on their down time.</p>
 
                         <p>Unfortunately, artists finding a way to reliably and consistently teach their skills to others is also very unreliable due to the lack of a medium through which to spread the word and organize their lives</p>
-                    </div>
+                    </div> -->
                    <!--  <img src="../images/work/fullsize/artent/details/research.png" title="Image"  width="100%" height="100%"> -->
                 </div>
             </div>
@@ -115,12 +113,12 @@
                         <a href="../images/work/fullsize/artent/details/ideation_sketches.jpg" alt="Value Proposition Photo">
                             <img src="../images/work/fullsize/artent/details/ideation_sketches.jpg" title="Image"  width="100%" height="100%">
                         </a>
-                        <p class="image_text">We took 5 minute incraments to jot down action verbs in black and emotional experiences in yellow.</p>
+                        <p class="image_text">We took 5 minute increments to jot down action verbs in black and emotional experiences in yellow.</p>
                     </div>
                     <div class="paragraph-container">
-                        <h3>Ecosystem & Flow diagrams</h3>
+                        <h3>Flow diagrams</h3>
                         <p>Once we had agreed upon some key principles for the app, we proceeded with exploring the flow both artists and students would take in order to achieve their goals.</p>
-                        <p>We kicked off with requiring sign-up for all users, and excluding Artists from browsing lessons. We also aimed to have Chat and Notification views</p>
+                        <p>We kicked off with requiring sign-up for all users, and excluding Artists from browsing lessons. We also aimed to have Chat and Notification views.</p>
                     </div>
                    <div class="gallery-image">
                         <a href="../images/work/fullsize/artent/details/old-site_map.jpg" alt="Value Proposition Photo">
@@ -174,7 +172,7 @@
                     <div class="paragraph-container">
                         <h3>Colours</h3>
                         <p>
-                            We decided to go with pastel purples and pastel blues to it's association with creativity and calm. It also would differentiate us since purple isn't a very common app colour.                     
+                            We decided to go with pastel purples and pastel blues to its association with creativity and calm. It also would differentiate us since purple isn't a very common app colour.                     
                         </p>
 
                         <div class="gallery-image--medium">
@@ -198,8 +196,8 @@
                     <div class="paragraph-container">
                         <h3>Logo</h3>
                         <p>
-                            We decided to go with purple due to it's association with creativity and unorthodoxy. It also would differentiate us since purple isn't a very common app colour.
-                        </p>
+                            The logo design was quite informal and very free form in experimentation. We mostly decided to go with a play on the letters "a" and "e".
+                         </p>
                         <div class="gallery-image">
                             <a href="../images/work/fullsize/artent/details/artent_logo-iterations.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/artent/details/artent_logo-iterations.jpg" title="Image"  width="100%" height="100%">
@@ -215,7 +213,7 @@
                     <h2 class="center-justified">Iterate</h2>
                     <div class="paragraph-container">
                         <h3>Wireframes</h3>
-                        <p>Very early wireframes were created for some developers we collaborated with to create a quick app prototype using the Ionic App framework.</p>
+                        <p>Very early wireframes were created for some developers we collaborated with early on  to create a quick app prototype using the Ionic App framework.</p>
                         <p>These wireframes were minimal and intended to be just enough to have something to test.</p>
                          <div class="gallery-image">
                             <a href="../images/work/fullsize/artent/details/wireflow_container.jpg" alt="Value Proposition Photo">
@@ -223,12 +221,13 @@
                             </a>
                         </div>
                         <p class="image_text">
-                        A wireflow was created as an early reference of the app. It's a but big, but we felt the app was small enough to map out in its entirety. It has since changes.
+                        A wireflow was created as an early reference of the app. It's a bit big, but we felt the app was small enough to map out in its entirety. It has since changed a lot.
                         </p>
                     </div>
                     <div class="paragraph-container">
                         <h3>Mockups</h3>
-                        <p>At this point I was now building the front-end myself, so I used Mockups only as a jumping off point of discussion to get some feel for the visual direction. This is why a lot of these screens feel under developed. All UI iterations took place in the code, the true source of truth.</p>
+                        <p>At this point I was now building the front-end myself, so I used Mockups only as a jumping off point for discussions with my colleague to get some feel for the visual direction.
+                        </p>
                         <p>Most of the iterations continued on in code as we quickly iterated on ideas using CSS and Typescript. Here are some quick examples of the Mockups:</p>
                         <div class="gallery-image">
                             <a href="../images/work/fullsize/artent/screens/onboarding-multi.jpg" alt="Value Proposition Photo">
@@ -236,7 +235,7 @@
                             </a>
 
                             <p class="image_text">
-                            <b>Onboarding</b> was initially divided into two tracks, since we wanted to distniguish the process for students and artists to register.
+                            <b>Onboarding</b> was initially divided into two tracks, since we wanted to distinguish the process for students and artists to register.
                             </p>
                         </div>
                         <div class="gallery-image">
@@ -254,21 +253,20 @@
                             </a>
                             
                             <p class="image_text">
-                            <b>Creating Lessons</b> have multiple steps as Artists go through the setup, allowing them to choose between Group and Private lessons, if they haven't yet, they are prompted to setup their payment system, and they get to Confirm the lesson summary.
+                            <b>Creating Lessons</b> have multiple steps as Artists go through the setup, allowing them to choose between Group and Private lessons, if they haven't yet, they are prompted to set up their payment system, and they get to Confirm the lesson summary.
                             </p>
                         </div>
                     </div>
                     <div class="paragraph-container" id="artent_prototype">
                         <h3>Prototype</h3>
-                        <p>We also used the mockups to set up some quick prototypes to discuss around. This helps us visualize the early app layout and behavior before jumping into code. Once we got more comfortable with the structure, we left the Invision prototype behind and test only with the app.</p>
+                        <p>We also used the mockups to set up some quick prototypes to discuss around. This helps us visualize the early app layout and behavior before jumping into code. Once we got more comfortable with the structure, we left the Invision prototype behind and test only with the app. </p>
+                        <p> <a href="https://invis.io/ARYUE528TBE" target="_blank" alt="Value Proposition Photo"> View the prototype in Invision</a></p>
                         <div class="gallery-image--medium" style="max-width:100%;  overflow-x:hidden;">   
                            
                                  <img src="../images/work/fullsize/artent/details/prototype.gif" title="Image"  width="100%" height="100%">
                         
                             <p class="image_text">
-                                The prototype helped us get through most of the screen flows which got quite complex due to having two distinct user journeys.  <a href="https://invis.io/ARYUE528TBE" target="_blank" alt="Value Proposition Photo">
-                                View the prototype in Invision  
-                                </a>
+                                The prototype helped us get through most of the screen flows which got quite complex due to having two distinct user journeys. 
                             </p>  
                         </div>
                     </div>
@@ -295,7 +293,7 @@
                 <div class="document-text text-box">
                     <h2 class="center-justified">Implement</h2>
                     <p>Although this is the last chapter in this case study, we actually began with the development very early on in the process.</p>
-                    <p>The app structure Pivot was directly applied to the code itself using some diagrams for reference, and nothing more, since it was such a quick change, and easy to get testing immediately.</p>
+                    <p>The app structure Pivot was directly applied to the code itself using sketches and some diagrams for reference, and nothing more, since it was such a quick change, and easy to get testing immediately.</p>
                     
                     <div class="paragraph-container">
                         <h3>Development</h3>
@@ -307,7 +305,7 @@
                             </a>
                         </div>
                         
-                        <p>Having worked with Angular and Cordova before, Ionic was the natural choice for me. I didn't want to learn a brand new framework on top of learning hybrid app development.
+                        <p>Having worked with Angular and Cordova before, Ionic was the natural choice for me. I didn't want to learn a brand-new framework on top of learning hybrid app development.
                         &nbsp;
                         However, looking back, perhaps React Native would have been the better choice.</p>
 
@@ -316,12 +314,14 @@
 
 
                     <h3>The app</h3>
-                    <p>We settled on what we felt was an adequate prototype releasable as a Beta on the Play Store (pending). </p>
+                    <p>We settled on what we felt was an adequate prototype releasable as a Alpha on the Play Store (pending). </p>
 
 
                     <p>Although I wish it were more refined and has better visual presentation, we felt this was a good first version of the app to get it to be useful and to be testable. </p>
 
-                    <p><i> Many the photos here were rendered using <a href="https://www.rotato.xyz/buy?f=a" title="Rotato XYZ link" target="_blank">Rotato XYZ</a>, a great mockup app.</i></p>
+                    <p><i>All the following screens were taken on an Android Phone.</i></p>
+
+                    <p><a href="https://www.rotato.xyz/buy?f=a" title="Rotato XYZ link" target="_blank"><i> Many the photos here were rendered using Rotato XYZ, a great mockup app.</i></a></p>
                     <div class="paragraph-container">
                         <h3>Start screen</h3>
                         <div class="gallery-image">
@@ -344,7 +344,7 @@
                         </div>
                         <p class="image_text">
                         
-                        Opening a Technique leads the users to a view describing the said Technique, and a button that will be enabled if there are any lessons available.
+                        Opening a Technique takes the user to a view describing the Technique, and a button that will be tappable if there are any lessons available.
                         
                         </p>
                     </div>
@@ -380,7 +380,7 @@
                         </div>
                         <p class="image_text">
                         
-                        Anyone can go to the Settings to find the Registration / Sign in page. We did want to have a better prompt for this, but we never really got around to it on this first phase.
+                        Anyone can go to the Settings to find the Registration / Sign in page. We should have had a better prompt for this, but we never really got around to it.
                         
                         </p>
                     </div>
@@ -392,7 +392,7 @@
                             </a>
                         </div>
                         <p class="image_text">
-                        
+                            For the Registration we tried to focus on what we needed, like general location, phone number and Category of focus. In retrospect, we should have made details like Phone Number optional.
                         </p>
                     </div>
                     <div class="paragraph-container--icons">
@@ -404,7 +404,7 @@
                         </div>
                         <p class="image_text">
                         
-                        The Steam Community is important, and one of the big areas is the Steam Market. A lot of options are grouped to focus set of actions.
+                        The Artist Lesson view is more robust than the general lesson view, with tabs defining Created, Booked and Past Lessons, as well as displaying different information specific to Artists. We also have a <i>Create Lesson FAB</i>.
                         
                         </p>
                     </div>
@@ -430,7 +430,7 @@
                         </div>
                         <p class="image_text">
                         
-                        Artists can also create Lessons by tapping the FAB button in the Lesson View.
+                        Artists can also create Lessons by tapping the FAB button in the Lesson View. This takes them through some steps where they define details like Date, Cost and more. They are also able to Edit these Lessons, so long as they're not set to "Booked".
                         
                         </p>
                     </div>
@@ -442,9 +442,7 @@
                             </a>
                         </div>
                         <p class="image_text">
-                        
-                        Finally, Steam Guard, the most accessible option due to its immediacy of use, focuses on the delivery of a usable two factor authentication code.
-                        
+                            The Artist Lesson Detail is similar to the General Lesson detail, so Artists can get a feel for how it's presented, however from here they are able to Edit, Cancel or Duplicate the lesson, as well as mark Lesson Slots as Booked for better organisation.
                         </p>
                     </div>
                 </div>
@@ -454,27 +452,27 @@
                     <img src="../images/work/fullsize/artent/details/bottom-image.jpg" title="Image"  width="100%" height="100%">
                 </div>
             </div>
-            <div class="container--padded container--gradient_artent-inverse">
+            <div class="container--padded">
                 <div class="document-text text-box">
-                    <div class="paragraph-container--unpadded">
-                        <h2 class="center-justified">Conclusion</h2>
-                    </div>
-                    <div class="paragraph-container--unpadded">
-                        <p>The redesign proposes a more stripped down and focused experience, allowing gamers to focus on their gaming content, and less on looking for it. </p>
-                        <p>A clean, almost subdued visual design puts content first, retaining the existing brand identity, whilst the new app structure retains Steams complexity without overwhelming the user.</p>
-                    </div>
-                    
-                    
+
                     <h3  class="center-justified">Lessons Learnt</h3>
                     
                     <div class="paragraph-container--unpadded">
-                        <p>The motivation for this project was based on the fact that I myself am a Steam user, and found the app to have a lot of room for improvement, but also because I wanted to practice my UI design skills using Illustrator and Photoshop only. </p>
-                        <p>In the end, this was a challenge, and I conclude that these tools are not optimal for UI design, especially since there are far better alternatives such as Sketch.</p>
+                        <h4>Prototype early</h4>
+                        <p>We were too excited to learn how to build the app to give prototyping and testing the adequate amount of time. This might have more to do with the nature of the project, but it would have helped us to find issues earlier on. </p>
                         
-                        <p>I also lacked more in depth user research, testing and prototyping in this project. Although its focus was mostly conceptual and visual, the lack of actionable data made decisions feel unfounded.</p>
+                        <h4>Keep it simple</h4>          
+                        <p>Starting off trying to implement a Payment system was a big mistake. The best design is when nothing else can be removed, and we definitely benefited from editing here.</p>
                         
-                        <p>In future, I will be more formal in my process, focusing on users instead of personal research.</p>
-                        <p class="center-justified">Thank you for your time.</p>
+                        <h4>Don't try to do everything</h4>
+                        <p>We were doing this to learn new things, so that's fine, but if we would ever try to do this more seriously, we'd definitely have to bring on developers, researchers and marketers to ensure the app could be as good as possible.</p>
+                    </div>
+
+                    <h2 class="center-justified">Conclusion</h2>
+                    <div class="paragraph-container--unpadded">
+                        <p> <b>art ent</b> was an endeavor that took more time and effort than we could have ever imagined, however, it was a rewarding experience and we learned a lot about mobile app development, and general product development. </p>
+                        <p>We feel that for two people, starting with little to no Mobile App design and development experience, we came a long way, and if we were to start the app anew, we'd do a lot different.</p>
+                        <p class="center-justified"><i>Thank you for your time.</i></p>
                     </div>
                 </div>
             </div>

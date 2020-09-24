@@ -10,9 +10,9 @@
   "description": "<i>art ent</i> app<br>Case Study",
   "released": "September 25th 2020",
   "responsibilities": "Brand, Product Design, front-end",
-  "tools": "Paper &amp; Pen, TextEdit, Illustrator, Photoshop",
+  "tools": "Paper &amp; Pen, Text Edit, Illustrator, Photoshop",
   "intro": [{
-    "paragraph":"<i>art ent</i> is an app that artists can use to find people to give lessons to, and to manage those lessons. Students can find lessons, created by artists; view lessons and artist profiles, and contact them to book a lesson."
+    "paragraph":"<p><i>art ent</i> is an app that artists can use to find people to give lessons to, and to manage those lessons. Students can find lessons, created by artists; view lessons and artist profiles, and contact them to book a lesson.</p><p>It was always a fun projct between two friends, where I worked on the Design and Front-end, while <a href=\"https://se.linkedin.com/in/riccardo-rappoldi-a3548057?challengeId=AQFcMZHMAFt9BwAAAXTA2a2kMt4Nll0Jmmp7jjSYMJMzQdQ3uB9kwS_E-OXYvVNoSpwJrjLtGQA49o7CB5E_oh9scBF0P8kduA&submissionId=7b11a422-a7c3-3716-4f97-7f0b0cd9f855\" alt=\"Riccardos Linkedin profile\" target=\"_blank\">Riccardo</a> worked on the back-end."
   }],
   "challenge":"Artists have no tool to connect with people who want to learn their skills, and have to resort to local announcement boards, public announcement boards, and word of mouth.",
   "goals":[{
