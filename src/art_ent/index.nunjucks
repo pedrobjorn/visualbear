@@ -15,26 +15,26 @@
             <!-- PROCESS -->
             <div class="container--padded dark-bg">
                 <div class="document-text text-box center-justified">
-                    <h1>The process</h1>
+                    <h2>The process</h2>
                     <div class="paragraph-container--icons center-justified row">
                         <div class="col m3 s12">
                             <a href="#discovery" title="Discovery">
-                                <h4>1.Discover</h4>
+                                Discover
                             </a>
                         </div>
                         <div class="col m3 s12">
                             <a href="#definition" title="Definition">
-                                <h4>2.Define</h4>
+                                Define
                             </a>
                         </div>
                         <div class="col m3 s12">
                             <a href="#iteration" title="Iteration">
-                                <h4>3.Iterate</h4>
+                                Iterate
                             </a>
                         </div>
                         <div class="col m3 s12">
                             <a href="#implementation" title="Implementation">
-                                <h4>4.Implement</h4>
+                                Implement
                             </a>
                         </div>
                     </div>
@@ -44,11 +44,11 @@
             <!-- DISCOVER -->
             <div class="container--padded" id="discovery">
                 <div class="document-text text-box">
-                    <h1 class="center-justified">1.Discover</h1>
+                    <h2 class="center-justified">Discover</h2>
                     
                     <p>Before jumping into the redesign itself, we must breakdown the existing app and understand it in full.</p>
                     <div class="paragraph-container">
-                        <h2>Problem Statement</h2>
+                        <h3>Problem Statement</h3>
                         <p>We originally heard from circus arts students that they struggled a lot with booking and managing private lessons they gave on the side to make money.</p>
                         <p>With further research we also found a lot of notice boards filled with posters promoting guitar lessons, drawing lessons and other arts.</p>
                         <p>With competitive analysis only pointing at a cultural page listing art activities for children, we decided to create a Proof of Concept (POC) of an app that would facilitate the process of giving, and finding, lessons in the arts.</p>
@@ -56,7 +56,7 @@
                    <!--  <img src="../images/work/fullsize/artent/details/research.png" title="Image"  width="100%" height="100%"> -->
                     <div class="paragraph-container">
                         
-                        <h2>Talking to people</h2>
+                        <h3>Talking to people</h3>
                         <p>The approach to research for this project was relaxed and kept quite centered around the circus performers we knew, as well as immediate acquaintances.</p>
 
                         <p>By talking to the performers we learned that they relied heavily on word of mouth, social media posts, and Notice boards to get their lessons out there.</p>
@@ -73,7 +73,7 @@
 
                     </div>
                     <div class="paragraph-container">
-                        <h2>Market</h2>
+                        <h3>Market</h3>
                         <p>Looking at the market, we found a lot of apps providing marketplaces for all sorts of services: utilities, technical lessons, lessons online, as well as a state sponsored children's cultural classes.</p>
 
                         <p>However, we found no tool built for people wanting to teach the arts to be discovered and to manage their lessons taking place in physical space.</p>
@@ -88,7 +88,7 @@
 
                     </div>
                     <div class="paragraph-container">
-                        <h2>Defining the Narrative</h2>
+                        <h3>Defining the Narrative</h3>
                         <p>Once upon a time there were circus performers that made a living solely performing. Every day they spent hours practicing, and occasionally performing, however since getting gigs was unpredictable, they had to rely on a side job to sustain themselves.</p>
 
                         <p>One day they discovered they could earn extra money teaching their skill to others. Because of that they were able to have enough work to fill the gaps, as well as practice their craft even on their down time.</p>
@@ -102,11 +102,11 @@
             <!-- DEFINE -->
             <div class="container--padded light-bg" id="definition">
                 <div class="document-text text-box">
-                    <h1 class="center-justified">2.Define</h1>
+                    <h2 class="center-justified">Define</h2>
                     <p>With some research done and the problem identified, we proceed to explore solutions, starting off with brainstorming ideas, feelings and experiences.</p>
                         
                     <div class="paragraph-container">
-                        <h2>Ideation</h2>
+                        <h3>Ideation</h3>
                         <p>The ideation process took place over a few sessions of getting together and brainstorming basically anything we felt an app for artists would have to cover and feel like.</p>
                         
                         <p>Looking back, I should have taken the brainstorm sessions further with sketches and exercises. But this was enough to set us on a unified direction at least.</p>
@@ -118,7 +118,7 @@
                         <p class="image_text">We took 5 minute incraments to jot down action verbs in black and emotional experiences in yellow.</p>
                     </div>
                     <div class="paragraph-container">
-                        <h2>Ecosystem & Flow diagrams</h2>
+                        <h3>Ecosystem & Flow diagrams</h3>
                         <p>Once we had agreed upon some key principles for the app, we proceeded with exploring the flow both artists and students would take in order to achieve their goals.</p>
                         <p>We kicked off with requiring sign-up for all users, and excluding Artists from browsing lessons. We also aimed to have Chat and Notification views</p>
                     </div>
@@ -129,9 +129,9 @@
                         <p class="image_text">The initial site-map was very shared, with artists unable to browse lessons, and all users needing to register for an account. </p>
                     </div>
                     <div class="paragraph-container">
-                        <h2>Sketches</h2>
+                        <h3>Sketches</h3>
                         <p>With the new structure established, we begin sketching and ideating each view, with variations of UI elements, and structures. We then select the best candidates based on feedback and established patterns.</p>
-                    </div>
+
                    <div class="gallery-image">
                         <a href="../images/work/fullsize/artent/details/sketches_example_3.jpg" alt="Value Proposition Photo">
                             <img src="../images/work/fullsize/artent/details/sketches_example_3.jpg" title="Image"  width="100%" height="100%">
@@ -149,41 +149,71 @@
 
                         <p class="image_text">Initial sketches were very abstract, and focused on behaviour flows and task objectives. Eventually sketches became more visual and UI focused. We even worked on the logo design via sketching. We didn't actually pick any from this direction, but it was a valuable exploration nonetheless. </p>
                     </div>
- 
-                </div>
-            </div>
-
-            <!-- VISUAL IDENTITY -->
-            <div class="container">
-                <div class="document-text text-box">
-                    <h2>Branding &amp; Visual Identity</h2>
-                    
-                    <p>Although I will not be covering it in detail, we also worked on our own branding. It was kept minimal enough since it wasn't the focus of the project, however still done in such a way so that the app felt legitimate and had direction.</p>
-
+                   </div>
                     <div class="paragraph-container">
-                        <h2>Brand Principles</h2>
-              
-                        <p>As previously defined, we ensured the brand was bold yet simple, with no frills. Despite expectations, the artists we spoke to were not very tech focused, and were interested in getting lessons booked and tracked more easily.</p>
-
-                        <p>This meant big text and buttons, uncluttered screens and limited visual distractions.</p>
+                        <h3>Branding &amp; Visual Identity</h3>
+                        
+                        <p>Although I will not be covering it in detail, we also worked on our own branding. It was kept minimal enough since it wasn't the focus of the project, however still done in such a way so that the app felt legitimate and had direction.</p>
                     </div>
 
-                    <div class="paragraph-container--unpadded">
-                        <h2>Colours</h2>
-                  
+                    <div class="paragraph-container">
+                        <h3>Brand Principles</h3>
+              
+                        <p>As previously defined, we ensured the brand was bold yet simple, with no frills. Despite expectations, the artists we spoke to were not very tech focused, and were interested in getting lessons booked and tracked more easily.</p>
+                        <p>Therefore, we decided to focus on the following:</p>
+                        <ul>
+                            <li>- Welcoming</li>
+                            <li>- Simplicity</li>
+                            <li>- Easy of use</li>
+                            <li>- Lo-fi</li>
+                            <li>- Bold</li>
+                        </ul>
+                    </div>
+
+                    <div class="paragraph-container">
+                        <h3>Colours</h3>
+                        <p>
+                            We decided to go with pastel purples and pastel blues to it's association with creativity and calm. It also would differentiate us since purple isn't a very common app colour.                     
+                        </p>
+
+                        <div class="gallery-image--medium">
+                            <a href="../images/work/fullsize/artent/details/colour_palette.png" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/artent/details/colour_palette.png" title="Image"  width="100%" height="100%">
+                            </a>
+                            
+                        </div>
+                        <p class="image_text">
+                        Courtesy of <a href="https://coolors.co/" target="_blank" alt="Value Proposition Photo">Coolors</a>
+                        </p>
+                        <p>We had to darken the purple however in order to ensure an adequate AA contrast with text for buttons and text.</p>
+                    </div>
+                    <div class="paragraph-container">
+                        <h3>Typeface</h3>
+                        <p>
+                            For the typography we decided to go with something free, accessible, and variable. For this, we decided on <a href="https://fonts.google.com/specimen/Open+Sans?query=open+sans&preview.text=The%20quick%20brown%20fox%20jumps%20over%20the%20lazy%20dog&preview.text_type=custom&sidebar.open=true&selection.family=Open+Sans:wght@400;600" target="_blank" alt="Value Proposition Photo">OpenSans</a>, due to it's very spacious, airy feel.
+                        </p>
+                        <p class="font-family_opensans center">The quick brown fox jumps over the lazy dog.</p>
+                    </div>
+                    <div class="paragraph-container">
+                        <h3>Logo</h3>
                         <p>
                             We decided to go with purple due to it's association with creativity and unorthodoxy. It also would differentiate us since purple isn't a very common app colour.
                         </p>
+                        <div class="gallery-image">
+                            <a href="../images/work/fullsize/artent/details/artent_logo-iterations.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/artent/details/artent_logo-iterations.jpg" title="Image"  width="100%" height="100%">
+                            </a>
+                        </div>
                     </div>
                     <!-- <img src="../images/work/fullsize/steam/details/colors.png" title="Image"  width="100%" height="100%"> -->
 
                 </div>
             </div>
-             <div class="container light-bg" id="iteration">
+             <div class="container--unpadded light-bg" id="iteration">
                 <div class="document-text text-box">
-                    <h1 class="center-justified">3.Iterate</h1>
+                    <h2 class="center-justified">Iterate</h2>
                     <div class="paragraph-container">
-                        <h2>Wireframes</h2>
+                        <h3>Wireframes</h3>
                         <p>Very early wireframes were created for some developers we collaborated with to create a quick app prototype using the Ionic App framework.</p>
                         <p>These wireframes were minimal and intended to be just enough to have something to test.</p>
                          <div class="gallery-image">
@@ -196,7 +226,7 @@
                         </p>
                     </div>
                     <div class="paragraph-container">
-                        <h2>Mockups</h2>
+                        <h3>Mockups</h3>
                         <p>At this point I was now building the front-end myself, so I used Mockups only as a jumping off point of discussion to get some feel for the visual direction. This is why a lot of these screens feel under developed. All UI iterations took place in the code, the true source of truth.</p>
                         <p>Most of the iterations continued on in code as we quickly iterated on ideas using CSS and Typescript. Here are some quick examples of the Mockups:</p>
                         <div class="gallery-image">
@@ -228,9 +258,9 @@
                         </div>
                     </div>
                     <div class="paragraph-container" id="artent_prototype">
-                        <h2>Prototype</h2>
+                        <h3>Prototype</h3>
                         <p>We also used the mockups to set up some quick prototypes to discuss around. This helps us visualize the early app layout and behavior before jumping into code. Once we got more comfortable with the structure, we left the Invision prototype behind and test only with the app.</p>
-                        <div class="gallery-image--small" style="max-width:100%;  overflow-x:hidden;">   
+                        <div class="gallery-image--medium" style="max-width:100%;  overflow-x:hidden;">   
                            
                                  <img src="../images/work/fullsize/artent/details/prototype.gif" title="Image"  width="100%" height="100%">
                         
@@ -250,24 +280,24 @@
                         <h2 class="center-justified">Pivoting the App</h2>
                         <p>When we got into development, we started off with an on-boarding process for all users, and aimed to include a payment system (e.g Stripe) and full booking handling for artists. However, we quickly noticed that this would take a lot more work, and slow down adoption.</p>
                         <p>We quickly pivoted to simplify the app, removing any payment system, and focusing on connecting students and artists. We also removed on-boarding at the start of the app, and only required an account creation for users that wanted to give lessons.</p>
-                    </div>
-                   <div class="gallery-image">
-                        <a href="../images/work/fullsize/artent/details/new-site_map.png" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/artent/details/new-site_map.png" title="Image"  width="100%" height="100%">
-                        </a>
-                        <p class="image_text">The new site-map ensures everyone starts off as a Student, and expands the functionality when they register as an Artist.</p>
+                        <div class="gallery-image">
+                            <a href="../images/work/fullsize/artent/details/new-site_map.png" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/artent/details/new-site_map.png" title="Image"  width="100%" height="100%">
+                            </a>
+                            <p class="image_text">The new site-map ensures everyone starts off as a Student, and expands the functionality when they register as an Artist.</p>
+                        </div>
                     </div>
                 </div>
             </div>
             <!-- IMPLEMENT -->
             <div class="container--padded" id="implementation">
                 <div class="document-text text-box">
-                    <h1 class="center-justified">4.Implement</h1>
-                    <p>Very early wireframes were created for some developers we collaborated with to create a quick app prototype using the Ionic App framework.</p>
-                    <p>These wireframes were minimal and intended to be just enough to have something to test.</p>
+                    <h2 class="center-justified">Implement</h2>
+                    <p>Although this is the last chapter in this case study, we actually began with the development very early on in the process.</p>
+                    <p>The app structure Pivot was directly applied to the code itself using some diagrams for reference, and nothing more, since it was such a quick change, and easy to get testing immediately.</p>
                     
                     <div class="paragraph-container">
-                        <h2>Development</h2>
+                        <h3>Development</h3>
                         <p>One of the main goals of this project was to learn how to build a hybrid mobile app, so we kicked off with <a href="https://ionicframework.com/" alt="Ionic Framework link"> Ionic 2.0</a>, which at the time was one of the two big Hybrid app frameworks, the other being React Native.</p>
                         
                         <div class="gallery-image--small">
@@ -284,12 +314,12 @@
                     </div>
 
 
-                    <h2>The app</h2>
+                    <h3>The app</h3>
                     <p>We settled on what we felt was an adequate prototype releasable as a Beta on the Play Store (pending). </p>
 
                     <p>Although I wish it were more refined and has better visual presentation, we felt this was a good first version of the app to get it to be useful and to be testable. </p>
                     <div class="paragraph-container">
-                        <h2>Start &amp; Login</h2>
+                        <h3>Start &amp; Login</h3>
                         <div class="gallery-image">
                             <a href="../images/work/fullsize/steam/screens/start.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/start.jpg" title="Image"  width="100%" height="100%">
@@ -302,7 +332,7 @@
                         </p>
                     </div>
                     <div class="paragraph-container--icons">
-                        <h2>Profile</h2>
+                        <h3>Profile</h3>
                         <div class="gallery-image--medium center-align">
                             <a href="../images/work/fullsize/steam/screens/profile.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/profile.jpg" title="Image"  width="50%" height="50%">
@@ -315,7 +345,7 @@
                         </p>
                     </div>
                     <div class="paragraph-container">
-                        <h2>UI Details - Header &amp; Tabs</h2>
+                        <h3>UI Details - Header &amp; Tabs</h3>
                         <div class="gallery-image">
                             <a href="../images/work/fullsize/steam/screens/ui-detail_header.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/ui-detail_header.jpg" title="Image"  width="50%" height="50%">
@@ -328,7 +358,7 @@
                         </p>
                     </div>
                     <div class="paragraph-container">
-                        <h2>Library</h2>
+                        <h3>Library</h3>
                         <div class="gallery-image">
                             <a href="../images/work/fullsize/steam/screens/library.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/library.jpg" title="Image"  width="100%" height="100%">
@@ -341,7 +371,7 @@
                         </p>
                     </div>
                     <div class="paragraph-container">
-                        <h2>UI Details - Search Navigation &amp; Filtering</h2>
+                        <h3>UI Details - Search Navigation &amp; Filtering</h3>
                         <div class="gallery-image">
                             <a href="../images/work/fullsize/steam/screens/ui-detail_filters.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/ui-detail_filters.jpg" title="Image"  width="100%" height="100%">
@@ -354,7 +384,7 @@
                         </p>
                     </div>
                     <div class="paragraph-container">
-                        <h2>Steam Chat</h2>
+                        <h3>Steam Chat</h3>
                         <div class="gallery-image">
                             <a href="../images/work/fullsize/steam/screens/chat.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/chat.jpg" title="Image"  width="100%" height="100%">
@@ -368,7 +398,7 @@
                         </p>
                     </div>
                     <div class="paragraph-container--icons">
-                        <h2>Store</h2>
+                        <h3>Store</h3>
                         <div class="gallery-image--medium center-align">
                             <a href="../images/work/fullsize/steam/screens/store.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/store.jpg" title="Image"  width="100%" height="100%">
@@ -381,7 +411,7 @@
                         </p>
                     </div>
                     <div class="paragraph-container--icons">
-                        <h2>Game Detail View</h2>
+                        <h3>Game Detail View</h3>
                         <div class="gallery-image--medium center-align">
                             <a href="../images/work/fullsize/steam/screens/game-detail.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/game-detail.jpg" title="Image"  width="100%" height="100%">
@@ -394,7 +424,7 @@
                         </p>
                     </div>
                     <div class="paragraph-container">
-                        <h2>UI Details - Action Button</h2>
+                        <h3>UI Details - Action Button</h3>
                         <div class="gallery-image--medium center-align">
                             <a href="../images/work/fullsize/steam/screens/ui-detail_action-buttons.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/ui-detail_action-buttons.jpg" title="Image"  width="100%" height="100%">
@@ -407,7 +437,7 @@
                         </p>
                     </div>
                     <div class="paragraph-container--icons">
-                        <h2>Steam Community - Market</h2>
+                        <h3>Steam Community - Market</h3>
                         <div class="gallery-image--medium center-align">
                             <a href="../images/work/fullsize/steam/screens/market.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/market.jpg" title="Image"  width="100%" height="100%">
@@ -420,7 +450,7 @@
                         </p>
                     </div>
                     <div class="paragraph-container--icons">
-                        <h2>Steam Guard &amp; Confirmations</h2>
+                        <h3>Steam Guard &amp; Confirmations</h3>
                         <div class="gallery-image--medium center-align">
                             <a href="../images/work/fullsize/steam/screens/guard.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/guard.jpg" title="Image"  width="100%" height="100%">
@@ -442,7 +472,7 @@
             <div class="container--padded container--gradient_artent-inverse">
                 <div class="document-text text-box">
                     <div class="paragraph-container--unpadded">
-                        <h1 class="center-justified">Conclusion</h1>
+                        <h2 class="center-justified">Conclusion</h2>
                     </div>
                     <div class="paragraph-container--unpadded">
                         <p>The redesign proposes a more stripped down and focused experience, allowing gamers to focus on their gaming content, and less on looking for it. </p>
@@ -450,7 +480,7 @@
                     </div>
                     
                     
-                    <h2  class="center-justified">Lessons Learnt</h2>
+                    <h3  class="center-justified">Lessons Learnt</h3>
                     
                     <div class="paragraph-container--unpadded">
                         <p>The motivation for this project was based on the fact that I myself am a Steam user, and found the app to have a lot of room for improvement, but also because I wanted to practice my UI design skills using Illustrator and Photoshop only. </p>

@@ -6,6 +6,7 @@ nav {
     background: #fff;
     z-index: 2;
     background-color: $vb-primary;
+    font-size: $base-font-size;
 
     .content {
         flex-direction: row;
@@ -44,7 +45,7 @@ nav {
             // flex-wrap: nowrap;
             // justify-content: space-between;
             // align-items: center;
-                    flex-direction: row;
+            flex-direction: row;
             flex-wrap: nowrap;
             justify-content: space-between;
             align-items: center;

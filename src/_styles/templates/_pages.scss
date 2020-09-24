@@ -41,6 +41,9 @@
     .dark-bg{
         background-color:#975FBF;
         color: $vb-light;
+        a{
+           color: $vb-light; 
+        }
         .image_text{
             color: $vb-light;
         }
