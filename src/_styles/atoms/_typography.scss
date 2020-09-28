@@ -64,7 +64,6 @@ small {
     line-height: 0;
 }
 
-
 p {
     margin: 0;
     padding: 8px 0;
@@ -134,7 +133,6 @@ label {
     padding-bottom: 2px;
 }
 
-
 a {
     text-decoration: underline;
     color: $vb-primary;
@@ -158,7 +156,6 @@ ul {
     margin: 0;
 }
 
-
 b {
     font-weight: $font-semi-bold;
     font-style: bold;
@@ -181,22 +178,6 @@ strong {
     text-align: center;
 }
 
-.text-center {
-    text-align: center;
-}
-
-.left-align {
-    text-align: left;
-}
-
-.right-align {
-    text-align: right;
-}
-
-.justify-text {
-    text-align: justify;
-}
-
 .row {
     .page-header {
         padding: 8px 0;
@@ -209,12 +190,9 @@ strong {
     text-align: center;
 }
 
-
 .light {
     font-weight: $font-light;
 }
-
-
 
 .subtitle {
     font-size: $middle-font-size;
@@ -255,247 +233,6 @@ a {
     }
 }
 
-@media (min-width: $break-huge) {
-    .title {
-        margin: 0;
-        padding-bottom: 0;
-    }
-
-    .image_text {
-        font-size: $middle-font-size;
-        font-weight: $font-light;
-        font-style: italic;
-        color: grey;
-        text-align: center;
-    }
-}
-
-@media (max-width: $break-huge) and (min-width: $break-large) {
-    .title {
-        margin: 0;
-        padding-bottom: 0;
-    }
-
-    .image_text {
-        font-size: $middle-font-size;
-        font-weight: $font-light;
-        font-style: italic;
-        color: grey;
-        text-align: center;
-    }
-}
-
-@media (max-width: $break-large) and (min-width: $break-big) {
-    .title {
-        margin: 0;
-        padding-bottom: 0;
-    }
-
-    .image_text {
-        font-size: $middle-font-size;
-        font-weight: $font-light;
-        font-style: italic;
-        color: grey;
-        text-align: center;
-    }
-}
-
-//991px< & >767px
-@media (max-width: $break-big) and (min-width: $break-medium) {
-    .title {
-        margin: 0;
-        padding-bottom: 0;
-    }
-
-    .image_text {
-        font-size: $middle-font-size;
-        font-weight: $font-light;
-        font-style: italic;
-        color: grey;
-        text-align: center;
-    }
-}
-
-//767px< & >480px
-@media (max-width: $break-medium) and (min-width: $break-small) {
-    h0,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        small {
-            display: block;
-            line-height: 1.5;
-            font-size: 65%;
-            font-weight: $font-light;
-            color: inherit;
-        }
-    }
-
-    h0 {
-        font-size: $mobile-h0-size;
-    }
-
-    h1 {
-        font-size: $mobile-h1-size;
-    }
-
-    h2 {
-        font-size: $mobile-h2-size;
-    }
-
-    h3 {
-        font-size: $mobile-h3-size;
-    }
-
-    h4 {
-        font-size: $mobile-h4-size;
-    }
-
-    h5 {
-        font-size: $mobile-h5-size;
-    }
-
-    h6 {
-        font-size: $mobile-h6-size;
-    }
-
-    .title {
-        margin: 0;
-        padding-bottom: 32px;
-    }
-
-    .image_text {
-        font-size: $middle-font-size;
-        font-weight: $font-light;
-        font-style: italic;
-        color: grey;
-        text-align: center;
-    }
-}
-
-//480px< & >320px
-@media (max-width: $break-small) and (min-width: $break-tiny) {
-    h0,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        small {
-            display: block;
-            line-height: 1.5;
-            font-size: 65%;
-            font-weight: $font-light;
-            color: inherit;
-        }
-    }
-
-    h0 {
-        font-size: $mobile-h0-size;
-    }
-
-    h1 {
-        font-size: $mobile-h1-size;
-    }
-
-    h2 {
-        font-size: $mobile-h2-size;
-    }
-
-    h3 {
-        font-size: $mobile-h3-size;
-    }
-
-    h4 {
-        font-size: $mobile-h4-size;
-    }
-
-    h5 {
-        font-size: $mobile-h5-size;
-    }
-
-    h6 {
-        font-size: $mobile-h6-size;
-    }
-
-    .title {
-        margin: 0;
-        padding-bottom: 32px;
-    }
-
-    .image_text {
-        font-size: $middle-font-size;
-        font-weight: $font-light;
-        font-style: italic;
-        color: grey;
-        text-align: left;
-    }
-}
-
-//320px<
-@media (max-width: $break-tiny) {
-    h0,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        small {
-            display: block;
-            line-height: 1.5;
-            font-size: 65%;
-            font-weight: $font-light;
-            color: inherit;
-        }
-    }
-
-    h0 {
-        font-size: $mobile-h0-size;
-    }
-
-    h1 {
-        font-size: $mobile-h1-size;
-    }
-
-    h2 {
-        font-size: $mobile-h2-size;
-    }
-
-    h3 {
-        font-size: $mobile-h3-size;
-    }
-
-    h4 {
-        font-size: $mobile-h4-size;
-    }
-
-    h5 {
-        font-size: $mobile-h5-size;
-    }
-
-    h6 {
-        font-size: $mobile-h6-size;
-    }
-
-    .title {
-        margin: 0;
-        padding: 0px;
-    }
-
-    .image_text {
-        font-size: $middle-font-size;
-        font-weight: $font-light;
-        font-style: italic;
-        color: grey;
-        text-align: left;
-    }
-}
-
 blockquote {
     font-style: italic;
     border-left: 4px solid $vb-grey;
@@ -505,6 +242,22 @@ blockquote {
         padding: 0;
         height: auto;
     }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.left-align {
+    text-align: left;
+}
+
+.right-align {
+    text-align: right;
+}
+
+.justify-text {
+    text-align: justify;
 }
 
 .label {
@@ -573,6 +326,19 @@ blockquote {
 }
 
 @media (min-width: $break-huge) {
+    .title {
+        margin: 0;
+        padding-bottom: 0;
+    }
+
+    .image_text {
+        font-size: $middle-font-size;
+        font-weight: $font-light;
+        font-style: italic;
+        color: grey;
+        text-align: center;
+    }
+
     .paragraph-container, .paragraph-container--unpadded--unpadded {
         .m6, .m12, .m4, .m3 {
             padding: 32px;
@@ -631,6 +397,19 @@ blockquote {
 }
 
 @media (max-width: $break-huge) and (min-width: $break-large) {
+    .title {
+        margin: 0;
+        padding-bottom: 0;
+    }
+
+    .image_text {
+        font-size: $middle-font-size;
+        font-weight: $font-light;
+        font-style: italic;
+        color: grey;
+        text-align: center;
+    }
+
     .paragraph-container, .paragraph-container--unpadded--unpadded {
         .m6, .m12, .m4, .m3 {
             padding: 32px;
@@ -689,6 +468,19 @@ blockquote {
 }
 
 @media (max-width: $break-large) and (min-width: $break-big) {
+    .title {
+        margin: 0;
+        padding-bottom: 0;
+    }
+
+    .image_text {
+        font-size: $middle-font-size;
+        font-weight: $font-light;
+        font-style: italic;
+        color: grey;
+        text-align: center;
+    }
+
     .paragraph-container, .paragraph-container--unpadded--unpadded {
         .m6, .m12, .m4, .m3 {
             padding: 32px;
@@ -746,7 +538,21 @@ blockquote {
     }
 }
 
+//991px< & >767px
 @media (max-width: $break-big) and (min-width: $break-medium) {
+    .title {
+        margin: 0;
+        padding-bottom: 0;
+    }
+
+    .image_text {
+        font-size: $middle-font-size;
+        font-weight: $font-light;
+        font-style: italic;
+        color: grey;
+        text-align: center;
+    }
+
     .paragraph-container, .paragraph-container--unpadded--unpadded {
         .m6, .m12, .m4, .m3 {
             padding: 16px;
@@ -804,7 +610,65 @@ blockquote {
     }
 }
 
+//767px< & >480px
 @media (max-width: $break-medium) and (min-width: $break-small) {
+    h0,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        small {
+            display: block;
+            line-height: 1.5;
+            font-size: 65%;
+            font-weight: $font-light;
+            color: inherit;
+        }
+    }
+
+    h0 {
+        font-size: $mobile-h0-size;
+    }
+
+    h1 {
+        font-size: $mobile-h1-size;
+    }
+
+    h2 {
+        font-size: $mobile-h2-size;
+    }
+
+    h3 {
+        font-size: $mobile-h3-size;
+    }
+
+    h4 {
+        font-size: $mobile-h4-size;
+    }
+
+    h5 {
+        font-size: $mobile-h5-size;
+    }
+
+    h6 {
+        font-size: $mobile-h6-size;
+    }
+
+    .title {
+        margin: 0;
+        padding-bottom: 32px;
+    }
+
+    .image_text {
+        font-size: $middle-font-size;
+        font-weight: $font-light;
+        font-style: italic;
+        color: grey;
+        text-align: center;
+    }
+
     .paragraph-container, .paragraph-container--unpadded--unpadded {
         .m6, .m12, .m4, .m3 {
             padding: 16px;
@@ -865,7 +729,65 @@ blockquote {
     }
 }
 
+//480px< & >320px
 @media (max-width: $break-small) and (min-width: $break-tiny) {
+    h0,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        small {
+            display: block;
+            line-height: 1.5;
+            font-size: 65%;
+            font-weight: $font-light;
+            color: inherit;
+        }
+    }
+
+    h0 {
+        font-size: $mobile-h0-size;
+    }
+
+    h1 {
+        font-size: $mobile-h1-size;
+    }
+
+    h2 {
+        font-size: $mobile-h2-size;
+    }
+
+    h3 {
+        font-size: $mobile-h3-size;
+    }
+
+    h4 {
+        font-size: $mobile-h4-size;
+    }
+
+    h5 {
+        font-size: $mobile-h5-size;
+    }
+
+    h6 {
+        font-size: $mobile-h6-size;
+    }
+
+    .title {
+        margin: 0;
+        padding-bottom: 32px;
+    }
+
+    .image_text {
+        font-size: $middle-font-size;
+        font-weight: $font-light;
+        font-style: italic;
+        color: grey;
+        text-align: left;
+    }
+
     .paragraph-container, .paragraph-container--unpadded--unpadded {
         .m6, .m12, .m4, .m3 {
             padding: 16px 0;
@@ -927,7 +849,65 @@ blockquote {
     }
 }
 
+//320px<
 @media (max-width: $break-tiny) {
+    h0,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        small {
+            display: block;
+            line-height: 1.5;
+            font-size: 65%;
+            font-weight: $font-light;
+            color: inherit;
+        }
+    }
+
+    h0 {
+        font-size: $mobile-h0-size;
+    }
+
+    h1 {
+        font-size: $mobile-h1-size;
+    }
+
+    h2 {
+        font-size: $mobile-h2-size;
+    }
+
+    h3 {
+        font-size: $mobile-h3-size;
+    }
+
+    h4 {
+        font-size: $mobile-h4-size;
+    }
+
+    h5 {
+        font-size: $mobile-h5-size;
+    }
+
+    h6 {
+        font-size: $mobile-h6-size;
+    }
+
+    .title {
+        margin: 0;
+        padding: 0px;
+    }
+
+    .image_text {
+        font-size: $middle-font-size;
+        font-weight: $font-light;
+        font-style: italic;
+        color: grey;
+        text-align: left;
+    }
+
     .paragraph-container, .paragraph-container--unpadded--unpadded {
         .m6, .m12, .m4, .m3 {
             padding: 16px 0;
