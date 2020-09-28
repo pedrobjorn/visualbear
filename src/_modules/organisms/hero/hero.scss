@@ -8,44 +8,46 @@
     height: 100vh;
     font-weight: bold;
     position: fixed;
-    .content{
-        padding-top:32px;
+
+    .content {
+        padding-top: 32px;
     }
+
     // z-index: 99;
-    
+
     a {
         text-decoration: underline;
         color: $vb-light;
         font-weight: inherit;
+
         &:hover,
         &:focus {
             text-decoration: none;
             color: $vb-light;
             background-color: $vb-primary;
         }
-    }     
+    }
 }
 
-
 @include mq($until: mobile) {
- .hero {
-    height: 100vh;
+    .hero {
+        height: 100vh;
     }
 }
 
 
 // Apply styling up to devices smaller than tablets (exclude tablets)
 @include mq($from: mobile, $until: tablet) {
- .hero {
-    height: 100vh;
+    .hero {
+        height: 100vh;
     }
 }
 
 
 // Same thing, in landscape orientation
 @include mq($until: tablet, $and: "(orientation: landscape)") {
- .hero {
-    height: 100vh;
+    .hero {
+        height: 100vh;
     }
 }
 

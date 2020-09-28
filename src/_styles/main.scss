@@ -2,6 +2,7 @@
 
 // Normalize Styles
 @import "node_modules/normalize-scss/sass/normalize.scss";
+
 // @import "node_modules/materialize-css/sass/materialize";
 
 // Color
@@ -37,7 +38,6 @@
 // @import "node_modules/materialize-css/sass/components/collapsible";
 // @import "node_modules/materialize-css/sass/components/chips";
 // @import "node_modules/materialize-css/sass/components/materialbox";
-// @import "node_modules/materialize-css/sass/components/forms/forms";
 // @import "node_modules/materialize-css/sass/components/table_of_contents";
 // @import "node_modules/materialize-css/sass/components/sidenav";
 // @import "node_modules/materialize-css/sass/components/preloader";
@@ -47,7 +47,6 @@
 // @import "node_modules/materialize-css/sass/components/pulse";
 // @import "node_modules/materialize-css/sass/components/datepicker";
 // @import "node_modules/materialize-css/sass/components/timepicker";
-
 
 //Helpers
 @import "utilities/variables";
@@ -62,7 +61,6 @@
 @import "atoms/buttons";
 
 //Components
-@import "molecules/forms";
 @import "molecules/d3";
 @import "molecules/textelements";
 
@@ -109,12 +107,22 @@ body {
 }
 
 body {
-      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff621a+0,313135+91 */
-    background: #D73735; /* Old browsers */
-    background: -moz-linear-gradient(top,  #D73735 10%, #313135 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top,  #D73735 10%,#313135 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom,  #D73735 10%,#313135 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#D73735', endColorstr='#313135',GradientType=0 ); /* IE6-9 */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff621a+0,313135+91 */
+    background: #D73735;
+
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #D73735 10%, #313135 100%);
+
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #D73735 10%, #313135 100%);
+
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #D73735 10%, #313135 100%);
+
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#D73735', endColorstr='#313135',GradientType=0 );
+
+    /* IE6-9 */
 
     display: flex;
     min-height: 100vh;
@@ -130,6 +138,7 @@ main {
     // min-height: 100%;
     position: relative;
     max-width: 100%;
+
     // padding-bottom: 64px;
 }
 
@@ -145,6 +154,7 @@ main {
     margin: auto;
     max-width: 916px;
     display: flex;
+
     // padding:0 16px;
 }
 

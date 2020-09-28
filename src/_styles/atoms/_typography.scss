@@ -44,7 +44,6 @@ table {
     border-spacing: 0;
 }
 
-
 html,
 body {
     font-family: $vb-body-font-family;
@@ -65,22 +64,6 @@ small {
     line-height: 0;
 }
 
-.text-center {
-    text-align: center;
-}
-
-.left-align {
-    text-align: left;
-}
-
-.right-align {
-    text-align: right;
-}
-
-
-.justify-text {
-    text-align: justify;
-}
 
 p {
     margin: 0;
@@ -108,32 +91,32 @@ h6 {
 
 h0 {
     font-size: $base-h0-size;
-    padding:16px 0;
+    padding: 16px 0;
 }
 
 h1 {
     font-size: $base-h1-size;
-    padding:16px 0;
+    padding: 16px 0;
 }
 
 h2 {
     font-size: $base-h2-size;
-    padding:8px 0;
+    padding: 8px 0;
 }
 
 h3 {
     font-size: $base-h3-size;
-    padding:8px 0;
+    padding: 8px 0;
 }
 
 h4 {
     font-size: $base-h4-size;
-    padding:4px 0;
+    padding: 4px 0;
 }
 
 h5 {
     font-size: $base-h5-size;
-    padding:4px 0;
+    padding: 4px 0;
 }
 
 h6 {
@@ -149,14 +132,6 @@ label {
     font-size: 18px;
     font-weight: $font-light;
     padding-bottom: 2px;
-}
-
-.image_text{
-    font-size: $middle-font-size;
-    font-weight: $font-light;
-    font-style: italic;
-    color:grey;
-    text-align: center;
 }
 
 
@@ -183,33 +158,14 @@ ul {
     margin: 0;
 }
 
-.upper-case {
-    text-transform: uppercase;
-}
 
-.row{
-    .page-header {
-        padding:8px 0;
-        margin: 0 0 16px 0;
-        border-bottom: 1px solid $vb-grey;
-    }   
-}
-
-.emphasis {
+b {
     font-weight: $font-semi-bold;
-    color: #fff;
+    font-style: bold;
 }
 
-.center-justified {
-    text-align: center;
-}
-
-li#center-justified {
-    text-align: center;
-}
-
-li#left-justified {
-    text-align: justified-left;
+i {
+    font-style: italic;
 }
 
 strong {
@@ -217,31 +173,56 @@ strong {
     font-weight: $font-bold;
 }
 
-b {
-    font-weight: $font-semi-bold;
-    font-style: bold;
+.image_text {
+    font-size: $middle-font-size;
+    font-weight: $font-light;
+    font-style: italic;
+    color: grey;
+    text-align: center;
 }
 
-.semi-bold {
-    font-weight: $font-semi-bold;
+.text-center {
+    text-align: center;
 }
+
+.left-align {
+    text-align: left;
+}
+
+.right-align {
+    text-align: right;
+}
+
+.justify-text {
+    text-align: justify;
+}
+
+.row {
+    .page-header {
+        padding: 8px 0;
+        margin: 0 0 16px 0;
+        border-bottom: 1px solid $vb-grey;
+    }
+}
+
+.center-justified {
+    text-align: center;
+}
+
 
 .light {
     font-weight: $font-light;
 }
 
-i {
-    font-style: italic;
-}
+
 
 .subtitle {
-    font-size:$middle-font-size;
-    padding:16px 0;
+    font-size: $middle-font-size;
+    padding: 16px 0;
     margin: 0;
     width: auto;
     font-weight: $font-light;
     font-style: italic;
-
 }
 
 .highlight {
@@ -280,15 +261,13 @@ a {
         padding-bottom: 0;
     }
 
-
-    .image_text{
+    .image_text {
         font-size: $middle-font-size;
         font-weight: $font-light;
         font-style: italic;
-        color:grey;
+        color: grey;
         text-align: center;
     }
-
 }
 
 @media (max-width: $break-huge) and (min-width: $break-large) {
@@ -297,15 +276,13 @@ a {
         padding-bottom: 0;
     }
 
-
-    .image_text{
+    .image_text {
         font-size: $middle-font-size;
         font-weight: $font-light;
         font-style: italic;
-        color:grey;
+        color: grey;
         text-align: center;
     }
-
 }
 
 @media (max-width: $break-large) and (min-width: $break-big) {
@@ -314,32 +291,29 @@ a {
         padding-bottom: 0;
     }
 
-    .image_text{
+    .image_text {
         font-size: $middle-font-size;
         font-weight: $font-light;
         font-style: italic;
-        color:grey;
+        color: grey;
         text-align: center;
     }
-
 }
 
 //991px< & >767px
 @media (max-width: $break-big) and (min-width: $break-medium) {
-
     .title {
         margin: 0;
         padding-bottom: 0;
     }
 
-    .image_text{
+    .image_text {
         font-size: $middle-font-size;
         font-weight: $font-light;
         font-style: italic;
-        color:grey;
+        color: grey;
         text-align: center;
     }
-
 }
 
 //767px< & >480px
@@ -388,20 +362,18 @@ a {
         font-size: $mobile-h6-size;
     }
 
-
     .title {
         margin: 0;
         padding-bottom: 32px;
     }
 
-    .image_text{
+    .image_text {
         font-size: $middle-font-size;
         font-weight: $font-light;
         font-style: italic;
-        color:grey;
+        color: grey;
         text-align: center;
     }
-
 }
 
 //480px< & >320px
@@ -450,20 +422,18 @@ a {
         font-size: $mobile-h6-size;
     }
 
-
     .title {
         margin: 0;
         padding-bottom: 32px;
     }
 
-    .image_text{
+    .image_text {
         font-size: $middle-font-size;
         font-weight: $font-light;
         font-style: italic;
-        color:grey;
+        color: grey;
         text-align: left;
     }
-
 }
 
 //320px<
@@ -517,14 +487,13 @@ a {
         padding: 0px;
     }
 
-    .image_text{
+    .image_text {
         font-size: $middle-font-size;
         font-weight: $font-light;
         font-style: italic;
-        color:grey;
+        color: grey;
         text-align: left;
     }
-
 }
 
 blockquote {
@@ -572,18 +541,17 @@ blockquote {
         }
     }
 
-    .font-family_opensans{
-        padding-top:32px;
+    .font-family_opensans {
+        padding-top: 32px;
         font-family: $vb-body-font-opensans;
         font-weight: $font-semi-bold;
         font-size: $base-h2-size;
         line-height: $base-line-height;
     }
-
 }
 
 .paragraph-container, .paragraph-container--unpadded--unpadded {
-    .m6, .m12, .m4, .m3  {
+    .m6, .m12, .m4, .m3 {
         padding: 32px;
     }
 
@@ -602,25 +570,23 @@ blockquote {
     p {
         padding: 8px 0;
     }
-
 }
 
 @media (min-width: $break-huge) {
     .paragraph-container, .paragraph-container--unpadded--unpadded {
-        .m6, .m12, .m4, .m3  {
+        .m6, .m12, .m4, .m3 {
             padding: 32px;
         }
 
         padding: 0 0 64px 0;
-    
-    .font-family_opensans{
-        padding-top:32px;
-        font-family: $vb-body-font-opensans;
-        font-weight: $font-semi-bold;
-        font-size: $base-font-size;
-        line-height: $base-line-height;
-    }
 
+        .font-family_opensans {
+            padding-top: 32px;
+            font-family: $vb-body-font-opensans;
+            font-weight: $font-semi-bold;
+            font-size: $base-font-size;
+            line-height: $base-line-height;
+        }
     }
 
     .text-block {
@@ -640,7 +606,6 @@ blockquote {
             padding-right: 16px;
         }
     }
-
 
     .jumbo-text {
         padding: 64px;
@@ -667,20 +632,19 @@ blockquote {
 
 @media (max-width: $break-huge) and (min-width: $break-large) {
     .paragraph-container, .paragraph-container--unpadded--unpadded {
-        .m6, .m12, .m4, .m3  {
+        .m6, .m12, .m4, .m3 {
             padding: 32px;
         }
 
         padding: 0 0 64px 0;
 
-        .font-family_opensans{
-            padding-top:32px;
+        .font-family_opensans {
+            padding-top: 32px;
             font-family: $vb-body-font-opensans;
             font-weight: $font-semi-bold;
             font-size: $base-h2-size;
             line-height: $base-line-height;
         }
-
     }
 
     .text-block {
@@ -700,7 +664,6 @@ blockquote {
             padding-right: 16px;
         }
     }
-
 
     .jumbo-text {
         padding: 64px;
@@ -727,21 +690,19 @@ blockquote {
 
 @media (max-width: $break-large) and (min-width: $break-big) {
     .paragraph-container, .paragraph-container--unpadded--unpadded {
-        .m6, .m12, .m4, .m3  {
+        .m6, .m12, .m4, .m3 {
             padding: 32px;
         }
 
         padding: 0 0 64px 0;
 
-        .font-family_opensans{
-            padding-top:32px;
+        .font-family_opensans {
+            padding-top: 32px;
             font-family: $vb-body-font-opensans;
             font-weight: $font-semi-bold;
             font-size: $base-h2-size;
             line-height: $base-line-height;
         }
-
-
     }
 
     .text-container {
@@ -761,7 +722,6 @@ blockquote {
     .text-block > ul > li {
         padding-bottom: 16px;
     }
-
 
     .jumbo-text {
         padding: 32px;
@@ -788,20 +748,19 @@ blockquote {
 
 @media (max-width: $break-big) and (min-width: $break-medium) {
     .paragraph-container, .paragraph-container--unpadded--unpadded {
-        .m6, .m12, .m4, .m3  {
+        .m6, .m12, .m4, .m3 {
             padding: 16px;
         }
 
         padding: 0 0 32px 0;
 
-        .font-family_opensans{
-            padding-top:32px;
+        .font-family_opensans {
+            padding-top: 32px;
             font-family: $vb-body-font-opensans;
             font-weight: $font-semi-bold;
             font-size: $base-h2-size;
             line-height: $base-line-height;
         }
-
     }
 
     .text-block {
@@ -847,14 +806,14 @@ blockquote {
 
 @media (max-width: $break-medium) and (min-width: $break-small) {
     .paragraph-container, .paragraph-container--unpadded--unpadded {
-        .m6, .m12, .m4, .m3  {
+        .m6, .m12, .m4, .m3 {
             padding: 16px;
         }
 
         padding: 0 0 64px 0;
 
-        .font-family_opensans{
-            padding-top:32px;
+        .font-family_opensans {
+            padding-top: 32px;
             font-family: $vb-body-font-opensans;
             font-weight: $font-semi-bold;
             font-size: $base-h2-size;
@@ -908,20 +867,19 @@ blockquote {
 
 @media (max-width: $break-small) and (min-width: $break-tiny) {
     .paragraph-container, .paragraph-container--unpadded--unpadded {
-        .m6, .m12, .m4, .m3  {
+        .m6, .m12, .m4, .m3 {
             padding: 16px 0;
         }
 
         padding: 0 0 32px 0;
 
-        .font-family_opensans{
-            padding-top:32px;
+        .font-family_opensans {
+            padding-top: 32px;
             font-family: $vb-body-font-opensans;
             font-weight: $font-semi-bold;
             font-size: $base-h2-size;
             line-height: $base-line-height;
         }
-
     }
 
     .paragraph-container, .paragraph-container--unpadded {
@@ -977,15 +935,13 @@ blockquote {
 
         padding: 0 0 32px 0;
 
-        .font-family_opensans{
-            padding-top:32px;
+        .font-family_opensans {
+            padding-top: 32px;
             font-family: $vb-body-font-opensans;
             font-weight: $font-semi-bold;
             font-size: $base-h2-size;
             line-height: $base-line-height;
         }
-
-
     }
 
     .paragraph-container, .paragraph-container--unpadded {

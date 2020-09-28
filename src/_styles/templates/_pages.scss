@@ -1,16 +1,28 @@
 .section#jumbo {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff621a+0,313135+91 */
-    background: #ff621a; /* Old browsers */
-    background: -moz-linear-gradient(top, #e64900 0%, #313135 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #e64900 0%,#313135 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, #e64900 0%,#313135 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff621a', endColorstr='#313135',GradientType=0 ); /* IE6-9 */
+    background: #ff621a;
+
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #e64900 0%, #313135 100%);
+
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #e64900 0%, #313135 100%);
+
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #e64900 0%, #313135 100%);
+
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff621a', endColorstr='#313135',GradientType=0 );
+
+    /* IE6-9 */
 
     color: $vb-light;
+
     a {
         text-decoration: none;
         color: $vb-primary;
-        font-weight:$font-semi-bold;
+        font-weight: $font-semi-bold;
+
         &:hover,
         &:focus {
             text-decoration: none;
@@ -27,6 +39,7 @@
 .section {
     background-color: $vb-light;
     color: $vb-grey;
+
     .emphasis {
         color: $vb-grey;
     }
@@ -35,43 +48,54 @@
 #artent_container {
     color: $vb-dark;
     background-color: #F0F4FC;
+
     .gallery-image {
         // background-color: #00a2de;
+   
     }
-    .dark-bg{
-        background-color:#975FBF;
+
+    .dark-bg {
+        background-color: #975FBF;
         color: $vb-light;
-        a{
-           color: $vb-light; 
+
+        a {
+            color: $vb-light;
         }
-        .image_text{
+
+        .image_text {
             color: $vb-light;
         }
     }
-    .light-bg{
+
+    .light-bg {
         color: $vb-dark;
-        background-color:#fff;
+        background-color: #fff;
     }
 }
 
 #steammobile_container {
     color: $vb-light;
     background-color: #00a2de;
+
     .gallery-image {
         // background-color: #00a2de;
+   
     }
-    .dark-bg{
-        background-color:#1a283a;
+
+    .dark-bg {
+        background-color: #1a283a;
     }
-    .light-bg{
+
+    .light-bg {
         color: $vb-dark;
-        background-color:#fff;
+        background-color: #fff;
     }
 }
 
 #granditude_container {
     color: $vb-grey;
     background-color: #e6fcff;
+
     .gallery-image {
         background-color: #e6fcff;
     }
@@ -80,6 +104,7 @@
 #barbus_container {
     color: $vb-grey;
     background-color: #e2eaec;
+
     .gallery-image {
         background-color: #e2eaec;
     }
@@ -88,6 +113,7 @@
 #visualbear_container {
     color: $vb-grey;
     background-color: #ebf5ff;
+
     .gallery-image {
         background-color: #ebf5ff;
     }
@@ -96,6 +122,7 @@
 #adhops_container {
     color: $vb-grey;
     background-color: #e9e5e4;
+
     .gallery-image {
         background-color: #e9e5e4;
     }
@@ -104,6 +131,7 @@
 #dukebox_container {
     color: $vb-grey;
     background-color: #e1d2cd;
+
     .gallery-image {
         background-color: #e1d2cd;
     }
@@ -112,6 +140,7 @@
 #lynx_container {
     color: $vb-grey;
     background-color: #f8edd1;
+
     .gallery-image {
         background-color: #f8edd1;
         color: $vb-light;
@@ -121,6 +150,7 @@
 #sos_container {
     color: $vb-grey;
     background-color: #fef6e9;
+
     .gallery-image {
         background-color: #fef6e9;
         color: $vb-light;

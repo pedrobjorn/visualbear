@@ -1,65 +1,64 @@
 @mixin border-radius($radius) {
-  -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-      -ms-border-radius: $radius;
-          border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
 }
 
 @mixin text-shadow($shadow) {
-  -webkit-text-shadow: $shadow;
-     -moz-text-shadow: $shadow;
-      -ms-text-shadow: $shadow;
-          text-shadow: $shadow;
+    -webkit-text-shadow: $shadow;
+    -moz-text-shadow: $shadow;
+    -ms-text-shadow: $shadow;
+    text-shadow: $shadow;
 }
 
 @mixin background-image($image) {
-  background-image:url($image);
-  background-repeat:no-repeat;
-  background-size:cover;
-  background-position:center;
+    background-image: url($image);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 @mixin background-gradient($image) {
-  background-image:url($image);
-  background-repeat:no-repeat;
-  background-size:cover;
-  background-position:center;
+    background-image: url($image);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
-
 @mixin box-shadow($top, $left, $blur, $color, $inset: false) {
-  @if $inset {
-    -webkit-box-shadow:inset $top $left $blur $color;
-    -moz-box-shadow:inset $top $left $blur $color;
-    box-shadow:inset $top $left $blur $color;
-  } @else {
-    -webkit-box-shadow: $top $left $blur $color;
-    -moz-box-shadow: $top $left $blur $color;
-    box-shadow: $top $left $blur $color;
-  }
+    @if $inset {
+        -webkit-box-shadow: inset $top $left $blur $color;
+        -moz-box-shadow: inset $top $left $blur $color;
+        box-shadow: inset $top $left $blur $color;
+    }
+    @else {
+        -webkit-box-shadow: $top $left $blur $color;
+        -moz-box-shadow: $top $left $blur $color;
+        box-shadow: $top $left $blur $color;
+    }
 }
 
 @mixin transform($transform) {
-  -webkit-transform: $transform; /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
-        -ms-transform: $transform; /* IE 9 */
-            transform: $transform;
+    -webkit-transform: $transform;
+
+    /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+    -ms-transform: $transform;
+
+    /* IE 9 */
+    transform: $transform;
 }
 
 @function calculateRem($size) {
-  $remSize: $size / 16px;
-  @return $remSize * 1rem;
+    $remSize: $size / 16px;
+
+    @return $remSize * 1rem;
 }
 
 @mixin font-size($size) {
-  font-size: $size;
-  font-size: calculateRem($size);
+    font-size: $size;
+    font-size: calculateRem($size);
 }
-
-
-
-
-
-
 
 // To enable support for browsers that do not support @media queries,
 // (IE <= 8, Firefox <= 3, Opera <= 9) set $mq-responsive to false
@@ -70,16 +69,7 @@ $mq-responsive: true;
 // Name your breakpoints in a way that creates a ubiquitous language
 // across team members. It will improve communication between
 // stakeholders, designers, developers, and testers.
-$mq-breakpoints: (
-    mobile:  768px,
-    tablet:  932px,
-    desktop: 1280px,
-    wide:    1440px,
-
-    // Tweakpoints
-    desktopAd: 810px,
-    mobileLandscape: 480px
-);
+$mq-breakpoints: (mobile: 768px, tablet: 932px, desktop: 1280px, wide: 1440px, desktopAd: 810px, mobileLandscape: 480px);
 
 // Define the breakpoint from the $mq-breakpoints list that should
 // be used as the target width when outputting a static stylesheet
@@ -91,65 +81,69 @@ $mq-static-breakpoint: desktop;
 // to this list, ordered by width, e.g. (mobile, tablet, desktop).
 // $mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, wide);
 
-@import 'node_modules/sass-mq/mq';
+@import "node_modules/sass-mq/mq";
+
 // With eyeglass:
 // @import 'sass-mq';
 
-
-
 @mixin border-radius($radius) {
-  -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-      -ms-border-radius: $radius;
-          border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
 }
 
 @mixin text-shadow($shadow) {
-  -webkit-text-shadow: $shadow;
-     -moz-text-shadow: $shadow;
-      -ms-text-shadow: $shadow;
-          text-shadow: $shadow;
+    -webkit-text-shadow: $shadow;
+    -moz-text-shadow: $shadow;
+    -ms-text-shadow: $shadow;
+    text-shadow: $shadow;
 }
 
 @mixin background-image($image) {
-  background-image:url($image);
-  background-repeat:no-repeat;
-  background-size:cover;
-  background-position:center;
+    background-image: url($image);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 @mixin background-gradient($image) {
-  background-image:url($image);
-  background-repeat:no-repeat;
-  background-size:cover;
-  background-position:center;
+    background-image: url($image);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
-
 @mixin box-shadow($top, $left, $blur, $color, $inset: false) {
-  @if $inset {
-    -webkit-box-shadow:inset $top $left $blur $color;
-    -moz-box-shadow:inset $top $left $blur $color;
-    box-shadow:inset $top $left $blur $color;
-  } @else {
-    -webkit-box-shadow: $top $left $blur $color;
-    -moz-box-shadow: $top $left $blur $color;
-    box-shadow: $top $left $blur $color;
-  }
+    @if $inset {
+        -webkit-box-shadow: inset $top $left $blur $color;
+        -moz-box-shadow: inset $top $left $blur $color;
+        box-shadow: inset $top $left $blur $color;
+    }
+    @else {
+        -webkit-box-shadow: $top $left $blur $color;
+        -moz-box-shadow: $top $left $blur $color;
+        box-shadow: $top $left $blur $color;
+    }
 }
 
 @mixin transform($transform) {
-  -webkit-transform: $transform; /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
-        -ms-transform: $transform; /* IE 9 */
-            transform: $transform;
+    -webkit-transform: $transform;
+
+    /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+    -ms-transform: $transform;
+
+    /* IE 9 */
+    transform: $transform;
 }
 
 @function calculateRem($size) {
-  $remSize: $size / 16px;
-  @return $remSize * 1rem;
+    $remSize: $size / 16px;
+
+    @return $remSize * 1rem;
 }
 
 @mixin font-size($size) {
-  font-size: $size;
-  font-size: calculateRem($size);
+    font-size: $size;
+    font-size: calculateRem($size);
 }

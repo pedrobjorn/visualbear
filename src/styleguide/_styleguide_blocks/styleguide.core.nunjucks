@@ -155,23 +155,5 @@
     <p class="center-align">Center aligned text.</p>
     <p class="right-align">Right aligned text.</p>
   </div>
-  <div class="text-block">
-    <h3 class="page-header">Buttons</h3>
-    <h5>Small Buttons</h5>
-    <button type="button" class="btn vb-btn bar">
-    <!--<i class="fa fa-bars fa-lg"></i>-->
-    <!-- <span class="bar"></span> -->
-    
-    <span class="vb-btn-nav-icon"><img src="./../images/icons/menu-icon.png" width="24" height="24"></span>
-    </button>
-    <button type="button" class="btn vb-btn-dark closeMenu">
-    <!-- <b>X</b> -->
-    <span class="vb-btn-nav-icon"><img src="./../images/icons/menu-icon-close.png" width="24" height="24"></span>
-    </button>
-    <h5>Big Buttons</h5>
-    <button type="button" class="btn vb-btn-submit closeMenu">
-    Submit
-    </button>
-  </div>
 </article>
   {% endmacro %}

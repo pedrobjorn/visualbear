@@ -26,12 +26,14 @@ section {
 
 .section#jumbo {
     border: 0;
+
     // padding-top: 48px;
 }
 
 .div#work {
-    margin-top:100vh;
-    background-color: color('grey', 'base');
+    margin-top: 100vh;
+    background-color: color("grey", "base");
+
     // padding-top: 48px;
 }
 
@@ -60,7 +62,6 @@ section {
     .m6 {
         padding: 8px;
     }
-
 }
 
 .container, .container__open {
@@ -68,16 +69,12 @@ section {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin:auto;
-    padding-top:48px;
+    margin: auto;
+    padding-top: 48px;
 }
-
-
 
 //>2500px
 @media (min-width: $break-huge) {
-
-
     .outer-container {
         display: table;
         width: 100%;
@@ -108,19 +105,18 @@ section {
             padding: 32px 0;
         }
 
-    .gallery-image--medium {
-        img {
-            width: 50%;
-            height: 50%;
+        .gallery-image--medium {
+            img {
+                width: 50%;
+                height: 50%;
+            }
         }
-    }
     }
 }
 
 //2500px< & >1200px
 @media (max-width: $break-huge) and (min-width: $break-large) {
-
-  .outer-container {
+    .outer-container {
         display: table;
         width: 100%;
         height: 100vh;
@@ -146,19 +142,18 @@ section {
         min-height: 100vh;
         max-height: 100%;
 
-    .gallery-image--medium {
-        img {
-            width: 50%;
-            height: 50%;
+        .gallery-image--medium {
+            img {
+                width: 50%;
+                height: 50%;
+            }
         }
-    }
     }
 }
 
 //1280px< & >767px
 @media (max-width: $break-large) and (min-width: $break-medium) {
-
- .outer-container {
+    .outer-container {
         display: table;
         width: 100%;
         height: 100vh;
@@ -182,19 +177,18 @@ section {
         min-height: 100vh;
         max-height: 100%;
 
-    .gallery-image--medium {
-        img {
-            width: 50%;
-            height: 50%;
+        .gallery-image--medium {
+            img {
+                width: 50%;
+                height: 50%;
+            }
         }
-    }
     }
 }
 
 //767px< & >480px
 @media (max-width: $break-medium) and (min-width: $break-small) {
-
-  .outer-container {
+    .outer-container {
         display: table;
         width: 100%;
         height: 100vh;
@@ -286,11 +280,11 @@ section {
         min-height: 100vh;
         max-height: 100%;
 
-    .gallery-image--medium {
-        img {
-            width: 50%;
-            height: 50%;
+        .gallery-image--medium {
+            img {
+                width: 50%;
+                height: 50%;
+            }
         }
-    }
     }
 }

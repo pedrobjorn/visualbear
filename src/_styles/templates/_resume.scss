@@ -35,6 +35,7 @@ hr {
 
         .small-title {
             word-break: break-all;
+
             ul {
                 li.micro-text {
                     font-style: italic;
@@ -91,9 +92,8 @@ hr {
 
         .small-title {
             word-break: break-all;
+
             ul {
-
-
                 li.micro-text {
                     font-style: italic;
                     color: $vb-light-grey;
@@ -138,8 +138,6 @@ hr {
             margin-top: 32px;
         }
 
-
-
         .sub-title {
             color: $vb-light-grey;
         }
@@ -151,9 +149,8 @@ hr {
 
         .small-title {
             word-break: break-all;
+
             ul {
-
-
                 li.micro-text {
                     font-style: italic;
                     color: $vb-light-grey;
@@ -204,8 +201,6 @@ hr {
             margin-top: 32px;
         }
 
-
-
         .sub-title {
             color: $vb-light-grey;
         }
@@ -217,6 +212,7 @@ hr {
 
         .small-title {
             word-break: break-all;
+
             ul {
                 margin: 0;
 
@@ -285,11 +281,8 @@ hr {
             margin-top: 32px;
         }
 
-
-
         .sub-title {
             color: $vb-light-grey;
-
         }
 
         .side-text {
@@ -297,9 +290,9 @@ hr {
             color: $vb-light-grey;
         }
 
-
         .small-title {
             word-break: break-all;
+
             ul {
                 margin: 0;
 
@@ -358,8 +351,6 @@ hr {
             margin-top: 32px;
         }
 
-
-
         .sub-title {
             color: $vb-light-grey;
         }
@@ -371,6 +362,7 @@ hr {
 
         .small-title {
             word-break: break-all;
+
             ul {
                 li.sub-text {
                     padding-bottom: 16px;
@@ -408,7 +400,6 @@ hr {
 //320px<
 @media (max-width: $break-tiny) {
     #resume_container {
-
         li {
             padding: 4px 0;
         }
@@ -429,8 +420,6 @@ hr {
         .upper-space {
             margin-top: 32px;
         }
-
-
 
         .sub-title {
             color: $vb-light-grey;

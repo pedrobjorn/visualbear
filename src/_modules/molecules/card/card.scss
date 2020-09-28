@@ -1,24 +1,26 @@
 // card styles
 
-@mixin card-radius{
+@mixin card-radius {
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px;
 }
 
-@mixin drop-shadow{
-    -webkit-box-shadow: 0px 0px 8px 0px rgba(43,14,43,0.25);
--moz-box-shadow: 0px 0px 8px 0px rgba(43,14,43,0.25);
-box-shadow: 0px 0px 8px 0px rgba(43,14,43,0.25);
+@mixin drop-shadow {
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(43, 14, 43, 0.25);
+    -moz-box-shadow: 0px 0px 8px 0px rgba(43, 14, 43, 0.25);
+    box-shadow: 0px 0px 8px 0px rgba(43, 14, 43, 0.25);
 }
 
 .card {
-    &:first-child{
-        margin-top:0;
+    &:first-child {
+        margin-top: 0;
     }
+
     position: relative;
     margin: 1rem 0;
     background-color: black;
+
     @include card-radius;
 }
 
@@ -30,9 +32,9 @@ box-shadow: 0px 0px 8px 0px rgba(43,14,43,0.25);
 
 .medium.card {
     @extend .card;
+
     height: 256px;
 }
-
 
 .large.card, .medium.card, .small.card {
     @extend .card;
@@ -44,6 +46,7 @@ box-shadow: 0px 0px 8px 0px rgba(43,14,43,0.25);
         height: 100%;
         background-size: cover;
         background-position: center;
+
         @include card-radius;
         @include drop-shadow;
 
@@ -54,16 +57,18 @@ box-shadow: 0px 0px 8px 0px rgba(43,14,43,0.25);
             left: 0;
             max-width: 100%;
             padding: 16px;
-            h2,p{
-                padding:4px 0;
+
+            h2, p {
+                padding: 4px 0;
             }
         }
-                &:active,
+
+        &:active,
         &:focus,
         &:hover {
-			//I am super ashamed of this, but I find no better way of 
-			//overriding an inline style rule added to work with 
-			//nunchucks templating engine
+            //I am super ashamed of this, but I find no better way of 
+            //overriding an inline style rule added to work with 
+            //nunchucks templating engine
             background-image: url("") !important;
             background-color: $vb-primary;
             -webkit-transition: -webkit-box-shadow .25s;
@@ -73,5 +78,3 @@ box-shadow: 0px 0px 8px 0px rgba(43,14,43,0.25);
         }
     }
 }
-
-
