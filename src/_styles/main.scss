@@ -2,8 +2,6 @@
 
 // Normalize Styles
 @import "node_modules/normalize-scss/sass/normalize.scss";
-
-
 // @import "node_modules/materialize-css/sass/materialize";
 
 // Color
@@ -57,7 +55,6 @@
 @import "utilities/reset";
 @import "utilities/grid";
 
-
 //Base
 @import "atoms/base";
 @import "atoms/typography";
@@ -76,11 +73,6 @@
 // Color
 @import "colour-variables";
 @import "colour-classes";
-
-@import "mixin";
-@import "variables";
-//Oldies
-@import "grid";
 
 // Import Modules
 @import "../_modules/atom/link/link";

@@ -372,6 +372,11 @@
                                 <img src="../images/work/fullsize/artent/screens/lesson_details.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
+                        <div class="gallery-image">
+                            <a href="../images/work/fullsize/artent/screens/lesson_details_expanded.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/artent/screens/lesson_details_expanded.jpg" title="Image"  width="100%" height="100%">
+                            </a>
+                        </div>
                         <p class="image_text">
                         Tapping the lesson card leads users to a Lesson View, where they can inspect the lesson details, as well as find available booking times, and a button to contact the artist.
                         </p>
@@ -461,7 +466,8 @@
                 <div class="document-text text-box">
 
                     <h3  class="center-justified">Lessons Learnt</h3>
-                    
+                    <p>When we set off on this project, we did so in order to learn more about mobile app development. There are the key lessons we learnt while doing so:
+                    </p>
                     <div class="paragraph-container--unpadded">
                         <h4>Prototype early</h4>
                         <p>We were too excited to learn how to build the app to give prototyping and testing the adequate amount of time. This might have more to do with the nature of the project, but it would have helped us to find issues earlier on. </p>

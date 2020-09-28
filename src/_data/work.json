@@ -1,12 +1,12 @@
 [{
-    "title": "artent app",
+    "title": "art ent app",
     "subtitle": "UX Design, UI Design, Front-end development",
     "href": "../art_ent",
     "img": "../images/work/thumbs/gallery_thumb_artent.jpg",
     "content": {
-        "title": "Steam Mobile",
+        "title": "art ent app",
         "subtitle": "UX, UI & visual design",
-        "href": "../steam-mobile",
+        "href": "../art_ent",
         "img": "../images/work/thumbs/gallery_thumb_artent.jpg",
         "description": "Redesigning the biggest mobile game client in the world.",
         "released": "August 20th 2017",

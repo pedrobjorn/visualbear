@@ -187,9 +187,12 @@ ul {
     text-transform: uppercase;
 }
 
-.page-header {
-    margin: 0 0 16px 0;
-    border-bottom: 1px solid $vb-grey;
+.row{
+    .page-header {
+        padding:8px 0;
+        margin: 0 0 16px 0;
+        border-bottom: 1px solid $vb-grey;
+    }   
 }
 
 .emphasis {

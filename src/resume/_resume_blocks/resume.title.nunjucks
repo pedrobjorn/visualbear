@@ -6,7 +6,13 @@
   {# Correct base url pathing for this page #}
   {% set baseUrl = '../' %}
 {% endblock %}
-<h1 class="page-header">Resume</h1>
+<div class="page-header row">
+  
+<h1 class="col s6">Resume</h1>
+<!-- <div class="col s6">
+  <button type="button" class="btn vb-btn-down" > Download Resume </button>
+</div> -->
+</div>
 <div class="col m4 s12 small-title">
   <ul>
     <li class="micro-text">
