@@ -127,6 +127,18 @@ $mq-static-breakpoint: desktop;
     }
 }
 
+@mixin card-radius {
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
+@mixin drop-shadow {
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(43, 14, 43, 0.25);
+    -moz-box-shadow: 0px 0px 8px 0px rgba(43, 14, 43, 0.25);
+    box-shadow: 0px 0px 8px 0px rgba(43, 14, 43, 0.25);
+}
+
 @mixin transform($transform) {
     -webkit-transform: $transform;
 
