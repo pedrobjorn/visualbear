@@ -38,14 +38,14 @@
 		{{card.content({card:val})}}
 		{% endfor %}
 
-<!-- Disable the Play gallery option -->
-{% if _display === 'true' %}
-	{{card.content({card:_cardPlay})}} 
-{% endif %}
-<!-- Disable the Blog gallery option -->
-{% if _display === 'true' %}
-	{{card.content({card:_cardBlog})}} 
-{% endif %}
+		<!-- Disable the Play gallery option -->
+		{% if _display === 'true' %}
+			{{card.content({card:_cardPlay})}} 
+		{% endif %}
+		<!-- Disable the Blog gallery option -->
+		{% if _display === 'true' %}
+			{{card.content({card:_cardBlog})}} 
+		{% endif %}
 
 	</div>
 

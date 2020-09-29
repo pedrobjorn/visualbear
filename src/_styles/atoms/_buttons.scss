@@ -16,47 +16,6 @@ button {
     height: auto;
 }
 
-.btn-container {
-    display: block;
-    width: 100%;
-    background-color: $vb-dark;
-
-    a.btn {
-        &:visited {
-            color: $vb-light;
-        }
-
-        text-decoration: none;
-        color: vb-light;
-    }
-
-    .col {
-        padding: 0;
-    }
-}
-
-.btn-navbar-brand {
-    .pre-hover {
-        display: initial;
-    }
-
-    .post-hover {
-        display: none;
-    }
-
-    &:hover,
-    &:focus,
-    &:active {
-        .pre-hover {
-            display: none;
-        }
-
-        .post-hover {
-            display: initial;
-        }
-    }
-}
-
 .vb-btn-full {
     background-color: $vb-grey;
     position: relative;
@@ -82,12 +41,6 @@ button {
     }
 }
 
-.vb-btn-disabled {
-    @extend .vb-btn-full;
-
-    opacity: 1;
-}
-
 .dropdown-menu {
     padding: 0;
     margin: 0;
@@ -108,10 +61,6 @@ button {
     }
 }
 
-.active {
-    color: $vb-light;
-    background-color: $vb-primary;
-}
 
 .btn:active, .btn.active {
     @include box-shadow(0, 0, 0, 0);
@@ -164,10 +113,6 @@ button {
     }
 }
 
-.vb-btn-nav-icon {
-    height: auto;
-}
-
 .vb-btn-icon {
     cursor: pointer;
     float: left;
@@ -197,106 +142,13 @@ button {
     margin: auto;
 }
 
-.vb-btn-dark {
-    height: 48px;
-    width: 48px;
-    font-size: 28px;
-    font-weight: 500;
-    color: #fff;
-    border: 0;
-
-    @extend .vb-btn;
-
-    padding: 0;
-    background-color: $vb-dark;
-
-    &:hover {
-        padding: 0;
-        background-color: $vb-light;
-    }
-
-    &:active,
-    &:focus {
-        height: 48px;
-        width: 48px;
-        color: $vb-light;
-        background-color: $vb-secondary;
-        border: solid 2px $vb-secondary;
-    }
-}
 
 @media (min-width: $break-huge) {
-    .navbar-brand {
-        z-index: 9999;
-        height: 48px;
-        width: 48px;
-        padding: 8px;
-    }
-
-    .data-nav {
-        .options-button {
-            @include border-radius(0);
-
-            margin: 0;
-            height: 48px;
-            background-color: $vb-grey;
-            border: solid $vb-grey;
-            color: #fff;
-            padding: 8px;
-            font-weight: 300;
-            float: left;
-
-            &:hover,
-            &:focus {
-                color: $vb-light;
-                background-color: $vb-primary;
-            }
-
-            display: none;
-        }
-
-        .data-button {
-            display: inherit;
-        }
-
-        .active {
-            color: $vb-light;
-            background-color: $vb-primary;
-        }
-    }
-
     .btn-nav-container {
         padding: 16px 0 0 0;
         margin: 0;
         width: 100%;
         display: block;
-    }
-
-    .vb-btn-submit {
-        background-color: $vb-primary;
-        position: relative;
-        overflow: hidden;
-        width: auto;
-        border: solid 2px $vb-primary;
-        padding: 0 64px;
-        font-size: 22px;
-        height: 64px;
-        cursor: pointer;
-        color: $vb-light;
-
-        @include border-radius(0);
-
-        &:hover {
-            color: $vb-primary;
-            background-color: transparent;
-        }
-
-        &:active,
-        &:focus {
-            color: $vb-light;
-            background-color: $vb-secondary;
-            border: solid 2px $vb-secondary;
-        }
     }
 
     .vb-btn-down {
@@ -328,64 +180,6 @@ button {
         padding: 8px;
     }
 
-    .data-nav {
-        .options-button {
-            @include border-radius(0);
-
-            margin: 0;
-            height: 48px;
-            background-color: $vb-grey;
-            border: solid $vb-grey;
-            color: #fff;
-            padding: 8px;
-            font-weight: 300;
-            float: left;
-
-            &:hover,
-            &:focus {
-                color: $vb-light;
-                background-color: $vb-primary;
-            }
-
-            display: none;
-        }
-
-        .data-button {
-            display: inherit;
-        }
-
-        .active {
-            color: $vb-light;
-            background-color: $vb-primary;
-        }
-    }
-
-    .vb-btn-submit {
-        background-color: $vb-primary;
-        position: relative;
-        overflow: hidden;
-        width: auto;
-        border: solid 2px $vb-primary;
-        padding: 0 64px;
-        font-size: 22px;
-        height: 64px;
-        cursor: pointer;
-        color: $vb-light;
-
-        @include border-radius(0);
-
-        &:hover {
-            color: $vb-primary;
-            background-color: transparent;
-        }
-
-        &:active,
-        &:focus {
-            color: $vb-light;
-            background-color: $vb-secondary;
-            border: solid 2px $vb-secondary;
-        }
-    }
 
     .vb-btn-down {
         font-size: 0.6em;
@@ -414,66 +208,6 @@ button {
         height: 48px;
         width: 48px;
         padding: 8px;
-    }
-
-    .data-nav {
-        .options-button {
-            @include border-radius(0);
-
-            margin: 0;
-            height: 48px;
-            background-color: $vb-grey;
-            border: solid $vb-grey;
-            color: #fff;
-            padding: 8px;
-            font-weight: 300;
-            font-size: 11px;
-            float: left;
-
-            &:hover,
-            &:focus {
-                color: $vb-light;
-                background-color: $vb-primary;
-            }
-
-            display: none;
-        }
-
-        .data-button {
-            display: inherit;
-        }
-
-        .active {
-            color: $vb-light;
-            background-color: $vb-primary;
-        }
-    }
-
-    .vb-btn-submit {
-        background-color: $vb-primary;
-        position: relative;
-        overflow: hidden;
-        width: 100%;
-        border: solid 2px $vb-primary;
-        padding: 0 64px;
-        font-size: 22px;
-        height: 64px;
-        cursor: pointer;
-        color: $vb-light;
-
-        @include border-radius(0);
-
-        &:hover {
-            color: $vb-primary;
-            background-color: transparent;
-        }
-
-        &:active,
-        &:focus {
-            color: $vb-light;
-            background-color: $vb-secondary;
-            border: solid 2px $vb-secondary;
-        }
     }
 
     .vb-btn-down {
@@ -505,63 +239,6 @@ button {
         padding: 8px;
     }
 
-    .data-nav {
-        .options-button {
-            @include border-radius(0);
-
-            margin: 0;
-            height: 48px;
-            background-color: $vb-grey;
-            margin: 4px 0;
-            color: #fff;
-            padding: 8px;
-            font-weight: 300;
-            float: left;
-
-            &:hover,
-            &:focus {
-                color: $vb-light;
-                background-color: $vb-primary;
-            }
-
-            display: inherit;
-        }
-
-        .data-button {}
-
-        .active {
-            color: $vb-light;
-            background-color: $vb-primary;
-        }
-    }
-
-    .vb-btn-submit {
-        background-color: $vb-primary;
-        position: relative;
-        overflow: hidden;
-        border: solid 2px $vb-primary;
-        padding: 0 64px;
-        font-size: 22px;
-        width: 100%;
-        height: 64px;
-        cursor: pointer;
-        color: $vb-light;
-
-        @include border-radius(0);
-
-        &:hover {
-            color: $vb-primary;
-            background-color: transparent;
-        }
-
-        &:active,
-        &:focus {
-            color: $vb-light;
-            background-color: $vb-secondary;
-            border: solid 2px $vb-secondary;
-        }
-    }
-
     .vb-btn-down {
         font-size: 0.6em;
         cursor: default;
@@ -590,83 +267,6 @@ button {
         width: 48px;
         padding: 8px;
     }
-
-    .data-nav {
-        .options-button {
-            display: inherit;
-
-            @include border-radius(0);
-
-            margin: 0;
-            height: 48px;
-            background-color: $vb-grey;
-            margin: 4px 0;
-            width: 100%;
-            color: #fff;
-            padding: 8px;
-            font-weight: 300;
-            float: left;
-
-            &:hover,
-            &:focus {
-                color: $vb-light;
-                background-color: $vb-primary;
-            }
-        }
-
-        .data-button {}
-
-        .active {
-            color: $vb-light;
-            background-color: $vb-primary;
-        }
-    }
-
-    .vb-btn-submit {
-        background-color: $vb-primary;
-        position: relative;
-        overflow: hidden;
-        border: solid 2px $vb-primary;
-        padding: 0 64px;
-        font-size: 22px;
-        width: 100%;
-        height: 64px;
-        cursor: pointer;
-        color: $vb-light;
-
-        @include border-radius(0);
-
-        &:hover {
-            color: $vb-primary;
-            background-color: transparent;
-        }
-
-        &:active,
-        &:focus {
-            color: $vb-light;
-            background-color: $vb-secondary;
-            border: solid 2px $vb-secondary;
-        }
-    }
-
-    .vb-btn-down {
-        font-size: 0.5em;
-        cursor: default;
-        background-color: $vb-grey;
-
-        @include border-radius(0);
-
-        a {
-            &:hover,
-            &:focus,
-            &:active {
-                outline: none;
-                border: none;
-                text-decoration: none;
-                color: $vb-primary;
-            }
-        }
-    }
 }
 
 //320px<
@@ -676,52 +276,5 @@ button {
         height: 48px;
         width: 48px;
         padding: 8px;
-    }
-
-
-    .vb-btn-submit {
-        background-color: $vb-primary;
-        position: relative;
-        overflow: hidden;
-        border: solid 2px $vb-primary;
-        padding: 0 64px;
-        font-size: 22px;
-        width: 100%;
-        height: 64px;
-        cursor: pointer;
-        color: $vb-light;
-
-        @include border-radius(0);
-
-        &:hover {
-            color: $vb-primary;
-            background-color: transparent;
-        }
-
-        &:active,
-        &:focus {
-            color: $vb-light;
-            background-color: $vb-secondary;
-            border: solid 2px $vb-secondary;
-        }
-    }
-
-    .vb-btn-down {
-        font-size: 0.5em;
-        cursor: default;
-        background-color: $vb-grey;
-
-        @include border-radius(0);
-
-        a {
-            &:hover,
-            &:focus,
-            &:active {
-                outline: none;
-                border: none;
-                text-decoration: none;
-                color: $vb-primary;
-            }
-        }
     }
 }

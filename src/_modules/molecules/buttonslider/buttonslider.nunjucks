@@ -7,24 +7,20 @@
 {% set _target = spec.target or '_self' %}
 {% set _text = spec.text or 'Default Link' %}
 <div class="btn-container row">
-	
 	<div class="col s6">
-	{% if _prevhref.link !== "../disabled" %}
-		
-		<a href="{{_prevhref.link}}" class="btn vb-btn-full left-align">
-			&lt; {{_prevhref.text}}
-		</a>
-	{% endif %}
-
-</div>
+		{% if _prevhref.link !== "../disabled" %}
+			<a href="{{_prevhref.link}}" class="btn vb-btn-full left-align">
+				&lt; {{_prevhref.text}}
+			</a>
+		{% endif %}
+	</div>
 
 	<div class="col s6 ">
-	{% if _nexthref.link !== "../disabled" %}
-	<a href="{{_nexthref.link}}" class="btn vb-btn-full right-align">
-		{{_nexthref.text}} &gt; 
-	</a>
-	{% endif %}
-</div>
-
+		{% if _nexthref.link !== "../disabled" %}
+			<a href="{{_nexthref.link}}" class="btn vb-btn-full right-align">
+				{{_nexthref.text}} &gt; 
+			</a>
+		{% endif %}
+	</div>
 </div>
 {% endmacro %}

@@ -85,15 +85,6 @@
                         </div>
 
                     </div>
-                    <!-- <div class="paragraph-container">
-                        <h3>Defining the Narrative</h3>
-                        <p>Once upon a time there were circus performers that made a living solely performing. Every day they spent hours practicing, and occasionally performing, however since getting gigs was unpredictable, they had to rely on a side job to sustain themselves.</p>
-
-                        <p>One day they discovered they could earn extra money teaching their skill to others. Because of that they were able to have enough work to fill the gaps, as well as practice their craft even on their down time.</p>
-
-                        <p>Unfortunately, artists finding a way to reliably and consistently teach their skills to others is also very unreliable due to the lack of a medium through which to spread the word and organize their lives</p>
-                    </div> -->
-                   <!--  <img src="../images/work/fullsize/artent/details/research.png" title="Image"  width="100%" height="100%"> -->
                 </div>
             </div>
 
@@ -204,8 +195,6 @@
                             </a>
                         </div>
                     </div>
-                    <!-- <img src="../images/work/fullsize/steam/details/colors.png" title="Image"  width="100%" height="100%"> -->
-
                 </div>
             </div>
              <div class="container--unpadded light-bg" id="iteration">
@@ -215,7 +204,7 @@
                         <h3>Wireframes</h3>
                         <p>Very early wireframes were created for some developers we collaborated with early on  to create a quick app prototype using the Ionic App framework.</p>
                         <p>These wireframes were minimal and intended to be just enough to have something to test.</p>
-                         <div class="gallery-image--medium">
+                         <div class="gallery-image">
                             <a href="../images/work/fullsize/artent/details/wireflow_container.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/artent/details/wireflow_container.jpg" title="Image"  width="100%" height="100%">
                             </a>
