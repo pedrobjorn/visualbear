@@ -469,6 +469,16 @@
                         
                         <h4>Don't try to do everything</h4>
                         <p>We were doing this to learn new things, so that's fine, but if we would ever try to do this more seriously, we'd definitely have to bring on developers, researchers and marketers to ensure the app could be as good as possible.</p>
+
+                        <h4>Other Design considerations</h4>
+                        <ul>
+                            <li>- Hiding / showing different Nav Bar options depending on student or artists wasn't optimal, goes against Apple UI Guidelines.</li>
+                            <li>- We should have added steps to the Registration and Lesson Creation wizards.</li>
+                            <li>- We should have allowed for registering with Social Media accounts.</li>
+                            <li>- We should have allowed for connecting with Instagram for the image gallery.</li>
+                            <li>- We should have made adding the phone number optional, allowed options for which way Artists could be contacted.</li>
+                        </ul>
+
                     </div>
 
                     <h2 class="center-justified">Conclusion</h2>

@@ -34,10 +34,6 @@ nav {
     }
 }
 
-.nav-top-padding {
-    padding-top: 48px;
-}
-
 // Apply styling up to devices smaller than tablets (exclude tablets)
 @include mq($until: mobile) {
     nav {
@@ -66,8 +62,6 @@ nav {
                 width: auto;
             }
         }
-
-        .links {}
     }
 }
 
@@ -96,8 +90,6 @@ nav {
                 width: auto;
             }
         }
-
-        .links {}
     }
 }
 
