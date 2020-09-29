@@ -67,8 +67,15 @@ img::-moz-selection {
     display: none;
 }
 
-//>1200px
-@media (min-width: $break-large) {
+
+@media (min-width: $break-huge) {
+    .desktop {
+        display: initial;
+    }
+
+    .mobile {
+        display: none;
+    }
     .mobile-hide {
         display: initial;
     }
@@ -78,23 +85,51 @@ img::-moz-selection {
     }
 }
 
-@media (min-width: $break-large) {
-    .iframe-container {
-        display: inherit;
+//2500px< & >1200px
+@media (max-width: $break-huge) and (min-width: $break-large) {
+    .desktop {
+        display: initial;
     }
-}
 
-@media (min-width: $break-large) {
+    .mobile {
+        display: none;
+    }
 
-}
-
-//1200px< & >767px
-@media (max-width: $break-large) and (min-width: $break-medium) {
     .mobile-hide {
         display: initial;
     }
 
     .mobile-show {
+        display: none;
+    }
+}
+
+//1280px< & >900px
+@media (max-width: $break-large) and (min-width: $break-big) {
+    .desktop {
+        display: initial;
+    }
+
+    .mobile {
+        display: none;
+    }
+
+    .mobile-hide {
+        display: initial;
+    }
+
+    .mobile-show {
+        display: none;
+    }
+}
+
+//960< & >767px
+@media (max-width: $break-big) and (min-width: $break-medium) {
+    .desktop {
+        display: initial;
+    }
+
+    .mobile {
         display: none;
     }
 }
@@ -108,10 +143,26 @@ img::-moz-selection {
     .mobile-show {
         display: initial;
     }
+
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: initial;
+    }
 }
 
 //480px< & >320px
 @media (max-width: $break-small) and (min-width: $break-tiny) {
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: initial;
+    }
+
     .mobile-hide {
         display: none;
     }
@@ -123,6 +174,14 @@ img::-moz-selection {
 
 //320px<
 @media (max-width: $break-tiny) {
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: initial;
+    }
+
     .mobile-hide {
         display: none;
     }

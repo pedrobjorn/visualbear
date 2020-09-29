@@ -34,6 +34,17 @@
     text-align: center;
 }
 
+.paragraph-container {
+    p {
+        padding: 8px 0;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
 .paragraph-container--unpadded {
     .col-md-6, .col-md-12, .col-md-4 {
         padding: 32px;
@@ -42,14 +53,36 @@
     padding: 0 0 64px 0;
 }
 
-.text-container {
-    line-height: $base-line-height;
+.paragraph-container--icons {
+    a {
+        color: $vb-primary;
+
+        &:hover,
+        &:focus {
+            color: $vb-light;
+            background-color: $vb-primary;
+        }
+
+        &:active {
+            color: $vb-light;
+            background-color: $vb-secondary;
+        }
+    }
+
+    @extend .paragraph-container;
+
+    .col-md-4 {
+        padding: 16px 0;
+    }
+
+    img {
+        width: 50%;
+        height: 50%;
+    }
 }
 
-.paragraph-container {
-    p {
-        padding: 8px 0;
-    }
+.text-container {
+    line-height: $base-line-height;
 }
 
 .row {

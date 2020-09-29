@@ -153,24 +153,6 @@
     }
 }
 
-.logo-image {
-    @extend .gallery-image;
-
-    width: 40%;
-    margin: auto;
-
-    img {
-        margin: auto;
-        display: block;
-    }
-
-    padding-bottom: 64px;
-}
-
-.nav-top-padding {
-    padding-top: 48px;
-}
-
 .gallery-image {
     a {
         &:hover {
@@ -287,14 +269,6 @@
         }
     }
 
-    .desktop {
-        display: initial;
-    }
-
-    .mobile {
-        display: none;
-    }
-
     .container {
         padding-bottom: 16px;
 
@@ -368,9 +342,6 @@
         background-repeat: no-repeat;
     }
 
-    .header-block {
-        color: $vb-light;
-    }
 
     #steammobile {
         @include background-image("../img/work/thumbs/gallery_thumb_steam.jpg");
@@ -470,14 +441,6 @@
         }
     }
 
-    .desktop {
-        display: initial;
-    }
-
-    .mobile {
-        display: none;
-    }
-
     .container {
         padding-bottom: 16px;
 
@@ -555,10 +518,6 @@
         padding: 16px;
         height: $tile-height-medium;
         background-repeat: no-repeat;
-    }
-
-    .header-block {
-        color: $vb-light;
     }
 
     #steammobile {
@@ -655,14 +614,6 @@
         }
     }
 
-    .desktop {
-        display: initial;
-    }
-
-    .mobile {
-        display: none;
-    }
-
     .container--padded {
         padding: 64px 0;
     }
@@ -719,10 +670,6 @@
         background-repeat: no-repeat;
     }
 
-    .header-block {
-        color: $vb-light;
-    }
-
     #steammobile {
         @include background-image("../img/work/thumbs/gallery_thumb_steam.jpg");
     }
@@ -767,15 +714,6 @@
             width: 25%;
             height: 25%;
         }
-    }
-
-    .logo-image {
-        img {
-            width: 50%;
-            margin: auto;
-        }
-
-        padding-bottom: 64px;
     }
 
     .gallery-image {
@@ -824,14 +762,6 @@
             height: 196px;
             width: 196px;
         }
-    }
-
-    .desktop {
-        display: initial;
-    }
-
-    .mobile {
-        display: none;
     }
 
     .text-box {
@@ -901,10 +831,6 @@
         background-repeat: no-repeat;
     }
 
-    .header-block {
-        color: $vb-light;
-    }
-
     #steammobile {
         @include background-image("../img/work/thumbs/gallery_thumb_steam.jpg");
     }
@@ -959,17 +885,6 @@
         padding: 64px 0;
     }
 
-    .logo-image {
-        width: 50%;
-
-        img {
-            width: 50%;
-            margin: auto;
-        }
-
-        padding-bottom: 64px;
-    }
-
     .gallery-image {
         height: auto;
 
@@ -1016,14 +931,6 @@
             height: 128px;
             width: 128px;
         }
-    }
-
-    .desktop {
-        display: none;
-    }
-
-    .mobile {
-        display: initial;
     }
 
     .text-box {
@@ -1085,10 +992,6 @@
         background-repeat: no-repeat;
     }
 
-    .header-block {
-        color: $vb-light;
-    }
-
     #steammobile {
         @include background-image("../img/work/thumbs/gallery_thumb_steam.jpg");
     }
@@ -1133,17 +1036,6 @@
             width: 25%;
             height: 25%;
         }
-    }
-
-    .logo-image {
-        width: 50%;
-
-        img {
-            width: 50%;
-            margin: auto;
-        }
-
-        padding-bottom: 16px;
     }
 
     .gallery-image {
@@ -1192,14 +1084,6 @@
             height: 128px;
             width: 128px;
         }
-    }
-
-    .desktop {
-        display: none;
-    }
-
-    .mobile {
-        display: initial;
     }
 
     .container {
@@ -1259,9 +1143,6 @@
         background-repeat: no-repeat;
     }
 
-    .header-block {
-        color: $vb-light;
-    }
 
     #steammobile {
         @include background-image("../img/work/thumbs/gallery_thumb_steam.jpg");
@@ -1357,14 +1238,6 @@
         }
     }
 
-    .desktop {
-        display: none;
-    }
-
-    .mobile {
-        display: initial;
-    }
-
     .container {
         padding: 64px 0 16px 0;
     }
@@ -1396,17 +1269,6 @@
         .col-xs-12 {
             padding: 0;
         }
-    }
-
-    .logo-image {
-        width: 50%;
-
-        img {
-            width: 100%;
-            margin: auto;
-        }
-
-        padding-bottom: 16px;
     }
 
     .gallery {
@@ -1445,9 +1307,6 @@
         background-repeat: no-repeat;
     }
 
-    .header-block {
-        color: $vb-light;
-    }
 
     #steammobile {
         @include background-image("../img/work/thumbs/gallery_thumb_steam.jpg");
