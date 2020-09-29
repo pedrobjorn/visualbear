@@ -3,7 +3,6 @@
 {% import "styleguide/_styleguide_blocks/styleguide.core.nunjucks" as core %}
 {% import "styleguide/_styleguide_blocks/styleguide.modules.nunjucks" as modules %}
 {% import "styleguide/_styleguide_blocks/styleguide.containers.nunjucks" as containers %}
-{% import "styleguide/_styleguide_blocks/styleguide.templates.nunjucks" as templates %}
 {% block config %}
 	{# Correct base url pathing for this page #}
 	{% set baseUrl = '../' %}
@@ -32,10 +31,5 @@
 				{{containers.content()}}
 			</div>
 		</article>
-		<!-- <article class="text-container" id="templates">
-			<div class="row">
-				{{templates.content()}}
-			</div>
-		</article> -->
 	</section>
 {% endblock %}

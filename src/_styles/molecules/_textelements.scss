@@ -1,21 +1,3 @@
-blockquote {
-    font-style: italic;
-    border-left: 4px solid $vb-grey;
-    padding-left: 16px;
-
-    footer {
-        padding: 0;
-        height: auto;
-    }
-}
-
-.label {
-    @include border-radius(0);
-
-    font-family: $vb-body-font-family;
-    font-weight: 200;
-}
-
 .secondary-container {
     font-size: $middle-font-size;
     font-weight: $font-light;
@@ -44,6 +26,14 @@ blockquote {
     }
 }
 
+.image_text {
+    font-size: $middle-font-size;
+    font-weight: $font-light;
+    font-style: italic;
+    color: grey;
+    text-align: center;
+}
+
 .paragraph-container--unpadded {
     .col-md-6, .col-md-12, .col-md-4 {
         padding: 32px;
@@ -56,13 +46,17 @@ blockquote {
     line-height: $base-line-height;
 }
 
-.align-right {
-    text-align: right;
-}
-
 .paragraph-container {
     p {
         padding: 8px 0;
+    }
+}
+
+.row {
+    .page-header {
+        padding: 8px 0;
+        margin: 0 0 16px 0;
+        border-bottom: 1px solid $vb-grey;
     }
 }
 
@@ -95,6 +89,14 @@ blockquote {
 
     .text-container-small {
         padding: 16px 0;
+    }
+
+    .jumbo-text {
+        padding: 64px;
+        font-weight: $font-bold;
+        font-size: $base-jumbo-size;
+        text-align: left;
+        margin: 0 auto;
     }
 
     .gallery-text {
@@ -152,6 +154,16 @@ blockquote {
         font-size: $base-font-size / 1.25;
         line-height: $base-line-height;
     }
+
+    .jumbo-text {
+        padding: 64px;
+        font-weight: $font-bold;
+        font-size: $base-jumbo-size;
+        text-align: left;
+
+        // width: 900px;
+        margin: 0 auto;
+    }
 }
 
 @media (max-width: $break-large) and (min-width: $break-big) {
@@ -196,6 +208,14 @@ blockquote {
         font-size: $base-font-size / 1.25;
         line-height: $base-line-height;
     }
+
+    .jumbo-text {
+        padding: 32px;
+        font-weight: $font-bold;
+        font-size: $base-jumbo-size;
+        text-align: left;
+        margin: 0 auto;
+    }
 }
 
 @media (max-width: $break-big) and (min-width: $break-medium) {
@@ -233,6 +253,14 @@ blockquote {
         font-weight: $font-light;
         font-size: $base-font-size;
         line-height: $font-semi-bold-line-height;
+    }
+
+    .jumbo-text {
+        padding: 32px;
+        font-weight: $font-bold;
+        font-size: $base-jumbo-size;
+        text-align: left;
+        margin: 0 auto;
     }
 
     .document-text {
@@ -282,6 +310,14 @@ blockquote {
         line-height: $font-semi-bold-line-height;
     }
 
+    .jumbo-text {
+        padding: 32px;
+        font-weight: $font-bold;
+        font-size: $mobile-jumbo-size;
+        text-align: left;
+        margin: 0 auto;
+    }
+
     .document-text {
         font-weight: $font-light;
         font-size: $base-font-size;
@@ -324,6 +360,16 @@ blockquote {
 
     .text-container-small {
         padding: 8px 0;
+    }
+
+    .jumbo-text {
+        padding: 16px;
+        font-weight: $font-bold;
+        font-size: $mobile-jumbo-size;
+        text-align: left;
+
+        // width: 298px;
+        margin: 0 auto;
     }
 
     .text-container {
@@ -376,6 +422,14 @@ blockquote {
         font-weight: $font-light;
         font-size: $mobile-font-size;
         line-height: $font-semi-bold-line-height;
+    }
+
+    .jumbo-text {
+        padding: 16px;
+        font-weight: $font-bold;
+        font-size: $mobile-jumbo-size;
+        text-align: left;
+        margin: 0 auto;
     }
 
     .document-text {

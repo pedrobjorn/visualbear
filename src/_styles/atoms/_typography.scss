@@ -19,6 +19,14 @@ time, mark, audio, video {
     vertical-align: baseline;
 }
 
+html,
+body {
+    font-family: $vb-body-font-family;
+    font-weight: $font-light;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+}
+
 // HTML5 display-role reset for older browsers
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -31,30 +39,24 @@ ol, ul {
 
 blockquote, q {
     quotes: none;
+
+    &:before, &:after {
+        content: '';
+        content: none;
+    }
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
+blockquote {
+    margin: 8px 0 8px 0;
+    padding: 8px 0 8px 0;
+    font-style: italic;
+    border-left: 4px solid $vb-grey;
+    padding-left: 16px;
 }
 
 table {
     border-collapse: collapse;
     border-spacing: 0;
-}
-
-html,
-body {
-    font-family: $vb-body-font-family;
-    font-weight: $font-light;
-    font-size: $base-font-size;
-    line-height: $base-line-height;
-}
-
-.font-secondary {
-    font-family: $vb-secondary-font-family;
-    font-weight: $font-light;
 }
 
 small {
@@ -87,7 +89,6 @@ h6 {
     }
 }
 
-
 h1 {
     font-size: $base-h1-size;
     padding: 16px 0;
@@ -115,11 +116,6 @@ h5 {
 
 h6 {
     font-size: $base-h6-size;
-}
-
-blockquote {
-    margin: 8px 0 8px 0;
-    padding: 8px 0 8px 0;
 }
 
 label {
@@ -165,20 +161,9 @@ strong {
     font-weight: $font-bold;
 }
 
-.image_text {
-    font-size: $middle-font-size;
+.font-secondary {
+    font-family: $vb-secondary-font-family;
     font-weight: $font-light;
-    font-style: italic;
-    color: grey;
-    text-align: center;
-}
-
-.row {
-    .page-header {
-        padding: 8px 0;
-        margin: 0 0 16px 0;
-        border-bottom: 1px solid $vb-grey;
-    }
 }
 
 .center-justified {
@@ -187,6 +172,10 @@ strong {
 
 .light {
     font-weight: $font-light;
+}
+
+.align-right {
+    text-align: right;
 }
 
 .subtitle {
@@ -225,17 +214,6 @@ a {
             color: $vb-light;
             background-color: $vb-secondary;
         }
-    }
-}
-
-blockquote {
-    font-style: italic;
-    border-left: 4px solid $vb-grey;
-    padding-left: 16px;
-
-    footer {
-        padding: 0;
-        height: auto;
     }
 }
 
@@ -368,16 +346,6 @@ blockquote {
         }
     }
 
-    .jumbo-text {
-        padding: 64px;
-        font-weight: $font-bold;
-        font-size: $base-jumbo-size;
-        text-align: left;
-
-        // width: 900px;
-        margin: 0 auto;
-    }
-
     .gallery-text {
         font-weight: $font-light;
         font-size: $base-font-size;
@@ -439,16 +407,6 @@ blockquote {
         }
     }
 
-    .jumbo-text {
-        padding: 64px;
-        font-weight: $font-bold;
-        font-size: $base-jumbo-size;
-        text-align: left;
-
-        // width: 900px;
-        margin: 0 auto;
-    }
-
     .gallery-text {
         font-weight: $font-light;
         font-size: $base-font-size;
@@ -508,16 +466,6 @@ blockquote {
 
     .text-block > ul > li {
         padding-bottom: 16px;
-    }
-
-    .jumbo-text {
-        padding: 32px;
-        font-weight: $font-bold;
-        font-size: $base-jumbo-size;
-        text-align: left;
-
-        // width: 642px;
-        margin: 0 auto;
     }
 
     .gallery-text {
@@ -586,16 +534,6 @@ blockquote {
         font-weight: $font-light;
         font-size: $base-font-size;
         line-height: $font-semi-bold-line-height;
-    }
-
-    .jumbo-text {
-        padding: 32px;
-        font-weight: $font-bold;
-        font-size: $base-jumbo-size;
-        text-align: left;
-
-        // width: 428px;
-        margin: 0 auto;
     }
 
     .document-text {
@@ -694,16 +632,6 @@ blockquote {
         .m6 {
             padding-right: 16px;
         }
-    }
-
-    .jumbo-text {
-        padding: 32px;
-        font-weight: $font-bold;
-        font-size: $mobile-jumbo-size;
-        text-align: left;
-
-        // width: 428px;
-        margin: 0 auto;
     }
 
     .gallery-text {
@@ -813,16 +741,6 @@ blockquote {
         line-height: $base-line-height;
     }
 
-    .jumbo-text {
-        padding: 16px;
-        font-weight: $font-bold;
-        font-size: $mobile-jumbo-size;
-        text-align: left;
-
-        // width: 298px;
-        margin: 0 auto;
-    }
-
     .text-container {
         font-size: $mobile-font-size;
         width: 90%;
@@ -850,7 +768,6 @@ blockquote {
             color: inherit;
         }
     }
-
 
     h1 {
         font-size: $mobile-h1-size;
@@ -925,16 +842,6 @@ blockquote {
         .m6 {
             padding-right: 16px;
         }
-    }
-
-    .jumbo-text {
-        padding: 16px;
-        font-weight: $font-bold;
-        font-size: $mobile-jumbo-size;
-        text-align: left;
-
-        // width: 298px;
-        margin: 0 auto;
     }
 
     .gallery-text {
