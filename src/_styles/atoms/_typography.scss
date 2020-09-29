@@ -69,7 +69,6 @@ p {
     padding: 8px 0;
 }
 
-h0,
 h1,
 h2,
 h3,
@@ -88,10 +87,6 @@ h6 {
     }
 }
 
-h0 {
-    font-size: $base-h0-size;
-    padding: 16px 0;
-}
 
 h1 {
     font-size: $base-h1-size;
@@ -612,7 +607,6 @@ blockquote {
 
 //767px< & >480px
 @media (max-width: $break-medium) and (min-width: $break-small) {
-    h0,
     h1,
     h2,
     h3,
@@ -626,10 +620,6 @@ blockquote {
             font-weight: $font-light;
             color: inherit;
         }
-    }
-
-    h0 {
-        font-size: $mobile-h0-size;
     }
 
     h1 {
@@ -731,7 +721,6 @@ blockquote {
 
 //480px< & >320px
 @media (max-width: $break-small) and (min-width: $break-tiny) {
-    h0,
     h1,
     h2,
     h3,
@@ -745,10 +734,6 @@ blockquote {
             font-weight: $font-light;
             color: inherit;
         }
-    }
-
-    h0 {
-        font-size: $mobile-h0-size;
     }
 
     h1 {
@@ -851,7 +836,6 @@ blockquote {
 
 //320px<
 @media (max-width: $break-tiny) {
-    h0,
     h1,
     h2,
     h3,
@@ -867,9 +851,6 @@ blockquote {
         }
     }
 
-    h0 {
-        font-size: $mobile-h0-size;
-    }
 
     h1 {
         font-size: $mobile-h1-size;
