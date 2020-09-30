@@ -12,7 +12,7 @@
 			<div class="paragraph-container center-justified">
 				<div class="row">
 					<div class="col m12 s12">
-						<h3>Released</h3>
+						<h3>Duration</h3>
 						<p>{{_content.released}}</p>
 					</div>
 					<div class="col m6 s12">
