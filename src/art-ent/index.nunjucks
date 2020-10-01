@@ -57,9 +57,21 @@
                         <h3>Talking to people</h3>
                         <p>The approach to research for this project was relaxed and kept quite centered around the circus performers we knew, as well as immediate acquaintances.</p>
 
-                        <p>When talking to the performers we learned that they relied heavily on word of mouth, social media posts, and Notice boards to get their lessons out there.</p>
+                        <p>When talking to the performers we learned:
+                            <ul>
+                                <li>- Heavily reliant on word of mouth, social media.</li>
+                                <li>- Very unreliable work due to lack of control over spread of information.</li>
+                                <li>- Difficult to keep track of lessons and times.</li>
+                            </ul>
+                        </p>
 
-                        <p>Talking to students (i.e anybody that's not an artist), they were limited to either hearing about it, or finding them on social media. Notice boards were not a big draw, due to their messy and unreadable state. They had no idea where to find such lessons otherwise.</p>
+                        <p>Talking to students (i.e anybody that's not an artist), and we learnt that:
+                            <ul>
+                                <li>- Most don't know where to look, resort to word of mouth of social media.</li>
+                                <li>- Very trust based, rely on word of mouth for trust.</li>
+                                <li>- Little follow up, motivation due to lack of awareness where to find lessons.</li>
+                            </ul>
+                        </p>
                         
                         <div class="gallery-image">
                             <a href="../images/work/fullsize/artent/details/notice_board.jpg" alt="Value Proposition Photo">
@@ -74,8 +86,6 @@
                         <h3>Market</h3>
                         <p>Looking at the market, we found a lot of apps providing marketplaces for all sorts of services: utilities, technical lessons, lessons online, as well as a state sponsored children's cultural classes.</p>
 
-                        <p>However, we found no tool built for people wanting to teach the arts to be discovered and to manage their lessons taking place in physical space.</p>
-
                         <div class="gallery-image--small">
                             <a href="../images/work/fullsize/artent/details/market_example.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/artent/details/market_example.jpg" title="Image"  width="100%" height="100%">
@@ -83,7 +93,18 @@
                             
                         <p class="image_text">The <a href="https://kulturskolan.stockholm.se/" title="Cultural Lesson site link" target="_blank">Cultural Institute Classes</a> are great, but unfortunately are restricted to children.</p>
                         </div>
+                        <p>However, we found no tool built for people wanting to teach the arts to be discovered and to manage their lessons taking place in physical space.</p>
+                    </div>
+                    <div class="paragraph-container">
+                        <h3>Key take-aways</h3>
+                        <p>We came away from taking to people and researching with the following conclusions:
+                            <ul>
+                                <li>- People don't have a go-to tool for finding, and providing, artistic lessons.</li>
+                                <li>- Artists specifically lack a tool to help them share their skill with others, loss of potential work.</li>
+                                <li>- All existing tools are spread out and not made for these particular needs, makes this process stressful and chaotic.</li>
+                            </ul>
 
+                        </p>
                     </div>
                 </div>
             </div>
@@ -109,13 +130,12 @@
                     <div class="paragraph-container">
                         <h3>Flow diagrams</h3>
                         <p>Once we had agreed upon some key principles for the app, we proceeded with exploring the flow both artists and students would take in order to achieve their goals.</p>
-                        <p>We kicked off with requiring sign-up for all users, and excluding Artists from browsing lessons. We also aimed to have Chat and Notification views.</p>
                     </div>
                    <div class="gallery-image">
                         <a href="../images/work/fullsize/artent/details/old-site_map.jpg" alt="Value Proposition Photo">
                             <img src="../images/work/fullsize/artent/details/old-site_map.jpg" title="Image"  width="100%" height="100%">
                         </a>
-                        <p class="image_text">The initial site-map was very shared, with artists unable to browse lessons, and all users needing to register for an account. </p>
+                        <p class="image_text">We kicked off with requiring sign-up for all users, and excluding Artists from browsing lessons. We also aimed to have Chat and Notification views.</p>
                     </div>
                     <div class="paragraph-container">
                         <h3>Sketches</h3>
@@ -150,7 +170,7 @@
                         <h3>Brand Principles</h3>
               
                         <p>As previously defined, we ensured the brand was bold yet simple, with no frills. Despite expectations, the artists we spoke to were not very tech focused, and were interested in getting lessons booked and tracked more easily.</p>
-                        <p>Therefore, we decided to focus on the following:</p>
+                        <p>We decided to focus on the following:</p>
                         <ul>
                             <li>- Welcoming</li>
                             <li>- Simplicity</li>
@@ -203,7 +223,6 @@
                     <div class="paragraph-container">
                         <h3>Wireframes</h3>
                         <p>Very early wireframes were created for some developers we collaborated with early on  to create a quick app prototype using the Ionic App framework.</p>
-                        <p>These wireframes were minimal and intended to be just enough to have something to test.</p>
                          <div class="gallery-image">
                             <a href="../images/work/fullsize/artent/details/wireflow_container.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/artent/details/wireflow_container.jpg" title="Image"  width="100%" height="100%">
@@ -281,8 +300,7 @@
             <div class="container--padded" id="implementation">
                 <div class="document-text text-box">
                     <h2 class="center-justified">Implement</h2>
-                    <p>Although this is the last chapter in this case study, we actually began with the development very early on in the process.</p>
-                    <p>The app structure Pivot was directly applied to the code itself using sketches and some diagrams for reference, and nothing more, since it was such a quick change, and easy to get testing immediately.</p>
+                    <p>Although this is the last chapter in this case study, we actually began with the development very early on in the process. We applied all the structural changes directly to code since we were so far in the development.</p>
                     
                     <div class="paragraph-container">
                         <h3>Development</h3>

@@ -26,7 +26,7 @@
               {{_card.title}}
             </h2>
             <p class="card-content">
-              <i>{{_card.subtitle}}</i>
+              {{_card.subtitle}}
             </p>
           </span>
         </div>

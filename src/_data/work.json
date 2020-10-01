@@ -1,7 +1,7 @@
 [{
-    "title": "art ent app",
+    "title": "art ent </br> Mobile app",
     "subtitle": "Bringing artists and students together",
-    "href": "../art_ent",
+    "href": "../art-ent",
     "img": "../images/work/thumbs/gallery_thumb_artent.jpg",
     "content": {
         "title": "art ent app",
@@ -14,8 +14,8 @@
         "tools": "Paper &amp; Pen, TextEdit, Illustrator, Photoshop"
     }
 },{
-    "title": "Steam Mobile",
-    "subtitle": "Redesigning the Steam Mobile client.",
+    "title": "Steam Mobile </br> App redesign",
+    "subtitle": "Redesigning the Steam Mobile client",
     "href": "../steam-mobile",
     "img": "../images/work/thumbs/gallery_thumb_steam.jpg",
     "content": {
@@ -29,12 +29,12 @@
         "tools": "Paper &amp; Pen, TextEdit, Illustrator, Photoshop"
     }
 }, {
-    "title": "visualbear",
-    "subtitle": "Designing my own brand and site.",
+    "title": "visualbear </br> Portfolio",
+    "subtitle": "Designing my own brand and site",
     "href": "../visualbear",
     "img": "../images/work/thumbs/gallery_thumb_visualbear.jpg"
 }, {
-    "title": "Projecto Lynx",
+    "title": "Projecto Lynx </br> Branding",
     "subtitle": "Lynx conservation project Branding design",
     "href": "../projecto-lynx",
     "img": "../images/work/thumbs/gallery_thumb_lynx.jpg"
