@@ -1,0 +1,158 @@
+{% macro content(spec) %}
+{% set spec = spec or {} %}
+{% set _class = spec.class or '' %}
+{% set _content = spec.content or '{}' %}
+{% block config %}
+  {# Correct base url pathing for this page #}
+  {% set baseUrl = '../' %}
+{% endblock %}
+<!--FONTS-->
+<div class="gallery-text">
+  <small  class="page-header">Core</small>
+  <div class="text-block">
+    <p>Core elements are the most basic components used to build the site. Colours, type and basic buttons are defined here.</p>
+  </div>
+  <div class="text-block">
+    <h3 class="page-header">Colours</h3>
+    <div class="row">
+      <!--       <div class="col-md-4">
+        <span class="box-container" style="background:  #fee8e7;padding:8px;">
+          #FEE8E7
+          <p>Pastelle Pink</p>
+        </span>
+      </div> -->
+      <div class="col-md-6">
+        <span class="box-container" style="background: #e6f2ff;padding:8px;font-weight:700;">
+          #E6F2FF
+          <p>Light Grey Blue</p>
+        </span>
+      </div>
+      <div class="col-md-6">
+        <span class="box-container" style="background: #79a6d2;color: #ebf5ff;padding:8px;font-weight:700;">
+          #79A6D2
+          <p>Blue</p>
+        </span>
+      </div>
+      <div class="col-md-6">
+        <span class="box-container" style="background:  #ff621a;color: #ebf5ff;padding:8px; font-weight:700;">
+          #FF621A
+          <p>Orange</p>
+        </span>
+      </div>
+      <div class="col-md-6">
+        <span class="box-container" style="background:  #f63f3c;color: #ebf5ff;padding:8px; font-weight:700;">
+          #F63F3C
+          <p>Tomato</p>
+        </span>
+      </div>
+      <!--       <div class="col-md-4">
+        <span class="box-container" style="background:  #7a0b05;color: #ebf5ff;padding:8px;">
+          #7A0B05
+          <p>Maroon</p>
+        </span>
+      </div> -->
+      <!--  <div class="col-md-4">
+        <span class="box-container" style="background: #0059b3;color: #ebf5ff;padding:8px;">
+          #0059B3
+          <p>Blue</p>
+        </span>
+      </div> -->
+      <!--  <div class="col-md-4">
+        <span class="box-container" style="background: #f1f1f3;padding:8px;">
+          #F1F1F3
+          <p>Light Grey</p>
+        </span>
+      </div> -->
+      <div class="col-md-6">
+        <span class="box-container" style="background: #313135;color: #ebf5ff;padding:8px;font-weight:700;">
+          #313135
+          <p>Medium Grey</p>
+        </span>
+      </div>
+      <div class="col-md-6">
+        <span class="box-container" style="background: #18181b;color: #ebf5ff;padding:8px;font-weight:700;">
+          #18181B
+          <p>Dark Grey</p>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="text-block">
+    <h3 class="page-header">Fonts</h3>
+    <ul>
+      <li>
+        <p>Primary font: "<a href="https://www.google.com/fonts/specimen/Nunito" alt="Google fonts link" target="_blank">Nunito</a>", sans-serif;</p>
+      </li>
+      <li>
+        <div class="center-justified">
+          <p>A B C D E F G H I J K</p>
+          <p>L M N O P Q R S T U</p>
+          <p>V W X Y Z</p>
+          <p>a b c d e f g h i j k </p>
+          <p>l m n o p q r s t u </p>
+          <p>v w x y z</p>
+          <p>0 1 2 3 4 5 6 7 8 9 0</p>
+        </div>
+      </li>
+      <li>
+        <p><i>Primary font italic: "Nunito" , sans-serif;</i></p>
+        <p class="bold">Primary font bold: "Nunito", sans-serif;</p>
+      </li>
+      <li>
+        <p class="font-secondary">Secondary font:  "HelveticaNeue", "Helvetica", "Arial", sans-serif;</p>
+      </li>
+      <li>
+        <div class="font-secondary center-justified">
+          <p>A B C D E F G H I J K</p>
+          <p>L M N O P Q R S T U</p>
+          <p>V W X Y Z</p>
+          <p>a b c d e f g h i j k </p>
+          <p>l m n o p q r s t u </p>
+          <p>v w x y z</p>
+          <p>0 1 2 3 4 5 6 7 8 9 0</p>
+        </div>
+      </li>
+      <li>
+        <p class="font-secondary"><i>Secondary font italic:  "HelveticaNeue", "Helvetica", "Arial", sans-serif;</i></p>
+        <p class="font-secondary"><strong>Secondary font bold:  "HelveticaNeue", "Helvetica", "Arial", sans-serif;</strong></p>
+      </li>
+    </ul>
+  </div>
+  <div class="text-block">
+    <h3 class="page-header">Headings</h3>
+    <ul>
+      <!--HEADINGS-->
+      <li><h1>h1 Heading  <small>Secondary text</small></h1></li>
+      <li><h2>h2 Heading  <small>Secondary text</small></h2></li>
+      <li><h3>h3 Heading  <small>Secondary text</small></h3></li>
+      <li><h4>h4 Heading  <small>Secondary text</small></h4></li>
+      <li><h5>h5 Heading  <small>Secondary text</small></h5></li>
+      <li><h6>h6 Heading  <small>Secondary text</small></h6></li>
+    </ul>
+    <ul>
+      <li><h2 class="page-header">h2 Page Header <small>With Secondary Text</small></h2></li>
+    </ul>
+    <!--Links-->
+  </div>
+  <div class="text-block">
+    <h3 class="page-header">Links</h3>
+    <ul>
+      <li><a href="#visual"  id="workLink1"><b>Link A</b></a></li>
+      <li><a href="#visual"  id="workLink1">Link B</a></li>
+    </ul>
+  </div>
+  <div class="text-block">
+    <h3 class="page-header">Text</h3>
+    <h2>Example body text</h2>
+    <p class="lead">Lead paragraph: vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.</p>
+    <p>Nullam quis risus eget <a href="#">urna mollis ornare</a> vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+    <p><div class="light">This line of text is meant to be treated as fine print.</div></p>
+    <p>The following snippet of text is <strong>rendered as bold text</strong>.</p>
+    <p>The following snippet of text is <i>rendered as italicized text</i>.</p>
+    <p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>
+    <p class="left-align">Left aligned text.</p>
+    <p class="center-align">Center aligned text.</p>
+    <p class="right-align">Right aligned text.</p>
+  </div>
+</div>
+  {% endmacro %}
