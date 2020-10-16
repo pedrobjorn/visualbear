@@ -147,6 +147,8 @@ ul {
     margin: 0;
 }
 
+
+
 b {
     font-weight: $font-semi-bold;
     font-style: bold;
@@ -154,6 +156,11 @@ b {
 
 i {
     font-style: italic;
+}
+
+li {
+    list-style-type: none;
+    padding:4px 0;
 }
 
 strong {
@@ -594,7 +601,7 @@ a {
         font-weight: $font-light;
         font-style: italic;
         color: grey;
-        text-align: center;
+        text-align: left;
     }
 
     .paragraph-container, .paragraph-container--unpadded--unpadded {
@@ -686,6 +693,10 @@ a {
 
     h6 {
         font-size: $mobile-h6-size;
+    }
+
+    li {
+        padding:2px 0;
     }
 
     .title {
@@ -791,6 +802,10 @@ a {
 
     h6 {
         font-size: $mobile-h6-size;
+    }
+
+    li {
+        padding:2px 0;
     }
 
     .title {

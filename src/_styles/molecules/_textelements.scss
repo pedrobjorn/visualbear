@@ -19,19 +19,7 @@
 
     .sub-container {
         padding-bottom: 32px;
-
-        li {
-            padding-left: 8px;
-        }
     }
-}
-
-.image_text {
-    font-size: $middle-font-size;
-    font-weight: $font-light;
-    font-style: italic;
-    color: grey;
-    text-align: center;
 }
 
 .paragraph-container {
@@ -106,10 +94,6 @@
         padding: 32px 0;
     }
 
-    .text-block > ul > li {
-        padding-bottom: 16px;
-    }
-
     .text-container {
         padding: 32px;
         width: 900px;
@@ -158,9 +142,6 @@
         padding: 32px 0;
     }
 
-    .text-block > ul > li {
-        padding-bottom: 16px;
-    }
 
     .text-container {
         padding: 32px;
@@ -222,10 +203,6 @@
         padding: 32px 0;
     }
 
-    .text-block > ul > li {
-        padding-bottom: 16px;
-    }
-
     .text-container-small {
         padding: 16px 0;
     }
@@ -262,10 +239,6 @@
 
     .text-block {
         padding: 16px 0;
-    }
-
-    .text-block > ul > li {
-        padding-bottom: 8px;
     }
 
     .text-container-small {
@@ -320,10 +293,6 @@
         padding: 16px 0;
     }
 
-    .text-block > ul > li {
-        padding-bottom: 8px;
-    }
-
     .text-container {
         font-size: $base-font-size;
         padding: 32px;
@@ -373,10 +342,6 @@
 
     .text-block {
         padding: 16px 0;
-    }
-
-    .text-block > ul > li {
-        padding-bottom: 8px;
     }
 
     .gallery-text {
@@ -433,9 +398,6 @@
         padding: 16px 0;
     }
 
-    .text-block > ul > li {
-        padding-bottom: 8px;
-    }
 
     .text-container {
         font-size: $mobile-font-size;

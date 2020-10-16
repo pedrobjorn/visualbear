@@ -51,14 +51,6 @@ button {
     width: auto;
 
     @include box-shadow(0, 0, 0, 0);
-
-    li {
-        float: left;
-
-        .btn {
-            width: 256px;
-        }
-    }
 }
 
 
