@@ -1,0 +1,54 @@
+{% extends "_layouts/work.nunjucks" %}
+{% import "_modules/organisms/headline/headline.nunjucks" as headline %}
+
+{% import "_modules/molecules/buttonslider/buttonslider.nunjucks" as buttonslider %}
+{% block config %}
+    {% set baseUrl = "../" %}
+{% endblock %}
+{% block content %}
+
+    <article class="section section-top-padding" id="artent_container">
+        <section class="gallery-container">
+
+            {{headline.content({content:site.data.project_climateclock})}}
+
+            <!-- DISCOVER -->
+            <div class="container--padded" id="discovery">
+                <div class="document-text text-box">
+                    
+                </div>
+            </div>
+
+            <!-- DEFINE -->
+            <div class="container--padded light-bg" id="definition">
+                <div class="document-text text-box">
+                    
+                </div>
+            </div>
+             <div class="container--unpadded light-bg" id="iteration">
+                <div class="document-text text-box">
+                    
+                </div>
+            </div>
+ 
+            <div class="container--padded  dark-bg">
+
+            </div>
+            <!-- IMPLEMENT -->
+            <div class="container--padded" id="implementation">
+                
+            </div>
+
+            <div class="container--padded">
+                
+            </div>
+
+        {{buttonslider.content({
+          nexthref: site.data.project_climateclock.nexthref,
+          prevhref: site.data.project_climateclock.prevhref,
+          text: var.linkname
+          })}}
+          
+        </section>
+    </article>
+{% endblock %}

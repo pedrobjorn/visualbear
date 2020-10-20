@@ -1,16 +1,16 @@
 {
-  "title": "art ent app",
-  "subtitle": "Product Design, Brand, front-end",
-  "href": "../art_ent",
-  "prevhref": {"link":"../steam-mobile","text":"Steam Mobile"},
-  "nexthref": {"link":"../climate-clock","text":"Climate Clock"},
-  "img": "../images/work/thumbs/gallery_thumb_artent.jpg",
-  "headline_img":"../images/work/fullsize/artent/details/profile-screen_sneek.png",
-  "logoImg": "../images/work/fullsize/artent/details/logo_main.png",
-  "description": "<i>art ent</i> app<br>Case Study",
-  "released": "May 2017 - September 2020",
-  "responsibilities": "Product Design, Brand, front-end",
-  "tools": "Paper &amp; Pen, Sketch, Text Edit, Illustrator",
+  "title": "",
+  "subtitle": "",
+  "href": "../climate-clock",
+  "prevhref": {"link":"../art-ent","text":"art ent"},
+  "nexthref": {"link":"../disabled"},
+  "img": "",
+  "headline_img":"",
+  "logoImg": "",
+  "description": "<i>Climate Clock</i><br>Redesign",
+  "released": "October - November 2020",
+  "responsibilities": "Brand, Visual Design",
+  "tools": "Paper &amp; Pen, Notion, Figma, Illustrator",
   "intro": [{
     "paragraph":"<i>art ent</i> is an app that artists can use to find people to give lessons to, and to manage those lessons. Students can find lessons, created by artists; view lessons and artist profiles, and contact them to book a lesson."
   },{
