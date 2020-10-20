@@ -21,9 +21,9 @@
 {% set _headlineExtra = {
 "title": "art ent app",
   "subtitle": "Brand, Product Design, front-end",
-  "href": "../art_ent",
-  "prevhref": {"link":"../steam-mobile","text":"Steam Mobile"},
-  "nexthref": {"link":"../disabled"},
+  "href": "",
+  "prevhref": {"link":"../play","text":"Steam Mobile"},
+  "nexthref": {"link":"../play"},
   "img": "../images/work/thumbs/gallery_thumb_artent.jpg",
   "headline_img":"../images/work/fullsize/steam/details/profile-screen_sneek.png",
   "logoImg": "../images/work/fullsize/steam/details/logo_main.png",
@@ -47,8 +47,8 @@
 {% block content %}
 
 
-<div class="gallery-text">
-  <small  class="page-header">Containers</small>
+<div>
+  <h2 class="page-header">Containers</h2>
   <div class="text-block">
     <p>Containers will consist of one or more module within a block / container element. This is used to group modules into chunks that serve a purpose.</p>
   </div>
@@ -62,8 +62,8 @@
     <div class="text-block " style="max-height:auto;">
     <h4 class="page-header" id="galleryimg">Button Slider</h4>
       {{buttonslider.content({
-          nexthref: 'Next',
-          prevhref: 'Prev',
+          nexthref: '../disabled',
+          prevhref: '../disabled',
           text: ''
           })}}
   </div>

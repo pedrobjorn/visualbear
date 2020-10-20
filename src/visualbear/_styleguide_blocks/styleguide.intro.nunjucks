@@ -6,11 +6,10 @@
   {# Correct base url pathing for this page #}
   {% set baseUrl = '../' %}
 {% endblock %}
-<div class="gallery-text">
+<div class="paragraph-container">
   <h1 class="page-header">Styleguide</h1>
-  <p>Welcome to the website styleguide. Here you will find a collection of all the individual components and rules, used
-    to build this site. I use a modified, custom version of
-    <a href="http://patternlab.io/" alt="Link to Pattern Lab">Pattern Lab's</a> atomic design structure for my site, customised by me. </p>
+  <p>This is the website styleguide. Here you will find a collection of all the individual components and rules, used to build this site. I use a modified, custom version of <a href="http://patternlab.io/" alt="Link to Pattern Lab">Pattern Lab's</a> atomic design structure for my site, customised by me. </p>
+    
     <p>The structure is divided into:</p>
     <ul class="index">
       <li><a href="#core" onclick="scroller('stylesheet-core')">Core</a></li>
@@ -18,7 +17,9 @@
       <li><a href="#containers"  onclick="scroller('stylesheet-containers')">Containers</a></li>
       <!--<li><a href="#templates"  onclick="scroller('stylesheet-templates')">Templates</a></li>-->
     </ul>
+    
     <p>The purpose of exposing this styleguide is to present my portfolio itself as part my portfolio work. What you see is what I use as a reference as I build the site, as it's imperative to good web design and development.</p>
+    
     <p>Built using:</p>
     <ul>
       <li><a href="https://github.com/larsonjj/generator-yeogurt" target="_blank">Yeogurt</a></li>

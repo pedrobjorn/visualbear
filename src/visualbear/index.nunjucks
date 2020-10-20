@@ -2,10 +2,10 @@
 {% import "_modules/organisms/headline/headline.nunjucks" as headline %}
 {% import "_modules/molecules/buttonslider/buttonslider.nunjucks" as buttonslider %}
 
-{% import "styleguide/_styleguide_blocks/styleguide.intro.nunjucks" as intro %}
-{% import "styleguide/_styleguide_blocks/styleguide.core.nunjucks" as core %}
-{% import "styleguide/_styleguide_blocks/styleguide.modules.nunjucks" as modules %}
-{% import "styleguide/_styleguide_blocks/styleguide.containers.nunjucks" as containers %}
+{% import "visualbear/_styleguide_blocks/styleguide.intro.nunjucks" as intro %}
+{% import "visualbear/_styleguide_blocks/styleguide.core.nunjucks" as core %}
+{% import "visualbear/_styleguide_blocks/styleguide.modules.nunjucks" as modules %}
+{% import "visualbear/_styleguide_blocks/styleguide.containers.nunjucks" as containers %}
 
 {% block config %}
 	{# Correct base url pathing for this page #}
@@ -16,15 +16,16 @@
 		<section class="gallery-container">
 			
 			{{headline.content({content:site.data.project_visualbear,class:hero-about})}}
-			<div class="container--padded ">
+			
+			<div class="container--padded">
 				<div class="document-text text-box">
-					<div class="paragraph-container--icons row">
-						<h3>The Styleguide</h3>
-						<p>
-							The <a href="#styleguide" alt="Styleguide Link"> websites pattern library </a> represents the design involved in creating this site, which is closely tied to the identity.
-						</p>
-					</div>
-					
+					<div class="paragraph-container--icons row" id="styleguide">
+					 <h1 class="page-header">Brand Identity</h1>
+  						<p>
+  							The core principles for my brand were <b>attention</b>, <b>minimal</b>, and <b>soft</b>. These principles influnced the selection of colour, soft edges, and typography.
+  						</p>
+    				</div>
+ 
 					<div class="gallery-image">
 						<a href="../images/work/fullsize/visualbear/visualbear_first.jpg" alt="Visualbear logo">
 							<img src="../images/work/fullsize/visualbear/visualbear_first.jpg" title="Visualbear logo" width="900" height="425">
@@ -46,7 +47,7 @@
 							<img src="../images/work/fullsize/visualbear/visualbear_pedrobjorn.jpg" title="Visualbear pedro bjorn logos" width="900" height="422">
 						</a>
 					</div>
-					<div class="row" id="styleguide">
+					<div class="paragraph-container--icons row" id="styleguide">
 						{{intro.content()}}
 					</div>
 		

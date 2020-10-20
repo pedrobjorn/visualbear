@@ -15,8 +15,8 @@
   {# Correct base url pathing for this page #}
   {% set baseUrl = '../' %}
 {% endblock %}
-<div class="gallery-text">
-  <small  class="page-header">Modules</small>
+<div>
+  <h2 class="page-header">Modules</h2>
     <div class="text-block">
     <p>Modules are comprised of multiple core elements. Now that elements such as type and colours are defined, modules put them together into modular pieces that can be then used in containers.</p>
   </div>
@@ -33,32 +33,31 @@
     <h3 class="page-header">Quotes</h3>
     <blockquote>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-    <footer>- Someone famous in <cite title="Source Title">Source Title</cite></footer>
-  </blockquote>
-</div>
-<!-- Sample pattern, your site's patterns will be different -->
-<div class="text-block">
-  <h3 class="page-header">Buttons Aligned</h3>
-  <div class="socialContainer">
-    <a id="follow-button" class="vb-btn-icon " title="Follow @pedrobjorn on Twitter">
-      <img src="./../images/icons/twitter_icon_64.jpg" alt="Smiley face" width="48px" height="48px">
-    </a>
-    <a class="vb-btn-icon ">
-      <img src="../../images/icons/behance_icon_64.jpg" alt="Smiley face" width="48px" height="48px">
-    </a>
-    <a class="vb-btn-icon ">
-      <img src="../../images/icons/linkdin_icon_64.jpg" alt="Smiley face" width="48px" height="48px">
-    </a>
+      <footer>- Someone famous in <cite title="Source Title">Source Title</cite></footer>
+    </blockquote>
   </div>
-</div>
-<div class="paragraph-container">
-  <h3 class="page-header">Image Container</h3>
-  <img src="./../images/work/fullsize/visualbear/visualbear_pedrobjorn.jpg" alt="visualbear logoimage">
-</div>
+  <!-- Sample pattern, your site's patterns will be different -->
+  <div class="text-block">
+    <h3 class="page-header">Buttons Aligned</h3>
+    <div class="socialContainer">
+      <a id="follow-button" class="vb-btn-icon " title="Follow @pedrobjorn on Twitter">
+        <img src="./../images/icons/twitter_icon_64.jpg" alt="Smiley face" width="48px" height="48px">
+      </a>
+      <a class="vb-btn-icon ">
+        <img src="../../images/icons/behance_icon_64.jpg" alt="Smiley face" width="48px" height="48px">
+      </a>
+      <a class="vb-btn-icon ">
+        <img src="../../images/icons/linkdin_icon_64.jpg" alt="Smiley face" width="48px" height="48px">
+      </a>
+    </div>
+  </div>
+  <div class="paragraph-container">
+    <h3 class="page-header">Image Container</h3>
+    <img src="./../images/work/fullsize/visualbear/visualbear_pedrobjorn.jpg" alt="visualbear logoimage">
+  </div>
 
-  <h3 class="page-header" id="linkblock">Link Block</h3>
-    <div class="text-block ">
-    <h4 class="page-header" id="galleryimg"> Cart Gallery Container</h4>
+  <div class="text-block ">
+    <h3 class="page-header" id="galleryimg"> Cart Gallery Container</h3>
   {{card.content({card:_cardPlay})}} 
   </div>
 </div>
