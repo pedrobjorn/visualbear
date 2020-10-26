@@ -1,4 +1,19 @@
 [{
+    "title": "Climate Clock </br> Visual Redesign",
+    "subtitle": "Revamping a critical counter",
+    "href": "../climate-clock",
+    "img": "../images/work/thumbs/gallery_thumb_climateclock.jpg",
+    "content": {
+        "title": "art ent app",
+        "subtitle": "UX, UI & visual design",
+        "href": "../art_ent",
+        "img": "../images/work/thumbs/gallery_thumb_climateclock.jpg",
+        "description": "",
+        "released": "August 20th 2017",
+        "responsibilities": "UX, UI &amp; Visual Design",
+        "tools": "Paper &amp; Pen, TextEdit, Illustrator, Photoshop"
+    }
+},{
     "title": "art ent </br> Mobile app",
     "subtitle": "Bringing artists and students together",
     "href": "../art-ent",
@@ -33,7 +48,7 @@
     "subtitle": "Designing my own brand and site",
     "href": "../visualbear",
     "img": "../images/work/thumbs/gallery_thumb_visualbear.jpg"
-}, {
+},{
     "title": "Projecto Lynx </br> Branding",
     "subtitle": "Lynx conservation project Branding design",
     "href": "../projecto-lynx",
