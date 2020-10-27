@@ -1,4 +1,19 @@
 [{
+    "title": "Climate Clock </br> Visual Redesign",
+    "subtitle": "Revamping a critical counter",
+    "href": "../climate-clock",
+    "img": "../images/work/thumbs/gallery_thumb_climateclock.jpg",
+    "content": {
+        "title": "art ent app",
+        "subtitle": "UX, UI & visual design",
+        "href": "../art_ent",
+        "img": "../images/work/thumbs/gallery_thumb_climateclock.jpg",
+        "description": "",
+        "released": "August 20th 2017",
+        "responsibilities": "UX, UI &amp; Visual Design",
+        "tools": "Paper &amp; Pen, TextEdit, Illustrator, Photoshop"
+    }
+},{
     "title": "art ent",
     "subtitle": "Brand, Product Design, front-end",
     "href": "../art_ent",

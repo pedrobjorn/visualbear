@@ -41,6 +41,34 @@
     }
 }
 
+#climateclock_container {
+    color: $vb-dark;
+    background-color: #F6F6F6;
+
+    .gallery-image {
+        // background-color: #00a2de;
+   
+    }
+
+    .dark-bg {
+        background-color: #FF2020;
+        color: #F6F6F6;
+
+        a {
+            color: $vb-light;
+        }
+
+        .image_text {
+            color: #F6F6F6;
+        }
+    }
+
+    .light-bg {
+        color: $vb-dark;
+        background-color: #fff;
+    }
+}
+
 #artent_container {
     color: $vb-dark;
     background-color: #F0F4FC;

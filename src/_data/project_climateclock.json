@@ -6,23 +6,23 @@
   "nexthref": {"link":"../disabled"},
   "img": "",
   "headline_img":"",
-  "logoImg": "",
+  "logoImg": "../images/work/fullsize/climateclock/details/climate_clock-logo.png",
   "description": "<i>Climate Clock</i><br>Redesign",
   "released": "October - November 2020",
-  "responsibilities": "Brand, Visual Design",
+  "responsibilities": "Branding, Visual Design",
   "tools": "Paper &amp; Pen, Notion, Figma, Illustrator",
   "intro": [{
-    "paragraph":"<i>art ent</i> is an app that artists can use to find people to give lessons to, and to manage those lessons. Students can find lessons, created by artists; view lessons and artist profiles, and contact them to book a lesson."
+    "paragraph":"<i> Climate Clock</i> burst into the scene in 2019 when they <a href=\"https://www.nytimes.com/2020/09/20/arts/design/climate-clock-metronome-nyc.html\" alt=\"Riccardos Linkedin profile\" target=\"_blank\">put up a huge clock in New York</a>. Since then, it's become a movement synonymous with action against climate change. "
   },{
-    "paragraph":"It was a side-projct between two friends, where I worked on the Design and Front-end, while <a href=\"https://se.linkedin.com/in/riccardo-rappoldi-a3548057?challengeId=AQFcMZHMAFt9BwAAAXTA2a2kMt4Nll0Jmmp7jjSYMJMzQdQ3uB9kwS_E-OXYvVNoSpwJrjLtGQA49o7CB5E_oh9scBF0P8kduA&submissionId=7b11a422-a7c3-3716-4f97-7f0b0cd9f855\" alt=\"Riccardos Linkedin profile\" target=\"_blank\">Riccardo</a> worked on the back-end."
+    "paragraph":"I found this fascinating, and wanted to help somehow, so I decided lend a hand and propose an alternative to the visual representation."
   }],
-  "challenge":"Artists have no tool to connect with people who want to learn their skills, and have to resort to local announcement boards, public announcement boards, and word of mouth. People wanting to learn rely on word of mouth and social media, with no consolidated go to source for artistic lessons.",
+  "challenge":"Being a product aimed at gaining attention and guidance, the challenge here was to revamp the site and app to create a bigger impact, as well as modernize it a bit.",
   "goals":[{
-   "goal":"- Create a tool for artists to find students."
+   "goal":"- Refine the branding and visual identity."
   },{
-   "goal":"- Allow for artists to create a basic profile."
+   "goal":"- Focus on visual flair, causing an impact and gaining attention."
   },{
-   "goal":"- Keep it usable without an account for students."
+   "goal":"- Improve basic UX based on heuristics."
   }]
 }
 

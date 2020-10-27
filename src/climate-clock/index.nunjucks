@@ -7,40 +7,58 @@
 {% endblock %}
 {% block content %}
 
-    <article class="section section-top-padding" id="artent_container">
+    <article class="section section-top-padding" id="climateclock_container">
         <section class="gallery-container">
+            <div class="black-bg">
+           
+                {{headline.content({content:site.data.project_climateclock})}}
+            
+                <img src="../images/work/fullsize/climateclock/details/ice_pattern.png" title="Icecaps melting"  width="100%" height="100%" style="margin-bottom:-12px">
+            </div>
 
-            {{headline.content({content:site.data.project_climateclock})}}
-
-            <!-- DISCOVER -->
-            <div class="container--padded" id="discovery">
+            <!-- OVERVIEW -->
+            <div class="container--padded" id="definition">
                 <div class="document-text text-box">
-                    
+                    <h2 class="center-justified">Overview</h2>
                 </div>
             </div>
 
-            <!-- DEFINE -->
-            <div class="container--padded light-bg" id="definition">
+            <!-- BRANDING -->
+             <div class="container--unpadded  dark-bg" id="iteration">
                 <div class="document-text text-box">
-                    
-                </div>
-            </div>
-             <div class="container--unpadded light-bg" id="iteration">
-                <div class="document-text text-box">
-                    
+                    <h2 class="center-justified">Branding</h2>
                 </div>
             </div>
  
-            <div class="container--padded  dark-bg">
+            <div class="container--padded">
+                <div class="document-text text-box">
+                <h2 class="center-justified">The site</h2>
+
+                    <h3 class="center-justified">Main Page</h3>
+                </div>
 
             </div>
-            <!-- IMPLEMENT -->
-            <div class="container--padded" id="implementation">
-                
+ 
+            <div class="container--padded">
+                <div class="document-text text-box">
+                    <h3 class="center-justified">Tutorial / About</h3>
+                </div>
             </div>
 
             <div class="container--padded">
+
+                <div class="document-text text-box">
+                    <h3 class="center-justified">Display / App</h3>
+                </div>
+            </div>
+            <div class="black-bg">
+                <img src="../images/work/fullsize/climateclock/details/ice_pattern-flipped.png" title="Icecaps melting"  width="100%" height="100%">
+            </div>
+            <div class="container--padded black-bg">
                 
+                <div class="document-text text-box">
+                    <h3 class="center-justified">Conclusion</h3>
+                </div>
             </div>
 
         {{buttonslider.content({
