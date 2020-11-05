@@ -2,6 +2,7 @@
   "name": "visualbear",
   "version": "0.0.1",
   "dependencies": {
+    "@khanacademy/tota11y": "^0.2.0",
     "jquery": "^3.5.1",
     "materialize-css": "^1.0.0-rc.2",
     "normalize-scss": "^7.0.1",

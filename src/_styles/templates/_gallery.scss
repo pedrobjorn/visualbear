@@ -386,9 +386,11 @@
 
 .gallery-image--full {
     // @extend .gallery-image;
+    margin-bottom:-8px;
     img {
         max-width: 100%;
     }
+
 }
 
 //2500px< & >1200px

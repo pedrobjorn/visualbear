@@ -43,7 +43,7 @@
 
 #climateclock_container {
     color: $vb-dark;
-    background-color: #F6F6F6;
+    background-color: #fff6f7;
 
     .gallery-image {
         // background-color: #00a2de;
@@ -51,6 +51,19 @@
     }
 
     .dark-bg {
+        background-color: #000;
+        color: $vb-light;
+
+        a {
+            color: $vb-light;
+        }
+
+        .image_text {
+            color: $vb-light;
+        }
+    }
+
+    .red-bg {
         background-color: #FF2020;
         color: #F6F6F6;
 

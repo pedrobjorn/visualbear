@@ -1,54 +1,106 @@
 {% extends "_layouts/work.nunjucks" %}
 {% import "_modules/organisms/headline/headline.nunjucks" as headline %}
-
 {% import "_modules/molecules/buttonslider/buttonslider.nunjucks" as buttonslider %}
 {% block config %}
     {% set baseUrl = "../" %}
 {% endblock %}
 {% block content %}
-
     <article class="section section-top-padding" id="climateclock_container">
         <section class="gallery-container">
             <div class="black-bg">
-           
+                
                 {{headline.content({content:site.data.project_climateclock})}}
-            
+                
                 <img src="../images/work/fullsize/climateclock/details/ice_pattern.png" title="Icecaps melting"  width="100%" height="100%" style="margin-bottom:-12px">
             </div>
-
             <!-- OVERVIEW -->
             <div class="container--padded" id="definition">
                 <div class="document-text text-box">
                     <h2 class="center-justified">Overview</h2>
                 </div>
             </div>
-
+            <div class="gallery-image--full">
+                <img src="../images/work/fullsize/climateclock/details/mobile-index-splash.png" title="Image"  width="100%" height="100%">
+            </div>
             <!-- BRANDING -->
-             <div class="container--unpadded  dark-bg" id="iteration">
+            <div class="container--unpadded dark-bg" id="iteration">
                 <div class="document-text text-box">
                     <h2 class="center-justified">Branding</h2>
+                    
                 </div>
             </div>
- 
+            
             <div class="container--padded">
                 <div class="document-text text-box">
-                <h2 class="center-justified">The site</h2>
+                    <h2 class="center-justified">The site</h2>
+                    <div class="paragraph-container">
+                        <h3 class="center-justified">Main Page</h3>
+                        <p></p>
+                        
+                        <p></p>
+                    </div>
+                    <div class="gallery-image">
+                        <a href="../images/work/fullsize/climateclock/screens/mobile-index-default-double.jpg" alt="Value Proposition Photo">
+                            <img src="../images/work/fullsize/climateclock/screens/mobile-index-default-double.jpg" title="Image"  width="100%" height="100%">
+                        </a>
+                    </div>
+     
 
-                    <h3 class="center-justified">Main Page</h3>
+                    <div class="gallery-image">
+                        <div class="paragraph-container">
+                            <h3 class="center-justified">Taking Action</h3>
+                            <p></p>
+                            
+                            <p></p>
+                        </div>
+                        <a href="../images/work/fullsize/climateclock/screens/mobile-index-FAB.jpg" alt="Value Proposition Photo">
+                            <img src="../images/work/fullsize/climateclock/screens/mobile-index-FAB.jpg" title="Image"  width="100%" height="100%">
+                        </a>
+                        <p class="image_text"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="container--padded dark-bg">
+                <div class="document-text text-box">
+                    <div class="gallery-image--medium">
+                        <a href="../images/work/fullsize/climateclock/gifs/Mobile-Index.gif" alt="Value Proposition Photo">
+                            <img src="../images/work/fullsize/climateclock/gifs/Mobile-Index.gif" title="Image"  width="100%" height="100%">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container--padded">
+                <div class="document-text text-box">
+                    <h3 class="center-justified">Display / App</h3>
+                    <div class="document-text text-box">
+                        <div class="gallery-image">
+                            <a href="../images/work/fullsize/climateclock/screens/mobile-index-display_base_angled.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/climateclock/screens/mobile-index-display_base_angled.jpg" title="Image"  width="100%" height="100%">
+                            </a>
+                            <p class="image_text"></p>
+                        </div>
+                        <div class="gallery-image">
+                            <a href="../images/work/fullsize/climateclock/screens/mobile-display-triple.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/climateclock/screens/mobile-display-triple.jpg" title="Image"  width="100%" height="100%">
+                            </a>
+                            <p class="image_text"></p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="container--padded dark-bg">
+                    <div class="document-text text-box">
+                        <div class="gallery-image--medium">
+                            <a href="../images/work/fullsize/climateclock/gifs/Mobile-Display.gif" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/climateclock/gifs/Mobile-Display.gif" title="Image"  width="100%" height="100%">
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
-            </div>
- 
             <div class="container--padded">
                 <div class="document-text text-box">
                     <h3 class="center-justified">Tutorial / About</h3>
-                </div>
-            </div>
-
-            <div class="container--padded">
-
-                <div class="document-text text-box">
-                    <h3 class="center-justified">Display / App</h3>
                 </div>
             </div>
             <div class="black-bg">
@@ -60,13 +112,12 @@
                     <h3 class="center-justified">Conclusion</h3>
                 </div>
             </div>
-
-        {{buttonslider.content({
-          nexthref: site.data.project_climateclock.nexthref,
-          prevhref: site.data.project_climateclock.prevhref,
-          text: var.linkname
-          })}}
-          
+            {{buttonslider.content({
+            nexthref: site.data.project_climateclock.nexthref,
+            prevhref: site.data.project_climateclock.prevhref,
+            text: var.linkname
+            })}}
+            
         </section>
     </article>
 {% endblock %}
