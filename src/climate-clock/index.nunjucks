@@ -14,22 +14,76 @@
                 <img src="../images/work/fullsize/climateclock/details/ice_pattern.png" title="Icecaps melting"  width="100%" height="100%" style="margin-bottom:-12px">
             </div>
             <!-- OVERVIEW -->
-            <div class="container--padded" id="definition">
+            <div class="container" id="definition">
                 <div class="document-text text-box">
                     <h2 class="center-justified">Overview</h2>
+                    <div class="paragraph-container">
+                        <p>
+                            This project's main purpose was to pick up an existing property and give it a a bold redesign. For this case, the <a href="https://climateclock.world/" alt="Climate Clock link" target="_blank" >Climate Clock</a> was a perfect candidate, being a great cause and having a lot of potential.
+                        </p>
+                        <p>
+                            Due to the tight scope and focus on the Visual Design, this presentation is mostly covers the final outcome of the redesign. If you want to see more complete case studies, check the <a href="../art-ent/" alt="art ent project link">art ent App project</a>, or <a href="../steam-mobile/" alt="Steam Mobile project">the Steam Mobile project</a>.
+                        </p>
+                    </div>
                 </div>
             </div>
             <div class="gallery-image--full">
                 <img src="../images/work/fullsize/climateclock/details/mobile-index-splash.png" title="Image"  width="100%" height="100%">
             </div>
             <!-- BRANDING -->
-            <div class="container--unpadded dark-bg" id="iteration">
+            <div class="container dark-bg" id="iteration">
                 <div class="document-text text-box">
-                    <h2 class="center-justified">Branding</h2>
-                    
+                    <h2 class="center-justified">Branding &amp; Visual Identity</h2>
+
+                    <div class="paragraph-container">
+                        <h3 class="center-justified">Logomark</h3>
+                        <p>
+                            Designed to connect with the visual identity, the core was centred around the circular nature of a clock, earth, and the letter C. Inspired by an an existing logo Climate Clock logo concept, as well as by a <a href="https://www.amazon.com/Time-Timer-Optional-Ticking-Management/dp/B06XKV7C2W" alt="TTO Time Amazon link" target="_blank" >Sprint MOD Timer</a>, as well as a logo by <a href="http://www.logobook.com/logo/kino-studio/" alt="Kino Studio link" target="_blank" >Stefan Kanchev for Kino Studio</a> the two circles represent two C’sT
+                        </p>
+                    </div>
+                    <div class="gallery-image--medium">
+                        <a href="../images/work/fullsize/climateclock/details/logo_icon-white.png" alt="Value Proposition Photo">
+                            <img src="../images/work/fullsize/climateclock/details/logo_icon-white.png" title="Image"  width="100%" height="100%">
+                        </a>
+                    </div>
+                     <div class="paragraph-container">
+                        <p>
+                            The outside representing the Deadline, and the inside for the Lifeline, the two circles can vary in completedness, allowing for a dynamic presentation of the logomark.
+                        </p>
+                    </div>
+                    <div class="paragraph-container">
+                        <h3 class="center-justified">Logotype</h3>
+                        <p>
+                            Made to work with the two brand colours: Red and Green, the logotype uses the Logomark “C”, while the “O” also based on the C shape. The text is aligned to the right to represent forward movement, while the ext and Logo mark colours correspond to each other. The inner logomark “circle” can have any angle, while the outer one should always be at 270 degrees.
+                        </p>
+                    </div>
+                    <div class="gallery-image">
+                        <a href="../images/work/fullsize/climateclock/details/logotype.png" alt="Value Proposition Photo">
+                            <img src="../images/work/fullsize/climateclock/details/logotype.png" title="Image"  width="100%" height="100%">
+                        </a>
+                        <p class="image_text"></p>
+                    </div>
                 </div>
             </div>
-            
+            <div class="container--unpadded dark-bg" id="iteration">
+                <div class="document-text text-box">
+                    <div class="gallery-image">
+                        <a href="../images/work/fullsize/climateclock/details/visual_identity.png" alt="Value Proposition Photo">
+                            <img src="../images/work/fullsize/climateclock/details/visual_identity.png" title="Image"  width="100%" height="100%">
+                        </a>
+                    </div>
+                    <div class="paragraph-container">
+                        <h3 class="center-justified">UI Identity</h3>
+                        <p>
+                           Centred around, thick &amp; bold, with Black, Light-Grey and Red used as base colours. Yellow, Red and Black used for action colours. Green was not used due it being strongly tied to Success states / non-interactive states. Drop-shadows give a depth to the otherwise flat UI. 
+ 
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="black-bg">
+                <img src="../images/work/fullsize/climateclock/details/ice_image.png" title="Icecaps melting"  width="100%" height="100%" style="margin-bottom:-9px;">
+            </div>
             <div class="container--padded">
                 <div class="document-text text-box">
                     <h2 class="center-justified">The site</h2>
@@ -43,9 +97,21 @@
                         <a href="../images/work/fullsize/climateclock/screens/mobile-index-default-double.jpg" alt="Value Proposition Photo">
                             <img src="../images/work/fullsize/climateclock/screens/mobile-index-default-double.jpg" title="Image"  width="100%" height="100%">
                         </a>
+                        <p class="image_text"></p>
                     </div>
-     
-
+                </div>
+            </div>
+            <div class="container--padded dark-bg">
+                <div class="document-text text-box">
+                    <div class="gallery-image--medium">
+                        <a href="../images/work/fullsize/climateclock/gifs/Mobile-Index.gif" alt="Value Proposition Photo">
+                            <img src="../images/work/fullsize/climateclock/gifs/Mobile-Index.gif" title="Image"  width="100%" height="100%">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container--padded">
+                <div class="document-text text-box">
                     <div class="gallery-image">
                         <div class="paragraph-container">
                             <h3 class="center-justified">Taking Action</h3>
@@ -57,15 +123,6 @@
                             <img src="../images/work/fullsize/climateclock/screens/mobile-index-FAB.jpg" title="Image"  width="100%" height="100%">
                         </a>
                         <p class="image_text"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="container--padded dark-bg">
-                <div class="document-text text-box">
-                    <div class="gallery-image--medium">
-                        <a href="../images/work/fullsize/climateclock/gifs/Mobile-Index.gif" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/climateclock/gifs/Mobile-Index.gif" title="Image"  width="100%" height="100%">
-                        </a>
                     </div>
                 </div>
             </div>
@@ -87,17 +144,16 @@
                         </div>
                     </div>
                 </div>
-                </div>
-                <div class="container--padded dark-bg">
-                    <div class="document-text text-box">
-                        <div class="gallery-image--medium">
-                            <a href="../images/work/fullsize/climateclock/gifs/Mobile-Display.gif" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/climateclock/gifs/Mobile-Display.gif" title="Image"  width="100%" height="100%">
-                            </a>
-                        </div>
+            </div>
+            <div class="container--padded dark-bg">
+                <div class="document-text text-box">
+                    <div class="gallery-image--medium">
+                        <a href="../images/work/fullsize/climateclock/gifs/Mobile-Display.gif" alt="Value Proposition Photo">
+                            <img src="../images/work/fullsize/climateclock/gifs/Mobile-Display.gif" title="Image"  width="100%" height="100%">
+                        </a>
                     </div>
                 </div>
-
+            </div>
             <div class="container--padded">
                 <div class="document-text text-box">
                     <h3 class="center-justified">Tutorial / About</h3>
