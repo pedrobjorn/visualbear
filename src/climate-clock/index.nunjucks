@@ -104,10 +104,27 @@
             <div class="container--padded dark-bg">
                 <div class="document-text text-box">
                     <div class="gallery-image--medium">
-                        <a href="../images/work/fullsize/climateclock/gifs/Mobile-Index.gif" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/climateclock/gifs/Mobile-Index.gif" title="Image"  width="100%" height="100%">
+                        <a href="../images/work/fullsize/climateclock/gifs/mobile-index.gif" alt="Value Proposition Photo">
+                            <img src="../images/work/fullsize/climateclock/gifs/mobile-index.gif" title="Image"  width="100%" height="100%">
                         </a>
                     </div>
+                </div>
+            </div>
+            <div class="container--padded">
+                <div class="document-text text-box">
+                    <div class="gallery-image--full">
+                        <div class="paragraph-container">
+                            <h4 class="center-justified">Desktop</h4>
+                            <p></p>
+                            
+                            <p></p>
+                        </div>
+                        <a href="../images/work/fullsize/climateclock/screens/desktop-index-full.jpg" alt="Value Proposition Photo">
+                            <img src="../images/work/fullsize/climateclock/screens/desktop-index-full.jpg" title="Image"  width="100%" height="100%">
+                        </a>
+                        <p class="image_text"></p>
+                    </div>
+
                 </div>
             </div>
             <div class="container--padded">
@@ -154,8 +171,8 @@
             <div class="container--padded dark-bg">
                 <div class="document-text text-box">
                     <div class="gallery-image--medium">
-                        <a href="../images/work/fullsize/climateclock/gifs/Mobile-Display.gif" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/climateclock/gifs/Mobile-Display.gif" title="Image"  width="100%" height="100%">
+                        <a href="../images/work/fullsize/climateclock/gifs/mobile-display.gif" alt="Value Proposition Photo">
+                            <img src="../images/work/fullsize/climateclock/gifs/mobile-display.gif" title="Image"  width="100%" height="100%">
                         </a>
                     </div>
                 </div>
@@ -173,10 +190,47 @@
                     </div>
                 </div>
             </div>
-            
             <div class="container--padded">
                 <div class="document-text text-box">
-                    <h3 class="center-justified">Tutorial / About</h3>
+                    <h4 class="center-justified">Watch</h4>
+                        <div class="paragraph-container">
+                            <p></p>
+                            
+                            <p></p>
+                        </div>
+                        <div class="gallery-image--full ">
+                            <a href="../images/work/fullsize/climateclock/screens/watch_display-web.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/climateclock/screens/watch_display-web.jpg" title="Image"  width="100%" height="100%">
+                            </a>
+                            <p class="image_text"></p>
+                        </div>
+                </div>
+            </div>
+            <div class="container--padded dark-bg">
+                <div class="document-text text-box">
+                    <div class="gallery-image--medium">
+                        <a href="../images/work/fullsize/climateclock/gifs/watch-display.gif" alt="Value Proposition Photo">
+                            <img src="../images/work/fullsize/climateclock/gifs/watch-display.gif" title="Image"  width="100%" height="100%">
+                        </a>
+                    </div>
+                </div>
+            </div> 
+            <div class="container--padded">
+                <div class="document-text text-box">
+                    <h3 class="center-justified">Science / Guide / About</h3>
+                    <div class="document-text text-box">
+                        <div class="paragraph-container">
+                            <p></p>
+                            
+                            <p></p>
+                        </div>
+                        <div class="gallery-image--full ">
+                            <a href="../images/work/fullsize/climateclock/screens/desktop_about-web.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/climateclock/screens/desktop_about-web.jpg" title="Image"  width="100%" height="100%">
+                            </a>
+                            <p class="image_text"></p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="black-bg">
