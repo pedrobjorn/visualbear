@@ -34,7 +34,6 @@
             <div class="container dark-bg" id="iteration">
                 <div class="document-text text-box">
                     <h2 class="center-justified">Branding &amp; Visual Identity</h2>
-
                     <div class="paragraph-container">
                         <h3 class="center-justified">Logomark</h3>
                         <p>
@@ -46,7 +45,7 @@
                             <img src="../images/work/fullsize/climateclock/details/logo_icon-white.png" title="Image"  width="100%" height="100%">
                         </a>
                     </div>
-                     <div class="paragraph-container">
+                    <div class="paragraph-container">
                         <p>
                             The outside representing the Deadline, and the inside for the Lifeline, the two circles can vary in completedness, allowing for a dynamic presentation of the logomark.
                         </p>
@@ -75,8 +74,8 @@
                     <div class="paragraph-container">
                         <h3 class="center-justified">UI Identity</h3>
                         <p>
-                           Centred around, thick &amp; bold, with Black, Light-Grey and Red used as base colours. Yellow, Red and Black used for action colours. Green was not used due it being strongly tied to Success states / non-interactive states. Drop-shadows give a depth to the otherwise flat UI. 
- 
+                            Centred around, thick &amp; bold, with Black, Light-Grey and Red used as base colours. Yellow, Red and Black used for action colours. Green was not used due it being strongly tied to Success states / non-interactive states. Drop-shadows give a depth to the otherwise flat UI.
+                            
                         </p>
                     </div>
                 </div>
@@ -89,6 +88,7 @@
                     <h2 class="center-justified">The site</h2>
                     <div class="paragraph-container">
                         <h3 class="center-justified">Main Page</h3>
+                        <h4 class="center-justified">Mobile</h4>
                         <p></p>
                         
                         <p></p>
@@ -112,39 +112,45 @@
             </div>
             <div class="container--padded">
                 <div class="document-text text-box">
-                    <div class="gallery-image">
+                    <div class="gallery-image--full">
                         <div class="paragraph-container">
                             <h3 class="center-justified">Taking Action</h3>
                             <p></p>
                             
                             <p></p>
                         </div>
-                        <a href="../images/work/fullsize/climateclock/screens/mobile-index-FAB.jpg" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/climateclock/screens/mobile-index-FAB.jpg" title="Image"  width="100%" height="100%">
+                        <a href="../images/work/fullsize/climateclock/screens/mobile-action-triple.jpg" alt="Value Proposition Photo">
+                            <img src="../images/work/fullsize/climateclock/screens/mobile-action-triple.jpg" title="Image"  width="100%" height="100%">
                         </a>
                         <p class="image_text"></p>
                     </div>
+
                 </div>
             </div>
             <div class="container--padded">
                 <div class="document-text text-box">
-                    <h3 class="center-justified">Display / App</h3>
-                    <div class="document-text text-box">
-                        <div class="gallery-image">
+                    <div class="gallery-image">
+                        <div class="paragraph-container">
+                        <h3 class="center-justified">Display / App</h3>
+                        <h4 class="center-justified">Mobile</h4>
+                            <p></p>
+                            
+                            <p></p>
+                        </div>
                             <a href="../images/work/fullsize/climateclock/screens/mobile-index-display_base_angled.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/climateclock/screens/mobile-index-display_base_angled.jpg" title="Image"  width="100%" height="100%">
                             </a>
                             <p class="image_text"></p>
                         </div>
-                        <div class="gallery-image">
+                        <div class="gallery-image--full">
                             <a href="../images/work/fullsize/climateclock/screens/mobile-display-triple.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/climateclock/screens/mobile-display-triple.jpg" title="Image"  width="100%" height="100%">
                             </a>
                             <p class="image_text"></p>
                         </div>
-                    </div>
                 </div>
             </div>
+
             <div class="container--padded dark-bg">
                 <div class="document-text text-box">
                     <div class="gallery-image--medium">
@@ -154,6 +160,20 @@
                     </div>
                 </div>
             </div>
+            <div class="container--padded">
+                <div class="document-text text-box">
+                    <h4 class="center-justified">Desktop</h4>
+                    <div class="document-text text-box">
+                        <div class="gallery-image--full ">
+                            <a href="../images/work/fullsize/climateclock/screens/desktop_display-web.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/climateclock/screens/desktop_display-web.jpg" title="Image"  width="100%" height="100%">
+                            </a>
+                            <p class="image_text"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <div class="container--padded">
                 <div class="document-text text-box">
                     <h3 class="center-justified">Tutorial / About</h3>
