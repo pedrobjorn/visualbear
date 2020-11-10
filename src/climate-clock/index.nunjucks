@@ -21,8 +21,14 @@
                         <p>
                             This project's main purpose was to pick up an existing property and give it a a bold redesign. For this case, the <a href="https://climateclock.world/" alt="Climate Clock link" target="_blank" >Climate Clock</a> was a perfect candidate, being a great cause and having a lot of potential.
                         </p>
+                    <div class="gallery-image--medium">
+                        <a href="../images/work/fullsize/climateclock/screens/cc_original.jpg" alt="Value Proposition Photo">
+                            <img src="../images/work/fullsize/climateclock/screens/cc_original.jpg" title="Image"  width="100%" height="100%">
+                        </a>
+                        <p class="image_text">The original page is a great first step with a lot of potential. I borrowed a lot from here and simply took it a step further.</p>
+                    </div>
                         <p>
-                            Due to the tight scope and focus on the Visual Design, this presentation is mostly covers the final outcome of the redesign. If you want to see more complete case studies, check the <a href="../art-ent/" alt="art ent project link">art ent App project</a>, or <a href="../steam-mobile/" alt="Steam Mobile project">the Steam Mobile project</a>.
+                            Due to the tight scope and focus on the Visual Design, this presentation is mostly covers the final outcome of the redesign. If you want to see a more complete case studies instead, please check the <a href="../art-ent/" alt="art ent project link">art ent App project</a>, or <a href="../steam-mobile/" alt="Steam Mobile project">the Steam Mobile project</a>.
                         </p>
                     </div>
                 </div>
@@ -93,7 +99,19 @@
                         
                         <p></p>
                     </div>
-                    <div class="gallery-image">
+                    <div class="gallery-image--medium mobile-show">
+                        <a href="../images/work/fullsize/climateclock/screens/mobile-index-default.jpg" alt="Value Proposition Photo">
+                            <img src="../images/work/fullsize/climateclock/screens/mobile-index-default.jpg" title="Image"  width="100%" height="100%">
+                        </a>
+                        <p class="image_text"></p>
+                    </div>
+                    <div class="gallery-image--medium mobile-show">
+                        <a href="../images/work/fullsize/climateclock/screens/mobile-index-emissions.jpg" alt="Value Proposition Photo">
+                            <img src="../images/work/fullsize/climateclock/screens/mobile-index-emissions.jpg" title="Image"  width="100%" height="100%">
+                        </a>
+                        <p class="image_text"></p>
+                    </div>
+                    <div class="gallery-image mobile-hide">
                         <a href="../images/work/fullsize/climateclock/screens/mobile-index-default-double.jpg" alt="Value Proposition Photo">
                             <img src="../images/work/fullsize/climateclock/screens/mobile-index-default-double.jpg" title="Image"  width="100%" height="100%">
                         </a>
@@ -129,13 +147,31 @@
             </div>
             <div class="container--padded">
                 <div class="document-text text-box">
-                    <div class="gallery-image--full">
-                        <div class="paragraph-container">
+                    <div class="paragraph-container">
                             <h3 class="center-justified">Taking Action</h3>
                             <p></p>
                             
                             <p></p>
-                        </div>
+                    </div>
+                    <div class="gallery-image--full mobile-show">
+                        <a href="../images/work/fullsize/climateclock/screens/mobile-main-nav.jpg" alt="Value Proposition Photo">
+                            <img src="../images/work/fullsize/climateclock/screens/mobile-main-nav.jpg" title="Image"  width="100%" height="100%">
+                        </a>
+                        <p class="image_text"></p>
+                    </div>
+                    <div class="gallery-image--full mobile-show">
+                        <a href="../images/work/fullsize/climateclock/screens/mobile-index-FAB.jpg" alt="Value Proposition Photo">
+                            <img src="../images/work/fullsize/climateclock/screens/mobile-index-FAB.jpg" title="Image"  width="100%" height="100%">
+                        </a>
+                        <p class="image_text"></p>
+                    </div>
+                    <div class="gallery-image--full mobile-show">
+                        <a href="../images/work/fullsize/climateclock/screens/mobile-display-action.jpg" alt="Value Proposition Photo">
+                            <img src="../images/work/fullsize/climateclock/screens/mobile-display-action.jpg" title="Image"  width="100%" height="100%">
+                        </a>
+                        <p class="image_text"></p>
+                    </div>
+                    <div class="gallery-image--full mobile-hide">
                         <a href="../images/work/fullsize/climateclock/screens/mobile-action-triple.jpg" alt="Value Proposition Photo">
                             <img src="../images/work/fullsize/climateclock/screens/mobile-action-triple.jpg" title="Image"  width="100%" height="100%">
                         </a>
@@ -159,7 +195,25 @@
                             </a>
                             <p class="image_text"></p>
                         </div>
-                        <div class="gallery-image--full">
+                        <div class="gallery-image--full mobile-show">
+                            <a href="../images/work/fullsize/climateclock/screens/mobile-index-display_graph.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/climateclock/screens/mobile-index-display_graph.jpg" title="Image"  width="100%" height="100%">
+                            </a>
+                            <p class="image_text"></p>
+                        </div>
+                        <div class="gallery-image--full mobile-show">
+                            <a href="../images/work/fullsize/climateclock/screens/mobile-index-display_counter2.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/climateclock/screens/mobile-index-display_counter2.jpg" title="Image"  width="100%" height="100%">
+                            </a>
+                            <p class="image_text"></p>
+                        </div>
+                        <div class="gallery-image--full mobile-show">
+                            <a href="../images/work/fullsize/climateclock/screens/mobile-index-display_dashboard.jpg" alt="Value Proposition Photo">
+                                <img src="../images/work/fullsize/climateclock/screens/mobile-index-display_dashboard.jpg" title="Image"  width="100%" height="100%">
+                            </a>
+                            <p class="image_text"></p>
+                        </div>
+                        <div class="gallery-image--full mobile-hide">
                             <a href="../images/work/fullsize/climateclock/screens/mobile-display-triple.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/climateclock/screens/mobile-display-triple.jpg" title="Image"  width="100%" height="100%">
                             </a>
