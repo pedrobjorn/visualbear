@@ -29,7 +29,9 @@
                     </div>
                         <p>
                             Due to the tight scope and focus on the Visual Design, this presentation is mostly covers the final outcome of the redesign. If you want to see a more complete case studies instead, please check the <a href="../art-ent/" alt="art ent project link">art ent App project</a>, or <a href="../steam-mobile/" alt="Steam Mobile project">the Steam Mobile project</a>.
+
                         </p>
+                        <p><a href="https://www.rotato.xyz/buy?f=a" title="Rotato XYZ link" target="_blank"><i> Many the photos here were rendered using Rotato XYZ, a great mockup app.</i></a></p>
                     </div>
                 </div>
             </div>
@@ -43,18 +45,14 @@
                     <div class="paragraph-container">
                         <h3 class="center-justified">Logomark</h3>
                         <p>
-                            Designed to connect with the visual identity, the core was centred around the circular nature of a clock, earth, and the letter C. Inspired by an an existing logo Climate Clock logo concept, as well as by a <a href="https://www.amazon.com/Time-Timer-Optional-Ticking-Management/dp/B06XKV7C2W" alt="TTO Time Amazon link" target="_blank" >Sprint MOD Timer</a>, as well as a logo by <a href="http://www.logobook.com/logo/kino-studio/" alt="Kino Studio link" target="_blank" >Stefan Kanchev for Kino Studio</a> the two circles represent two C’sT
+                            Designed to connect with the visual identity, the core was centered around the circular nature of a clock, earth, and the letter C. Inspired by an existing logo Climate Clock logo concept, as well as by a <a href="https://www.amazon.com/Time-Timer-Optional-Ticking-Management/dp/B06XKV7C2W" alt="TTO Time Amazon link" target="_blank" >Sprint MOD Timer</a>, as well as a logo by <a href="http://www.logobook.com/logo/kino-studio/" alt="Kino Studio link" target="_blank" >Stefan Kanchev for Kino Studio</a> the two circles represent two C’s.
                         </p>
                     </div>
                     <div class="gallery-image--medium">
                         <a href="../images/work/fullsize/climateclock/details/logo_icon-white.png" alt="Value Proposition Photo">
                             <img src="../images/work/fullsize/climateclock/details/logo_icon-white.png" title="Image"  width="100%" height="100%">
                         </a>
-                    </div>
-                    <div class="paragraph-container">
-                        <p>
-                            The outside representing the Deadline, and the inside for the Lifeline, the two circles can vary in completedness, allowing for a dynamic presentation of the logomark.
-                        </p>
+                        <p class="image_text">   The outside representing the Deadline, and the inside for the Lifeline, the two circles can vary in completeness, allowing for a dynamic presentation of the logomark.</p>
                     </div>
                     <div class="paragraph-container">
                         <h3 class="center-justified">Logotype</h3>
@@ -80,7 +78,7 @@
                     <div class="paragraph-container">
                         <h3 class="center-justified">UI Identity</h3>
                         <p>
-                            Centred around, thick &amp; bold, with Black, Light-Grey and Red used as base colours. Yellow, Red and Black used for action colours. Green was not used due it being strongly tied to Success states / non-interactive states. Drop-shadows give a depth to the otherwise flat UI.
+                            Centered around, thick &amp; bold, with Black, Light-Grey and Red used as base colours. Yellow, Red and Black used for action colours. Green was not used due it being strongly tied to Success states / non-interactive states. Drop-shadows give a depth to the otherwise flat UI.
                             
                         </p>
                     </div>
@@ -91,31 +89,34 @@
             </div>
             <div class="container--padded">
                 <div class="document-text text-box">
+                    
                     <h2 class="center-justified">The site</h2>
                     <div class="paragraph-container">
                         <h3 class="center-justified">Main Page</h3>
+                        <p>
+                            With one of the project goals of creating a splash and getting attention, the landing page hero was updated to emphasize the core purpose of the Climate Clock: <b>to make people aware that time us running out</b>.
+                        </p>
                         <h4 class="center-justified">Mobile</h4>
-                        <p></p>
-                        
-                        <p></p>
+                        <p>
+                            Starting with mobile, we make use of the vertical veiwport to include the counter, but also a visual representation of the climate clock, which transforms when scrolling down.
+                        </p>
                     </div>
                     <div class="gallery-image--medium mobile-show">
                         <a href="../images/work/fullsize/climateclock/screens/mobile-index-default.jpg" alt="Value Proposition Photo">
                             <img src="../images/work/fullsize/climateclock/screens/mobile-index-default.jpg" title="Image"  width="100%" height="100%">
                         </a>
-                        <p class="image_text"></p>
                     </div>
                     <div class="gallery-image--medium mobile-show">
                         <a href="../images/work/fullsize/climateclock/screens/mobile-index-emissions.jpg" alt="Value Proposition Photo">
                             <img src="../images/work/fullsize/climateclock/screens/mobile-index-emissions.jpg" title="Image"  width="100%" height="100%">
                         </a>
-                        <p class="image_text"></p>
+                        <p class="image_text">The transition between the Deadline and Lifeline counter is a scroll-based animation that converts the ominous graphic into a more hopeful vision.</p>
                     </div>
                     <div class="gallery-image mobile-hide">
                         <a href="../images/work/fullsize/climateclock/screens/mobile-index-default-double.jpg" alt="Value Proposition Photo">
                             <img src="../images/work/fullsize/climateclock/screens/mobile-index-default-double.jpg" title="Image"  width="100%" height="100%">
                         </a>
-                        <p class="image_text"></p>
+                        <p class="image_text">The transition between the Deadline and Lifeline counter is a scoll-based animation that converts the ominous graphic into a more hopeful vision.</p>
                     </div>
                 </div>
             </div>
@@ -128,54 +129,59 @@
                     </div>
                 </div>
             </div>
-            <div class="container--padded">
+            <div class="container">
                 <div class="document-text text-box">
                     <div class="gallery-image--full">
                         <div class="paragraph-container">
                             <h4 class="center-justified">Desktop</h4>
-                            <p></p>
-                            
-                            <p></p>
+                            <p>
+                                Much like the mobile, the desktop also kicks-off with a large splash, adapted to a more horizontal layout.
+                            </p>
+                            <p>
+                                This is followed by subscription bar and climate data section, ending with the about section.
+                            </p>
                         </div>
                         <a href="../images/work/fullsize/climateclock/screens/desktop-index-full.jpg" alt="Value Proposition Photo">
                             <img src="../images/work/fullsize/climateclock/screens/desktop-index-full.jpg" title="Image"  width="100%" height="100%">
                         </a>
-                        <p class="image_text"></p>
+                        <p class="image_text">The layout is based on a structure of <i>Concern, Inform, Act</i>, guiding the player from awareness to action as they scroll down.</p>
                     </div>
-
                 </div>
             </div>
-            <div class="container--padded">
+            <div class="container">
                 <div class="document-text text-box">
                     <div class="paragraph-container">
-                            <h3 class="center-justified">Taking Action</h3>
-                            <p></p>
-                            
-                            <p></p>
+                        <h3 class="center-justified">Taking Action</h3>
+                        <p>
+                            One key design decision was to prioritise taking action. This was solved by always providing a quick way to take action across the whole site.
+                        </p>
+                        <p>
+                            A Fast Action Button (FAB) follows the user as they scroll across the site. The Nav menu is also available on Mobile &amp; Tablet to facilitate navigation.
+                        </p>
                     </div>
                     <div class="gallery-image--full mobile-show">
                         <a href="../images/work/fullsize/climateclock/screens/mobile-main-nav.jpg" alt="Value Proposition Photo">
                             <img src="../images/work/fullsize/climateclock/screens/mobile-main-nav.jpg" title="Image"  width="100%" height="100%">
                         </a>
-                        <p class="image_text"></p>
+                        <p class="image_text">The Nav Menu is always available, to ensure users can find their way around.</p>
                     </div>
                     <div class="gallery-image--full mobile-show">
                         <a href="../images/work/fullsize/climateclock/screens/mobile-index-FAB.jpg" alt="Value Proposition Photo">
                             <img src="../images/work/fullsize/climateclock/screens/mobile-index-FAB.jpg" title="Image"  width="100%" height="100%">
                         </a>
-                        <p class="image_text"></p>
+                        <p class="image_text">The "Action FAB" always provides options to act, be it something simple like sharing, or more advanced like navigating to the Guide for Clock building.</p>
                     </div>
                     <div class="gallery-image--full mobile-show">
                         <a href="../images/work/fullsize/climateclock/screens/mobile-display-action.jpg" alt="Value Proposition Photo">
                             <img src="../images/work/fullsize/climateclock/screens/mobile-display-action.jpg" title="Image"  width="100%" height="100%">
                         </a>
-                        <p class="image_text"></p>
+                        <p class="image_text">On the Display section, the FAB provides display options, such as changing Dark / Light mode.</p>
                     </div>
                     <div class="gallery-image--full mobile-hide">
                         <a href="../images/work/fullsize/climateclock/screens/mobile-action-triple.jpg" alt="Value Proposition Photo">
                             <img src="../images/work/fullsize/climateclock/screens/mobile-action-triple.jpg" title="Image"  width="100%" height="100%">
                         </a>
-                        <p class="image_text"></p>
+                        <p class="image_text">The Nav Menu is always available, to ensure users can find their way around. The "Action FAB" always provides options to act, and on the Display section, the FAB provides display options.</p>
                     </div>
 
                 </div>
@@ -183,41 +189,44 @@
             <div class="container--padded">
                 <div class="document-text text-box">
                     <div class="gallery-image">
+                        <h2 class="center-justified">Display / App</h2>
                         <div class="paragraph-container">
-                        <h3 class="center-justified">Display / App</h3>
-                        <h4 class="center-justified">Mobile</h4>
-                            <p></p>
-                            
-                            <p></p>
+                            <p>
+                                Another key design decision was to implement and address the "climate clock app". Turning it into a "Display" section, this works both as an App and a part of the site, both made to be presented, be it on projectors, or on a smart-watch.
+                            </p>
+                            <h4 class="center-justified">Mobile</h4>
+                            <p>
+                                The Mobile Display / App does have a limited use. Due to this, an Action Fab should be added to the core view in the app. It can still serve as an interesting data display view, perhaps connectable to a projector.
+                            </p>
                         </div>
                             <a href="../images/work/fullsize/climateclock/screens/mobile-index-display_base_angled.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/climateclock/screens/mobile-index-display_base_angled.jpg" title="Image"  width="100%" height="100%">
                             </a>
-                            <p class="image_text"></p>
+                            <p class="image_text">Three display types will show 3 different presentations of data: The Circular Graph, the Counters and the Dashboard.</p>
                         </div>
                         <div class="gallery-image--full mobile-show">
                             <a href="../images/work/fullsize/climateclock/screens/mobile-index-display_graph.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/climateclock/screens/mobile-index-display_graph.jpg" title="Image"  width="100%" height="100%">
                             </a>
-                            <p class="image_text"></p>
+                             <p class="image_text">The Timer emphasises the visual presentation, displaying the titular circular counter graphic.</p>
                         </div>
                         <div class="gallery-image--full mobile-show">
                             <a href="../images/work/fullsize/climateclock/screens/mobile-index-display_counter2.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/climateclock/screens/mobile-index-display_counter2.jpg" title="Image"  width="100%" height="100%">
                             </a>
-                            <p class="image_text"></p>
+                             <p class="image_text">The Counter provides a balance between information and emphasis, with large numbers taking up most of the screen.</p>
                         </div>
                         <div class="gallery-image--full mobile-show">
                             <a href="../images/work/fullsize/climateclock/screens/mobile-index-display_dashboard.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/climateclock/screens/mobile-index-display_dashboard.jpg" title="Image"  width="100%" height="100%">
                             </a>
-                            <p class="image_text"></p>
+                             <p class="image_text">The Dashboard provides the most information at a cost of emphasis, allowing users to switch between different scenarios.</p>
                         </div>
                         <div class="gallery-image--full mobile-hide">
                             <a href="../images/work/fullsize/climateclock/screens/mobile-display-triple.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/climateclock/screens/mobile-display-triple.jpg" title="Image"  width="100%" height="100%">
                             </a>
-                            <p class="image_text"></p>
+                             <p class="image_text">The Timer graphic emphasises the visual presentation, the Counter provides a balance between information and emphasis, and the Dashboard provides the most information at a cost of emphasis.</p>
                         </div>
                 </div>
             </div>
@@ -233,30 +242,33 @@
             </div>
             <div class="container--padded">
                 <div class="document-text text-box">
-                    <h4 class="center-justified">Desktop</h4>
-                    <div class="document-text text-box">
-                        <div class="gallery-image--full ">
-                            <a href="../images/work/fullsize/climateclock/screens/desktop_display-web.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/climateclock/screens/desktop_display-web.jpg" title="Image"  width="100%" height="100%">
-                            </a>
-                            <p class="image_text"></p>
-                        </div>
+                    <div class="paragraph-container">
+                        <h4 class="center-justified">Desktop</h4>
+                        <p>
+                            The Desktop Display page is more likely to be used for projecting / display screens. Keeping the same designs, it makes better use of the greater screen realestate and horizontal room.
+                        </p>
+                    </div>
+                    <div class="gallery-image--full ">
+                        <a href="../images/work/fullsize/climateclock/screens/desktop_display-web.jpg" alt="Value Proposition Photo">
+                            <img src="../images/work/fullsize/climateclock/screens/desktop_display-web.jpg" title="Image"  width="100%" height="100%">
+                        </a>
+                        <p class="image_text">All the Display views have a "focus" screen that hide all interactive elements, making it optimal for displaying publically.</p>
                     </div>
                 </div>
             </div>
-            <div class="container--padded">
+            <div class="container">
                 <div class="document-text text-box">
-                    <h4 class="center-justified">Watch</h4>
                         <div class="paragraph-container">
-                            <p></p>
-                            
-                            <p></p>
+                            <h4 class="center-justified">Smart Watch</h4>
+                            <p>
+                                Working with a project that included the word "clock", it was inevitable that there would be a smart watch app concept. Naturally this is a very limited app, due to it's very long-term time scale, it's still a good way to spread the word.
+                            </p>
                         </div>
                         <div class="gallery-image--full ">
                             <a href="../images/work/fullsize/climateclock/screens/watch_display-web.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/climateclock/screens/watch_display-web.jpg" title="Image"  width="100%" height="100%">
                             </a>
-                            <p class="image_text"></p>
+                            <p class="image_text">On smart watches, the app would do without the Dashboard display view, due to lack of space. However, there maybe could be room for actions.</p>
                         </div>
                 </div>
             </div>
@@ -269,31 +281,57 @@
                     </div>
                 </div>
             </div> 
-            <div class="container--padded">
+            <div class="container">
                 <div class="document-text text-box">
-                    <h3 class="center-justified">Science / Guide / About</h3>
-                    <div class="document-text text-box">
+                        <h2 class="center-justified">Science / Guide / About</h2>
                         <div class="paragraph-container">
-                            <p></p>
-                            
-                            <p></p>
+                            <p>
+                                Last but not least, we have the Information Pages. These all used the same layout template and elements, with a few variations or exceptions.
+                                The three pages are About, Make a Clock and The Science, which all provide valuable information about the Climate Clock movement.
+                            </p>
                         </div>
                         <div class="gallery-image--full ">
                             <a href="../images/work/fullsize/climateclock/screens/desktop_about-web.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/climateclock/screens/desktop_about-web.jpg" title="Image"  width="100%" height="100%">
                             </a>
-                            <p class="image_text"></p>
+                            <p class="image_text">The "Make a Clock" page is only a part of the whole tutorial, which is very long. It's also the most different of the three, using images combined with text containers.</p>
                         </div>
-                    </div>
                 </div>
             </div>
             <div class="black-bg">
                 <img src="../images/work/fullsize/climateclock/details/ice_pattern-flipped.png" title="Icecaps melting"  width="100%" height="100%">
             </div>
             <div class="container--padded black-bg">
-                
-                <div class="document-text text-box">
-                    <h3 class="center-justified">Conclusion</h3>
+             <div class="document-text text-box">       
+                    <h2  class="center-justified">Lessons Learnt</h2>
+                    <p>
+                        My goal with the project was to provide a redesign proposal for an existing property within 6 weeks, focusing on the visual design. These are the key lessons we learnt while doing so:
+                    </p>
+
+                    <div class="paragraph-container--unpadded">
+                        <h4>Talk to the stakeholders</h4>
+                        <p>
+                            Even though this was a small scoped visual design project, I still got in touch with the team, who graciously provided me with design assets I used for reference. This was invaluable and helped a long way to legitimise the work I was doing.
+                        </p>
+                        
+                        <h4>Always do an Audit</h4>          
+                        <p>
+                            The focus may have been the visual design, however I still created a full UI and Content Audit. The main purpose for this was to ensure I was fully understanding what I was redesigning, and not just focusing on the surface.
+                        </p>
+                        
+                        <h4>Do visual research &amp; keep ideating</h4>
+                        <p>
+                            I struggled early on to find a good art direction and visual language. Ultimately it was about just keeping on coming up with new ideas, and not to give up. Visual research helped a lot as well in providing me with inspiration and confidence in which direction to take.
+                        </p>
+                    </div>
+               
+                    <h2 class="center-justified">Conclusion</h2>
+                    <p>
+                        For this project, I want to emphasize on the visual design and art direction of a redesign. Less emphasis was given to the UX and Product perspective, since I really wanted to exercise my aesthetic muscle a bit.
+                    </p>
+                    <p>
+                        It was super gratifying and fun, and I learned a lot about prototyping, animation and visual design. I also shared everything with the Climate Clock team, and will be available to assist them if they with to use any of the work.
+                    </p>
                 </div>
             </div>
             {{buttonslider.content({
