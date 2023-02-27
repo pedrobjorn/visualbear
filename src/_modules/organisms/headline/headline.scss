@@ -1,11 +1,105 @@
 // hero styles
 
 .headline {
-    // background: -moz-linear-gradient(top, #e64900 0%, #313135 100%); /* FF3.6-15
-    //    background: -webkit-linear-gradient(top, #e64900 0%,#313135 100%); /* Chrome10-25,Safari5.1-6
-    //    background: linear-gradient(to bottom, #e64900 0%,#313135 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+
-    //    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff621a', endColorstr='#313135',GradientType=0 ); /* IE6-9 */
+    // background: -moz-linear-gradient(top, #e64900 0%, #252528 100%); /* FF3.6-15
+    // background: -webkit-linear-gradient(top, #e64900 0%,#252528 100%); /* Chrome10-25,Safari5.1-6
+    // background: linear-gradient(to bottom, #e64900 0%,#252528 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+
+    // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff621a', endColorstr='#252528',GradientType=0 ); /* IE6-9 */
     width: 100%;
     height: 75vh;
     padding: 128px 0;
+}
+
+.black-bg {
+    background-color: #000;
+    color: $vb-light;
+    a{
+        color:$vb-primary;
+        &:hover{
+           color:$vb-light;
+        };
+    }
+    .gallery-image {
+        img{
+            width:100%;
+            height:auto;
+        }
+    }
+}
+
+.logo-image {
+    @extend .gallery-image;
+
+    width: 40%;
+    margin: auto;
+
+    img {
+        margin: auto;
+        display: block;
+    }
+
+    padding-bottom: 64px;
+}
+
+//>2500px
+@media (min-width: $break-huge) {}
+
+//2500px< & >1200px
+@media (max-width: $break-huge) and (min-width: $break-large) {}
+
+//1280px< & >900px
+@media (max-width: $break-large) and (min-width: $break-big) {}
+
+//960< & >767px
+@media (max-width: $break-big) and (min-width: $break-medium) {
+    .logo-image {
+        img {
+            width: 50%;
+            margin: auto;
+        }
+
+        padding-bottom: 64px;
+    }
+}
+
+//767px< & >480px
+@media (max-width: $break-medium) and (min-width: $break-small) {
+    .logo-image {
+        width: 50%;
+
+        img {
+            width: 50%;
+            margin: auto;
+        }
+
+        padding-bottom: 64px;
+    }
+}
+
+//480px< & >320px
+@media (max-width: $break-small) and (min-width: $break-tiny) {
+    .logo-image {
+        width: 50%;
+
+        img {
+            width: 50%;
+            margin: auto;
+        }
+
+        padding-bottom: 16px;
+    }
+}
+
+//320px<
+@media (max-width: $break-tiny) {
+    .logo-image {
+        width: 50%;
+
+        img {
+            width: 100%;
+            margin: auto;
+        }
+
+        padding-bottom: 16px;
+    }
 }

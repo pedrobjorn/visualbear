@@ -1,21 +1,36 @@
 [{
-    "title": "art ent",
-    "subtitle": "Brand, Product Design, front-end",
-    "href": "../art_ent",
-    "img": "../images/work/thumbs/gallery_thumb_artent.jpg",
+    "title": "Climate Clock </br> Visual Redesign",
+    "subtitle": "Revamping a critical counter",
+    "href": "../climate-clock",
+    "img": "../images/work/thumbs/gallery_thumb_climateclock.jpg",
     "content": {
-        "title": "art ent",
-        "subtitle": "Branding, Product Design, Front-end",
+        "title": "art ent app",
+        "subtitle": "UX, UI & visual design",
         "href": "../art_ent",
-        "img": "../images/work/thumbs/gallery_thumb_artent.jpg",
-        "description": "Connecting artist to students.",
-        "released": "August 20th 2020",
+        "img": "../images/work/thumbs/gallery_thumb_climateclock.jpg",
+        "description": "",
+        "released": "August 20th 2017",
         "responsibilities": "UX, UI &amp; Visual Design",
         "tools": "Paper &amp; Pen, TextEdit, Illustrator, Photoshop"
     }
 },{
-    "title": "Steam Mobile",
-    "subtitle": "UX, UI & visual design",
+    "title": "art ent </br> Mobile app",
+    "subtitle": "Bringing artists and students together",
+    "href": "../art-ent",
+    "img": "../images/work/thumbs/gallery_thumb_artent.jpg",
+    "content": {
+        "title": "art ent app",
+        "subtitle": "UX, UI & visual design",
+        "href": "../art_ent",
+        "img": "../images/work/thumbs/gallery_thumb_artent.jpg",
+        "description": "",
+        "released": "August 20th 2017",
+        "responsibilities": "UX, UI &amp; Visual Design",
+        "tools": "Paper &amp; Pen, TextEdit, Illustrator, Photoshop"
+    }
+},{
+    "title": "Steam Mobile </br> App redesign",
+    "subtitle": "Redesigning the Steam Mobile client",
     "href": "../steam-mobile",
     "img": "../images/work/thumbs/gallery_thumb_steam.jpg",
     "content": {
@@ -23,24 +38,14 @@
         "subtitle": "UX, UI & visual design",
         "href": "../steam-mobile",
         "img": "../images/work/thumbs/gallery_thumb_steam.jpg",
-        "description": "Redesigning the biggest mobile game client in the world.",
+        "description": "",
         "released": "August 20th 2017",
         "responsibilities": "UX, UI &amp; Visual Design",
         "tools": "Paper &amp; Pen, TextEdit, Illustrator, Photoshop"
     }
 }, {
-    "title": "visualbear",
-    "subtitle": "Brand, UI & front-end design",
+    "title": "visualbear </br> Portfolio",
+    "subtitle": "Designing my own brand and site",
     "href": "../visualbear",
     "img": "../images/work/thumbs/gallery_thumb_visualbear.jpg"
-}, {
-    "title": "Projecto Lynx",
-    "subtitle": "Brand design",
-    "href": "../projecto-lynx",
-    "img": "../images/work/thumbs/gallery_thumb_lynx.jpg"
-}, {
-    "title": "Ad Hops",
-    "subtitle": "Brand design",
-    "href": "../adhops",
-    "img": "../images/work/thumbs/gallery_thumb_adhop.jpg"
 }]

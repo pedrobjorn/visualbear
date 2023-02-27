@@ -6,27 +6,34 @@
   {# Correct base url pathing for this page #}
   {% set baseUrl = '../' %}
 {% endblock %}
-<div class="col m6 s12 title">
+<div class="page-header row">
+  
+<h1 class="col s6">Resume</h1>
+<!-- <div class="col s6">
+  <button type="button" class="btn" > Download Resume </button>
+</div> -->
+</div>
+<div class="col m4 s12 small-title">
   <ul>
-    <li>
-      <img src="../images/misc/pedrobjorn_logo.png" alt="Pedro Bjorn logo" width="512" height="103">
+    <li class="micro-text">
+      Name
     </li>
-    <li>
+    <li class="sub-text">
+      Pedro Björn
+    </li>
+  </ul>
+</div>
+<div class="col m4 s12 small-title">
+  <ul>
+    <li class="micro-text">
+      Focus
+    </li>
+    <li class="sub-text">
       Product Designer
     </li>
   </ul>
 </div>
-<div class="col m3 s12 small-title">
-  <ul>
-    <li class="micro-text">
-      Location
-    </li>
-    <li class="sub-text">
-      <a href="https://www.google.se/maps/place/Stockholm/@59.3260668,17.8474654,11z/data=!3m1!4b1!4m5!3m4!1s0x465f763119640bcb:0xa80d27d3679d7766!8m2!3d59.3293235!4d18.0685808?hl=en" target="_blank">Stockholm, Sweden</a>
-    </li>
-  </ul>
-</div>
-<div class="col m3 s12 small-title">
+<div class="col m4 s12 small-title">
   <ul>
     <li class="micro-text">
       Email
@@ -36,4 +43,5 @@
     </li>
   </ul>
 </div>
+
 {% endmacro %}

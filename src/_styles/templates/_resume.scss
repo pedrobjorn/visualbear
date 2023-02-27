@@ -25,6 +25,7 @@ hr {
         }
 
         .sub-title {
+            padding: 8px 0;
             color: $vb-light-grey;
         }
 
@@ -34,16 +35,11 @@ hr {
         }
 
         .small-title {
-            text-align: left;
+            word-break: break-all;
 
             ul {
-                li.sub-text {
-                    font-size: 0.8em;
-                }
-
                 li.micro-text {
                     font-style: italic;
-                    font-size: 0.7em;
                     color: $vb-light-grey;
                 }
             }
@@ -51,7 +47,6 @@ hr {
 
         img {
             max-width: 512px;
-            max-height: 103px;
             width: 100%;
             height: 100%;
         }
@@ -88,6 +83,7 @@ hr {
         }
 
         .sub-title {
+            padding: 8px 0;
             color: $vb-light-grey;
         }
 
@@ -97,16 +93,11 @@ hr {
         }
 
         .small-title {
-            text-align: left;
+            word-break: break-all;
 
             ul {
-                li.sub-text {
-                    font-size: 0.8em;
-                }
-
                 li.micro-text {
                     font-style: italic;
-                    font-size: 0.7em;
                     color: $vb-light-grey;
                 }
             }
@@ -114,7 +105,6 @@ hr {
 
         img {
             max-width: 512px;
-            max-height: 103px;
             width: 100%;
             height: 100%;
         }
@@ -150,9 +140,8 @@ hr {
             margin-top: 32px;
         }
 
-
-
         .sub-title {
+            padding: 8px 0;
             color: $vb-light-grey;
         }
 
@@ -162,16 +151,11 @@ hr {
         }
 
         .small-title {
-            text-align: left;
+            word-break: break-all;
 
             ul {
-                li.sub-text {
-                    font-size: 0.8em;
-                }
-
                 li.micro-text {
                     font-style: italic;
-                    font-size: 0.7em;
                     color: $vb-light-grey;
                 }
             }
@@ -179,7 +163,6 @@ hr {
 
         img {
             max-width: 512px;
-            max-height: 103px;
             width: 100%;
             height: 100%;
         }
@@ -204,14 +187,6 @@ hr {
         color: $vb-grey;
         background-color: #ebf5ff;
 
-        h3 {
-            margin: 8px 0;
-        }
-
-        li {
-            padding: 4px 0;
-        }
-
         .text-container {
             padding: 32px;
             margin: auto;
@@ -225,9 +200,8 @@ hr {
             margin-top: 32px;
         }
 
-
-
         .sub-title {
+            padding: 8px 0;
             color: $vb-light-grey;
         }
 
@@ -237,19 +211,17 @@ hr {
         }
 
         .small-title {
-            text-align: left;
+            word-break: break-all;
 
             ul {
                 margin: 0;
 
                 li.sub-text {
-                    font-size: 0.9em;
                     padding-bottom: 16px;
                 }
 
                 li.micro-text {
                     font-style: italic;
-                    font-size: 0.7em;
                     color: $vb-light-grey;
                 }
             }
@@ -257,7 +229,6 @@ hr {
 
         img {
             max-width: 512px;
-            max-height: 103px;
             width: 100%;
             height: 100%;
         }
@@ -279,14 +250,6 @@ hr {
 //767px< & >480px
 @media (max-width: $break-medium) and (min-width: $break-small) {
     #resume_container {
-        h3 {
-            margin: 8px 0;
-        }
-
-        li {
-            padding: 4px 0;
-        }
-
         .text-container {
             padding-top: 16px;
             padding-bottom: 32px;
@@ -314,9 +277,8 @@ hr {
             margin-top: 32px;
         }
 
-
-
         .sub-title {
+            padding: 8px 0;
             color: $vb-light-grey;
         }
 
@@ -326,27 +288,24 @@ hr {
         }
 
         .small-title {
-            text-align: right;
+            word-break: break-all;
 
             ul {
+                margin: 0;
+
                 li.sub-text {
-                    font-size: 1em;
                     padding-bottom: 16px;
                 }
 
                 li.micro-text {
                     font-style: italic;
-                    font-size: 0.9em;
                     color: $vb-light-grey;
                 }
-
-                margin: 0;
             }
         }
 
         img {
             max-width: 512px;
-            max-height: 103px;
             width: 100%;
             height: 100%;
         }
@@ -368,14 +327,6 @@ hr {
 //480px< & >320px
 @media (max-width: $break-small) and (min-width: $break-tiny) {
     #resume_container {
-        h3 {
-            margin: 8px 0;
-        }
-
-        li {
-            padding: 4px 0;
-        }
-
         .text-container {
             padding-top: 16px;
             padding-bottom: 32px;
@@ -393,9 +344,8 @@ hr {
             margin-top: 32px;
         }
 
-
-
         .sub-title {
+            padding: 4px 0;
             color: $vb-light-grey;
         }
 
@@ -405,17 +355,15 @@ hr {
         }
 
         .small-title {
-            text-align: right;
+            word-break: break-all;
 
             ul {
                 li.sub-text {
-                    font-size: 1em;
                     padding-bottom: 16px;
                 }
 
                 li.micro-text {
                     font-style: italic;
-                    font-size: 0.9em;
                     color: $vb-light-grey;
                 }
 
@@ -425,7 +373,6 @@ hr {
 
         img {
             max-width: 512px;
-            max-height: 103px;
             width: 100%;
             height: 100%;
         }
@@ -447,14 +394,6 @@ hr {
 //320px<
 @media (max-width: $break-tiny) {
     #resume_container {
-        h3 {
-            margin: 8px 0;
-        }
-
-        li {
-            padding: 4px 0;
-        }
-
         .text-container {
             padding-top: 16px;
             padding-bottom: 32px;
@@ -472,9 +411,8 @@ hr {
             margin-top: 32px;
         }
 
-
-
         .sub-title {
+            padding: 4px 0;
             color: $vb-light-grey;
         }
 
@@ -488,13 +426,11 @@ hr {
 
             ul {
                 li.sub-text {
-                    font-size: 0.8em;
                     padding-bottom: 16px;
                 }
 
                 li.micro-text {
                     font-style: italic;
-                    font-size: 0.7em;
                     color: $vb-light-grey;
                 }
 
@@ -504,7 +440,6 @@ hr {
 
         img {
             max-width: 512px;
-            max-height: 103px;
             width: 100%;
             height: 100%;
         }

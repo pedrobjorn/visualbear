@@ -30,7 +30,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
       };
 
       let bundler = browserify(customOpts);
-
+      
       if (!args.production) {
         // Setup Watchify for faster builds
         let opts = _.assign({}, watchify.args, customOpts);

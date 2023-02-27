@@ -6,6 +6,7 @@ nav {
     background: #fff;
     z-index: 2;
     background-color: $vb-primary;
+    font-size: $base-font-size;
 
     .content {
         flex-direction: row;
@@ -13,6 +14,7 @@ nav {
         justify-content: space-between;
         align-items: center;
     }
+
     a.icon {
         vertical-align: middle;
         height: 32px;
@@ -44,7 +46,7 @@ nav {
             // flex-wrap: nowrap;
             // justify-content: space-between;
             // align-items: center;
-                    flex-direction: row;
+            flex-direction: row;
             flex-wrap: nowrap;
             justify-content: space-between;
             align-items: center;
@@ -60,8 +62,6 @@ nav {
                 width: auto;
             }
         }
-
-        .links {}
     }
 }
 
@@ -90,8 +90,6 @@ nav {
                 width: auto;
             }
         }
-
-        .links {}
     }
 }
 

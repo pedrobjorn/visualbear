@@ -19,6 +19,14 @@ time, mark, audio, video {
     vertical-align: baseline;
 }
 
+html,
+body {
+    font-family: $vb-body-font-family;
+    font-weight: $font-light;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+}
+
 // HTML5 display-role reset for older browsers
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -31,31 +39,24 @@ ol, ul {
 
 blockquote, q {
     quotes: none;
+
+    &:before, &:after {
+        content: '';
+        content: none;
+    }
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
+blockquote {
+    margin: 8px 0 8px 0;
+    padding: 8px 0 8px 0;
+    font-style: italic;
+    border-left: 4px solid $vb-grey;
+    padding-left: 16px;
 }
 
 table {
     border-collapse: collapse;
     border-spacing: 0;
-}
-
-
-html,
-body {
-    font-family: $vb-body-font-family;
-    font-weight: $font-light;
-    font-size: $base-font-size;
-    line-height: $base-line-height;
-}
-
-.font-secondary {
-    font-family: $vb-secondary-font-family;
-    font-weight: $font-light;
 }
 
 small {
@@ -65,24 +66,11 @@ small {
     line-height: 0;
 }
 
-.text-center {
-    text-align: center;
-}
-
-.left-align {
-    text-align: left;
-}
-
-.right-align {
-    text-align: right;
-}
-
 p {
     margin: 0;
     padding: 8px 0;
 }
 
-h0,
 h1,
 h2,
 h3,
@@ -90,7 +78,7 @@ h4,
 h5,
 h6 {
     letter-spacing: 1px;
-    font-weight: $font-semi-bold;
+    font-weight: $font-bold;
 
     small {
         display: block;
@@ -101,37 +89,33 @@ h6 {
     }
 }
 
-h0 {
-    font-size: $base-h0-size;
-}
-
 h1 {
     font-size: $base-h1-size;
+    padding: 16px 0;
 }
 
 h2 {
     font-size: $base-h2-size;
+    padding: 8px 0;
 }
 
 h3 {
     font-size: $base-h3-size;
+    padding: 8px 0;
 }
 
 h4 {
     font-size: $base-h4-size;
+    padding: 4px 0;
 }
 
 h5 {
     font-size: $base-h5-size;
+    padding: 4px 0;
 }
 
 h6 {
     font-size: $base-h6-size;
-}
-
-blockquote {
-    margin: 8px 0 8px 0;
-    padding: 8px 0 8px 0;
 }
 
 label {
@@ -163,30 +147,20 @@ ul {
     margin: 0;
 }
 
-.upper-case {
-    text-transform: uppercase;
-}
 
-.page-header {
-    margin: 0 0 16px 0;
-    border-bottom: 1px solid $vb-grey;
-}
 
-.emphasis {
+b {
     font-weight: $font-semi-bold;
-    color: #fff;
+    font-style: bold;
 }
 
-.center-justified {
-    text-align: center;
+i {
+    font-style: italic;
 }
 
-li#center-justified {
-    text-align: center;
-}
-
-li#left-justified {
-    text-align: justified-left;
+li {
+    list-style-type: none;
+    padding:4px 0;
 }
 
 strong {
@@ -194,29 +168,30 @@ strong {
     font-weight: $font-bold;
 }
 
-b {
-    font-weight: $font-semi-bold;
-    font-style: bold;
+.font-secondary {
+    font-family: $vb-secondary-font-family;
+    font-weight: $font-light;
 }
 
-.semi-bold {
-    font-weight: $font-semi-bold;
+.center-justified {
+    text-align: center;
 }
 
 .light {
     font-weight: $font-light;
 }
 
-i {
-    font-style: italic;
+.align-right {
+    text-align: right;
 }
 
 .subtitle {
-    font-size:$middle-font-size;
-    padding:16px 0;
+    font-size: $middle-font-size;
+    padding: 16px 0;
     margin: 0;
     width: auto;
     font-weight: $font-light;
+    font-style: italic;
 }
 
 .highlight {
@@ -234,218 +209,35 @@ i {
 
 a {
     .gallery-image {
-        color: $vb-light;
+        color: $vb-primary;
 
         &:hover,
         &:focus {
+            color: $vb-light;
             background-color: $vb-primary;
         }
 
         &:active {
+            color: $vb-light;
             background-color: $vb-secondary;
         }
     }
 }
 
-@media (min-width: $break-huge) {
-    .title {
-        margin: 0;
-        padding-bottom: 0;
-    }
+.text-center {
+    text-align: center;
 }
 
-@media (max-width: $break-huge) and (min-width: $break-large) {
-    .title {
-        margin: 0;
-        padding-bottom: 0;
-    }
-
+.left-align {
+    text-align: left;
 }
 
-@media (max-width: $break-large) and (min-width: $break-big) {
-    .title {
-        margin: 0;
-        padding-bottom: 0;
-    }
-
+.right-align {
+    text-align: right;
 }
 
-//991px< & >767px
-@media (max-width: $break-big) and (min-width: $break-medium) {
-
-    .title {
-        margin: 0;
-        padding-bottom: 0;
-    }
-}
-
-//767px< & >480px
-@media (max-width: $break-medium) and (min-width: $break-small) {
-    h0,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        small {
-            display: block;
-            line-height: 1.5;
-            font-size: 65%;
-            font-weight: $font-light;
-            color: inherit;
-        }
-    }
-
-    h0 {
-        font-size: $mobile-h0-size;
-    }
-
-    h1 {
-        font-size: $mobile-h1-size;
-    }
-
-    h2 {
-        font-size: $mobile-h2-size;
-    }
-
-    h3 {
-        font-size: $mobile-h3-size;
-    }
-
-    h4 {
-        font-size: $mobile-h4-size;
-    }
-
-    h5 {
-        font-size: $mobile-h5-size;
-    }
-
-    h6 {
-        font-size: $mobile-h6-size;
-    }
-
-
-    .title {
-        margin: 0;
-        padding-bottom: 32px;
-    }
-}
-
-//480px< & >320px
-@media (max-width: $break-small) and (min-width: $break-tiny) {
-    h0,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        small {
-            display: block;
-            line-height: 1.5;
-            font-size: 65%;
-            font-weight: $font-light;
-            color: inherit;
-        }
-    }
-
-    h0 {
-        font-size: $mobile-h0-size;
-    }
-
-    h1 {
-        font-size: $mobile-h1-size;
-    }
-
-    h2 {
-        font-size: $mobile-h2-size;
-    }
-
-    h3 {
-        font-size: $mobile-h3-size;
-    }
-
-    h4 {
-        font-size: $mobile-h4-size;
-    }
-
-    h5 {
-        font-size: $mobile-h5-size;
-    }
-
-    h6 {
-        font-size: $mobile-h6-size;
-    }
-
-
-    .title {
-        margin: 0;
-        padding-bottom: 32px;
-    }
-}
-
-//320px<
-@media (max-width: $break-tiny) {
-    h0,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        small {
-            display: block;
-            line-height: 1.5;
-            font-size: 65%;
-            font-weight: $font-light;
-            color: inherit;
-        }
-    }
-
-    h0 {
-        font-size: $mobile-h0-size;
-    }
-
-    h1 {
-        font-size: $mobile-h1-size;
-    }
-
-    h2 {
-        font-size: $mobile-h2-size;
-    }
-
-    h3 {
-        font-size: $mobile-h3-size;
-    }
-
-    h4 {
-        font-size: $mobile-h4-size;
-    }
-
-    h5 {
-        font-size: $mobile-h5-size;
-    }
-
-    h6 {
-        font-size: $mobile-h6-size;
-    }
-
-    .title {
-        margin: 0;
-        padding: 0px;
-    }
-}
-
-blockquote {
-    font-style: italic;
-    border-left: 4px solid $vb-grey;
-    padding-left: 16px;
-
-    footer {
-        padding: 0;
-        height: auto;
-    }
+.justify-text {
+    text-align: justify;
 }
 
 .label {
@@ -466,7 +258,7 @@ blockquote {
 .paragraph-container, .paragraph-container--unpadded {
     padding: 64px 0;
 
-    .m6, .m12, .m4 {
+    .m6, .m12, .m4, .m3 {
         padding: 16px;
     }
 
@@ -481,10 +273,18 @@ blockquote {
             padding-left: 8px;
         }
     }
+
+    .font-family_opensans {
+        padding-top: 32px;
+        font-family: $vb-body-font-opensans;
+        font-weight: $font-semi-bold;
+        font-size: $base-h2-size;
+        line-height: $base-line-height;
+    }
 }
 
 .paragraph-container, .paragraph-container--unpadded--unpadded {
-    .m6, .m12, .m4 {
+    .m6, .m12, .m4, .m3 {
         padding: 32px;
     }
 
@@ -505,13 +305,38 @@ blockquote {
     }
 }
 
+.image_text {
+    margin-top:8px;
+}
+
 @media (min-width: $break-huge) {
+    .title {
+        margin: 0;
+        padding-bottom: 0;
+    }
+
+    .image_text {
+        font-size: $middle-font-size;
+        font-weight: $font-light;
+        font-style: italic;
+        color: grey;
+        text-align: center;
+    }
+
     .paragraph-container, .paragraph-container--unpadded--unpadded {
-        .m6, .m12, .m4 {
+        .m6, .m12, .m4, .m3 {
             padding: 32px;
         }
 
         padding: 0 0 64px 0;
+
+        .font-family_opensans {
+            padding-top: 32px;
+            font-family: $vb-body-font-opensans;
+            font-weight: $font-semi-bold;
+            font-size: $base-font-size;
+            line-height: $base-line-height;
+        }
     }
 
     .text-block {
@@ -532,17 +357,6 @@ blockquote {
         }
     }
 
-
-    .jumbo-text {
-        padding: 64px;
-        font-weight: $font-bold;
-        font-size: $base-jumbo-size;
-        text-align: left;
-
-        // width: 900px;
-        margin: 0 auto;
-    }
-
     .gallery-text {
         font-weight: $font-light;
         font-size: $base-font-size;
@@ -551,18 +365,39 @@ blockquote {
 
     .document-text {
         font-weight: $font-light;
-        font-size: $base-font-size / 1.5;
+        font-size: $base-font-size / 1.25;
         line-height: $base-line-height;
     }
 }
 
 @media (max-width: $break-huge) and (min-width: $break-large) {
+    .title {
+        margin: 0;
+        padding-bottom: 0;
+    }
+
+    .image_text {
+        font-size: $middle-font-size;
+        font-weight: $font-light;
+        font-style: italic;
+        color: grey;
+        text-align: center;
+    }
+
     .paragraph-container, .paragraph-container--unpadded--unpadded {
-        .m6, .m12, .m4 {
+        .m6, .m12, .m4, .m3 {
             padding: 32px;
         }
 
         padding: 0 0 64px 0;
+
+        .font-family_opensans {
+            padding-top: 32px;
+            font-family: $vb-body-font-opensans;
+            font-weight: $font-semi-bold;
+            font-size: $base-h2-size;
+            line-height: $base-line-height;
+        }
     }
 
     .text-block {
@@ -583,17 +418,6 @@ blockquote {
         }
     }
 
-
-    .jumbo-text {
-        padding: 64px;
-        font-weight: $font-bold;
-        font-size: $base-jumbo-size;
-        text-align: left;
-
-        // width: 900px;
-        margin: 0 auto;
-    }
-
     .gallery-text {
         font-weight: $font-light;
         font-size: $base-font-size;
@@ -602,18 +426,39 @@ blockquote {
 
     .document-text {
         font-weight: $font-light;
-        font-size: $base-font-size / 1.5;
+        font-size: $base-font-size / 1.25;
         line-height: $base-line-height;
     }
 }
 
 @media (max-width: $break-large) and (min-width: $break-big) {
+    .title {
+        margin: 0;
+        padding-bottom: 0;
+    }
+
+    .image_text {
+        font-size: $middle-font-size;
+        font-weight: $font-light;
+        font-style: italic;
+        color: grey;
+        text-align: center;
+    }
+
     .paragraph-container, .paragraph-container--unpadded--unpadded {
-        .m6, .m12, .m4 {
+        .m6, .m12, .m4, .m3 {
             padding: 32px;
         }
 
         padding: 0 0 64px 0;
+
+        .font-family_opensans {
+            padding-top: 32px;
+            font-family: $vb-body-font-opensans;
+            font-weight: $font-semi-bold;
+            font-size: $base-h2-size;
+            line-height: $base-line-height;
+        }
     }
 
     .text-container {
@@ -634,17 +479,6 @@ blockquote {
         padding-bottom: 16px;
     }
 
-
-    .jumbo-text {
-        padding: 32px;
-        font-weight: $font-bold;
-        font-size: $base-jumbo-size;
-        text-align: left;
-
-        // width: 642px;
-        margin: 0 auto;
-    }
-
     .gallery-text {
         font-weight: $font-light;
         font-size: $base-font-size;
@@ -653,18 +487,40 @@ blockquote {
 
     .document-text {
         font-weight: $font-light;
-        font-size: $base-font-size / 1.5;
+        font-size: $base-font-size / 1.25;
         line-height: $base-line-height;
     }
 }
 
+//991px< & >767px
 @media (max-width: $break-big) and (min-width: $break-medium) {
+    .title {
+        margin: 0;
+        padding-bottom: 0;
+    }
+
+    .image_text {
+        font-size: $middle-font-size;
+        font-weight: $font-light;
+        font-style: italic;
+        color: grey;
+        text-align: center;
+    }
+
     .paragraph-container, .paragraph-container--unpadded--unpadded {
-        .m6, .m12, .m4 {
-            padding: 32px;
+        .m6, .m12, .m4, .m3 {
+            padding: 16px;
         }
 
         padding: 0 0 32px 0;
+
+        .font-family_opensans {
+            padding-top: 32px;
+            font-family: $vb-body-font-opensans;
+            font-weight: $font-semi-bold;
+            font-size: $base-h2-size;
+            line-height: $base-line-height;
+        }
     }
 
     .text-block {
@@ -691,16 +547,6 @@ blockquote {
         line-height: $font-semi-bold-line-height;
     }
 
-    .jumbo-text {
-        padding: 32px;
-        font-weight: $font-bold;
-        font-size: $base-h0-size;
-        text-align: left;
-
-        // width: 428px;
-        margin: 0 auto;
-    }
-
     .document-text {
         font-weight: $font-light;
         font-size: $base-font-size / 1.25;
@@ -708,13 +554,74 @@ blockquote {
     }
 }
 
+//767px< & >480px
 @media (max-width: $break-medium) and (min-width: $break-small) {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        small {
+            display: block;
+            line-height: 1.5;
+            font-size: 65%;
+            font-weight: $font-light;
+            color: inherit;
+        }
+    }
+
+    h1 {
+        font-size: $mobile-h1-size;
+    }
+
+    h2 {
+        font-size: $mobile-h2-size;
+    }
+
+    h3 {
+        font-size: $mobile-h3-size;
+    }
+
+    h4 {
+        font-size: $mobile-h4-size;
+    }
+
+    h5 {
+        font-size: $mobile-h5-size;
+    }
+
+    h6 {
+        font-size: $mobile-h6-size;
+    }
+
+    .title {
+        margin: 0;
+        padding-bottom: 32px;
+    }
+
+    .image_text {
+        font-size: $middle-font-size;
+        font-weight: $font-light;
+        font-style: italic;
+        color: grey;
+        text-align: left;
+    }
+
     .paragraph-container, .paragraph-container--unpadded--unpadded {
-        .m6, .m12, .m4 {
-            padding: 32px;
+        .m6, .m12, .m4, .m3 {
+            padding: 16px;
         }
 
         padding: 0 0 64px 0;
+
+        .font-family_opensans {
+            padding-top: 32px;
+            font-family: $vb-body-font-opensans;
+            font-weight: $font-semi-bold;
+            font-size: $base-h2-size;
+            line-height: $base-line-height;
+        }
     }
 
     .paragraph-container, .paragraph-container--unpadded {
@@ -738,16 +645,6 @@ blockquote {
         }
     }
 
-    .jumbo-text {
-        padding: 32px;
-        font-weight: $font-bold;
-        font-size: $mobile-h0-size;
-        text-align: left;
-
-        // width: 428px;
-        margin: 0 auto;
-    }
-
     .gallery-text {
         font-weight: $font-light;
         font-size: $base-font-size;
@@ -761,13 +658,78 @@ blockquote {
     }
 }
 
+//480px< & >320px
 @media (max-width: $break-small) and (min-width: $break-tiny) {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        small {
+            display: block;
+            line-height: 1.5;
+            font-size: 65%;
+            font-weight: $font-light;
+            color: inherit;
+        }
+    }
+
+    h1 {
+        font-size: $mobile-h1-size;
+    }
+
+    h2 {
+        font-size: $mobile-h2-size;
+    }
+
+    h3 {
+        font-size: $mobile-h3-size;
+    }
+
+    h4 {
+        font-size: $mobile-h4-size;
+    }
+
+    h5 {
+        font-size: $mobile-h5-size;
+    }
+
+    h6 {
+        font-size: $mobile-h6-size;
+    }
+
+    li {
+        padding:2px 0;
+    }
+
+    .title {
+        margin: 0;
+        padding-bottom: 32px;
+    }
+
+    .image_text {
+        font-size: $middle-font-size;
+        font-weight: $font-light;
+        font-style: italic;
+        color: grey;
+        text-align: left;
+    }
+
     .paragraph-container, .paragraph-container--unpadded--unpadded {
-        .m6, .m12, .m4 {
-            padding: 32px;
+        .m6, .m12, .m4, .m3 {
+            padding: 16px 0;
         }
 
         padding: 0 0 32px 0;
+
+        .font-family_opensans {
+            padding-top: 32px;
+            font-family: $vb-body-font-opensans;
+            font-weight: $font-semi-bold;
+            font-size: $base-h2-size;
+            line-height: $base-line-height;
+        }
     }
 
     .paragraph-container, .paragraph-container--unpadded {
@@ -794,16 +756,6 @@ blockquote {
         line-height: $base-line-height;
     }
 
-    .jumbo-text {
-        padding: 16px;
-        font-weight: $font-bold;
-        font-size: $mobile-h0-size;
-        text-align: left;
-
-        // width: 298px;
-        margin: 0 auto;
-    }
-
     .text-container {
         font-size: $mobile-font-size;
         width: 90%;
@@ -815,13 +767,78 @@ blockquote {
     }
 }
 
+//320px<
 @media (max-width: $break-tiny) {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        small {
+            display: block;
+            line-height: 1.5;
+            font-size: 65%;
+            font-weight: $font-light;
+            color: inherit;
+        }
+    }
+
+    h1 {
+        font-size: $mobile-h1-size;
+    }
+
+    h2 {
+        font-size: $mobile-h2-size;
+    }
+
+    h3 {
+        font-size: $mobile-h3-size;
+    }
+
+    h4 {
+        font-size: $mobile-h4-size;
+    }
+
+    h5 {
+        font-size: $mobile-h5-size;
+    }
+
+    h6 {
+        font-size: $mobile-h6-size;
+    }
+
+    li {
+        padding:2px 0;
+    }
+
+    .title {
+        margin: 0;
+        padding: 0px;
+    }
+
+    .image_text {
+        font-size: $middle-font-size;
+        font-weight: $font-light;
+        font-style: italic;
+        color: grey;
+        text-align: left;
+    }
+
     .paragraph-container, .paragraph-container--unpadded--unpadded {
-        .m6, .m12, .m4 {
-            padding: 32px;
+        .m6, .m12, .m4, .m3 {
+            padding: 16px 0;
         }
 
         padding: 0 0 32px 0;
+
+        .font-family_opensans {
+            padding-top: 32px;
+            font-family: $vb-body-font-opensans;
+            font-weight: $font-semi-bold;
+            font-size: $base-h2-size;
+            line-height: $base-line-height;
+        }
     }
 
     .paragraph-container, .paragraph-container--unpadded {
@@ -844,16 +861,6 @@ blockquote {
         .m6 {
             padding-right: 16px;
         }
-    }
-
-    .jumbo-text {
-        padding: 16px;
-        font-weight: $font-bold;
-        font-size: $mobile-h0-size;
-        text-align: left;
-
-        // width: 298px;
-        margin: 0 auto;
     }
 
     .gallery-text {

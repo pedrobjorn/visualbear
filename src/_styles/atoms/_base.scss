@@ -1,11 +1,17 @@
 html,
 body {
-    padding:0;
-    margin:0;
-    font-size: 1.5em; /* 1 */
-    -webkit-text-size-adjust: 1.5em; /* 2 */
-    -ms-text-size-adjust: 1.5em; /* 2 */
-    background-color:$vb-grey;
+    padding: 0;
+    margin: 0;
+    font-size: 1.5em;
+
+    /* 1 */
+    -webkit-text-size-adjust: 1.5em;
+
+    /* 2 */
+    -ms-text-size-adjust: 1.5em;
+
+    /* 2 */
+    background-color: $vb-grey;
     height: 100%;
     min-height: 100%;
     font-family: $vb-body-font-family;
@@ -16,16 +22,12 @@ body {
 
 body {
     webkit-tap-highlight-color: transparentize($vb-light, 0.8);
-    position:relative;
+    position: relative;
 }
 
-ul{
-    padding:0;
+ul {
+    padding: 0;
 }
-li {
-    list-style-type: none;
-}
-
 
 *:focus {
     outline: none;
@@ -38,14 +40,14 @@ li {
 ::-moz-selection {
     text-shadow: none;
     background: $vb-secondary;
-    color:$vb-light;
+    color: $vb-light;
     background-color: none;
 }
 
 ::selection {
     text-shadow: none;
-    background:$vb-secondary;
-    color:$vb-light;
+    background: $vb-secondary;
+    color: $vb-light;
     background-color: none;
 }
 
@@ -57,115 +59,234 @@ img::-moz-selection {
     background: transparent;
 }
 
-.noscriptmsg{
-    display:none;
+.noscriptmsg {
+    display: none;
 }
 
-li#center-justified {
+
+.content {
+    margin: auto;
+    max-width: 916px;
+    display: flex;
+}
+
+
+// Box sizing partial styles:
+// Apply a natural box layout model to all elements
+*,
+*:before,
+*:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.yeogurt-info {
     text-align: center;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-li#left-justified {
-    text-align: justified-left;
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
-.thin {
-    font-weight: $font-light;
+body {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff621a+0,313135+91 */
+    background: #D73735;
+
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #D73735 10%, #252528 100%);
+
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #D73735 10%, #252528 100%);
+
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #D73735 10%, #252528 100%);
+
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#D73735', endColorstr='#252528',GradientType=0 );
+
+    /* IE6-9 */
+
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
-.bold {
-    font-weight: $font-bold;
+main {
+    flex: 1 0 auto;
 }
 
-.absolute-corner{
-        z-index:999;
-        position:absolute;
-        width:256px;
-        height:256px;
-        cursor: pointer;
+.vb-container {
+    // display: flex;
+    // min-height: 100%;
+    position: relative;
+    max-width: 100%;
+
+    // padding-bottom: 64px;
 }
 
-//>1200px
-@media (min-width: $break-large) {
-        .mobile-hide{
-          display:initial;
-        }
-        .mobile-show{
-              display:none;
-        }
-        .absolute-corner{
-        z-index:999;
-        position:absolute;
-        width:256px;
-        height:256px;
-        cursor: pointer;
+.item {
+    width: auto;
+    flex-order: 1;
+    flex-grow: 0;
+
+    /* default 0 */
+}
+
+
+.version {
+    font-size: 14px;
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+// Styling on warning for users on IE7 or below
+.browsehappy {
+    text-align: center;
+    margin: 0;
+    background: #fff8e2;
+    color: #000;
+    padding: 0.5em 0;
+}
+
+
+
+
+@media (min-width: $break-huge) {
+    .desktop {
+        display: initial;
+    }
+
+    .mobile {
+        display: none;
+    }
+    .mobile-hide {
+        display: initial;
+    }
+
+    .mobile-show {
+        display: none;
     }
 }
 
-//1200px< & >767px
-@media (max-width: $break-large) and (min-width: $break-medium) {
-  .mobile-hide{
-    display:initial;
-  }
-  .mobile-show{
-        display:none;
-  }
-        .absolute-corner{
-        z-index:999;
-        position:absolute;
-        width:256px;
-        height:256px;
-        cursor: pointer;
+//2500px< & >1200px
+@media (max-width: $break-huge) and (min-width: $break-large) {
+    .desktop {
+        display: initial;
+    }
+
+    .mobile {
+        display: none;
+    }
+
+    .mobile-hide {
+        display: initial;
+    }
+
+    .mobile-show {
+        display: none;
+    }
+}
+
+//1280px< & >900px
+@media (max-width: $break-large) and (min-width: $break-big) {
+    .desktop {
+        display: initial;
+    }
+
+    .mobile {
+        display: none;
+    }
+
+    .mobile-hide {
+        display: initial;
+    }
+
+    .mobile-show {
+        display: none;
+    }
+}
+
+//960< & >767px
+@media (max-width: $break-big) and (min-width: $break-medium) {
+    .mobile-hide {
+        display: initial;
+    }
+
+    .mobile-show {
+        display: none;
+    }
+
+    .desktop {
+        display: initial;
+    }
+
+    .mobile {
+        display: none;
     }
 }
 
 //767px< & >480px
 @media (max-width: $break-medium) and (min-width: $break-small) {
-  .mobile-hide{
-    display:none;
-  }
-  .mobile-show{
-        display:initial;
-  }
-        .absolute-corner{
-        z-index:999;
-        position:absolute;
-        width:256px;
-        height:256px;
-        cursor: pointer;
+    .mobile-hide {
+        display: none;
+    }
+
+    .mobile-show {
+        display: initial;
+    }
+
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: initial;
     }
 }
 
 //480px< & >320px
 @media (max-width: $break-small) and (min-width: $break-tiny) {
-  .mobile-hide{
-    display:none;
-  }
-  .mobile-show{
-        display:initial;
-  }
-        .absolute-corner{
-        z-index:999;
-        position:absolute;
-        width:156px;
-        height:156px;
-        cursor: pointer;
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: initial;
+    }
+
+    .mobile-hide {
+        display: none;
+    }
+
+    .mobile-show {
+        display: initial;
     }
 }
 
 //320px<
 @media (max-width: $break-tiny) {
-  .mobile-hide{
-    display:none;
-  }
-  .mobile-show{
-        display:initial;
-  }
-    .absolute-corner{
-        z-index:999;
-        position:absolute;
-        width:156px;
-        height:156px;
-        cursor: pointer;
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: initial;
+    }
+
+    .mobile-hide {
+        display: none;
+    }
+
+    .mobile-show {
+        display: initial;
     }
 }

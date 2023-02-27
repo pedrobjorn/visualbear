@@ -1,8 +1,12 @@
 // gallery styles
 
-.gallery {
+.content.gallery {
     height: auto;
     max-width: 900px;
     width: auto;
     margin: auto;
+    margin-top: 100vh;
+    background-color: #252528;
+    padding-bottom: 64px;
+    display: flex;
 }

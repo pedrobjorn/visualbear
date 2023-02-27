@@ -20,18 +20,17 @@ section {
 .box-container {
     padding: 8px;
     width: 100%;
-    height: 256px;
+    height: 128px;
     display: block;
 }
 
 .section#jumbo {
     border: 0;
-    // padding-top: 48px;
 }
 
-.section#work {
-    background-color: $vb-grey;
-    // padding-top: 48px;
+.div#work {
+    margin-top: 100vh;
+    background-color: color("grey", "base");
 }
 
 .section {
@@ -39,12 +38,12 @@ section {
     margin: 0;
 }
 
-.col-md-3, .col-md-4, .col-md-6, .col-xs-6, .col-md-8, .col-md-9 {
+.m3, .m4, .m6, .col-xs-6, .m8, .m9 {
     margin: 0;
     padding: 0;
 }
 
-.col-md-12 {
+.m12, .s12 {
     margin: 0;
     padding: 0;
 }
@@ -56,7 +55,7 @@ section {
         text-align: center;
     }
 
-    .col-md-6 {
+    .m6 {
         padding: 8px;
     }
 }
@@ -66,14 +65,12 @@ section {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin:auto;
-    padding-top:48px;
+    margin: auto;
+    padding-top: 48px;
 }
 
 //>2500px
 @media (min-width: $break-huge) {
-
-
     .outer-container {
         display: table;
         width: 100%;
@@ -104,8 +101,11 @@ section {
             padding: 32px 0;
         }
 
-        .text-container {
-            padding: 128px 0;
+        .gallery-image--medium {
+            img {
+                width: 50%;
+                height: 50%;
+            }
         }
     }
 }
@@ -138,8 +138,11 @@ section {
         min-height: 100vh;
         max-height: 100%;
 
-        .text-container {
-            padding: 128px 0;
+        .gallery-image--medium {
+            img {
+                width: 50%;
+                height: 50%;
+            }
         }
     }
 }
@@ -170,8 +173,11 @@ section {
         min-height: 100vh;
         max-height: 100%;
 
-        .text-container {
-            padding: 128px 0;
+        .gallery-image--medium {
+            img {
+                width: 50%;
+                height: 50%;
+            }
         }
     }
 }
@@ -270,8 +276,11 @@ section {
         min-height: 100vh;
         max-height: 100%;
 
-        .text-container {
-            padding: 128px 0;
+        .gallery-image--medium {
+            img {
+                width: 100%;
+                height: 100%;
+            }
         }
     }
 }
