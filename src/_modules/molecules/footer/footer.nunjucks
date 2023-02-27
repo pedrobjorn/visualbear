@@ -17,13 +17,13 @@
   </section>
   <section class="container">
     <ul class="socialContainer">
-      <a id="follow-button" class="vb-btn-icon " title="Follow @pedrobjorn on Twitter" href="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Flocalh…rc=twsrc%5Etfw&region=follow_link&screen_name=pedrobjorn&tw_p=followbutton" title="Follow @pedrobjorn on Twitter">
+      <a id="follow-button" class="vb-btn-icon " title="Follow @pedrobjorn on Twitter" href="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Flocalh…rc=twsrc%5Etfw&region=follow_link&screen_name=pedrobjorn&tw_p=followbutton" title="Follow @pedrobjorn on Twitter" target="_blank">
         <img src="../../images/icons/twitter_icon_64.jpg" alt="Twitter Icon" width="48px" height="48px">
       </a>
-      <a href="https://www.behance.net/visualbear" class="vb-btn-icon " title="Visit linkedin">
+      <a href="https://www.behance.net/visualbear" class="vb-btn-icon " title="Visit Behance" target="_blank">
         <img src="../../images/icons/behance_icon_64.jpg" alt="Behance Icon" width="48px" height="48px">
       </a>
-      <a href="https://se.linkedin.com/pub/pedro-björn/4b/732/741" class="vb-btn-icon " title="Visit linkedin">
+      <a href="https://www.linkedin.com/in/pedro-bjorn-7417324b" class="vb-btn-icon " title="Visit LinkedIn" target="_blank">
         <img src="../../images/icons/linkdin_icon_64.jpg" alt="LinkedIn Icon" width="48px" height="48px">
       </a>
     </ul>

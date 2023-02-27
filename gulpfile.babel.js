@@ -50,7 +50,7 @@ glob.sync('./gulp/**/*.js').filter(function(file) {
 // Default task
 gulp.task('default', ['clean'], () => {
   gulp.start('build');
-});
+}, [process.env.NODE_ENV === 'production' ? 'production' : 'development']);
 
 // Build production-ready code
 gulp.task('build', [
@@ -58,9 +58,12 @@ gulp.task('build', [
   'imagemin',
   // 'markdown',
   'nunjucks',
-  'sass',
-  'browserify'
+  'sass:build',
+  'browserify',
+  'browserSync',
+  'watch'
 ]);
+
 
 // Server tasks with watch
 gulp.task('serve', [
@@ -68,7 +71,7 @@ gulp.task('serve', [
   'copy',
   // 'markdown',
   'nunjucks',
-  'sass',
+  'sass:dev',
   'browserify',
   'browserSync',
   'watch'

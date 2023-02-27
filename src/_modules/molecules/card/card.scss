@@ -1,10 +1,15 @@
 // card styles
 
 .card {
+    &:first-child {
+        margin-top: 0;
+    }
+
     position: relative;
-    margin: 0.5rem 0 0.5rem 0;
+    margin: 1rem 0;
     background-color: black;
-    border-radius: 2px;
+
+    @include card-radius;
 }
 
 .small.card {
@@ -15,9 +20,9 @@
 
 .medium.card {
     @extend .card;
+
     height: 256px;
 }
-
 
 .large.card, .medium.card, .small.card {
     @extend .card;
@@ -25,6 +30,9 @@
     position: relative;
 
     .card-image {
+        @include card-radius;
+        @include drop-shadow;
+
         max-height: 100%;
         height: 100%;
         background-size: cover;
@@ -37,13 +45,18 @@
             left: 0;
             max-width: 100%;
             padding: 16px;
+
+            h2, p {
+                padding: 4px 0;
+            }
         }
-                &:active,
+
+        &:active,
         &:focus,
         &:hover {
-			//I am super ashamed of this, but I find no better way of 
-			//overriding an inline style rule added to work with 
-			//nunchucks templating engine
+            //I am super ashamed of this, but I find no better way of 
+            //overriding an inline style rule added to work with 
+            //nunchucks templating engine
             background-image: url("") !important;
             background-color: $vb-primary;
             -webkit-transition: -webkit-box-shadow .25s;

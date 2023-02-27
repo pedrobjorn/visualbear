@@ -11,10 +11,13 @@
   <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>visualbear</title>
-    <meta name="description" content="A new Yeogurt application"/>
+    <title>visualbear - Portfolio</title>
+    <meta name="description" content="Pedro Björn Portfolio website"/>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="{{baseUrl}}styles/main.css"/>
+    <link rel="canonical" href="https://www.visualbear.com" />
+    
     {% block stylesheets %}{% endblock %}
   </head>
   <body>

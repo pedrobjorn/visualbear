@@ -46,3 +46,57 @@ This will place your new module within the corresponding atomic folder like the 
         ├── link.js
         └── link.scss
 ```
+
+
+
+
+
+
+
+//>2500px
+@media (min-width: $break-huge) {
+
+}
+
+
+//2500px< & >1200px
+@media (max-width: $break-huge) and (min-width: $break-large) {
+
+}
+
+
+
+//1280px< & >900px
+@media (max-width: $break-large) and (min-width: $break-big) {
+
+}
+
+
+
+//960< & >767px
+@media (max-width: $break-big) and (min-width: $break-medium) {
+
+}
+
+
+
+//767px< & >480px
+@media (max-width: $break-medium) and (min-width: $break-small) {
+
+}
+
+
+
+//480px< & >320px
+@media (max-width: $break-small) and (min-width: $break-tiny) {
+
+}
+
+
+
+//320px<
+@media (max-width: $break-tiny) {
+
+}
+
+

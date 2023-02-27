@@ -1,1 +1,20 @@
 // button-slider styles
+
+.btn-container {
+    display: block;
+    width: 100%;
+    background-color: $vb-dark;
+
+    a.btn {
+        &:visited {
+            color: $vb-light;
+        }
+
+        text-decoration: none;
+        color: vb-light;
+    }
+
+    .col {
+        padding: 0;
+    }
+}

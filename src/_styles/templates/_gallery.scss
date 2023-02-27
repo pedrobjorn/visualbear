@@ -16,6 +16,12 @@
     vertical-align: top;
 }
 
+.round_radius {
+    a > img {
+        @include border-radius(48px);
+    }
+}
+
 .container {
     padding: 48px 0 0 0;
     margin: 0;
@@ -24,6 +30,7 @@
 
 .container--padded {
     @extend .container;
+
     padding: 128px 0;
 }
 
@@ -83,10 +90,49 @@
     /* IE6-9 */
 }
 
+.container--gradient_artent {
+    background: #ff621a;
+
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #fff 0%, #975FBF 100%);
+
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #fff 0%, #975FBF 100%);
+
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #fff 0%, #975FBF 100%);
+
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff', endColorstr='#c4a4db',GradientType=0 );
+
+    /* IE6-9 */
+}
+
+.container--gradient_artent-inverse {
+    background: #fff;
+
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #975FBF 0%, #fff 100%);
+
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #975FBF 0%, #fff 100%);
+
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #975FBF 0%, #fff 100%);
+
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c4a4db', endColorstr='#fff',GradientType=0 );
+
+    /* IE6-9 */
+}
+
 .text-box {
     img {
+        max-width: 512px;
         width: 100%;
         height: auto;
+        display: block;
+        margin: auto;
     }
 }
 
@@ -105,22 +151,6 @@
     .svg {
         height: 100%;
     }
-}
-
-.logo-image {
-    @extend .gallery-image;
-    width:40%;
-    margin: auto;
-    img {
-        margin: auto;
-        display: block;
-    }
-
-    padding: 64px 0;
-}
-
-.nav-top-padding {
-    padding-top: 48px;
 }
 
 .gallery-image {
@@ -146,8 +176,8 @@
     @extend .gallery-image;
 
     img {
-        width: 100%;
-        height: 100%;
+        width: 50%;
+        height: 50%;
     }
 }
 
@@ -159,6 +189,21 @@
 }
 
 .paragraph-container--icons {
+    a {
+        color: $vb-primary;
+
+        &:hover,
+        &:focus {
+            color: $vb-light;
+            background-color: $vb-primary;
+        }
+
+        &:active {
+            color: $vb-light;
+            background-color: $vb-secondary;
+        }
+    }
+
     @extend .paragraph-container;
 
     .col-md-4 {
@@ -187,7 +232,7 @@
             height: 100%;
         }
 
-        a {
+        a > img {
             &:hover {
                 opacity: 0.75;
                 background-color: transparent;
@@ -202,27 +247,26 @@
 
     .gallery-image--medium {
         img {
-            width: 100%;
-            height: 100%;
+            width: 50%;
+            height: 50%;
+        }
+    }
+
+    .gallery-image--small {
+        img {
+            max-width: 30%;
+            height: 20%;
         }
     }
 
     .headshot-container {
-        padding: 32px 0;
+        padding-bottom: 32px;
 
         img {
             margin: auto;
             height: 196px;
             width: 196px;
         }
-    }
-
-    .desktop {
-        display: initial;
-    }
-
-    .mobile {
-        display: none;
     }
 
     .container {
@@ -242,10 +286,9 @@
     }
 
     .text-box {
-        padding: 0 128px;
         margin: auto;
-        min-width: 1280px;
-        max-width: 1600px;
+        width: 768px;
+        max-width: 960px;
         word-wrap: break-word;
         display: block;
     }
@@ -253,8 +296,8 @@
     .gallery-text {
         padding: 128px;
         margin: auto;
-        min-width: 1280px;
-        max-width: 1600px;
+        min-width: 768px;
+        max-width: 960px;
         word-wrap: break-word;
         display: block;
     }
@@ -283,7 +326,6 @@
         border-top: solid 2px $vb-primary;
 
         span.gallery-image {
-            height: 100%;
             background-repeat: no-repeat;
 
             a {
@@ -300,9 +342,6 @@
         background-repeat: no-repeat;
     }
 
-    .header-block {
-        color: $vb-light;
-    }
 
     #steammobile {
         @include background-image("../img/work/thumbs/gallery_thumb_steam.jpg");
@@ -345,11 +384,13 @@
     }
 }
 
-.gallery-image--full{
+.gallery-image--full {
     // @extend .gallery-image;
-    img{
-        max-width:100%;
+    margin-bottom:-8px;
+    img {
+        max-width: 100%;
     }
+
 }
 
 //2500px< & >1200px
@@ -364,7 +405,7 @@
     .gallery-image {
         height: auto;
 
-        a {
+        a > img {
             &:hover {
                 opacity: 0.75;
                 background-color: transparent;
@@ -379,13 +420,20 @@
 
     .gallery-image--medium {
         img {
-            width: 100%;
-            height: 100%;
+            width: 50%;
+            height: 50%;
+        }
+    }
+
+    .gallery-image--small {
+        img {
+            max-width: 30%;
+            height: 20%;
         }
     }
 
     .headshot-container {
-        padding: 64px 0;
+        padding-bottom: 64px;
 
         img {
             display: block;
@@ -395,14 +443,6 @@
         }
     }
 
-    .desktop {
-        display: initial;
-    }
-
-    .mobile {
-        display: none;
-    }
-
     .container {
         padding-bottom: 16px;
 
@@ -410,6 +450,13 @@
             img {
                 display: block;
                 margin: auto;
+                max-width: 768px;
+            }
+
+            .gallery-image--medium {
+                img {
+                    max-width: 512px;
+                }
             }
         }
     }
@@ -419,10 +466,10 @@
     }
 
     .text-box {
-        padding: 0 128px;
+        padding: 0 16px;
         margin: auto;
-        min-width: 1024px;
-        max-width: 1280px;
+        width: 768px;
+        max-width: 960px;
         word-wrap: break-word;
         display: block;
     }
@@ -430,8 +477,8 @@
     .gallery-text {
         padding: 128px;
         margin: auto;
-        min-width: 1024px;
-        max-width: 1280px;
+        width: 768px;
+        max-width: 960px;
         word-wrap: break-word;
         display: block;
     }
@@ -465,7 +512,6 @@
         }
 
         span.gallery-image {
-            height: 100%;
             background-repeat: no-repeat;
         }
     }
@@ -474,10 +520,6 @@
         padding: 16px;
         height: $tile-height-medium;
         background-repeat: no-repeat;
-    }
-
-    .header-block {
-        color: $vb-light;
     }
 
     #steammobile {
@@ -531,11 +573,11 @@
 
         img {
             width: 100%;
-            max-width: 900px;
+            max-width: 768px;
             height: 100%;
         }
 
-        a {
+        a > img {
             &:hover {
                 opacity: 0.75;
                 background-color: transparent;
@@ -550,13 +592,21 @@
 
     .gallery-image--medium {
         img {
-            width: 100%;
-            height: 100%;
+            width: 50%;
+            max-width: 512px;
+            height: 50%;
+        }
+    }
+
+    .gallery-image--small {
+        img {
+            max-width: 30%;
+            height: 20%;
         }
     }
 
     .headshot-container {
-        padding: 64px 0;
+        padding-bottom: 64px;
 
         img {
             display: block;
@@ -566,34 +616,15 @@
         }
     }
 
-    .desktop {
-        display: initial;
-    }
-
-    .mobile {
-        display: none;
-    }
-
-    .container {
-        padding-bottom: 16px;
-
-        .gallery-image {
-            img {
-                display: block;
-                margin: auto;
-            }
-        }
-    }
-
     .container--padded {
-        padding: 128px 0;
+        padding: 64px 0;
     }
 
     .text-box {
         margin: auto;
-        padding: 0 64px;
-        min-width: 768px;
-        max-width: 900px;
+        padding: 0 16px;
+        width: 768px;
+        max-width: 960px;
         word-wrap: break-word;
         display: block;
     }
@@ -601,7 +632,7 @@
     .gallery-text {
         margin: auto;
         padding: 64px 0;
-        min-width: 768px;
+        width: 768px;
         max-width: 900px;
         word-wrap: break-word;
         display: block;
@@ -631,7 +662,6 @@
         border-top: solid 2px $vb-primary;
 
         span.gallery-image {
-            height: 100%;
             background-repeat: no-repeat;
         }
     }
@@ -640,10 +670,6 @@
         padding: 16px;
         height: $tile-height-medium;
         background-repeat: no-repeat;
-    }
-
-    .header-block {
-        color: $vb-light;
     }
 
     #steammobile {
@@ -692,25 +718,17 @@
         }
     }
 
-    .logo-image {
-
-        img {
-            width: 50%;
-            margin: auto;
-        }
-
-        padding: 64px 0;
-    }
-
     .gallery-image {
         height: auto;
 
         img {
             width: 100%;
             height: auto;
+            display: block;
+            margin: auto;
         }
 
-        a {
+        a > img {
             &:hover {
                 opacity: 0.75;
                 background-color: transparent;
@@ -730,8 +748,15 @@
         }
     }
 
+    .gallery-image--small {
+        img {
+            max-width: 30%;
+            height: 20%;
+        }
+    }
+
     .headshot-container {
-        padding: 64px 0;
+        padding-bottom: 64px 0;
 
         img {
             display: block;
@@ -741,24 +766,19 @@
         }
     }
 
-    .desktop {
-        display: initial;
-    }
-
-    .mobile {
-        display: none;
-    }
-
     .text-box {
+        margin: auto;
+        padding: 0 16px;
+        width: 768px;
+        max-width: 900px;
         word-wrap: break-word;
         display: block;
-        padding: 0 64px;
     }
 
     .gallery-text {
         word-wrap: break-word;
         display: block;
-        padding: 64px;
+        padding: 64px 16px;
     }
 
     .container {
@@ -766,7 +786,7 @@
     }
 
     .container--padded {
-        padding: 128px 0;
+        padding: 64px 0;
     }
 
     .image_container {
@@ -791,7 +811,6 @@
 
             .image_container {
                 padding-top: 32px;
-                width: 900px;
                 margin: auto;
             }
         }
@@ -812,10 +831,6 @@
         padding: 16px;
         height: $tile-height-medium;
         background-repeat: no-repeat;
-    }
-
-    .header-block {
-        color: $vb-light;
     }
 
     #steammobile {
@@ -869,17 +884,6 @@
     }
 
     .container--padded {
-        padding: 128px 0;
-    }
-
-    .logo-image {
-        width: 50%;
-
-        img {
-            width: 50%;
-            margin: auto;
-        }
-
         padding: 64px 0;
     }
 
@@ -889,9 +893,11 @@
         img {
             width: 100%;
             height: auto;
+            display: block;
+            margin: auto;
         }
 
-        a {
+        a > img {
             &:hover {
                 opacity: 0.75;
                 background-color: transparent;
@@ -911,8 +917,15 @@
         }
     }
 
+    .gallery-image--small {
+        img {
+            max-width: 50%;
+            height: 50%;
+        }
+    }
+
     .headshot-container {
-        padding: 32px 0;
+        padding-bottom: 32px;
 
         img {
             display: block;
@@ -922,18 +935,12 @@
         }
     }
 
-    .desktop {
-        display: none;
-    }
-
-    .mobile {
-        display: initial;
-    }
-
     .text-box {
+        margin: auto;
+        padding: 0 32px;
+        width: 100%;
         word-wrap: break-word;
         display: block;
-        padding: 0 32px;
     }
 
     .gallery-text {
@@ -957,6 +964,17 @@
         display: inline-block;
         position: relative;
         width: 100%;
+
+        .container {
+            padding-bottom: 16px;
+
+            .gallery-image {
+                img {
+                    display: block;
+                    margin: auto;
+                }
+            }
+        }
     }
 
     .gallerytile {
@@ -974,10 +992,6 @@
         padding: 16px;
         height: $tile-height-medium;
         background-repeat: no-repeat;
-    }
-
-    .header-block {
-        color: $vb-light;
     }
 
     #steammobile {
@@ -1026,26 +1040,17 @@
         }
     }
 
-    .logo-image {
-        width: 50%;
-
-        img {
-            width: 50%;
-            margin: auto;
-        }
-
-        padding: 64px 0;
-    }
-
     .gallery-image {
         height: auto;
 
         img {
             width: 100%;
             height: 100%;
+            display: block;
+            margin: auto;
         }
 
-        a {
+        a > img {
             &:hover {
                 opacity: 0.75;
                 background-color: transparent;
@@ -1065,8 +1070,15 @@
         }
     }
 
+    .gallery-image--small {
+        img {
+            max-width: 75%;
+            height: 75%;
+        }
+    }
+
     .headshot-container {
-        padding: 32px 0;
+        padding-bottom: 32px;
 
         img {
             display: block;
@@ -1076,26 +1088,18 @@
         }
     }
 
-    .desktop {
-        display: none;
-    }
-
-    .mobile {
-        display: initial;
-    }
-    
-   .container {
+    .container {
         padding: 64px 0 16px 0;
     }
 
     .container--padded {
-        padding: 128px 0;
+        padding: 64px 0;
     }
-
 
     .text-box {
         word-wrap: break-word;
         display: block;
+        width: 100%;
         padding: 0 32px;
         margin: auto;
     }
@@ -1141,9 +1145,6 @@
         background-repeat: no-repeat;
     }
 
-    .header-block {
-        color: $vb-light;
-    }
 
     #steammobile {
         @include background-image("../img/work/thumbs/gallery_thumb_steam.jpg");
@@ -1197,9 +1198,11 @@
         img {
             width: 100%;
             height: 100%;
+            display: block;
+            margin: auto;
         }
 
-        a {
+        a > img {
             &:hover {
                 opacity: 0.75;
                 background-color: transparent;
@@ -1219,8 +1222,15 @@
         }
     }
 
+    .gallery-image--small {
+        img {
+            max-width: 100%;
+            height: 100%;
+        }
+    }
+
     .headshot-container {
-        padding: 32px 0;
+        padding-bottom: 32px;
 
         img {
             display: block;
@@ -1230,26 +1240,18 @@
         }
     }
 
-    .desktop {
-        display: none;
-    }
-
-    .mobile {
-        display: initial;
-    }
-
-   .container {
+    .container {
         padding: 64px 0 16px 0;
     }
 
     .container--padded {
-        padding: 128px 0;
+        padding: 64px 0;
     }
-
 
     .text-box {
         word-wrap: break-word;
         display: block;
+        width: 100%;
         padding: 0 32px;
         margin: auto;
     }
@@ -1271,22 +1273,22 @@
         }
     }
 
-    .logo-image {
-        width: 50%;
-
-        img {
-            width: 75%;
-            margin: auto;
-        }
-
-        padding: 64px 0;
-    }
-
     .gallery {
         height: 100%;
         display: inline-block;
         position: relative;
         width: 100%;
+
+        .container {
+            padding-bottom: 16px;
+
+            .gallery-image {
+                img {
+                    display: block;
+                    margin: auto;
+                }
+            }
+        }
     }
 
     .gallerytile {
@@ -1307,9 +1309,6 @@
         background-repeat: no-repeat;
     }
 
-    .header-block {
-        color: $vb-light;
-    }
 
     #steammobile {
         @include background-image("../img/work/thumbs/gallery_thumb_steam.jpg");

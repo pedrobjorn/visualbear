@@ -1,17 +1,13 @@
 {% extends "_layouts/work.nunjucks" %}
 {% import "_modules/organisms/headline/headline.nunjucks" as headline %}
-
 {% import "_modules/molecules/buttonslider/buttonslider.nunjucks" as buttonslider %}
 {% block config %}
     {% set baseUrl = "../" %}
 {% endblock %}
 {% block content %}
-
     <article class="section section-top-padding" id="steammobile_container">
         <section class="gallery-container">
-
             {{headline.content({content:site.data.project_steam,class:"container--gradient_light"})}}
-
             <!-- PROCESS -->
             <div class="container--padded dark-bg">
                 <div class="document-text text-box center-justified">
@@ -128,7 +124,7 @@
             <div class="container--padded  container--gradient_dark">
                 <div class="document-text text-box">
                     <div class="paragraph-container--unpadded">
-                        <h2>ICONS</h2>
+                        <h2>ICONS</h2>    
                     </div>
                     <img src="../images/work/fullsize/steam/details/icons.svg" title="Image"  width="100%" height="100%">
                 </div>
@@ -154,7 +150,7 @@
                     </div>
                     <div class="paragraph-container--icons">
                         <h2>Profile</h2>
-                        <div class="gallery-image">
+                        <div class="gallery-image--medium center-align">
                             <a href="../images/work/fullsize/steam/screens/profile.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/profile.jpg" title="Image"  width="50%" height="50%">
                             </a>
@@ -220,7 +216,7 @@
                     </div>
                     <div class="paragraph-container--icons">
                         <h2>Store</h2>
-                        <div class="gallery-image">
+                        <div class="gallery-image--medium center-align">
                             <a href="../images/work/fullsize/steam/screens/store.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/store.jpg" title="Image"  width="100%" height="100%">
                             </a>
@@ -233,7 +229,7 @@
                     </div>
                     <div class="paragraph-container--icons">
                         <h2>Game Detail View</h2>
-                        <div class="gallery-image">
+                        <div class="gallery-image--medium center-align">
                             <a href="../images/work/fullsize/steam/screens/game-detail.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/game-detail.jpg" title="Image"  width="100%" height="100%">
                             </a>
@@ -246,7 +242,7 @@
                     </div>
                     <div class="paragraph-container">
                         <h2>UI Details - Action Button</h2>
-                        <div class="gallery-image">
+                        <div class="gallery-image--medium center-align">
                             <a href="../images/work/fullsize/steam/screens/ui-detail_action-buttons.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/ui-detail_action-buttons.jpg" title="Image"  width="100%" height="100%">
                             </a>
@@ -259,7 +255,7 @@
                     </div>
                     <div class="paragraph-container--icons">
                         <h2>Steam Community - Market</h2>
-                        <div class="gallery-image">
+                        <div class="gallery-image--medium center-align">
                             <a href="../images/work/fullsize/steam/screens/market.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/market.jpg" title="Image"  width="100%" height="100%">
                             </a>
@@ -272,7 +268,7 @@
                     </div>
                     <div class="paragraph-container--icons">
                         <h2>Steam Guard &amp; Confirmations</h2>
-                        <div class="gallery-image">
+                        <div class="gallery-image--medium center-align">
                             <a href="../images/work/fullsize/steam/screens/guard.jpg" alt="Value Proposition Photo">
                                 <img src="../images/work/fullsize/steam/screens/guard.jpg" title="Image"  width="100%" height="100%">
                             </a>
@@ -292,33 +288,35 @@
             </div>
             <div class="container--padded container--gradient_light">
                 <div class="document-text text-box">
-                    <div class="paragraph-container--unpadded">
-                        <h1 class="center-justified">CONCLUSION</h1>
-                    </div>
-                    <div class="paragraph-container--unpadded">
-                        <p>The redesign proposes a more stripped down and focused experience, allowing gamers to focus on their gaming content, and less on looking for it. </p>
-                        <p>A clean, almost subdued visual design puts content first, retaining the existing brand identity, whilst the new app structure retains Steams complexity without overwhelming the user.</p>
-                    </div>
-                    
-                    
-                    <h2  class="center-justified">Lessons Learnt</h2>
+                     <h2  class="center-justified">LESSONS LEARNT</h2>
                     
                     <div class="paragraph-container--unpadded">
+
+                        <h4>Use the right tools</h4>   
                         <p>The motivation for this project was based on the fact that I myself am a Steam user, and found the app to have a lot of room for improvement, but also because I wanted to practice my UI design skills using Illustrator and Photoshop only. </p>
                         <p>In the end, this was a challenge, and I conclude that these tools are not optimal for UI design, especially since there are far better alternatives such as Sketch.</p>
                         
+                        <h4>Always do user research</h4>  
                         <p>I also lacked more in depth user research, testing and prototyping in this project. Although its focus was mostly conceptual and visual, the lack of actionable data made decisions feel unfounded.</p>
                         
                         <p>In future, I will be more formal in my process, focusing on users instead of personal research.</p>
+                    </div>
+
+                    <h2 class="center-justified">CONCLUSION</h2>
+                    <div class="paragraph-container--unpadded">
+                        <p>The redesign proposes a more stripped down and focused experience, allowing gamers to focus on their gaming content, and less on looking for it. </p>
+                        <p>A clean, almost subdued visual design puts content first, retaining the existing brand identity, whilst the new app structure retains Steams complexity without overwhelming the user.</p>
+
                         <p class="center-justified"><i>Thank you for your time.</i></p>
                     </div>
+                    
                 </div>
             </div>
-                          {{buttonslider.content({
-          nexthref: site.data.project_steam.nexthref,
-          prevhref: site.data.project_steam.prevhref,
-          text: var.linkname
-          })}}
+            {{buttonslider.content({
+            nexthref: site.data.project_steam.nexthref,
+            prevhref: site.data.project_steam.prevhref,
+            text: var.linkname
+            })}}
         </section>
     </article>
 {% endblock %}

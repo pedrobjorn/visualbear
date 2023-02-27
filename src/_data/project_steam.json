@@ -2,21 +2,24 @@
   "title": "Steam Mobile",
   "subtitle": "UX, UI & visual design",
   "href": "../steam-mobile",
-  "prevhref": "../visualbear",
-  "nexthref": "../art_ent",
+  "prevhref": {"link":"../visualbear","text":"visualbear"},
+  "nexthref": {"link":"../art-ent","text":"art ent"},
   "img": "../images/work/thumbs/gallery_thumb_steam.jpg",
   "headline_img":"../images/work/fullsize/steam/details/profile-screen_sneek.png",
   "logoImg": "../images/work/fullsize/steam/details/logo_main.png",
-  "description": "Redesigning the biggest mobile game client in the world.",
-  "released": "August 20th 2017",
+  "description": "Steam Mobile<br>App project",
+  "released": "May - August 2017",
   "responsibilities": "UX, UI &amp; Visual Design",
   "tools": "Paper &amp; Pen, TextEdit, Illustrator, Photoshop",
   "intro": 
   [{
-    "paragraph":"Steam, created by Valve Software, is the biggest gaming client in the world, with 12.5 million active users."
+    "paragraph":"Redesigning the biggest mobile game client in the world. Steam, created by Valve Software, is the biggest gaming client in the world, with 12.5 million active users."
   },
   {
     "paragraph":"The Steam Mobile App, the mobile equivalent of Steam, released in 2012, has maintained a lot of UI patterns from the time, with few updates to its design and usability."
+  },
+  {
+    "paragraph":"Working on my free time, this side-project is intended to focus on the visual redesign of an existing app, exploring the limits of Photoshop as a design tool, to compare it to Sketch."
   }],
   "challenge":"To improve Steam Mobiles user interface, both functionally and visually, whilst maintaining its vast functionality.",
   "goals":

@@ -21,10 +21,8 @@
     <p>The purpose of exposing this styleguide is to present my portfolio itself as part my portfolio work. What you see is what I use as a reference as I build the site, as it's imperative to good web design and development.</p>
     <p>Built using:</p>
     <ul>
-      <li><a href="https://jquery.com/" target="_blank">jQuery</a></li>
-      <li><a href="http://getbootstrap.com/" target="_blank">Bootstrap</a></li>
-      <li><a href="http://parsleyjs.org" target="_blank">Parsley</a></li>
-      <li><a href="http://www.jasny.net/bootstrap/javascript/" target="_blank">Jansey Bootstrap</a></li>
+      <li><a href="https://github.com/larsonjj/generator-yeogurt" target="_blank">Yeogurt</a></li>
+      <li><a href="https://materializecss.com/sass.html" target="_blank">Materialize</a></li>
     </ul>  
   </article>
   {% endmacro %}

@@ -8,11 +8,11 @@
 			<div class="logo-image">
 				<img src="{{_content.logoImg}}" title="Image"  width="auto" height="auto">
 			</div>
-			<h2 class="center-justified">{{_content.description}}</h2>
+			<h1 class="center-justified">{{_content.description}}</h1>
 			<div class="paragraph-container center-justified">
 				<div class="row">
 					<div class="col m12 s12">
-						<h3>Released</h3>
+						<h3>Duration</h3>
 						<p>{{_content.released}}</p>
 					</div>
 					<div class="col m6 s12">
@@ -29,11 +29,7 @@
 				<div class="row">
 					<div class="col m12 s12">
 						{% for paragraph in _content.intro %}
-							
-							
 							<p>{{paragraph.paragraph}}</p>
-							
-							
 						{% endfor %}
 					</div>
 				</div>
@@ -47,20 +43,16 @@
 					<h3>Goals</h3>
 					<ul>
 						{% for goal in _content.goals %}
-							
 							<li>
 								<p>{{goal.goal}}</p>
 							</li>
-							
 						{% endfor %}
-						
 					</ul>
 				</div>
 			</div>
 			{% if _content.headline_img %}
-				<div class="gallery-image">
+				<div class="gallery-image__small">
 					<img src="{{_content.headline_img}}" title="Image"  width="auto" height="auto">
-					
 				</div>
 			{% endif %}
 		</div>

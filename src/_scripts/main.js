@@ -13,6 +13,5 @@ $(() => {
   new Link(); // Activate Link modules logic
   new Gallery(); // Activate Link modules logic
   
-
-  console.log('Welcome to Yeogurt!');
+  console.log('Welcome to my Portfolio! I can do Javascript too, obviously');
 });

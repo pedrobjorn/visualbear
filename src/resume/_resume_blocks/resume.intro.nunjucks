@@ -8,14 +8,14 @@
 {% endblock %}
 <div class="col-md-12">
   <p>
-    As a committed and driven <b>Product Designer</b>, I focus on UI, Visual and UX design, but I’m also experienced in Front-end Development.
+    As a committed and driven <b>Product Designer</b>, I focus on UI, Visual and UX design, but I'm also experienced in Front-end Development.
   </p>
   <p>
-    Fast learning and attentive, I’m a good listener that welcomes feedback in
+    Fast learning and attentive, I'm a good listener that welcomes feedback in
     order to grow and produce better work.
   </p>
   <p>
-    I grew up Portugal and moved to Sweden in 2010 to explore my other home, and to find new opportunities. I’m interested in art, cinema, gaming and tech, and I’m always eager to take on new challenges.
+    I grew up Portugal and moved to Sweden in 2010 to explore my other home, and to find new opportunities. I'm interested in art, cinema, gaming and tech, and I'm always eager to take on new challenges.
   </p>
 </div>
 {% endmacro %}

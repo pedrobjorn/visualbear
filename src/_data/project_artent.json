@@ -1,26 +1,28 @@
 {
   "title": "art ent app",
-  "subtitle": "Brand, Product Design, front-end",
+  "subtitle": "Product Design, Brand, front-end",
   "href": "../art_ent",
-  "prevhref": "../steam-mobile",
-  "nexthref": "../disabled",
+  "prevhref": {"link":"../steam-mobile","text":"Steam Mobile"},
+  "nexthref": {"link":"../climate-clock","text":"Climate Clock"},
   "img": "../images/work/thumbs/gallery_thumb_artent.jpg",
-  "headline_img":"../images/work/fullsize/steam/details/profile-screen_sneek.png",
-  "logoImg": "../images/work/fullsize/steam/details/logo_main.png",
-  "description": "Connecting artist and students.",
-  "released": "August 20th 2020",
-  "responsibilities": "Brand, Product Design, front-end",
-  "tools": "Paper &amp; Pen, TextEdit, Illustrator, Photoshop",
+  "headline_img":"../images/work/fullsize/artent/details/profile-screen_sneek.png",
+  "logoImg": "../images/work/fullsize/artent/details/logo_main.png",
+  "description": "<i>art ent</i> app<br>Case Study",
+  "released": "May 2017 - September 2020",
+  "responsibilities": "Product Design, Brand, front-end",
+  "tools": "Paper &amp; Pen, Sketch, Text Edit, Illustrator",
   "intro": [{
-    "paragraph":"Steam, created by Valve Software, is the biggest gaming client in the world, with 12.5 million active users."
+    "paragraph":"<i>art ent</i> is an app that artists can use to find people to give lessons to, and to manage those lessons. Students can find lessons, created by artists; view lessons and artist profiles, and contact them to book a lesson."
   },{
-    "paragraph":"The Steam Mobile App, the mobile equivalent of Steam, released in 2012, has maintained a lot of UI patterns from the time, with few updates to its design and usability."
+    "paragraph":"It was a side-projct between two friends, where I worked on the Design and Front-end, while <a href=\"https://se.linkedin.com/in/riccardo-rappoldi-a3548057?challengeId=AQFcMZHMAFt9BwAAAXTA2a2kMt4Nll0Jmmp7jjSYMJMzQdQ3uB9kwS_E-OXYvVNoSpwJrjLtGQA49o7CB5E_oh9scBF0P8kduA&submissionId=7b11a422-a7c3-3716-4f97-7f0b0cd9f855\" alt=\"Riccardos Linkedin profile\" target=\"_blank\">Riccardo</a> worked on the back-end."
   }],
-  "challenge":"To improve Steam Mobiles user interface, both functionally and visually, whilst maintaining its vast functionality.",
+  "challenge":"Artists have no tool to connect with people who want to learn their skills, and have to resort to local announcement boards, public announcement boards, and word of mouth. People wanting to learn rely on word of mouth and social media, with no consolidated go to source for artistic lessons.",
   "goals":[{
-   "goal":"- Refine usability by changing the app structure, navigation, and UI elements."
+   "goal":"- Create a tool for artists to find students."
   },{
-   "goal":"- Update visual identity to better match the contemporary Steam App, and to better suit higher resolution devices."
+   "goal":"- Allow for artists to create a basic profile."
+  },{
+   "goal":"- Keep it usable without an account for students."
   }]
 }
 

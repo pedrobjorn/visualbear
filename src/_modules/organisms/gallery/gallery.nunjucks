@@ -19,6 +19,13 @@
     "href": "../play",
     "img": "../images/work/thumbs/"
 } %}
+{% set _cardBlog = {
+    "title": "Blog",
+    "subtitle": "Ramblings",
+    "href": "../blog",
+    "img": "../images/work/thumbs/"
+} %}
+{% set _display = 'false' %}
 
 <div class="content gallery">
 	
@@ -29,13 +36,16 @@
 		{% for val in _content %}
 		
 		{{card.content({card:val})}}
-
-
-			
 		{% endfor %}
 
-		
-{{card.content({card:_cardPlay})}}
+		<!-- Disable the Play gallery option -->
+		{% if _display === 'true' %}
+			{{card.content({card:_cardPlay})}} 
+		{% endif %}
+		<!-- Disable the Blog gallery option -->
+		{% if _display === 'true' %}
+			{{card.content({card:_cardBlog})}} 
+		{% endif %}
 
 	</div>
 
