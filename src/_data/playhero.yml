@@ -1,7 +1,7 @@
 name: play
 title: <ul>
         <li>Welcome to Play!</li>
-        <li><a href="../about" alt="Title link about me">I'm Pedro 🧸</a></li>
+        <li><a href="../visualbear/about" alt="Title link about me">I'm Pedro 🧸</a></li>
         <li>
           <a href="#play" alt="Title link work">Here's stuff I do for fun:</a> 
         </li>

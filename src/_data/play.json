@@ -1,16 +1,16 @@
 [{
   "title": "Graphic Design",
   "subtitle": "My Bachelor Degree paying off",
-  "href":"../play/play_graphic_design",
-  "img":"../images/play-graphic_design-card.jpg"
+  "href":"../visualbear/play/play_graphic_design",
+  "img":"../visualbear/images/play-graphic_design-card.jpg"
 },{
   "title": "Drawings & Sketches",
   "subtitle": "Class doodling skills",
-  "href":"../play/play_drawings",
-  "img":"../images/play-drawings-card.jpg"
+  "href":"../visualbear/play/play_drawings",
+  "img":"../visualbear/images/play-drawings-card.jpg"
 },{
   "title": "Photography",
   "subtitle": "I have a phone with a camera",
-  "href":"../play/play_photography",
-  "img":"../images/play-photography-card.jpg"
+  "href":"../visualbear/play/play_photography",
+  "img":"../visualbear/images/play-photography-card.jpg"
 }]

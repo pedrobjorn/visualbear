@@ -1,9 +1,9 @@
 [{
   "linkname": "Work",
-  "href": "../#work"
+  "href": "../visualbear/#work"
 },{
   "linkname": "About",
-  "href": "../about"
+  "href": "../visualbear/about"
 },{
   "linkname": "Contact",
   "href": "#contact"
