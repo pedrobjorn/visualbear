@@ -3,6 +3,3 @@ node_modules
 tmp
 .grunt
 .DS_Store
-dist/
-dist/
-build/
