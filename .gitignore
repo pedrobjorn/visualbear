@@ -4,3 +4,5 @@ tmp
 .grunt
 .DS_Store
 dist/
+dist/
+build/
