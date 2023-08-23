@@ -1,11 +1,11 @@
 [{
   "title": "First blog post",
   "subtitle": "This is my first blog post",
-  "href":"../visualbear/visualbear/blog/blog2",
-  "img":"../visualbear/visualbear/images/work/thumbs/gallery_thumb_prettyugly.jpg"
+  "href":"../visualbear/blog/blog2",
+  "img":"../visualbear/images/work/thumbs/gallery_thumb_prettyugly.jpg"
 },{
   "title": "Second blog posts",
   "subtitle": "This is my second blog post",
-  "href":"../visualbear/visualbear/blog/blog1",
-  "img":"../visualbear/visualbear/images/work/thumbs/gallery_thumb_prettyugly.jpg"
+  "href":"../visualbear/blog/blog1",
+  "img":"../visualbear/images/work/thumbs/gallery_thumb_prettyugly.jpg"
 }]

@@ -1,13 +1,13 @@
 [{
     "title": "Climate Clock </br> Visual Redesign",
     "subtitle": "Revamping a critical counter",
-    "href": "../visualbear/climate-clock",
-    "img": "../visualbear/images/work/thumbs/gallery_thumb_climateclock.jpg",
+    "href": "../climate-clock",
+    "img": "../images/work/thumbs/gallery_thumb_climateclock.jpg",
     "content": {
         "title": "art ent app",
         "subtitle": "UX, UI & visual design",
-        "href": "../visualbear/art_ent",
-        "img": "../visualbear/images/work/thumbs/gallery_thumb_climateclock.jpg",
+        "href": "../art_ent",
+        "img": "../images/work/thumbs/gallery_thumb_climateclock.jpg",
         "description": "",
         "released": "August 20th 2017",
         "responsibilities": "UX, UI &amp; Visual Design",
@@ -16,13 +16,13 @@
 },{
     "title": "art ent </br> Mobile app",
     "subtitle": "Bringing artists and students together",
-    "href": "../visualbear/art-ent",
-    "img": "../visualbear/images/work/thumbs/gallery_thumb_artent.jpg",
+    "href": "../art-ent",
+    "img": "../images/work/thumbs/gallery_thumb_artent.jpg",
     "content": {
         "title": "art ent app",
         "subtitle": "UX, UI & visual design",
-        "href": "../visualbear/art_ent",
-        "img": "../visualbear/images/work/thumbs/gallery_thumb_artent.jpg",
+        "href": "../art_ent",
+        "img": "../images/work/thumbs/gallery_thumb_artent.jpg",
         "description": "",
         "released": "August 20th 2017",
         "responsibilities": "UX, UI &amp; Visual Design",
@@ -31,13 +31,13 @@
 },{
     "title": "Steam Mobile </br> App redesign",
     "subtitle": "Redesigning the Steam Mobile client",
-    "href": "../visualbear/steam-mobile",
-    "img": "../visualbear/images/work/thumbs/gallery_thumb_steam.jpg",
+    "href": "../steam-mobile",
+    "img": "../images/work/thumbs/gallery_thumb_steam.jpg",
     "content": {
         "title": "Steam Mobile",
         "subtitle": "UX, UI & visual design",
-        "href": "../visualbear/steam-mobile",
-        "img": "../visualbear/images/work/thumbs/gallery_thumb_steam.jpg",
+        "href": "../steam-mobile",
+        "img": "../images/work/thumbs/gallery_thumb_steam.jpg",
         "description": "",
         "released": "August 20th 2017",
         "responsibilities": "UX, UI &amp; Visual Design",
@@ -46,6 +46,6 @@
 }, {
     "title": "visualbear </br> Portfolio",
     "subtitle": "Designing my own brand and site",
-    "href": "../visualbear/visualbear",
-    "img": "../visualbear/images/work/thumbs/gallery_thumb_visualbear.jpg"
+    "href": "../visualbear",
+    "img": "../images/work/thumbs/gallery_thumb_visualbear.jpg"
 }]

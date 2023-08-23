@@ -1,10 +1,10 @@
 name: about
 title: <ul>
         <li>Hej!</li>
-        <li><a href="./visualbear/about" alt="Title link about me">I'm Pedro Bj&ouml;rn</a>, a Digital Product Designer based in Sweden.</li>
+        <li><a href="../about" alt="Title link about me wewwe">I'm Pedro Bj&ouml;rn</a>, a Digital Product Designer based in Sweden.</li>
         &nbsp
         <li>
-          Feel free to <a href="/visualbear/#work" alt="Title link work">check out my work</a> 
-          or <a href="./visualbear/#contact" alt="Title link contact me"> get in touch</a>.
+          Feel free to <a href="../#work" alt="Title link work">check out my work</a> 
+          or <a href="../#contact" alt="Title link contact me"> get in touch</a>.
         </li>
       </ul>

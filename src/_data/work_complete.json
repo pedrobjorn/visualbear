@@ -1,61 +1,61 @@
 [{
-    "title": "Climate Clock </br> Visual Redesign",
-    "subtitle": "Revamping a critical counter",
-    "href": "../visualbear/climate-clock",
-    "img": "../visualbear/images/work/thumbs/gallery_thumb_climateclock.jpg",
-    "content": {
-        "title": "art ent app",
-        "subtitle": "UX, UI & visual design",
-        "href": "../visualbear/art_ent",
-        "img": "../visualbear/images/work/thumbs/gallery_thumb_climateclock.jpg",
-        "description": "",
-        "released": "August 20th 2017",
-        "responsibilities": "UX, UI &amp; Visual Design",
-        "tools": "Paper &amp; Pen, TextEdit, Illustrator, Photoshop"
-    }
-},{
+  "title": "Climate Clock </br> Visual Redesign",
+  "subtitle": "Revamping a critical counter",
+  "href": "../climate-clock",
+  "img": "../images/work/thumbs/gallery_thumb_climateclock.jpg",
+  "content": {
+    "title": "art ent app",
+    "subtitle": "UX, UI & visual design",
+    "href": "../art_ent",
+    "img": "../images/work/thumbs/gallery_thumb_climateclock.jpg",
+    "description": "",
+    "released": "August 20th 2017",
+    "responsibilities": "UX, UI &amp; Visual Design",
+    "tools": "Paper &amp; Pen, TextEdit, Illustrator, Photoshop"
+  }
+}, {
+  "title": "art ent",
+  "subtitle": "Brand, Product Design, front-end",
+  "href": "../art_ent",
+  "img": "../images/work/thumbs/gallery_thumb_artent.jpg",
+  "content": {
     "title": "art ent",
-    "subtitle": "Brand, Product Design, front-end",
-    "href": "../visualbear/art_ent",
-    "img": "../visualbear/images/work/thumbs/gallery_thumb_artent.jpg",
-    "content": {
-        "title": "art ent",
-        "subtitle": "Branding, Product Design, Front-end",
-        "href": "../visualbear/art_ent",
-        "img": "../visualbear/images/work/thumbs/gallery_thumb_artent.jpg",
-        "description": "Connecting artist to students.",
-        "released": "August 20th 2020",
-        "responsibilities": "UX, UI &amp; Visual Design",
-        "tools": "Paper &amp; Pen, TextEdit, Illustrator, Photoshop"
-    }
-},{
+    "subtitle": "Branding, Product Design, Front-end",
+    "href": "../art_ent",
+    "img": "../images/work/thumbs/gallery_thumb_artent.jpg",
+    "description": "Connecting artist to students.",
+    "released": "August 20th 2020",
+    "responsibilities": "UX, UI &amp; Visual Design",
+    "tools": "Paper &amp; Pen, TextEdit, Illustrator, Photoshop"
+  }
+}, {
+  "title": "Steam Mobile",
+  "subtitle": "UX, UI & visual design",
+  "href": "../steam-mobile",
+  "img": "../images/work/thumbs/gallery_thumb_steam.jpg",
+  "content": {
     "title": "Steam Mobile",
     "subtitle": "UX, UI & visual design",
-    "href": "../visualbear/steam-mobile",
-    "img": "../visualbear/images/work/thumbs/gallery_thumb_steam.jpg",
-    "content": {
-        "title": "Steam Mobile",
-        "subtitle": "UX, UI & visual design",
-        "href": "../visualbear/steam-mobile",
-        "img": "../visualbear/images/work/thumbs/gallery_thumb_steam.jpg",
-        "description": "Redesigning the biggest mobile game client in the world.",
-        "released": "August 20th 2017",
-        "responsibilities": "UX, UI &amp; Visual Design",
-        "tools": "Paper &amp; Pen, TextEdit, Illustrator, Photoshop"
-    }
+    "href": "../steam-mobile",
+    "img": "../images/work/thumbs/gallery_thumb_steam.jpg",
+    "description": "Redesigning the biggest mobile game client in the world.",
+    "released": "August 20th 2017",
+    "responsibilities": "UX, UI &amp; Visual Design",
+    "tools": "Paper &amp; Pen, TextEdit, Illustrator, Photoshop"
+  }
 }, {
-    "title": "visualbear",
-    "subtitle": "Brand, UI & front-end design",
-    "href": "../visualbear/visualbear",
-    "img": "../visualbear/images/work/thumbs/gallery_thumb_visualbear.jpg"
+  "title": "visualbear",
+  "subtitle": "Brand, UI & front-end design",
+  "href": "../visualbear",
+  "img": "../images/work/thumbs/gallery_thumb_visualbear.jpg"
 }, {
-    "title": "Projecto Lynx",
-    "subtitle": "Brand design",
-    "href": "../visualbear/projecto-lynx",
-    "img": "../visualbear/images/work/thumbs/gallery_thumb_lynx.jpg"
+  "title": "Projecto Lynx",
+  "subtitle": "Brand design",
+  "href": "../projecto-lynx",
+  "img": "../images/work/thumbs/gallery_thumb_lynx.jpg"
 }, {
-    "title": "Ad Hops",
-    "subtitle": "Brand design",
-    "href": "../visualbear/adhops",
-    "img": "../visualbear/images/work/thumbs/gallery_thumb_adhop.jpg"
+  "title": "Ad Hops",
+  "subtitle": "Brand design",
+  "href": "../adhops",
+  "img": "../images/work/thumbs/gallery_thumb_adhop.jpg"
 }]
