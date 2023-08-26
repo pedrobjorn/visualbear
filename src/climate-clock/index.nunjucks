@@ -19,7 +19,7 @@
                     <h2 class="center-justified">Overview</h2>
                     <div class="paragraph-container">
                         <p>
-                            This project's key purpose was to pick up an existing property and give it a a bold redesign. For this case, the <a href="https://climateclock.world/" alt="Climate Clock link" target="_blank" >Climate Clock</a> was a perfect candidate, being a great cause and having a lot of potential.
+                            The goal was to pick an existing property and give it a a bold redesign. For this case, the <a href="https://climateclock.world/" alt="Climate Clock link" target="_blank" >Climate Clock</a> was a perfect candidate, being a great cause and having a lot of potential.
                         </p>
                     <div class="gallery-image--medium">
                         <a href="../images/work/fullsize/climateclock/screens/cc_original.jpg" alt="Value Proposition Photo">
@@ -28,8 +28,7 @@
                         <p class="image_text">The original page is a great first step with a lot of potential. I borrowed a lot from here and simply took it a step further.</p>
                     </div>
                         <p>
-                            Due to the tight scope and focus on the Visual Design, this presentation is mostly covers the final outcome of the redesign. If you want to see a more complete case studies instead, please check the <a href="../art-ent/" alt="art ent project link">art ent App project</a>, or <a href="../steam-mobile/" alt="Steam Mobile project">the Steam Mobile project</a>.
-
+                            Due to the tight scope and focus on the Visual Design, this presentation covers the final outcome of the redesign. If you want to see more complete case studies instead, please check the <a href="../art-ent/" alt="art ent project link">art ent App project</a>, or <a href="../steam-mobile/" alt="Steam Mobile project">the Steam Mobile project</a>.
                         </p>
                         <p><a href="https://www.rotato.xyz/buy?f=a" title="Rotato XYZ link" target="_blank"><i> Many the photos here were rendered using Rotato XYZ, a great mockup app.</i></a></p>
                     </div>
@@ -45,14 +44,14 @@
                     <div class="paragraph-container">
                         <h3 class="center-justified">Logomark</h3>
                         <p>
-                            Designed to connect with the visual identity, the core was centered around the circular nature of a clock, earth, and the letter C. Inspired by an existing logo Climate Clock logo concept, as well as by a <a href="https://www.amazon.com/Time-Timer-Optional-Ticking-Management/dp/B06XKV7C2W" alt="TTO Time Amazon link" target="_blank" >Sprint MOD Timer</a>, as well as a logo by <a href="http://www.logobook.com/logo/kino-studio/" alt="Kino Studio link" target="_blank" >Stefan Kanchev for Kino Studio</a> the two circles represent two C’s.
+                            Designed to connect with the visual identity, the core was centered around the circular nature of a clock, earth, and the letter C. Inspired by an existing logo Climate Clock logo concept, the <a href="https://www.amazon.com/Time-Timer-Optional-Ticking-Management/dp/B06XKV7C2W" alt="TTO Time Amazon link" target="_blank" >Sprint MOD Timer</a>, and a logo by <a href="http://www.logobook.com/logo/kino-studio/" alt="Kino Studio link" target="_blank" >Stefan Kanchev for Kino Studio</a>, the two circles represent two C’s.
                         </p>
                     </div>
                     <div class="gallery-image--medium">
                         <a href="../images/work/fullsize/climateclock/details/logo_icon-white.png" alt="Value Proposition Photo">
                             <img src="../images/work/fullsize/climateclock/details/logo_icon-white.png" title="Image"  width="100%" height="100%">
                         </a>
-                        <p class="image_text">   The outside representing the Deadline, and the inside for the Lifeline, the two circles can vary in completeness, allowing for a dynamic presentation of the logomark.</p>
+                        <p class="image_text">The outside representing the Deadline, and the inside for the Lifeline, the two circles can vary in completeness, allowing for a dynamic presentation of the logomark.</p>
                     </div>
                     <div class="paragraph-container">
                         <h3 class="center-justified">Logotype</h3>
@@ -94,7 +93,7 @@
                     <div class="paragraph-container">
                         <h3 class="center-justified">Main Page</h3>
                         <p>
-                            With one of the project goals of creating a splash and getting attention, the landing page hero was updated to emphasize the core purpose of the Climate Clock: <b>to make people aware that time us running out</b>.
+                            With the goal of creating a splash and getting attention, the landing page hero was updated to emphasize the core purpose of the Climate Clock: <b>to make people aware that time us running out</b>.
                         </p>
                         <h4 class="center-justified">Mobile</h4>
                         <p>
@@ -138,7 +137,7 @@
                                 Much like the mobile, the desktop also kicks-off with a large splash, adapted to a more horizontal layout.
                             </p>
                             <p>
-                                This is followed by subscription bar and climate data section, ending with the about section.
+                                This is followed by subscription bar and climate data section, ending with the About section.
                             </p>
                         </div>
                         <a href="../images/work/fullsize/climateclock/screens/desktop-index-full.jpg" alt="Value Proposition Photo">
@@ -169,7 +168,7 @@
                         <a href="../images/work/fullsize/climateclock/screens/mobile-index-FAB.jpg" alt="Value Proposition Photo">
                             <img src="../images/work/fullsize/climateclock/screens/mobile-index-FAB.jpg" title="Image"  width="100%" height="100%">
                         </a>
-                        <p class="image_text">The "Action FAB" always provides options to act, be it something simple like sharing, or more advanced like navigating to the Guide for Clock building.</p>
+                        <p class="image_text">The "Action FAB" always provides options to act, be it something simple like sharing, or more advanced like navigating to the guide for Clock building.</p>
                     </div>
                     <div class="gallery-image--full mobile-show">
                         <a href="../images/work/fullsize/climateclock/screens/mobile-display-action.jpg" alt="Value Proposition Photo">
@@ -192,7 +191,7 @@
                         <h2 class="center-justified">Display / App</h2>
                         <div class="paragraph-container">
                             <p>
-                                Another key design decision was to implement and address the "climate clock app". Turning it into a "Display" section, this works both as an App and a part of the site, both made to be presented, be it on projectors, or on a smart-watch.
+                                Another key design decision was to implement and address the "Climate Clock App". Turning it into a "Display" section, this works both as an App and a part of the site, both made to be presented, be it on projectors, or on a smart-watch.
                             </p>
                             <h4 class="center-justified">Mobile</h4>
                             <p>
@@ -311,12 +310,12 @@
                     <div class="paragraph-container--unpadded">
                         <h4>Talk to the stakeholders</h4>
                         <p>
-                            Even though this was a small scoped visual design project, I still got in touch with the team, who graciously provided me with design assets I used for reference. This was invaluable and helped a long way to legitimise the work I was doing.
+                            Even though this was a small scoped visual design project, I still got in touch with the team, who graciously provided me with design assets I used for reference. This was invaluable and helped a long way to legitimise the work.
                         </p>
                         
                         <h4>Always do an Audit</h4>          
                         <p>
-                            The focus may have been the visual design, however I still created a full UI and Content Audit. The main purpose for this was to ensure I was fully understanding what I was redesigning, and not just focusing on the surface.
+                            The focus may have been the visual design, however I still created a full UX, UI and Content Audit. The main purpose for this was to ensure I was fully understanding what I was redesigning, and not just focusing on the surface.
                         </p>
                         
                         <h4>Do visual research &amp; keep ideating</h4>
@@ -327,7 +326,7 @@
                
                     <h2 class="center-justified">Conclusion</h2>
                     <p>
-                        For this project, I want to emphasize on the visual design and art direction of a redesign. Less emphasis was given to the UX and Product perspective, since I really wanted to exercise my aesthetic muscle a bit.
+                        For this project, I wanted to emphasize on the visual design and art direction of a redesign. Less emphasis was given to the UX or Product perspective, since the focus of Climate Clock is to grab attnention and inform.
                     </p>
                     <p>
                         It was super gratifying and fun, and I learned a lot about prototyping, animation and visual design. I also shared everything with the Climate Clock team, and will be available to assist them if they with to use any of the work.
