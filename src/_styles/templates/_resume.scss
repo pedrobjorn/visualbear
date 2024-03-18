@@ -7,6 +7,10 @@ hr {
     padding: 0;
 }
 
+.right-title{
+    text-align: right;
+}
+
 @media (min-width: $break-huge) {
     #resume_container {
         color: $vb-grey;
@@ -39,11 +43,13 @@ hr {
 
             ul {
                 li.micro-text {
+                    padding-top: 16px;
                     font-style: italic;
                     color: $vb-light-grey;
                 }
             }
         }
+
 
         img {
             max-width: 512px;
@@ -97,6 +103,7 @@ hr {
 
             ul {
                 li.micro-text {
+                    padding-top: 16px;
                     font-style: italic;
                     color: $vb-light-grey;
                 }
@@ -155,6 +162,7 @@ hr {
 
             ul {
                 li.micro-text {
+                    padding-top: 8px;
                     font-style: italic;
                     color: $vb-light-grey;
                 }
@@ -221,6 +229,7 @@ hr {
                 }
 
                 li.micro-text {
+                    padding-top: 8px;
                     font-style: italic;
                     color: $vb-light-grey;
                 }
@@ -289,7 +298,7 @@ hr {
 
         .small-title {
             word-break: break-all;
-
+            
             ul {
                 margin: 0;
 
@@ -298,6 +307,7 @@ hr {
                 }
 
                 li.micro-text {
+                    padding-top: 8px;
                     font-style: italic;
                     color: $vb-light-grey;
                 }
@@ -363,6 +373,7 @@ hr {
                 }
 
                 li.micro-text {
+                    padding-top: 8px;
                     font-style: italic;
                     color: $vb-light-grey;
                 }
@@ -430,6 +441,7 @@ hr {
                 }
 
                 li.micro-text {
+                    padding-top: 8px;
                     font-style: italic;
                     color: $vb-light-grey;
                 }

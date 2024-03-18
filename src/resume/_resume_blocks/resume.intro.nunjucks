@@ -6,15 +6,12 @@
   {# Correct base url pathing for this page #}
   {% set baseUrl = '../' %}
 {% endblock %}
-<div class="col-md-12">
+<div class="col m12">
   <p>
-    As a committed and driven <b>Senior Product Designer</b>, I focus on UX, UI, and Visual Design, but I’m also experienced in User Research, Design Operations, Agile Methdologies and Front-end Development.
+    As a committed and driven Senior Product Designer, I focus on UX, UI, and Visual Design, but I’m also experienced in User Research, Design Operations, Agile Methodologies and Front-end Development. Fast learning and attentive, I cherish feedback in order to grow and produce the best possible value for customers and businesses alike.
   </p>
   <p>
-      Fast learning and attentive, I cherish feedback in order to grow and produce better work.
-  </p>
-  <p>
-    I grew up Portugal and moved to Sweden in 2010 to explore my other home, and to find new opportunities. I’m interested in art, cinema, tabletop gaming and tech, and I’m always eager to take on new challenges.
+    I grew up in Portugal and moved to Sweden in 2010 to explore my other home, and to find new challenges. I’m interested in art, cinema, tech, and I’m always eager to take on new hobbies, while working on personal projects in graphic design or table-top games.
   </p>
 </div>
 {% endmacro %}

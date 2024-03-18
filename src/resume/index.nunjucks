@@ -19,40 +19,25 @@
       <div class="row">
         {{title.content()}}
       </div>
-      <hr/>
       <!--Introduction Row-->
       <div class="row">
         {{intro.content()}}
       </div>
-      <hr/>
       <!--Skills Rows-->
       <div class="row">
         {{skills.content()}}
       </div>
-      <hr/>
       <!--Experience Rows-->
       <div class="row">
         {{experience.content()}}
       </div>
-      <hr/>
       <!--Education Row-->
       <div class="row">
         {{education.content()}}
       </div>
-      <hr/>
-      <!--Interests Row-->
-      <div class="row">
-        {{interests.content()}}
-      </div>
-      <hr/>
       <!--Languages Row-->
       <div class="row">
         {{languages.content()}}
-      </div>
-      <hr/>
-      <!--Drivers License Row-->
-      <div class="row">
-        {{end.content()}}
       </div>
       
     </article>

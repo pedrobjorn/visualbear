@@ -6,34 +6,17 @@
   {# Correct base url pathing for this page #}
   {% set baseUrl = '../' %}
 {% endblock %}
-<div class="page-header row">
-  
-<h1 class="col s6">Resume</h1>
-<!-- <div class="col s6">
-  <button type="button" class="btn" > Download Resume </button>
-</div> -->
-</div>
-<div class="col m4 s12 small-title">
+<div class="col m6 small-title">
   <ul>
-    <li class="micro-text">
-      Name
-    </li>
-    <li class="sub-text">
-      Pedro Björn
-    </li>
-  </ul>
-</div>
-<div class="col m4 s12 small-title">
-  <ul>
-    <li class="micro-text">
-      Focus
+    <li>
+      <h2>Pedro Björn</h2>
     </li>
     <li class="sub-text">
       Senior Product Designer
     </li>
   </ul>
 </div>
-<div class="col m4 s12 small-title">
+<div class="col m6 small-title right-title">
   <ul>
     <li class="micro-text">
       Email
