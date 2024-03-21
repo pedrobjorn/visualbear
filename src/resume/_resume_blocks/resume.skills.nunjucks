@@ -8,7 +8,7 @@
 {% endblock %}
 
 <div class="row col m6">
-  <div class="sub-title">Core Skills</div>
+  <h3 class="sub-title">Core Skills</h3>
     <ul>
       <li>
         Product Design
@@ -31,7 +31,7 @@
     </ul>
 </div>
 <div class="row col m6">
-  <div class="sub-title">Technical Skills</div>
+  <h3 class="sub-title">Technical Skills</h3>
     <ul>
       <li>
         Design Tools <span class="side-text">e.g. Figma, Sketch, Balsamiq</span>

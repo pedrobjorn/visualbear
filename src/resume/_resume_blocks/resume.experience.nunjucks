@@ -6,40 +6,30 @@
   {# Correct base url pathing for this page #}
   {% set baseUrl = '../' %}
 {% endblock %}
-<!--Experience Row Sportamore-->
-<div class="row">
-  <div class="col m4 sub-title">Experience</div>
-</div>
 <!--Experience Row HM Product Designer-->
 <div class="row">
-  <h2>
-    <div class="col m8 s12">
-      <h3><a href="https://www2.hm.com/sv_se/index.html" target="_blank">H &amp; M Hennes &amp; Mauritz AB</a> - Senior Product Designer</h3>
-      <h4 class="sub-title">2021 - 01</h4>
-    </div>
-  </h2>
+  <div class="col m8 s12">
+      <h3>Senior Product Designer - <a href="https://www2.hm.com/sv_se/index.html" target="_blank">H &amp; M Hennes &amp; Mauritz AB</a></h3>
+  </div>
+  <div class="col m4 s12">
+      <h3 class="right-title">2021 / 01 - Current</h3>
+  </div>
   <div class="row">
     <p class="col m12">
-      At H&amp;M I held a range of responsibilities, from working as a Product Designer on features centred around style and customer activation, doing the end-to-end design process, to leading the UX revamp of the global Web Experience. I was also deeply involved in numerous design process initiatives, from co-leading the Accessibility Group to supporting the Design System team.
+      At H&amp;M I’ve held a range of responsibilities, from working on features centred around fashion style and customer activation, guiding the end-to-end design process, to leading the UX revamp of the global Web Experience. I was also deeply involved in numerous design process initiatives from the Accessibility and AIxDesign groups, to supporting the Design System and Design Ops teams.
     </p>
   </div>
   <div class="row col m12">
     <h4 class="sub-title">Key Responsibilities</h4>
     <ul>
       <li>
-        - Product Design
+      Product Design
       </li>
       <li>
-        - UX design
+      User Research
       </li>
       <li>
-        - UI design
-      </li>
-      <li>
-        - User Research
-      </li>
-      <li>
-        - Design Operations
+      Design Operations
       </li>
     </ul>
   </div>
@@ -47,23 +37,23 @@
     <h4 class="sub-title">Key Achievements</h4>
     <ul>
       <li>
-        - Lead the global UX revamp of the web experience, aligning dozens of teams around Web & Desktop redesigns, providing communication, coordinating usability studies and implementation.
+      Lead the global UX revamp of the web experience, aligning dozens of teams around Web & Desktop redesigns, providing communication, coordinating usability studies and implementation.
       </li>
       <li>
-        - Lead the ideation-to-prototype at a company record speed, with a time to market under 6 months.
+      Lead the ideation-to-prototype at a company record speed, with a time to market under 6 months.
       </li>
       <li>
-        - Revamped and improved the Digital Stylist project, reaching 200% more activations.
+      Revamped and improved the Digital Stylist project, reaching 200% more activations.
       </li>
     </ul>
   </div>
 </div>
 <div class="row">
-  <div class="row">
     <div class="col m8 s12">
-      <h3><a href="http://www.sportamore.se" target="_blank">Sportamore AB</a> - Product Designer</h3>
-      <h4 class="sub-title">2018 - 01</h4>
+      <h3>Product Designer - <a href="http://www.sportamore.se" target="_blank">Sportamore AB</a></h3>
     </div>
+  <div class="col m4 s12">
+      <h3 class="right-title">2018 / 01</h3>
   </div>
   <div class="row">
     <p class="col m12">
@@ -74,16 +64,16 @@
     <h4 class="sub-title">Key Responsibilities</h4>
     <ul>
       <li>
-        - Product Design
+       Product Design
       </li>
       <li>
-        - UI design
+       UI design
       </li>
       <li>
-        - UX design
+       UX design
       </li>
       <li>
-        - Visual Design
+       Visual Design
       </li>
     </ul>
   </div>
@@ -91,25 +81,27 @@
     <h4 class="sub-title">Key Achievements</h4>
     <ul>
       <li>
-        - Redesigning the e-commerce experience at Sportamore through UX, UI and Visual Design.
+       Redesigning the e-commerce experience at Sportamore through UX, UI and Visual Design.
       </li>
       <li>
-        - Established and implemented the Design System, Token System and Pattern Library.
+       Established and implemented the Design System, Token System and Pattern Library.
       </li>
       <li>
-        - Introduced and established user research and data analysis into the design processes.
+       Introduced and established user research and data analysis into the design processes.
       </li>
     </ul>
   </div>
 </div>
 <!--Experience Row Granditude-->
 <div class="row">
-  <div class="row">
-    <div class="col m8 s12">
-      <h3><a href="http://www.granditude.com" target="_blank">Granditude AB</a> - Product Designer</h3>
-      <h4 class="sub-title">2014 - 09</h4>
-    </div>
+
+  <div class="col m8 s12">
+    <h3>Product Designer - <a href="http://www.granditude.com" target="_blank">Granditude AB</a></h3>
   </div>
+  <div class="col m4 s12">
+    <h3 class="right-title">2014 / 09</h3>
+  </div>
+
   <div class="row">
     <p class="col m12">
       Initially tasked with the development of a prototype for the companies data analytics cloud solu- tion, I also ended up handling the brand identity, user experience, marketing, and worked as a UX / front-end design consultant for some clients as well.
@@ -119,16 +111,16 @@
     <h4 class="sub-title">Key Responsibilities</h4>
     <ul>
       <li>
-        - Product Design
+       Product Design
       </li>
       <li>
-        - UI design
+       UI design
       </li>
       <li>
-        - UX design
+       UX design
       </li>
       <li>
-        - Front-end Development
+       Front-end Development
       </li>
     </ul>
   </div>
@@ -136,28 +128,29 @@
     <h4 class="sub-title">Key Achievements</h4>
     <ul>
       <li>
-        - Designed, developed and managed the development of the data app.
+       Designed, developed and managed the development of the data app.
       </li>
       <li>
-        - Designed and developed the web-site and marketing.
+       Designed and developed the web-site and marketing.
       </li>
       <li>
-        - Refined the brand identity.
+       Refined the brand identity.
       </li>
       <li>
-        - Worked as a UI and front-end design consultant.
+       Worked as a UI and front-end design consultant.
       </li>
     </ul>
   </div>
 </div>
 <!--Experience Row Plotagon-->
 <div class="row">
-  <div class="row">
-    <div class="col m12">
-      <h3><a href="http://www.plotagon.com" target="_blank">Plotagon AB</a> - Junior Technical Artist</h3>
-      <h4 class="sub-title">2013 - 01</h4>
+    <div class="col m8 s12">
+      <h3>Junior Technical Artist - <a href="http://www.plotagon.com" target="_blank">Plotagon AB</a></h3>
     </div>
-  </div>
+    <div class="col m4 s12">
+      <h3 class="right-title">2013 / 01</h3>
+    </div>
+
   <div class="row">
     <p class="col m12">
       After a 6 month internship, I was hired as a Junior Unity Developer, and worked with the implementation of art assets into the <a href="https://unity3d.com" target="_blank">Unity engine</a>, and ensured the content was consistent.
@@ -167,16 +160,16 @@
     <h4 class="sub-title">Key Responsibilities</h4>
     <ul>
       <li>
-        - Content Quality Inspector
+       Content Quality Inspector
       </li>
       <li>
-        - Unity Scene Lighting
+       Unity Scene Lighting
       </li>
       <li>
-        - Unity Environment Art
+       Unity Environment Art
       </li>
       <li>
-        - Developing Unity Tools
+       Developing Unity Tools
       </li>
     </ul>
   </div>
@@ -184,16 +177,16 @@
     <h4 class="sub-title">Key Achievements</h4>
     <ul>
       <li>
-        - Constructed environments out of provided assets.
+       Constructed environments out of provided assets.
       </li>
       <li>
-        - Tested the app for bugs and maintained quality.
+       Tested the app for bugs and maintained quality.
       </li>
       <li>
-        - Provided tools that facilitated the artists' workflow.
+       Provided tools that facilitated the artists' workflow.
       </li>
       <li>
-        - Coordinated between the artists and developers.
+       Coordinated between the artists and developers.
       </li>
     </ul>
   </div>

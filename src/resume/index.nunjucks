@@ -39,7 +39,10 @@
       <div class="row">
         {{languages.content()}}
       </div>
-      
+      <!--Download Resume Row-->
+      <div class="row">
+        {{end.content()}}
+      </div>
     </article>
   </section>
   

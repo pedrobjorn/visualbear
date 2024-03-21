@@ -7,11 +7,11 @@ hr {
     padding: 0;
 }
 
-.right-title{
-    text-align: right;
-}
-
 @media (min-width: $break-huge) {
+    .right-title{
+        text-align: right;
+    }
+
     #resume_container {
         color: $vb-grey;
         background-color: #ebf5ff;
@@ -30,7 +30,6 @@ hr {
 
         .sub-title {
             padding: 8px 0;
-            color: $vb-light-grey;
         }
 
         .side-text {
@@ -72,6 +71,11 @@ hr {
 }
 
 @media (max-width: $break-huge) and (min-width: $break-large) {
+
+    .right-title{
+        text-align: right;
+    }
+
     #resume_container {
         color: $vb-grey;
         background-color: #ebf5ff;
@@ -90,7 +94,6 @@ hr {
 
         .sub-title {
             padding: 8px 0;
-            color: $vb-light-grey;
         }
 
         .side-text {
@@ -131,6 +134,10 @@ hr {
 }
 
 @media (max-width: $break-large) and (min-width: $break-big) {
+    .right-title{
+        text-align: right;
+    }
+
     #resume_container {
         color: $vb-grey;
         background-color: #ebf5ff;
@@ -149,7 +156,6 @@ hr {
 
         .sub-title {
             padding: 8px 0;
-            color: $vb-light-grey;
         }
 
         .side-text {
@@ -191,6 +197,10 @@ hr {
 
 //991px< & >767px
 @media (max-width: $break-big) and (min-width: $break-medium) {
+    .right-title{
+        text-align: right;
+    }
+
     #resume_container {
         color: $vb-grey;
         background-color: #ebf5ff;
@@ -210,7 +220,6 @@ hr {
 
         .sub-title {
             padding: 8px 0;
-            color: $vb-light-grey;
         }
 
         .side-text {
@@ -258,6 +267,7 @@ hr {
 
 //767px< & >480px
 @media (max-width: $break-medium) and (min-width: $break-small) {
+
     #resume_container {
         .text-container {
             padding-top: 16px;
@@ -288,7 +298,6 @@ hr {
 
         .sub-title {
             padding: 8px 0;
-            color: $vb-light-grey;
         }
 
         .side-text {
@@ -356,7 +365,6 @@ hr {
 
         .sub-title {
             padding: 4px 0;
-            color: $vb-light-grey;
         }
 
         .side-text {
@@ -424,7 +432,6 @@ hr {
 
         .sub-title {
             padding: 4px 0;
-            color: $vb-light-grey;
         }
 
         .side-text {
@@ -433,8 +440,6 @@ hr {
         }
 
         .small-title {
-            text-align: right;
-
             ul {
                 li.sub-text {
                     padding-bottom: 16px;
