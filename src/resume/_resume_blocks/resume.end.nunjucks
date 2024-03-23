@@ -7,9 +7,12 @@
   {% set baseUrl = '../' %}
 {% endblock %}
 <!--Download-->
+<div class="col m12 small-title">
 <ul>
   <li>
     <a href="../images/work/resume/Resume-Pedro-Bjorn.pdf" download="Resume-Pedro-Bjorn">Download Resume</a>
   </li>
 </ul>
+</div>
+
 {% endmacro %}

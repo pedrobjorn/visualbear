@@ -7,10 +7,9 @@
   {% set baseUrl = '../' %}
 {% endblock %}
 
-<div class="row">
-  <div class="col m4 sub-title">Education</div>
-</div>
+
 <div class="col m12">
+  <div class="sub-title">Education</div>
   <ul>
     <li>
       <b>2011 - Professional Degree in Game Design</b> - <a href="http://www.futuregames.se/" target="_blank">Future Games</a>, <span class="side-text">Sweden</span>

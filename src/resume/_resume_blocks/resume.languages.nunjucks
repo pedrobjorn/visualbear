@@ -7,22 +7,20 @@
   {% set baseUrl = '../' %}
 {% endblock %}
 
-<div class="row">
-  <div class="col m4 sub-title">Languages </div>
-</div>
 <div class="col m12">
+  <div class="sub-title">Languages </div>
   <ul>
     <li>
-      English <span class="side-text">Fluent</span>
+      <b>English</b> <span class="side-text">Fluent</span>
     </li>
     <li>
-      Portuguese <span class="side-text">Fluent</span>
+      <b>Portuguese</b> <span class="side-text">Fluent</span>
     </li>
     <li>
-      Swedish <span class="side-text">Proficient</span>
+      <b>Swedish</b> <span class="side-text">Proficient</span>
     </li>
     <li>
-      Spanish <span class="side-text">Minimum</span>
+      <b>Spanish</b> <span class="side-text">Minimum</span>
     </li>
   </ul>
 </div>
