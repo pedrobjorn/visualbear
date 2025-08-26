@@ -8,10 +8,7 @@
 {% endblock %}
 <div class="col m12">
   <p>
-    As a committed and driven Senior Product Designer, I focus on UX, UI, and Visual Design, but I’m also experienced in User Research, Design Operations, Agile Methodologies and Front-end Development. Fast learning and attentive, I cherish feedback in order to grow and produce the best possible value for customers and businesses alike.
-  </p>
-  <p>
-    I grew up in Portugal and moved to Sweden in 2010 to explore my other home, and to find new challenges. I’m interested in art, cinema, tech, and I’m always eager to take on new hobbies, while working on personal projects in graphic design or table-top games.
+    A Design Lead with 10+ years of experience in product design in software as a service and ecommerce. I am passionate about building human-centered experiences and leading cross-functional teams to learn fast and build impact.
   </p>
 </div>
 {% endmacro %}

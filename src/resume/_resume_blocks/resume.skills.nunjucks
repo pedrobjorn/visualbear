@@ -8,50 +8,72 @@
 {% endblock %}
 
 <div class="row col m6">
-  <h3 class="sub-title">Core Skills</h3>
+  <h3 class="sub-title">Design Leadership</h3>
     <ul>
       <li>
-        Product Design
+        Design Strategy
       </li>
       <li>
-        UI <span class="side-text">i.e. User Interface Design</span>
+        Cross-functional collaboration
       </li>
       <li>
-        UX <span class="side-text">i.e. User Experience Design</span>
+        Design ops
       </li>
       <li>
-        Facilitation &amp; Collaboration
-      </li>
-      <li>
-        Product Management
-      </li>
-      <li>
-        Visual Design
+        Mentorship
       </li>
     </ul>
 </div>
 <div class="row col m6">
-  <h3 class="sub-title">Technical Skills</h3>
+  <h3 class="sub-title">AI & Learning Design</h3>
     <ul>
       <li>
-        Design Tools <span class="side-text">e.g. Figma, Sketch, Balsamiq</span>
+        AI-first workflows
       </li>
       <li>
-        Prototyping <span class="side-text">e.g Figma, Front-end, Framer</span>
+        Ethical AI
       </li>
       <li>
-        Project Management <span class="side-text">e.g. Confluence, Jira</span>
+        Learning Experience Design
       </li>
       <li>
-        Collaboration <span class="side-text">e.g. Miro, Mural, FigJam </span>
-      </li>
-       <li>
-         Adobe Suite <span class="side-text">e.g. Miro, Mural, FigJam</span>
-      </li>
-      <li>
-        Front-end <span class="side-text">e.g. HTML, CSS, JavaScript</span>
+        Prototyping (Figma, Cursor)
       </li>
     </ul>
 </div>
-
+<div class="row col m6">
+  <h3 class="sub-title">Product Design</h3>
+    <ul>
+      <li>
+        UX/UI
+      </li>
+      <li>
+        Design Systems
+      </li>
+      <li>
+        User Research
+      </li>
+      <li>
+        Accessibility
+      </li>
+    </ul>
+</div>
+<div class="row col m6">
+  <h3 class="sub-title">Technical</h3>
+    <ul>
+      <li>
+        Figma
+      </li>
+      <li>
+        Adobe Suite
+      </li>
+      <li>
+        HTML, CSS, Javascript
+      </li>
+      <li>
+        Jira, Miro
+      </li>
+    </ul>
+  </div>
+  
 {% endmacro %}

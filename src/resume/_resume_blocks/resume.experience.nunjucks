@@ -6,17 +6,63 @@
   {# Correct base url pathing for this page #}
   {% set baseUrl = '../' %}
 {% endblock %}
+<!--Experience Row Quizrr Design Lead-->
+<div class="row">
+  <div class="col m8 s12">
+    <h3>Design Lead - <a href="https://www.quizrr.se/" target="_blank">Quizrr AB</a></h3>
+  </div>
+  <div class="col m4 s12">
+    <h3 class="right-title">2024 / 09 - Current</h3>
+  </div>
+  <div class="row">
+    <p class="col m12">
+      At Quizrr I've been leading the Design strategy, culture and ways of working, leading two designers and three teams in reshaping our worker training ecosystem, consisting of a Dashboard and eLearning software as a service. An emphasis on leading workflows using AI to do more with less, as well as incorporating AI into our ecosystem, such as translations and beyond.
+    </p>
+  </div>
+  <div class="row">
+    <div class="col m12">
+      <h4 class="sub-title">Key Responsibilities</h4>
+      <ul>
+        <li>
+          Design Leadership
+        </li>
+        <li>
+          Design Strategy
+        </li>
+        <li>
+          Design Operations
+        </li>
+        <li>
+          AI Best practices and workflows
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col m12">
+      <h4 class="sub-title">Key Achievements</h4>
+      <ul>
+        <li>
+          Drove discovery for a new eLearning experience leading to a Proof of Concept within two months, testing with users, defining the direction of our products.
+        </li>
+        <li>
+          Accelerated our delivery by almost 50% by establishing design delivery standards and workflows, as well as reviews for increased quality.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 <!--Experience Row HM Product Designer-->
 <div class="row">
   <div class="col m8 s12">
     <h3>Senior Product Designer - <a href="https://www2.hm.com/sv_se/index.html" target="_blank">H &amp; M Hennes &amp; Mauritz AB</a></h3>
   </div>
   <div class="col m4 s12">
-    <h3 class="right-title">2021 / 01 - Current</h3>
+    <h3 class="right-title">2021 / 01 - 2024 / 09</h3>
   </div>
   <div class="row">
     <p class="col m12">
-      At H&amp;M I’ve held a range of responsibilities, from working on features centred around fashion style and customer activation, guiding the end-to-end design process, to leading the UX revamp of the global Web Experience. I was also deeply involved in numerous design process initiatives from the Accessibility and AIxDesign groups, to supporting the Design System and Design Ops teams.
+      At H&amp;M I've held a range of responsibilities, from working on features centred around fashion style and customer activation, guiding the end-to-end design process, to leading the UX revamp of the global Web Experience. I was also deeply involved in numerous design process initiatives from the Accessibility and AIxDesign groups, to supporting the Design System and Design Ops teams.
     </p>
   </div>
   <div class="row">
@@ -40,7 +86,10 @@
       <h4 class="sub-title">Key Achievements</h4>
       <ul>
         <li>
-          Lead the global UX revamp of the web experience, aligning dozens of teams around Web & Desktop redesigns, providing communication, coordinating usability studies and implementation.
+          Lead the global UX revamp of the web experience, aligning dozens of teams around Web & Desktop redesigns, providing coordination of usability studies and implementation, leading to an increase of 27% in sessions and a drop of 11% in single-page sessions on the index page.
+        </li>
+        <li>
+          Co-founding the Design AI Circle and driving AI usage in design processes such as research summaries.
         </li>
         <li>
           Lead the ideation-to-prototype at a company record speed, with a time to market under 6 months.
@@ -72,13 +121,13 @@
           Product Design
         </li>
         <li>
-          UI design
-        </li>
-        <li>
           UX design
         </li>
         <li>
-          Visual Design
+          UI design
+        </li>
+        <li>
+          Design System
         </li>
       </ul>
     </div>
@@ -110,7 +159,7 @@
   </div>
   <div class="row">
     <p class="col m12">
-      Initially tasked with the development of a prototype for the companies data analytics cloud solu- tion, I also ended up handling the brand identity, user experience, marketing, and worked as a UX / front-end design consultant for some clients as well.
+      Initially tasked with the development of a prototype for the company's data analytics cloud solution, I also ended up handling the brand identity, user experience, marketing, and worked as a UX / front-end design consultant for some clients as well.
     </p>
   </div>
   <div class="row">
@@ -121,13 +170,13 @@
           Product Design
         </li>
         <li>
-          UI design
-        </li>
-        <li>
-          UX design
-        </li>
-        <li>
           Front-end Development
+        </li>
+        <li>
+          Branding
+        </li>
+        <li>
+          Visual Identity
         </li>
       </ul>
     </div>

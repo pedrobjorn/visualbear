@@ -1,4 +1,28 @@
 [{
+    "title": "Rebranding a global Fashion </br> brand digital experience",
+    "subtitle": "Leading the Web UX global rebrand",
+    "href": "../case-studies/Redesigning Fashion eCommerce.pdf",
+    "target": "_blank",
+    "img": "../images/work/thumbs/gallery_thumb_artent.jpg"
+}, {
+    "title": "A new digital closet for </br> the future of fashion",
+    "subtitle": "Designing a new digital closer feature for a fashion brand",
+    "href": "../case-studies/My Closet Digital Closet.pdf",
+    "target": "_blank",
+    "img": "../images/work/thumbs/gallery_thumb_steam_mobile.jpg"
+}, {
+    "title": "Improving an eCommerce </br> coupon experience",
+    "subtitle": "Redesigning coupons to improve everyone's experience",
+    "href": "../case-studies/Redesigning ecommerce coupon experience.pdf",
+    "target": "_blank",
+    "img": "../images/work/thumbs/gallery_thumb_steam.jpg"
+}, {
+    "title": "Redesigning eCommerce",
+    "subtitle": "A visual revamp to energize a sports eCommerce experience",
+    "href": "../case-studies/Redesigning Sports Ecommerce.pdf",
+    "target": "_blank",
+    "img": "../images/work/thumbs/gallery_thumb_granditude.jpg"
+}, {
     "title": "Climate Clock </br> Visual Redesign",
     "subtitle": "Revamping a critical counter",
     "href": "../climate-clock",
