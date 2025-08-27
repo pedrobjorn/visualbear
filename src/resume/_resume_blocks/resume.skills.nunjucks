@@ -7,8 +7,9 @@
   {% set baseUrl = '../' %}
 {% endblock %}
 
-<div class="row col m6">
-  <h3 class="sub-title">Design Leadership</h3>
+<div class="row">
+  <div class="col m4 s12">
+    <h3 class="sub-title">Design Leadership</h3>
     <ul>
       <li>
         Design Strategy
@@ -23,26 +24,9 @@
         Mentorship
       </li>
     </ul>
-</div>
-<div class="row col m6">
-  <h3 class="sub-title">AI & Learning Design</h3>
-    <ul>
-      <li>
-        AI-first workflows
-      </li>
-      <li>
-        Ethical AI
-      </li>
-      <li>
-        Learning Experience Design
-      </li>
-      <li>
-        Prototyping (Figma, Cursor)
-      </li>
-    </ul>
-</div>
-<div class="row col m6">
-  <h3 class="sub-title">Product Design</h3>
+  </div>
+  <div class="col m4 s12">
+    <h3 class="sub-title">Product Design</h3>
     <ul>
       <li>
         UX/UI
@@ -57,9 +41,9 @@
         Accessibility
       </li>
     </ul>
-</div>
-<div class="row col m6">
-  <h3 class="sub-title">Technical</h3>
+  </div>
+  <div class="col m4 s12">
+    <h3 class="sub-title">Technical Skills</h3>
     <ul>
       <li>
         Figma
@@ -75,5 +59,6 @@
       </li>
     </ul>
   </div>
+</div>
   
 {% endmacro %}

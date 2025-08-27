@@ -41,14 +41,11 @@
   <div class="row">
     <div class="col m12">
       <h4 class="sub-title">Key Achievements</h4>
-      <ul>
-        <li>
-          Drove discovery for a new eLearning experience leading to a Proof of Concept within two months, testing with users, defining the direction of our products.
-        </li>
-        <li>
-          Accelerated our delivery by almost 50% by establishing design delivery standards and workflows, as well as reviews for increased quality.
-        </li>
-      </ul>
+      <p>• Drove discovery for a new eLearning experience leading to a Proof of Concept within two months, testing with users, defining the direction of our products.</p>
+      <p>• Accelerated our delivery by almost 50% by establishing design delivery standards and workflows, as well as reviews for increased quality.</p>
+      <p>• Established AI-first workflows and ethical AI practices across design processes.</p>
+      <p>• Implemented Learning Experience Design principles to enhance user engagement and knowledge retention.</p>
+      <p>• Advanced prototyping capabilities using Figma and Cursor for rapid iteration and testing.</p>
     </div>
   </div>
 </div>
@@ -84,20 +81,10 @@
   <div class="row">
     <div class="col m12">
       <h4 class="sub-title">Key Achievements</h4>
-      <ul>
-        <li>
-          Lead the global UX revamp of the web experience, aligning dozens of teams around Web & Desktop redesigns, providing coordination of usability studies and implementation, leading to an increase of 27% in sessions and a drop of 11% in single-page sessions on the index page.
-        </li>
-        <li>
-          Co-founding the Design AI Circle and driving AI usage in design processes such as research summaries.
-        </li>
-        <li>
-          Lead the ideation-to-prototype at a company record speed, with a time to market under 6 months.
-        </li>
-        <li>
-          Revamped and improved the Digital Stylist project, reaching 200% more activations.
-        </li>
-      </ul>
+      <p>• Lead the global UX revamp of the web experience, aligning dozens of teams around Web & Desktop redesigns, providing coordination of usability studies and implementation, leading to an increase of 27% in sessions and a drop of 11% in single-page sessions on the index page.</p>
+      <p>• Co-founding the Design AI Circle and driving AI usage in design processes such as research summaries.</p>
+      <p>• Lead the ideation-to-prototype at a company record speed, with a time to market under 6 months.</p>
+      <p>• Revamped and improved the Digital Stylist project, reaching 200% more activations.</p>
     </div>
   </div>
 </div>
@@ -135,17 +122,9 @@
   <div class="row">
     <div class="col m12">
       <h4 class="sub-title">Key Achievements</h4>
-      <ul>
-        <li>
-          Redesigning the e-commerce experience at Sportamore through UX, UI and Visual Design.
-        </li>
-        <li>
-          Established and implemented the Design System, Token System and Pattern Library.
-        </li>
-        <li>
-          Introduced and established user research and data analysis into the design processes.
-        </li>
-      </ul>
+      <p>• Redesigning the e-commerce experience at Sportamore through UX, UI and Visual Design.</p>
+      <p>• Established and implemented the Design System, Token System and Pattern Library.</p>
+      <p>• Introduced and established user research and data analysis into the design processes.</p>
     </div>
   </div>
 </div>
@@ -184,20 +163,10 @@
   <div class="row">
     <div class="col m12">
       <h4 class="sub-title">Key Achievements</h4>
-      <ul>
-        <li>
-          Designed, developed and managed the development of the data app.
-        </li>
-        <li>
-          Designed and developed the web-site and marketing.
-        </li>
-        <li>
-          Refined the brand identity.
-        </li>
-        <li>
-          Worked as a UI and front-end design consultant.
-        </li>
-      </ul>
+      <p>• Designed, developed and managed the development of the data app.</p>
+      <p>• Designed and developed the web-site and marketing.</p>
+      <p>• Refined the brand identity.</p>
+      <p>• Worked as a UI and front-end design consultant.</p>
     </div>
   </div>
 </div>
@@ -236,20 +205,10 @@
   <div class="row">
     <div class="col m12">
       <h4 class="sub-title">Key Achievements</h4>
-      <ul>
-        <li>
-          Constructed environments out of provided assets.
-        </li>
-        <li>
-          Tested the app for bugs and maintained quality.
-        </li>
-        <li>
-          Provided tools that facilitated the artists' workflow.
-        </li>
-        <li>
-          Coordinated between the artists and developers.
-        </li>
-      </ul>
+      <p>• Constructed environments out of provided assets.</p>
+      <p>• Tested the app for bugs and maintained quality.</p>
+      <p>• Provided tools that facilitated the artists' workflow.</p>
+      <p>• Coordinated between the artists and developers.</p>
     </div>
   </div>
 {% endmacro %}

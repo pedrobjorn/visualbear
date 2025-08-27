@@ -3,25 +3,36 @@
     "subtitle": "Leading the Web UX global rebrand",
     "href": "../case-studies/Redesigning Fashion eCommerce.pdf",
     "target": "_blank",
-    "img": "../images/work/thumbs/gallery_thumb_artent.jpg"
+    "img": "../images/work/thumbs/gallery_thumb_fashion.jpg"
 }, {
     "title": "A new digital closet for </br> the future of fashion",
     "subtitle": "Designing a new digital closer feature for a fashion brand",
     "href": "../case-studies/My Closet Digital Closet.pdf",
     "target": "_blank",
-    "img": "../images/work/thumbs/gallery_thumb_steam_mobile.jpg"
+    "img": "../images/work/thumbs/gallery_thumb_closet.jpg"
 }, {
     "title": "Improving an eCommerce </br> coupon experience",
     "subtitle": "Redesigning coupons to improve everyone's experience",
     "href": "../case-studies/Redesigning ecommerce coupon experience.pdf",
     "target": "_blank",
-    "img": "../images/work/thumbs/gallery_thumb_steam.jpg"
+    "img": "../images/work/thumbs/gallery_thumb_coupon.jpg"
 }, {
     "title": "Redesigning eCommerce",
     "subtitle": "A visual revamp to energize a sports eCommerce experience",
     "href": "../case-studies/Redesigning Sports Ecommerce.pdf",
     "target": "_blank",
-    "img": "../images/work/thumbs/gallery_thumb_granditude.jpg"
+    "img": "../images/work/thumbs/gallery_thumb_sporta.jpg",
+    "content": {
+        "title": "Redesigning eCommerce",
+        "subtitle": "A visual revamp to energize a sports eCommerce experience",
+        "href": "../case-studies/Redesigning Sports Ecommerce.pdf",
+        "target": "_blank",
+        "img": "../images/work/thumbs/gallery_thumb_sporta.jpg",
+        "description": "",
+        "released": "",
+        "responsibilities": "",
+        "tools": ""
+    }
 }, {
     "title": "Climate Clock </br> Visual Redesign",
     "subtitle": "Revamping a critical counter",
@@ -37,39 +48,4 @@
         "responsibilities": "UX, UI &amp; Visual Design",
         "tools": "Paper &amp; Pen, TextEdit, Illustrator, Photoshop"
     }
-},{
-    "title": "art ent </br> Mobile app",
-    "subtitle": "Bringing artists and students together",
-    "href": "../art-ent",
-    "img": "../images/work/thumbs/gallery_thumb_artent.jpg",
-    "content": {
-        "title": "art ent app",
-        "subtitle": "UX, UI & visual design",
-        "href": "../art_ent",
-        "img": "../images/work/thumbs/gallery_thumb_artent.jpg",
-        "description": "",
-        "released": "August 20th 2017",
-        "responsibilities": "UX, UI &amp; Visual Design",
-        "tools": "Paper &amp; Pen, TextEdit, Illustrator, Photoshop"
-    }
-},{
-    "title": "Steam Mobile </br> App redesign",
-    "subtitle": "Redesigning the Steam Mobile client",
-    "href": "../steam-mobile",
-    "img": "../images/work/thumbs/gallery_thumb_steam.jpg",
-    "content": {
-        "title": "Steam Mobile",
-        "subtitle": "UX, UI & visual design",
-        "href": "../steam-mobile",
-        "img": "../images/work/thumbs/gallery_thumb_steam.jpg",
-        "description": "",
-        "released": "August 20th 2017",
-        "responsibilities": "UX, UI &amp; Visual Design",
-        "tools": "Paper &amp; Pen, TextEdit, Illustrator, Photoshop"
-    }
-}, {
-    "title": "visualbear </br> Portfolio",
-    "subtitle": "Designing my own brand and site",
-    "href": "../visualbear",
-    "img": "../images/work/thumbs/gallery_thumb_visualbear.jpg"
 }]

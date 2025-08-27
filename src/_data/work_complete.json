@@ -58,4 +58,40 @@
   "subtitle": "Brand design",
   "href": "../adhops",
   "img": "../images/work/thumbs/gallery_thumb_adhop.jpg"
+}
+,{
+  "title": "art ent </br> Mobile app",
+  "subtitle": "Bringing artists and students together",
+  "href": "../art-ent",
+  "img": "../images/work/thumbs/gallery_thumb_artent.jpg",
+  "content": {
+      "title": "art ent app",
+      "subtitle": "UX, UI & visual design",
+      "href": "../art_ent",
+      "img": "../images/work/thumbs/gallery_thumb_artent.jpg",
+      "description": "",
+      "released": "August 20th 2017",
+      "responsibilities": "UX, UI &amp; Visual Design",
+      "tools": "Paper &amp; Pen, TextEdit, Illustrator, Photoshop"
+  }
+},{
+  "title": "Steam Mobile </br> App redesign",
+  "subtitle": "Redesigning the Steam Mobile client",
+  "href": "../steam-mobile",
+  "img": "../images/work/thumbs/gallery_thumb_steam.jpg",
+  "content": {
+      "title": "Steam Mobile",
+      "subtitle": "UX, UI & visual design",
+      "href": "../steam-mobile",
+      "img": "../images/work/thumbs/gallery_thumb_steam.jpg",
+      "description": "",
+      "released": "August 20th 2017",
+      "responsibilities": "UX, UI &amp; Visual Design",
+      "tools": "Paper &amp; Pen, TextEdit, Illustrator, Photoshop"
+  }
+}, {
+  "title": "visualbear </br> Portfolio",
+  "subtitle": "Designing my own brand and site",
+  "href": "../visualbear",
+  "img": "../images/work/thumbs/gallery_thumb_visualbear.jpg"
 }]
