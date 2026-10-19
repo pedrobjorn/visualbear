@@ -12,17 +12,18 @@
       <h2>Pedro Björn</h2>
     </li>
     <li class="sub-text">
-      Design Lead
+      Product Design Leader |
+      <br/>
+      Scalable Systems &amp; AI-Driven Workflows
     </li>
   </ul>
 </div>
 <div class="col m6 small-title right-title">
   <ul>
-    <li class="micro-text">
-      Email
-    </li>
-    <li class="sub-text">
-      <a href="mailto:hello@visualbear.com"> hello@visualbear.com </a>
+    <li class="sub-text inline-links">
+      <a href="mailto:hello@visualbear.com">hello@visualbear.com</a> |
+      <a href="https://visualbear.com/" target="_blank">Website</a> |
+      <a href="https://www.linkedin.com/in/pedro-johan-bjorn-7417324b" target="_blank">LinkedIn</a>
     </li>
   </ul>
 </div>

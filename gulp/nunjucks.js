@@ -63,7 +63,10 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
       }
     }))
     .pipe(nunjucks({
-      searchPaths: [path.join(dirs.source)],
+      searchPaths: [
+        path.join(dirs.source),
+        path.join(dirs.source, dirs.layouts)
+      ],
       ext: '.html'
     })
     .on('error', function(err) {

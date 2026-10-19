@@ -29,9 +29,11 @@ ul {
     padding: 0;
 }
 
-*:focus {
+*, *:focus {
     outline: none;
 }
+
+
 
 *, *:before, *:after {
     box-sizing: inherit;

@@ -13,59 +13,66 @@
 {% set _target = spec.target or '_self' %}
 {% set _title = spec.title or 'Default Link' %}
 {% set _subtitle = spec.subtitle or 'Default Link' %}
-{% set _cardPlay = {
+{% set _showPlay = true %}
+{% if spec.showPlay == false %}
+{% set _showPlay = false %}
+{% endif %}
+{% set _showBlog = true %}
+{% if spec.showBlog == false %}
+{% set _showBlog = false %}
+{% endif %}
+
+{% set _playCard = {
     "title": "Play",
     "subtitle": "Illustration & Graphic design fun",
     "href": "../play",
     "img": "../images/work/thumbs/"
 } %}
-{% set _cardBlog = {
+{% set _blogCard = {
     "title": "Blog",
     "subtitle": "Ramblings",
     "href": "../blog",
     "img": "../images/work/thumbs/"
 } %}
-{% set _display = 'false' %}
 
 <div class="content gallery">
-	
 
 {% if _contentType == 'work' %}
 
-	<div style="width:100%">
-		{% for val in _content %}
-		
-		{{card.content({card:val})}}
-		{% endfor %}
+<div style="width:100%">
+{% for val in _content %}
 
-		<!-- Disable the Play gallery option -->
-		{% if _display === 'true' %}
-			{{card.content({card:_cardPlay})}} 
-		{% endif %}
-		<!-- Disable the Blog gallery option -->
-		{% if _display === 'true' %}
-			{{card.content({card:_cardBlog})}} 
-		{% endif %}
+{{card.content({card:val})}}
+{% endfor %}
 
-	</div>
+<!-- Play gallery option -->
+{% if _showPlay %}
+{{card.content({card:_playCard})}}
+{% endif %}
 
-	{% elif _contentType == 'play' %}
-	<div  style="width:100%">
-		{% for val in _content %}
-		
-		{{card.content({card:val})}}
-			
-		{% endfor %}
-	</div>
-	
-	{% elif _contentType == 'blog' %}
-	<div  style="width:100%">
-		{% for val in _content %}
-		
-		{{card.content({card:val})}}
-			
-		{% endfor %}
-	</div>
+<!-- Blog gallery option -->
+{% if _showBlog %}
+{{card.content({card:_blogCard})}}
+{% endif %}
+</div>
+
+{% elif _contentType == 'play' %}
+<div style="width:100%">
+{% for val in _content %}
+
+{{card.content({card:val})}}
+
+{% endfor %}
+</div>
+
+{% elif _contentType == 'blog' %}
+<div style="width:100%">
+{% for val in _content %}
+
+{{card.content({card:val})}}
+
+{% endfor %}
+</div>
 
 {% endif %}
 </div>

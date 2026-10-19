@@ -1,0 +1,40 @@
+{# Site-wide layout base.
+   All other layouts extend this file.
+   Shared: <head> (config, title, description, viewport, favicon),
+            <body> (vb-container, nav, browsehappy, footer, scripts, tota11y). #}
+{% import "_modules/molecules/nav/nav.nunjucks" as nav %}
+{% import "_modules/molecules/footer/footer.nunjucks" as footer %}
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>{% block title %}visualbear - Portfolio{% endblock %}</title>
+    <meta name="description" content="{% block description %}Pedro Björn Portfolio website{% endblock %}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <link rel="canonical" href="https://www.visualbear.com"/>
+
+    {% block stylesheets %}{% endblock %}
+  </head>
+  <body>
+    <div class="vb-container">
+      {{nav.content({links: site.data.sitemap})}}
+
+      <!--[if lt IE 11]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+      </p>
+      <![endif]-->
+
+      {% block content %}{% endblock %}
+    </div>
+
+    {{footer.content({})}}
+
+    <script src="/scripts/main.js"></script>
+    {% block scripts %}{% endblock %}
+
+  </body>
+</html>

@@ -8,54 +8,35 @@
 {% endblock %}
 
 <div class="row">
-  <div class="col m4 s12">
-    <h3 class="sub-title">Design Leadership</h3>
-    <ul>
+  <div class="col m12">
+    <h3 class="sub-title">Core Skills</h3>
+    <ul class="no-bullets">
       <li>
-        Design Strategy
+        <h4 class="sub-title">Design Leadership</h4>
+        <ul class="no-bullets">
+          <li>Leading and coaching Product Designers in growth and craft</li>
+          <li>setting product and brand design principles</li>
+          <li>Design Ops: setting research, critique and delivery standards</li>
+        </ul>
       </li>
       <li>
-        Cross-functional collaboration
+        <h4 class="sub-title">Product Design</h4>
+        <ul class="no-bullets">
+          <li>User Experience (UX)</li>
+          <li>User Interfaces (UI)</li>
+          <li>Design Systems</li>
+          <li>Usability Research</li>
+        </ul>
       </li>
       <li>
-        Design ops
-      </li>
-      <li>
-        Mentorship
-      </li>
-    </ul>
-  </div>
-  <div class="col m4 s12">
-    <h3 class="sub-title">Product Design</h3>
-    <ul>
-      <li>
-        UX/UI
-      </li>
-      <li>
-        Design Systems
-      </li>
-      <li>
-        User Research
-      </li>
-      <li>
-        Accessibility
-      </li>
-    </ul>
-  </div>
-  <div class="col m4 s12">
-    <h3 class="sub-title">Technical Skills</h3>
-    <ul>
-      <li>
-        Figma
-      </li>
-      <li>
-        Adobe Suite
-      </li>
-      <li>
-        HTML, CSS, Javascript
-      </li>
-      <li>
-        Jira, Miro
+        <h4 class="sub-title">Technical</h4>
+        <ul class="no-bullets">
+          <li>Agentic Design and Prototyping (Claude Code, Cursor, Figma AI, etc)</li>
+          <li>Figma</li>
+          <li>Front-end fundamentals (HTML, CSS, JavaScript)</li>
+          <li>Notion</li>
+          <li>Jira</li>
+        </ul>
       </li>
     </ul>
   </div>

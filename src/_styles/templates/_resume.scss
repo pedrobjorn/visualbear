@@ -7,6 +7,54 @@ hr {
     padding: 0;
 }
 
+ul.no-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        padding-left: 0;
+        margin-bottom: 0.5rem;
+    }
+}
+
+#resume_container {
+    padding-top: 48px;
+
+    .small-title ul {
+        margin-bottom: 0;
+        list-style-type: none;
+
+        li.inline-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+            justify-content: flex-end;
+
+            a {
+                text-decoration: underline;
+                color: inherit;
+            }
+        }
+    }
+
+    ul:not(.no-bullets) {
+        margin-bottom: 1rem;
+        list-style-type: disc;
+        list-style-position: inside;
+
+        li {
+            margin-bottom: 0.5rem;
+
+            &::marker {
+                font-size: 0.6em;
+                color: $vb-light-grey;
+            }
+        }
+    }
+}
+
 @media (min-width: $break-huge) {
     .right-title{
         text-align: right;
@@ -38,7 +86,7 @@ hr {
         }
 
         .small-title {
-            word-break: break-all;
+            word-break: break-word;
 
             ul {
                 li.micro-text {
@@ -102,7 +150,7 @@ hr {
         }
 
         .small-title {
-            word-break: break-all;
+            word-break: break-word;
 
             ul {
                 li.micro-text {
@@ -164,7 +212,7 @@ hr {
         }
 
         .small-title {
-            word-break: break-all;
+            word-break: break-word;
 
             ul {
                 li.micro-text {
@@ -228,7 +276,7 @@ hr {
         }
 
         .small-title {
-            word-break: break-all;
+            word-break: break-word;
 
             ul {
                 margin: 0;
@@ -306,7 +354,7 @@ hr {
         }
 
         .small-title {
-            word-break: break-all;
+            word-break: break-word;
             
             ul {
                 margin: 0;
@@ -373,7 +421,7 @@ hr {
         }
 
         .small-title {
-            word-break: break-all;
+            word-break: break-word;
 
             ul {
                 li.sub-text {

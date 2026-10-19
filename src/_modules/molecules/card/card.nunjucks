@@ -15,6 +15,7 @@
   id="{{_id}}"
   class="{{_class}}"
   href="{{_card.href}}"
+  target="{{_card.target}}"
 >
   <div class=" row">
     <div class="col s12 m12">

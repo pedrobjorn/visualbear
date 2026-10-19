@@ -16,7 +16,7 @@
   </div>
   <div class="row">
     <p class="col m12">
-      At Quizrr I've been leading the Design strategy, culture and ways of working, leading two designers and three teams in reshaping our worker training ecosystem, consisting of a Dashboard and eLearning software as a service. An emphasis on leading workflows using AI to do more with less, as well as incorporating AI into our ecosystem, such as translations and beyond.
+      At Quizrr I’ve been leading the Design strategy, culture and ways of working, leading designers, including a senior designer, and three teams, reshaping our worker training ecosystem, consisting of a Dashboard and eLearning SaaS. With an emphasis on driving AI-native workflows to do more with less, I've managed to help us scale our user expertise at quality.
     </p>
   </div>
   <div class="row">
@@ -41,25 +41,27 @@
   <div class="row">
     <div class="col m12">
       <h4 class="sub-title">Key Achievements</h4>
-      <p>• Drove discovery for a new eLearning experience leading to a Proof of Concept within two months, testing with users, defining the direction of our products.</p>
-      <p>• Accelerated our delivery by almost 50% by establishing design delivery standards and workflows, as well as reviews for increased quality.</p>
-      <p>• Established AI-first workflows and ethical AI practices across design processes.</p>
-      <p>• Implemented Learning Experience Design principles to enhance user engagement and knowledge retention.</p>
-      <p>• Advanced prototyping capabilities using Figma and Cursor for rapid iteration and testing.</p>
+      <ul>
+        <li>Established the design direction, process and principles, leading to a reduction in design debt by 50%, and enabling discovery workflows, allowing for rapid explorations which increased the delivery speed of new user experienced by 2x.</li>
+        <li>Led the end-to-end user experience for Quizrr’s global SaaS eLearning platform on app and web, from discovery to delivery, raising the design maturity improving our user onboarding and adoption rates by 10% year-on-year.</li>
+        <li>Established AI-native workflows, including design guidelines, user research and component libraries, enabling non-developers to contribute to feature delivery.</li>
+        <li>Implemented a design system from the ground up to cover massive SaaS Learning Management System, connecting it with code and accessibility standards</li>
+        <li>Advanced prototyping capabilities using Figma and AI-coding agents for rapid iteration and testing.</li>
+      </ul>
     </div>
   </div>
 </div>
 <!--Experience Row HM Product Designer-->
 <div class="row">
   <div class="col m8 s12">
-    <h3>Senior Product Designer - <a href="https://www2.hm.com/sv_se/index.html" target="_blank">H &amp; M Hennes &amp; Mauritz AB</a></h3>
+    <h3>Staff Product Designer - <a href="https://www2.hm.com/sv_se/index.html" target="_blank">H&amp;M Hennes &amp; Mauritz AB</a></h3>
   </div>
   <div class="col m4 s12">
     <h3 class="right-title">2021 / 01 - 2024 / 09</h3>
   </div>
   <div class="row">
     <p class="col m12">
-      At H&amp;M I've held a range of responsibilities, from working on features centred around fashion style and customer activation, guiding the end-to-end design process, to leading the UX revamp of the global Web Experience. I was also deeply involved in numerous design process initiatives from the Accessibility and AIxDesign groups, to supporting the Design System and Design Ops teams.
+      At H&amp;M I’ve held a range of responsibilities, from working on app features centred around fashion style and customer activation, guiding the end-to-end design process, to leading the UX revamp of the global Web Experience. I was also deeply involved in numerous design process initiatives from the Accessibility and AIxDesign groups, to supporting the Design System and Design Ops teams.
     </p>
   </div>
   <div class="row">
@@ -75,16 +77,21 @@
         <li>
           Design Operations
         </li>
+        <li>
+          Design Mentorship
+        </li>
       </ul>
     </div>
   </div>
   <div class="row">
     <div class="col m12">
       <h4 class="sub-title">Key Achievements</h4>
-      <p>• Lead the global UX revamp of the web experience, aligning dozens of teams around Web & Desktop redesigns, providing coordination of usability studies and implementation, leading to an increase of 27% in sessions and a drop of 11% in single-page sessions on the index page.</p>
-      <p>• Co-founding the Design AI Circle and driving AI usage in design processes such as research summaries.</p>
-      <p>• Lead the ideation-to-prototype at a company record speed, with a time to market under 6 months.</p>
-      <p>• Revamped and improved the Digital Stylist project, reaching 200% more activations.</p>
+      <ul>
+        <li>Lead the global UX revamp of the web experience, aligning dozens of teams around Web &amp; Desktop redesigns, providing coordination of usability studies and implementation, leading to an increase of 27% in sessions moving onto other pages, and a drop of 11% in single-page sessions on the index page.</li>
+        <li>Lead the ideation-to-prototype for a Digital Close feature for app and webb at record speed for the company, with a time to market under 6 months and learnings at low risk.</li>
+        <li>Co-founding the Design AI Circle and driving AI usage in design processes such as research summaries.</li>
+        <li>Revamped and improved the Digital Stylist project in the app, reaching 200% more activations.</li>
+      </ul>
     </div>
   </div>
 </div>
@@ -122,9 +129,11 @@
   <div class="row">
     <div class="col m12">
       <h4 class="sub-title">Key Achievements</h4>
-      <p>• Redesigning the e-commerce experience at Sportamore through UX, UI and Visual Design.</p>
-      <p>• Established and implemented the Design System, Token System and Pattern Library.</p>
-      <p>• Introduced and established user research and data analysis into the design processes.</p>
+      <ul>
+        <li>Redesigning the e-commerce experience at Sportamore through UX, UI and Visual Design.</li>
+        <li>Established and implemented the Design System, Token System and Pattern Library.</li>
+        <li>Introduced and established user research and data analysis into the design processes.</li>
+      </ul>
     </div>
   </div>
 </div>
@@ -134,7 +143,7 @@
     <h3>Product Designer - <a href="http://www.granditude.com" target="_blank">Granditude AB</a></h3>
   </div>
   <div class="col m4 s12">
-    <h3 class="right-title">2014 / 09 - 2018 / 01 </h3>
+    <h3 class="right-title">2014 / 09 - 2018 / 01</h3>
   </div>
   <div class="row">
     <p class="col m12">
@@ -163,10 +172,12 @@
   <div class="row">
     <div class="col m12">
       <h4 class="sub-title">Key Achievements</h4>
-      <p>• Designed, developed and managed the development of the data app.</p>
-      <p>• Designed and developed the web-site and marketing.</p>
-      <p>• Refined the brand identity.</p>
-      <p>• Worked as a UI and front-end design consultant.</p>
+      <ul>
+        <li>Designed, developed and managed the development of the data app.</li>
+        <li>Designed and developed the web-site and marketing.</li>
+        <li>Refined the brand identity.</li>
+        <li>Worked as a UI and front-end design consultant.</li>
+      </ul>
     </div>
   </div>
 </div>
@@ -180,7 +191,7 @@
   </div>
   <div class="row">
     <p class="col m12">
-      After a 6 month internship, I was hired as a Junior Unity Developer, and worked with the implementation of art assets into the <a href="https://unity3d.com" target="_blank">Unity engine</a>, and ensured the content was consistent.
+      After a 6 month internship, I was hired as a Junior Unity Developer, and worked with the implementation of art assets into the Unity engine, and ensured the content was consistent.
     </p>
   </div>
   <div class="row">
@@ -205,10 +216,13 @@
   <div class="row">
     <div class="col m12">
       <h4 class="sub-title">Key Achievements</h4>
-      <p>• Constructed environments out of provided assets.</p>
-      <p>• Tested the app for bugs and maintained quality.</p>
-      <p>• Provided tools that facilitated the artists' workflow.</p>
-      <p>• Coordinated between the artists and developers.</p>
+      <ul>
+        <li>Constructed environments out of provided assets.</li>
+        <li>Tested the app for bugs and maintained quality.</li>
+        <li>Provided tools that facilitated the artists' workflow.</li>
+        <li>Coordinated between the artists and developers.</li>
+      </ul>
     </div>
   </div>
+</div>
 {% endmacro %}

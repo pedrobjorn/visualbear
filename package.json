@@ -59,14 +59,14 @@
   },
   "scripts": {
     "clean-deps": "rimraf node_modules",
-    "clean": "gulp clean",
-    "lint": "gulp eslint",
-    "serve:prod": "NODE_ENV=development gulp serve",
-    "serve": "NODE_ENV=production gulp serve --production",
-    "build": "NODE_ENV=production gulp --production"
+    "clean": "./scripts/gulp.sh clean",
+    "lint": "./scripts/gulp.sh eslint",
+    "serve:prod": "NODE_ENV=development ./scripts/gulp.sh serve",
+    "serve": "NODE_ENV=production ./scripts/gulp.sh serve --production",
+    "build": "NODE_ENV=production ./scripts/gulp.sh --production"
   },
   "engines": {
-    "node": ">=0.12.0"
+    "node": "10.x"
   },
   "//": "CUSTOM CONFIGURATION",
   "config": {

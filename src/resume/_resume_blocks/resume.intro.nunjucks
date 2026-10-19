@@ -8,7 +8,7 @@
 {% endblock %}
 <div class="col m12">
   <p>
-    A Design Lead with 10+ years of experience in product design in software as a service and ecommerce. I am passionate about building human-centered experiences and leading cross-functional teams to learn fast and build impact.
+    I'm a Product Design Lead with 10+ years of experience in digital product design and 2+ years managing designers. I am passionate about building human-centered experiences and raising the bar of design in cross-functional teams while being hands-on and bringing stakeholders together. Recently I've focused on business strategy and service design.
   </p>
 </div>
 {% endmacro %}

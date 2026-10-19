@@ -1,27 +1,27 @@
 [{
-    "title": "Rebranding a global Fashion </br> brand digital experience",
+    "title": "Rebranding a global Fashion experience",
     "subtitle": "Leading the Web UX global rebrand",
-    "href": "../case-studies/Redesigning Fashion eCommerce.pdf",
-    "target": "_blank",
-    "img": "../images/work/thumbs/gallery_thumb_fashion.jpg"
+    "href": "https://drive.google.com/file/d/1XeZi2BfcTFRr2HSVrUE8MFVx-JGd5hiu/view?usp=sharing",
+    "img": "../images/work/thumbs/gallery_thumb_fashion.jpg",
+    "target": "_blank"
 }, {
-    "title": "A new digital closet for </br> the future of fashion",
-    "subtitle": "Designing a new digital closer feature for a fashion brand",
-    "href": "../case-studies/My Closet Digital Closet.pdf",
-    "target": "_blank",
-    "img": "../images/work/thumbs/gallery_thumb_closet.jpg"
+    "title": "A new digital closet experience",
+    "subtitle": "Designing a new digital closet feature",
+    "href": "https://drive.google.com/file/d/1rY9YPYkL4HQcolMwhOtlk25uNjkFSBiw/view?usp=sharing",
+    "img": "../images/work/thumbs/gallery_thumb_closet.jpg",
+    "target": "_blank"
 }, {
-    "title": "Improving an eCommerce </br> coupon experience",
+    "title": "Redesigning the digital coupon",
     "subtitle": "Redesigning coupons to improve everyone's experience",
-    "href": "../case-studies/Redesigning ecommerce coupon experience.pdf",
-    "target": "_blank",
-    "img": "../images/work/thumbs/gallery_thumb_coupon.jpg"
+    "href": "https://drive.google.com/file/d/1vVY6rHsSKksPcUB_q3CaBUfRDKZWyO9z/view?usp=sharing",
+    "img": "../images/work/thumbs/gallery_thumb_coupon.jpg",
+    "target": "_blank"
 }, {
-    "title": "Redesigning eCommerce",
-    "subtitle": "A visual revamp to energize a sports eCommerce experience",
-    "href": "../case-studies/Redesigning Sports Ecommerce.pdf",
-    "target": "_blank",
+    "title": "Redesigning sports eCommerce",
+    "subtitle": "A digital revamp to energize an eCommerce experience",
+    "href": "https://drive.google.com/file/d/1oM2cJZVO4EVNk3uJeH1f2byxglC-hxlw/view?usp=sharing",
     "img": "../images/work/thumbs/gallery_thumb_sporta.jpg",
+    "target": "_blank",
     "content": {
         "title": "Redesigning eCommerce",
         "subtitle": "A visual revamp to energize a sports eCommerce experience",
@@ -34,10 +34,11 @@
         "tools": ""
     }
 }, {
-    "title": "Climate Clock </br> Visual Redesign",
+    "title": "Climate Clock visual redesign",
     "subtitle": "Revamping a critical counter",
     "href": "../climate-clock",
     "img": "../images/work/thumbs/gallery_thumb_climateclock.jpg",
+    "target": "_blank",
     "content": {
         "title": "art ent app",
         "subtitle": "UX, UI & visual design",
