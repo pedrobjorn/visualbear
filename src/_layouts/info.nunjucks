@@ -1,3 +1,4 @@
+{% set baseUrl = config.baseUrl or '../../' %}
 {% extends "base.nunjucks" %}
 
 {% block title %}visualbear - About me{% endblock %}

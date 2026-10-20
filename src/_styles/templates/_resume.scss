@@ -26,17 +26,24 @@ ul.no-bullets {
         list-style-type: none;
 
         li.inline-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            align-items: center;
-            justify-content: flex-end;
-
             a {
                 text-decoration: underline;
-                color: inherit;
+                color: $vb-primary;
+                
+                &:hover,
+                &:focus {
+                    text-decoration: none;
+                    color: $vb-light;
+                    background-color: $vb-primary;
+                }
             }
         }
+    }
+
+    .sub-title {
+        font-size: $middle-font-size;
+        max-width: 100%;
+        width: 100%;
     }
 
     ul:not(.no-bullets) {
@@ -78,6 +85,9 @@ ul.no-bullets {
 
         .sub-title {
             padding: 8px 0;
+            font-size: $middle-font-size;
+            max-width: 100%;
+            width: 100%;
         }
 
         .side-text {
@@ -142,6 +152,9 @@ ul.no-bullets {
 
         .sub-title {
             padding: 8px 0;
+            font-size: $middle-font-size;
+            max-width: 100%;
+            width: 100%;
         }
 
         .side-text {
@@ -204,6 +217,9 @@ ul.no-bullets {
 
         .sub-title {
             padding: 8px 0;
+            font-size: $middle-font-size;
+            max-width: 100%;
+            width: 100%;
         }
 
         .side-text {
@@ -268,6 +284,9 @@ ul.no-bullets {
 
         .sub-title {
             padding: 8px 0;
+            font-size: $middle-font-size;
+            max-width: 100%;
+            width: 100%;
         }
 
         .side-text {
@@ -346,6 +365,9 @@ ul.no-bullets {
 
         .sub-title {
             padding: 8px 0;
+            font-size: $middle-font-size;
+            max-width: 100%;
+            width: 100%;
         }
 
         .side-text {
@@ -413,6 +435,9 @@ ul.no-bullets {
 
         .sub-title {
             padding: 4px 0;
+            font-size: $middle-font-size;
+            max-width: 100%;
+            width: 100%;
         }
 
         .side-text {
@@ -480,6 +505,9 @@ ul.no-bullets {
 
         .sub-title {
             padding: 4px 0;
+            font-size: $middle-font-size;
+            max-width: 100%;
+            width: 100%;
         }
 
         .side-text {
