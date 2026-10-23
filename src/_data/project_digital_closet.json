@@ -1,17 +1,25 @@
 {
-  "title": "A new digital closet experience",
-  "subtitle": "Designing a new digital closet feature",
+  "title": "My Closet",
+  "subtitle": "A digital closet feature showing customers the apparel they already own — built to increase Member engagement in record time.",
   "href": "../digital-closet",
-  "prevhref": {"link":"../fashion-rebrand","text":"Fashion Rebrand"},
-  "nexthref": {"link":"../coupon-redesign","text":"Coupon Redesign"},
+  "prevhref": {"link":"../sports-ecommerce-redesign","text":"Sports E-commerce Redesign"},
+  "nexthref": {"link":"../","text":"Home"},
   "img": "",
   "headline_img":"",
   "logoImg": "",
-  "description": "Digital Closet Experience",
-  "released": "",
-  "responsibilities": "",
+  "description": "Digital Closet Case Study",
+  "released": "5 months concept-to-delivery (company record)",
+  "responsibilities": "Lead UX Design",
   "tools": "",
-  "intro": [],
-  "challenge": "",
-  "goals": []
+  "intro": [{
+    "paragraph":"My Closet was a digital feature designed to show customers their purchased apparel, leveraging existing purchase history data to increase engagement and drive repeat visits."
+  }],
+  "challenge":"How might we bring back our customers using clothes they already own?",
+  "goals":[{
+   "goal":"Increase engagement (return rate, session length, pages/session)"
+  },{
+   "goal":"Improve relevance (add-to-cart, conversion)"
+  },{
+   "goal":"Promote sustainability via building on existing apparel"
+  }]
 }

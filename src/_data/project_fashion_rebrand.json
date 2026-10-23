@@ -1,17 +1,25 @@
 {
-  "title": "Rebranding a global Fashion experience",
-  "subtitle": "Leading the Web UX global rebrand",
+  "title": "Relaunching a Fashion Brand Experience on Web",
+  "subtitle": "Rebuilding a global fashion retailer's entrances — Start Page and Department navigation — to lift brand perception and move customers down the funnel.",
   "href": "../fashion-rebrand",
   "prevhref": {"link":"../","text":"Home"},
-  "nexthref": {"link":"../digital-closet","text":"Digital Closet"},
+  "nexthref": {"link":"../sports-ecommerce-redesign","text":"Sports E-commerce Redesign"},
   "img": "",
   "headline_img":"",
   "logoImg": "",
-  "description": "Global Fashion Rebrand",
-  "released": "",
-  "responsibilities": "",
+  "description": "Fashion Rebrand Case Study",
+  "released": "9 months · 2 pilot markets",
+  "responsibilities": "Staff Designer, Lead Web UX",
   "tools": "",
-  "intro": [],
-  "challenge": "",
-  "goals": []
+  "intro": [{
+    "paragraph":"Fashion Rebrand project focused on rebuilding a global fashion retailer's digital entrances to lift brand perception and improve customer journey through the funnel."
+  }],
+  "challenge":"Brand read as retail, not fashion — dropping recognition, sales, and retention.",
+  "goals":[{
+   "goal":"Lift brand perception through refined visual identity and user experience."
+  },{
+   "goal":"Improve customer journey and reduce bounce rates."
+  },{
+   "goal":"Increase session engagement and reduce exit rates."
+  }]
 }

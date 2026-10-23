@@ -1,0 +1,26 @@
+{% extends "_layouts/work.nunjucks" %}
+{% import "_modules/organisms/headline/headline.nunjucks" as headline %}
+{% import "_modules/molecules/buttonslider/buttonslider.nunjucks" as buttonslider %}
+{% block config %}
+    {% set baseUrl = "../" %}
+{% endblock %}
+{% block content %}
+    <article class="section section-top-padding" id="teachr_container">
+        <section class="gallery-container">
+            <div class="black-bg">
+                {{headline.content({content:site.data.project_teachr})}}
+                <img src="../images/work/thumbs/gallery_thumb_teachr.jpg" title="Teachr - AI Assistant for Elearning Dashboard" width="100%" height="100%" style="margin-bottom:-12px">
+            </div>
+            <div class="container">
+                <div class="document-text text-box">
+                    <p>Project page coming soon...</p>
+                </div>
+            </div>
+            {{buttonslider.content({
+            nexthref: site.data.project_teachr.nexthref,
+            prevhref: site.data.project_teachr.prevhref,
+            text: var.linkname
+            })}}
+        </section>
+    </article>
+{% endblock %}

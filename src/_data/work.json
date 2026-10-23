@@ -11,9 +11,8 @@
     "img": "../images/work/thumbs/gallery_thumb_closet.jpg",
     "target": "_blank"
 }, {
-    "title": "Redesigning the digital coupon",
-    "subtitle": "Redesigning coupons to improve everyone's experience",
-    "href": "https://drive.google.com/file/d/1vVY6rHsSKksPcUB_q3CaBUfRDKZWyO9z/view?usp=sharing",
-    "img": "../images/work/thumbs/gallery_thumb_coupon.jpg",
-    "target": "_blank"
+    "title": "Sports E-commerce Redesign",
+    "subtitle": "A full redesign of a sports retailer's mobile and desktop web",
+    "href": "../sports-ecommerce-redesign",
+    "img": "../images/work/thumbs/gallery_thumb_coupon.jpg"
 }]

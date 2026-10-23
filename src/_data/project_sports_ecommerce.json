@@ -1,0 +1,25 @@
+{
+  "title": "Sports E-commerce Redesign",
+  "subtitle": "A full redesign of a sports retailer's mobile and desktop web — new brand, new design system, and a coupon system rebuilt from the ground up.",
+  "href": "../sports-ecommerce-redesign",
+  "prevhref": {"link":"../fashion-rebrand","text":"Fashion Rebrand"},
+  "nexthref": {"link":"../digital-closet","text":"Digital Closet"},
+  "img": "",
+  "headline_img":"",
+  "logoImg": "",
+  "description": "Sports E-commerce Redesign Case Study (incl. Coupon Deep-Dive)",
+  "released": "",
+  "responsibilities": "Lead UX Design",
+  "tools": "",
+  "intro": [{
+    "paragraph":"A full redesign of a sports retailer's mobile and desktop web, featuring a new brand identity, a new design system, and a coupon system rebuilt from the ground up. The coupon system is presented as a Deep-Dive inside the larger redesign — the flagship example of standardisation paying off."
+  }],
+  "challenge":"Stagnating growth with retention flat, usability issues hurting UX and SEO, feature friction making new features hard to implement, and a new rebrand needed across the entire e-commerce experience.",
+  "goals":[{
+   "goal":"Fix usability issues"
+  },{
+   "goal":"Standardise the experience so new features ship faster"
+  },{
+   "goal":"Implement the rebrand end-to-end"
+  }]
+}
