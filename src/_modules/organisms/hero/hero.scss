@@ -8,9 +8,13 @@
     height: 40vh;
     font-weight: bold;
     position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
 
     .content {
         padding-top: 32px;
+        padding-bottom: 32px;
     }
 
     a {
@@ -27,30 +31,12 @@
     }
 }
 
-@include mq($until: mobile) {
-    .hero {
-        height: 65vh;
+// Hide hero text on smaller breakpoints (mobile)
+@include mq($until: mobile){
+    .hero .content {
+        padding-top: 96px;
+        padding-bottom: 32px;
     }
 }
 
-
-// Apply styling up to devices smaller than tablets (exclude tablets)
-@include mq($from: mobile, $until: tablet) {
-    .hero {
-        height: 65vh;
-    }
-}
-
-
-// Same thing, in landscape orientation
-@include mq($until: tablet, $and: "(orientation: landscape)") {
-    .hero {
-        height: 65vh;
-    }
-}
-
-
-// Apply styling to tablets up to desktop (exclude desktop)
-@include mq(desktop) {
-    nav {}
-}
+// All breakpoints use the same hero height (40vh) - consistent with desktop

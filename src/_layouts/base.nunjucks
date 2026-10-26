@@ -14,11 +14,12 @@
     <meta name="description" content="{% block description %}Pedro Björn Portfolio website{% endblock %}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="/styles/main.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css"/>
     <link rel="canonical" href="https://www.visualbear.com"/>
 
     {% block stylesheets %}{% endblock %}
   </head>
-  <body>
+  <body{% block bodyattrs %}{% endblock %}>
     <div class="vb-container">
       {{nav.content({links: site.data.sitemap})}}
 

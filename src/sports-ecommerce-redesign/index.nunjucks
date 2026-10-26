@@ -1,293 +1,425 @@
 {% extends "_layouts/work.nunjucks" %}
-{% import "_modules/organisms/headline/headline.nunjucks" as headline %}
 {% import "_modules/molecules/buttonslider/buttonslider.nunjucks" as buttonslider %}
 {% block config %}
     {% set baseUrl = "../" %}
 {% endblock %}
+{% block bodyattrs %} class="cs-pink-page"{% endblock %}
 {% block content %}
-    <article class="section section-top-padding" id="sports_ecommerce_container">
+    <article class="section section-top-padding case-study cs-pink" id="sports_ecommerce_container">
         <section class="gallery-container">
-            <div class="black-bg">
-                {{headline.content({content:site.data.project_sports_ecommerce})}}
-                <img src="../images/work/thumbs/gallery_thumb_coupon.jpg" title="Sports E-commerce Redesign" width="100%" height="100%" style="margin-bottom:-12px">
-            </div>
             <div class="container">
                 <div class="document-text text-box">
-                    <!-- 01 DEFINITION -->
-                    <section class="definition-section">
-                        <p class="eyebrow">Case Study — E-commerce Redesign</p>
-                        <h1>Sports E-commerce Redesign</h1>
-                        <p class="subtitle">A full redesign of a sports retailer's mobile and desktop web — new brand, new design system, and a coupon system rebuilt from the ground up.</p>
-                        <p class="byline">Pedro Björn</p>
-                        
-                        <div class="context-cards">
-                            <div class="context-card">
+
+                    <!-- ============================================================= -->
+                    <!-- CASE STUDY 1: E-COMMERCE REDESIGN                             -->
+                    <!-- ============================================================= -->
+
+                    <!-- 01 HERO — full-bleed pink cover -->
+                    <header class="cs-hero cs-hero--pink">
+                        <p class="cs-eyebrow">Case Study</p>
+                        <h1>E-commerce Redesign</h1>
+                        <p class="cs-hero-name">Pedro Bj&#246;rn</p>
+                    </header>
+
+                    <!-- HERO META — goal, metrics & summary -->
+                    <section class="cs-hero cs-hero--meta">
+                        <p class="cs-subtitle">
+                            Redesign the sports eCommerce site and increase our retention — a new brand, a new design system, and a coupon system rebuilt from the ground up.
+                        </p>
+
+                        <div class="cs-metrics">
+                            <div class="cs-metric">
+                                <span class="cs-metric-value" data-countup="15">15</span><span class="cs-metric-suffix">%</span>
+                                <span class="cs-metric-label">customer return rate <i class="ph ph-arrow-up"></i></span>
+                            </div>
+                            <div class="cs-metric">
+                                <span class="cs-metric-value">#1</span>
+                                <span class="cs-metric-label">Sports Site of the Year</span>
+                            </div>
+                        </div>
+                        <p class="cs-summary"><em>Outcome: increased Customer Return Rate by 15%, improved SEO and usability — and we won more awards that year for Sports Site of the Year. Customers loved the changes, commenting positively on social media.</em></p>
+                    </section>
+
+                    <!-- 02 DEFINITION -->
+                    <section class="cs-section" id="definition">
+                        <p class="cs-eyebrow">Definition</p>
+                        <h2>Problems &amp; Opportunities</h2>
+
+                        <div class="cs-cards">
+                            <div class="cs-card">
                                 <h3>Stagnating growth</h3>
-                                <p>Retention flat</p>
+                                <p>Retention had gone flat — the business needed a reason for customers to come back.</p>
                             </div>
-                            <div class="context-card">
-                                <h3>Usability issues</h3>
-                                <p>Hurting both UX and SEO</p>
+                            <div class="cs-card">
+                                <h3>Site usability issues</h3>
+                                <p>Impacting both the user experience and SEO.</p>
                             </div>
-                            <div class="context-card">
+                            <div class="cs-card">
                                 <h3>Feature friction</h3>
-                                <p>New features hard to implement on an inconsistent base</p>
+                                <p>New features and options — such as browsing through brands — were not findable or very usable, and hard to implement on an inconsistent base.</p>
                             </div>
-                            <div class="context-card">
+                            <div class="cs-card">
                                 <h3>New rebrand</h3>
-                                <p>Needed across the entire e-commerce experience</p>
+                                <p>A new brand identity needed implementing across the entire e-commerce experience.</p>
                             </div>
                         </div>
-                        
-                        <blockquote class="key-insight">
-                            Customers returned in spite of the experience — because of the quality of selection and service. Service and selection were great; the site was hard to use, and hard to shop (sheer quantity of selection and information). Features like brand browsing were barely findable.
+
+                        <h3>Insights</h3>
+                        <ul class="cs-facts">
+                            <li>Service and selection were great — but the site, on mobile and desktop, was hard to use.</li>
+                            <li>It was difficult to find products, due to the sheer quantity of selection and information.</li>
+                            <li>A lot of features and options, such as browsing through brands, were not findable or very usable.</li>
+                            <li>The inconsistent experience meant customers returned in spite of the experience — because of the quality of the selection and service.</li>
+                        </ul>
+
+                        <h3>Goals</h3>
+                        <ul class="cs-facts">
+                            <li>Improve the growing usability issues.</li>
+                            <li>Standardise the experience, so we can implement new features more effectively.</li>
+                            <li>Implement the new rebrand across the e-commerce experience.</li>
+                        </ul>
+                    </section>
+
+                    <!-- 03 EXPLORATION -->
+                    <section class="cs-section" id="exploration">
+                        <p class="cs-eyebrow">Exploration</p>
+                        <h2>Brand, Process &amp; Design System</h2>
+
+                        <div class="cs-cards">
+                            <div class="cs-card">
+                                <h3>Brand visual redesign</h3>
+                                <p>The brand redesign was done in tandem with the site redesigns. A close collaboration with Brand meant we could embed the brand identity into the UI visual direction — centred around slanted inclines, and rounded corners combined with occasional sharp corners.</p>
+                            </div>
+                            <div class="cs-card">
+                                <h3>Design process &amp; Design System</h3>
+                                <p>We implemented a Design System, including tokens that handled fonts, colours and spacing — and introduced a Discovery cycle that unified the experience, validated our decisions and embedded the Brand direction all in one big leap.</p>
+                            </div>
+                        </div>
+
+                        <h3>The Discovery cycle</h3>
+                        <ol class="cs-steps">
+                            <li class="cs-step">
+                                <span class="cs-number">01</span>
+                                <div><h3>Ideation</h3></div>
+                            </li>
+                            <li class="cs-step">
+                                <span class="cs-number">02</span>
+                                <div><h3>Prototype</h3></div>
+                            </li>
+                            <li class="cs-step">
+                                <span class="cs-number">03</span>
+                                <div><h3>Usability Study</h3></div>
+                            </li>
+                            <li class="cs-step">
+                                <span class="cs-number">04</span>
+                                <div><h3>Implement</h3></div>
+                            </li>
+                            <li class="cs-step">
+                                <span class="cs-number">05</span>
+                                <div><h3>Measure</h3></div>
+                            </li>
+                        </ol>
+                    </section>
+
+                    <!-- 04 DISCOVERY: SITE REDESIGN -->
+                    <section class="cs-section" id="site-redesign">
+                        <p class="cs-eyebrow">Discovery</p>
+                        <h2>Site Redesign — Mobile &amp; Desktop</h2>
+
+                        <h3>Mobile Web</h3>
+                        <div class="cs-comparison">
+                            <div class="cs-panel">
+                                <span class="cs-tag">How it started</span>
+                                <h3>Mobile Web — Before</h3>
+                                <p>The colours were very heavy, elements very close together and very sharp — claustrophobic. Images and text were badly proportioned, and spacing was inconsistent, like this 3rd-party component clashing with the rest of the experience.</p>
+                                <div class="cs-frame">
+                                    <span class="cs-frame-label"><strong>Mobile Web — Before</strong>Final mockup pending</span>
+                                </div>
+                                <div class="cs-annotation">
+                                    <span class="cs-annotation-dot"></span>
+                                    <p>Inconsistent spacing from 3rd-party components</p>
+                                </div>
+                                <p class="cs-note">*Excuse the blurry image — it's all we could gather from the old site.</p>
+                            </div>
+                            <div class="cs-panel">
+                                <span class="cs-tag">How it ended up</span>
+                                <h3>Mobile Web — After</h3>
+                                <p>More whitespace and rounded corners, replicating the roundness and softness of gym gear and muscles — making it feel friendly. We reduced the intensity of colours and content, letting the CTA stand out and using the brand colour sparingly. Since content was still largely shot 1:1, we accommodated that while coordinating a shift to 2:3.</p>
+                                <div class="cs-frame">
+                                    <span class="cs-frame-label"><strong>Mobile Web — After</strong>Final mockup pending</span>
+                                </div>
+                                <div class="cs-annotation">
+                                    <span class="cs-annotation-dot"></span>
+                                    <p>Rounded corners — the softness of gym gear and muscles</p>
+                                </div>
+                                <div class="cs-annotation">
+                                    <span class="cs-annotation-dot"></span>
+                                    <p>Brand colour used sparingly, CTA stands out</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cs-wide">
+                            <figure class="cs-showcase">
+                                <div class="cs-frame cs-frame--tall">
+                                    <span class="cs-frame-label"><strong>Mobile Web — how it ended up</strong>Big page-wide mockup · final image pending</span>
+                                </div>
+                                <figcaption>The redesigned mobile experience: whitespace, rounded corners and room for content.</figcaption>
+                            </figure>
+                        </div>
+
+                        <h3>Desktop</h3>
+                        <div class="cs-comparison">
+                            <div class="cs-panel">
+                                <span class="cs-tag">How it started</span>
+                                <h3>Desktop Web — Before</h3>
+                                <p>Much like on mobile, there was an inconsistency of elements — and an overwhelming quantity of content, causing information overload.</p>
+                                <div class="cs-frame">
+                                    <span class="cs-frame-label"><strong>Desktop Web — Before</strong>Final mockup pending</span>
+                                </div>
+                            </div>
+                            <div class="cs-panel">
+                                <span class="cs-tag">How it ended up</span>
+                                <h3>Desktop Web — After</h3>
+                                <p>We retained the information density — customers come seeking information, and we didn't want to change the experience too much. We introduced "combination" so customers could easily add commonly-bought-together items, and kept reviews useful while updating them to feel more personal.</p>
+                                <div class="cs-frame">
+                                    <span class="cs-frame-label"><strong>Desktop Web — After</strong>Final mockup pending</span>
+                                </div>
+                                <div class="cs-annotation">
+                                    <span class="cs-annotation-dot"></span>
+                                    <p>Information density retained</p>
+                                </div>
+                                <div class="cs-annotation">
+                                    <span class="cs-annotation-dot"></span>
+                                    <p>"Combination" pattern for commonly-bought-together items</p>
+                                </div>
+                                <div class="cs-annotation">
+                                    <span class="cs-annotation-dot"></span>
+                                    <p>Reviews updated to feel more personal</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 05 DELIVERY: SITE -->
+                    <section class="cs-section" id="site-delivery">
+                        <p class="cs-eyebrow">Delivery</p>
+                        <h2>Rolled Out in Phases</h2>
+                        <p class="cs-section-intro">
+                            The results were rolled out in phases, per page, on web mobile and desktop — each page verified against the new standards as it shipped.
+                        </p>
+                    </section>
+
+                    <!-- 06 OUTCOME: SITE -->
+                    <section class="cs-section" id="site-outcome">
+                        <p class="cs-eyebrow">Outcome</p>
+                        <h2>Lessons</h2>
+                        <ul class="cs-facts">
+                            <li><strong>Validate early and often with users.</strong></li>
+                            <li><strong>Design Systems are enablers, not gatekeepers</strong> — use them to accelerate exploration and feature development, and provide value for customers.</li>
+                            <li><strong>Include Brand in product from day 1</strong> — embed brand into the fabric of the product.</li>
+                            <li><strong>Start with a solid foundation</strong> — and iterate early and often.</li>
+                        </ul>
+                    </section>
+
+                    <!-- ============================================================= -->
+                    <!-- CASE STUDY 2: COUPON SYSTEM DEEP-DIVE                         -->
+                    <!-- ============================================================= -->
+
+                    <div class="cs-divider" role="separator">
+                        <span>Deep-Dive</span>
+                    </div>
+
+                    <header class="cs-hero" id="coupon-hero">
+                        <p class="cs-eyebrow">Case Study — Coupon System</p>
+                        <h1>Redesigned Coupon System</h1>
+                        <p class="cs-subtitle">
+                            Improve our coupon campaign issues, which were causing our users and customer support a lot of problems — the flagship example of the redesign's standardisation paying off.
+                        </p>
+                        <p class="cs-byline">Pedro Björn ⋅ Lead UX Design</p>
+
+                        <div class="cs-metrics">
+                            <div class="cs-metric">
+                                <span class="cs-metric-value">0</span>
+                                <span class="cs-metric-label">user complaints in feedback</span>
+                            </div>
+                            <div class="cs-metric">
+                                <span class="cs-metric-value" data-countup="50">50</span><span class="cs-metric-suffix">%</span>
+                                <span class="cs-metric-label">drop in CS tickets</span>
+                            </div>
+                            <div class="cs-metric">
+                                <span class="cs-metric-value">&lt;2%</span>
+                                <span class="cs-metric-label">abandon cart <i class="ph ph-arrow-down"></i> · CR% <i class="ph ph-arrow-up"></i> on coupon campaigns</span>
+                            </div>
+                        </div>
+                        <p class="cs-summary"><em>After two weeks: no more user complaints in feedback and a 50% drop in CS tickets. After a few months: a slight uptick in return users.</em></p>
+                    </header>
+
+                    <!-- COUPON: DEFINITION -->
+                    <section class="cs-section" id="coupon-definition">
+                        <p class="cs-eyebrow">Definition</p>
+                        <h2>Problem &amp; Goal</h2>
+
+                        <div class="cs-cards">
+                            <div class="cs-card">
+                                <h3>The problem</h3>
+                                <p>Coupon campaign issues drove <strong>30% of Customer Support tickets</strong>, were frequent in user feedback, and the UX audit displayed clear issues. The coupon relied on the user copying or memorising the code and inputting it manually.</p>
+                            </div>
+                            <div class="cs-card">
+                                <h3>The goal</h3>
+                                <p>Increase active coupon campaigns and their Conversion Rate (CR%), and reduce user frustration and confusion.</p>
+                            </div>
+                        </div>
+
+                        <blockquote class="cs-pullquote">
+                            "We want to increase the amount of live coupon campaigns, and also increase their conversion rate."
+                            <cite>— E-commerce Department</cite>
                         </blockquote>
-                        
-                        <div class="goals-section">
-                            <h3>Goals</h3>
-                            <ol>
-                                <li>Fix usability issues</li>
-                                <li>Standardise the experience so new features ship faster</li>
-                                <li>Implement the rebrand end-to-end</li>
-                            </ol>
-                        </div>
-                        
-                        <p class="success-preview"><em>Success metric preview: <strong>15%</strong> customer return rate ↑ · SEO + usability improved · Sports Site of the Year award</em></p>
+
+                        <h3>KPIs</h3>
+                        <ul class="cs-facts">
+                            <li>Increased CR%</li>
+                            <li>Decreased Customer Support tickets</li>
+                            <li>Decreased user feedback issues</li>
+                        </ul>
                     </section>
 
-                    <!-- 02 EXPLORATION -->
-                    <section class="exploration-section">
-                        <h2>Exploration</h2>
-                        
-                        <div class="exploration-item">
-                            <h3>Brand visual redesign</h3>
-                            <p>In tandem with site redesign: close brand collaboration embedded identity into UI direction — slanted inclines, rounded corners, occasional sharp corners</p>
+                    <!-- COUPON: EXPLORATION -->
+                    <section class="cs-section" id="coupon-exploration">
+                        <p class="cs-eyebrow">Exploration</p>
+                        <h2>Research &amp; Insights</h2>
+
+                        <p>
+                            Based on both internal and industry-wide findings, we knew customers want the best value for money when shopping online. But when presented with an inconvenient coupon format, the potential to miss out goes up — resulting in frustration.
+                        </p>
+
+                        <div class="cs-cards">
+                            <div class="cs-card">
+                                <h3>Qualitatively</h3>
+                                <ul>
+                                    <li>Session recordings — to see it actually happen</li>
+                                    <li>Remote unmoderated user tests</li>
+                                </ul>
+                            </div>
+                            <div class="cs-card">
+                                <h3>Quantitatively</h3>
+                                <ul>
+                                    <li>Google Analytics &amp; internal reporting</li>
+                                    <li>Customer Support tickets</li>
+                                </ul>
+                            </div>
+                            <div class="cs-card">
+                                <h3>External research</h3>
+                                <ul>
+                                    <li>Competitive analysis</li>
+                                    <li>Existing research — voucher flight</li>
+                                </ul>
+                            </div>
                         </div>
-                        
-                        <div class="exploration-item">
-                            <h3>Design System</h3>
-                            <p>Tokens for fonts, colours, spacing; new Discovery cycle (Ideation → Prototype → Usability Study → Implement → Measure). Unification + validation + brand embedding in one leap</p>
-                        </div>
-                        
-                        <div class="exploration-item">
-                            <h3>Coupon system enters here as an early signal</h3>
-                            <p>Coupons drove <strong>30% of CS tickets</strong> and frequent user complaints; UX audit confirmed issues.</p>
-                            <blockquote class="stakeholder-quote">
-                                "We want to increase the amount of live coupon campaigns, and also increase their conversion rate."
-                                <cite>— E-commerce Department</cite>
-                            </blockquote>
-                        </div>
+
+                        <h3>Key issues</h3>
+                        <ul class="cs-facts">
+                            <li>Users try to combine coupons, often</li>
+                            <li>Poorly worded error messages</li>
+                            <li>Copy/pasting codes is a hassle</li>
+                            <li>Leaving the site to search for coupons</li>
+                        </ul>
+
+                        <p>
+                            These cause frustrating experiences at the cart level, a poor final impression, and users dropping off without purchasing.
+                        </p>
+
+                        <p class="cs-note">External stat: competitive prices and valuable promotions beyond free shipping are two of the top-5 important factors for customers choosing a retailer. (Digital Commerce 360 / Bizrate Insights holiday shopping survey, October 2019, 1,055 U.S. online shoppers.)</p>
                     </section>
 
-                    <!-- 03 DISCOVERY - Site Redesign -->
-                    <section class="discovery-section">
-                        <h2>Discovery — Site Redesign</h2>
-                        
-                        <p><em>The coupon system is presented as a Deep-Dive inside the larger redesign — the flagship example of standardisation paying off.</em></p>
-                        
-                        <div class="mockup-comparison">
-                            <div class="mockup-set">
-                                <h3>Mobile Web</h3>
-                                <div class="mockup-pair">
-                                    <div class="mockup-before">
-                                        <h4>Before</h4>
-                                        <p>Heavy colours, elements cramped and sharp; inconsistent spacing (3rd-party components clashing); images/text badly proportioned</p>
-                                        <div class="mockup-placeholder" style="background: #e0e0e0; height: 250px; border: 1px solid #ccc;">
-                                            <p style="text-align: center; padding-top: 100px;">Mobile - Before</p>
-                                        </div>
-                                        <div class="annotation">
-                                            <span class="annotation-dot"></span>
-                                            <p>Inconsistent spacing</p>
-                                        </div>
-                                    </div>
-                                    <div class="mockup-after">
-                                        <h4>After</h4>
-                                        <p>More whitespace, rounded corners ("roundness and softness of gym gear and muscles — friendly"), reduced colour/content intensity so CTA stands out, brand colour used sparingly</p>
-                                        <div class="mockup-placeholder" style="background: #f5f5f5; height: 250px; border: 1px solid #ccc;">
-                                            <p style="text-align: center; padding-top: 100px;">Mobile - After</p>
-                                        </div>
-                                        <div class="annotation">
-                                            <span class="annotation-dot"></span>
-                                            <p>Brand colour sparingly</p>
-                                        </div>
-                                        <div class="annotation">
-                                            <span class="annotation-dot"></span>
-                                            <p>Rounded corners</p>
-                                        </div>
-                                    </div>
+                    <!-- COUPON: DISCOVERY -->
+                    <section class="cs-section" id="coupon-discovery">
+                        <p class="cs-eyebrow">Discovery</p>
+                        <h2>Workshops, Study &amp; Actions</h2>
+
+                        <h3>Ideation workshops</h3>
+                        <ul class="cs-facts">
+                            <li>Workshop to map out the existing flows: user touch-points, types of coupons, possible coupon combinations, and coupon alert messages.</li>
+                            <li>Workshop ideating on possible solutions: listing examples, writing down ideas, and affinity-mapping them.</li>
+                        </ul>
+
+                        <h3>Qualitative study</h3>
+                        <p>
+                            A quick prototype verified whether participants understood what was happening. With no surprises, our hypotheses were validated enough for us to commit to a release. This was before we had A/B tests implemented — so we had to do it live.
+                        </p>
+
+                        <h3>Actions taken</h3>
+                        <ul class="cs-facts">
+                            <li><strong>Improvements:</strong> automatically apply coupons on checkout, more coupon alerts and feedback, simplified coupon conditions, and a refined Coupon Component.</li>
+                            <li><strong>Campaign Component System</strong> in the Design System: coupon component, campaign themes, and component rules.</li>
+                            <li>Allow users to copy/paste coupons anyway — <em>it doesn't really do anything, but it feels good!</em></li>
+                            <li>A Customer Support ticket data view for the support team.</li>
+                        </ul>
+                    </section>
+
+                    <!-- COUPON: DELIVERY -->
+                    <section class="cs-section" id="coupon-delivery">
+                        <p class="cs-eyebrow">Delivery</p>
+                        <h2>Design System, Documentation &amp; Collaboration</h2>
+                        <ol class="cs-steps">
+                            <li class="cs-step">
+                                <span class="cs-number">01</span>
+                                <div>
+                                    <h3>Connect to the Design System</h3>
+                                    <p>Adding the new components to the Design System, such as the new Coupon Component.</p>
                                 </div>
-                            </div>
-                            
-                            <div class="mockup-set">
-                                <h3>Desktop</h3>
-                                <div class="mockup-pair">
-                                    <div class="mockup-before">
-                                        <h4>Before</h4>
-                                        <p>Information overload</p>
-                                        <div class="mockup-placeholder" style="background: #e0e0e0; height: 300px; border: 1px solid #ccc;">
-                                            <p style="text-align: center; padding-top: 120px;">Desktop - Before</p>
-                                        </div>
-                                    </div>
-                                    <div class="mockup-after">
-                                        <h4>After</h4>
-                                        <p>Information density retained — customers come seeking information; don't change too much</p>
-                                        <div class="mockup-placeholder" style="background: #f5f5f5; height: 300px; border: 1px solid #ccc;">
-                                            <p style="text-align: center; padding-top: 120px;">Desktop - After</p>
-                                        </div>
-                                        <div class="annotation">
-                                            <span class="annotation-dot"></span>
-                                            <p>Information density retained</p>
-                                        </div>
-                                        <div class="annotation">
-                                            <span class="annotation-dot"></span>
-                                            <p>"Combination" pattern</p>
-                                        </div>
-                                        <div class="annotation">
-                                            <span class="annotation-dot"></span>
-                                            <p>Reviews updated</p>
-                                        </div>
-                                    </div>
+                            </li>
+                            <li class="cs-step">
+                                <span class="cs-number">02</span>
+                                <div>
+                                    <h3>Documentation</h3>
+                                    <p>Documenting the user flows and the new copy.</p>
                                 </div>
-                            </div>
-                        </div>
-                        
-                        <div class="design-decisions">
-                            <h3>Design Decisions</h3>
-                            <ul>
-                                <li><strong>Retained information density</strong> — customers come seeking information; don't change too much</li>
-                                <li><strong>"Combination" pattern</strong> — easily add commonly-bought-together items</li>
-                                <li><strong>Reviews</strong> kept useful but updated to feel more personal</li>
-                                <li><strong>Content constraint:</strong> imagery still shot 1:1, accommodate while coordinating shift to 2:3</li>
-                            </ul>
-                        </div>
+                            </li>
+                            <li class="cs-step">
+                                <span class="cs-number">03</span>
+                                <div>
+                                    <h3>Developer collaboration</h3>
+                                    <p>Collaborating with developers to ensure the new user flow was integrated smoothly into production.</p>
+                                </div>
+                            </li>
+                        </ol>
                     </section>
 
-                    <!-- 04 DEEP-DIVE: Coupon System -->
-                    <section class="deepdive-section">
-                        <h2>Deep-Dive: Coupon System</h2>
-                        <p class="deepdive-intro"><em>The redesign's standardisation made this fix possible — a focused rebuild of the highest-friction flow in the experience.</em></p>
-                        
-                        <div class="problem-detail">
-                            <p>Users had to copy/memorise codes and input manually; users often tried combining coupons; poorly worded error messages; leaving the site to hunt for coupons → frustration at cart level, poor final impression, drop-off without purchase</p>
-                        </div>
-                        
-                        <div class="evidence-base">
-                            <h3>Evidence Base</h3>
-                            <ul>
-                                <li>Session recordings, remote unmoderated tests (qualitative)</li>
-                                <li>GA + internal reporting + CS tickets (quantitative)</li>
-                                <li>Competitive analysis</li>
-                            </ul>
-                            <p><em>External stat:</em> Competitive prices and valuable promotions beyond free shipping rank in the top 5 factors for retailer choice <cite>(Digital Commerce 360/Bizrate Insights, Oct 2019, 1,055 U.S. shoppers)</cite></p>
-                        </div>
-                        
-                        <div class="actions-section">
-                            <h3>Actions</h3>
-                            <ul>
-                                <li>Workshops mapping flows — touch-points, coupon types, possible combinations, alert messages → ideation → affinity map</li>
-                                <li><strong>Improvements:</strong>
-                                    <ul>
-                                        <li>Auto-apply coupons at checkout</li>
-                                        <li>More coupon alerts & feedback</li>
-                                        <li>Simplified coupon conditions</li>
-                                        <li>Refined Coupon Component</li>
-                                    </ul>
-                                </li>
-                                <li>Campaign Component System in the Design System: coupon component, campaign themes, component rules</li>
-                                <li>Detail worth keeping verbatim: <em>"users can still copy/paste codes — it doesn't do anything, but it feels good"</em></li>
-                                <li>CS ticket data view for support</li>
-                            </ul>
-                            <p><strong>Validation:</strong> Quick prototype verified comprehension; hypotheses validated enough to commit; no A/B infrastructure yet — released live</p>
-                        </div>
-                    </section>
+                    <!-- COUPON: OUTCOME -->
+                    <section class="cs-section" id="coupon-outcome">
+                        <p class="cs-eyebrow">Outcome &amp; Lessons</p>
+                        <h2>Achievements &amp; Takeaways</h2>
 
-                    <!-- 05 DELIVERY -->
-                    <section class="delivery-section">
-                        <h2>Delivery</h2>
-                        <div class="delivery-steps">
-                            <div class="delivery-step">
-                                <span class="step-number">01</span>
-                                <p>New components added to Design System</p>
-                            </div>
-                            <div class="delivery-step">
-                                <span class="step-number">02</span>
-                                <p>User flows + copy documented</p>
-                            </div>
-                            <div class="delivery-step">
-                                <span class="step-number">03</span>
-                                <p>Developer collaboration for smooth production integration</p>
-                            </div>
-                        </div>
-                        <p>Site rollout phased per page, mobile + desktop.</p>
-                    </section>
+                        <h3>Achievements</h3>
+                        <ul class="cs-facts">
+                            <li><strong>After two weeks:</strong> no more user complaints in feedback, a 50% drop in CS tickets, a slight (&lt;2%) drop in abandoned carts, and a slight (&lt;2%) increase in CR% for coupon campaigns.</li>
+                            <li><strong>After a few months:</strong> a slight uptick in return users.</li>
+                        </ul>
 
-                    <!-- 06 OUTCOME & LESSONS -->
-                    <section class="outcome-section">
-                        <h2>Outcome & Lessons</h2>
-                        
-                        <div class="metrics-container">
-                            <div class="metric-card">
-                                <span class="metric-value" data-countup="15">0</span><span class="metric-suffix">%</span>
-                                <span class="metric-label">return rate ↑</span>
+                        <div class="cs-twocol">
+                            <div class="cs-col">
+                                <h3>Takeaways</h3>
+                                <ul>
+                                    <li>Automate it — remove human error.</li>
+                                    <li>Customer Support is a valuable source of data.</li>
+                                    <li>Voucher flight is a thing.</li>
+                                </ul>
                             </div>
-                            <div class="metric-card">
-                                <span class="metric-value" data-countup="50">0</span><span class="metric-suffix">%</span>
-                                <span class="metric-label">CS ticket drop</span>
-                            </div>
-                            <div class="metric-card">
-                                <span class="metric-value">0</span>
-                                <span class="metric-label">user complaints in feedback</span>
-                            </div>
-                            <div class="metric-card">
-                                <span class="metric-value">&lt;2%</span>
-                                <span class="metric-label">cart abandonment ↓ + CR ↑ on coupon campaigns</span>
+                            <div class="cs-col">
+                                <h3>Details to consider</h3>
+                                <ul>
+                                    <li>Many users were still used to copy/pasting.</li>
+                                    <li>Most users were not campaign-focused, but product-focused.</li>
+                                    <li>Coupons didn't have such a huge impact.</li>
+                                    <li>Checkout unchanged.</li>
+                                </ul>
                             </div>
                         </div>
-                        
-                        <div class="site-outcomes">
-                            <h3>Site Outcomes</h3>
-                            <ul>
-                                <li>Stickiness + SEO + usability improved</li>
-                                <li>Sports Site of the Year awards that year</li>
-                                <li>Positive customer reactions on social media</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="lessons-section">
-                            <h3>Coupon Learnings</h3>
-                            <div class="lessons-columns">
-                                <div class="lessons-column">
-                                    <h4>Takeaways</h4>
-                                    <ul>
-                                        <li>Automate it, remove human error</li>
-                                        <li>CS is a valuable data source</li>
-                                        <li>"voucher flight" is real (users leaving to hunt coupons)</li>
-                                    </ul>
-                                </div>
-                                <div class="lessons-column">
-                                    <h4>Reality check</h4>
-                                    <ul>
-                                        <li>Many users still copy/pasted</li>
-                                        <li>Most users were product-focused, not campaign-focused</li>
-                                        <li>Coupons had smaller impact than expected</li>
-                                        <li>Checkout itself unchanged</li>
-                                        <li>Slight uptick in return users only after a few months</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="general-lessons">
-                            <h3>General Lessons</h3>
-                            <ul>
-                                <li>Validate early and often with users</li>
-                                <li>Design Systems are enablers, not gatekeepers</li>
-                                <li>Include Brand in product from day 1</li>
-                                <li>Start with a solid foundation and iterate early and often</li>
-                            </ul>
-                        </div>
-                        
-                        <p class="closing-note"><em>The coupon study is reframed as proof of the redesign thesis — standardisation (Design System + Discovery cycle) is what made a fast, surgical coupon fix possible. Its sobering learnings are kept verbatim and unhidden; they strengthen, not weaken, the story.</em></p>
+
+                        <p class="cs-note">
+                            The coupon study is proof of the redesign thesis — standardisation (Design System + Discovery cycle) is what made a fast, surgical coupon fix possible. Its sobering learnings are kept verbatim and unhidden; they strengthen, not weaken, the story.
+                        </p>
                     </section>
                 </div>
             </div>

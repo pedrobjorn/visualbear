@@ -6,10 +6,13 @@ footer {
     width: 100%;
     height: 32px;
     line-height: $base-line-height;
+    color: inherit;
+    background-color: $vb-dark;
 
     p {
         padding: 0;
         margin: 0;
+        background-color: $vb-dark;
     }
 
     img {
@@ -19,12 +22,32 @@ footer {
 }
 
 .foot {
-    background-color: $vb-grey;
+    background-color: $vb-dark;
     color: $vb-light;
     z-index: 1;
 }
 
 #contact {
+    background-color: $vb-dark;
+    position: relative;
+
+    // Label and email link share the same size
+    h3 {
+        font-size: 1rem;
+        margin: 8px 0;
+    }
+}
+
+// Tighten the bottom rhythm: contact block -> social icons -> copyright
+.foot .container--padded {
+    padding: 32px 0 40px;
+}
+
+.foot .row {
+    margin-bottom: 0;
+}
+
+footer {
     background-color: $vb-dark;
 }
 
@@ -34,7 +57,7 @@ footer {
         text-align: left;
         height: auto;
         padding: 32px;
-        background-color: $vb-grey;
+        background-color: $vb-dark;
         font-size: 18px;
 
         .contact-info {
@@ -44,7 +67,7 @@ footer {
 
     .footer-text {
         display: block;
-        background-color: $vb-grey;
+        background-color: $vb-dark;
         height: 100%;
         padding: 16px;
         margin: 32px 0;
@@ -57,13 +80,13 @@ footer {
         text-align: left;
         height: auto;
         padding: 32px;
-        background-color: $vb-grey;
+        background-color: $vb-dark;
         font-size: 16px;
     }
 
     .footer-text {
         display: block;
-        background-color: $vb-grey;
+        background-color: $vb-dark;
         height: 100%;
     }
 }
@@ -73,7 +96,7 @@ footer {
     .footer-text {
         font-size: 16px;
         display: block;
-        background-color: $vb-grey;
+        background-color: $vb-dark;
     }
 }
 

@@ -30,15 +30,6 @@ let taskTarget = args.production ? dirs.destination : dirs.temporary;
 let browserSync = browserSyncLib.create();
 
 
-gulp.task('index', function () {
-  var target = gulp.src('./src/index.html');
-  // It's not necessary to read the files (will speed up things), we're only after their paths:
-  var sources = gulp.src(['./src/**/*.js', './src/**/*.css'], {read: false});
- 
-  return target.pipe(inject(sources))
-    .pipe(gulp.dest('./src'));
-});
-
 // This will grab all js in the `gulp` directory
 // in order to load all gulp tasks
 glob.sync('./gulp/**/*.js').filter(function(file) {

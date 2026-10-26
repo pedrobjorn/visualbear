@@ -14,5 +14,39 @@
 <div id="work">
 {{gallery.content({content:site.data.work, contentType:'', showPlay:false, showBlog:false})}}
 </div>
+<article class="section section-top-padding" id="about">
+		<section class="gallery-container">
+			
+			<div class="container--padded">
+				<div class="document-text text-box">
+					<div class="headshot-container">
+						<img src="../images/misc/profile_photo.png" height="192px" width="192px">
+					</div>
+					<p>
+						Hi! I'm <b>Pedro Björn</b>.
+					</p>
+					<br>
+					<p>
+						I'm a <b>Stockholm</b> based designer, currently a <b>Design Lead</b>
+						at <a href="https://www.quizrr.se/" target="_blank"><b>Quizrr</b></a>, empowering workers in supply chains through education and eLearning, leveraging AI and Design.
+					</p>
+					<br>
+					<p>
+						I have worked for a decade with digital experiences such as <b>apps</b> and <b>websites</b>, with my expertise is in <b>UX (User Experience)</b>, <b>UI (User Interface)</b>, and <b>visual design</b>. I also have experience with <b>AI Design</b>, <b>Design Operations</b>, <b>front-end development</b> and <b>data analysis</b>.
+					</p>
+					
+					<p>
+						I love <b>design</b>, <b>technology</b> and <b>art</b>, which is why I really enjoy bringing them together to create something new.
+					</p>
+					<br>
+					<p>Feel free to <a href="../#work" class="highlight"  onclick="scroller('gallery')"><b>check out my work</b></a>,
+					my <a href="../resume" class="highlight"><b>online resume</b></a>,and don't forget to
+					<a href="#contact" class="highlight"  onclick="scroller('contact')"><b>say hello!</b></a></p>
+					
+				</div>
+			</div>
+
+		</section>
+	</article>
 
 {% endblock %}

@@ -1,0 +1,606 @@
+// ==========================================================================
+// Case study pages (fashion-rebrand, sports-ecommerce-redesign, digital-closet)
+// A shared design system for long-form design case studies.
+// Open, breathable layout: stacked rows, unboxed images, rounded list
+// containers, and page-wide containers for big visuals and tables.
+// All styles are scoped under `.case-study` to avoid leaking.
+// ==========================================================================
+
+.case-study {
+    // ------------------------------------------------------------------
+    // Hero
+    // ------------------------------------------------------------------
+    .cs-hero {
+        text-align: center;
+        padding: 64px 0 32px;
+    }
+
+    .cs-eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-size: $middle-font-size;
+        color: $vb-primary;
+        margin: 0 0 16px;
+    }
+
+    h1 {
+        margin: 0 0 16px;
+    }
+
+    .cs-subtitle {
+        font-size: $base-h3-size;
+        font-weight: $font-light;
+        max-width: 720px;
+        margin: 0 auto 16px;
+    }
+
+    .cs-byline {
+        font-size: $middle-font-size;
+        color: $vb-light-grey;
+        display: inline-block;
+        padding: 8px 0;
+        margin: 0 auto 48px;
+    }
+
+    .cs-footnote {
+        font-size: $small-font-size;
+        color: $vb-light-grey;
+        margin: 16px 0 0;
+    }
+
+    .cs-summary {
+        max-width: 720px;
+        margin: 32px auto 0;
+        padding: 16px 24px;
+        background-color: rgba(255, 255, 255, 0.45);
+        border-radius: 16px;
+        text-align: left;
+    }
+
+    // ------------------------------------------------------------------
+    // Sections — left-aligned editorial headers with an orange kicker
+    // ------------------------------------------------------------------
+    .cs-section {
+        padding: 64px 0;
+
+        h2 {
+            margin: 0 0 8px;
+
+            &::before {
+                content: '';
+                display: block;
+                width: 40px;
+                height: 4px;
+                margin-bottom: 16px;
+                background-color: $vb-primary;
+                border-radius: 2px;
+            }
+        }
+
+        h3 {
+            margin: 40px 0 8px;
+        }
+    }
+
+    .cs-section-intro {
+        max-width: 720px;
+        margin: 0 0 32px;
+        font-weight: $font-light;
+    }
+
+    // ------------------------------------------------------------------
+    // Cards — stacked full-width rows
+    // ------------------------------------------------------------------
+    .cs-cards {
+        .cs-card {
+            flex: 1 1 100%;
+            margin: 16px 0;
+            padding: 28px;
+            background-color: rgba(255, 255, 255, 0.45);
+            border-radius: 16px;
+
+            h3,
+            h4 {
+                margin: 0 0 8px;
+                font-size: $base-h4-size;
+            }
+
+            p {
+                margin: 0;
+                font-size: $middle-font-size;
+            }
+        }
+
+        .cs-number {
+            display: block;
+            font-size: $base-h2-size;
+            font-weight: $font-bold;
+            color: $vb-primary;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+    }
+
+    // ------------------------------------------------------------------
+    // Steps — a borderless numbered timeline (process, delivery, JTBD)
+    // Numbers baseline-aligned with their titles
+    // ------------------------------------------------------------------
+    .cs-steps {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        .cs-step {
+            display: flex;
+            align-items: baseline;
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(37, 37, 40, 0.08);
+
+            &:first-child {
+                padding-top: 0;
+            }
+
+            &:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+        }
+
+        .cs-number {
+            flex: 0 0 48px;
+            font-size: $base-h3-size;
+            font-weight: $font-bold;
+            color: $vb-primary;
+            line-height: 1;
+        }
+
+        h3,
+        h4 {
+            margin: 0 0 4px;
+            font-size: $base-h4-size;
+        }
+
+        p {
+            margin: 0;
+            font-size: $middle-font-size;
+        }
+    }
+
+    // ------------------------------------------------------------------
+    // Metrics — big numbers in subtle, translucent rounded containers
+    // ------------------------------------------------------------------
+    .cs-metrics {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 32px -16px 0;
+    }
+
+    .cs-metric {
+        flex: 1 1 200px;
+        margin: 16px;
+        padding: 24px 16px;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.45);
+        border-radius: 16px;
+
+        // inline-block keeps the value and its suffix on one line
+        .cs-metric-value {
+            display: inline-block;
+            font-size: $base-h0-size;
+            font-weight: $font-bold;
+            color: $vb-primary;
+            line-height: 1.1;
+        }
+
+        .cs-metric-suffix {
+            font-size: $base-h2-size;
+            font-weight: $font-bold;
+            color: $vb-primary;
+        }
+
+        .cs-metric-label {
+            display: block;
+            margin-top: 8px;
+            font-size: $middle-font-size;
+            color: $vb-light-grey;
+        }
+    }
+
+    // ------------------------------------------------------------------
+    // Page-wide showcase — big rounded container for wide visuals & tables
+    // ------------------------------------------------------------------
+    .cs-wide {
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        margin-left: -50vw;
+        margin-top: 24px;
+        margin-bottom: 24px;
+        padding: 0 48px;
+        box-sizing: border-box;
+    }
+
+    .cs-showcase {
+        margin: 0;
+
+        .cs-frame {
+            width: 100%;
+        }
+
+        figcaption {
+            margin-top: 12px;
+            font-size: $middle-font-size;
+            color: $vb-light-grey;
+            text-align: center;
+        }
+    }
+
+    // ------------------------------------------------------------------
+    // Before/after — open layout, no block containers around images
+    // ------------------------------------------------------------------
+    .cs-comparison {
+        margin: 24px 0;
+
+        .cs-panel {
+            margin: 48px 0;
+
+            h3,
+            h4 {
+                margin: 0 0 4px;
+                font-size: $base-h4-size;
+            }
+
+            > p {
+                margin: 0 0 16px;
+                font-size: $middle-font-size;
+            }
+
+            .cs-tag {
+                display: inline-block;
+                text-transform: uppercase;
+                letter-spacing: 0.12em;
+                font-size: $small-font-size;
+                color: $vb-primary;
+                margin: 0 0 4px;
+            }
+        }
+    }
+
+    // Image placeholder frames — soft fill, no border lines
+    .cs-frame {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 200px;
+        padding: 24px;
+        border-radius: 16px;
+        background-color: rgba(255, 255, 255, 0.45);
+        text-align: center;
+
+        .cs-frame-label {
+            font-size: $middle-font-size;
+            color: $vb-light-grey;
+
+            strong {
+                display: block;
+                color: $vb-grey;
+                margin-bottom: 4px;
+            }
+        }
+
+        &.cs-frame--tall {
+            min-height: 420px;
+        }
+    }
+
+    .cs-annotation {
+        display: flex;
+        align-items: baseline;
+        margin-top: 8px;
+
+        .cs-annotation-dot {
+            flex: 0 0 auto;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: $vb-primary;
+            margin-right: 8px;
+            position: relative;
+            top: -1px;
+        }
+
+        p {
+            margin: 0;
+            font-size: $middle-font-size;
+            color: $vb-light-grey;
+        }
+    }
+
+    // ------------------------------------------------------------------
+    // Quotes
+    // ------------------------------------------------------------------
+    .cs-pullquote {
+        max-width: 760px;
+        margin: 32px 0;
+        padding: 24px 32px;
+        border-radius: 16px;
+        background-color: rgba(255, 255, 255, 0.45);
+        font-size: $base-h3-size;
+        font-weight: $font-light;
+        font-style: italic;
+
+        cite {
+            display: block;
+            margin-top: 8px;
+            font-size: $middle-font-size;
+            font-style: normal;
+            color: $vb-light-grey;
+        }
+    }
+
+    .cs-quotes {
+        .cs-quote {
+            flex: 1 1 100%;
+            margin: 16px 0;
+            padding: 20px 24px;
+            background-color: rgba(255, 255, 255, 0.45);
+            border-radius: 16px;
+            font-style: italic;
+
+            p {
+                margin: 0;
+            }
+        }
+    }
+
+    // ------------------------------------------------------------------
+    // Outcomes table — page-wide via `.cs-wide`
+    // ------------------------------------------------------------------
+    .cs-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 24px 0;
+
+        th,
+        td {
+            padding: 16px 24px;
+            text-align: left;
+            border-bottom: 1px solid rgba(37, 37, 40, 0.1);
+        }
+
+        th {
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: $small-font-size;
+            color: $vb-light-grey;
+        }
+
+        td:first-child {
+            font-weight: $font-bold;
+        }
+    }
+
+    // ------------------------------------------------------------------
+    // Two-column blocks — stacked rows
+    // ------------------------------------------------------------------
+    .cs-twocol {
+        .cs-col {
+            flex: 1 1 100%;
+            margin: 16px 0;
+            padding: 28px;
+            background-color: rgba(255, 255, 255, 0.45);
+            border-radius: 16px;
+
+            h3,
+            h4 {
+                margin: 0 0 8px;
+                font-size: $base-h4-size;
+            }
+
+            ul {
+                margin: 0;
+                padding-left: 20px;
+            }
+
+            li {
+                margin-bottom: 8px;
+            }
+        }
+    }
+
+    // ------------------------------------------------------------------
+    // Section divider — label with lines on each side (e.g. "Deep-Dive")
+    // ------------------------------------------------------------------
+    .cs-divider {
+        display: flex;
+        align-items: center;
+        margin: 64px 0;
+        text-align: center;
+
+        &::before,
+        &::after {
+            content: '';
+            flex: 1 1 auto;
+            height: 2px;
+            border-radius: 1px;
+            background-color: rgba(37, 37, 40, 0.15);
+        }
+
+        span {
+            flex: 0 0 auto;
+            padding: 0 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            font-size: $middle-font-size;
+            color: $vb-light-grey;
+        }
+    }
+
+    // Phosphor icon sizing inside text
+    .ph {
+        font-size: 0.85em;
+        vertical-align: baseline;
+        line-height: 1;
+    }
+
+    // ------------------------------------------------------------------
+    // Notes & lists — explicit, rounded container rows
+    // ------------------------------------------------------------------
+    .cs-note {
+        font-size: $middle-font-size;
+        color: $vb-light-grey;
+        font-style: italic;
+        margin: 8px 0 0;
+    }
+
+    .cs-facts {
+        margin: 16px 0 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+            background-color: rgba(255, 255, 255, 0.45);
+            border-radius: 12px;
+            padding: 14px 20px;
+            margin-bottom: 8px;
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Responsive
+// ---------------------------------------------------------------------------
+@media (max-width: $break-medium) {
+    .case-study {
+        .cs-hero {
+            padding-top: 32px;
+        }
+
+        .cs-subtitle {
+            font-size: $base-font-size;
+        }
+
+        .cs-wide {
+            padding: 0 16px;
+        }
+
+        .cs-metrics {
+            margin: 24px -16px 0;
+        }
+
+        .cs-metric {
+            margin: 12px 16px;
+        }
+    }
+}
+
+// Wider screens — let the hero breathe before the content starts
+@media (min-width: $break-large) {
+    .case-study {
+        .cs-hero {
+            padding-top: 128px;
+        }
+    }
+}
+
+// ==========================================================================
+// Pink theme — sports e-commerce redesign
+// Accent and hero use magenta-pink instead of the site red; the secondary
+// light background is a subtle warm tint that complements the pink.
+// ==========================================================================
+
+.case-study.cs-pink {
+    background-color: #FDF0F7;
+
+    .cs-eyebrow {
+        color: #C10D82;
+    }
+
+    // Colored divider lines take the background pink, not the text accent
+    .cs-section h2::before {
+        background-color: #E40F9E;
+    }
+
+    .cs-steps .cs-number,
+    .cs-cards .cs-number {
+        color: #C10D82;
+    }
+
+    .cs-metric .cs-metric-value,
+    .cs-metric .cs-metric-suffix {
+        color: #C10D82;
+    }
+
+    .cs-panel .cs-tag {
+        color: #C10D82;
+    }
+
+    .cs-annotation .cs-annotation-dot {
+        background-color: #C10D82;
+    }
+
+    .cs-divider::before,
+    .cs-divider::after {
+        background-color: rgba(228, 15, 158, 0.4);
+    }
+
+    .cs-divider span {
+        color: #C10D82;
+    }
+}
+
+// Fixed header matches the pink page (scoped via the page's body class)
+body.cs-pink-page nav {
+    background-color: #E40F9E;
+}
+
+// The logo's light-blue circle hue-shifts to match the pink page
+body.cs-pink-page nav a.icon img {
+    filter: hue-rotate(120deg);
+}
+
+// Full-bleed magenta typographic hero, matching the case study cover slide
+.case-study .cs-hero--pink {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    padding: 96px 48px;
+    box-sizing: border-box;
+    background-color: #E40F9E;
+    color: #fff;
+
+    .cs-eyebrow {
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    h1 {
+        color: #fff;
+        margin: 0;
+    }
+
+    .cs-hero-name {
+        margin: 24px 0 0;
+        font-size: $base-h4-size;
+        font-weight: $font-light;
+        color: rgba(255, 255, 255, 0.85);
+    }
+}
+
+// In-flow hero continuation under the pink block
+.case-study .cs-hero--meta {
+    padding-top: 48px;
+}
+
+@media (min-width: $break-large) {
+    .case-study .cs-hero--meta {
+        padding-top: 64px;
+    }
+}
+
+@media (max-width: $break-medium) {
+    .case-study .cs-hero--pink {
+        padding: 64px 24px;
+    }
+}

@@ -53,6 +53,7 @@
     "node-normalize-scss": "^8.1.2",
     "nunjucks": "^3.2.2",
     "rimraf": "~2.6.1",
+    "sass": "^1.106.1",
     "vinyl-buffer": "~1.0.0",
     "vinyl-source-stream": "~1.1.0",
     "watchify": "^3.11.1"

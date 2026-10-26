@@ -111,7 +111,7 @@ button {
     width: 48px;
     padding: 0;
     margin: 0;
-    background-color: $vb-grey;
+    background-color: $vb-dark;
 
     &:hover,
     &:focus {
@@ -121,7 +121,7 @@ button {
     &:hover,
     &:focus,
     &:active {
-        background-color: $vb-grey;
+        background-color: $vb-dark;
     }
 
     &:last-child:after {
@@ -132,7 +132,7 @@ button {
 .socialContainer {
     padding: 16px 0 32px;
     margin: auto;
-    background-color: $vb-grey;
+    background-color: $vb-dark;
 }
 
 
