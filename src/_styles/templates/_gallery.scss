@@ -136,6 +136,11 @@
     }
 }
 
+// Profile photo on the home page — subtle lift off the gradient
+.headshot-container img {
+    box-shadow: 0 4px 16px rgba(37, 37, 40, 0.25);
+}
+
 .gallery-body {
     background-color: #999;
     width: 100%;

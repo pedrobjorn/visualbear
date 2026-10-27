@@ -3,7 +3,7 @@
 User-agent: *
 Allow: /
 
-# Retired concept pages, deindexed from the public record
+# Retired pages, deindexed from the public record
 Disallow: /steam-mobile/
 Disallow: /climate-clock/
 Disallow: /teachr/

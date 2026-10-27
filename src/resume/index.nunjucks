@@ -1,4 +1,7 @@
 {% extends '_layouts/resume.nunjucks' %}
+
+{% block bodyattrs %} class="resume-page"{% endblock %}
+
 {% import "resume/_resume_blocks/resume.title.nunjucks" as title %}
 {% import "resume/_resume_blocks/resume.intro.nunjucks" as intro %}
 {% import "resume/_resume_blocks/resume.skills.nunjucks" as skills %}

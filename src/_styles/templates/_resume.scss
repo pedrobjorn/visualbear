@@ -40,6 +40,12 @@ ul.no-bullets {
         }
     }
 
+    // Headline sub-titles (Design Leadership, Key Responsibilities, …) sit a
+    // step above the small side labels (Education, Interests, Languages)
+    h4.sub-title {
+        font-size: $base-h4-size;
+    }
+
     .sub-title {
         font-size: $middle-font-size;
         max-width: 100%;

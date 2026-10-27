@@ -20,10 +20,19 @@ nav {
         padding: 0 12px;
     }
 
+    // Every logo sits in the same round container so the mark lands on the
+    // same spot in every nav bar; the background stays empty per page and
+    // only pages that need it (resume) paint the plate
     a.icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         vertical-align: middle;
-        height: 32px;
+        width: 40px;
+        height: 40px;
         padding: 0;
+        border-radius: 50%;
+        background-color: transparent;
 
         img {
             height: 32px;
@@ -71,6 +80,59 @@ nav {
     }
 }
 
+// Home page: the fixed nav matches the body's red-to-dark gradient as the
+// page scrolls (CSS scroll-driven animation, no JS). Progress is mapped to
+// the scroll range, so the hold is nudged to 12% to line up with the
+// gradient's 10% stop over the full page height. Browsers without
+// scroll-timeline support simply keep the solid brand red.
+body.home-page nav {
+    background-color: $vb-primary;
+}
+
+@supports (animation-timeline: scroll()) {
+    @keyframes nav-scroll-fade {
+        0% {
+            background-color: #D73735;
+        }
+
+        // Dark reached before scroll end — the gradient's darkest stretch
+        // (bottom viewport-height of the page) never passes under the nav
+        22%,
+        38%,
+        85% {
+            background-color: #252528;
+        }
+
+        100% {
+            background-color: #191919;
+        }
+    }
+
+    body.home-page nav {
+        // animation-timeline is declared after the shorthand: the shorthand
+        // resets it to auto otherwise
+        animation: nav-scroll-fade linear both;
+        animation-timeline: scroll(root);
+    }
+}
+
+// Resume page: the menu takes the page's light blue, links flip dark for
+// contrast on it, and the shared logo container paints its dark plate
+body.resume-page nav {
+    background-color: #EBF5FF;
+
+    .links {
+        a:link,
+        a:visited {
+            color: #252528;
+        }
+    }
+
+    a.icon {
+        background-color: #252528;
+    }
+}
+
 // Apply styling up to devices smaller than tablets (exclude tablets)
 @include mq($until: mobile) {
     nav {
@@ -91,8 +153,10 @@ nav {
 
         a.icon {
             vertical-align: middle;
-            height: 32px;
-            padding: 0 16px;
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            margin: 0 12px;
 
             img {
                 height: 32px;
@@ -119,8 +183,10 @@ nav {
 
         a.icon {
             vertical-align: middle;
-            height: 32px;
-            padding: 0 16px;
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            margin: 0 12px;
 
             img {
                 height: 32px;
