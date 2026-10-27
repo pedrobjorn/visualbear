@@ -1,26 +1,28 @@
 {% extends "_layouts/work.nunjucks" %}
 {% import "_modules/molecules/buttonslider/buttonslider.nunjucks" as buttonslider %}
+{% block title %}visualbear - Relaunching a Fashion Brand Experience on Web{% endblock %}
 {% block config %}
     {% set baseUrl = "../" %}
 {% endblock %}
+{% block bodyattrs %} class="cs-black-page"{% endblock %}
 {% block content %}
-    <article class="section section-top-padding case-study" id="fashion_rebrand_container">
+    <article class="section section-top-padding case-study cs-black" id="fashion_rebrand_container">
         <section class="gallery-container">
-            <div class="black-bg">
-                <img src="../images/work/thumbs/gallery_thumb_fashion.jpg" title="Fashion Rebrand" width="100%" height="100%" style="margin-bottom:-12px">
-            </div>
             <div class="container">
                 <div class="document-text text-box">
 
-                    <!-- 01 HERO -->
-                    <header class="cs-hero">
-                        <p class="cs-eyebrow">Case Study — Fashion Rebrand</p>
+                    <!-- 01 HERO, full-bleed black cover -->
+                    <header class="cs-hero cs-hero--black">
+                        <p class="cs-eyebrow">Case Study</p>
                         <h1>Relaunching a Fashion Brand Experience on Web</h1>
-                        <p class="cs-subtitle">
-                            Redesigning the UI visual identity to uplift our products — while improving Landing Page sessions and reducing exit rates for a global fashion retailer.
+                        <p class="cs-cover-summary">
+                            Rebuilding a global fashion retailer's entrances, the Start Page and Department navigation, to lift brand perception and move customers further down the funnel.
                         </p>
-                        <p class="cs-byline">H&amp;M ⋅ Staff Designer ⋅ Web Global Redesign ⋅ 9 months</p>
+                        <p class="cs-cover-details">H&amp;M ⋅ Staff Designer ⋅ Web Global Redesign ⋅ 9 months</p>
+                    </header>
 
+                    <!-- HERO META, metrics & result -->
+                    <section class="cs-hero cs-hero--meta">
                         <div class="cs-metrics">
                             <div class="cs-metric">
                                 <span class="cs-metric-value" data-countup="20">20</span><span class="cs-metric-suffix">k</span>
@@ -36,16 +38,16 @@
                             </div>
                         </div>
                         <p class="cs-footnote">* for two pilot markets &nbsp;·&nbsp; ** vs last year, May 3–31, across Landing &amp; Department pages</p>
-                        <p class="cs-summary"><em>More sessions, fewer single-page sessions and fewer exits — up to ~20k more customers per month continued down the funnel toward transaction.</em></p>
-                    </header>
+                        <p class="cs-summary"><em>More sessions, fewer single-page sessions and fewer exits, up to ~20k more customers per month continued down the funnel toward transaction.</em></p>
+                    </section>
 
                     <!-- 02 CONTEXT -->
                     <section class="cs-section" id="context">
                         <h2>Context</h2>
-                        <p class="cs-section-intro">A global fashion retailer, losing its fashion credibility — and a nine-month rebrand mandate covering the digital and physical experience.</p>
+                        <p class="cs-section-intro">A global fashion retailer, losing its fashion credibility, and a nine-month rebrand mandate covering the digital and physical experience.</p>
 
                         <blockquote class="cs-pullquote">
-                            Brand recognition, sales and customer retention are dropping. We are no longer considered a fashion brand — we are considered a retail brand.
+                            Brand recognition, sales and customer retention are dropping. We are no longer considered a fashion brand, we are considered a retail brand.
                         </blockquote>
 
                         <div class="cs-cards">
@@ -56,16 +58,20 @@
                             </div>
                             <div class="cs-card">
                                 <h3>The Customer</h3>
-                                <p>The influential <em>Fashionista</em> — 18–34, fashion-ambitious, knows what they like, open to expanding their style, wants to share and be shared with. A <em>Validator</em>, not a Guidance Seeker.</p>
-                                <p class="cs-note">Hypothesis: bring in the Fashionista, and the regular customer — influenced by these trendsetters — follows and invests more in quality, stylish apparel.</p>
+                                <p>The influential <em>Fashionista</em>, 18–34, fashion-ambitious, knows what they like, open to expanding their style, wants to share and be shared with. A <em>Validator</em>, not a Guidance Seeker.</p>
+                                <p class="cs-note">Hypothesis: bring in the Fashionista, and the regular customer, influenced by these trendsetters, follows and invests more in quality, stylish apparel.</p>
                             </div>
                             <div class="cs-card">
                                 <h3>Core Team</h3>
-                                <p>A senior cross-functional team of 15: 3 brand designers, 3 UX designers, 2 UI designers, 2 design system designers, 2 researchers and 3 project managers.</p>
-                                <p>I was Lead Web UX of the global rebrand, responsible for ensuring the brand lift met the standards for Web.</p>
-                                <p class="cs-note">⚠️ Looking back, we were too centralised and waterfall — not enough room for contribution from teams and developers.</p>
+                                <p>For this project a Core Team was created, a combination of seniors from different parts of the organisation: 1 Brand Strategist, 2 UX Researchers, 1 UI Designer, 1 Visual Designer, 2 UX Designers and 1 Impact Producer.</p>
+                                <p>My role was Lead User Experience of the Global rebrand, responsible for the digital and brand lift meeting the standards for Web.</p>
+                                <p class="cs-note">⚠️ Looking back, we were too centralised and waterfall, not enough room for contribution from teams and developers.</p>
                             </div>
                         </div>
+
+                        <!-- <div class="cs-frame">
+                            <span class="cs-frame-label"><strong>Team Composition Diagram</strong>Final diagram pending</span>
+                        </div> -->
 
                         <h3>Goals</h3>
                         <ul class="cs-facts">
@@ -75,57 +81,19 @@
                         </ul>
                     </section>
 
-                    <!-- 03 PROCESS -->
-                    <section class="cs-section" id="process">
-                        <h2>Process</h2>
-                        <p class="cs-section-intro">
-                            A repeating Discovery → Exploration → Delivery loop: gather insights from behavioural metrics and formative studies, prioritise problems and opportunities, ideate and validate through summative studies, then ship with developers — and feed the learnings back in.
-                        </p>
-                        <ol class="cs-steps">
-                            <li class="cs-step">
-                                <span class="cs-number">01</span>
-                                <div>
-                                    <h3>Strategy</h3>
-                                    <p>Proposed a cyclical workflow: the Core Team co-creates the concepts for each core view and pattern, which teams then use as their reference.</p>
-                                </div>
-                            </li>
-                            <li class="cs-step">
-                                <span class="cs-number">02</span>
-                                <div>
-                                    <h3>Exploration</h3>
-                                    <p>Mapped insights to the customer journey, workshopped the themes, and ran desirability studies on the top-3 concepts.</p>
-                                </div>
-                            </li>
-                            <li class="cs-step">
-                                <span class="cs-number">03</span>
-                                <div>
-                                    <h3>Guidance</h3>
-                                    <p>Built the Web &amp; Visual Guidelines — breakpoint and layout specs, design standards and Design Reviews across teams, with SEO and Accessibility forums to align them.</p>
-                                </div>
-                            </li>
-                            <li class="cs-step">
-                                <span class="cs-number">04</span>
-                                <div>
-                                    <h3>QA</h3>
-                                    <p>Established the Design QA initiative across dozens of teams — ~50 visual issues documented in 2 weeks.</p>
-                                </div>
-                            </li>
-                        </ol>
-                    </section>
-
-                    <!-- 04 DEEP-DIVE: ENTRANCES -->
+                    <!-- 03 DEEP-DIVE: ENTRANCES -->
                     <section class="cs-section" id="deep-dive">
                         <h2>Deep-Dive: Entrances</h2>
 
                         <div class="cs-cards">
                             <div class="cs-card">
                                 <h3>Problem</h3>
-                                <p>Customers exit early from Department pages — a fragmented experience with limited discovery. The Primary Navigation always starts at the highest level of department views, which is redundant when the customer wants a context-sensitive list one level down. The old Desktop page exposed a lot of navigation — good for ease of access, but overwhelming for the new customers who mostly use Web. And a landing page that looks unfocused, with unclear navigation, makes people bounce.</p>
+                                <p>Customers exit early from Department pages, a fragmented experience with limited discovery. The Primary Navigation always starts at the highest level of department views, which is redundant when the customer wants a context-sensitive list one level down. The old Desktop page exposed a lot of navigation, good for ease of access, but overwhelming for the new customers who mostly use Web. And a landing page that looks unfocused, with unclear navigation, makes people bounce.</p>
                             </div>
                             <div class="cs-card">
                                 <h3>Goal &amp; Hypothesis</h3>
                                 <p><strong>Goal:</strong> increase traffic down the funnel, let departments be discovered, and set them as the default landing page for returning customers.</p>
-                                <p><strong>Hypothesis:</strong> make the Index Page the Women's department with the other departments exposed as tabs — focusing the start page while making each department easier to find and segment on.</p>
+                                <p><strong>Hypothesis:</strong> make the Index Page the Women's department with the other departments exposed as tabs, focusing the start page while making each department easier to find and segment on.</p>
                             </div>
                         </div>
 
@@ -138,9 +106,9 @@
                             <div class="cs-panel">
                                 <span class="cs-tag">Before</span>
                                 <h3>Start Page</h3>
-                                <p>A cluttered index with heavy, exposed navigation competing for attention — unfocused for new customers.</p>
+                                <p>A cluttered index with heavy, exposed navigation competing for attention, unfocused for new customers.</p>
                                 <div class="cs-frame">
-                                    <span class="cs-frame-label"><strong>Start Page — Before</strong>Final mockup pending</span>
+                                    <span class="cs-frame-label"><strong>Start Page · Before</strong>Final mockup pending</span>
                                 </div>
                                 <div class="cs-annotation">
                                     <span class="cs-annotation-dot"></span>
@@ -150,9 +118,9 @@
                             <div class="cs-panel">
                                 <span class="cs-tag">After</span>
                                 <h3>Start Page</h3>
-                                <p>The Women's department as the index — Women · Men · Kids · Home · Beauty as tabs — with bigger, bolder typography, less copy, adjusted spacing and media in focus.</p>
+                                <p>The Women's department as the index, Women · Men · Kids · Home · Beauty as tabs, with bigger, bolder typography, less copy, adjusted spacing and media in focus.</p>
                                 <div class="cs-frame">
-                                    <span class="cs-frame-label"><strong>Start Page — After</strong>Final mockup pending</span>
+                                    <span class="cs-frame-label"><strong>Start Page · After</strong>Final mockup pending</span>
                                 </div>
                                 <div class="cs-annotation">
                                     <span class="cs-annotation-dot"></span>
@@ -164,9 +132,9 @@
                         <div class="cs-wide">
                             <figure class="cs-showcase">
                                 <div class="cs-frame cs-frame--tall">
-                                    <span class="cs-frame-label"><strong>The new Start Page — Women's department as the index</strong>Big page-wide mockup · final image pending</span>
+                                    <span class="cs-frame-label"><strong>The new Start Page, Women's department as the index</strong>Big page-wide mockup · final image pending</span>
                                 </div>
-                                <figcaption>Bigger, bolder typography with less copy, media in focus — and Women · Men · Kids · Home · Beauty exposed as tabs.</figcaption>
+                                <figcaption>Bigger, bolder typography with less copy, media in focus, and Women · Men · Kids · Home · Beauty exposed as tabs.</figcaption>
                             </figure>
                         </div>
 
@@ -176,15 +144,15 @@
                                 <h3>Navigation</h3>
                                 <p>Desktop hover mega-menu: easy to jump anywhere from anywhere, but a lot of information and multiple patterns to keep track of across Mobile &amp; Desktop. App and Web menus lived in completely different places.</p>
                                 <div class="cs-frame">
-                                    <span class="cs-frame-label"><strong>Navigation — Before</strong>Final mockup pending</span>
+                                    <span class="cs-frame-label"><strong>Navigation · Before</strong>Final mockup pending</span>
                                 </div>
                             </div>
                             <div class="cs-panel">
                                 <span class="cs-tag">After</span>
                                 <h3>Navigation</h3>
-                                <p>Progressive disclosure — navigation hidden behind a hamburger/icons, unified across desktop and mobile. On mobile, horizontal department tabs anchored to the header: hidden on scroll down, revealed on scroll up.</p>
+                                <p>Progressive disclosure, navigation hidden behind a hamburger/icons, unified across desktop and mobile. On mobile, horizontal department tabs anchored to the header: hidden on scroll down, revealed on scroll up.</p>
                                 <div class="cs-frame">
-                                    <span class="cs-frame-label"><strong>Navigation — After</strong>Final mockup pending</span>
+                                    <span class="cs-frame-label"><strong>Navigation · After</strong>Final mockup pending</span>
                                 </div>
                                 <div class="cs-annotation">
                                     <span class="cs-annotation-dot"></span>
@@ -196,22 +164,22 @@
                         <div class="cs-wide">
                             <figure class="cs-showcase">
                                 <div class="cs-frame cs-frame--tall">
-                                    <span class="cs-frame-label"><strong>The new Primary Navigation — Department tabs</strong>Big page-wide mockup · final image pending</span>
+                                    <span class="cs-frame-label"><strong>The new Primary Navigation, Department tabs</strong>Big page-wide mockup · final image pending</span>
                                 </div>
-                                <figcaption>Departments always accessible in the header — hidden on scroll down, revealed on scroll up, with the active department shown at all times.</figcaption>
+                                <figcaption>Departments always accessible in the header, hidden on scroll down, revealed on scroll up, with the active department shown at all times.</figcaption>
                             </figure>
                         </div>
 
                         <h3>Key insights that shaped the design</h3>
                         <ul class="cs-facts">
                             <li>Customers overwhelmingly get inspired on social media before entering our store.</li>
-                            <li>Women often navigated to Men's departments anyway — shopping, or at least browsing, for their partners.</li>
+                            <li>Women often navigated to Men's departments anyway, shopping, or at least browsing, for their partners.</li>
                             <li>Customers switch between browsing and seeking modes within a single session.</li>
                             <li>Web users are often new and unfamiliar with us; App is used by Members who know the brand.</li>
                             <li>Mobile is ~65% of web traffic, but Desktop still often carries the transactions.</li>
                         </ul>
 
-                        <h3>Validation — Qualitative Discoverability Study</h3>
+                        <h3>Validation: Qualitative Discoverability Study</h3>
                         <p>
                             The Navigation Team and I created the research plan with our Core Team Researchers, who ran the study and reported back. <strong>Participants:</strong> 9 (1 male, 8 female), ages 21–37, DE/UK/US, regular shoppers. <strong>Method:</strong> remote moderated, old and new versions of the start page across App, Mobile and Desktop prototypes.
                         </p>
@@ -219,33 +187,83 @@
                             <li>Department navigation was a very intuitive way to move between departments.</li>
                             <li>The exposed department tab was validated as worth pursuing.</li>
                             <li>Departments exposed upfront on Mobile would help new and returning customers explore.</li>
-                            <li>Web and App need fundamentally different navigation menus — the bar and expectations differ per device.</li>
+                            <li>Web and App need fundamentally different navigation menus, the bar and expectations differ per device.</li>
                             <li>Fewer departments reduce complexity and increase the presence of existing ones.</li>
-                            <li>Key issue: some customers may miss the Desktop mega-menu — one participant preferred the hover-over effect.</li>
+                            <li>Key issue: some customers may miss the Desktop mega-menu, one participant preferred the hover-over effect.</li>
                         </ul>
 
-                        <h3>Delivery — two teams, one experience</h3>
+                        <h3>Delivery: Two Teams, One Experience</h3>
                         <p>
-                            The experience was owned by two teams in two verticals: the Entrances Team (mine) for Landing and Department pages, and the Navigation Team for the Navigation Menu. To the customer it's one experience — so we worked as one. I helped build the Web navigation menus with the Navigation Designer, to ensure the connecting tissue.
+                            The experience was owned by two teams in two verticals: the Entrances Team (mine) for Landing and Department pages, and the Navigation Team for the Navigation Menu. To the customer it's one experience, so we worked as one. I helped build the Web navigation menus with the Navigation Designer, to ensure the connecting tissue.
                         </p>
                         <p>
                             The Department Navigation Tab became a single shared component, used the same way in the header and the nav menu, on Mobile and Desktop:
                         </p>
                         <ul class="cs-facts">
-                            <li>Always in relation to the Header on Mobile &amp; Desktop — a familiar placement.</li>
+                            <li>Always in relation to the Header on Mobile &amp; Desktop, a familiar placement.</li>
                             <li>Displays the active Department at all times in Navigation.</li>
                             <li>Horizontal swipe on text overflow on Mobile; visible on page load.</li>
-                            <li>Hidden on scroll down, revealed on scroll up — out of the way, but always accessible.</li>
+                            <li>Hidden on scroll down, revealed on scroll up, out of the way, but always accessible.</li>
                         </ul>
                         <p class="cs-note">
-                            Implementation realities: font tokens felt disproportionately small on Desktop at release; an oversized menu came from right-hand tiles being too small; Kids needed an extra age level, so its layout differed; Women/Men could be set automatically from the gender chosen at account creation. Navigation icons without supportive text are a usability risk — but these were tested long before, and familiar enough to justify on Desktop.
+                            Implementation realities: font tokens felt disproportionately small on Desktop at release; an oversized menu came from right-hand tiles being too small; Kids needed an extra age level, so its layout differed; Women/Men could be set automatically from the gender chosen at account creation. Navigation icons without supportive text are a usability risk, but these were tested long before, and familiar enough to justify on Desktop.
                         </p>
+                    </section>
+
+                    <!-- 04 PROCESS -->
+                    <section class="cs-section" id="process">
+                        <h2>Process</h2>
+                        <p class="cs-section-intro">
+                            A repeating Discovery → Exploration → Delivery loop: gather insights from behavioural metrics and formative studies, prioritise problems and opportunities, ideate and validate through summative studies, then ship with developers, and feed the learnings back in.
+                        </p>
+                        <ol class="cs-steps">
+                            <li class="cs-step">
+                                <span class="cs-number">01</span>
+                                <div>
+                                    <h3>📌 Planning &amp; Strategy</h3>
+                                    <p>I proposed a more cyclical workflow with an insight phase, where teams would research first. UX researchers, researched content and DMs would jointly create concepts for each customer view, and patterns that carried across all customer journeys. Concept creation was a cyclical process where teams co-created and reviewed the concepts.</p>
+                                    <!-- <div class="cs-frame">
+                                        <span class="cs-frame-label"><strong>Planning &amp; Strategy: cyclical workflow diagram</strong>Final diagram pending</span>
+                                    </div> -->
+                                </div>
+                            </li>
+                            <li class="cs-step">
+                                <span class="cs-number">02</span>
+                                <div>
+                                    <h3>🗺 Exploration &amp; Vision</h3>
+                                    <p>We UX Designers in the Core Team co-created journey maps for each customer segment set by our Customer Experience team, providing as much support as possible and facilitating workshops to explore opportunities. We then mapped these along a customer journey to map the touchpoints and connect the insights as we proceeded.</p>
+                                    <!-- <div class="cs-frame">
+                                        <span class="cs-frame-label"><strong>Exploration &amp; Vision: customer journey map</strong>Final diagram pending</span>
+                                    </div> -->
+                                </div>
+                            </li>
+                            <li class="cs-step">
+                                <span class="cs-number">03</span>
+                                <div>
+                                    <h3>🧭 Design Guidance</h3>
+                                    <p>Once the teams got involved and started creating the different views and components, we ensured to provide as much support and guidance as possible, through both hands-on design work, and providing design specifications and assets.</p>
+                                    <!-- <div class="cs-frame">
+                                        <span class="cs-frame-label"><strong>Design Guidance: support &amp; specification overview</strong>Final diagram pending</span>
+                                    </div> -->
+                                </div>
+                            </li>
+                            <li class="cs-step">
+                                <span class="cs-number">04</span>
+                                <div>
+                                    <h3>🤝 Collaboration &amp; Design QA</h3>
+                                    <p>Collaborated with the UX &amp; Design teams working across all products to review and align designs before development. Gathered and provided frequent feedback and support to ensure the designs aligned with B2C. Worked and aligned with the Content and SEO teams for frequent feedback and improvements, including helping Product Owners improve the content for the site.</p>
+                                    <!-- <div class="cs-frame">
+                                        <span class="cs-frame-label"><strong>Collaboration &amp; Design QA, ways of working</strong>Final diagram pending</span>
+                                    </div> -->
+                                </div>
+                            </li>
+                        </ol>
                     </section>
 
                     <!-- 05 OUTCOMES -->
                     <section class="cs-section" id="outcomes">
                         <h2>Outcomes</h2>
-                        <p class="cs-section-intro">Pilot results, May 3–31 year over year, two markets — early, but very promising.</p>
+                        <p class="cs-section-intro">Pilot results, May 3–31 year over year, two markets, early, but very promising.</p>
 
                         <div class="cs-wide">
                         <table class="cs-table">
@@ -262,19 +280,19 @@
                                     <td>Sessions</td>
                                     <td>~330k / mo</td>
                                     <td>~450k / mo</td>
-                                    <td>+27% — such a shift YoY is often more than season &amp; marketing</td>
+                                    <td>+27%, such a shift YoY is often more than season &amp; marketing</td>
                                 </tr>
                                 <tr>
                                     <td>Single-page sessions</td>
                                     <td>~10%</td>
                                     <td>~8.5%</td>
-                                    <td>−14% — ~11k more sessions going beyond the first page</td>
+                                    <td>−14%, ~11k more sessions going beyond the first page</td>
                                 </tr>
                                 <tr>
                                     <td>Exit rate</td>
                                     <td>~15%</td>
                                     <td>~13%</td>
-                                    <td>−11% — ~9k fewer sessions exiting in a month</td>
+                                    <td>−11%, ~9k fewer sessions exiting in a month</td>
                                 </tr>
                                 <tr>
                                     <td>Performance</td>
@@ -286,13 +304,13 @@
                         </table>
                         </div>
 
-                        <ul class="cs-facts">
+                        <!-- <ul class="cs-facts">
                             <li>All departments gained traffic from their new presence on Mobile Web and Apps.</li>
                             <li>Business Units were happy with better discoverability, content guidelines and UI elements to work with.</li>
-                            <li>Cross-area collaboration with Brand and Content improved — campaign production time &amp; cost halved.</li>
+                            <li>Cross-area collaboration with Brand and Content improved, campaign production time &amp; cost halved.</li>
                             <li>Web experience and SEO improved thanks to consolidating department pages and reducing loading times, largely from less content on the Index and Department pages.</li>
-                        </ul>
-                        <p class="cs-note">⚠️ Rebrands are often a long-term investment — we could have done more quantification work and gotten more solid insights.</p>
+                        </ul> -->
+                        <p class="cs-note">⚠️ Rebrands are often a long-term investment, we could have done more quantification work and gotten more solid insights.</p>
                     </section>
 
                     <!-- 06 FUTURE IMPROVEMENTS -->
@@ -302,7 +320,7 @@
                             <li>Department Navigation on other parts of the journey.</li>
                             <li>Using Department preferences to shape recommendations.</li>
                             <li>Expanding the Department Tab pattern to be used elsewhere, like Categories.</li>
-                            <li>Mobile is ~65% of web traffic while Desktop often carries transactions — a signal for further Mobile Web improvements.</li>
+                            <li>Mobile is ~65% of web traffic while Desktop often carries transactions, a signal for further Mobile Web improvements.</li>
                         </ul>
                     </section>
 
@@ -313,15 +331,15 @@
                             <div class="cs-col">
                                 <h3>Lessons learned</h3>
                                 <ul>
-                                    <li><strong>Big projects are very risky</strong> — learn early and often to de-risk.</li>
-                                    <li><strong>Include teams earlier in the process</strong> — committee-based design at this scale is harmful for culture and high risk.</li>
-                                    <li><strong>Up-front navigation helps discovery</strong> — users find what they're looking for more easily when it's visible.</li>
+                                    <li><strong>Big projects are very risky</strong>, learn early and often to de-risk.</li>
+                                    <li><strong>Include teams earlier in the process</strong>, committee-based design at this scale is harmful for culture and high risk.</li>
+                                    <li><strong>Up-front navigation helps discovery</strong>, users find what they're looking for more easily when it's visible.</li>
                                 </ul>
                             </div>
                             <div class="cs-col">
                                 <h3>Relevance as a Staff Designer</h3>
                                 <ul>
-                                    <li>How to tackle big cross-departmental navigation challenges — in process and team coordination.</li>
+                                    <li>How to tackle big cross-departmental navigation challenges, in process and team coordination.</li>
                                     <li>How Brand can be better integrated into product.</li>
                                     <li>How to bring teams together on a greater, unified mission.</li>
                                 </ul>

@@ -37,6 +37,16 @@
         padding-top: 96px;
         padding-bottom: 32px;
     }
+
+    // The fixed hero text is taller than the gallery's 66vh spacer, so the
+    // gallery container overlaps it and the text peeks out behind the cards
+    // through the card margins and gaps while scrolling. On small screens
+    // let the hero flow with the content instead, so the gallery follows it
+    // directly and nothing sits behind anything.
+    .hero {
+        position: static;
+        height: auto;
+    }
 }
 
 // All breakpoints use the same hero height (40vh) - consistent with desktop

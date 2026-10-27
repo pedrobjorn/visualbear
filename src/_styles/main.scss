@@ -3,64 +3,29 @@
 // Normalize Styles
 @import "node_modules/normalize-scss/sass/normalize.scss";
 
-// @import "node_modules/materialize-css/sass/materialize";
-
-// Color
+// Materialize: only the grid, navbar, buttons and color plumbing are used —
+// add further components deliberately, they carry dead CSS weight.
 @import "node_modules/materialize-css/sass/components/color-variables";
 @import "node_modules/materialize-css/sass/components/color-classes";
-
-// Variables;
 @import "node_modules/materialize-css/sass/components/variables";
-
-// Reset
-// @import "node_modules/materialize-css/sass/components/normalize";
-
-// components
 @import "node_modules/materialize-css/sass/components/global";
-
-// @import "node_modules/materialize-css/sass/components/badges";
-// @import "node_modules/materialize-css/sass/components/icons-material-design";
 @import "node_modules/materialize-css/sass/components/grid";
 @import "node_modules/materialize-css/sass/components/navbar";
-
-// @import "node_modules/materialize-css/sass/components/typography";
-// @import "node_modules/materialize-css/sass/components/transitions";
-// @import "node_modules/materialize-css/sass/components/cards";
-
-// @import "node_modules/materialize-css/sass/components/toast";
-// @import "node_modules/materialize-css/sass/components/tabs";
-// @import "node_modules/materialize-css/sass/components/tooltip";
 @import "node_modules/materialize-css/sass/components/buttons";
 
-// @import "node_modules/materialize-css/sass/components/dropdown";
-// @import "node_modules/materialize-css/sass/components/waves";
-// @import "node_modules/materialize-css/sass/components/modal";
-// @import "node_modules/materialize-css/sass/components/collapsible";
-// @import "node_modules/materialize-css/sass/components/chips";
-// @import "node_modules/materialize-css/sass/components/materialbox";
-// @import "node_modules/materialize-css/sass/components/table_of_contents";
-// @import "node_modules/materialize-css/sass/components/sidenav";
-// @import "node_modules/materialize-css/sass/components/preloader";
-// @import "node_modules/materialize-css/sass/components/slider";
-// @import "node_modules/materialize-css/sass/components/carousel";
-// @import "node_modules/materialize-css/sass/components/tapTarget";
-// @import "node_modules/materialize-css/sass/components/pulse";
-// @import "node_modules/materialize-css/sass/components/datepicker";
-// @import "node_modules/materialize-css/sass/components/timepicker";
-
-//Helpers
+// Helpers
 @import "utilities/variables";
 @import "utilities/mixins";
 @import "utilities/reset";
 @import "utilities/grid";
 
-//Base
+// Base
 @import "atoms/base";
 @import "atoms/typography";
 @import "atoms/icons";
 @import "atoms/buttons";
 
-//Components
+// Components
 @import "molecules/d3";
 @import "molecules/textelements";
 
@@ -73,7 +38,7 @@
 @import "colour-variables";
 @import "colour-classes";
 
-// Import Modules
+// Modules
 @import "../_modules/atom/link/link";
 
 @import "../_modules/molecules/nav/nav";

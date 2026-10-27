@@ -1,25 +1,48 @@
 {% extends "_layouts/work.nunjucks" %}
 {% import "_modules/molecules/buttonslider/buttonslider.nunjucks" as buttonslider %}
+{% block title %}visualbear - My Closet, Digital Closet Feature{% endblock %}
 {% block config %}
     {% set baseUrl = "../" %}
 {% endblock %}
 {% block content %}
     <article class="section section-top-padding case-study" id="digital_closet_container">
         <section class="gallery-container">
-            <div class="black-bg">
-                <img src="../images/work/thumbs/gallery_thumb_closet.jpg" title="My Closet — Digital Feature" width="100%" height="100%" style="margin-bottom:-12px">
-            </div>
             <div class="container">
                 <div class="document-text text-box">
 
-                    <!-- 01 DEFINITION -->
-                    <header class="cs-hero">
-                        <p class="cs-eyebrow">Case Study — Digital Feature</p>
-                        <h1>My Closet</h1>
-                        <p class="cs-subtitle">
-                            A digital closet showing customers the apparel they already own — built to increase Member engagement, and delivered in record time.
+                    <!-- 01 HERO, full-bleed red cover -->
+                    <header class="cs-hero cs-hero--red">
+                        <p class="cs-eyebrow">Case Study</p>
+                        <h1>My Closet, Digital Closet Feature</h1>
+                        <p class="cs-cover-summary">
+                            A digital closet showing customers the apparel they already own, built to increase Member engagement, and delivered in record time.
                         </p>
-                        <p class="cs-byline">Pedro Björn · Lead UX Design · 5 months concept-to-delivery (a company record)</p>
+                        <p class="cs-cover-details">Lead UX Design ⋅ 5 months concept-to-delivery, a company record</p>
+                    </header>
+
+                    <!-- HERO META, metrics & result -->
+                    <section class="cs-hero cs-hero--meta">
+                        <div class="cs-metrics">
+                            <div class="cs-metric">
+                                <span class="cs-metric-value" data-countup="10">10</span><span class="cs-metric-suffix">%</span>
+                                <span class="cs-metric-label">session length increase</span>
+                            </div>
+                            <div class="cs-metric">
+                                <span class="cs-metric-value"><i class="ph ph-arrow-up"></i></span>
+                                <span class="cs-metric-label">sign-in correlation from the Closet page</span>
+                            </div>
+                            <div class="cs-metric">
+                                <span class="cs-metric-value">5 mo</span>
+                                <span class="cs-metric-label">concept-to-delivery</span>
+                            </div>
+                        </div>
+                        <p class="cs-summary"><em>Outcome: stickiness validated in studies and live, a company-record 5-month delivery, and a feature that taught the team as much as it achieved.</em></p>
+                    </section>
+
+                    <!-- 02 DEFINITION -->
+                    <section class="cs-section" id="definition">
+                        <p class="cs-eyebrow">Definition</p>
+                        <h2>Problem &amp; Approach</h2>
 
                         <blockquote class="cs-pullquote">
                             "How might we bring back our customers using clothes they already own?"
@@ -32,44 +55,53 @@
                             </div>
                             <div class="cs-card">
                                 <h3>Business goals</h3>
-                                <p>Increase engagement (return rate, session length, pages/session) and relevance (add-to-cart, conversion) — sustainably, by building on existing apparel.</p>
+                                <p>Increase engagement (return rate, session length, pages/session) and relevance (add-to-cart, conversion), sustainably, by building on existing apparel.</p>
                             </div>
                             <div class="cs-card">
                                 <h3>Approach</h3>
                                 <p>Leverage existing purchase-history data, with a hard 5-month delivery target.</p>
                             </div>
                         </div>
-                    </header>
+                    </section>
 
-                    <!-- 02 EXPLORATION -->
-                    <section class="cs-section" id="exploration">
-                        <h2>Exploration</h2>
+                    <!-- 03 RESEARCH -->
+                    <section class="cs-section" id="research">
+                        <p class="cs-eyebrow">Exploration</p>
+                        <h2>Research</h2>
 
-                        <h3>Research</h3>
-                        <p>
-                            Six formative interviews about customers' real closets, categorised into four Jobs-to-be-Done:
-                        </p>
-                        <ol class="cs-steps">
-                            <li class="cs-step">
-                                <span class="cs-number">01</span>
-                                <div><h4>I want to look and feel good</h4></div>
-                            </li>
-                            <li class="cs-step">
-                                <span class="cs-number">02</span>
-                                <div><h4>I want my wardrobe to last</h4></div>
-                            </li>
-                            <li class="cs-step">
-                                <span class="cs-number">03</span>
-                                <div><h4>I want to keep my wardrobe organised</h4></div>
-                            </li>
-                            <li class="cs-step">
-                                <span class="cs-number">04</span>
-                                <div><h4>I want to get rid of my clothes</h4></div>
-                            </li>
-                        </ol>
+                        <p>We conducted formative interviews with 6 customers to learn about their closets.</p>
+                        <p>We then took these <em>Research Nuggets</em> and categorised them into 4 Jobs-to-be-done.</p>
+                        <p>We also conducted a thorough Competitive Analysis covering 12 Apps and services that covered these needs.</p>
 
-                        <h3>Competitive analysis</h3>
-                        <p>Twelve apps and services covering these needs were reviewed for patterns and gaps.</p>
+                        <figure class="cs-showcase">
+                            <div class="cs-venn" aria-label="Research nuggets categorised into four Jobs-to-be-done">
+                                <div class="cs-venn__circle cs-venn__circle--tl">
+                                    <span>I want to look and feel good</span>
+                                </div>
+                                <div class="cs-venn__circle cs-venn__circle--tr">
+                                    <span>I want my wardrobe to last</span>
+                                </div>
+                                <div class="cs-venn__circle cs-venn__circle--bl">
+                                    <span>I want to keep my wardrobe organised</span>
+                                </div>
+                                <div class="cs-venn__circle cs-venn__circle--br">
+                                    <span>I want to get rid of my clothes</span>
+                                </div>
+                                <span class="cs-venn__nugget" style="top: 20%; left: 44%;"></span>
+                                <span class="cs-venn__nugget" style="top: 26%; left: 52%;"></span>
+                                <span class="cs-venn__nugget" style="top: 22%; left: 58%;"></span>
+                                <span class="cs-venn__nugget" style="top: 47%; left: 19%;"></span>
+                                <span class="cs-venn__nugget" style="top: 53%; left: 24%;"></span>
+                                <span class="cs-venn__nugget" style="top: 50%; left: 50%;"></span>
+                                <span class="cs-venn__nugget" style="top: 45%; left: 56%;"></span>
+                                <span class="cs-venn__nugget" style="top: 55%; left: 48%;"></span>
+                                <span class="cs-venn__nugget" style="top: 77%; left: 44%;"></span>
+                                <span class="cs-venn__nugget" style="top: 80%; left: 53%;"></span>
+                                <span class="cs-venn__nugget" style="top: 47%; left: 80%;"></span>
+                                <span class="cs-venn__nugget" style="top: 54%; left: 77%;"></span>
+                            </div>
+                            <figcaption>Research Nuggets from the formative interviews, scattered across the overlapping Jobs-to-be-done.</figcaption>
+                        </figure>
 
                         <h3>Ideation</h3>
                         <p>Two Design Studios:</p>
@@ -81,7 +113,7 @@
                         <h3>Customer voices</h3>
                         <div class="cs-quotes">
                             <div class="cs-quote">
-                                <p>"I run out of space — I get rid of clothes."</p>
+                                <p>"I run out of space, I get rid of clothes."</p>
                             </div>
                             <div class="cs-quote">
                                 <p>"When I have time I organise it and make it easier to find."</p>
@@ -92,11 +124,12 @@
                         </div>
                     </section>
 
-                    <!-- 03 DISCOVERY -->
+                    <!-- 04 DISCOVERY -->
                     <section class="cs-section" id="discovery">
-                        <h2>Discovery</h2>
+                        <p class="cs-eyebrow">Discovery</p>
+                        <h2>Flows &amp; Validation</h2>
                         <p class="cs-section-intro">
-                            A defined user flow and basic functionality fed straight into a fast prototype — the three screens below.
+                            A defined user flow and basic functionality fed straight into a fast prototype, the three flows below.
                         </p>
 
                         <div class="cs-comparison">
@@ -109,11 +142,11 @@
                                 </div>
                             </div>
                             <div class="cs-panel">
-                                <span class="cs-tag">Flow 02 — the signature piece</span>
+                                <span class="cs-tag">Flow 02 · the signature piece</span>
                                 <h3>Closet View</h3>
-                                <p>All previously purchased items, gathered and categorised. Swipable product sliders with a clothes-hanger feel — clothing shown clean, without detail clutter — an intro message, vertically scrollable categories, filterable and sortable.</p>
+                                <p>All previously purchased items, gathered and categorised. Swipable product sliders with a clothes-hanger feel, clothing shown clean, without detail clutter, an intro message, vertically scrollable categories, filterable and sortable.</p>
                                 <div class="cs-frame cs-frame--tall">
-                                    <span class="cs-frame-label"><strong>Closet View — Hanger Slider</strong>The signature piece · final mockup pending</span>
+                                    <span class="cs-frame-label"><strong>Closet View, Hanger Slider</strong>The signature piece · final mockup pending</span>
                                 </div>
                             </div>
                             <div class="cs-panel">
@@ -146,9 +179,10 @@
                         </div>
                     </section>
 
-                    <!-- 04 DELIVERY -->
+                    <!-- 05 DELIVERY -->
                     <section class="cs-section" id="delivery">
-                        <h2>Delivery</h2>
+                        <p class="cs-eyebrow">Delivery</p>
+                        <h2>Built on the Design System</h2>
                         <ol class="cs-steps">
                             <li class="cs-step">
                                 <span class="cs-number">01</span>
@@ -161,7 +195,7 @@
                                 <span class="cs-number">02</span>
                                 <div>
                                     <h3>Handoff</h3>
-                                    <p>Developers embedded throughout — a clean handoff.</p>
+                                    <p>Developers embedded throughout, a clean handoff.</p>
                                 </div>
                             </li>
                             <li class="cs-step">
@@ -174,24 +208,10 @@
                         </ol>
                     </section>
 
-                    <!-- 05 OUTCOME -->
+                    <!-- 06 OUTCOME -->
                     <section class="cs-section" id="outcome">
-                        <h2>Outcome</h2>
-
-                        <div class="cs-metrics">
-                            <div class="cs-metric">
-                                <span class="cs-metric-value" data-countup="10">10</span><span class="cs-metric-suffix">%</span>
-                                <span class="cs-metric-label">session length increase</span>
-                            </div>
-                            <div class="cs-metric">
-                                <span class="cs-metric-value"><i class="ph ph-arrow-up"></i></span>
-                                <span class="cs-metric-label">sign-in correlation from the Closet page</span>
-                            </div>
-                            <div class="cs-metric">
-                                <span class="cs-metric-value">5 mo</span>
-                                <span class="cs-metric-label">concept-to-delivery, a company record</span>
-                            </div>
-                        </div>
+                        <p class="cs-eyebrow">Outcome &amp; Lessons</p>
+                        <h2>Win &amp; Hard Truth</h2>
 
                         <div class="cs-twocol">
                             <div class="cs-col">
@@ -205,7 +225,7 @@
                                 <h3>Hard truth</h3>
                                 <ul>
                                     <li>Feature was heavy and expensive on the backend.</li>
-                                    <li>Only a portion of customers' wardrobes was represented — limited usefulness.</li>
+                                    <li>Only a portion of customers' wardrobes was represented, limited usefulness.</li>
                                     <li>Flagged to stakeholders early.</li>
                                     <li>Served as a learning MVP.</li>
                                     <li>Sunsetted after one year.</li>
@@ -213,7 +233,7 @@
                             </div>
                         </div>
 
-                        <p class="cs-summary"><em>A feature measured not just by what it achieved, but by what it taught the team.</em></p>
+                        <!-- <p class="cs-summary"><em>A feature measured not just by what it achieved, but by what it taught the team.</em></p> -->
                     </section>
                 </div>
             </div>

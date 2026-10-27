@@ -164,6 +164,10 @@
             margin: 0;
             font-size: $middle-font-size;
         }
+
+        .cs-frame {
+            margin-top: 16px;
+        }
     }
 
     // ------------------------------------------------------------------
@@ -324,6 +328,7 @@
         max-width: 760px;
         margin: 32px 0;
         padding: 24px 32px;
+        border: 1px solid rgba(37, 37, 40, 0.12);
         border-radius: 16px;
         background-color: rgba(255, 255, 255, 0.45);
         font-size: $base-h3-size;
@@ -351,6 +356,81 @@
             p {
                 margin: 0;
             }
+        }
+    }
+
+    // ------------------------------------------------------------------
+    // Venn diagram — research nuggets mapped across Jobs-to-be-Done
+    // ------------------------------------------------------------------
+    .cs-venn {
+        position: relative;
+        width: 100%;
+        max-width: 640px;
+        margin: 48px auto;
+        padding-top: 100%;
+
+        .cs-venn__circle {
+            position: absolute;
+            width: 62%;
+            padding-top: 62%;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.45);
+
+            span {
+                position: absolute;
+                width: 46%;
+                font-size: $middle-font-size;
+                line-height: $base-line-height;
+                text-align: center;
+            }
+        }
+
+        .cs-venn__circle--tl {
+            top: 5%;
+            left: 5%;
+
+            span {
+                top: 9%;
+                left: 13%;
+            }
+        }
+
+        .cs-venn__circle--tr {
+            top: 5%;
+            right: 5%;
+
+            span {
+                top: 9%;
+                right: 13%;
+            }
+        }
+
+        .cs-venn__circle--bl {
+            bottom: 5%;
+            left: 5%;
+
+            span {
+                bottom: 9%;
+                left: 13%;
+            }
+        }
+
+        .cs-venn__circle--br {
+            bottom: 5%;
+            right: 5%;
+
+            span {
+                bottom: 9%;
+                right: 13%;
+            }
+        }
+
+        .cs-venn__nugget {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            margin: -6px 0 0 -6px;
+            background-color: $vb-primary;
         }
     }
 
@@ -473,6 +553,14 @@
 // ---------------------------------------------------------------------------
 @media (max-width: $break-medium) {
     .case-study {
+        // The shared .container switches to 64px top padding below
+        // $break-medium while the fixed nav stays 48px tall, which leaves a
+        // band of page background between the header and the full-bleed hero.
+        // Keep the hero flush with the nav, matching wide viewports.
+        .container {
+            padding-top: 48px;
+        }
+
         .cs-hero {
             padding-top: 32px;
         }
@@ -555,20 +643,71 @@ body.cs-pink-page nav {
     background-color: #E40F9E;
 }
 
+// ==========================================================================
+// Black theme — fashion rebrand
+// Accent and hero use near-black instead of the site red; the secondary
+// light background is a subtle neutral tint that complements the black.
+// ==========================================================================
+
+.case-study.cs-black {
+    background-color: #FAFAFA;
+
+    .cs-eyebrow {
+        color: #111111;
+    }
+
+    .cs-section h2::before {
+        background-color: #111111;
+    }
+
+    .cs-steps .cs-number,
+    .cs-cards .cs-number {
+        color: #111111;
+    }
+
+    .cs-metric .cs-metric-value,
+    .cs-metric .cs-metric-suffix {
+        color: #111111;
+    }
+
+    .cs-panel .cs-tag {
+        color: #111111;
+    }
+
+    .cs-annotation .cs-annotation-dot {
+        background-color: #111111;
+    }
+
+    .cs-divider::before,
+    .cs-divider::after {
+        background-color: rgba(17, 17, 17, 0.4);
+    }
+
+    .cs-divider span {
+        color: #111111;
+    }
+}
+
+// Fixed header matches the black page (scoped via the page's body class)
+body.cs-black-page nav {
+    background-color: #111111;
+}
+
 // The logo's light-blue circle hue-shifts to match the pink page
 body.cs-pink-page nav a.icon img {
     filter: hue-rotate(120deg);
 }
 
-// Full-bleed magenta typographic hero, matching the case study cover slide
-.case-study .cs-hero--pink {
+// Full-bleed colored typographic hero, matching the case study cover slides
+.case-study .cs-hero--pink,
+.case-study .cs-hero--red,
+.case-study .cs-hero--black {
     width: 100vw;
     position: relative;
     left: 50%;
     margin-left: -50vw;
-    padding: 96px 48px;
+    padding: 64px 48px;
     box-sizing: border-box;
-    background-color: #E40F9E;
     color: #fff;
 
     .cs-eyebrow {
@@ -580,27 +719,48 @@ body.cs-pink-page nav a.icon img {
         margin: 0;
     }
 
-    .cs-hero-name {
-        margin: 24px 0 0;
-        font-size: $base-h4-size;
+    .cs-cover-summary {
+        max-width: 680px;
+        margin: 24px auto 0;
+        font-size: $base-h3-size;
         font-weight: $font-light;
         color: rgba(255, 255, 255, 0.85);
     }
+
+    .cs-cover-details {
+        margin: 24px 0 0;
+        font-size: $middle-font-size;
+        letter-spacing: 0.05em;
+        color: rgba(255, 255, 255, 0.8);
+    }
 }
 
-// In-flow hero continuation under the pink block
+.case-study .cs-hero--pink {
+    background-color: #E40F9E;
+}
+
+.case-study .cs-hero--red {
+    background-color: $vb-primary;
+}
+
+.case-study .cs-hero--black {
+    background-color: #111111;
+}
+
+// In-flow hero continuation — KPIs sit right below the cover, above the fold
 .case-study .cs-hero--meta {
-    padding-top: 48px;
+    padding-top: 24px;
 }
 
 @media (min-width: $break-large) {
     .case-study .cs-hero--meta {
-        padding-top: 64px;
+        padding-top: 32px;
     }
 }
 
 @media (max-width: $break-medium) {
-    .case-study .cs-hero--pink {
+    .case-study .cs-hero--pink,
+    .case-study .cs-hero--black {
         padding: 64px 24px;
     }
 }

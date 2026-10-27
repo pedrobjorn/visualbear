@@ -37,6 +37,38 @@ nav {
             color: $vb-light;
         }
     }
+
+    // The fixed header changes color per page (e.g. black and pink case
+    // studies), so hover and click must not paint a fixed brand color over
+    // it — the logo's transparent bear cutout would shine it through. Keep
+    // whatever the header background is; feedback comes from the underline
+    // and a slight dim instead of a colored box. This scales to any header
+    // color without per-color rules.
+    a {
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: transparent;
+        }
+    }
+
+    .links a {
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+        }
+    }
+
+    a.icon {
+        &:hover,
+        &:focus {
+            opacity: 0.85;
+        }
+
+        &:active {
+            opacity: 0.75;
+        }
+    }
 }
 
 // Apply styling up to devices smaller than tablets (exclude tablets)

@@ -3,87 +3,84 @@
 
 'use strict';
 
-import $ from 'jquery';
+const NAV_HEIGHT = 48;
 
-import Link from '../_modules/atom/link/link';
-import Gallery from '../_modules/organisms/gallery/gallery';
-
-// Smooth scrolling for anchor links
+// Smooth scrolling for same-page anchor links. Targets stop below the fixed
+// nav (48px) instead of hiding underneath it.
 function initSmoothScroll() {
-  $('a[href*="#"]').not('[href="#"]').on('click', function(e) {
-    // Check if it's an anchor link to the same page
-    if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') 
-        && location.hostname === this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-      
-      if (target.length) {
-        e.preventDefault();
-        $('html, body').animate({
-          scrollTop: target.offset().top
-        }, 800);
-        return false;
-      }
-    }
+  document.addEventListener('click', function(e) {
+    const link = e.target.closest('a[href*="#"]');
+    if (!link || link.getAttribute('href') === '#') return;
+
+    if (link.pathname.replace(/^\//, '') !== location.pathname.replace(/^\//, '') ||
+        link.hostname !== location.hostname) return;
+
+    const target = document.getElementById(link.hash.slice(1)) ||
+                   document.getElementsByName(link.hash.slice(1))[0];
+    if (!target) return;
+
+    e.preventDefault();
+    const top = target.getBoundingClientRect().top + window.scrollY - NAV_HEIGHT;
+    const reduceMotion =
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    window.scrollTo({
+      top: top,
+      behavior: reduceMotion ? 'auto' : 'smooth'
+    });
   });
 }
 
 // Animate case-study metric numbers from 0 to their target value.
 // The final value is already in the markup, so no-JS users see real numbers.
 function initCountUp() {
-  var $metrics = $('[data-countup]');
-  if (!$metrics.length) return;
+  const metrics = document.querySelectorAll('[data-countup]');
+  if (!metrics.length) return;
 
-  var reduceMotion =
+  const reduceMotion =
     window.matchMedia &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function animate($el) {
-    var target = parseInt($el.attr('data-countup'), 10);
+  if (reduceMotion || typeof IntersectionObserver === 'undefined') return;
+
+  function animate(el) {
+    const target = parseInt(el.getAttribute('data-countup'), 10);
     if (isNaN(target)) return;
 
-    var duration = 1200;
-    var startTime = null;
+    const duration = 1200;
+    let startTime = null;
 
     function step(timestamp) {
       if (startTime === null) startTime = timestamp;
-      var progress = Math.min((timestamp - startTime) / duration, 1);
+      const progress = Math.min((timestamp - startTime) / duration, 1);
       // Ease-out cubic
-      var eased = 1 - Math.pow(1 - progress, 3);
-      $el.text(Math.round(eased * target));
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target);
       if (progress < 1) requestAnimationFrame(step);
     }
 
     requestAnimationFrame(step);
   }
 
-  if (reduceMotion || typeof IntersectionObserver === 'undefined') return;
-
-  var observer = new IntersectionObserver(function(entries) {
+  const observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
         observer.unobserve(entry.target);
-        animate($(entry.target));
+        animate(entry.target);
       }
     });
   }, { threshold: 0.5 });
 
-  $metrics.each(function() {
-    var $el = $(this);
+  metrics.forEach(function(el) {
     // Reset to 0 so the number counts up when scrolled into view;
     // the final value stays in the markup for no-JS users
-    $el.text('0');
-    observer.observe(this);
+    el.textContent = '0';
+    observer.observe(el);
   });
 }
 
-$(() => {
-  new Link(); // Activate Link modules logic
-  new Gallery(); // Activate Gallery modules logic
-  
-  initSmoothScroll(); // Initialize smooth scrolling
-
-  initCountUp(); // Initialize case-study metric count-up animations
-  
-  console.log('Welcome to my Portfolio! I can do Javascript too, obviously');
+document.addEventListener('DOMContentLoaded', function() {
+  initSmoothScroll();
+  initCountUp();
 });
