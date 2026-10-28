@@ -4,6 +4,9 @@ nav {
     position: fixed;
     line-height: 48px;
     z-index: 2;
+    // Materialize gives nav a drop shadow; on the dark/transparent
+    // workflow header it reads as a hairline. The nav is flat.
+    box-shadow: none;
     background-color: $vb-primary;
     font-size: $base-font-size;
 

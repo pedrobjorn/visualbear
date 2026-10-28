@@ -987,10 +987,10 @@ body.cs-teal-page nav {
 // #A6ADB8 7.8:1 (the light-page muted grey #6E6E73 is only 3.5:1 here).
 // ==========================================================================
 .case-study.cs-workflow {
-    background-color: $vb-dark;
-    // Soft light spotlight bleeding down from the top of the page.
-    // The end stop is in px: this LibSass mangles a % stop here into 0
-    background-image: radial-gradient(ellipse 90% 800px at 50% -80px, rgba(215, 55, 53, 0.25), rgba(215, 55, 53, 0) 800px);
+    // The dark ground and its spotlight live on body.workflow-page (fixed,
+    // so the transparent nav always matches what's beneath it). This must
+    // beat .section's light fill, hence the explicit transparent.
+    background-color: transparent;
     color: $vb-light;
 
     // The strong brand red for this page. On the dark ground #D73735
@@ -1037,11 +1037,13 @@ body.cs-teal-page nav {
         background-color: rgba(255, 255, 255, 0.06);
     }
 
-    // Muted text roles
+    // Muted text roles — including the timeline step descriptions, whose
+    // light-page ink (rgba(37,37,40,.75)) is invisible on this ground
     .cs-byline,
     .cs-note,
     .cs-footnote,
-    .cs-frame-label {
+    .cs-frame-label,
+    .cs-timeline p {
         color: #A6ADB8;
     }
 
@@ -1081,17 +1083,29 @@ body.cs-teal-page nav {
         }
     }
 
-    // Pull quotes: bigger, centred, italic, with generous air around them
+    // Pull quotes: bigger, centred, italic, with equal air above and below
     .cs-quote {
         font-size: $base-h2-size;
         font-style: italic;
         text-align: center;
         max-width: 680px;
-        margin: 56px auto;
+        margin: 64px auto;
+        padding: 0 24px;
     }
 }
 
-// The fixed header melts into the dark page it sits on
-body.workflow-page nav {
-    background-color: $vb-dark;
+// The header carries the same dark ground and its own slice of the
+// spotlight, anchored top-centre like the page's — the two glows read as
+// one continuous light, and the bar keeps its fill while scrolled
+body.workflow-page {
+    // Glow on top, then a long smooth fade into the darker grey
+    background-color: #1D1D21;
+    background-image:
+        radial-gradient(ellipse 90% 800px at 50% -80px, rgba(215, 55, 53, 0.25), rgba(215, 55, 53, 0) 800px),
+        linear-gradient(180deg, #1D1D21 0%, #141416 100%);
+
+    nav {
+        background-color: #1D1D21;
+        background-image: radial-gradient(ellipse 90% 160px at 50% -40px, rgba(215, 55, 53, 0.25), rgba(215, 55, 53, 0) 160px);
+    }
 }
