@@ -12,7 +12,9 @@ body {
 
     /* 2 */
     background-color: $vb-grey;
-    height: 100%;
+    /* min-height only: a fixed 100% height pins the body to one viewport,
+       so page backgrounds (the gradients) cut off after the first screen
+       while the content overflows the body */
     min-height: 100%;
     font-family: $vb-body-font-family;
     font-weight: $font-light;
@@ -97,7 +99,6 @@ html,
 body {
     margin: 0;
     padding: 0;
-    height: 100%;
 }
 
 body {

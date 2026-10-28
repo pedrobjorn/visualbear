@@ -1115,9 +1115,20 @@ body.workflow-page {
         background-repeat: no-repeat;
     }
 
+    // The footer's inner sections (#contact, .socialContainer, the icon
+    // link) each paint their own #18181b box — that band was the visible
+    // cutoff at the page end. All of it goes transparent so the body
+    // fade runs to the very bottom.
     .foot,
+    .foot *,
     footer,
-    footer p {
+    footer * {
+        background-color: transparent;
+    }
+
+    /* #contact's ID beats the class selectors above, so it needs
+       its own ID-level override */
+    #contact {
         background-color: transparent;
     }
 }

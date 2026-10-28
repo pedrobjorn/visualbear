@@ -1,6 +1,12 @@
-body,
 html {
     height: 100%;
+}
+
+// min-height, not height: a fixed 100% body stays one viewport tall and
+// the page overflows it — body backgrounds (gradients) then paint only
+// the first screen and cut off. min-height lets it grow with content.
+body {
+    min-height: 100%;
     box-sizing: border-box;
 }
 
