@@ -1008,12 +1008,13 @@ body.cs-teal-page nav {
         padding: 88px 0 40px;
     }
 
-    // The suite wordmark, under the page title
+    // The suite wordmark, on its own line below the title
     .cs-wordmark {
+        display: block;
         font-size: $base-h1-size;
         font-weight: $font-bold;
-        letter-spacing: 0.08em;
-        margin: 0 0 24px;
+        letter-spacing: 0.14em;
+        margin: 32px 0 24px;
 
         span {
             color: #E34A47;
@@ -1098,14 +1099,18 @@ body.cs-teal-page nav {
 // spotlight, anchored top-centre like the page's — the two glows read as
 // one continuous light, and the bar keeps its fill while scrolled
 body.workflow-page {
-    // Glow on top, then a long smooth fade into the darker grey
+    // Glow on top, then a long smooth fade into the darker grey.
+    // no-repeat on both layers: the radial would otherwise tile a glow
+    // band every 800px down the page
     background-color: #1D1D21;
     background-image:
         radial-gradient(ellipse 90% 800px at 50% -80px, rgba(215, 55, 53, 0.25), rgba(215, 55, 53, 0) 800px),
         linear-gradient(180deg, #1D1D21 0%, #141416 100%);
+    background-repeat: no-repeat, no-repeat;
 
     nav {
         background-color: #1D1D21;
         background-image: radial-gradient(ellipse 90% 160px at 50% -40px, rgba(215, 55, 53, 0.25), rgba(215, 55, 53, 0) 160px);
+        background-repeat: no-repeat;
     }
 }
