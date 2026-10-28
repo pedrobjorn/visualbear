@@ -3,20 +3,21 @@
 
 {% block description %}How Pedro Björn runs an AI-collaborative design workflow — spec, guardrails, visual validation — and the visuAIbear suite that holds it together.{% endblock %}
 
-{% block bodyattrs %}{% endblock %}
+{% block bodyattrs %} class="workflow-page"{% endblock %}
 
 {% block config %}
     {% set baseUrl = "../" %}
 {% endblock %}
 
 {% block content %}
-    <article class="section section-top-padding case-study" id="workflow_container">
+    <article class="section section-top-padding case-study cs-workflow" id="workflow_container">
         <section class="gallery-container">
             <div class="container">
                 <div class="document-text text-box">
 
                     <!-- HERO -->
                     <header class="cs-hero">
+                        <p class="cs-wordmark">visu · <span>AI</span> · bear</p>
                         <p class="cs-eyebrow">How I work</p>
                         <h1>My Agentic Design Workflow</h1>
                         <p class="cs-cover-summary">
@@ -38,7 +39,7 @@
                         <p>
                             As designers, our skills have always been about empathising with people, identifying their needs, exploring solutions, and making sure these make it through to delivery, consistently. What's different today is that we have a tool that takes a lot of the hurdles off our plate: planning research, synthesising findings, manually building prototypes and mock-ups, handing over to developers, and testing outcomes.
                         </p>
-                        <p><em>"Design is decision making. Decisions are spec."</em></p>
+                        <p class="cs-quote">"Design is decision making. Decisions are spec."</p>
                         <p>
                             So the workflow that grew out of this looks like:
                         </p>
@@ -79,7 +80,7 @@
                                 <p>Per ticket: spec→ship cycle time, rework count, % closed autonomously, blockers caught per gate. The workflow measures itself, and those numbers become portfolio evidence.</p>
                             </li>
                         </ol>
-                        <p><em>"The speed of decision making is invaluable."</em></p>
+                        <p class="cs-quote">"The speed of decision making is invaluable."</p>
                     </section>
 
                     <!-- THE SYSTEM -->
@@ -172,7 +173,7 @@
                         <p>
                             The six non-negotiables: spec before build · evidence before opinion · rationale is written down · done is machine-checkable · nothing ships unseen · the workflow itself is measured.
                         </p>
-                        <p><em>"Evidence should shape discovery, discovery should shape delivery."</em></p>
+                        <p class="cs-quote">"Evidence should shape discovery, discovery should shape delivery."</p>
                     </section>
 
                     <!-- PROOF (WIP) -->

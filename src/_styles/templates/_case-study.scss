@@ -979,3 +979,98 @@ body.cs-teal-page nav {
 .case-study .cs-hero--teal .cs-eyebrow {
     color: #fff;
 }
+
+// ==========================================================================
+// Workflow page — the /workflow/ page on a permanent dark ground.
+// A soft spotlight sits at the top of the article; every color below was
+// picked against #18181B: light text 15.6:1, eyebrow #EE6E73 6.0:1, muted
+// #A6ADB8 7.8:1 (the light-page muted grey #6E6E73 is only 3.5:1 here).
+// ==========================================================================
+.case-study.cs-workflow {
+    background-color: $vb-dark;
+    // Soft light spotlight bleeding down from the top of the page.
+    // The end stop is in px: this LibSass mangles a % stop here into 0
+    background-image: radial-gradient(ellipse 90% 800px at 50% -80px, rgba(215, 55, 53, 0.25), rgba(215, 55, 53, 0) 800px);
+    color: $vb-light;
+
+    // The suite wordmark, above the page title
+    .cs-wordmark {
+        font-size: $base-h1-size;
+        font-weight: $font-bold;
+        letter-spacing: 0.08em;
+        margin: 0 0 16px;
+
+        span {
+            color: #EE6E73;
+        }
+    }
+
+    .cs-eyebrow {
+        color: #EE6E73;
+    }
+
+    h2::before {
+        background-color: #EE6E73;
+    }
+
+    // Panel surfaces: the light pages use white at 0.45, which on dark
+    // becomes a glare — a whisper of white keeps the same softness
+    .cs-summary,
+    .cs-cards .cs-card,
+    .cs-frame {
+        background-color: rgba(255, 255, 255, 0.06);
+    }
+
+    // Muted text roles
+    .cs-byline,
+    .cs-note,
+    .cs-footnote,
+    .cs-frame-label {
+        color: #A6ADB8;
+    }
+
+    .cs-frame-label strong {
+        color: $vb-light;
+    }
+
+    // Timeline: red dots keep their white counters (5.4:1); the connector
+    // line flips from the dark ink tint to a light tint
+    .cs-timeline li::after {
+        background-color: rgba(230, 242, 255, 0.2);
+    }
+
+    .cs-related {
+        border-top-color: rgba(230, 242, 255, 0.2);
+
+        a {
+            color: #EE6E73;
+        }
+    }
+
+    // Global link red is 3.4:1 on this ground; the light red passes (6.0)
+    a {
+        color: #EE6E73;
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+            color: $vb-light;
+            background-color: $vb-primary;
+        }
+
+        &:active {
+            text-decoration: none;
+            color: $vb-light;
+            background-color: $vb-secondary;
+        }
+    }
+
+    // Pull quotes: bigger, centred, italic
+    .cs-quote {
+        font-size: $base-h2-size;
+        font-style: italic;
+        text-align: center;
+        max-width: 680px;
+        margin: 32px auto;
+    }
+}
