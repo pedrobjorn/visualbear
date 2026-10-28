@@ -1099,18 +1099,25 @@ body.cs-teal-page nav {
 // spotlight, anchored top-centre like the page's — the two glows read as
 // one continuous light, and the bar keeps its fill while scrolled
 body.workflow-page {
-    // Glow on top, then a long smooth fade into the darker grey.
-    // no-repeat on both layers: the radial would otherwise tile a glow
-    // band every 800px down the page
-    background-color: #1D1D21;
+    // Percentage stops stretch the fade over the whole page height
+    // (9k+ px here — a px-sized fade would end after a screenful); the
+    // glow tail melts into it. Ends darker than the footer ground, which
+    // goes transparent below so the fade runs to the very end.
+    background-color: #221d1f;
     background-image:
-        radial-gradient(ellipse 90% 800px at 50% -80px, rgba(215, 55, 53, 0.25), rgba(215, 55, 53, 0) 800px),
-        linear-gradient(180deg, #1D1D21 0%, #141416 100%);
+        radial-gradient(ellipse 90% 1200px at 50% -100px, rgba(215, 55, 53, 0.22), rgba(215, 55, 53, 0) 1200px),
+        linear-gradient(180deg, #221d1f 0%, #1d1d21 12%, #17171b 55%, #101013 100%);
     background-repeat: no-repeat, no-repeat;
 
     nav {
-        background-color: #1D1D21;
+        background-color: #1d1d21;
         background-image: radial-gradient(ellipse 90% 160px at 50% -40px, rgba(215, 55, 53, 0.25), rgba(215, 55, 53, 0) 160px);
         background-repeat: no-repeat;
+    }
+
+    .foot,
+    footer,
+    footer p {
+        background-color: transparent;
     }
 }
