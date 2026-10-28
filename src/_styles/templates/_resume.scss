@@ -22,9 +22,25 @@ ul.no-bullets {
     padding-top: 48px;
 
     // Links run red on the light-blue page; the base brand red is 4.24:1
-    // here, this darker shade of the same brand red passes (4.97)
+    // here, this darker shade of the same brand red passes (4.97).
+    // The hover/focus/active states are repeated at this specificity on
+    // purpose: an id-level base color would otherwise beat the global
+    // a:hover rule and leave dark red text on the red hover plate
     a {
         color: #D0181E;
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+            color: $vb-light;
+            background-color: $vb-primary;
+        }
+
+        &:active {
+            text-decoration: none;
+            color: $vb-light;
+            background-color: $vb-secondary;
+        }
     }
 
     .small-title ul {
