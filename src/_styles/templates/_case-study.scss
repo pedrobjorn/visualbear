@@ -23,7 +23,9 @@
         text-transform: uppercase;
         letter-spacing: 0.18em;
         font-size: $middle-font-size;
-        color: $vb-primary;
+        // Darker shade of the brand red: #D73735 sits at ~4.3:1 on the
+        // light panel grounds, #D0181E clears 4.5:1 everywhere it's used
+        color: #D0181E;
         margin: 0 0 16px;
     }
 
@@ -350,7 +352,8 @@
                 text-transform: uppercase;
                 letter-spacing: 0.12em;
                 font-size: $small-font-size;
-                color: $vb-primary;
+                // Darker brand red, see .cs-eyebrow note
+                color: #D0181E;
                 margin: 0 0 4px;
             }
         }
@@ -723,7 +726,8 @@
     background-color: #FDF0F7;
 
         .cs-timeline li::before {
-        background-color: #E40F9E;
+        // Darkened so the white step counter clears 4.5:1 (was #E40F9E, 4.32)
+        background-color: #D50E95;
     }
 
         --cs-accent: #E40F9E;
@@ -765,9 +769,10 @@
     }
 }
 
-// Fixed header matches the pink page (scoped via the page's body class)
+// Fixed header matches the pink page (scoped via the page's body class).
+// #D50E95 not #E40F9E: the nav carries white links and 4.85:1 clears 4.5:1
 body.cs-pink-page nav {
-    background-color: #E40F9E;
+    background-color: #D50E95;
 }
 
 // ==========================================================================
@@ -870,7 +875,8 @@ body.cs-pink-page nav a.icon img {
 }
 
 .case-study .cs-hero--pink {
-    background-color: #E40F9E;
+    // Darkened from #E40F9E so the white kicker/headline clear 4.5:1 (4.85)
+    background-color: #D50E95;
 }
 
 .case-study .cs-hero--red {
@@ -910,7 +916,8 @@ body.cs-pink-page nav a.icon img {
     background-color: #F0F8F6;
 
         .cs-timeline li::before {
-        background-color: #14A08D;
+        // Darkened so the white step counter clears 4.5:1 (was #14A08D, 3.26)
+        background-color: #0E7D6F;
     }
 
         --cs-accent: #14A08D;
@@ -953,12 +960,14 @@ body.cs-pink-page nav a.icon img {
 }
 
 .case-study .cs-hero--teal {
-    background-color: #14A08D;
+    // Darkened from #14A08D so the white kicker/headline clear 4.5:1 (5.02)
+    background-color: #0E7D6F;
 }
 
-// Fixed header matches the teal page (scoped via the page's body class)
+// Fixed header matches the teal page (scoped via the page's body class);
+// darkened like the hero so its white links pass 4.5:1
 body.cs-teal-page nav {
-    background-color: #14A08D;
+    background-color: #0E7D6F;
 }
 
 // Colored-hero kickers must stay white; the per-theme accent colors apply

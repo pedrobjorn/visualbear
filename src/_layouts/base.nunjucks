@@ -29,7 +29,9 @@
       </p>
       <![endif]-->
 
-      {% block content %}{% endblock %}
+      <main>
+        {% block content %}{% endblock %}
+      </main>
     </div>
 
     {{footer.content({})}}

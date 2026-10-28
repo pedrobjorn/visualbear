@@ -25,6 +25,13 @@ footer {
     background-color: $vb-dark;
     color: $vb-light;
     z-index: 1;
+
+    // The global link red is 3.8:1 on this dark ground; the light-blue
+    // brand light passes (8.9:1). Hover keeps the red plate from the
+    // global link style.
+    a {
+        color: $vb-light;
+    }
 }
 
 #contact {

@@ -21,6 +21,12 @@ ul.no-bullets {
 #resume_container {
     padding-top: 48px;
 
+    // Links run red on the light-blue page; the base brand red is 4.24:1
+    // here, this darker shade of the same brand red passes (4.97)
+    a {
+        color: #D0181E;
+    }
+
     .small-title ul {
         margin-bottom: 0;
         list-style-type: none;
@@ -34,7 +40,7 @@ ul.no-bullets {
         li.inline-links {
             a {
                 text-decoration: underline;
-                color: $vb-primary;
+                color: #D0181E;
                 
                 &:hover,
                 &:focus {

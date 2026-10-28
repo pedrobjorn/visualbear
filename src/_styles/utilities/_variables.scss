@@ -37,7 +37,9 @@
 $vb-primary: #D73735 !default;
 $vb-secondary: #79a6d2 !default;
 $vb-light: #E6F2FF !default;
-$vb-light-grey: lighten(#000, 60%) !default;
+// Muted/secondary text grey. #999 failed 4.5:1 on white (2.85); #6E6E73
+// passes on white (5.1), the resume light-blue (4.6) and the mint tint (4.7)
+$vb-light-grey: #6E6E73 !default;
 $vb-grey: #252528 !default;
 $vb-dark: #18181B !default;
 

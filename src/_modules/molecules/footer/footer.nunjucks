@@ -17,9 +17,11 @@
   </section>
   <section class="container--padded">
     <ul class="socialContainer">
-      <a href="https://www.linkedin.com/in/pedro-johan-bjorn-7417324b" class="vb-btn-icon " title="Visit LinkedIn" target="_blank">
-        <img src="/images/icons/linkdin_icon_64.jpg" alt="LinkedIn Icon" width="48" height="48">
-      </a>
+      <li>
+        <a href="https://www.linkedin.com/in/pedro-johan-bjorn-7417324b" class="vb-btn-icon " title="Visit LinkedIn" target="_blank">
+          <img src="/images/icons/linkdin_icon_64.jpg" alt="LinkedIn Icon" width="48" height="48">
+        </a>
+      </li>
     </ul>
   </section>
   <footer>
