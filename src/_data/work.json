@@ -1,18 +1,23 @@
-[{
-    "title": "Rebranding a global Fashion experience",
-    "subtitle": "Leading the Web UX global rebrand",
-    "href": "https://drive.google.com/file/d/1XeZi2BfcTFRr2HSVrUE8MFVx-JGd5hiu/view?usp=sharing",
-    "img": "../images/work/thumbs/gallery_thumb_fashion.jpg",
-    "target": "_blank"
-}, {
-    "title": "A new digital closet experience",
-    "subtitle": "Designing a new digital closet feature",
-    "href": "https://drive.google.com/file/d/1rY9YPYkL4HQcolMwhOtlk25uNjkFSBiw/view?usp=sharing",
-    "img": "../images/work/thumbs/gallery_thumb_closet.jpg",
-    "target": "_blank"
-}, {
-    "title": "Sports E-commerce Redesign",
-    "subtitle": "A full redesign of a sports retailer's mobile and desktop web",
-    "href": "https://drive.google.com/file/d/1oM2cJZVO4EVNk3uJeH1f2byxglC-hxlw/view?usp=drive_link",
-    "img": "../images/work/thumbs/gallery_thumb_coupon.jpg"
-}]
+[
+ {
+  "title": "Rebranding a global Fashion experience",
+  "subtitle": "Leading the Web UX global rebrand",
+  "href": "../fashion-rebrand/",
+  "img": "../images/work/thumbs/gallery_thumb_fashion.jpg",
+  "target": "_self"
+ },
+ {
+  "title": "A new digital closet experience",
+  "subtitle": "Designing a new digital closet feature",
+  "href": "../digital-closet/",
+  "img": "../images/work/thumbs/gallery_thumb_closet.jpg",
+  "target": "_self"
+ },
+ {
+  "title": "Sports E-commerce Redesign",
+  "subtitle": "A full redesign of a sports retailer's mobile and desktop web",
+  "href": "../sports-ecommerce-redesign/",
+  "img": "../images/work/thumbs/gallery_thumb_coupon.jpg",
+  "target": "_self"
+ }
+]

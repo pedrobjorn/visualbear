@@ -4,9 +4,10 @@
 {% set _content = spec.content or '' %}
 <div class="hero {{_class}}">
 	<div class="content">
-		<div class="jumbo-text">
+		{# h1: the hero line is the page title on every page that uses this macro #}
+		<h1 class="jumbo-text">
 			{{_content.title}}
-		</div>
+		</h1>
 	</div>
 </div>
 {% endmacro %}

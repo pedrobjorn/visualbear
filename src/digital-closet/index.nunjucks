@@ -183,29 +183,21 @@
                     <section class="cs-section" id="delivery">
                         <p class="cs-eyebrow">Delivery</p>
                         <h2>Built on the Design System</h2>
-                        <ol class="cs-steps">
-                            <li class="cs-step">
-                                <span class="cs-number">01</span>
-                                <div>
-                                    <h3>Design System</h3>
-                                    <p>All components built on the established Design System.</p>
-                                </div>
+                        <ol class="cs-timeline">
+                            <li>
+                                <h3>Design System</h3>
+                                <p>All components built on the established Design System.</p>
                             </li>
-                            <li class="cs-step">
-                                <span class="cs-number">02</span>
-                                <div>
-                                    <h3>Handoff</h3>
-                                    <p>Developers embedded throughout, a clean handoff.</p>
-                                </div>
+                            <li>
+                                <h3>Handoff</h3>
+                                <p>Developers embedded throughout, a clean handoff.</p>
                             </li>
-                            <li class="cs-step">
-                                <span class="cs-number">03</span>
-                                <div>
-                                    <h3>Live study</h3>
-                                    <p>A live study on the production feature, with learnings documented for the next iteration.</p>
-                                </div>
+                            <li>
+                                <h3>Live study</h3>
+                                <p>A live study on the production feature, with learnings documented for the next iteration.</p>
                             </li>
                         </ol>
+
                     </section>
 
                     <!-- 06 OUTCOME -->

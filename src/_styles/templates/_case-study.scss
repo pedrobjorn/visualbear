@@ -7,6 +7,10 @@
 // ==========================================================================
 
 .case-study {
+    // Core color of the page theme; defaults to the design-system grey.
+    // Themes (pink/black/teal) override it; bullets pick it up
+    --cs-accent: #{$vb-grey};
+
     // ------------------------------------------------------------------
     // Hero
     // ------------------------------------------------------------------
@@ -167,6 +171,87 @@
 
         .cs-frame {
             margin-top: 16px;
+        }
+    }
+
+    // ------------------------------------------------------------------
+    // Process timeline — vertical numbered steps with a connecting line
+    // ------------------------------------------------------------------
+    .cs-timeline {
+        list-style: none;
+        margin: 32px 0;
+        padding: 0;
+        counter-reset: cs-step;
+
+        li {
+            counter-increment: cs-step;
+            position: relative;
+            display: grid;
+            grid-template-columns: 28px 1fr;
+            column-gap: 16px;
+            align-items: start;
+            padding-bottom: 24px;
+
+            &:last-child {
+                padding-bottom: 0;
+            }
+
+            // Numbered dot (themed below)
+            &::before {
+                content: counter(cs-step);
+                display: grid;
+                place-items: center;
+                width: 26px;
+                height: 26px;
+                border-radius: 50%;
+                background-color: $vb-primary;
+                color: #fff;
+                font-size: $middle-font-size;
+                font-weight: $font-bold;
+            }
+
+            // Connecting line down to the next dot
+            &:not(:last-child)::after {
+                content: '';
+                position: absolute;
+                top: 30px;
+                bottom: -6px;
+                left: 13px;
+                width: 2px;
+                background-color: rgba(37, 37, 40, 0.15);
+            }
+
+            h3 {
+                grid-column: 2;
+                margin: 2px 0 4px;
+                font-size: $base-h4-size;
+                line-height: 1.35;
+            }
+
+            p {
+                grid-column: 2;
+                margin: 0;
+                font-size: $middle-font-size;
+                line-height: 1.35;
+                color: rgba(37, 37, 40, 0.75);
+            }
+        }
+    }
+
+    // ------------------------------------------------------------------
+    // Related case study — quiet, not another callout card
+    // ------------------------------------------------------------------
+    .cs-related {
+        max-width: 720px;
+        margin: 32px auto 0;
+        padding-top: 16px;
+        border-top: 1px solid rgba(37, 37, 40, 0.15);
+        text-align: center;
+        font-size: $middle-font-size;
+        color: rgba(37, 37, 40, 0.6);
+
+        a {
+            color: inherit;
         }
     }
 
@@ -540,10 +625,46 @@
         list-style: none;
 
         li {
+            position: relative;
             background-color: rgba(255, 255, 255, 0.45);
             border-radius: 12px;
-            padding: 14px 20px;
+            padding: 14px 20px 14px 32px;
             margin-bottom: 8px;
+
+            // Small bullet dot inside the fact card
+            &::before {
+                content: '';
+                position: absolute;
+                left: 14px;
+                top: 23.5px;
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background-color: var(--cs-accent);
+            }
+        }
+    }
+
+    // Plain bullet lists in sections and two-column blocks — same small dots
+    .cs-section ul:not(.cs-timeline):not(.cs-facts),
+    .cs-twocol ul {
+        list-style: none;
+        padding-left: 0;
+
+        li {
+            position: relative;
+            padding-left: 16px;
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: 2px;
+                top: 0.73em;
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background-color: var(--cs-accent);
+            }
         }
     }
 }
@@ -601,6 +722,12 @@
 .case-study.cs-pink {
     background-color: #FDF0F7;
 
+        .cs-timeline li::before {
+        background-color: #E40F9E;
+    }
+
+        --cs-accent: #E40F9E;
+
     .cs-eyebrow {
         color: #C10D82;
     }
@@ -652,8 +779,14 @@ body.cs-pink-page nav {
 .case-study.cs-black {
     background-color: #FAFAFA;
 
+        --cs-accent: #111111;
+
     .cs-eyebrow {
         color: #111111;
+    }
+
+    .cs-timeline li::before {
+        background-color: #111111;
     }
 
     .cs-section h2::before {
@@ -701,7 +834,8 @@ body.cs-pink-page nav a.icon img {
 // Full-bleed colored typographic hero, matching the case study cover slides
 .case-study .cs-hero--pink,
 .case-study .cs-hero--red,
-.case-study .cs-hero--black {
+.case-study .cs-hero--black,
+.case-study .cs-hero--teal {
     width: 100vw;
     position: relative;
     left: 50%;
@@ -711,7 +845,7 @@ body.cs-pink-page nav a.icon img {
     color: #fff;
 
     .cs-eyebrow {
-        color: rgba(255, 255, 255, 0.8);
+        color: #fff;
     }
 
     h1 {
@@ -760,7 +894,79 @@ body.cs-pink-page nav a.icon img {
 
 @media (max-width: $break-medium) {
     .case-study .cs-hero--pink,
-    .case-study .cs-hero--black {
+    .case-study .cs-hero--black,
+    .case-study .cs-hero--teal {
         padding: 64px 24px;
     }
+}
+
+// ==========================================================================
+// Teal theme — Teachr (mock brand)
+// Accent and hero use the Teachr teal; the secondary light background is a
+// subtle mint tint that complements it.
+// ==========================================================================
+
+.case-study.cs-teal {
+    background-color: #F0F8F6;
+
+        .cs-timeline li::before {
+        background-color: #14A08D;
+    }
+
+        --cs-accent: #14A08D;
+
+    .cs-eyebrow {
+        color: #0E7D6F;
+    }
+
+    // Colored divider lines take the background teal, not the text accent
+    .cs-section h2::before {
+        background-color: #14A08D;
+    }
+
+    .cs-steps .cs-number,
+    .cs-cards .cs-number {
+        color: #0E7D6F;
+    }
+
+    .cs-metric .cs-metric-value,
+    .cs-metric .cs-metric-suffix {
+        color: #0E7D6F;
+    }
+
+    .cs-panel .cs-tag {
+        color: #0E7D6F;
+    }
+
+    .cs-annotation .cs-annotation-dot {
+        background-color: #14A08D;
+    }
+
+    .cs-divider::before,
+    .cs-divider::after {
+        background-color: rgba(20, 160, 141, 0.4);
+    }
+
+    .cs-divider span {
+        color: #0E7D6F;
+    }
+}
+
+.case-study .cs-hero--teal {
+    background-color: #14A08D;
+}
+
+// Fixed header matches the teal page (scoped via the page's body class)
+body.cs-teal-page nav {
+    background-color: #14A08D;
+}
+
+// Colored-hero kickers must stay white; the per-theme accent colors apply
+// on light backgrounds only and would otherwise tie on specificity and win
+// by cascade order, darkening the kicker into the hero background
+.case-study .cs-hero--pink .cs-eyebrow,
+.case-study .cs-hero--red .cs-eyebrow,
+.case-study .cs-hero--black .cs-eyebrow,
+.case-study .cs-hero--teal .cs-eyebrow {
+    color: #fff;
 }

@@ -1,0 +1,188 @@
+{% extends "_layouts/work.nunjucks" %}
+{% import "_modules/molecules/buttonslider/buttonslider.nunjucks" as buttonslider %}
+{% block title %}visualbear - Teachr, AI Agent embedded in the Learning Dashboard{% endblock %}
+
+{% block description %}Pedro Björn Portfolio website{% endblock %}
+
+{% block bodyattrs %} class="cs-teal-page"{% endblock %}
+
+{% block config %}
+    {% set baseUrl = "../" %}
+{% endblock %}
+
+{% block content %}
+    <article class="section section-top-padding case-study cs-teal" id="teachr_agent_container">
+        <section class="gallery-container">
+            <div class="container">
+                <div class="document-text text-box">
+
+                    <!-- 01 HERO, full-bleed teal cover -->
+                    <header class="cs-hero cs-hero--teal">
+                        <p class="cs-eyebrow">Case Study — Teachr (mock brand)</p>
+                        <h1>Teachr, AI Agent embedded in the Learning Dashboard</h1>
+                        <p class="cs-cover-summary">
+                            Unlocking the training dashboard experience for our users through agentic AI in the app.
+                        </p>
+                        <p class="cs-cover-details">Lead Designer ⋅ Figjam · Claude Code</p>
+                    </header>
+
+                    <!-- HERO META, brand & related case study -->
+                    <section class="cs-hero cs-hero--meta">
+                        <img src="../images/work/fullsize/teachr/teachr_logo.png" alt="Teachr brand mark" width="19" height="19" style="display:block;width:19px;height:19px;margin:0 auto 24px">
+                        <div class="cs-cards">
+                        <p class="cs-related">
+                            Part of a pair — read first: <a href="../teachr/"><strong>Teachr, Redesigning the Learning Experience</strong></a> <i class="ph ph-arrow-left"></i>
+                        </p>
+                        </div>
+                        <p class="cs-summary"><em>Summary: unlocking the training dashboard experience for our users through agentic AI in the app.</em></p>
+                    </section>
+
+                    <!-- 02 OUTCOMES (WIP) -->
+                    <section class="cs-section" id="outcomes">
+                        <p class="cs-eyebrow">Outcomes &amp; Impact</p>
+                        <h2>Outcomes &amp; Impact</h2>
+                        <div class="cs-frame">
+                            <span class="cs-frame-label"><strong>Outcomes &amp; Impact</strong>WIP — results pending</span>
+                        </div>
+                    </section>
+
+                    <!-- 03 PROCESS OVERVIEW -->
+                    <section class="cs-section" id="process">
+                        <p class="cs-eyebrow">Process</p>
+                        <h2>Process</h2>
+                        <ol class="cs-timeline">
+                            <li>
+                                <h3>Identifying the issue</h3>
+                            </li>
+                            <li>
+                                <h3>Discovery</h3>
+                            </li>
+                            <li>
+                                <h3>Design</h3>
+                            </li>
+                            <li>
+                                <h3>Delivery</h3>
+                            </li>
+                        </ol>
+
+                    </section>
+
+                    <!-- 04 PROBLEM & GOAL -->
+                    <section class="cs-section" id="problem">
+                        <p class="cs-eyebrow">Identifying the Issue</p>
+                        <h2>Problem &amp; Goal (Why!?)</h2>
+                        <p>
+                            Despite the quality of our Dashboard in providing insights for our users about the training of their students, we often found that users had questions they needed more interpretation and customisation for their circumstances.
+                        </p>
+                        <p>
+                            This leads to users asking questions to our support team, which lead to support tasks creating specific explanations or reports for them.
+                        </p>
+                        <p>
+                            Even if we answered 80% of their questions with our Dashboard, the remaining 20% of the questions took 80% of the work to solve.
+                        </p>
+                        <p>
+                            The goal: leverage our internal knowledge of data and results we could already provide to answer more specific questions.
+                        </p>
+
+                        <h3>Users and Needs</h3>
+                        <p>
+                            Our Dashboard users were digitally and data literate, but they were not power users.
+                        </p>
+                        <p>
+                            This meant designing a Dashboard that focused on basic reporting with some advanced metrics and insights like training performance, demographic breakdowns, etc. Anything that helped them ensure training was done and students were learning.
+                        </p>
+                        <p>
+                            However, it was common that a client would need a unique report. Often these were not necessary to evaluate training performance, but for internal reporting, namely compliance and internal goals.
+                        </p>
+                        <p>
+                            These custom reports could be done by them through exports, but sometimes they wanted us to provide these numbers, since we were subject matter experts. This came at a cost however, and often we'd guide them how to do it themselves instead.
+                        </p>
+                        <p>
+                            AI Support Chat was already helping a lot, but still some cases needed to be handled by us.
+                        </p>
+                    </section>
+
+                    <!-- 05 RESEARCH -->
+                    <section class="cs-section" id="research">
+                        <p class="cs-eyebrow">Research</p>
+                        <h2>Research</h2>
+                        <p>
+                            We evaluated the most common types of custom reports through support tickets and talking to users.
+                        </p>
+                    </section>
+
+                    <!-- 06 DISCOVERY & VALIDATION -->
+                    <section class="cs-section" id="discovery">
+                        <p class="cs-eyebrow">Discovery</p>
+                        <h2>Discovery &amp; Validation</h2>
+                        <p>
+                            Some ideas ranged from custom reporting to just building the reports into the dashboard.
+                        </p>
+                        <p>
+                            But both of these were a lot of effort and would not scale. Custom reporting would require more user mastery, and more complexity. More reporting would mean metrics for very unique needs, with little impact.
+                        </p>
+                        <p>
+                            We needed something that could interpret data, make basic transformations on the fly, and be easy to use.
+                        </p>
+                        <p>
+                            This is where an AI Agent became the obvious answer, capable of addressing any gaps we couldn't reliably cover in the dashboard.
+                        </p>
+                        <p>
+                            The first step was creating a quick MVP we could test and learn with.
+                        </p>
+                        <p>
+                            When building embedded AI agents one must also gather usage insights to calibrate the system, which in turn improves the service.
+                        </p>
+                        <p>
+                            This also means not relying on the agent to do everything, but instead to orchestrate different services.
+                        </p>
+                        <div class="cs-frame">
+                            <span class="cs-frame-label"><strong>Agent flow</strong>Diagram pending</span>
+                        </div>
+                        <p>
+                            Evals and calibration will help improve the agent's capabilities, while usage behaviour will also give us insights into UX improvements for the feature — although a lot of functionality is already established, like rating, replying, quick actions, editing, stopping processing, etc.
+                        </p>
+                        <div class="cs-frame">
+                            <span class="cs-frame-label"><strong>Evals cycle</strong>Diagram pending</span>
+                        </div>
+                        <p>
+                            The other layer was to manage the credits and embed it into the payment plans. We did this by giving everyone a budget they could "top up" on top of the base usage.
+                        </p>
+                    </section>
+
+                    <!-- 07 DESIGN & DELIVERY -->
+                    <section class="cs-section" id="design-delivery">
+                        <p class="cs-eyebrow">Design &amp; Delivery</p>
+                        <h2>Design &amp; Delivery</h2>
+                        <p>
+                            The design was two parts: the initial chat as a landing page, serving as a portal into other posts as recommendations.
+                        </p>
+                        <div class="cs-frame">
+                            <span class="cs-frame-label"><strong>Agent view</strong>Designs pending</span>
+                        </div>
+                        <p>
+                            The other service was a drawer available in any view, able to work within the context. It also enabled selecting most elements on the view to gain context for the agent.
+                        </p>
+                        <p>
+                            The emphasis when designing this feature is a) trust, b) clarity of options and c) consistency.
+                        </p>
+                    </section>
+
+                    <!-- 08 CONCLUSION (WIP) -->
+                    <section class="cs-section" id="conclusion">
+                        <p class="cs-eyebrow">Conclusion</p>
+                        <h2>Conclusion &amp; Lessons learned</h2>
+                        <div class="cs-frame">
+                            <span class="cs-frame-label"><strong>Conclusion &amp; Lessons learned</strong>WIP — pending</span>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            {{buttonslider.content({
+            nexthref: site.data.project_teachr_agent.nexthref,
+            prevhref: site.data.project_teachr_agent.prevhref,
+            text: var.linkname
+            })}}
+        </section>
+    </article>
+{% endblock %}

@@ -6,4 +6,7 @@ Allow: /
 # Retired pages, deindexed from the public record
 Disallow: /steam-mobile/
 Disallow: /climate-clock/
+
+# WIP case studies, deindexed until published
 Disallow: /teachr/
+Disallow: /teachr-agent/

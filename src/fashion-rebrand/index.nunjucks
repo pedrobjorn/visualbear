@@ -216,48 +216,25 @@
                         <p class="cs-section-intro">
                             A repeating Discovery → Exploration → Delivery loop: gather insights from behavioural metrics and formative studies, prioritise problems and opportunities, ideate and validate through summative studies, then ship with developers, and feed the learnings back in.
                         </p>
-                        <ol class="cs-steps">
-                            <li class="cs-step">
-                                <span class="cs-number">01</span>
-                                <div>
-                                    <h3>📌 Planning &amp; Strategy</h3>
-                                    <p>I proposed a more cyclical workflow with an insight phase, where teams would research first. UX researchers, researched content and DMs would jointly create concepts for each customer view, and patterns that carried across all customer journeys. Concept creation was a cyclical process where teams co-created and reviewed the concepts.</p>
-                                    <!-- <div class="cs-frame">
-                                        <span class="cs-frame-label"><strong>Planning &amp; Strategy: cyclical workflow diagram</strong>Final diagram pending</span>
-                                    </div> -->
-                                </div>
+                        <ol class="cs-timeline">
+                            <li>
+                                <h3>Planning &amp; Strategy</h3>
+                                <p>I proposed a more cyclical workflow with an insight phase, where teams would research first. UX researchers, researched content and DMs would jointly create concepts for each customer view, and patterns that carried across all customer journeys. Concept creation was a cyclical process where teams co-created and reviewed the concepts.</p>
                             </li>
-                            <li class="cs-step">
-                                <span class="cs-number">02</span>
-                                <div>
-                                    <h3>🗺 Exploration &amp; Vision</h3>
-                                    <p>We UX Designers in the Core Team co-created journey maps for each customer segment set by our Customer Experience team, providing as much support as possible and facilitating workshops to explore opportunities. We then mapped these along a customer journey to map the touchpoints and connect the insights as we proceeded.</p>
-                                    <!-- <div class="cs-frame">
-                                        <span class="cs-frame-label"><strong>Exploration &amp; Vision: customer journey map</strong>Final diagram pending</span>
-                                    </div> -->
-                                </div>
+                            <li>
+                                <h3>Exploration &amp; Vision</h3>
+                                <p>We UX Designers in the Core Team co-created journey maps for each customer segment set by our Customer Experience team, providing as much support as possible and facilitating workshops to explore opportunities. We then mapped these along a customer journey to map the touchpoints and connect the insights as we proceeded.</p>
                             </li>
-                            <li class="cs-step">
-                                <span class="cs-number">03</span>
-                                <div>
-                                    <h3>🧭 Design Guidance</h3>
-                                    <p>Once the teams got involved and started creating the different views and components, we ensured to provide as much support and guidance as possible, through both hands-on design work, and providing design specifications and assets.</p>
-                                    <!-- <div class="cs-frame">
-                                        <span class="cs-frame-label"><strong>Design Guidance: support &amp; specification overview</strong>Final diagram pending</span>
-                                    </div> -->
-                                </div>
+                            <li>
+                                <h3>Design Guidance</h3>
+                                <p>Once the teams got involved and started creating the different views and components, we ensured to provide as much support and guidance as possible, through both hands-on design work, and providing design specifications and assets.</p>
                             </li>
-                            <li class="cs-step">
-                                <span class="cs-number">04</span>
-                                <div>
-                                    <h3>🤝 Collaboration &amp; Design QA</h3>
-                                    <p>Collaborated with the UX &amp; Design teams working across all products to review and align designs before development. Gathered and provided frequent feedback and support to ensure the designs aligned with B2C. Worked and aligned with the Content and SEO teams for frequent feedback and improvements, including helping Product Owners improve the content for the site.</p>
-                                    <!-- <div class="cs-frame">
-                                        <span class="cs-frame-label"><strong>Collaboration &amp; Design QA, ways of working</strong>Final diagram pending</span>
-                                    </div> -->
-                                </div>
+                            <li>
+                                <h3>Collaboration &amp; Design QA</h3>
+                                <p>Collaborated with the UX &amp; Design teams working across all products to review and align designs before development. Gathered and provided frequent feedback and support to ensure the designs aligned with B2C. Worked and aligned with the Content and SEO teams for frequent feedback and improvements, including helping Product Owners improve the content for the site.</p>
                             </li>
                         </ol>
+
                     </section>
 
                     <!-- 05 OUTCOMES -->

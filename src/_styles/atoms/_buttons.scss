@@ -8,9 +8,10 @@ button {
 .btn {
     text-transform: uppercase;
     font-weight: 400;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
+    // Materialize gives .btn a raised shadow; these buttons are flat
+    box-shadow: none;
+    // Named properties: `all` also animates layout and colour props
+    transition: background-color .3s ease-in-out, color .3s ease-in-out;
     padding: 16px 8px;
     text-align: center;
     height: auto;
@@ -21,7 +22,6 @@ button {
     position: relative;
     overflow: hidden;
     width: 100%;
-    border: 2px 1px 2px 1px;
     font-size: $middle-font-size;
     height: 64px;
     cursor: pointer;

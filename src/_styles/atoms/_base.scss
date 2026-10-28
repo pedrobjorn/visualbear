@@ -108,12 +108,23 @@ body {
     background: linear-gradient(180deg in oklab, #D73735 10%, #252528 100%);
 
     display: flex;
+    // 100svh avoids the mobile URL-bar jump; the vh line is the fallback
     min-height: 100vh;
+    min-height: 100svh;
     flex-direction: column;
 }
 
 main {
     flex: 1 0 auto;
+}
+
+// Visible keyboard focus everywhere: the component styles suppress the
+// default outline, so the indicator is re-declared once, globally.
+// currentColor keeps it visible on every surface — it inherits whatever
+// ink the focused element is set in (light on dark heroes, ink on light pages)
+:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
 }
 
 .vb-container {
@@ -133,14 +144,6 @@ main {
     /* default 0 */
 }
 
-
-.version {
-    font-size: 14px;
-    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-}
 
 // Styling on warning for users on IE7 or below
 .browsehappy {

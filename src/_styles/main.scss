@@ -6,7 +6,6 @@
 // Materialize: only the grid, navbar, buttons and color plumbing are used —
 // add further components deliberately, they carry dead CSS weight.
 @import "node_modules/materialize-css/sass/components/color-variables";
-@import "node_modules/materialize-css/sass/components/color-classes";
 @import "node_modules/materialize-css/sass/components/variables";
 @import "node_modules/materialize-css/sass/components/global";
 @import "node_modules/materialize-css/sass/components/grid";
@@ -26,7 +25,6 @@
 @import "atoms/buttons";
 
 // Components
-@import "molecules/d3";
 @import "molecules/textelements";
 
 @import "templates/gallery.scss";
@@ -36,7 +34,6 @@
 
 // Color
 @import "colour-variables";
-@import "colour-classes";
 
 // Modules
 @import "../_modules/atom/link/link";

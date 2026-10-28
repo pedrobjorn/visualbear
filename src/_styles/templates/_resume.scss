@@ -25,6 +25,12 @@ ul.no-bullets {
         margin-bottom: 0;
         list-style-type: none;
 
+        // h1 keeps the h2 visual size it had before the semantics fix
+        h1.name-title {
+            font-size: $base-h2-size;
+            padding: 8px 0;
+        }
+
         li.inline-links {
             a {
                 text-decoration: underline;

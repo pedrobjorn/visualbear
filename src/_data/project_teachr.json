@@ -1,0 +1,7 @@
+{
+  "title": "Teachr — Redesigning the Learning Experience",
+  "subtitle": "Case Study",
+  "href": "../teachr",
+  "prevhref": {"link": "../", "text": "Home"},
+  "nexthref": {"link": "../teachr-agent", "text": "Teachr — AI Agent in the Learning Dashboard"}
+}
