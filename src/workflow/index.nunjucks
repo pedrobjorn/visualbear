@@ -17,9 +17,8 @@
 
                     <!-- HERO -->
                     <header class="cs-hero">
-                        <p class="cs-wordmark">visu · <span>AI</span> · bear</p>
-                        <p class="cs-eyebrow">How I work</p>
                         <h1>My Agentic Design Workflow</h1>
+                        <p class="cs-wordmark">visu · <span>AI</span> · bear</p>
                         <p class="cs-cover-summary">
                             Using research, discovery and decisions to create value through my Design AI workflow.
                         </p>
@@ -160,15 +159,15 @@
                             Since the work version of this stack is proprietary, I built myself an independent, personal agentic design suite — visuAIbear — packaged as open Agent Skills that run in Mistral Code CLI, the VS Code extension, and Vibe Work.
                         </p>
                         <div class="cs-cards">
-                            <div class="cs-card"><h3>visuaibear-core</h3><p>Hub: routing, principles, hooks, non-negotiables.</p></div>
-                            <div class="cs-card"><h3>visuaibear-spec</h3><p>Plans, tickets, decision records — human+AI readable.</p></div>
-                            <div class="cs-card"><h3>visuaibear-review</h3><p>7 QA gates, pass/fail review reports.</p></div>
-                            <div class="cs-card"><h3>visuaibear-prototype</h3><p>Live preview / capture / Figma-compare loop.</p></div>
-                            <div class="cs-card"><h3>visuaibear-insights</h3><p>PostHog + Notion synthesis into evidence briefs.</p></div>
-                            <div class="cs-card"><h3>visuaibear-metrics</h3><p>Cycle time, rework, autonomous closure tracking.</p></div>
+                            <div class="cs-card"><h3><a href="https://github.com/pedrobjorn/visuaibear" target="_blank">visuaibear-core</a></h3><p>Hub: routing, principles, hooks, non-negotiables.</p></div>
+                            <div class="cs-card"><h3><a href="https://github.com/pedrobjorn/visuaibear" target="_blank">visuaibear-spec</a></h3><p>Plans, tickets, decision records — human+AI readable.</p></div>
+                            <div class="cs-card"><h3><a href="https://github.com/pedrobjorn/visuaibear" target="_blank">visuaibear-review</a></h3><p>7 QA gates, pass/fail review reports.</p></div>
+                            <div class="cs-card"><h3><a href="https://github.com/pedrobjorn/visuaibear" target="_blank">visuaibear-prototype</a></h3><p>Live preview / capture / Figma-compare loop.</p></div>
+                            <div class="cs-card"><h3><a href="https://github.com/pedrobjorn/visuaibear" target="_blank">visuaibear-insights</a></h3><p>PostHog + Notion synthesis into evidence briefs.</p></div>
+                            <div class="cs-card"><h3><a href="https://github.com/pedrobjorn/visuaibear" target="_blank">visuaibear-metrics</a></h3><p>Cycle time, rework, autonomous closure tracking.</p></div>
                         </div>
                         <p>
-                            Five companion skills (external, from anthropics and superpowers): frontend-design, webapp-testing, test-driven-development, systematic-debugging, verification-before-completion. One simple rule keeps it all coherent: visuAIbear owns the methodology — no competing spec frameworks invited in.
+                            Five companion skills (external): <a href="https://github.com/anthropics/skills" target="_blank">frontend-design, webapp-testing</a> and <a href="https://github.com/obra/superpowers" target="_blank">test-driven-development, systematic-debugging, verification-before-completion</a>. One simple rule keeps it all coherent: visuAIbear owns the methodology — no competing spec frameworks invited in.
                         </p>
                         <p>
                             The six non-negotiables: spec before build · evidence before opinion · rationale is written down · done is machine-checkable · nothing ships unseen · the workflow itself is measured.

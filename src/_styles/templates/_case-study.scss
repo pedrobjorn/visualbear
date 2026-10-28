@@ -993,31 +993,47 @@ body.cs-teal-page nav {
     background-image: radial-gradient(ellipse 90% 800px at 50% -80px, rgba(215, 55, 53, 0.25), rgba(215, 55, 53, 0) 800px);
     color: $vb-light;
 
-    // The suite wordmark, above the page title
+    // The strong brand red for this page. On the dark ground #D73735
+    // measures 3.8:1, so text accents use #E34A47 — the same strong red,
+    // lifted just enough to clear 4.5:1 — while decorative accents
+    // (h2 bars, timeline dots, bullet dots) take the true #D73735
+    --cs-accent: #D73735;
+
+    // Breathing room: more space around and between the content
+    .cs-section {
+        padding: 88px 0;
+    }
+
+    .cs-hero {
+        padding: 88px 0 40px;
+    }
+
+    // The suite wordmark, under the page title
     .cs-wordmark {
         font-size: $base-h1-size;
         font-weight: $font-bold;
         letter-spacing: 0.08em;
-        margin: 0 0 16px;
+        margin: 0 0 24px;
 
         span {
-            color: #EE6E73;
+            color: #E34A47;
         }
     }
 
     .cs-eyebrow {
-        color: #EE6E73;
+        color: #E34A47;
     }
 
     h2::before {
-        background-color: #EE6E73;
+        background-color: $vb-primary;
     }
 
     // Panel surfaces: the light pages use white at 0.45, which on dark
     // becomes a glare — a whisper of white keeps the same softness
     .cs-summary,
     .cs-cards .cs-card,
-    .cs-frame {
+    .cs-frame,
+    .cs-facts li {
         background-color: rgba(255, 255, 255, 0.06);
     }
 
@@ -1043,13 +1059,13 @@ body.cs-teal-page nav {
         border-top-color: rgba(230, 242, 255, 0.2);
 
         a {
-            color: #EE6E73;
+            color: #E34A47;
         }
     }
 
-    // Global link red is 3.4:1 on this ground; the light red passes (6.0)
+    // Global link red is 3.8:1 on this ground; the strong red passes (4.5)
     a {
-        color: #EE6E73;
+        color: #E34A47;
 
         &:hover,
         &:focus {
@@ -1065,12 +1081,17 @@ body.cs-teal-page nav {
         }
     }
 
-    // Pull quotes: bigger, centred, italic
+    // Pull quotes: bigger, centred, italic, with generous air around them
     .cs-quote {
         font-size: $base-h2-size;
         font-style: italic;
         text-align: center;
         max-width: 680px;
-        margin: 32px auto;
+        margin: 56px auto;
     }
+}
+
+// The fixed header melts into the dark page it sits on
+body.workflow-page nav {
+    background-color: $vb-dark;
 }
