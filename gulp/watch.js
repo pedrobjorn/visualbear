@@ -20,7 +20,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
       // Nunjucks Templates - the nunjucks task reloads the browser on end
       gulp.watch([
         path.join(dirs.source, '**/*.nunjucks'),
-        path.join(dirs.source, dirs.data, '**/*.{json,yaml,yml}')
+        path.join(dirs.source, dirs.data, '**/*.{json,yaml,yml,md}')
       ], ['nunjucks']);
 
       // Copy

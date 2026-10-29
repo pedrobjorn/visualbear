@@ -1,0 +1,36 @@
+// AI-attribution marker — visible tag at the END of AI-drafted content
+// (DR-0007). The [ai] line in the markdown source becomes an .ai-mark label
+// on the dev server; production builds strip it, so it never ships.
+.ai-mark,
+[data-ai]::after {
+    display: block;
+    width: fit-content;
+    font-size: 0.7rem;
+    line-height: 1;
+    letter-spacing: 0.06em;
+    padding: 0.3em 0.7em;
+    margin: 1.5em 0;
+    border-radius: 3px;
+    background-color: rgba(227, 74, 71, 0.12);
+    color: #B3393B;
+    pointer-events: none;
+}
+
+[data-ai] {
+    position: relative;
+
+    &::after {
+        content: '✦ AI-drafted';
+    }
+}
+
+// dark pages: lighter ink on a slightly stronger tint
+.cs-workflow,
+.cs-black,
+.cs-dark {
+    .ai-mark,
+    [data-ai]::after {
+        background-color: rgba(227, 74, 71, 0.16);
+        color: #EE6E73;
+    }
+}
