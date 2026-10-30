@@ -90,3 +90,44 @@ Acceptance criteria:
 - [x] `.prettierrc` committed; formatting committed separately from tooling
       commits so diffs stay reviewable
 - [x] AUTHORING.md documents the three commands
+
+## Ticket 16 — Resume: role bullet lists stick out of the text column (VERIFIED 2026-10-29)
+
+Pedro reports text on `/resume/` sticking out and not as indented as the
+rest. Verified with measured text-left edges (Playwright, text-node rects,
+not boxes):
+
+Finding:
+
+- Every text block on the resume sits at text-left **316.4px** (1440
+  viewport; 46.4px at 768) - name, intro, section h2s, role rows, the
+  sub-title h4s, education/language lists, interests.
+- The bullet lists under **Key Responsibilities** and **Key Achievements**
+  sit at **302px** (32px at 768) - exactly **14.4px further left**
+  (0.75rem at the page's 19.2px rem). Ten lists in total (5 roles × 2).
+
+Root cause (in `mdResume`, `markdown-render.js`):
+
+- A `**Sub-title**` paragraph emits a closed row:
+  `<div class="row"><div class="col m12"><h4 class="sub-title">…</h4></div></div>`
+- The bullet list that follows is then emitted as a **bare `<ul>` directly
+  in the section** - outside any col, so it misses the col's 0.75rem left
+  padding that every other block sits inside.
+- The Education/Languages lists don't stick out because the quiet-section
+  pattern keeps its col open (`openCol`) and renders the list inside it.
+- Pre-existing: confirmed not introduced by the Ticket 13 semantic fixes
+  (before/after captures were pixel-identical).
+
+Proposed fix: keep the sub-title's col open until the following list has
+rendered inside it (same pattern as quiet sections), or wrap the bare
+`<ul>` in a col m12. Pixel risk is limited to the 10 role lists moving
+14.4px right - which is the point of the fix; everything else must stay
+put (before/after full-page diff, only those lists may shift).
+
+Acceptance criteria:
+
+- [ ] All role bullet lists align at the same text-left edge as the
+      sub-title headings above them (14.4px right of current position)
+- [ ] No other block on the page moves (full-page pixel diff: only the
+      10 role lists change)
+- [ ] Verified at 1440 and 768 viewports
