@@ -10,6 +10,12 @@
 3. **Pedro visual pass** over the 7 migrated pages (workflow, teachr, teachr-agent, digital-closet, fashion-rebrand, sports-ecommerce-redesign, resume) — machine-verified pixel-identical, not human-reviewed.
 4. [x] **Production build** — done 2026-10-29: `npm run build` (note: the task also starts watch/BrowserSync and never exits — let tasks finish, then kill; build/ is gitignored). Verified: zero `ai-mark` occurrences in `build/` (stripping works), all pages present. **Publish** itself still pending Pedro's review of `build/` + his publish flow.
 5. **Backlog (phase 4, not started)** — migrate remaining hardcoded pages (about, art-ent, adhops, blog, steam-mobile, projecto-lynx, play, climate-clock); wire `mdmeta` frontmatter into shells' `<head>`; PDF download links on case studies; regenerate resume PDF (diverges by em-dashes).
+
+## Next up added 2026-10-29: QA checks (see `tickets-phase3.md`)
+
+- [ ] Ticket 13 — Semantic HTML audit + fixes (all 8 content pages, generator-side)
+- [ ] Ticket 14 — Accessibility audit via axe-core on built pages (evidence for the visuaibear-review A11y gate)
+- [ ] Ticket 15 — Prettier (2.x, Node 10) + lint wired into npm (`format`, `format:check`, `lint`)
 - Evidence: user request ("easy way to work in markdown for case studies") — ASSUMPTION, needs validation on scope of "editor"
 
 ## Problem / opportunity
