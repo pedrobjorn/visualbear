@@ -1162,6 +1162,14 @@ body.workflow-page {
     linear-gradient(180deg, #221d1f 0%, #1d1d21 12%, #17171b 55%, #101013 100%);
   background-repeat: no-repeat, no-repeat;
 
+  // The body box ends ~43px before the document (the strip below it would
+  // otherwise paint a flat plate and cut the fade off). The canvas strip
+  // takes the fade's end color, so the body's fade runs seamlessly into
+  // it — a gradient here would size to the viewport-height html box.
+  html:has(&) {
+    background-color: #101013;
+  }
+
   nav.site-nav {
     background-color: #1d1d21;
     background-image: radial-gradient(

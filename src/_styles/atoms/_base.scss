@@ -11,10 +11,10 @@ body {
   -ms-text-size-adjust: 1.5em;
 
   /* 2 */
-  background-color: $vb-grey;
-  /* min-height only: a fixed 100% height pins the body to one viewport,
-       so page backgrounds (the gradients) cut off after the first screen
-       while the content overflows the body */
+  /* No background-color here on purpose: with a painted html element the
+     body's gradient cannot propagate to the canvas, and the strip below
+     the body's box shows as a flat plate (visible on pages whose fade
+     ends darker than the old grey). The body gradients own the canvas. */
   min-height: 100%;
   font-family: $vb-body-font-family;
   font-weight: $font-light;
