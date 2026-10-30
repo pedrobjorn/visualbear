@@ -17,6 +17,14 @@
   .cs-hero {
     text-align: center;
     padding: 64px 0 32px;
+
+    // an h2 in a hero is a secondary hero's title (second case study on
+    // one page); it keeps the h1 look so only the tag changes
+    h2 {
+      margin: 0 0 16px;
+      padding: 16px 0;
+      font-size: $base-h1-size;
+    }
   }
 
   .cs-eyebrow {
@@ -106,9 +114,14 @@
       border-radius: 16px;
 
       h3,
-      h4 {
+      h4,
+      // card titles that are labels, not document headings (they must not
+      // break the page's heading ladder)
+      .cs-card-title {
         margin: 0 0 8px;
         font-size: $base-h4-size;
+        font-weight: $font-bold;
+        letter-spacing: 1px;
       }
 
       p {
@@ -432,6 +445,21 @@
     }
   }
 
+  // Pull quotes are real blockquotes; strip the global blockquote chrome
+  // (grey border bar, extra padding, forced italic, margin) so pixels stay
+  // where they were when quotes were paragraphs
+  blockquote.cs-quote {
+    margin: 0;
+    padding: 8px 0;
+    border: none;
+    font-style: inherit;
+
+    > p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
   .cs-quotes {
     .cs-quote {
       flex: 1 1 100%;
@@ -440,6 +468,13 @@
       background-color: rgba(255, 255, 255, 0.45);
       border-radius: 16px;
       font-style: italic;
+
+      blockquote {
+        margin: 0;
+        padding: 0;
+        border: none;
+        font-style: inherit;
+      }
 
       p {
         margin: 0;

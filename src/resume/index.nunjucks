@@ -13,9 +13,9 @@
     <article class="text-container">
 
       <!--Title Row-->
-      <div class="row">
+      <header class="row">
         {{title.content()}}
-      </div>
+      </header>
 
       <!-- Content: summary, skills, experience, education, languages,
            interests — edited in src/_data/pages/resume.md -->

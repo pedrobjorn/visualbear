@@ -114,7 +114,7 @@ We retained the information density, customers come seeking information, and we 
 
 ::: hero coupon-hero
 [eyebrow: Case Study, Coupon System]
-# Redesigned Coupon System
+## Redesigned Coupon System
 [subtitle: Improve our coupon campaign issues, which were causing our users and customer support a lot of problems, the flagship example of the redesign's standardisation paying off.]
 [byline: Lead UX Design]
 

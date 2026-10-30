@@ -31,7 +31,7 @@
                         <img src="../images/work/fullsize/teachr/teachr_logo.png" alt="Teachr brand mark" width="19" height="19" style="display:block;width:19px;height:19px;margin:0 auto 24px">
                         <div class="cs-cards">
                             <div class="cs-card">
-                                <h3>Needs</h3>
+                                <p class="cs-card-title">Needs</p>
                                 <p>Mock up a design system, and mock up the training flow vibe-coded with Claude Code.</p>
                             </div>
                         <p class="cs-related">

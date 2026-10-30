@@ -13,7 +13,7 @@
 
 ## Next up added 2026-10-29: QA checks (see `tickets-phase3.md`)
 
-- [ ] Ticket 13 — Semantic HTML audit + fixes (all 8 content pages, generator-side)
+- [x] Ticket 13 — Semantic HTML audit + fixes (all 8 content pages, generator-side)
 - [ ] Ticket 14 — Accessibility audit via axe-core on built pages (evidence for the visuaibear-review A11y gate)
 - [x] Ticket 15 — Prettier (2.x, Node 10) + lint wired into npm (`format`, `format:check`, `lint`)
 - Evidence: user request ("easy way to work in markdown for case studies") — ASSUMPTION, needs validation on scope of "editor"

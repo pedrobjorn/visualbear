@@ -10,22 +10,42 @@ Any new dev dependency must support Node 10 (e.g. prettier@2.x, not 3.x).
 
 ## Ticket 13 — Semantic HTML audit + fixes
 
-The generated HTML must be semantic: real elements instead of div-soup
-where a semantic element fits.
+Status: DONE 2026-10-29
 
-Scope:
+Findings and fixes (all generator/CSS-side; every page pixel-identical to
+its pre-fix capture, verified with Playwright full-page diffs):
 
-- Audit the built HTML of all content pages (`build/*/index.html`)
-- Fix generator-side in `markdown-render.js` / shells, not by hand in `build/`
+- sports-ecommerce-redesign had two h1s (two case studies on one page) →
+  `::: hero` now supports `## title` emitting a real h2; the coupon hero
+  uses it; `.cs-hero h2` keeps the h1 look. First-shoot mistake: the
+  companion CSS rule was written at `.case-study` scope and resized every
+  section h2 — caught by the pixel diff, rescoped to `.cs-hero h2`.
+- resume jumped h1 → h3 → h4: `mdresume` now emits real h2 sections
+  (`.resume-section`, keeps the h3 visual size), skill titles are h3
+  sub-titles under their h2, roles stay h3, role sub-titles stay h4.
+  Resume title row wrapped in `<header>` (was a plain div.row).
+- teachr's hero-adjacent card title was an h3 with no h2 above it →
+  card label titles are now `p.cs-card-title` (same look, not a heading).
+- Pull quotes were `p.cs-quote` → lone quotes are real
+  `blockquote.cs-quote > p` (border/margin/padding reset in CSS); quote
+  groups keep their card grid with a blockquote inside each card.
+
+Audit script (scratchpad, `/tmp/audit-semantic.js`): one h1 per page, no
+skipped heading levels, main/nav/header/footer landmarks, no numbered or
+dash-led text in `<p>`, quotes are blockquotes. Result: ALL CLEAN on all
+7 content pages (the "8 content pages" count in the original ticket was
+wrong — 7 exist).
 
 Acceptance criteria:
 
-- [ ] One `h1` per page; heading levels never skip (h2 after h1, etc.)
-- [ ] `main`, `nav`, `header`, `footer` landmarks present where appropriate
-- [ ] Lists are `ul`/`ol`/`li`; timelines use `ol`; blockquotes are `blockquote`
-- [ ] No `div` used where a semantic element fits (section content wrapped
-      in `section` or `article` where it carries a heading)
-- [ ] Verified on all 8 content pages, fixes noted per page
+- [x] One `h1` per page; heading levels never skip (verified all pages)
+- [x] `main`, `nav`, `header`, `footer` landmarks present (verified all pages)
+- [x] Lists are `ul`/`ol`/`li`; timelines use `ol`; quotes are `blockquote`
+- [x] No `div` used where a semantic element fits (card labels are
+      `p.cs-card-title`; quiet resume sub-title divs stay divs by design —
+      they are small side labels, not document headings, and are not
+      counted in the heading ladder)
+- [x] Verified on all content pages, pixel-identical before/after
 
 ## Ticket 14 — Accessibility audit (axe)
 

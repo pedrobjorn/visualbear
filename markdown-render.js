@@ -300,6 +300,9 @@ function renderHero(lines) {
     if ((m = t.match(/^\[eyebrow:\s*(.*)\]$/)))
       out += '<p class="cs-eyebrow">' + esc(m[1]) + '</p>';
     else if ((m = t.match(/^#\s+(.*)$/))) out += '<h1>' + esc(m[1]) + '</h1>';
+    // a secondary hero (a second case study on one page) is an h2, never a
+    // second h1 (semantic: one h1 per page)
+    else if ((m = t.match(/^##\s+(.*)$/))) out += '<h2>' + esc(m[1]) + '</h2>';
     else if ((m = t.match(/^\[subtitle:\s*(.*)\]$/)))
       out += '<p class="cs-subtitle">' + esc(m[1]) + '</p>';
     else if ((m = t.match(/^\[byline:\s*(.*)\]$/)))
@@ -571,18 +574,19 @@ function mdPage(src) {
     return '<div class="cs-cards">' + cards + '</div>';
   });
 
-  // blockquotes → centred italic pull quotes
+  // blockquotes → centred pull quotes; real blockquote elements, styled by
+  // .cs-quote (the global blockquote border/margins are reset in CSS)
   html = html.replace(
     /<blockquote>\s*(?:<p>)?([\s\S]*?)(?:<\/p>)?\s*<\/blockquote>/g,
     function (m, inner) {
-      return '<p class="cs-quote">' + inner.trim() + '</p>';
+      return '<blockquote class="cs-quote"><p>' + inner.trim() + '</p></blockquote>';
     }
   );
 
-  // runs of 2+ quotes become a quote group (inner <p> loses its class);
-  // a lone quote stays a plain p.cs-quote, matching the pages' markup
-  // (tempered so a quote's body can't span elements)
-  const Q = '<p class="cs-quote">(?:(?!<p class="cs-quote">)(?!</p>)[\\s\\S])*?</p>';
+  // runs of 2+ quotes become a quote group (each quote keeps its
+  // blockquote); a lone quote stays a bare blockquote.cs-quote
+  const Q =
+    '<blockquote class="cs-quote"><p>(?:(?!<blockquote class="cs-quote">)(?!</p>)[\\s\\S])*?</p></blockquote>';
   html = html.replace(new RegExp(Q + '(?:\\s*' + Q + ')+', 'g'), function (group) {
     const items = group.match(new RegExp(Q, 'g')) || [];
     return (
@@ -752,6 +756,8 @@ function mdResume(src) {
     // `## Title |` (quiet) keeps the section's own sub-title style: a
     // following list renders inside col m12 (education/languages), a
     // following paragraph gets the col m4 title row (interests).
+    // Loud sections emit h2 so the ladder is h1 name → h2 section →
+    // h3 role → h4 sub-title (the CSS keeps the h3 visual size).
     let m = line.match(/^<h2>([\s\S]*?)<\/h2>$/);
     if (m) {
       closeList();
@@ -763,7 +769,11 @@ function mdResume(src) {
       // col m12 row holds the heading and everything after it
       out.push('<div class="row">');
       out.push('<div class="col m12">');
-      out.push(quiet ? '<div class="sub-title">' + title + '</div>' : '<h3>' + title + '</h3>');
+      out.push(
+        quiet
+          ? '<div class="sub-title">' + title + '</div>'
+          : '<h2 class="resume-section">' + title + '</h2>'
+      );
       openCol = true;
       continue;
     }
@@ -794,7 +804,9 @@ function mdResume(src) {
           const sm =
             typeof out[j] === 'string' ? out[j].match(/^<strong>([\s\S]*?)<\/strong>$/) : null;
           if (sm) {
-            out[j] = '<h4 class="sub-title">' + sm[1] + '</h4>';
+            // skill titles sit directly under the h2 section, so they are
+            // h3 (Key Responsibilities etc. under an h3 role stay h4)
+            out[j] = '<h3 class="sub-title">' + sm[1] + '</h3>';
             break;
           }
         }
@@ -866,11 +878,12 @@ function mdResume(src) {
       openList();
       const splitUl = line.match(/^(<li>[\s\S]*?)\s*(<ul>.*)$/);
       if (splitUl && /<strong>/.test(splitUl[1])) {
-        // skill group: the strong head becomes the h4 title, the parent
-        // ul becomes no-bullets, and the nested list opens under it
+        // skill group: the strong head becomes the h3 title (it sits
+        // directly under the h2 section; role sub-titles stay h4), the
+        // parent ul becomes no-bullets, and the nested list opens under it
         const head = splitUl[1]
           .replace(/^<li>/, '')
-          .replace(/<strong>([^<]*)<\/strong>/, '<h4 class="sub-title">$1</h4>');
+          .replace(/<strong>([^<]*)<\/strong>/, '<h3 class="sub-title">$1</h3>');
         for (let j = out.length - 1; j >= 0; j--) {
           if (out[j] === '<ul>') {
             out[j] = '<ul class="no-bullets">';
