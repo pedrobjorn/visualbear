@@ -1,81 +1,81 @@
 html,
 body {
-    padding: 0;
-    margin: 0;
-    font-size: 1.5em;
+  padding: 0;
+  margin: 0;
+  font-size: 1.5em;
 
-    /* 1 */
-    -webkit-text-size-adjust: 1.5em;
+  /* 1 */
+  -webkit-text-size-adjust: 1.5em;
 
-    /* 2 */
-    -ms-text-size-adjust: 1.5em;
+  /* 2 */
+  -ms-text-size-adjust: 1.5em;
 
-    /* 2 */
-    background-color: $vb-grey;
-    /* min-height only: a fixed 100% height pins the body to one viewport,
+  /* 2 */
+  background-color: $vb-grey;
+  /* min-height only: a fixed 100% height pins the body to one viewport,
        so page backgrounds (the gradients) cut off after the first screen
        while the content overflows the body */
-    min-height: 100%;
-    font-family: $vb-body-font-family;
-    font-weight: $font-light;
-    font-size: $base-font-size;
-    line-height: $base-line-height;
+  min-height: 100%;
+  font-family: $vb-body-font-family;
+  font-weight: $font-light;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
 }
 
 body {
-    webkit-tap-highlight-color: transparentize($vb-light, 0.8);
-    position: relative;
+  webkit-tap-highlight-color: transparentize($vb-light, 0.8);
+  position: relative;
 }
 
 ul {
-    padding: 0;
+  padding: 0;
 }
 
-*, *:focus {
-    outline: none;
+*,
+*:focus {
+  outline: none;
 }
 
-
-
-*, *:before, *:after {
-    box-sizing: inherit;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 ::-moz-selection {
-    text-shadow: none;
-    background: $vb-secondary;
-    color: $vb-light;
-    background-color: none;
+  text-shadow: none;
+  background: $vb-secondary;
+  color: $vb-light;
+  background-color: none;
 }
 
 ::selection {
-    text-shadow: none;
-    background: $vb-secondary;
-    color: $vb-light;
-    background-color: none;
+  text-shadow: none;
+  background: $vb-secondary;
+  color: $vb-light;
+  background-color: none;
 }
 
 img::selection {
-    background: transparent;
+  background: transparent;
 }
 
 img::-moz-selection {
-    background: transparent;
+  background: transparent;
 }
 
 .noscriptmsg {
-    display: none;
+  display: none;
 }
-
 
 .content {
-    margin: auto;
-    max-width: 916px;
-    display: flex;
+  margin: auto;
+  max-width: 916px;
+  display: flex;
 }
 
-nav{
-    @include box-shadow(0, 0, 0, 0);
+nav {
+  @include box-shadow(0, 0, 0, 0);
 }
 
 // Box sizing partial styles:
@@ -83,40 +83,40 @@ nav{
 *,
 *:before,
 *:after {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .yeogurt-info {
-    text-align: center;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
+  text-align: center;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 html,
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    // Original brand gradient; the oklab version interpolates the same
-    // two colors in a perceptually uniform space, avoiding the muddy
-    // grey band a plain sRGB blend produces mid-fade
-    background: linear-gradient(180deg, #D73735 10%, #252528 100%);
-    background: linear-gradient(180deg in oklab, #D73735 10%, #252528 100%);
+  // Original brand gradient; the oklab version interpolates the same
+  // two colors in a perceptually uniform space, avoiding the muddy
+  // grey band a plain sRGB blend produces mid-fade
+  background: linear-gradient(180deg, #d73735 10%, #252528 100%);
+  background: linear-gradient(180deg in oklab, #d73735 10%, #252528 100%);
 
-    display: flex;
-    // 100svh avoids the mobile URL-bar jump; the vh line is the fallback
-    min-height: 100vh;
-    min-height: 100svh;
-    flex-direction: column;
+  display: flex;
+  // 100svh avoids the mobile URL-bar jump; the vh line is the fallback
+  min-height: 100vh;
+  min-height: 100svh;
+  flex-direction: column;
 }
 
 main {
-    flex: 1 0 auto;
+  flex: 1 0 auto;
 }
 
 // Visible keyboard focus everywhere: the component styles suppress the
@@ -124,167 +124,163 @@ main {
 // currentColor keeps it visible on every surface — it inherits whatever
 // ink the focused element is set in (light on dark heroes, ink on light pages)
 :focus-visible {
-    outline: 2px solid currentColor;
-    outline-offset: 2px;
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
 .vb-container {
-    // display: flex;
-    // min-height: 100%;
-    position: relative;
-    max-width: 100%;
+  // display: flex;
+  // min-height: 100%;
+  position: relative;
+  max-width: 100%;
 
-    // padding-bottom: 64px;
+  // padding-bottom: 64px;
 }
 
 .item {
-    width: auto;
-    flex-order: 1;
-    flex-grow: 0;
+  width: auto;
+  flex-order: 1;
+  flex-grow: 0;
 
-    /* default 0 */
+  /* default 0 */
 }
-
 
 // Styling on warning for users on IE7 or below
 .browsehappy {
-    text-align: center;
-    margin: 0;
-    background: #fff8e2;
-    color: #000;
-    padding: 0.5em 0;
+  text-align: center;
+  margin: 0;
+  background: #fff8e2;
+  color: #000;
+  padding: 0.5em 0;
 }
 
-
-
-
 @media (min-width: $break-huge) {
-    .desktop {
-        display: initial;
-    }
+  .desktop {
+    display: initial;
+  }
 
-    .mobile {
-        display: none;
-    }
-    .mobile-hide {
-        display: initial;
-    }
+  .mobile {
+    display: none;
+  }
+  .mobile-hide {
+    display: initial;
+  }
 
-    .mobile-show {
-        display: none;
-    }
+  .mobile-show {
+    display: none;
+  }
 }
 
 //2500px< & >1200px
 @media (max-width: $break-huge) and (min-width: $break-large) {
-    .desktop {
-        display: initial;
-    }
+  .desktop {
+    display: initial;
+  }
 
-    .mobile {
-        display: none;
-    }
+  .mobile {
+    display: none;
+  }
 
-    .mobile-hide {
-        display: initial;
-    }
+  .mobile-hide {
+    display: initial;
+  }
 
-    .mobile-show {
-        display: none;
-    }
+  .mobile-show {
+    display: none;
+  }
 }
 
 //1280px< & >900px
 @media (max-width: $break-large) and (min-width: $break-big) {
-    .desktop {
-        display: initial;
-    }
+  .desktop {
+    display: initial;
+  }
 
-    .mobile {
-        display: none;
-    }
+  .mobile {
+    display: none;
+  }
 
-    .mobile-hide {
-        display: initial;
-    }
+  .mobile-hide {
+    display: initial;
+  }
 
-    .mobile-show {
-        display: none;
-    }
+  .mobile-show {
+    display: none;
+  }
 }
 
 //960< & >767px
 @media (max-width: $break-big) and (min-width: $break-medium) {
-    .mobile-hide {
-        display: initial;
-    }
+  .mobile-hide {
+    display: initial;
+  }
 
-    .mobile-show {
-        display: none;
-    }
+  .mobile-show {
+    display: none;
+  }
 
-    .desktop {
-        display: initial;
-    }
+  .desktop {
+    display: initial;
+  }
 
-    .mobile {
-        display: none;
-    }
+  .mobile {
+    display: none;
+  }
 }
 
 //767px< & >480px
 @media (max-width: $break-medium) and (min-width: $break-small) {
-    .mobile-hide {
-        display: none;
-    }
+  .mobile-hide {
+    display: none;
+  }
 
-    .mobile-show {
-        display: initial;
-    }
+  .mobile-show {
+    display: initial;
+  }
 
-    .desktop {
-        display: none;
-    }
+  .desktop {
+    display: none;
+  }
 
-    .mobile {
-        display: initial;
-    }
+  .mobile {
+    display: initial;
+  }
 }
 
 //480px< & >320px
 @media (max-width: $break-small) and (min-width: $break-tiny) {
-    .desktop {
-        display: none;
-    }
+  .desktop {
+    display: none;
+  }
 
-    .mobile {
-        display: initial;
-    }
+  .mobile {
+    display: initial;
+  }
 
-    .mobile-hide {
-        display: none;
-    }
+  .mobile-hide {
+    display: none;
+  }
 
-    .mobile-show {
-        display: initial;
-    }
+  .mobile-show {
+    display: initial;
+  }
 }
 
 //320px<
 @media (max-width: $break-tiny) {
-    .desktop {
-        display: none;
-    }
+  .desktop {
+    display: none;
+  }
 
-    .mobile {
-        display: initial;
-    }
+  .mobile {
+    display: initial;
+  }
 
-    .mobile-hide {
-        display: none;
-    }
+  .mobile-hide {
+    display: none;
+  }
 
-    .mobile-show {
-        display: initial;
-    }
+  .mobile-show {
+    display: initial;
+  }
 }

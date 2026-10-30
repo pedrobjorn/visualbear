@@ -15,7 +15,7 @@
 
 - [ ] Ticket 13 — Semantic HTML audit + fixes (all 8 content pages, generator-side)
 - [ ] Ticket 14 — Accessibility audit via axe-core on built pages (evidence for the visuaibear-review A11y gate)
-- [ ] Ticket 15 — Prettier (2.x, Node 10) + lint wired into npm (`format`, `format:check`, `lint`)
+- [x] Ticket 15 — Prettier (2.x, Node 10) + lint wired into npm (`format`, `format:check`, `lint`)
 - Evidence: user request ("easy way to work in markdown for case studies") — ASSUMPTION, needs validation on scope of "editor"
 
 ## Problem / opportunity
@@ -80,12 +80,12 @@ pixel-identical to the block-based build.
 
 ## Open questions
 
-| Question | Answer (Pedro, 2026-10-29) |
-|---|---|
-| Migrated pages pixel-identical or light cleanup? | Pixel-identical — rendered HTML must diff clean against the pre-migration build |
-| Frontmatter for hero images / SEO meta? | Yes — implement per DR-0002 |
-| 4 PDF case studies as live pages? | Yes — author md pages, each linking the original PDF as download |
-| AI-attribution marker on the visuai page? | Yes — subtle marker on AI-written content (hero, quotes, first section); marker also recorded in the md (DR-0006) |
+| Question                                         | Answer (Pedro, 2026-10-29)                                                                                        |
+| ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| Migrated pages pixel-identical or light cleanup? | Pixel-identical — rendered HTML must diff clean against the pre-migration build                                   |
+| Frontmatter for hero images / SEO meta?          | Yes — implement per DR-0002                                                                                       |
+| 4 PDF case studies as live pages?                | Yes — author md pages, each linking the original PDF as download                                                  |
+| AI-attribution marker on the visuai page?        | Yes — subtle marker on AI-written content (hero, quotes, first section); marker also recorded in the md (DR-0006) |
 
 ## Phase 2: The visuAI page (revised 2026-10-29 per DR-0007)
 
@@ -101,8 +101,6 @@ pixel-identical to the block-based build.
 - DR-0005 — Pure-markdown content files; container/directive syntax for visual components
 - DR-0006 — AI-attribution marker (SUPERSEDED by DR-0007 — was aimed at the wrong page)
 - DR-0007 — AI tag: visuAI page (`/workflow/`) only; inline/above-container label, not a corner chip
-
-
 
 ## Phase 3: Remaining wiring + image syntax (added 2026-10-29)
 
@@ -123,11 +121,13 @@ Content pages need images without raw HTML. Two cases:
    `[caption: text]` when present.
 
 Requirements:
+
 - Renderer support for `[image: label | tall]` and `[caption: text]`
 - Styling consistent with the design system (no new tokens)
 - Documented in AUTHORING.md; used to de-raw-HTML the existing md files
 
 Acceptance criteria:
+
 - [ ] `[image: label]` renders the placeholder frame; `| tall` variant works
 - [ ] Real markdown images pass through and render
 - [ ] Guide documents both; existing raw-HTML frames in the md files replaced

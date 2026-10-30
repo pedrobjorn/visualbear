@@ -16,17 +16,24 @@ No template work for standard layouts. The page shell (in
 `src/<page>/index.nunjucks`) holds the hero and chrome; everything below the
 hero is your markdown, rendered by the `mdpage` or `mdresume` filter.
 
+## Code quality commands
+
+- `npm run lint` — ESLint on the JS (via gulp)
+- `npm run format` — Prettier on js/scss/md (not `.nunjucks` templates,
+  and not `src/_data/pages/` while the copy rewrite is in flight)
+- `npm run format:check` — CI-style check; exits non-zero if unformatted
+
 ## Conventions: `mdpage` (case studies)
 
-| You write | You get |
-|---|---|
-| `# Title` | (usually stays in the shell — hero title) |
-| `## Section` | Full-width section block, heading text as eyebrow label |
-| `1. step` | Numbered timeline |
-| `- item` | Fact chips |
-| `> quote` | Centred italic pull quote |
-| table | Card grid (header row dropped, each body row → one card) |
-| raw HTML | Passes through untouched — escape hatch, not the default |
+| You write    | You get                                                  |
+| ------------ | -------------------------------------------------------- |
+| `# Title`    | (usually stays in the shell — hero title)                |
+| `## Section` | Full-width section block, heading text as eyebrow label  |
+| `1. step`    | Numbered timeline                                        |
+| `- item`     | Fact chips                                               |
+| `> quote`    | Centred italic pull quote                                |
+| table        | Card grid (header row dropped, each body row → one card) |
+| raw HTML     | Passes through untouched — escape hatch, not the default |
 
 ### `:::` blocks for visual components
 
@@ -80,15 +87,15 @@ lines become the `figcaption`.
 
 ## Conventions: `mdresume`
 
-| You write | You get |
-|---|---|
-| `## Section` | Section heading row (`h3`) |
-| `### Role - [Company](url) \| dates` | Experience row: role left, dates right |
-| `**Sub-title**` on its own line | `h4.sub-title` |
-| `- item` | List items (plain `ul`) |
-| `- **x** – [link](url) \| note` | Education/languages entry: `b` + link + `side-text` |
-| `## Title \|` | Quiet section: `div.sub-title` instead of an `h3` |
-| blank line | Closes the current list |
+| You write                            | You get                                             |
+| ------------------------------------ | --------------------------------------------------- |
+| `## Section`                         | Section heading row (`h3`)                          |
+| `### Role - [Company](url) \| dates` | Experience row: role left, dates right              |
+| `**Sub-title**` on its own line      | `h4.sub-title`                                      |
+| `- item`                             | List items (plain `ul`)                             |
+| `- **x** – [link](url) \| note`      | Education/languages entry: `b` + link + `side-text` |
+| `## Title \|`                        | Quiet section: `div.sub-title` instead of an `h3`   |
+| blank line                           | Closes the current list                             |
 
 Paragraphs before the first `##` are the page intro (bare `col m12` row).
 

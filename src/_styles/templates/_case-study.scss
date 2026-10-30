@@ -7,713 +7,713 @@
 // ==========================================================================
 
 .case-study {
-    // Core color of the page theme; defaults to the design-system grey.
-    // Themes (pink/black/teal) override it; bullets pick it up
-    --cs-accent: #{$vb-grey};
+  // Core color of the page theme; defaults to the design-system grey.
+  // Themes (pink/black/teal) override it; bullets pick it up
+  --cs-accent: #{$vb-grey};
 
-    // ------------------------------------------------------------------
-    // Hero
-    // ------------------------------------------------------------------
-    .cs-hero {
-        text-align: center;
-        padding: 64px 0 32px;
+  // ------------------------------------------------------------------
+  // Hero
+  // ------------------------------------------------------------------
+  .cs-hero {
+    text-align: center;
+    padding: 64px 0 32px;
+  }
+
+  .cs-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: $middle-font-size;
+    // Darker shade of the brand red: #D73735 sits at ~4.3:1 on the
+    // light panel grounds, #D0181E clears 4.5:1 everywhere it's used
+    color: #d0181e;
+    margin: 0 0 16px;
+  }
+
+  h1 {
+    margin: 0 0 16px;
+  }
+
+  .cs-subtitle {
+    font-size: $base-h3-size;
+    font-weight: $font-light;
+    max-width: 720px;
+    margin: 0 auto 16px;
+  }
+
+  .cs-byline {
+    font-size: $middle-font-size;
+    color: $vb-light-grey;
+    display: inline-block;
+    padding: 8px 0;
+    margin: 0 auto 48px;
+  }
+
+  .cs-footnote {
+    font-size: $small-font-size;
+    color: $vb-light-grey;
+    margin: 16px 0 0;
+  }
+
+  .cs-summary {
+    max-width: 720px;
+    margin: 32px auto 0;
+    padding: 16px 24px;
+    background-color: rgba(255, 255, 255, 0.45);
+    border-radius: 16px;
+    text-align: left;
+  }
+
+  // ------------------------------------------------------------------
+  // Sections — left-aligned editorial headers with an orange kicker
+  // ------------------------------------------------------------------
+  .cs-section {
+    padding: 64px 0;
+
+    h2 {
+      margin: 0 0 8px;
+
+      &::before {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 4px;
+        margin-bottom: 16px;
+        background-color: $vb-primary;
+        border-radius: 2px;
+      }
     }
 
-    .cs-eyebrow {
-        text-transform: uppercase;
-        letter-spacing: 0.18em;
-        font-size: $middle-font-size;
-        // Darker shade of the brand red: #D73735 sits at ~4.3:1 on the
-        // light panel grounds, #D0181E clears 4.5:1 everywhere it's used
-        color: #D0181E;
-        margin: 0 0 16px;
+    h3 {
+      margin: 40px 0 8px;
     }
+  }
 
-    h1 {
-        margin: 0 0 16px;
-    }
+  .cs-section-intro {
+    max-width: 720px;
+    margin: 0 0 32px;
+    font-weight: $font-light;
+  }
 
-    .cs-subtitle {
-        font-size: $base-h3-size;
-        font-weight: $font-light;
-        max-width: 720px;
-        margin: 0 auto 16px;
-    }
+  // ------------------------------------------------------------------
+  // Cards — stacked full-width rows
+  // ------------------------------------------------------------------
+  .cs-cards {
+    .cs-card {
+      flex: 1 1 100%;
+      margin: 16px 0;
+      padding: 28px;
+      background-color: rgba(255, 255, 255, 0.45);
+      border-radius: 16px;
 
-    .cs-byline {
-        font-size: $middle-font-size;
-        color: $vb-light-grey;
-        display: inline-block;
-        padding: 8px 0;
-        margin: 0 auto 48px;
-    }
+      h3,
+      h4 {
+        margin: 0 0 8px;
+        font-size: $base-h4-size;
+      }
 
-    .cs-footnote {
-        font-size: $small-font-size;
-        color: $vb-light-grey;
-        margin: 16px 0 0;
-    }
-
-    .cs-summary {
-        max-width: 720px;
-        margin: 32px auto 0;
-        padding: 16px 24px;
-        background-color: rgba(255, 255, 255, 0.45);
-        border-radius: 16px;
-        text-align: left;
-    }
-
-    // ------------------------------------------------------------------
-    // Sections — left-aligned editorial headers with an orange kicker
-    // ------------------------------------------------------------------
-    .cs-section {
-        padding: 64px 0;
-
-        h2 {
-            margin: 0 0 8px;
-
-            &::before {
-                content: '';
-                display: block;
-                width: 40px;
-                height: 4px;
-                margin-bottom: 16px;
-                background-color: $vb-primary;
-                border-radius: 2px;
-            }
-        }
-
-        h3 {
-            margin: 40px 0 8px;
-        }
-    }
-
-    .cs-section-intro {
-        max-width: 720px;
-        margin: 0 0 32px;
-        font-weight: $font-light;
-    }
-
-    // ------------------------------------------------------------------
-    // Cards — stacked full-width rows
-    // ------------------------------------------------------------------
-    .cs-cards {
-        .cs-card {
-            flex: 1 1 100%;
-            margin: 16px 0;
-            padding: 28px;
-            background-color: rgba(255, 255, 255, 0.45);
-            border-radius: 16px;
-
-            h3,
-            h4 {
-                margin: 0 0 8px;
-                font-size: $base-h4-size;
-            }
-
-            p {
-                margin: 0;
-                font-size: $middle-font-size;
-            }
-        }
-
-        .cs-number {
-            display: block;
-            font-size: $base-h2-size;
-            font-weight: $font-bold;
-            color: $vb-primary;
-            line-height: 1;
-            margin-bottom: 8px;
-        }
-    }
-
-    // ------------------------------------------------------------------
-    // Steps — a borderless numbered timeline (process, delivery, JTBD)
-    // Numbers baseline-aligned with their titles
-    // ------------------------------------------------------------------
-    .cs-steps {
-        list-style: none;
+      p {
         margin: 0;
-        padding: 0;
-
-        .cs-step {
-            display: flex;
-            align-items: baseline;
-            padding: 24px 0;
-            border-bottom: 1px solid rgba(37, 37, 40, 0.08);
-
-            &:first-child {
-                padding-top: 0;
-            }
-
-            &:last-child {
-                border-bottom: none;
-                padding-bottom: 0;
-            }
-        }
-
-        .cs-number {
-            flex: 0 0 48px;
-            font-size: $base-h3-size;
-            font-weight: $font-bold;
-            color: $vb-primary;
-            line-height: 1;
-        }
-
-        h3,
-        h4 {
-            margin: 0 0 4px;
-            font-size: $base-h4-size;
-        }
-
-        p {
-            margin: 0;
-            font-size: $middle-font-size;
-        }
-
-        .cs-frame {
-            margin-top: 16px;
-        }
-    }
-
-    // ------------------------------------------------------------------
-    // Process timeline — vertical numbered steps with a connecting line
-    // ------------------------------------------------------------------
-    .cs-timeline {
-        list-style: none;
-        margin: 32px 0;
-        padding: 0;
-        counter-reset: cs-step;
-
-        li {
-            counter-increment: cs-step;
-            position: relative;
-            display: grid;
-            grid-template-columns: 28px 1fr;
-            column-gap: 16px;
-            align-items: start;
-            padding-bottom: 24px;
-
-            &:last-child {
-                padding-bottom: 0;
-            }
-
-            // Numbered dot (themed below)
-            &::before {
-                content: counter(cs-step);
-                display: grid;
-                place-items: center;
-                width: 26px;
-                height: 26px;
-                border-radius: 50%;
-                background-color: $vb-primary;
-                color: #fff;
-                font-size: $middle-font-size;
-                font-weight: $font-bold;
-            }
-
-            // Connecting line down to the next dot
-            &:not(:last-child)::after {
-                content: '';
-                position: absolute;
-                top: 30px;
-                bottom: -6px;
-                left: 13px;
-                width: 2px;
-                background-color: rgba(37, 37, 40, 0.15);
-            }
-
-            h3 {
-                grid-column: 2;
-                margin: 2px 0 4px;
-                font-size: $base-h4-size;
-                line-height: 1.35;
-            }
-
-            p {
-                grid-column: 2;
-                margin: 0;
-                font-size: $middle-font-size;
-                line-height: 1.35;
-                color: rgba(37, 37, 40, 0.75);
-            }
-        }
-    }
-
-    // ------------------------------------------------------------------
-    // Related case study — quiet, not another callout card
-    // ------------------------------------------------------------------
-    .cs-related {
-        max-width: 720px;
-        margin: 32px auto 0;
-        padding-top: 16px;
-        border-top: 1px solid rgba(37, 37, 40, 0.15);
-        text-align: center;
         font-size: $middle-font-size;
-        color: rgba(37, 37, 40, 0.6);
-
-        a {
-            color: inherit;
-        }
+      }
     }
 
-    // ------------------------------------------------------------------
-    // Metrics — big numbers in subtle, translucent rounded containers
-    // ------------------------------------------------------------------
-    .cs-metrics {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: 32px -16px 0;
+    .cs-number {
+      display: block;
+      font-size: $base-h2-size;
+      font-weight: $font-bold;
+      color: $vb-primary;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+  }
+
+  // ------------------------------------------------------------------
+  // Steps — a borderless numbered timeline (process, delivery, JTBD)
+  // Numbers baseline-aligned with their titles
+  // ------------------------------------------------------------------
+  .cs-steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .cs-step {
+      display: flex;
+      align-items: baseline;
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(37, 37, 40, 0.08);
+
+      &:first-child {
+        padding-top: 0;
+      }
+
+      &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
     }
 
-    .cs-metric {
-        flex: 1 1 200px;
-        margin: 16px;
-        padding: 24px 16px;
-        text-align: center;
-        background-color: rgba(255, 255, 255, 0.45);
-        border-radius: 16px;
-
-        // inline-block keeps the value and its suffix on one line
-        .cs-metric-value {
-            display: inline-block;
-            font-size: $base-h0-size;
-            font-weight: $font-bold;
-            color: $vb-primary;
-            line-height: 1.1;
-        }
-
-        .cs-metric-suffix {
-            font-size: $base-h2-size;
-            font-weight: $font-bold;
-            color: $vb-primary;
-        }
-
-        .cs-metric-label {
-            display: block;
-            margin-top: 8px;
-            font-size: $middle-font-size;
-            color: $vb-light-grey;
-        }
+    .cs-number {
+      flex: 0 0 48px;
+      font-size: $base-h3-size;
+      font-weight: $font-bold;
+      color: $vb-primary;
+      line-height: 1;
     }
 
-    // ------------------------------------------------------------------
-    // Page-wide showcase — big rounded container for wide visuals & tables
-    // ------------------------------------------------------------------
-    .cs-wide {
-        width: 100vw;
-        position: relative;
-        left: 50%;
-        margin-left: -50vw;
-        margin-top: 24px;
-        margin-bottom: 24px;
-        padding: 0 48px;
-        box-sizing: border-box;
+    h3,
+    h4 {
+      margin: 0 0 4px;
+      font-size: $base-h4-size;
     }
 
-    .cs-showcase {
-        margin: 0;
-
-        .cs-frame {
-            width: 100%;
-        }
-
-        figcaption {
-            margin-top: 12px;
-            font-size: $middle-font-size;
-            color: $vb-light-grey;
-            text-align: center;
-        }
+    p {
+      margin: 0;
+      font-size: $middle-font-size;
     }
 
-    // ------------------------------------------------------------------
-    // Before/after — open layout, no block containers around images
-    // ------------------------------------------------------------------
-    .cs-comparison {
-        margin: 24px 0;
-
-        .cs-panel {
-            margin: 48px 0;
-
-            h3,
-            h4 {
-                margin: 0 0 4px;
-                font-size: $base-h4-size;
-            }
-
-            > p {
-                margin: 0 0 16px;
-                font-size: $middle-font-size;
-            }
-
-            .cs-tag {
-                display: inline-block;
-                text-transform: uppercase;
-                letter-spacing: 0.12em;
-                font-size: $small-font-size;
-                // Darker brand red, see .cs-eyebrow note
-                color: #D0181E;
-                margin: 0 0 4px;
-            }
-        }
-    }
-
-    // Image placeholder frames — soft fill, no border lines
     .cs-frame {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 200px;
-        padding: 24px;
-        border-radius: 16px;
-        background-color: rgba(255, 255, 255, 0.45);
-        text-align: center;
-
-        .cs-frame-label {
-            font-size: $middle-font-size;
-            color: $vb-light-grey;
-
-            strong {
-                display: block;
-                color: $vb-grey;
-                margin-bottom: 4px;
-            }
-        }
-
-        &.cs-frame--tall {
-            min-height: 420px;
-        }
+      margin-top: 16px;
     }
+  }
 
-    .cs-annotation {
-        display: flex;
-        align-items: baseline;
-        margin-top: 8px;
+  // ------------------------------------------------------------------
+  // Process timeline — vertical numbered steps with a connecting line
+  // ------------------------------------------------------------------
+  .cs-timeline {
+    list-style: none;
+    margin: 32px 0;
+    padding: 0;
+    counter-reset: cs-step;
 
-        .cs-annotation-dot {
-            flex: 0 0 auto;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background-color: $vb-primary;
-            margin-right: 8px;
-            position: relative;
-            top: -1px;
-        }
+    li {
+      counter-increment: cs-step;
+      position: relative;
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      column-gap: 16px;
+      align-items: start;
+      padding-bottom: 24px;
 
-        p {
-            margin: 0;
-            font-size: $middle-font-size;
-            color: $vb-light-grey;
-        }
-    }
+      &:last-child {
+        padding-bottom: 0;
+      }
 
-    // ------------------------------------------------------------------
-    // Quotes
-    // ------------------------------------------------------------------
-    .cs-pullquote {
-        max-width: 760px;
-        margin: 32px 0;
-        padding: 24px 32px;
-        border: 1px solid rgba(37, 37, 40, 0.12);
-        border-radius: 16px;
-        background-color: rgba(255, 255, 255, 0.45);
-        font-size: $base-h3-size;
-        font-weight: $font-light;
-        font-style: italic;
-
-        cite {
-            display: block;
-            margin-top: 8px;
-            font-size: $middle-font-size;
-            font-style: normal;
-            color: $vb-light-grey;
-        }
-    }
-
-    .cs-quotes {
-        .cs-quote {
-            flex: 1 1 100%;
-            margin: 16px 0;
-            padding: 20px 24px;
-            background-color: rgba(255, 255, 255, 0.45);
-            border-radius: 16px;
-            font-style: italic;
-
-            p {
-                margin: 0;
-            }
-        }
-    }
-
-    // ------------------------------------------------------------------
-    // Venn diagram — research nuggets mapped across Jobs-to-be-Done
-    // ------------------------------------------------------------------
-    .cs-venn {
-        position: relative;
-        width: 100%;
-        max-width: 640px;
-        margin: 48px auto;
-        padding-top: 100%;
-
-        .cs-venn__circle {
-            position: absolute;
-            width: 62%;
-            padding-top: 62%;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.45);
-
-            span {
-                position: absolute;
-                width: 46%;
-                font-size: $middle-font-size;
-                line-height: $base-line-height;
-                text-align: center;
-            }
-        }
-
-        .cs-venn__circle--tl {
-            top: 5%;
-            left: 5%;
-
-            span {
-                top: 9%;
-                left: 13%;
-            }
-        }
-
-        .cs-venn__circle--tr {
-            top: 5%;
-            right: 5%;
-
-            span {
-                top: 9%;
-                right: 13%;
-            }
-        }
-
-        .cs-venn__circle--bl {
-            bottom: 5%;
-            left: 5%;
-
-            span {
-                bottom: 9%;
-                left: 13%;
-            }
-        }
-
-        .cs-venn__circle--br {
-            bottom: 5%;
-            right: 5%;
-
-            span {
-                bottom: 9%;
-                right: 13%;
-            }
-        }
-
-        .cs-venn__nugget {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            margin: -6px 0 0 -6px;
-            background-color: $vb-primary;
-        }
-    }
-
-    // ------------------------------------------------------------------
-    // Outcomes table — page-wide via `.cs-wide`
-    // ------------------------------------------------------------------
-    .cs-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 24px 0;
-
-        th,
-        td {
-            padding: 16px 24px;
-            text-align: left;
-            border-bottom: 1px solid rgba(37, 37, 40, 0.1);
-        }
-
-        th {
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            font-size: $small-font-size;
-            color: $vb-light-grey;
-        }
-
-        td:first-child {
-            font-weight: $font-bold;
-        }
-    }
-
-    // ------------------------------------------------------------------
-    // Two-column blocks — stacked rows
-    // ------------------------------------------------------------------
-    .cs-twocol {
-        .cs-col {
-            flex: 1 1 100%;
-            margin: 16px 0;
-            padding: 28px;
-            background-color: rgba(255, 255, 255, 0.45);
-            border-radius: 16px;
-
-            h3,
-            h4 {
-                margin: 0 0 8px;
-                font-size: $base-h4-size;
-            }
-
-            ul {
-                margin: 0;
-                padding-left: 20px;
-            }
-
-            li {
-                margin-bottom: 8px;
-            }
-        }
-    }
-
-    // ------------------------------------------------------------------
-    // Section divider — label with lines on each side (e.g. "Deep-Dive")
-    // ------------------------------------------------------------------
-    .cs-divider {
-        display: flex;
-        align-items: center;
-        margin: 64px 0;
-        text-align: center;
-
-        &::before,
-        &::after {
-            content: '';
-            flex: 1 1 auto;
-            height: 2px;
-            border-radius: 1px;
-            background-color: rgba(37, 37, 40, 0.15);
-        }
-
-        span {
-            flex: 0 0 auto;
-            padding: 0 24px;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            font-size: $middle-font-size;
-            color: $vb-light-grey;
-        }
-    }
-
-    // Phosphor icon sizing inside text
-    .ph {
-        font-size: 0.85em;
-        vertical-align: baseline;
-        line-height: 1;
-    }
-
-    // ------------------------------------------------------------------
-    // Notes & lists — explicit, rounded container rows
-    // ------------------------------------------------------------------
-    .cs-note {
+      // Numbered dot (themed below)
+      &::before {
+        content: counter(cs-step);
+        display: grid;
+        place-items: center;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background-color: $vb-primary;
+        color: #fff;
         font-size: $middle-font-size;
-        color: $vb-light-grey;
-        font-style: italic;
-        margin: 8px 0 0;
+        font-weight: $font-bold;
+      }
+
+      // Connecting line down to the next dot
+      &:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        top: 30px;
+        bottom: -6px;
+        left: 13px;
+        width: 2px;
+        background-color: rgba(37, 37, 40, 0.15);
+      }
+
+      h3 {
+        grid-column: 2;
+        margin: 2px 0 4px;
+        font-size: $base-h4-size;
+        line-height: 1.35;
+      }
+
+      p {
+        grid-column: 2;
+        margin: 0;
+        font-size: $middle-font-size;
+        line-height: 1.35;
+        color: rgba(37, 37, 40, 0.75);
+      }
+    }
+  }
+
+  // ------------------------------------------------------------------
+  // Related case study — quiet, not another callout card
+  // ------------------------------------------------------------------
+  .cs-related {
+    max-width: 720px;
+    margin: 32px auto 0;
+    padding-top: 16px;
+    border-top: 1px solid rgba(37, 37, 40, 0.15);
+    text-align: center;
+    font-size: $middle-font-size;
+    color: rgba(37, 37, 40, 0.6);
+
+    a {
+      color: inherit;
+    }
+  }
+
+  // ------------------------------------------------------------------
+  // Metrics — big numbers in subtle, translucent rounded containers
+  // ------------------------------------------------------------------
+  .cs-metrics {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 32px -16px 0;
+  }
+
+  .cs-metric {
+    flex: 1 1 200px;
+    margin: 16px;
+    padding: 24px 16px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.45);
+    border-radius: 16px;
+
+    // inline-block keeps the value and its suffix on one line
+    .cs-metric-value {
+      display: inline-block;
+      font-size: $base-h0-size;
+      font-weight: $font-bold;
+      color: $vb-primary;
+      line-height: 1.1;
     }
 
-    .cs-facts {
-        margin: 16px 0 0;
-        padding: 0;
-        list-style: none;
-
-        li {
-            position: relative;
-            background-color: rgba(255, 255, 255, 0.45);
-            border-radius: 12px;
-            padding: 14px 20px 14px 32px;
-            margin-bottom: 8px;
-
-            // Small bullet dot inside the fact card
-            &::before {
-                content: '';
-                position: absolute;
-                left: 14px;
-                top: 23.5px;
-                width: 5px;
-                height: 5px;
-                border-radius: 50%;
-                background-color: var(--cs-accent);
-            }
-        }
+    .cs-metric-suffix {
+      font-size: $base-h2-size;
+      font-weight: $font-bold;
+      color: $vb-primary;
     }
 
-    // Plain bullet lists in sections and two-column blocks — same small dots
-    .cs-section ul:not(.cs-timeline):not(.cs-facts),
-    .cs-twocol ul {
-        list-style: none;
-        padding-left: 0;
-
-        li {
-            position: relative;
-            padding-left: 16px;
-
-            &::before {
-                content: '';
-                position: absolute;
-                left: 2px;
-                top: 0.73em;
-                width: 5px;
-                height: 5px;
-                border-radius: 50%;
-                background-color: var(--cs-accent);
-            }
-        }
+    .cs-metric-label {
+      display: block;
+      margin-top: 8px;
+      font-size: $middle-font-size;
+      color: $vb-light-grey;
     }
+  }
+
+  // ------------------------------------------------------------------
+  // Page-wide showcase — big rounded container for wide visuals & tables
+  // ------------------------------------------------------------------
+  .cs-wide {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    padding: 0 48px;
+    box-sizing: border-box;
+  }
+
+  .cs-showcase {
+    margin: 0;
+
+    .cs-frame {
+      width: 100%;
+    }
+
+    figcaption {
+      margin-top: 12px;
+      font-size: $middle-font-size;
+      color: $vb-light-grey;
+      text-align: center;
+    }
+  }
+
+  // ------------------------------------------------------------------
+  // Before/after — open layout, no block containers around images
+  // ------------------------------------------------------------------
+  .cs-comparison {
+    margin: 24px 0;
+
+    .cs-panel {
+      margin: 48px 0;
+
+      h3,
+      h4 {
+        margin: 0 0 4px;
+        font-size: $base-h4-size;
+      }
+
+      > p {
+        margin: 0 0 16px;
+        font-size: $middle-font-size;
+      }
+
+      .cs-tag {
+        display: inline-block;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: $small-font-size;
+        // Darker brand red, see .cs-eyebrow note
+        color: #d0181e;
+        margin: 0 0 4px;
+      }
+    }
+  }
+
+  // Image placeholder frames — soft fill, no border lines
+  .cs-frame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    padding: 24px;
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0.45);
+    text-align: center;
+
+    .cs-frame-label {
+      font-size: $middle-font-size;
+      color: $vb-light-grey;
+
+      strong {
+        display: block;
+        color: $vb-grey;
+        margin-bottom: 4px;
+      }
+    }
+
+    &.cs-frame--tall {
+      min-height: 420px;
+    }
+  }
+
+  .cs-annotation {
+    display: flex;
+    align-items: baseline;
+    margin-top: 8px;
+
+    .cs-annotation-dot {
+      flex: 0 0 auto;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: $vb-primary;
+      margin-right: 8px;
+      position: relative;
+      top: -1px;
+    }
+
+    p {
+      margin: 0;
+      font-size: $middle-font-size;
+      color: $vb-light-grey;
+    }
+  }
+
+  // ------------------------------------------------------------------
+  // Quotes
+  // ------------------------------------------------------------------
+  .cs-pullquote {
+    max-width: 760px;
+    margin: 32px 0;
+    padding: 24px 32px;
+    border: 1px solid rgba(37, 37, 40, 0.12);
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0.45);
+    font-size: $base-h3-size;
+    font-weight: $font-light;
+    font-style: italic;
+
+    cite {
+      display: block;
+      margin-top: 8px;
+      font-size: $middle-font-size;
+      font-style: normal;
+      color: $vb-light-grey;
+    }
+  }
+
+  .cs-quotes {
+    .cs-quote {
+      flex: 1 1 100%;
+      margin: 16px 0;
+      padding: 20px 24px;
+      background-color: rgba(255, 255, 255, 0.45);
+      border-radius: 16px;
+      font-style: italic;
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  // ------------------------------------------------------------------
+  // Venn diagram — research nuggets mapped across Jobs-to-be-Done
+  // ------------------------------------------------------------------
+  .cs-venn {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    margin: 48px auto;
+    padding-top: 100%;
+
+    .cs-venn__circle {
+      position: absolute;
+      width: 62%;
+      padding-top: 62%;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.45);
+
+      span {
+        position: absolute;
+        width: 46%;
+        font-size: $middle-font-size;
+        line-height: $base-line-height;
+        text-align: center;
+      }
+    }
+
+    .cs-venn__circle--tl {
+      top: 5%;
+      left: 5%;
+
+      span {
+        top: 9%;
+        left: 13%;
+      }
+    }
+
+    .cs-venn__circle--tr {
+      top: 5%;
+      right: 5%;
+
+      span {
+        top: 9%;
+        right: 13%;
+      }
+    }
+
+    .cs-venn__circle--bl {
+      bottom: 5%;
+      left: 5%;
+
+      span {
+        bottom: 9%;
+        left: 13%;
+      }
+    }
+
+    .cs-venn__circle--br {
+      bottom: 5%;
+      right: 5%;
+
+      span {
+        bottom: 9%;
+        right: 13%;
+      }
+    }
+
+    .cs-venn__nugget {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      margin: -6px 0 0 -6px;
+      background-color: $vb-primary;
+    }
+  }
+
+  // ------------------------------------------------------------------
+  // Outcomes table — page-wide via `.cs-wide`
+  // ------------------------------------------------------------------
+  .cs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+
+    th,
+    td {
+      padding: 16px 24px;
+      text-align: left;
+      border-bottom: 1px solid rgba(37, 37, 40, 0.1);
+    }
+
+    th {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: $small-font-size;
+      color: $vb-light-grey;
+    }
+
+    td:first-child {
+      font-weight: $font-bold;
+    }
+  }
+
+  // ------------------------------------------------------------------
+  // Two-column blocks — stacked rows
+  // ------------------------------------------------------------------
+  .cs-twocol {
+    .cs-col {
+      flex: 1 1 100%;
+      margin: 16px 0;
+      padding: 28px;
+      background-color: rgba(255, 255, 255, 0.45);
+      border-radius: 16px;
+
+      h3,
+      h4 {
+        margin: 0 0 8px;
+        font-size: $base-h4-size;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+    }
+  }
+
+  // ------------------------------------------------------------------
+  // Section divider — label with lines on each side (e.g. "Deep-Dive")
+  // ------------------------------------------------------------------
+  .cs-divider {
+    display: flex;
+    align-items: center;
+    margin: 64px 0;
+    text-align: center;
+
+    &::before,
+    &::after {
+      content: '';
+      flex: 1 1 auto;
+      height: 2px;
+      border-radius: 1px;
+      background-color: rgba(37, 37, 40, 0.15);
+    }
+
+    span {
+      flex: 0 0 auto;
+      padding: 0 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: $middle-font-size;
+      color: $vb-light-grey;
+    }
+  }
+
+  // Phosphor icon sizing inside text
+  .ph {
+    font-size: 0.85em;
+    vertical-align: baseline;
+    line-height: 1;
+  }
+
+  // ------------------------------------------------------------------
+  // Notes & lists — explicit, rounded container rows
+  // ------------------------------------------------------------------
+  .cs-note {
+    font-size: $middle-font-size;
+    color: $vb-light-grey;
+    font-style: italic;
+    margin: 8px 0 0;
+  }
+
+  .cs-facts {
+    margin: 16px 0 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      position: relative;
+      background-color: rgba(255, 255, 255, 0.45);
+      border-radius: 12px;
+      padding: 14px 20px 14px 32px;
+      margin-bottom: 8px;
+
+      // Small bullet dot inside the fact card
+      &::before {
+        content: '';
+        position: absolute;
+        left: 14px;
+        top: 23.5px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: var(--cs-accent);
+      }
+    }
+  }
+
+  // Plain bullet lists in sections and two-column blocks — same small dots
+  .cs-section ul:not(.cs-timeline):not(.cs-facts),
+  .cs-twocol ul {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      position: relative;
+      padding-left: 16px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 2px;
+        top: 0.73em;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: var(--cs-accent);
+      }
+    }
+  }
 }
 
 // ---------------------------------------------------------------------------
 // Responsive
 // ---------------------------------------------------------------------------
 @media (max-width: $break-medium) {
-    .case-study {
-        // The shared .container switches to 64px top padding below
-        // $break-medium while the fixed nav stays 48px tall, which leaves a
-        // band of page background between the header and the full-bleed hero.
-        // Keep the hero flush with the nav, matching wide viewports.
-        .container {
-            padding-top: 48px;
-        }
-
-        .cs-hero {
-            padding-top: 32px;
-        }
-
-        .cs-subtitle {
-            font-size: $base-font-size;
-        }
-
-        .cs-wide {
-            padding: 0 16px;
-        }
-
-        .cs-metrics {
-            margin: 24px -16px 0;
-        }
-
-        .cs-metric {
-            margin: 12px 16px;
-        }
+  .case-study {
+    // The shared .container switches to 64px top padding below
+    // $break-medium while the fixed nav stays 48px tall, which leaves a
+    // band of page background between the header and the full-bleed hero.
+    // Keep the hero flush with the nav, matching wide viewports.
+    .container {
+      padding-top: 48px;
     }
+
+    .cs-hero {
+      padding-top: 32px;
+    }
+
+    .cs-subtitle {
+      font-size: $base-font-size;
+    }
+
+    .cs-wide {
+      padding: 0 16px;
+    }
+
+    .cs-metrics {
+      margin: 24px -16px 0;
+    }
+
+    .cs-metric {
+      margin: 12px 16px;
+    }
+  }
 }
 
 // Wider screens — let the hero breathe before the content starts
 @media (min-width: $break-large) {
-    .case-study {
-        .cs-hero {
-            padding-top: 128px;
-        }
+  .case-study {
+    .cs-hero {
+      padding-top: 128px;
     }
+  }
 }
 
 // ==========================================================================
@@ -723,56 +723,56 @@
 // ==========================================================================
 
 .case-study.cs-pink {
-    background-color: #FDF0F7;
+  background-color: #fdf0f7;
 
-        .cs-timeline li::before {
-        // Darkened so the white step counter clears 4.5:1 (was #E40F9E, 4.32)
-        background-color: #D50E95;
-    }
+  .cs-timeline li::before {
+    // Darkened so the white step counter clears 4.5:1 (was #E40F9E, 4.32)
+    background-color: #d50e95;
+  }
 
-        --cs-accent: #E40F9E;
+  --cs-accent: #e40f9e;
 
-    .cs-eyebrow {
-        color: #C10D82;
-    }
+  .cs-eyebrow {
+    color: #c10d82;
+  }
 
-    // Colored divider lines take the background pink, not the text accent
-    .cs-section h2::before {
-        background-color: #E40F9E;
-    }
+  // Colored divider lines take the background pink, not the text accent
+  .cs-section h2::before {
+    background-color: #e40f9e;
+  }
 
-    .cs-steps .cs-number,
-    .cs-cards .cs-number {
-        color: #C10D82;
-    }
+  .cs-steps .cs-number,
+  .cs-cards .cs-number {
+    color: #c10d82;
+  }
 
-    .cs-metric .cs-metric-value,
-    .cs-metric .cs-metric-suffix {
-        color: #C10D82;
-    }
+  .cs-metric .cs-metric-value,
+  .cs-metric .cs-metric-suffix {
+    color: #c10d82;
+  }
 
-    .cs-panel .cs-tag {
-        color: #C10D82;
-    }
+  .cs-panel .cs-tag {
+    color: #c10d82;
+  }
 
-    .cs-annotation .cs-annotation-dot {
-        background-color: #C10D82;
-    }
+  .cs-annotation .cs-annotation-dot {
+    background-color: #c10d82;
+  }
 
-    .cs-divider::before,
-    .cs-divider::after {
-        background-color: rgba(228, 15, 158, 0.4);
-    }
+  .cs-divider::before,
+  .cs-divider::after {
+    background-color: rgba(228, 15, 158, 0.4);
+  }
 
-    .cs-divider span {
-        color: #C10D82;
-    }
+  .cs-divider span {
+    color: #c10d82;
+  }
 }
 
 // Fixed header matches the pink page (scoped via the page's body class).
 // #D50E95 not #E40F9E: the nav carries white links and 4.85:1 clears 4.5:1
 body.cs-pink-page nav {
-    background-color: #D50E95;
+  background-color: #d50e95;
 }
 
 // ==========================================================================
@@ -782,58 +782,58 @@ body.cs-pink-page nav {
 // ==========================================================================
 
 .case-study.cs-black {
-    background-color: #FAFAFA;
+  background-color: #fafafa;
 
-        --cs-accent: #111111;
+  --cs-accent: #111111;
 
-    .cs-eyebrow {
-        color: #111111;
-    }
+  .cs-eyebrow {
+    color: #111111;
+  }
 
-    .cs-timeline li::before {
-        background-color: #111111;
-    }
+  .cs-timeline li::before {
+    background-color: #111111;
+  }
 
-    .cs-section h2::before {
-        background-color: #111111;
-    }
+  .cs-section h2::before {
+    background-color: #111111;
+  }
 
-    .cs-steps .cs-number,
-    .cs-cards .cs-number {
-        color: #111111;
-    }
+  .cs-steps .cs-number,
+  .cs-cards .cs-number {
+    color: #111111;
+  }
 
-    .cs-metric .cs-metric-value,
-    .cs-metric .cs-metric-suffix {
-        color: #111111;
-    }
+  .cs-metric .cs-metric-value,
+  .cs-metric .cs-metric-suffix {
+    color: #111111;
+  }
 
-    .cs-panel .cs-tag {
-        color: #111111;
-    }
+  .cs-panel .cs-tag {
+    color: #111111;
+  }
 
-    .cs-annotation .cs-annotation-dot {
-        background-color: #111111;
-    }
+  .cs-annotation .cs-annotation-dot {
+    background-color: #111111;
+  }
 
-    .cs-divider::before,
-    .cs-divider::after {
-        background-color: rgba(17, 17, 17, 0.4);
-    }
+  .cs-divider::before,
+  .cs-divider::after {
+    background-color: rgba(17, 17, 17, 0.4);
+  }
 
-    .cs-divider span {
-        color: #111111;
-    }
+  .cs-divider span {
+    color: #111111;
+  }
 }
 
 // Fixed header matches the black page (scoped via the page's body class)
 body.cs-black-page nav {
-    background-color: #111111;
+  background-color: #111111;
 }
 
 // The logo's light-blue circle hue-shifts to match the pink page
 body.cs-pink-page nav a.icon img {
-    filter: hue-rotate(120deg);
+  filter: hue-rotate(120deg);
 }
 
 // Full-bleed colored typographic hero, matching the case study cover slides
@@ -841,69 +841,69 @@ body.cs-pink-page nav a.icon img {
 .case-study .cs-hero--red,
 .case-study .cs-hero--black,
 .case-study .cs-hero--teal {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    padding: 64px 48px;
-    box-sizing: border-box;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  padding: 64px 48px;
+  box-sizing: border-box;
+  color: #fff;
+
+  .cs-eyebrow {
     color: #fff;
+  }
 
-    .cs-eyebrow {
-        color: #fff;
-    }
+  h1 {
+    color: #fff;
+    margin: 0;
+  }
 
-    h1 {
-        color: #fff;
-        margin: 0;
-    }
+  .cs-cover-summary {
+    max-width: 680px;
+    margin: 24px auto 0;
+    font-size: $base-h3-size;
+    font-weight: $font-light;
+    color: rgba(255, 255, 255, 0.85);
+  }
 
-    .cs-cover-summary {
-        max-width: 680px;
-        margin: 24px auto 0;
-        font-size: $base-h3-size;
-        font-weight: $font-light;
-        color: rgba(255, 255, 255, 0.85);
-    }
-
-    .cs-cover-details {
-        margin: 24px 0 0;
-        font-size: $middle-font-size;
-        letter-spacing: 0.05em;
-        color: rgba(255, 255, 255, 0.8);
-    }
+  .cs-cover-details {
+    margin: 24px 0 0;
+    font-size: $middle-font-size;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.8);
+  }
 }
 
 .case-study .cs-hero--pink {
-    // Darkened from #E40F9E so the white kicker/headline clear 4.5:1 (4.85)
-    background-color: #D50E95;
+  // Darkened from #E40F9E so the white kicker/headline clear 4.5:1 (4.85)
+  background-color: #d50e95;
 }
 
 .case-study .cs-hero--red {
-    background-color: $vb-primary;
+  background-color: $vb-primary;
 }
 
 .case-study .cs-hero--black {
-    background-color: #111111;
+  background-color: #111111;
 }
 
 // In-flow hero continuation — KPIs sit right below the cover, above the fold
 .case-study .cs-hero--meta {
-    padding-top: 24px;
+  padding-top: 24px;
 }
 
 @media (min-width: $break-large) {
-    .case-study .cs-hero--meta {
-        padding-top: 32px;
-    }
+  .case-study .cs-hero--meta {
+    padding-top: 32px;
+  }
 }
 
 @media (max-width: $break-medium) {
-    .case-study .cs-hero--pink,
-    .case-study .cs-hero--black,
-    .case-study .cs-hero--teal {
-        padding: 64px 24px;
-    }
+  .case-study .cs-hero--pink,
+  .case-study .cs-hero--black,
+  .case-study .cs-hero--teal {
+    padding: 64px 24px;
+  }
 }
 
 // ==========================================================================
@@ -913,61 +913,61 @@ body.cs-pink-page nav a.icon img {
 // ==========================================================================
 
 .case-study.cs-teal {
-    background-color: #F0F8F6;
+  background-color: #f0f8f6;
 
-        .cs-timeline li::before {
-        // Darkened so the white step counter clears 4.5:1 (was #14A08D, 3.26)
-        background-color: #0E7D6F;
-    }
+  .cs-timeline li::before {
+    // Darkened so the white step counter clears 4.5:1 (was #14A08D, 3.26)
+    background-color: #0e7d6f;
+  }
 
-        --cs-accent: #14A08D;
+  --cs-accent: #14a08d;
 
-    .cs-eyebrow {
-        color: #0E7D6F;
-    }
+  .cs-eyebrow {
+    color: #0e7d6f;
+  }
 
-    // Colored divider lines take the background teal, not the text accent
-    .cs-section h2::before {
-        background-color: #14A08D;
-    }
+  // Colored divider lines take the background teal, not the text accent
+  .cs-section h2::before {
+    background-color: #14a08d;
+  }
 
-    .cs-steps .cs-number,
-    .cs-cards .cs-number {
-        color: #0E7D6F;
-    }
+  .cs-steps .cs-number,
+  .cs-cards .cs-number {
+    color: #0e7d6f;
+  }
 
-    .cs-metric .cs-metric-value,
-    .cs-metric .cs-metric-suffix {
-        color: #0E7D6F;
-    }
+  .cs-metric .cs-metric-value,
+  .cs-metric .cs-metric-suffix {
+    color: #0e7d6f;
+  }
 
-    .cs-panel .cs-tag {
-        color: #0E7D6F;
-    }
+  .cs-panel .cs-tag {
+    color: #0e7d6f;
+  }
 
-    .cs-annotation .cs-annotation-dot {
-        background-color: #14A08D;
-    }
+  .cs-annotation .cs-annotation-dot {
+    background-color: #14a08d;
+  }
 
-    .cs-divider::before,
-    .cs-divider::after {
-        background-color: rgba(20, 160, 141, 0.4);
-    }
+  .cs-divider::before,
+  .cs-divider::after {
+    background-color: rgba(20, 160, 141, 0.4);
+  }
 
-    .cs-divider span {
-        color: #0E7D6F;
-    }
+  .cs-divider span {
+    color: #0e7d6f;
+  }
 }
 
 .case-study .cs-hero--teal {
-    // Darkened from #14A08D so the white kicker/headline clear 4.5:1 (5.02)
-    background-color: #0E7D6F;
+  // Darkened from #14A08D so the white kicker/headline clear 4.5:1 (5.02)
+  background-color: #0e7d6f;
 }
 
 // Fixed header matches the teal page (scoped via the page's body class);
 // darkened like the hero so its white links pass 4.5:1
 body.cs-teal-page nav {
-    background-color: #0E7D6F;
+  background-color: #0e7d6f;
 }
 
 // Colored-hero kickers must stay white; the per-theme accent colors apply
@@ -977,7 +977,7 @@ body.cs-teal-page nav {
 .case-study .cs-hero--red .cs-eyebrow,
 .case-study .cs-hero--black .cs-eyebrow,
 .case-study .cs-hero--teal .cs-eyebrow {
-    color: #fff;
+  color: #fff;
 }
 
 // ==========================================================================
@@ -987,148 +987,155 @@ body.cs-teal-page nav {
 // #A6ADB8 7.8:1 (the light-page muted grey #6E6E73 is only 3.5:1 here).
 // ==========================================================================
 .case-study.cs-workflow {
-    // The dark ground and its spotlight live on body.workflow-page (fixed,
-    // so the transparent nav always matches what's beneath it). This must
-    // beat .section's light fill, hence the explicit transparent.
-    background-color: transparent;
+  // The dark ground and its spotlight live on body.workflow-page (fixed,
+  // so the transparent nav always matches what's beneath it). This must
+  // beat .section's light fill, hence the explicit transparent.
+  background-color: transparent;
+  color: $vb-light;
+
+  // The strong brand red for this page. On the dark ground #D73735
+  // measures 3.8:1, so text accents use #E34A47 — the same strong red,
+  // lifted just enough to clear 4.5:1 — while decorative accents
+  // (h2 bars, timeline dots, bullet dots) take the true #D73735
+  --cs-accent: #d73735;
+
+  // Breathing room: more space around and between the content
+  .cs-section {
+    padding: 88px 0;
+  }
+
+  .cs-hero {
+    padding: 88px 0 40px;
+  }
+
+  // The suite wordmark, on its own line below the title
+  .cs-wordmark {
+    display: block;
+    font-size: $base-h1-size;
+    font-weight: $font-bold;
+    letter-spacing: 0.14em;
+    margin: 32px 0 24px;
+
+    span {
+      color: #e34a47;
+    }
+  }
+
+  .cs-eyebrow {
+    color: #e34a47;
+  }
+
+  h2::before {
+    background-color: $vb-primary;
+  }
+
+  // Panel surfaces: the light pages use white at 0.45, which on dark
+  // becomes a glare — a whisper of white keeps the same softness
+  .cs-summary,
+  .cs-cards .cs-card,
+  .cs-frame,
+  .cs-facts li {
+    background-color: rgba(255, 255, 255, 0.06);
+  }
+
+  // Muted text roles — including the timeline step descriptions, whose
+  // light-page ink (rgba(37,37,40,.75)) is invisible on this ground
+  .cs-byline,
+  .cs-note,
+  .cs-footnote,
+  .cs-frame-label,
+  .cs-timeline p {
+    color: #a6adb8;
+  }
+
+  .cs-frame-label strong {
     color: $vb-light;
+  }
 
-    // The strong brand red for this page. On the dark ground #D73735
-    // measures 3.8:1, so text accents use #E34A47 — the same strong red,
-    // lifted just enough to clear 4.5:1 — while decorative accents
-    // (h2 bars, timeline dots, bullet dots) take the true #D73735
-    --cs-accent: #D73735;
+  // Timeline: red dots keep their white counters (5.4:1); the connector
+  // line flips from the dark ink tint to a light tint
+  .cs-timeline li::after {
+    background-color: rgba(230, 242, 255, 0.2);
+  }
 
-    // Breathing room: more space around and between the content
-    .cs-section {
-        padding: 88px 0;
-    }
+  .cs-related {
+    border-top-color: rgba(230, 242, 255, 0.2);
 
-    .cs-hero {
-        padding: 88px 0 40px;
-    }
-
-    // The suite wordmark, on its own line below the title
-    .cs-wordmark {
-        display: block;
-        font-size: $base-h1-size;
-        font-weight: $font-bold;
-        letter-spacing: 0.14em;
-        margin: 32px 0 24px;
-
-        span {
-            color: #E34A47;
-        }
-    }
-
-    .cs-eyebrow {
-        color: #E34A47;
-    }
-
-    h2::before {
-        background-color: $vb-primary;
-    }
-
-    // Panel surfaces: the light pages use white at 0.45, which on dark
-    // becomes a glare — a whisper of white keeps the same softness
-    .cs-summary,
-    .cs-cards .cs-card,
-    .cs-frame,
-    .cs-facts li {
-        background-color: rgba(255, 255, 255, 0.06);
-    }
-
-    // Muted text roles — including the timeline step descriptions, whose
-    // light-page ink (rgba(37,37,40,.75)) is invisible on this ground
-    .cs-byline,
-    .cs-note,
-    .cs-footnote,
-    .cs-frame-label,
-    .cs-timeline p {
-        color: #A6ADB8;
-    }
-
-    .cs-frame-label strong {
-        color: $vb-light;
-    }
-
-    // Timeline: red dots keep their white counters (5.4:1); the connector
-    // line flips from the dark ink tint to a light tint
-    .cs-timeline li::after {
-        background-color: rgba(230, 242, 255, 0.2);
-    }
-
-    .cs-related {
-        border-top-color: rgba(230, 242, 255, 0.2);
-
-        a {
-            color: #E34A47;
-        }
-    }
-
-    // Global link red is 3.8:1 on this ground; the strong red passes (4.5)
     a {
-        color: #E34A47;
+      color: #e34a47;
+    }
+  }
 
-        &:hover,
-        &:focus {
-            text-decoration: none;
-            color: $vb-light;
-            background-color: $vb-primary;
-        }
+  // Global link red is 3.8:1 on this ground; the strong red passes (4.5)
+  a {
+    color: #e34a47;
 
-        &:active {
-            text-decoration: none;
-            color: $vb-light;
-            background-color: $vb-secondary;
-        }
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      color: $vb-light;
+      background-color: $vb-primary;
     }
 
-    // Pull quotes: bigger, centred, italic, with equal air above and below
-    .cs-quote {
-        font-size: $base-h2-size;
-        font-style: italic;
-        text-align: center;
-        max-width: 680px;
-        margin: 64px auto;
-        padding: 0 24px;
+    &:active {
+      text-decoration: none;
+      color: $vb-light;
+      background-color: $vb-secondary;
     }
+  }
+
+  // Pull quotes: bigger, centred, italic, with equal air above and below
+  .cs-quote {
+    font-size: $base-h2-size;
+    font-style: italic;
+    text-align: center;
+    max-width: 680px;
+    margin: 64px auto;
+    padding: 0 24px;
+  }
 }
 
 // The header carries the same dark ground and its own slice of the
 // spotlight, anchored top-centre like the page's — the two glows read as
 // one continuous light, and the bar keeps its fill while scrolled
 body.workflow-page {
-    // Percentage stops stretch the fade over the whole page height
-    // (9k+ px here — a px-sized fade would end after a screenful); the
-    // glow tail melts into it. Ends darker than the footer ground, which
-    // goes transparent below so the fade runs to the very end.
-    background-color: #221d1f;
-    background-image:
-        radial-gradient(ellipse 90% 1200px at 50% -100px, rgba(215, 55, 53, 0.22), rgba(215, 55, 53, 0) 1200px),
-        linear-gradient(180deg, #221d1f 0%, #1d1d21 12%, #17171b 55%, #101013 100%);
-    background-repeat: no-repeat, no-repeat;
+  // Percentage stops stretch the fade over the whole page height
+  // (9k+ px here — a px-sized fade would end after a screenful); the
+  // glow tail melts into it. Ends darker than the footer ground, which
+  // goes transparent below so the fade runs to the very end.
+  background-color: #221d1f;
+  background-image: radial-gradient(
+      ellipse 90% 1200px at 50% -100px,
+      rgba(215, 55, 53, 0.22),
+      rgba(215, 55, 53, 0) 1200px
+    ),
+    linear-gradient(180deg, #221d1f 0%, #1d1d21 12%, #17171b 55%, #101013 100%);
+  background-repeat: no-repeat, no-repeat;
 
-    nav {
-        background-color: #1d1d21;
-        background-image: radial-gradient(ellipse 90% 160px at 50% -40px, rgba(215, 55, 53, 0.25), rgba(215, 55, 53, 0) 160px);
-        background-repeat: no-repeat;
-    }
+  nav {
+    background-color: #1d1d21;
+    background-image: radial-gradient(
+      ellipse 90% 160px at 50% -40px,
+      rgba(215, 55, 53, 0.25),
+      rgba(215, 55, 53, 0) 160px
+    );
+    background-repeat: no-repeat;
+  }
 
-    // The footer's inner sections (#contact, .socialContainer, the icon
-    // link) each paint their own #18181b box — that band was the visible
-    // cutoff at the page end. All of it goes transparent so the body
-    // fade runs to the very bottom.
-    .foot,
-    .foot *,
-    footer,
-    footer * {
-        background-color: transparent;
-    }
+  // The footer's inner sections (#contact, .socialContainer, the icon
+  // link) each paint their own #18181b box — that band was the visible
+  // cutoff at the page end. All of it goes transparent so the body
+  // fade runs to the very bottom.
+  .foot,
+  .foot *,
+  footer,
+  footer * {
+    background-color: transparent;
+  }
 
-    /* #contact's ID beats the class selectors above, so it needs
+  /* #contact's ID beats the class selectors above, so it needs
        its own ID-level override */
-    #contact {
-        background-color: transparent;
-    }
+  #contact {
+    background-color: transparent;
+  }
 }

@@ -2,6 +2,22 @@
 // color("visualbear-red", ...) resolves (it used to be declared as a
 // literal `white` in a full copy of Materialize's palette, which made
 // $primary-color and friends compile to null)
-$visualbear-red: ("base": #D73735, "lighten-5": #fdeaeb, "lighten-4": #f8c1c3, "lighten-3": #f3989b, "lighten-2": #ee6e73, "lighten-1": #ea454b, "darken-1": #d0181e, "darken-2": #b9151b, "darken-3": #a21318, "darken-4": #8b1014);
+$visualbear-red: (
+  'base': #d73735,
+  'lighten-5': #fdeaeb,
+  'lighten-4': #f8c1c3,
+  'lighten-3': #f3989b,
+  'lighten-2': #ee6e73,
+  'lighten-1': #ea454b,
+  'darken-1': #d0181e,
+  'darken-2': #b9151b,
+  'darken-3': #a21318,
+  'darken-4': #8b1014
+);
 
-$colors: map-merge($colors, ("visualbear-red": $visualbear-red));
+$colors: map-merge(
+  $colors,
+  (
+    'visualbear-red': $visualbear-red
+  )
+);

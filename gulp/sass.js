@@ -4,68 +4,69 @@ import path from 'path';
 import autoprefixer from 'autoprefixer';
 import gulpif from 'gulp-if';
 
-export default function(gulp, plugins, args, config, taskTarget, browserSync) {
+export default function (gulp, plugins, args, config, taskTarget, browserSync) {
   let dirs = config.directories;
   let entries = config.entries;
   let dest = path.join(taskTarget, dirs.styles.replace(/^_/, ''));
 
   // Sass compilation
   gulp.task('sass:dev', () => {
-    gulp.src(path.join(dirs.source, dirs.styles, entries.css))
+    gulp
+      .src(path.join(dirs.source, dirs.styles, entries.css))
       .pipe(plugins.plumber())
       .pipe(plugins.sourcemaps.init())
-      .pipe(plugins.sass({
-        outputStyle: 'expanded',
-        precision: 10,
-        includePaths: [
-          path.join(dirs.source, dirs.styles),
-          path.join(dirs.source, dirs.modules)
-        ]
-      }))
-      .on('error', function(err) {
+      .pipe(
+        plugins.sass({
+          outputStyle: 'expanded',
+          precision: 10,
+          includePaths: [path.join(dirs.source, dirs.styles), path.join(dirs.source, dirs.modules)]
+        })
+      )
+      .on('error', function (err) {
         plugins.util.log(err);
       })
       .on('error', plugins.notify.onError(config.defaultNotification))
-      .pipe(plugins.postcss([autoprefixer({browsers: ['last 2 versions', '> 1%']})]))
-      .pipe(plugins.rename(function(path) {
-        // Remove 'source' directory as well as prefixed folder underscores
-        // Ex: 'src/_styles' --> '/styles'
-        path.dirname = path.dirname.replace(dirs.source, '').replace('_', '');
-      }))
-      .pipe(gulpif(args.production, plugins.cssnano({rebase: false})))
+      .pipe(plugins.postcss([autoprefixer({ browsers: ['last 2 versions', '> 1%'] })]))
+      .pipe(
+        plugins.rename(function (path) {
+          // Remove 'source' directory as well as prefixed folder underscores
+          // Ex: 'src/_styles' --> '/styles'
+          path.dirname = path.dirname.replace(dirs.source, '').replace('_', '');
+        })
+      )
+      .pipe(gulpif(args.production, plugins.cssnano({ rebase: false })))
       .pipe(plugins.sourcemaps.write('./'))
       .pipe(gulp.dest(dest))
-      .pipe(browserSync.stream({match: '**/*.css'}));
+      .pipe(browserSync.stream({ match: '**/*.css' }));
   });
 
-
-gulp.task('sass:build', function () {
- gulp.src(path.join(dirs.source, dirs.styles, entries.css))
+  gulp.task('sass:build', function () {
+    gulp
+      .src(path.join(dirs.source, dirs.styles, entries.css))
       .pipe(plugins.plumber())
       .pipe(plugins.sourcemaps.init())
-      .pipe(plugins.sass({
-        outputStyle: 'compressed',
-        precision: 10,
-        includePaths: [
-          path.join(dirs.source, dirs.styles),
-          path.join(dirs.source, dirs.modules)
-        ]
-      }))
-      .on('error', function(err) {
+      .pipe(
+        plugins.sass({
+          outputStyle: 'compressed',
+          precision: 10,
+          includePaths: [path.join(dirs.source, dirs.styles), path.join(dirs.source, dirs.modules)]
+        })
+      )
+      .on('error', function (err) {
         plugins.util.log(err);
       })
       .on('error', plugins.notify.onError(config.defaultNotification))
-      .pipe(plugins.postcss([autoprefixer({browsers: ['last 2 versions', '> 1%']})]))
-      .pipe(plugins.rename(function(path) {
-        // Remove 'source' directory as well as prefixed folder underscores
-        // Ex: 'src/_styles' --> '/styles'
-        path.dirname = path.dirname.replace(dirs.source, '').replace('_', '');
-      }))
-      .pipe(gulpif(args.production, plugins.cssnano({rebase: false})))
+      .pipe(plugins.postcss([autoprefixer({ browsers: ['last 2 versions', '> 1%'] })]))
+      .pipe(
+        plugins.rename(function (path) {
+          // Remove 'source' directory as well as prefixed folder underscores
+          // Ex: 'src/_styles' --> '/styles'
+          path.dirname = path.dirname.replace(dirs.source, '').replace('_', '');
+        })
+      )
+      .pipe(gulpif(args.production, plugins.cssnano({ rebase: false })))
       .pipe(plugins.sourcemaps.write('./'))
       .pipe(gulp.dest(dest))
-      .pipe(browserSync.stream({match: '**/*.css'}));
-});
-
-
+      .pipe(browserSync.stream({ match: '**/*.css' }));
+  });
 }

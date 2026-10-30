@@ -1,225 +1,223 @@
 .section {
-    background-color: $vb-light;
-    color: $vb-grey;
+  background-color: $vb-light;
+  color: $vb-grey;
 
-    .emphasis {
-        color: $vb-grey;
-    }
+  .emphasis {
+    color: $vb-grey;
+  }
 }
 
 .section#jumbo {
-    // Original brand gradient; the oklab version interpolates the same
-    // two colors in a perceptually uniform space, avoiding the muddy
-    // grey band a plain sRGB blend produces mid-fade
-    background: linear-gradient(180deg, #e64900 0%, #252528 100%);
-    background: linear-gradient(180deg in oklab, #e64900 0%, #252528 100%);
+  // Original brand gradient; the oklab version interpolates the same
+  // two colors in a perceptually uniform space, avoiding the muddy
+  // grey band a plain sRGB blend produces mid-fade
+  background: linear-gradient(180deg, #e64900 0%, #252528 100%);
+  background: linear-gradient(180deg in oklab, #e64900 0%, #252528 100%);
 
-    color: $vb-light;
+  color: $vb-light;
 
-    a {
-        text-decoration: none;
-        color: $vb-primary;
-        font-weight: $font-regular;
+  a {
+    text-decoration: none;
+    color: $vb-primary;
+    font-weight: $font-regular;
 
-        &:hover,
-        &:focus {
-            text-decoration: none;
-            color: $vb-light;
-            background-color: $vb-primary;
-        }
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      color: $vb-light;
+      background-color: $vb-primary;
     }
+  }
 }
 
 #climateclock_container {
+  color: $vb-dark;
+  background-color: #fff6f7;
+
+  .gallery-image {
+    // background-color: #00a2de;
+  }
+
+  .dark-bg {
+    background-color: #000;
+    color: $vb-light;
+
+    a {
+      color: $vb-light;
+    }
+
+    .image_text {
+      color: $vb-light;
+    }
+  }
+
+  .red-bg {
+    background-color: #ff2020;
+    color: #f6f6f6;
+
+    a {
+      color: $vb-light;
+    }
+
+    .image_text {
+      color: #f6f6f6;
+    }
+  }
+
+  .light-bg {
     color: $vb-dark;
-    background-color: #fff6f7;
-
-    .gallery-image {
-        // background-color: #00a2de;
-   
-    }
-
-    .dark-bg {
-        background-color: #000;
-        color: $vb-light;
-
-        a {
-            color: $vb-light;
-        }
-
-        .image_text {
-            color: $vb-light;
-        }
-    }
-
-    .red-bg {
-        background-color: #FF2020;
-        color: #F6F6F6;
-
-        a {
-            color: $vb-light;
-        }
-
-        .image_text {
-            color: #F6F6F6;
-        }
-    }
-
-    .light-bg {
-        color: $vb-dark;
-        background-color: #fff;
-    }
+    background-color: #fff;
+  }
 }
 
 #artent_container {
+  color: $vb-dark;
+  background-color: #f0f4fc;
+
+  .gallery-image {
+    // background-color: #00a2de;
+  }
+
+  .dark-bg {
+    background-color: #975fbf;
+    color: $vb-light;
+
+    a {
+      color: $vb-light;
+    }
+
+    .image_text {
+      color: $vb-light;
+    }
+  }
+
+  .light-bg {
     color: $vb-dark;
-    background-color: #F0F4FC;
-
-    .gallery-image {
-        // background-color: #00a2de;
-   
-    }
-
-    .dark-bg {
-        background-color: #975FBF;
-        color: $vb-light;
-
-        a {
-            color: $vb-light;
-        }
-
-        .image_text {
-            color: $vb-light;
-        }
-    }
-
-    .light-bg {
-        color: $vb-dark;
-        background-color: #fff;
-    }
+    background-color: #fff;
+  }
 }
 
 #steammobile_container {
-    color: $vb-light;
-    background-color: #00a2de;
+  color: $vb-light;
+  background-color: #00a2de;
 
-    .gallery-image {
-        // background-color: #00a2de;
-   
-    }
+  .gallery-image {
+    // background-color: #00a2de;
+  }
 
-    .dark-bg {
-        background-color: #1a283a;
-    }
+  .dark-bg {
+    background-color: #1a283a;
+  }
 
-    .light-bg {
-        color: $vb-dark;
-        background-color: #fff;
-    }
+  .light-bg {
+    color: $vb-dark;
+    background-color: #fff;
+  }
 }
 
 #granditude_container {
-    color: $vb-grey;
-    background-color: #e6fcff;
+  color: $vb-grey;
+  background-color: #e6fcff;
 
-    .gallery-image {
-        background-color: #e6fcff;
-    }
+  .gallery-image {
+    background-color: #e6fcff;
+  }
 }
 
 #barbus_container {
-    color: $vb-grey;
-    background-color: #e2eaec;
+  color: $vb-grey;
+  background-color: #e2eaec;
 
-    .gallery-image {
-        background-color: #e2eaec;
-    }
+  .gallery-image {
+    background-color: #e2eaec;
+  }
 }
 
 #visualbear_container {
-    color: $vb-grey;
-    background-color: #ebf5ff;
+  color: $vb-grey;
+  background-color: #ebf5ff;
 
-    .gallery-image {
-        // background-color: #ebf5ff;
-    }
+  .gallery-image {
+    // background-color: #ebf5ff;
+  }
 }
 
 #adhops_container {
-    color: $vb-grey;
-    background-color: #e9e5e4;
+  color: $vb-grey;
+  background-color: #e9e5e4;
 
-    .gallery-image {
-        background-color: #e9e5e4;
-    }
+  .gallery-image {
+    background-color: #e9e5e4;
+  }
 }
 
 #dukebox_container {
-    color: $vb-grey;
-    background-color: #e1d2cd;
+  color: $vb-grey;
+  background-color: #e1d2cd;
 
-    .gallery-image {
-        background-color: #e1d2cd;
-    }
+  .gallery-image {
+    background-color: #e1d2cd;
+  }
 }
 
 #lynx_container {
-    color: $vb-grey;
-    background-color: #f8edd1;
+  color: $vb-grey;
+  background-color: #f8edd1;
 
-    .gallery-image {
-        background-color: #f8edd1;
-        color: $vb-light;
-    }
+  .gallery-image {
+    background-color: #f8edd1;
+    color: $vb-light;
+  }
 }
 
 #sos_container {
-    color: $vb-grey;
-    background-color: #fef6e9;
+  color: $vb-grey;
+  background-color: #fef6e9;
 
-    .gallery-image {
-        background-color: #fef6e9;
-        color: $vb-light;
-    }
+  .gallery-image {
+    background-color: #fef6e9;
+    color: $vb-light;
+  }
 }
 
 #about {
+  color: $vb-light;
+  background: linear-gradient(to bottom, $vb-grey, $vb-dark);
+  padding-top: 0;
+  position: relative;
+  z-index: 1;
+
+  // Bring the footer's contact block a bit closer to the About text
+  .container--padded {
+    padding-bottom: 64px;
+  }
+
+  a {
+    text-decoration: underline;
     color: $vb-light;
-    background: linear-gradient(to bottom, $vb-grey, $vb-dark);
-    padding-top: 0;
-    position: relative;
-    z-index: 1;
+    font-weight: inherit;
 
-    // Bring the footer's contact block a bit closer to the About text
-    .container--padded {
-        padding-bottom: 64px;
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      color: $vb-light;
+      background-color: $vb-primary;
     }
+  }
 
-    a {
-        text-decoration: underline;
-        color: $vb-light;
-        font-weight: inherit;
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $vb-light;
+  }
 
-        &:hover,
-        &:focus {
-            text-decoration: none;
-            color: $vb-light;
-            background-color: $vb-primary;
-        }
-    }
-
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        color: $vb-light;
-    }
-
-    p {
-        color: $vb-light;
-    }
+  p {
+    color: $vb-light;
+  }
 }
 
-#about, #work {
+#about,
+#work {
 }

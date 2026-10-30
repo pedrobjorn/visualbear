@@ -1,49 +1,49 @@
 @charset "UTF-8";
 
 // Normalize Styles
-@import "node_modules/normalize-scss/sass/normalize.scss";
+@import 'node_modules/normalize-scss/sass/normalize.scss';
 
 // Materialize: only the grid, navbar, buttons and color plumbing are used —
 // add further components deliberately, they carry dead CSS weight.
-@import "node_modules/materialize-css/sass/components/color-variables";
-@import "node_modules/materialize-css/sass/components/variables";
-@import "node_modules/materialize-css/sass/components/global";
-@import "node_modules/materialize-css/sass/components/grid";
-@import "node_modules/materialize-css/sass/components/navbar";
-@import "node_modules/materialize-css/sass/components/buttons";
+@import 'node_modules/materialize-css/sass/components/color-variables';
+@import 'node_modules/materialize-css/sass/components/variables';
+@import 'node_modules/materialize-css/sass/components/global';
+@import 'node_modules/materialize-css/sass/components/grid';
+@import 'node_modules/materialize-css/sass/components/navbar';
+@import 'node_modules/materialize-css/sass/components/buttons';
 
 // Helpers
-@import "utilities/variables";
-@import "utilities/mixins";
-@import "utilities/reset";
-@import "utilities/grid";
+@import 'utilities/variables';
+@import 'utilities/mixins';
+@import 'utilities/reset';
+@import 'utilities/grid';
 
 // Base
-@import "atoms/base";
-@import "atoms/typography";
-@import "atoms/icons";
-@import "atoms/buttons";
+@import 'atoms/base';
+@import 'atoms/typography';
+@import 'atoms/icons';
+@import 'atoms/buttons';
 
 // Components
-@import "molecules/textelements";
+@import 'molecules/textelements';
 
-@import "templates/gallery.scss";
-@import "templates/pages.scss";
-@import "templates/resume.scss";
-@import "templates/case-study.scss";
-@import "templates/ai-mark.scss";
+@import 'templates/gallery.scss';
+@import 'templates/pages.scss';
+@import 'templates/resume.scss';
+@import 'templates/case-study.scss';
+@import 'templates/ai-mark.scss';
 
 // Color
-@import "colour-variables";
+@import 'colour-variables';
 
 // Modules
-@import "../_modules/atom/link/link";
+@import '../_modules/atom/link/link';
 
-@import "../_modules/molecules/nav/nav";
-@import "../_modules/molecules/card/card";
-@import "../_modules/molecules/footer/footer";
-@import "../_modules/molecules/buttonslider/buttonslider";
+@import '../_modules/molecules/nav/nav';
+@import '../_modules/molecules/card/card';
+@import '../_modules/molecules/footer/footer';
+@import '../_modules/molecules/buttonslider/buttonslider';
 
-@import "../_modules/organisms/gallery/gallery";
-@import "../_modules/organisms/hero/hero";
-@import "../_modules/organisms/headline/headline";
+@import '../_modules/organisms/gallery/gallery';
+@import '../_modules/organisms/hero/hero';
+@import '../_modules/organisms/headline/headline';
