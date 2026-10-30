@@ -169,6 +169,8 @@ Acceptance criteria:
 
 ## Ticket 17 — visuAI: gradient band breaks at the very bottom (VERIFIED 2026-10-29)
 
+Status: DONE 2026-10-29 (commit `a875cd5` + follow-up)
+
 Finding (measured on `/workflow/` at 1440):
 
 - The body fade ends at `#101013` (measured `rgb(16,16,19)` just above the

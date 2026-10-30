@@ -20,8 +20,8 @@
 
 ## Next up added 2026-10-29 (evening): visual fixes, evaluated + specced
 
-- [ ] Ticket 17 — visuAI: flat #252528 band breaks the fade at the very bottom (html/body bg propagation; root cause + fix in `tickets-phase3.md`)
-- [ ] Ticket 18 — Case-study text hierarchy: body copy scatters over 3 sizes / 8 left edges → 3 roles + 1 label tier, one text edge (eval data in `tickets-phase3.md`)
+- [x] Ticket 17 — visuAI: flat #252528 band breaks the fade at the very bottom (html/body bg propagation; root cause + fix in `tickets-phase3.md`)
+- [x] Ticket 18 — Case-study text hierarchy: body copy scatters over 3 sizes / 8 left edges → 3 roles + 1 label tier, one text edge (eval data in `tickets-phase3.md`)
 
 (Note: 7 content pages exist, not 8 — count in older tickets was wrong.)
 
