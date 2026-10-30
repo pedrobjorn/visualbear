@@ -52,6 +52,7 @@
     "minimist": "^1.2.5",
     "node-normalize-scss": "^8.1.2",
     "nunjucks": "^3.2.2",
+    "prettier": "^2.8.8",
     "rimraf": "~2.6.1",
     "sass": "^1.106.1",
     "vinyl-buffer": "~1.0.0",
@@ -62,6 +63,8 @@
     "clean-deps": "rimraf node_modules",
     "clean": "./scripts/gulp.sh clean",
     "lint": "./scripts/gulp.sh eslint",
+    "format": "./scripts/prettier.sh --write 'markdown-render.js' 'gulp/**/*.js' 'src/_styles/**/*.scss' '*.md' 'specs/**/*.md'",
+    "format:check": "./scripts/prettier.sh --check 'markdown-render.js' 'gulp/**/*.js' 'src/_styles/**/*.scss' '*.md' 'specs/**/*.md'",
     "serve:prod": "NODE_ENV=development ./scripts/gulp.sh serve",
     "serve": "NODE_ENV=production ./scripts/gulp.sh serve --production",
     "build": "NODE_ENV=production ./scripts/gulp.sh --production"

@@ -1,0 +1,13 @@
+node_modules/
+build/
+.tmp/
+dist/
+
+# Nunjucks templates: prettier cannot parse njk tags safely
+*.nunjucks
+
+# Content md files: Pedro is mid copy-rewrite; format after the rewrite lands
+src/_data/pages/
+
+# PDFs and binary sources
+src/case-studies/
