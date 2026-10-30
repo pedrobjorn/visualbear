@@ -1055,7 +1055,10 @@ body.cs-teal-page nav.site-nav {
     padding: 88px 0 40px;
   }
 
-  // The suite wordmark, on its own line below the title
+  // The suite wordmark, on its own line below the title.
+  // UNUSED since Pedro replaced it with "…</br> visuAI" inside the h1
+  // (his intentional change, kept). The class stays until he decides
+  // whether the styled wordmark returns — do not "restore" it unprompted.
   .cs-wordmark {
     display: block;
     font-size: $base-h1-size;
