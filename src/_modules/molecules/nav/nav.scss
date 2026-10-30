@@ -1,4 +1,4 @@
-nav {
+nav.site-nav {
     width: 100%;
     height: 48px;
     position: fixed;
@@ -94,7 +94,7 @@ nav {
 // the scroll range, so the hold is nudged to 12% to line up with the
 // gradient's 10% stop over the full page height. Browsers without
 // scroll-timeline support simply keep the solid brand red.
-body.home-page nav {
+body.home-page nav.site-nav {
     background-color: $vb-primary;
 }
 
@@ -117,7 +117,7 @@ body.home-page nav {
         }
     }
 
-    body.home-page nav {
+    body.home-page nav.site-nav {
         // animation-timeline is declared after the shorthand: the shorthand
         // resets it to auto otherwise
         animation: nav-scroll-fade linear both;
@@ -127,7 +127,7 @@ body.home-page nav {
     // No scroll-driven movement for reduced-motion users; the solid brand
     // red from the base rule holds instead
     @media (prefers-reduced-motion: reduce) {
-        body.home-page nav {
+        body.home-page nav.site-nav {
             animation: none;
         }
     }
@@ -135,7 +135,7 @@ body.home-page nav {
 
 // Resume page: the menu takes the page's light blue, links flip dark for
 // contrast on it, and the shared logo container paints its dark plate
-body.resume-page nav {
+body.resume-page nav.site-nav {
     background-color: #EBF5FF;
 
     .links {
@@ -153,7 +153,7 @@ body.resume-page nav {
 // Phones and small tablets share one layout; the two former
 // $until:mobile / mobile→tablet blocks were identical and are merged here
 @include mq($until: tablet) {
-    nav {
+    nav.site-nav {
         width: 100%;
         height: 48px;
         line-height: 48px;

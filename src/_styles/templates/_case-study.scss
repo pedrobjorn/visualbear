@@ -263,7 +263,8 @@
     border-top: 1px solid rgba(37, 37, 40, 0.15);
     text-align: center;
     font-size: $middle-font-size;
-    color: rgba(37, 37, 40, 0.6);
+    // 0.6 ink measured 4.06 on the teal page's mint ground — 0.72 clears 4.5
+    color: rgba(37, 37, 40, 0.72);
 
     a {
       color: inherit;
@@ -335,7 +336,9 @@
     figcaption {
       margin-top: 12px;
       font-size: $middle-font-size;
-      color: $vb-light-grey;
+      // darkened from $vb-light-grey, which measured 4.46 on the light
+      // blue venn ground — just under the 4.5 floor
+      color: #5f6264;
       text-align: center;
     }
   }
@@ -806,7 +809,7 @@
 
 // Fixed header matches the pink page (scoped via the page's body class).
 // #D50E95 not #E40F9E: the nav carries white links and 4.85:1 clears 4.5:1
-body.cs-pink-page nav {
+body.cs-pink-page nav.site-nav {
   background-color: #d50e95;
 }
 
@@ -862,7 +865,7 @@ body.cs-pink-page nav {
 }
 
 // Fixed header matches the black page (scoped via the page's body class)
-body.cs-black-page nav {
+body.cs-black-page nav.site-nav {
   background-color: #111111;
 }
 
@@ -898,14 +901,17 @@ body.cs-pink-page nav a.icon img {
     margin: 24px auto 0;
     font-size: $base-h3-size;
     font-weight: $font-light;
-    color: rgba(255, 255, 255, 0.85);
+    // pure white: the previous 0.85 white measured 4.11 on teal and 3.76
+    // on red — under the 4.5 floor for this size
+    color: #fff;
   }
 
   .cs-cover-details {
     margin: 24px 0 0;
     font-size: $middle-font-size;
     letter-spacing: 0.05em;
-    color: rgba(255, 255, 255, 0.8);
+    // pure white: the previous 0.8 white measured 3.81 on teal, 3.48 on red
+    color: #fff;
   }
 }
 
@@ -949,6 +955,12 @@ body.cs-pink-page nav a.icon img {
 
 .case-study.cs-teal {
   background-color: #f0f8f6;
+
+  // Global link red #d73735 measures 4.33 on this mint ground; this
+  // darker red clears 4.5 while staying the same brand red family
+  a {
+    color: #cd3231;
+  }
 
   .cs-timeline li::before {
     // Darkened so the white step counter clears 4.5:1 (was #14A08D, 3.26)
@@ -1001,7 +1013,7 @@ body.cs-pink-page nav a.icon img {
 
 // Fixed header matches the teal page (scoped via the page's body class);
 // darkened like the hero so its white links pass 4.5:1
-body.cs-teal-page nav {
+body.cs-teal-page nav.site-nav {
   background-color: #0e7d6f;
 }
 
@@ -1147,7 +1159,7 @@ body.workflow-page {
     linear-gradient(180deg, #221d1f 0%, #1d1d21 12%, #17171b 55%, #101013 100%);
   background-repeat: no-repeat, no-repeat;
 
-  nav {
+  nav.site-nav {
     background-color: #1d1d21;
     background-image: radial-gradient(
       ellipse 90% 160px at 50% -40px,

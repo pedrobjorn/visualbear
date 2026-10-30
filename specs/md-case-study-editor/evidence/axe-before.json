@@ -1,0 +1,308 @@
+{
+ "workflow@1440": {
+  "violations": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     ".foot",
+     "#__bs_notify__"
+    ],
+    "nodeCount": 2
+   }
+  ],
+  "passes": 26
+ },
+ "teachr@1440": {
+  "violations": [
+   {
+    "id": "color-contrast",
+    "impact": "serious",
+    "help": "Elements must meet minimum color contrast ratio thresholds",
+    "nodes": [
+     ".cs-cover-summary",
+     ".cs-cover-details",
+     ".cs-related",
+     "a[href$=\"teachr-agent/\"] > strong",
+     "p:nth-child(4) > a[href$=\"workflow/\"]"
+    ],
+    "nodeCount": 5
+   },
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     ".foot",
+     "#__bs_notify__"
+    ],
+    "nodeCount": 2
+   }
+  ],
+  "passes": 26
+ },
+ "teachr-agent@1440": {
+  "violations": [
+   {
+    "id": "color-contrast",
+    "impact": "serious",
+    "help": "Elements must meet minimum color contrast ratio thresholds",
+    "nodes": [
+     ".cs-cover-summary",
+     ".cs-cover-details",
+     ".cs-related",
+     "a[href$=\"teachr/\"] > strong",
+     "p:nth-child(4) > a[href$=\"workflow/\"]"
+    ],
+    "nodeCount": 5
+   },
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     ".btn-container",
+     ".foot",
+     "#__bs_notify__"
+    ],
+    "nodeCount": 3
+   }
+  ],
+  "passes": 26
+ },
+ "digital-closet@1440": {
+  "violations": [
+   {
+    "id": "color-contrast",
+    "impact": "serious",
+    "help": "Elements must meet minimum color contrast ratio thresholds",
+    "nodes": [
+     ".cs-cover-summary",
+     ".cs-cover-details",
+     "figcaption"
+    ],
+    "nodeCount": 3
+   },
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     ".foot",
+     "#__bs_notify__"
+    ],
+    "nodeCount": 2
+   }
+  ],
+  "passes": 29
+ },
+ "fashion-rebrand@1440": {
+  "violations": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     ".foot",
+     "#__bs_notify__"
+    ],
+    "nodeCount": 2
+   }
+  ],
+  "passes": 29
+ },
+ "sports-ecommerce-redesign@1440": {
+  "violations": [
+   {
+    "id": "color-contrast",
+    "impact": "serious",
+    "help": "Elements must meet minimum color contrast ratio thresholds",
+    "nodes": [
+     ".cs-cover-summary",
+     ".cs-cover-details"
+    ],
+    "nodeCount": 2
+   },
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     ".foot",
+     "#__bs_notify__"
+    ],
+    "nodeCount": 2
+   }
+  ],
+  "passes": 29
+ },
+ "resume@1440": {
+  "violations": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     ".foot",
+     "#__bs_notify__"
+    ],
+    "nodeCount": 2
+   }
+  ],
+  "passes": 26
+ },
+ "workflow@768": {
+  "violations": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     ".foot",
+     "#__bs_notify__"
+    ],
+    "nodeCount": 2
+   }
+  ],
+  "passes": 26
+ },
+ "teachr@768": {
+  "violations": [
+   {
+    "id": "color-contrast",
+    "impact": "serious",
+    "help": "Elements must meet minimum color contrast ratio thresholds",
+    "nodes": [
+     ".cs-cover-summary",
+     ".cs-cover-details",
+     ".cs-related",
+     "a[href$=\"teachr-agent/\"] > strong",
+     "p:nth-child(4) > a[href$=\"workflow/\"]"
+    ],
+    "nodeCount": 5
+   },
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     ".foot",
+     "#__bs_notify__"
+    ],
+    "nodeCount": 2
+   }
+  ],
+  "passes": 26
+ },
+ "teachr-agent@768": {
+  "violations": [
+   {
+    "id": "color-contrast",
+    "impact": "serious",
+    "help": "Elements must meet minimum color contrast ratio thresholds",
+    "nodes": [
+     ".cs-cover-summary",
+     ".cs-cover-details",
+     ".cs-related",
+     "a[href$=\"teachr/\"] > strong",
+     "p:nth-child(4) > a[href$=\"workflow/\"]"
+    ],
+    "nodeCount": 5
+   },
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     ".btn-container",
+     ".foot",
+     "#__bs_notify__"
+    ],
+    "nodeCount": 3
+   }
+  ],
+  "passes": 26
+ },
+ "digital-closet@768": {
+  "violations": [
+   {
+    "id": "color-contrast",
+    "impact": "serious",
+    "help": "Elements must meet minimum color contrast ratio thresholds",
+    "nodes": [
+     ".cs-cover-summary",
+     ".cs-cover-details",
+     "figcaption"
+    ],
+    "nodeCount": 3
+   },
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     ".foot",
+     "#__bs_notify__"
+    ],
+    "nodeCount": 2
+   }
+  ],
+  "passes": 29
+ },
+ "fashion-rebrand@768": {
+  "violations": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     ".foot",
+     "#__bs_notify__"
+    ],
+    "nodeCount": 2
+   }
+  ],
+  "passes": 29
+ },
+ "sports-ecommerce-redesign@768": {
+  "violations": [
+   {
+    "id": "color-contrast",
+    "impact": "serious",
+    "help": "Elements must meet minimum color contrast ratio thresholds",
+    "nodes": [
+     ".cs-cover-summary",
+     ".cs-cover-details"
+    ],
+    "nodeCount": 2
+   },
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     ".foot",
+     "#__bs_notify__"
+    ],
+    "nodeCount": 2
+   }
+  ],
+  "passes": 29
+ },
+ "resume@768": {
+  "violations": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     ".foot",
+     "#__bs_notify__"
+    ],
+    "nodeCount": 2
+   }
+  ],
+  "passes": 26
+ }
+}

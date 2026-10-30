@@ -49,22 +49,53 @@ Acceptance criteria:
 
 ## Ticket 14 — Accessibility audit (axe)
 
-Automated a11y check on the built pages, feeding the visuaibear-review
-A11y gate with evidence instead of manual claims.
+Status: DONE 2026-10-29 — zero violations on all 7 pages at 1440 + 768
+(evidence: `evidence/axe-before.json`, `evidence/axe-after.json`)
 
-Scope:
+What the first run found and how each was fixed:
 
-- Run axe-core against the built pages (Python Playwright is available;
-  no Node playwright in this toolchain)
-- Fix violations generator-side (templates, `_ai-mark.scss`, shells)
+- [serious] color-contrast, 4 pages:
+  - `.cs-cover-summary` / `.cs-cover-details` (85%/80% white on the teal
+    and red heroes) measured 4.11/3.81 and 3.76/3.48 → now pure white
+    (4.67-5.02 on every hero ground). Intended visual change: cover text
+    is slightly brighter on colored heroes.
+  - `.cs-related` 0.6 ink measured 4.06 on the mint ground → 0.72 ink
+    (5.7). Slightly darker quiet text on all case studies.
+  - global link red #d73735 measured 4.33 on the teal page's mint ground
+    → `cs-teal`-scoped link red #cd3231 (4.75). Other pages keep the
+    global red (it passes on white).
+  - `figcaption` #6e6e73 measured 4.46 on the light-blue venn ground →
+    showcase captions darkened to #5f6264 (5.4).
+- [moderate] region (content outside landmarks):
+  - the site footer was `<article class="foot">` → now `<footer class="foot">`
+  - its inner copyright `<footer>` created duplicate contentinfo → now
+    `div.foot-copyright`, with the old bare `footer` element styles
+    (32px bar, 10px font) re-scoped to that class
+  - the buttonslider prev/next pagination rendered as a bare div AFTER
+    `</main>` (the nunjucks macro output flushes after the layout closes -
+    pre-existing quirk) → now `<nav class="btn-container"
+aria-label="Previous / next">`, a proper landmark wherever it lands.
+    Side fix required: the bare `nav { position: fixed; height: 48px }`
+    site-nav styles (nav.scss + the per-page `body.*-page nav` rules)
+    would have turned the pagination nav into a second fixed red bar -
+    all scoped to `nav.site-nav` now.
+  - `#__bs_notify__` is BrowserSync's dev-only injected notifier, not part
+    of the site; the audit strips it before running.
+- [moderate] landmark-unique: two unlabeled navs → site nav is
+  `nav.site-nav[aria-label=Main]`, pagination `aria-label="Previous / next"`.
+
+Keyboard verification: tab through every page - all tab stops show a
+visible outline, none hidden (script in session scratchpad). The AI-mark
+chip passes axe contrast on both grounds (dark: #EE6E73 on 16% tint;
+light pages: #B3393B variant).
 
 Acceptance criteria:
 
-- [ ] axe-core run on all 8 content pages, results saved as evidence
-- [ ] Zero critical or serious violations on every page
-- [ ] Contrast verified for body text, links and the AI-mark chip
-- [ ] Keyboard: all interactive elements reachable and focus-visible
-- [ ] Report stored with the spec (or linked) and referenced in the
+- [x] axe-core run on all content pages, results saved as evidence
+- [x] Zero critical or serious violations on every page (zero violations at all)
+- [x] Contrast verified for body text, links and the AI-mark chip
+- [x] Keyboard: all interactive elements reachable and focus-visible
+- [x] Report stored with the spec (evidence/ JSON) and referenced in the
       visuaibear-review output
 
 ## Ticket 15 — Prettier + lint wired into npm
@@ -92,6 +123,8 @@ Acceptance criteria:
 - [x] AUTHORING.md documents the three commands
 
 ## Ticket 16 — Resume: role bullet lists stick out of the text column (VERIFIED 2026-10-29)
+
+Status: DONE 2026-10-29
 
 Pedro reports text on `/resume/` sticking out and not as indented as the
 rest. Verified with measured text-left edges (Playwright, text-node rects,
@@ -126,8 +159,10 @@ put (before/after full-page diff, only those lists may shift).
 
 Acceptance criteria:
 
-- [ ] All role bullet lists align at the same text-left edge as the
-      sub-title headings above them (14.4px right of current position)
-- [ ] No other block on the page moves (full-page pixel diff: only the
-      10 role lists change)
-- [ ] Verified at 1440 and 768 viewports
+- [x] All role bullet lists align at the same text-left edge as the
+      sub-title headings above them (moved 14.4px right; measured 316.4px
+      at 1440, 46.4px at 768 - same as every other block)
+- [x] No other block on the page moves (full-page pixel diff: only the
+      role lists change; some list lines now wrap that didn't before -
+      expected consequence of the narrower column)
+- [x] Verified at 1440 and 768 viewports

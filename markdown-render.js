@@ -902,15 +902,17 @@ function mdResume(src) {
       continue;
     }
 
-    // **Sub-title** → h4.sub-title (checked before the generic paragraph)
+    // **Sub-title** → h4.sub-title (checked before the generic paragraph).
+    // The col stays open so the list that follows renders inside it -
+    // closed rows left the bare <ul> outside the col padding, making the
+    // role lists stick out 0.75rem left of every other text block.
     m = line.match(/^<p><strong>([\s\S]*?)<\/strong><\/p>$/);
     if (m) {
       closeList();
       closeCol();
       subOpen = false;
-      out.push(
-        '<div class="row"><div class="col m12"><h4 class="sub-title">' + m[1] + '</h4></div></div>'
-      );
+      out.push('<div class="row"><div class="col m12"><h4 class="sub-title">' + m[1] + '</h4>');
+      openCol = true;
       continue;
     }
 

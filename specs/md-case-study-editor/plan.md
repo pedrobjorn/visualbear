@@ -14,9 +14,9 @@
 ## Next up added 2026-10-29: QA checks (see `tickets-phase3.md`)
 
 - [x] Ticket 13 — Semantic HTML audit + fixes (all 7 content pages, generator-side; pixel-identical)
-- [ ] Ticket 14 — Accessibility audit via axe-core on built pages (evidence for the visuaibear-review A11y gate)
+- [x] Ticket 14 — Accessibility audit via axe-core on built pages (evidence for the visuaibear-review A11y gate)
 - [x] Ticket 15 — Prettier (2.x, Node 10) + lint wired into npm (`format`, `format:check`, `lint`)
-- [ ] Ticket 16 — Resume: role bullet lists stick out 14.4px left of the text column (verified; analysis in `tickets-phase3.md`)
+- [x] Ticket 16 — Resume: role bullet lists stick out 14.4px left of the text column (verified; analysis in `tickets-phase3.md`)
 
 (Note: 7 content pages exist, not 8 — count in older tickets was wrong.)
 

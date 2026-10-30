@@ -2,7 +2,7 @@
 {% set spec = spec or {} %}
 {% set _class = spec.class or '' %}
 <!-- Footer -->
-<article class="foot">
+<footer class="foot">
   <section class="container" id="contact">
     <div class="content">
       <div class="row">
@@ -24,7 +24,8 @@
       </li>
     </ul>
   </section>
-  <footer>
+  <!-- a second contentinfo landmark is not allowed; this is styled text -->
+  <div class="foot-copyright">
     <div class="text-center">
       <p>Made by Pedro Bj&#246;rn with paws and vibes. </p>
       <p>&copy; 2026 visualbear All Rights Reserved.</p>
@@ -33,6 +34,6 @@
         <a href="../workflow/" title="My agentic design workflow" style="text-decoration: none;">🤖</a>
       </p>
     </div>
-  </footer>
-</article>
+  </div>
+</footer>
 {% endmacro %}

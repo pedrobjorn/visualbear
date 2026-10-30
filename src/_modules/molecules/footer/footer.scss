@@ -1,4 +1,6 @@
-footer {
+// The copyright bar. Was a bare `footer` element selector; the landmark
+// moved to the outer .foot footer element, so this styles the class.
+.foot-copyright {
     font-family: $vb-body-font-family;
     font-size: 10px;
     position: relative;
@@ -54,7 +56,7 @@ footer {
     margin-bottom: 0;
 }
 
-footer {
+.foot-copyright {
     background-color: $vb-dark;
 }
 

@@ -6,7 +6,10 @@
 {% set _prevhref = spec.prevhref or '#' %}
 {% set _target = spec.target or '_self' %}
 {% set _text = spec.text or 'Default Link' %}
-<div class="btn-container row">
+<!-- prev/next pagination: a nav landmark. Note: the nunjucks macro output
+     flushes after </main> in the pipeline, so the landmark must be carried
+     by this element itself rather than relying on main containment. -->
+<nav class="btn-container row" aria-label="Previous / next">
 	<div class="col s6">
 		{% if _prevhref.link !== "../disabled" %}
 			<a href="{{_prevhref.link}}" class="btn vb-btn-full left-align">
@@ -22,5 +25,5 @@
 			</a>
 		{% endif %}
 	</div>
-</div>
+</nav>
 {% endmacro %}
