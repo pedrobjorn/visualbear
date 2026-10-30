@@ -18,6 +18,11 @@
 - [x] Ticket 15 — Prettier (2.x, Node 10) + lint wired into npm (`format`, `format:check`, `lint`)
 - [x] Ticket 16 — Resume: role bullet lists stick out 14.4px left of the text column (verified; analysis in `tickets-phase3.md`)
 
+## Next up added 2026-10-29 (evening): visual fixes, evaluated + specced
+
+- [ ] Ticket 17 — visuAI: flat #252528 band breaks the fade at the very bottom (html/body bg propagation; root cause + fix in `tickets-phase3.md`)
+- [ ] Ticket 18 — Case-study text hierarchy: body copy scatters over 3 sizes / 8 left edges → 3 roles + 1 label tier, one text edge (eval data in `tickets-phase3.md`)
+
 (Note: 7 content pages exist, not 8 — count in older tickets was wrong.)
 
 - Evidence: user request ("easy way to work in markdown for case studies") — ASSUMPTION, needs validation on scope of "editor"

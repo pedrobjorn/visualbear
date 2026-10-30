@@ -166,3 +166,93 @@ Acceptance criteria:
       role lists change; some list lines now wrap that didn't before -
       expected consequence of the narrower column)
 - [x] Verified at 1440 and 768 viewports
+
+## Ticket 17 — visuAI: gradient band breaks at the very bottom (VERIFIED 2026-10-29)
+
+Finding (measured on `/workflow/` at 1440):
+
+- The body fade ends at `#101013` (measured `rgb(16,16,19)` just above the
+  page end), but the last ~43px strip paints flat `#252528` — the emoji /
+  copyright strip sits visibly on a flat grey plate instead of the fade.
+- Root cause: a shared `html, body { … background-color: #252528 … }` rule
+  (`_base.scss`). Because `html` has a background color, the body's
+  gradient does NOT propagate to the root canvas, so the area below the
+  body's box (the document is ~43px taller than the body's painted box)
+  shows the html's flat fill.
+- Why only visuAI: every other page's body gradient ends at `#252528`, so
+  the strip is the same color as the fade's end — invisible. The visuAI
+  fade ends darker (`#101013`), so the band shows.
+
+Proposed fix (root cause, small blast radius): remove `background-color`
+from the shared `html, body` rule so the body gradient propagates to the
+canvas and paints the full document — the fade then covers the strip and
+the gradient's stops re-map to the full document height (<1% shift).
+Verify with before/after full-page captures on ALL pages (the gradient
+end-color shift affects every page's last pixels); if any page regresses,
+fall back to painting the workflow gradient on `html` via
+`html:has(body.workflow-page)`.
+
+Acceptance criteria:
+
+- [ ] No flat band at the bottom of `/workflow/`; the fade reaches the
+      page end (pixel-verified: last 100px are a smooth continuation)
+- [ ] All other pages keep their gradient (before/after captures; only
+      sub-1% gradient re-mapping allowed)
+- [ ] No horizontal seams at the body/document boundary on any page
+
+## Ticket 18 — Case-study text hierarchy: reduce body-copy variance (EVAL 2026-10-29)
+
+Pedro: text hierarchy is off on many case-study pages — indented AND
+smaller text mixed in; reduce the variance of body copy, emphasize
+headlines vs body, and align text edges so the page is scannable.
+
+Eval (measured text-left edges + computed font sizes, all content
+elements, 1440 viewport, 6 case-study pages):
+
+Current state — body copy scatters across 3 sizes, 2 weights and 8 left
+edges:
+
+| Role                                               | Sizes seen                      | Left edges seen                        |
+| -------------------------------------------------- | ------------------------------- | -------------------------------------- |
+| h2 section heads                                   | 28.8px / 700 (consistent)       | 352                                    |
+| h3                                                 | 19.2px AND 22.464px (two sizes) | 352, 380, 396                          |
+| p body                                             | 18.432px AND 15.36px            | 352, 368, 376, 380, 396, 418, 436, 439 |
+| li                                                 | 18.432px                        | 384, 396                               |
+| labels (eyebrow, frame-label, figcaption, cs-note) | 15.36px                         | 352–680                                |
+
+Sources of the variance: timeline step titles render at h4 size (19.2),
+card/timeline/quote paragraphs render at `$middle-font-size` (15.36),
+cards/timeline/frames indent their content by 28–44px, and quotes render
+at h2 size centred. Labels at 15.36 are fine — body copy at 15.36 is not.
+
+Target (3 roles + 1 label tier, 2 edges):
+
+- **Headline**: h2 28.8/700 (unchanged)
+- **Sub-head**: h3 22.464/700 everywhere — timeline step titles and card
+  titles step up from 19.2
+- **Body**: p AND li at 18.432/300 everywhere — card paragraphs, timeline
+  descriptions and notes step up from 15.36
+- **Labels** (eyebrow, frame-label, figcaption, cs-note, quote byline):
+  stay 15.36 — they are labels, not body copy
+- **Text edge**: one content edge at the section edge (352). Component
+  boxes (cards, frames, quotes) may keep their containers, but their text
+  must align to 352 or a single uniform indent step — no 4–8px scatter.
+  Quotes stay centred by design (they are display elements, not body copy).
+
+Constraints:
+
+- Token-sourced sizes only ($base-*/$middle-\*) — no new one-off values
+- Timeline text at 15.36 was chosen for muted step descriptions (the
+  workflow ground) — the step-up must keep passing the axe contrast gates
+  from Ticket 14 on both dark and light grounds
+- Full-page pixel diffs per page; only typography-driven reflow allowed
+
+Acceptance criteria:
+
+- [ ] No body copy (p/li) below 18.432px on any case-study page; only
+      label-tier elements render at 15.36
+- [ ] All h3s render at 22.464/700
+- [ ] Body text left edges: only 352 or one uniform indent value (no
+      368/376/380/384/396/418/436/439 scatter); measured on all 6 pages
+- [ ] axe re-run: zero violations (contrast holds at the new sizes)
+- [ ] Full-page captures before/after per page, reviewed by Pedro
