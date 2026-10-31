@@ -759,3 +759,36 @@ Acceptance criteria:
       units, pixel-sampled at multiple chips)
 - [ ] axe: zero violations on both pages after the change
 - [ ] Captures for Pedro's review
+
+## Ticket 23 — Box alignment: every box on the bleed edge (EVAL + FIX, 2026-10-29)
+
+Pedro: "Fashion isn't fixed, the boxes spill out of the bleed vs others."
+
+Eval: measured every plate/border box's edges on all pages. Found three
+box types NOT on the bleed edge while cards/chips were:
+
+- `cs-col` (the `::: columns` boxes — fashion is the only page using
+  them) rendered at the text-column width → they bleed like cards
+- `cs-summary` was an inset centered box (360-1080) → now bleeds
+  (324-1116), centered text kept
+- page-level `[image:]` / `[frame:]` directives emitted bare frames
+  (text-column width) while showcase frames went full-bleed — now the
+  parseContainers wrapper wraps top-level frames in `cs-wide--full`
+  (measured on teachr-agent: all page-level frames 1440px at x=0)
+
+Verified correct after the fix (not bugs, by design):
+
+- compare-panel frames: panel-width (they fill their panel)
+- the venn diagram circles: display graphic
+- `cs-related` (quiet text block, border-top only) + the AI-mark chip:
+  text-edge elements
+- metric chips: their own -16 rhythm (DR-0009 exception)
+
+Acceptance criteria:
+
+- [x] Every box bleeds to the same edge (324-1116 at 1440) on all
+      pages, except the documented panel/graphic/label elements
+- [x] Page-level image frames full-bleed (1440px, x=0)
+- [x] axe: zero violations (`evidence/axe-align.json`); edge audit clean
+      (`evidence/edge-align.json`); format + lint pass
+- [x] Captures: `~/Desktop/cs-typography/after-align/`

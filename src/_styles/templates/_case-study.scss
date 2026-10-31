@@ -78,9 +78,9 @@ $cs-indent: 28px;
   }
 
   .cs-summary {
-    max-width: 720px;
-    margin: 32px auto 0;
-    padding: 16px 28px;
+    // bleeds like every other box (DR-0009) — no inset exception
+    margin: 32px (-$cs-indent) 0;
+    padding: 16px $cs-indent;
     background-color: rgba(255, 255, 255, 0.45);
     border-radius: 16px;
     // display element in the centered hero (DR-0009): centered text
@@ -661,8 +661,9 @@ $cs-indent: 28px;
   .cs-twocol {
     .cs-col {
       flex: 1 1 100%;
-      margin: 16px 0;
-      padding: 28px;
+      // bleeds like every other box (DR-0009) — no mixed edges
+      margin: 16px (-$cs-indent);
+      padding: $cs-indent;
       background-color: rgba(255, 255, 255, 0.45);
       border-radius: 16px;
 

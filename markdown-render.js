@@ -380,8 +380,15 @@ function parseContainers(src) {
     }
     const dir = expandDirective(line.trim());
     if (dir) {
+      // top-level frames are page-wide: wrap in the full-bleed tier
+      // (DR-0009). Frames inside containers keep their container width —
+      // their renderers handle their own wrapping.
+      const wrapped =
+        /class="cs-frame/.test(dir) && !/cs-wide/.test(dir)
+          ? '<div class="cs-wide cs-wide--full">' + dir + '</div>'
+          : dir;
       if (out.length && out[out.length - 1].trim() !== '') out.push('');
-      out.push(dir);
+      out.push(wrapped);
       out.push('');
       continue;
     }
