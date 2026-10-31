@@ -473,6 +473,11 @@ touch the preceding title row. Pedro: "resume bullets have no spacing."
 - Type: UI
 - Supersedes: the edge + 8px text offset (ticket 19 v3, build batch 1)
 - Pages: all 7 (chips + plain lists) + resume
+- Status: DONE 2026-10-31 - chips/cs-plain at `$cs-indent + 9px`, in-box
+  lists and resume at 9px; both audits updated to the 4px-clear-gap
+  formula and CLEAN; axe zero violations on all 7 pages at 1440 + 390
+  (evidence/axe-batch1.json, box-audit-t35.json); captures refreshed in
+  ~/Desktop/cs-typography/after-batch1/
 
 ## Context
 
@@ -494,9 +499,9 @@ the dot. Pedro wants 4px of clear space.
 
 ## Acceptance criteria (agent-checkable)
 
-- [ ] On every page at 1440 and 390: text-left − (dot-left + 5px dot)
+- [x] On every page at 1440 and 390: text-left − (dot-left + 5px dot)
       = 4px ± 1, for chips, in-box plain lists and (resume) content
       lists — measured, not eyeballed
-- [ ] Dot still ON the text edge (±1px) everywhere
-- [ ] `tools/box-audit.py` and `tools/edge-audit.py` updated and CLEAN
-- [ ] axe zero violations; lint + format pass; captures for Pedro
+- [x] Dot still ON the text edge (±1px) everywhere
+- [x] `tools/box-audit.py` and `tools/edge-audit.py` updated and CLEAN
+- [x] axe zero violations; lint + format pass; captures for Pedro

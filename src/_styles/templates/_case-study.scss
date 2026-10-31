@@ -769,11 +769,12 @@ $cs-indent: 28px;
       position: relative;
       background-color: rgba(255, 255, 255, 0.45);
       border-radius: 12px;
-      // ticket 25 (rev): the plate bleeds $cs-indent, so the dot at
-      // $cs-indent sits exactly ON the text edge and the text takes the
-      // +8px bullet indent (same rhythm as the plain bullet lists);
-      // symmetric right padding keeps text off the right text edge
-      padding: 14px ($cs-indent + 8px) 14px ($cs-indent + 8px);
+      // ticket 25 (rev) + 35: the plate bleeds $cs-indent, so the dot at
+      // $cs-indent sits exactly ON the text edge; the text takes a 4px
+      // clear gap after the 5px dot (text at edge + 9) — the same
+      // breathing room as every bullet list; symmetric right padding
+      // keeps text off the right text edge
+      padding: 14px ($cs-indent + 9px) 14px ($cs-indent + 9px);
       margin-bottom: 8px;
 
       // Small bullet dot on the text edge — ticket 19's rule applied to
@@ -801,7 +802,8 @@ $cs-indent: 28px;
 
     li {
       position: relative;
-      padding-left: $cs-indent + 8px;
+      // 4px clear gap after the 5px dot (ticket 35)
+      padding-left: $cs-indent + 9px;
       margin-bottom: 8px;
 
       &::before {
@@ -818,8 +820,9 @@ $cs-indent: 28px;
   }
 
   // Plain bullet lists in sections and two-column blocks — small dot on
-  // the text edge, text a slight indent (16px) in (DR-0009 amendment:
-  // bullets may take a slight indent; timeline/annotation stay flush)
+  // the text edge, text a slight indent (DR-0009 amendments: bullets may
+  // take a slight indent; 4px clear gap after the dot, ticket 35;
+  // timeline/annotation stay flush)
   .cs-section ul:not(.cs-timeline):not(.cs-facts):not(.cs-plain),
   .cs-twocol ul {
     list-style: none;
@@ -827,8 +830,8 @@ $cs-indent: 28px;
 
     li {
       position: relative;
-      // bullet indent: 8px past the dot (Pedro, ticket 19 v3)
-      padding-left: 8px;
+      // 4px clear gap after the 5px dot (ticket 35)
+      padding-left: 9px;
 
       &::before {
         content: '';
