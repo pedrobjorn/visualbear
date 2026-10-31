@@ -252,7 +252,6 @@ function renderCards(lines) {
 
 function renderShowcase(lines) {
   let inner = '';
-  let hasFrame = false;
   const caption = [];
   for (const raw of lines) {
     const t = raw.trim();
@@ -271,7 +270,6 @@ function renderShowcase(lines) {
         '</strong>' +
         esc(parts[1] || '') +
         '</span></div>';
-      hasFrame = true;
       continue;
     }
     const dir = expandDirective(t);
@@ -288,7 +286,8 @@ function renderShowcase(lines) {
     '<figcaption>' +
     esc(caption.join(' ')) +
     '</figcaption></figure>';
-  return hasFrame ? '<div class="cs-wide">' + inner_ + '</div>' : inner_;
+  // showcases are full-bleed by default (DR-0009): images span the viewport
+  return '<div class="cs-wide cs-wide--full">' + inner_ + '</div>';
 }
 
 function renderHero(lines) {
@@ -315,14 +314,19 @@ function renderHero(lines) {
   return out + '</header>';
 }
 
-// markdown table → real data table with the cs-table class, wide wrapper
+// markdown table → real data table with the cs-table class, full-bleed
+// wrapper (DR-0009: tables span the viewport)
 function renderTable(lines) {
   const src = lines.join('\n');
   const html = marked(src, { renderer: new marked.Renderer() });
-  return '<div class="cs-wide">' + html.replace(/<table>/, '<table class="cs-table">') + '</div>';
+  return (
+    '<div class="cs-wide cs-wide--full">' +
+    html.replace(/<table>/, '<table class="cs-table">') +
+    '</div>'
+  );
 }
 
-function renderContainer(type, id, lines) {
+function renderContainer(type, id, lines, full) {
   let html;
   if (type === 'metrics') html = renderMetrics(lines);
   else if (type === 'compare') html = renderCompare(lines);
@@ -335,6 +339,8 @@ function renderContainer(type, id, lines) {
     console.log('markdown: unknown container ::: ' + type);
     html = '<!-- unknown container: ' + type + ' -->';
   }
+  // `full` modifier (DR-0009): the container's background spans the viewport
+  if (full) html = html.replace(/^(<\w+ class=")/, '$1cs-full ');
   if (id) html = html.replace(/^(<\w+ class="[^"]*")/, '$1 id="' + id + '"');
   return html;
 }
@@ -346,14 +352,20 @@ function parseContainers(src) {
   const stack = [];
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
-    const open = line.match(/^:::\s*([a-z-]+)(?:\s+([\w-]+))?\s*$/);
+    const open = line.match(/^:::\s*([a-z-]+)(?:\s+([\w-]+))?(?:\s+([\w-]+))?\s*$/);
     if (open) {
-      stack.push({ type: open[1], id: open[2] || '', lines: [] });
+      // `::: type full [id]` / `::: type id` / `::: type full`
+      const tokens = [open[2], open[3]].filter(Boolean);
+      const full = tokens.indexOf('full') !== -1;
+      const id = tokens.find(function (t) {
+        return t !== 'full';
+      });
+      stack.push({ type: open[1], id: id || '', full: full, lines: [] });
       continue;
     }
     if (/^:::\s*$/.test(line) && stack.length) {
       const c = stack.pop();
-      const html = renderContainer(c.type, c.id, c.lines);
+      const html = renderContainer(c.type, c.id, c.lines, c.full);
       if (stack.length) stack[stack.length - 1].lines.push(html);
       else {
         if (out.length && out[out.length - 1].trim() !== '') out.push('');

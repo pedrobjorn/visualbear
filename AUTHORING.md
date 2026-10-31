@@ -76,6 +76,26 @@ lines become the `figcaption`.
     content
     :::
 
+### Widths: text edge, bleed, full-bleed (DR-0009)
+
+All body text sits on one text edge. Boxes (cards, fact chips, quote
+groups) bleed one indent step into the margins — their text stays on the
+edge. Media and tables go further:
+
+- **Showcases and tables are full-bleed by default**: the image or table
+  spans the viewport, edge to edge. Use reasonably large images — small
+  sources will upscale.
+- **Background sections**: any container can take a `full` modifier so
+  its background spans the viewport while the content keeps its insets:
+
+      ::: quotes full
+      > "A quote on a full-width band."
+      :::
+
+      ::: metrics full
+      15% | return rate ↑
+      :::
+
 ### Single-line directives (valid anywhere)
 
 - `[intro: text]` → `p.cs-section-intro`

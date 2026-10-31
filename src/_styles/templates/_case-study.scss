@@ -6,6 +6,10 @@
 // All styles are scoped under `.case-study` to avoid leaking.
 // ==========================================================================
 
+// The single indent step (DR-0009): box padding, box bleed, timeline
+// gutter and marker hang all derive from it.
+$cs-indent: 28px;
+
 .case-study {
   // Core color of the page theme; defaults to the design-system grey.
   // Themes (pink/black/teal) override it; bullets pick it up
@@ -66,11 +70,11 @@
   .cs-summary {
     max-width: 720px;
     margin: 32px auto 0;
-    // 28px sides: the one indent step
     padding: 16px 28px;
     background-color: rgba(255, 255, 255, 0.45);
     border-radius: 16px;
-    text-align: left;
+    // display element in the centered hero (DR-0009): centered text
+    text-align: center;
   }
 
   // ------------------------------------------------------------------
@@ -110,8 +114,10 @@
   .cs-cards {
     .cs-card {
       flex: 1 1 100%;
-      margin: 16px 0;
-      padding: 28px;
+      // the box bleeds one step into each gutter; its text stays on the
+      // text edge (DR-0009)
+      margin: 16px (-$cs-indent);
+      padding: $cs-indent;
       background-color: rgba(255, 255, 255, 0.45);
       border-radius: 16px;
 
@@ -210,9 +216,9 @@
       counter-increment: cs-step;
       position: relative;
       display: grid;
-      // no gap: the step text starts one indent step (28px) in — the same
-      // edge the cards' 28px padding gives — instead of 44px
-      grid-template-columns: 28px 1fr;
+      // the dot column lives in the gutter; step text on the text edge
+      margin-left: -$cs-indent;
+      grid-template-columns: $cs-indent 1fr;
       column-gap: 0;
       align-items: start;
       padding-bottom: 24px;
@@ -336,6 +342,34 @@
     box-sizing: border-box;
   }
 
+  // Full-bleed tier (DR-0009): images and tables span the viewport,
+  // edge to edge — not just "wider than text"
+  .cs-wide--full {
+    padding: 0;
+  }
+
+  .cs-showcase img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .cs-showcase figcaption {
+    max-width: 680px;
+    margin: 12px auto 0;
+  }
+
+  // Full-bleed background sections (opt-in via `::: type full`): the
+  // background spans the viewport; content keeps a comfortable inset
+  .cs-full {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    padding: 24px 48px;
+    box-sizing: border-box;
+  }
+
   .cs-showcase {
     margin: 0;
 
@@ -420,6 +454,8 @@
   .cs-annotation {
     display: flex;
     align-items: baseline;
+    // the dot hangs in the gutter; text on the text edge
+    margin-left: -16px;
     margin-top: 8px;
 
     .cs-annotation-dot {
@@ -445,8 +481,9 @@
   // ------------------------------------------------------------------
   .cs-pullquote {
     max-width: 760px;
-    margin: 32px 0;
-    padding: 24px 32px;
+    // bleeds like the other boxes; text on the edge
+    margin: 32px (-$cs-indent);
+    padding: 24px $cs-indent;
     border: 1px solid rgba(37, 37, 40, 0.12);
     border-radius: 16px;
     background-color: rgba(255, 255, 255, 0.45);
@@ -463,14 +500,16 @@
     }
   }
 
-  // Pull quotes are real blockquotes; strip the global blockquote chrome
-  // (grey border bar, extra padding, forced italic, margin) so pixels stay
-  // where they were when quotes were paragraphs
+  // Pull quotes are display elements on every page (DR-0009): a quote
+  // never reads as body copy. Strips the global blockquote chrome.
   blockquote.cs-quote {
-    margin: 0;
-    padding: 8px 0;
+    font-size: $base-h2-size;
+    font-style: italic;
+    text-align: center;
+    max-width: 680px;
+    margin: 64px auto;
+    padding: 0 24px;
     border: none;
-    font-style: inherit;
 
     > p {
       margin: 0;
@@ -479,15 +518,17 @@
   }
 
   .cs-quotes {
+    // the group bleeds once, at the container level (DR-0009)
+    margin: 16px (-$cs-indent);
+
     .cs-quote {
       flex: 1 1 100%;
       margin: 16px 0;
-      // 28px sides: the quote text sits one indent step in — the same edge
-      // as the cards and the timeline text
-      padding: 20px 28px;
+      padding: 20px $cs-indent;
       background-color: rgba(255, 255, 255, 0.45);
       border-radius: 16px;
       font-style: italic;
+      text-align: center;
 
       blockquote {
         margin: 0;
@@ -628,7 +669,8 @@
 
       ul {
         margin: 0;
-        padding-left: 20px;
+        // no double indent inside the box: dots hang, text on the edge
+        padding-left: 0;
       }
 
       li {
@@ -683,7 +725,8 @@
   }
 
   .cs-facts {
-    margin: 16px 0 0;
+    // the chip list bleeds one step; li padding puts text on the edge
+    margin: 16px (-$cs-indent) 0;
     padding: 0;
     list-style: none;
 
@@ -691,8 +734,7 @@
       position: relative;
       background-color: rgba(255, 255, 255, 0.45);
       border-radius: 12px;
-      // 28px: the one indent step — chip text aligns with card text
-      padding: 14px 20px 14px 28px;
+      padding: 14px 20px 14px $cs-indent;
       margin-bottom: 8px;
 
       // Small bullet dot inside the fact card
@@ -709,7 +751,8 @@
     }
   }
 
-  // Plain bullet lists in sections and two-column blocks — same small dots
+  // Plain bullet lists in sections and two-column blocks — same small dots,
+  // hanging in the gutter so the text sits on the text edge (DR-0009)
   .cs-section ul:not(.cs-timeline):not(.cs-facts),
   .cs-twocol ul {
     list-style: none;
@@ -717,12 +760,12 @@
 
     li {
       position: relative;
-      padding-left: 16px;
+      padding-left: 0;
 
       &::before {
         content: '';
         position: absolute;
-        left: 2px;
+        left: -14px;
         top: 0.73em;
         width: 5px;
         height: 5px;
@@ -756,6 +799,14 @@
 
     .cs-wide {
       padding: 0 16px;
+    }
+
+    .cs-wide--full {
+      padding: 0;
+    }
+
+    .cs-full {
+      padding: 16px;
     }
 
     .cs-metrics {
@@ -1157,15 +1208,8 @@ body.cs-teal-page nav.site-nav {
     }
   }
 
-  // Pull quotes: bigger, centred, italic, with equal air above and below
-  .cs-quote {
-    font-size: $base-h2-size;
-    font-style: italic;
-    text-align: center;
-    max-width: 680px;
-    margin: 64px auto;
-    padding: 0 24px;
-  }
+  // Pull quotes are styled in the shared scope now (display elements on
+  // every page, DR-0009); nothing cs-workflow-specific left here.
 }
 
 // The header carries the same dark ground and its own slice of the
