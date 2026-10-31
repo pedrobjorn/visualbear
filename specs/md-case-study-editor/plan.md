@@ -22,8 +22,20 @@
 
 - [x] Ticket 17 — visuAI: flat #252528 band breaks the fade at the very bottom (html/body bg propagation; root cause + fix in `tickets-phase3.md`)
 - [x] Ticket 18 — Case-study text hierarchy: body copy scatters over 3 sizes / 8 left edges → 3 roles + 1 label tier, one text edge (eval data in `tickets-phase3.md`)
-- [x] Ticket 18c — One text edge, bleeding boxes, hanging markers (APPROVED, DR-0009) — build now
-- [x] Ticket 18d — Full-bleed tier: images, tables, background sections span the viewport — build with 18c
+- [x] Ticket 18c — One text edge, bleeding boxes, hanging markers (APPROVED, DR-0009) — built
+- [x] Ticket 18d — Full-bleed tier: images, tables, background sections span the viewport — built with 18c
+- [x] Ticket 19 — Bulleted lists: visible dot on the text edge, text +8px (v3, Pedro's value); DR-0009 amended; standing rule: bullet visibility unconditional
+- [x] Ticket 20 — Design-system pass: $small-font-size deprecated, 7 color tokens, /styleguide/ case-study system section
+- [x] Ticket 21 — Vertical rhythm: one spacing scale (8/16/24/32/48/64/96) on all pages
+- [x] Ticket 22a/b — Resume bullets + chip indent geometry (48/48 dots verified)
+- [x] Ticket 23 — Box alignment: all boxes on the bleed edge (324-1116)
+
+All tickets CLOSED. State: everything committed except Pedro's in-flight
+`resume.md` copy edit (his — never touch). Pedro runs the dev server
+himself now (port 3000). Remaining: Pedro's copy rewrite + AI-marker
+removal (7 on /workflow/, 1 per Teachr page), his visual pass, publish.
+Backlog: phase-4 page migrations, frontmatter→head, PDF links, resume
+PDF regen.
 
 (Note: 7 content pages exist, not 8 — count in older tickets was wrong.)
 
