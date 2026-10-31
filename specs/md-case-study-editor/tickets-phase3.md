@@ -708,3 +708,54 @@ Authoring rules to land with it (AUTHORING.md, from the eval above):
 - Verified: EDGE AUDIT CLEAN, axe zero violations (evidence/edge-t21.json,
   axe-t21.json), format + lint pass
 - Captures: `~/Desktop/cs-typography/after-t21/`
+
+## Ticket 22 — Review: "visuAI, Fashion and Resume don't match" (EVAL 2026-10-29)
+
+Pedro: sports/teachr/closet have correct bullets + alignment; visuAI,
+fashion and resume do not. Resume: bullets only.
+
+Eval results (computed styles + rendered-pixel sampling, 1440):
+
+1. **Fashion — ALREADY FIXED this session.** The invisible dots were the
+   token-script regression (custom-property interpolation); fashion's
+   dots/bars now render (#111111). Both its bullet lists (twocol, dot +
+   8px) and its chips match the other pages' styling exactly (computed
+   diff: none). Pedro should re-check after a hard refresh.
+2. **Resume — REAL ISSUE: no bullet markers at all.** Every list item
+   renders with `list-style: none` (the global reset) and NO dot
+   substitute: ~50 list items with bare text, no marker, no indent
+   (x=316, padL 0). The mdResume output has no dot treatment.
+3. **visuAI (workflow) — REAL ISSUE: the chips are invisible.** The dark
+   theme's chip plate (6% white over #17171b) measures delta 0-1
+   brightness against the page background — the chip container is
+   imperceptible. The light pages' plates (45% white) are clearly
+   visible. So the same component reads as "boxed chip" on light pages
+   and "floating dot + text" on the dark page.
+4. **Content-structure note (not a styling bug):** fashion's section-
+   level enumerations (Goals, Future Improvements) and workflow's
+   pillars render as fact chips — the chips carry long sentences (avg
+   74-151 chars). On the correct pages, chips also carry long text
+   (sports 13/26), so this is consistent behavior; whether those
+   specific lists should be bullets instead of chips is Pedro's
+   content call.
+
+### Fixes (planned)
+
+- **Ticket 22a — Resume bullets**: the mdResume output's plain lists get
+  the standard dot treatment: accent dot at the text edge, text +8px,
+  row rhythm unchanged. Accent color = the resume's existing red
+  (#d0181e family, matches its links).
+- **Ticket 22b — Dark-theme chip visibility**: the workflow's chip/card/
+  summary plates go from 6% white to a visible-but-soft plate (target:
+  ≥8 units of brightness delta against the ground at 1440, measured);
+  the dot and text colors unchanged. Verify with the same pixel-sampling
+  method + axe (contrast rules still apply to the TEXT, unchanged).
+
+Acceptance criteria:
+
+- [ ] Resume: every list item shows a dot; text at +8px (±2); measured
+      on the rendered page (pixel sample, like the bullet rule)
+- [ ] Workflow: chip plate visibly distinct from the ground (delta ≥ 8
+      units, pixel-sampled at multiple chips)
+- [ ] axe: zero violations on both pages after the change
+- [ ] Captures for Pedro's review
