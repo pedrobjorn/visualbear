@@ -572,3 +572,83 @@ Ticket 20:
   Core/Colours; headings demo reduced to the real h1-h4 scale
 - axe: zero violations (`evidence/axe-t20.json`); format + lint pass;
   captures: `~/Desktop/cs-typography/after-t20/`
+
+## Eval: fashion cards/bullets, rhythm, images, full-bleed (2026-10-29, Pedro's review round)
+
+### 1. "Fashion is missing the rules for the cards and bullets" — REGRESSION, found + fixed
+
+Root cause: the ticket-20 token script replaced hex literals inside SCSS
+CUSTOM-PROPERTY declarations (`--cs-accent: #111111` →
+`--cs-accent: $cs-black`). Custom properties do not substitute SCSS
+variables without `#{}` interpolation — the invalid value fell back to
+transparent. Fashion uses the black theme, so its bullet dots, fact-chip
+dots and h2 accent bars (all `var(--cs-accent)`) were INVISIBLE — the page
+looked rule-less. Fashion, the teal page and the workflow page were
+affected; the pink page still had a literal and was spared.
+
+Fix: interpolated `#{$cs-black}` / `#{$cs-teal-base}` / `#{$cs-red}`.
+Verified: fashion dots render (rgb(17,17,17)). RULE for any future token
+script: **never token-bust inside custom-property declarations — they
+need `#{}` interpolation; exclude them from mechanical replace.**
+
+### 2. Rhythm + hierarchy eval (case studies + resume)
+
+Vertical gaps between blocks (rendered px, from block-box measures):
+
+- Case studies: all gaps sit on the 8pt grid (8/16/24/32/40/48/64/72/80/96)
+  — but SECTION-level gaps use SIX different values (40/48/64/72/80/96):
+  the scale exists, the hierarchy within it does not.
+- Resume: gaps of 10/21/23/27/42/46/49/53 — a different rhythm family
+  entirely (10px-based, off the 8pt grid); the page reads looser than
+  the case studies.
+
+Plan (ticket 21): define the spacing scale (8/16/24/32/48/64/96 — drop
+40/72/80 from section-level use), map each component's gaps to it, and
+align the resume's spacing to the same grid. Content (Pedro's texts) is
+not touched — this is spacing only.
+
+### 3. Bullets below images — RULE (no violations found)
+
+Scanned all md files: no bullet list currently sits directly under an
+image/figure/showcase. Codify as an authoring rule in AUTHORING.md:
+**never place a bullet list immediately after an image/figure — lead
+with a heading or a one-line intro; enumeration without its own lead-in
+is forbidden.** Reason: an image's caption is the image's voice; bullets
+under it read as orphaned fragments and break the visual pause the image
+creates.
+
+### 4. Full-bleed review — PASS
+
+All `cs-wide--full` containers measure 1440px at x=0 (true edge-to-edge,
+three on fashion-rebrand; none on resume). Images keep aspect ratio
+(`width: 100%: height: auto` — no distortion). Captions stay caption-
+width. No small-image upscaling artifacts found in the current pages
+(the only upscaling risk is future content — the AUTHORING.md note
+stands).
+
+## Ticket 21 — Rhythm: one spacing scale for case studies + resume (PLANNED)
+
+Scope: spacing only — no content changes.
+
+1. Define the vertical scale: 8 / 16 / 24 / 32 / 48 / 64 / 96 (8pt grid).
+   Section-level gaps normalize: 40→48 or 32 (by role), 72→64, 80→64 or 96.
+2. Map each component's margins to the scale (cards, chips, figures,
+   tables, compare blocks, headings) in `_case-study.scss`.
+3. Resume: align its 10px-based gaps to the same scale (the mdresume
+   output + resume CSS spacing).
+4. Verify: the rhythm measure (gap histogram per page) shows only scale
+   values; full-page captures before/after; Pedro's review closes.
+
+Acceptance criteria:
+
+- [ ] Gap histogram on every case-study page and the resume shows only
+      scale values (8/16/24/32/48/64/96), ±2px
+- [ ] Heading → body and block → block relationships keep their
+      hierarchy (heading gap < block gap) — asserted in the eval
+- [ ] Full-page before/after captures; Pedro's review closes
+- [ ] No content (md texts) changed
+
+Authoring rules to land with it (AUTHORING.md, from the eval above):
+
+- No bullet list immediately after an image/figure — lead with a heading
+  or a one-line intro

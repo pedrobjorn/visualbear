@@ -908,7 +908,7 @@ body.cs-pink-page nav.site-nav {
 .case-study.cs-black {
   background-color: #fafafa;
 
-  --cs-accent: $cs-black;
+  --cs-accent: #{$cs-black};
 
   .cs-eyebrow {
     color: $cs-black;
@@ -1053,7 +1053,7 @@ body.cs-pink-page nav a.icon img {
     background-color: $cs-teal-ground;
   }
 
-  --cs-accent: $cs-teal-base;
+  --cs-accent: #{$cs-teal-base};
 
   .cs-eyebrow {
     color: $cs-teal-ground;
@@ -1130,7 +1130,7 @@ body.cs-teal-page nav.site-nav {
   // measures 3.8:1, so text accents use #E34A47 — the same strong red,
   // lifted just enough to clear 4.5:1 — while decorative accents
   // (h2 bars, timeline dots, bullet dots) take the true #D73735
-  --cs-accent: $cs-red;
+  --cs-accent: #{$cs-red};
 
   // Breathing room: more space around and between the content
   .cs-section {
