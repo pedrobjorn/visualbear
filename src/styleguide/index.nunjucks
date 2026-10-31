@@ -3,6 +3,7 @@
 {% import "styleguide/_styleguide_blocks/styleguide.core.nunjucks" as core %}
 {% import "styleguide/_styleguide_blocks/styleguide.modules.nunjucks" as modules %}
 {% import "styleguide/_styleguide_blocks/styleguide.containers.nunjucks" as containers %}
+{% import "styleguide/_styleguide_blocks/styleguide.casesystem.nunjucks" as casesystem %}
 {% block config %}
 	{# Correct base url pathing for this page #}
 	{% set baseUrl = '../' %}
@@ -27,6 +28,11 @@
 		<article class="text-container" id="containers">
 			<div class="row">
 				{{containers.content()}}
+			</div>
+		</article>
+		<article class="text-container" id="casesystem">
+			<div class="row">
+				{{casesystem.content()}}
 			</div>
 		</article>
 	</section>

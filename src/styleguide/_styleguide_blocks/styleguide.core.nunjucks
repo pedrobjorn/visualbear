@@ -120,17 +120,17 @@
   </div>
   <div class="text-block">
     <h3 class="page-header">Headings</h3>
+    <p>The system uses h1-h4 only (h5/h6 are not part of the type scale;
+    see the case-study system section for the content roles).</p>
     <ul>
       <!--HEADINGS-->
-      <li><h1>h1 Heading  <small>Secondary text</small></h1></li>
-      <li><h2>h2 Heading  <small>Secondary text</small></h2></li>
-      <li><h3>h3 Heading  <small>Secondary text</small></h3></li>
-      <li><h4>h4 Heading  <small>Secondary text</small></h4></li>
-      <li><h5>h5 Heading  <small>Secondary text</small></h5></li>
-      <li><h6>h6 Heading  <small>Secondary text</small></h6></li>
+      <li><h1>h1 Heading</h1></li>
+      <li><h2>h2 Heading</h2></li>
+      <li><h3>h3 Heading</h3></li>
+      <li><h4>h4 Heading</h4></li>
     </ul>
     <ul>
-      <li><h2 class="page-header">h2 Page Header <small>With Secondary Text</small></h2></li>
+      <li><h2 class="page-header">h2 Page Header</h2></li>
     </ul>
     <!--Links-->
   </div>

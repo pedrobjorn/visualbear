@@ -8,6 +8,16 @@
 
 // The single indent step (DR-0009): box padding, box bleed, timeline
 // gutter and marker hang all derive from it.
+// Case-study color tokens (ticket 20): verified theme values that
+// were previously repeated as literals. Contrast rationale lives at
+// each usage site.
+$cs-black: #111111;
+$cs-teal-ground: #0e7d6f;
+$cs-pink-deep: #c10d82;
+$cs-red-lifted: #e34a47;
+$cs-pink-ground: #d50e95;
+$cs-teal-base: #14a08d;
+$cs-red: #d73735; // = $vb-primary
 $cs-indent: 28px;
 
 .case-study {
@@ -416,7 +426,7 @@ $cs-indent: 28px;
         display: inline-block;
         text-transform: uppercase;
         letter-spacing: 0.12em;
-        font-size: $small-font-size;
+        font-size: $middle-font-size;
         // Darker brand red, see .cs-eyebrow note
         color: #d0181e;
         margin: 0 0 4px;
@@ -636,7 +646,7 @@ $cs-indent: 28px;
     th {
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      font-size: $small-font-size;
+      font-size: $middle-font-size;
       color: $vb-light-grey;
     }
 
@@ -751,8 +761,9 @@ $cs-indent: 28px;
     }
   }
 
-  // Plain bullet lists in sections and two-column blocks — same small dots,
-  // hanging in the gutter so the text sits on the text edge (DR-0009)
+  // Plain bullet lists in sections and two-column blocks — small dot on
+  // the text edge, text a slight indent (16px) in (DR-0009 amendment:
+  // bullets may take a slight indent; timeline/annotation stay flush)
   .cs-section ul:not(.cs-timeline):not(.cs-facts),
   .cs-twocol ul {
     list-style: none;
@@ -760,12 +771,12 @@ $cs-indent: 28px;
 
     li {
       position: relative;
-      padding-left: 0;
+      padding-left: 16px;
 
       &::before {
         content: '';
         position: absolute;
-        left: -14px;
+        left: 0;
         top: 0.73em;
         width: 5px;
         height: 5px;
@@ -839,13 +850,13 @@ $cs-indent: 28px;
 
   .cs-timeline li::before {
     // Darkened so the white step counter clears 4.5:1 (was #E40F9E, 4.32)
-    background-color: #d50e95;
+    background-color: $cs-pink-ground;
   }
 
   --cs-accent: #e40f9e;
 
   .cs-eyebrow {
-    color: #c10d82;
+    color: $cs-pink-deep;
   }
 
   // Colored divider lines take the background pink, not the text accent
@@ -855,20 +866,20 @@ $cs-indent: 28px;
 
   .cs-steps .cs-number,
   .cs-cards .cs-number {
-    color: #c10d82;
+    color: $cs-pink-deep;
   }
 
   .cs-metric .cs-metric-value,
   .cs-metric .cs-metric-suffix {
-    color: #c10d82;
+    color: $cs-pink-deep;
   }
 
   .cs-panel .cs-tag {
-    color: #c10d82;
+    color: $cs-pink-deep;
   }
 
   .cs-annotation .cs-annotation-dot {
-    background-color: #c10d82;
+    background-color: $cs-pink-deep;
   }
 
   .cs-divider::before,
@@ -877,14 +888,14 @@ $cs-indent: 28px;
   }
 
   .cs-divider span {
-    color: #c10d82;
+    color: $cs-pink-deep;
   }
 }
 
 // Fixed header matches the pink page (scoped via the page's body class).
 // #D50E95 not #E40F9E: the nav carries white links and 4.85:1 clears 4.5:1
 body.cs-pink-page nav.site-nav {
-  background-color: #d50e95;
+  background-color: $cs-pink-ground;
 }
 
 // ==========================================================================
@@ -896,36 +907,36 @@ body.cs-pink-page nav.site-nav {
 .case-study.cs-black {
   background-color: #fafafa;
 
-  --cs-accent: #111111;
+  --cs-accent: $cs-black;
 
   .cs-eyebrow {
-    color: #111111;
+    color: $cs-black;
   }
 
   .cs-timeline li::before {
-    background-color: #111111;
+    background-color: $cs-black;
   }
 
   .cs-section h2::before {
-    background-color: #111111;
+    background-color: $cs-black;
   }
 
   .cs-steps .cs-number,
   .cs-cards .cs-number {
-    color: #111111;
+    color: $cs-black;
   }
 
   .cs-metric .cs-metric-value,
   .cs-metric .cs-metric-suffix {
-    color: #111111;
+    color: $cs-black;
   }
 
   .cs-panel .cs-tag {
-    color: #111111;
+    color: $cs-black;
   }
 
   .cs-annotation .cs-annotation-dot {
-    background-color: #111111;
+    background-color: $cs-black;
   }
 
   .cs-divider::before,
@@ -934,13 +945,13 @@ body.cs-pink-page nav.site-nav {
   }
 
   .cs-divider span {
-    color: #111111;
+    color: $cs-black;
   }
 }
 
 // Fixed header matches the black page (scoped via the page's body class)
 body.cs-black-page nav.site-nav {
-  background-color: #111111;
+  background-color: $cs-black;
 }
 
 // The logo's light-blue circle hue-shifts to match the pink page
@@ -991,7 +1002,7 @@ body.cs-pink-page nav a.icon img {
 
 .case-study .cs-hero--pink {
   // Darkened from #E40F9E so the white kicker/headline clear 4.5:1 (4.85)
-  background-color: #d50e95;
+  background-color: $cs-pink-ground;
 }
 
 .case-study .cs-hero--red {
@@ -999,7 +1010,7 @@ body.cs-pink-page nav a.icon img {
 }
 
 .case-study .cs-hero--black {
-  background-color: #111111;
+  background-color: $cs-black;
 }
 
 // In-flow hero continuation — KPIs sit right below the cover, above the fold
@@ -1038,36 +1049,36 @@ body.cs-pink-page nav a.icon img {
 
   .cs-timeline li::before {
     // Darkened so the white step counter clears 4.5:1 (was #14A08D, 3.26)
-    background-color: #0e7d6f;
+    background-color: $cs-teal-ground;
   }
 
-  --cs-accent: #14a08d;
+  --cs-accent: $cs-teal-base;
 
   .cs-eyebrow {
-    color: #0e7d6f;
+    color: $cs-teal-ground;
   }
 
   // Colored divider lines take the background teal, not the text accent
   .cs-section h2::before {
-    background-color: #14a08d;
+    background-color: $cs-teal-base;
   }
 
   .cs-steps .cs-number,
   .cs-cards .cs-number {
-    color: #0e7d6f;
+    color: $cs-teal-ground;
   }
 
   .cs-metric .cs-metric-value,
   .cs-metric .cs-metric-suffix {
-    color: #0e7d6f;
+    color: $cs-teal-ground;
   }
 
   .cs-panel .cs-tag {
-    color: #0e7d6f;
+    color: $cs-teal-ground;
   }
 
   .cs-annotation .cs-annotation-dot {
-    background-color: #14a08d;
+    background-color: $cs-teal-base;
   }
 
   .cs-divider::before,
@@ -1076,19 +1087,19 @@ body.cs-pink-page nav a.icon img {
   }
 
   .cs-divider span {
-    color: #0e7d6f;
+    color: $cs-teal-ground;
   }
 }
 
 .case-study .cs-hero--teal {
   // Darkened from #14A08D so the white kicker/headline clear 4.5:1 (5.02)
-  background-color: #0e7d6f;
+  background-color: $cs-teal-ground;
 }
 
 // Fixed header matches the teal page (scoped via the page's body class);
 // darkened like the hero so its white links pass 4.5:1
 body.cs-teal-page nav.site-nav {
-  background-color: #0e7d6f;
+  background-color: $cs-teal-ground;
 }
 
 // Colored-hero kickers must stay white; the per-theme accent colors apply
@@ -1118,7 +1129,7 @@ body.cs-teal-page nav.site-nav {
   // measures 3.8:1, so text accents use #E34A47 — the same strong red,
   // lifted just enough to clear 4.5:1 — while decorative accents
   // (h2 bars, timeline dots, bullet dots) take the true #D73735
-  --cs-accent: #d73735;
+  --cs-accent: $cs-red;
 
   // Breathing room: more space around and between the content
   .cs-section {
@@ -1141,12 +1152,12 @@ body.cs-teal-page nav.site-nav {
     margin: 32px 0 24px;
 
     span {
-      color: #e34a47;
+      color: $cs-red-lifted;
     }
   }
 
   .cs-eyebrow {
-    color: #e34a47;
+    color: $cs-red-lifted;
   }
 
   h2::before {
@@ -1186,13 +1197,13 @@ body.cs-teal-page nav.site-nav {
     border-top-color: rgba(230, 242, 255, 0.2);
 
     a {
-      color: #e34a47;
+      color: $cs-red-lifted;
     }
   }
 
   // Global link red is 3.8:1 on this ground; the strong red passes (4.5)
   a {
-    color: #e34a47;
+    color: $cs-red-lifted;
 
     &:hover,
     &:focus {

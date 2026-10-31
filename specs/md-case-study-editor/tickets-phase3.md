@@ -444,7 +444,7 @@ Acceptance criteria:
       image/table default changes are the only behavioral default)
 - [ ] axe: zero violations; full-page before/after captures for review
 
-## Ticket 19 — Bulleted lists may take a slight indent (SPECCED, amends DR-0009)
+## Ticket 19 — Bulleted lists may take a slight indent (DONE 2026-10-29)
 
 Pedro: allow a slight indent for bulleted lists — the flush-edge rule was
 too strict for list rhythm.
@@ -469,7 +469,7 @@ Acceptance criteria:
 - [ ] `edge-audit.py` updated with the allowance and re-run: clean
 - [ ] DR-0009 amended (appended, not rewritten)
 
-## Ticket 20 — Design-system review: systematize what the pipeline added (SPECCED)
+## Ticket 20 — Design-system review: systematize what the pipeline added (DONE 2026-10-29)
 
 Review scope: everything the markdown-pipeline work added or modified —
 tokens, components, one-off values — then document the system on the
@@ -531,3 +531,28 @@ Acceptance criteria:
 - [ ] Styleguide page passes the edge audit's spirit (one edge, tiers)
       and the axe audit
 - [ ] visualbear-review run over /styleguide/ after the build
+
+### Ticket 19 + 20 build results (2026-10-29)
+
+Ticket 19:
+
+- Plain-list dots on the text edge, text at edge + 16px; timeline and
+  annotations unchanged; DR-0009 amended (appended); edge-audit updated
+  with the allowance — EDGE AUDIT CLEAN (`evidence/edge-t19.json`)
+
+Ticket 20:
+
+- `.cs-tag` + `.cs-table th` moved to the label tier; `$small-font-size`
+  deprecated (aliased to 0.8rem) — tiny-text sweep: ALL 8 pages clean
+- 7 case-study color tokens introduced ($cs-black, $cs-teal-ground,
+  $cs-pink-deep, $cs-red-lifted, $cs-pink-ground, $cs-teal-base, $cs-red);
+  43 literal usages replaced (comments keep their historical hex values);
+  token pass verified pixel-identical on teachr
+- Copyright bar: 10px -> label tier, min-height (no overflow); AI-mark
+  chip 0.7rem -> label tier; emoji links' inline 12px removed
+- /styleguide/: new "Case-study system" section (type roles, width tiers
+  with live bleed + full-bleed band examples, component gallery rendered
+  with real classes); case-study palette swatches with contrast ratios in
+  Core/Colours; headings demo reduced to the real h1-h4 scale
+- axe: zero violations (`evidence/axe-t20.json`); format + lint pass;
+  captures: `~/Desktop/cs-typography/after-t20/`

@@ -93,9 +93,14 @@ def audit(baseUrl, jsonOut):
                 for r in rows:
                     inDisplay = any(d in r["ctx"] for d in DISPLAY_CTX)
                     isAnnotation = "cs-annotation" in r["ctx"]
+                    isBullet = r["tag"] == "LI" and "cs-timeline" not in r["ctx"]
                     bodyLevel = r["tag"] in ("P", "LI", "H2", "H3", "H4", "BLOCKQUOTE")
                     if bodyLevel and not inDisplay and not isAnnotation:
-                        if abs(r["x"] - edge) > EDGE_TOLERANCE:
+                        # bullet lists may take a slight indent (DR-0009
+                        # amendment): text at edge + 16px
+                        allowed = (abs(r["x"] - edge) <= EDGE_TOLERANCE or
+                                   (isBullet and abs(r["x"] - edge - 16) <= EDGE_TOLERANCE))
+                        if not allowed:
                             failures.append(
                                 f"{path}@{width}: {r['tag']} in {r['ctx']} at x={r['x']} "
                                 f"(edge {r['x'] - edge:+d}px)"

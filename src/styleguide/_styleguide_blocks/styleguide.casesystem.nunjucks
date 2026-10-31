@@ -1,0 +1,86 @@
+{% macro content(spec) %}
+{# Case-study system (ticket 20): the markdown-pipeline components and the
+   width system (DR-0009), rendered with the REAL classes so this guide
+   cannot drift from the code. The `case-study document-text` wrapper
+   activates the scoped component styles. #}
+{% set spec = spec or {} %}
+{% set _class = spec.class or '' %}
+{% set _content = spec.content or '{}' %}
+
+<article class="gallery-text">
+  <small class="page-header">Case-study system</small>
+  <div class="text-block">
+    <p>The case-study pages render from markdown (see AUTHORING.md). Their
+    layout has one text edge, boxes that bleed one indent step into the
+    margins, and a full-bleed tier for media and background sections.</p>
+  </div>
+
+  <!-- Type roles -->
+  <div class="text-block">
+    <h3 class="page-header">Type roles</h3>
+    <div class="case-study document-text" style="padding: 8px 0;">
+      <p style="font-size: 1.5rem; font-weight: 700; margin: 0 0 8px;">Headline — h2, 28.8px / 700</p>
+      <p style="font-size: 1.17rem; font-weight: 700; margin: 0 0 8px;">Sub-head — h3, 22.5px / 700</p>
+      <p style="margin: 0 0 4px;">Body copy — 18.4px / 300. One size for paragraphs and list text.</p>
+      <p style="font-size: 0.8rem; color: #6e6e73; margin: 0;">Label — 15.4px (eyebrows, notes, captions). Never below this size.</p>
+    </div>
+    <p style="margin-top: 8px;">Indent token: <code>$cs-indent = 28px</code> — box padding, box
+    bleed, timeline gutter and marker hang all derive from it.</p>
+  </div>
+
+  <!-- Width tiers -->
+  <div class="text-block">
+    <h3 class="page-header">Width tiers</h3>
+    <p><strong>Text edge</strong> — all body copy aligns here.
+    <strong>Bleed</strong> — boxes extend one indent step into each margin,
+    text stays on the edge. <strong>Full-bleed</strong> — media, tables and
+    <code>full</code>-flagged containers span the viewport.</p>
+    <div class="case-study document-text" style="padding: 8px 0;">
+      <div class="cs-cards">
+        <div class="cs-card">
+          <h3>Bleed example — card</h3>
+          <p>The tinted box extends past the text edge by one indent step on
+          both sides; this text stays on the edge.</p>
+        </div>
+      </div>
+    </div>
+    <div class="case-study document-text" style="padding: 8px 0;">
+      <div class="cs-full" style="background-color: rgba(215, 55, 53, 0.12); border-radius: 8px;">
+        <p style="text-align: center; margin: 0;">Full-bleed band — <code>::: type full</code>
+        (the background spans the viewport; content keeps its insets)</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Components -->
+  <div class="text-block">
+    <h3 class="page-header">Components</h3>
+    <div class="case-study document-text" style="padding: 8px 0;">
+      <div class="cs-facts">
+        <li style="list-style: none;">Fact chip — key stats and proof points</li>
+        <li style="list-style: none;">Second chip — dot on the edge, text at the slight indent</li>
+      </div>
+
+      <div class="cs-timeline" style="margin-top: 24px;">
+        <li style="list-style: none;"><span style="display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background-color: #d73735; color: #fff; font-weight: 700;">1</span></li>
+        <li style="list-style: none;"><span style="display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background-color: #d73735; color: #fff; font-weight: 700;">2</span></li>
+      </div>
+
+      <blockquote class="cs-quote" style="margin: 32px auto;">
+        <p>"Display quote — centered, italic, h2-size, on every page."</p>
+      </blockquote>
+
+      <div class="cs-frame" style="min-height: 120px;">
+        <span class="cs-frame-label"><strong>Frame</strong>placeholder for mockups and pending media</span>
+      </div>
+
+      <div class="cs-metrics" style="margin-top: 24px;">
+        <div class="cs-metric">
+          <span class="cs-metric-value">15</span><span class="cs-metric-suffix">%</span>
+          <span class="cs-metric-label">metric chip</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+{% endmacro %}

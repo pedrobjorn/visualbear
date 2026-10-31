@@ -58,7 +58,7 @@ $font-regular: 400;
 $font-light: 300;
 
 // Base Font
-$small-font-size: 0.45rem;
+$small-font-size: 0.8rem; // DEPRECATED: was 0.45rem (8.64px, unreadable); aliased to the label tier ($middle-font-size) — use that
 $middle-font-size: 0.8rem;
 $base-font-size: 1.2rem;
 

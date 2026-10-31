@@ -5,7 +5,7 @@
 [data-ai]::after {
   display: block;
   width: fit-content;
-  font-size: 0.7rem;
+  font-size: 0.8rem; // label tier (ticket 20): no text below 15.36px
   line-height: 1;
   letter-spacing: 0.06em;
   padding: 0.3em 0.7em;

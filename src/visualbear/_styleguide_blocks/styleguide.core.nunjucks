@@ -76,6 +76,48 @@
         </span>
       </div>
     </div>
+    <h3 class="page-header">Case-study palette (contrast-verified)</h3>
+    <p>Theme grounds and accent pairs used by the case-study pages. Each
+    pair is checked at 4.5:1 minimum (contrast ratio noted). Defined in
+    <code>_case-study.scss</code>; the brand red is <code>$vb-primary</code>.</p>
+    <div class="row">
+      <div class="col-md-6">
+        <span class="box-container" style="background:#d50e95; color:#fff; padding:8px; font-weight:700;">
+          #D50E95 — Pink ground
+          <p>white text 4.85:1 (darkened from #E40F9E)</p>
+        </span>
+      </div>
+      <div class="col-md-6">
+        <span class="box-container" style="background:#0e7d6f; color:#fff; padding:8px; font-weight:700;">
+          #0E7D6F — Teal ground
+          <p>white text 5.02:1 (darkened from #14A08D)</p>
+        </span>
+      </div>
+      <div class="col-md-6">
+        <span class="box-container" style="background:#d73735; color:#fff; padding:8px; font-weight:700;">
+          #D73735 — Brand red ($vb-primary)
+          <p>white text 4.67:1; on light grounds use #CD3231 (4.75)</p>
+        </span>
+      </div>
+      <div class="col-md-6">
+        <span class="box-container" style="background:#c10d82; color:#fff; padding:8px; font-weight:700;">
+          #C10D82 — Deep pink (dark pink theme)
+          <p>white text passes 4.5:1</p>
+        </span>
+      </div>
+      <div class="col-md-6">
+        <span class="box-container" style="background:#e34a47; color:#18181b; padding:8px; font-weight:700;">
+          #E34A47 — Lifted red (dark grounds)
+          <p>on #18181B 4.6:1; the raw brand red only makes 3.8 there</p>
+        </span>
+      </div>
+      <div class="col-md-6">
+        <span class="box-container" style="background:#18181b; color:#e34a47; padding:8px; font-weight:700;">
+          #18181B — Dark ground ($vb-dark)
+          <p>light text 15.6:1, accents #E34A47 4.6:1</p>
+        </span>
+      </div>
+    </div>
   </div>
   <div class="text-block">
     <h3 class="page-header">Fonts</h3>
