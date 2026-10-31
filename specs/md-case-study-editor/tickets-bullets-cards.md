@@ -772,3 +772,50 @@ rgba(255, 255, 255, 0.06)` — the documented dark-ground instance;
 - [x] Plateless lists unchanged: dot on the text edge ± 1 (measured)
 - [x] box-audit + edge-audit CLEAN; axe zero violations (1440 + 390);
       lint + format pass; close-up captures for Pedro
+
+---
+
+# Ticket 42: One content width site-wide — the resume's 900/836
+
+- Part of: `plan-bullets-cards.md` (Pedro, 2026-10-31: "unify all pages
+  with the same content width matching the resume content width");
+  decision + tradeoff record: `DR-0013.md`
+- Size: M
+- Type: UI
+- Pages: ALL (the shared `.text-box` container)
+- Status: DONE 2026-10-31 - all four wide variants at 900/32 (768-991
+  variant: 100%/max-900); invariant bump widened to <=907. MEASURED:
+  container 900 at [270,1170] and text edge 302 on every page at 1440
+  (= the resume's exact 302/94 at 1024); content 836. No overflow at
+  60 page@viewport combos (10 pages incl. home/about/blog); BOX +
+  EDGE AUDIT CLEAN; axe zero (1440 + 390); captures in
+  ~/Desktop/cs-typography/after-width-unify/
+
+## Context
+
+Measured: resume content = 900px container / 836 text extent; every
+other page = 768 / 736 (`.text-box`, four wide variants in
+`_gallery.scss`). All shells share the container, so one change
+unifies the whole site.
+
+## Requirements
+
+- `.text-box` wide variants (≥2400, 1280–2399, 992–1279):
+  `width: 900px; max-width: 100%; padding: 0 32px`.
+- 768–991 variant: `width: 100%; max-width: 900px; padding: 0 32px`
+  (no overflow below 900).
+- ≤767 variants unchanged (100% / 32px).
+- Case-study bleed-invariant bump (ticket 31): ≤839 → ≤907 (the math
+  is in DR-0013 §3).
+- Styleguide + AUTHORING: the content width documented as 900/836.
+
+## Acceptance criteria (agent-checkable)
+
+- [x] Content extent == 836 ± 2 at 1440, 1280, 1024 on resume AND all
+      7 md pages (measured widest body text)
+- [x] Text edge == (vw−900)/2 + 32 on all pages at those viewports
+      (resume: 302/94 — measured match)
+- [x] No horizontal overflow at 320/390/480/600/768/840/908/992/1024/1440
+      on all 7 pages; box-audit + edge-audit CLEAN
+- [x] axe zero violations (1440 + 390); lint + format pass
+- [x] Full-page captures (resume, one case study, home, about) for Pedro

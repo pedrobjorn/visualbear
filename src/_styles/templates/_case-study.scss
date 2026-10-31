@@ -871,11 +871,10 @@ $cs-indent: 28px;
 // ---------------------------------------------------------------------------
 // Bleed invariant (DR-0009 amendment, ticket 31): the text edge must sit
 // >= 36px inside the viewport (28px bleed + 8px viewport margin) so the
-// bleeding boxes never touch or cross the edge. The shared .text-box
-// padding is 32px below $break-medium and 16px in the 768-839 band
-// (before the container's auto margins grow past 28px); 36px satisfies
-// both bands. Above 840 the auto margins already guarantee the invariant.
-@media (max-width: 839px) {
+// bleeding boxes never touch or cross the edge. With the 900px container
+// (ticket 42) the text edge is (vw-900)/2 + 32; it reaches 36 only at
+// vw >= 908, so the 36px bump carries every band below that.
+@media (max-width: 907px) {
   .case-study .text-box {
     padding-left: 36px;
     padding-right: 36px;
