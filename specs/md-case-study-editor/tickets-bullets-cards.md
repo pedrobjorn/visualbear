@@ -700,7 +700,12 @@ border: 1px solid rgba(17,17,17,0.08) }` — theme-scoped, no new
   (muted ink #6e6e73 measured 4.45 on #f0f0f2) fixed theme-scoped
   (#66686d) — axe ZERO again; BOX + EDGE AUDIT CLEAN
   (evidence/box-audit-t40.json); captures in
-  ~/Desktop/cs-typography/after-chips-captions/
+  ~/Desktop/cs-typography/after-chips-captions/.
+  Follow-up (Pedro: "make them match"): the workflow plate tuned
+  0.06 → 0.04 (delta 5.4 → 3.5) — the full computed-style matrix now
+  shows identical chip structure on all 5 pages (plate token, box
+  352–1088, dot at 0, +13 text); only theme grounds and accents
+  differ, by design.
 
 ## Requirements
 

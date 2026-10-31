@@ -1272,13 +1272,16 @@ body.cs-teal-page nav.site-nav {
 
   // Panel surfaces: the light pages use white at 0.45, which on dark
   // becomes a glare — a whisper of white keeps the same softness.
-  // The chip plate is the token's dark instance (ticket 40, DR-0012).
-  --cs-chip-plate: rgba(255, 255, 255, 0.06);
+  // The chip plate is the token's dark instance (ticket 40, DR-0012):
+  // tuned to 0.04 so its strength sits between the reference band
+  // (1.5-2.6 luminance delta) and legibility on the dark ground — the
+  // chips now read as softly as the light pages' do (Pedro: "make them
+  // match"; still >= 3 delta, well clear of the 22b invisibility call)
+  --cs-chip-plate: rgba(255, 255, 255, 0.04);
 
   .cs-summary,
   .cs-cards .cs-card,
-  .cs-frame,
-  .cs-facts li {
+  .cs-frame {
     background-color: rgba(255, 255, 255, 0.06);
   }
 
