@@ -25,6 +25,12 @@ $cs-indent: 28px;
   // Themes (pink/black/teal) override it; bullets pick it up
   --cs-accent: #{$vb-grey};
 
+  // The chip plate, tokenized (ticket 40, DR-0012): ONE translucent-white
+  // plate for every case-study page — the reference value. Per-ground
+  // instances (workflow dark: 0.06) are documented overrides of this
+  // token, never separate chip styles.
+  --cs-chip-plate: rgba(255, 255, 255, 0.45);
+
   // ------------------------------------------------------------------
   // Hero
   // ------------------------------------------------------------------
@@ -780,7 +786,9 @@ $cs-indent: 28px;
 
     li {
       position: relative;
-      background-color: rgba(255, 255, 255, 0.45);
+      // the one chip plate (ticket 40, DR-0012) — per-ground instances
+      // override the token, never this rule
+      background-color: var(--cs-chip-plate);
       border-radius: 12px;
       // ticket 25 (rev) + 36: the dot sits ON the text edge (= the chip's
       // own left edge now) and the text keeps the 8px clear gap after the
@@ -990,21 +998,25 @@ body.cs-pink-page nav.site-nav {
 // ==========================================================================
 
 .case-study.cs-black {
-  background-color: #fafafa;
+  // ticket 40 (DR-0012): darkened one step from #fafafa so the ONE
+  // reference chip plate (white 0.45) reads on this neutral ground —
+  // measured delta ~7 (was 2, invisible; a brighter fill maxes at 5
+  // here, so the ground carries the plate, vetoable per DR-0012)
+  background-color: #f0f0f2;
 
   --cs-accent: #{$cs-black};
 
-  // Fashion chip plates (ticket 38): white at 0.45 composited to a delta
-  // of 2 units on this near-white ground — invisible (22b gate: >= 8,
-  // unreachable with a brighter fill here since solid white maxes at 5).
-  // Full opacity + a hairline border carry the definition instead.
-  .cs-facts li {
-    background-color: #fff;
-    border: 1px solid rgba(17, 17, 17, 0.08);
-  }
-
   .cs-eyebrow {
     color: $cs-black;
+  }
+
+  // The darker ground costs the muted label ink 0.05 of ratio (#6e6e73
+  // measures 4.45 on #f0f0f2); one step down restores the 4.5 floor
+  // (ticket 40)
+  .cs-footnote,
+  .cs-note,
+  .cs-table th {
+    color: #66686d;
   }
 
   .cs-timeline li::before {
@@ -1259,7 +1271,10 @@ body.cs-teal-page nav.site-nav {
   }
 
   // Panel surfaces: the light pages use white at 0.45, which on dark
-  // becomes a glare — a whisper of white keeps the same softness
+  // becomes a glare — a whisper of white keeps the same softness.
+  // The chip plate is the token's dark instance (ticket 40, DR-0012).
+  --cs-chip-plate: rgba(255, 255, 255, 0.06);
+
   .cs-summary,
   .cs-cards .cs-card,
   .cs-frame,

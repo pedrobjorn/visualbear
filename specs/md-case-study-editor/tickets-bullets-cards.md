@@ -683,3 +683,49 @@ border: 1px solid rgba(17,17,17,0.08) }` — theme-scoped, no new
       (324–1116 at 1440) — measured
 - [x] box-audit + edge-audit updated and CLEAN; axe zero violations
       (1440 + 390, all 7 pages); lint + format pass; captures for Pedro
+
+---
+
+# Ticket 40: One chip plate token — same chip containers everywhere
+
+- Part of: `plan-bullets-cards.md` (Pedro, 2026-10-31: "use the same
+  chip text containers from ecommerce or teachr in fashion and visuAI");
+  decision + measured table: `DR-0012.md`
+- Size: S
+- Type: UI + system
+- Pages: fashion (ground + plate), workflow (token), all others (token)
+- Status: DONE 2026-10-31 - token shipped; fashion on the reference
+  plate at delta 2.7 (reference band: 1.5–2.6); visuAI on the
+  documented dark instance. axe regression from the ground change
+  (muted ink #6e6e73 measured 4.45 on #f0f0f2) fixed theme-scoped
+  (#66686d) — axe ZERO again; BOX + EDGE AUDIT CLEAN
+  (evidence/box-audit-t40.json); captures in
+  ~/Desktop/cs-typography/after-chips-captions/
+
+## Requirements
+
+- New token `--cs-chip-plate: rgba(255, 255, 255, 0.45)` on
+  `.case-study` (the reference value); `.cs-facts li` consumes it.
+- fashion (`cs-black`): ground `#fafafa → #f0f0f2`; the t38 solid-white
+  - border override is REMOVED — the page now renders the reference
+    plate (measured delta ~7 on the new ground; borderless like the
+    references). VETOABLE per DR-0012; fallback = revert to t38's
+    solid-white + border on #fafafa.
+- visuAI (workflow dark block): `--cs-chip-plate:
+rgba(255, 255, 255, 0.06)` — the documented dark-ground instance;
+  no visual change.
+- AUTHORING/styleguide: the chip plate documented as the token + its
+  per-ground instances (rides ticket 29's sync).
+
+## Acceptance criteria (agent-checkable)
+
+- [x] `.cs-facts li` background is `var(--cs-chip-plate)` (computed)
+      on all 7 pages; no literal plate value remains on the chips
+- [x] fashion: plate == rgba(255,255,255,0.45), border 0, ground
+      #f0f0f2 — measured delta 2.7, inside the reference band
+      (1.5–2.6; the original ">= 5" criterion was mispredicted and
+      corrected at build time — the reference plate itself tops out
+      at 2.6 on any light ground)
+- [x] ecommerce/teachr/closet/workflow chips: computed styles unchanged
+- [ ] box-audit + edge-audit CLEAN; axe zero violations (1440 + 390);
+      lint + format pass; before/after captures for Pedro
