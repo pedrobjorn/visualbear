@@ -626,18 +626,54 @@ width. No small-image upscaling artifacts found in the current pages
 (the only upscaling risk is future content — the AUTHORING.md note
 stands).
 
-## Ticket 21 — Rhythm: one spacing scale for case studies + resume (PLANNED)
+## Ticket 21 — Rhythm: one spacing scale for case studies + resume (SPECCED, in build)
 
-Scope: spacing only — no content changes.
+Scope: spacing only — no content changes. The scale is part of the design
+system and lands on `/styleguide/` (a "Vertical rhythm" entry in the
+case-study system section).
 
-1. Define the vertical scale: 8 / 16 / 24 / 32 / 48 / 64 / 96 (8pt grid).
-   Section-level gaps normalize: 40→48 or 32 (by role), 72→64, 80→64 or 96.
-2. Map each component's margins to the scale (cards, chips, figures,
-   tables, compare blocks, headings) in `_case-study.scss`.
-3. Resume: align its 10px-based gaps to the same scale (the mdresume
-   output + resume CSS spacing).
-4. Verify: the rhythm measure (gap histogram per page) shows only scale
-   values; full-page captures before/after; Pedro's review closes.
+### The scale (design-system token row)
+
+**8 / 16 / 24 / 32 / 48 / 64 / 96** — the only vertical gaps in the
+layout. Roles:
+
+- **8** — inside components (heading → its own intro line, note spacing)
+- **16** — bullet-list indent rhythm, fact-chip rows, quote-group rows
+- **24** — around media wrappers, cover text
+- **32** — before sub-headings (h3), around self-contained blocks
+  (timeline, summaries)
+- **48** — around media (cs-wide), after big blocks, h2 → h3
+- **64** — around pull quotes, before new sub-sections
+- **96** — section padding (unchanged)
+
+### Measured mapping (current → target, from the eval)
+
+| Relationship            | Now                     | Target                          |
+| ----------------------- | ----------------------- | ------------------------------- |
+| h2 → intro/body         | 8                       | 24                              |
+| h2 → h3                 | 44                      | 48                              |
+| h3 → body               | 4                       | 8                               |
+| body → h3               | 30                      | 32                              |
+| body → h2               | 160 (incl. section pad) | unchanged (section pad owns it) |
+| body → cards            | 64                      | 64 ✓                            |
+| body/facts → facts      | 16                      | 16 ✓                            |
+| facts → h3              | 40                      | 48                              |
+| note → h3               | 68                      | 64                              |
+| intro → h3              | 76                      | 64                              |
+| body → cs-wide          | 48                      | 48 ✓                            |
+| cs-wide → following h3  | 40                      | 48                              |
+| intro → timeline        | 32                      | 32 ✓                            |
+| body → note             | 8                       | 8 ✓                             |
+| cover summary → details | 24                      | 24 ✓                            |
+
+Resume mapping: 10→8, 21/23/27→24, 30→32, 42/46/49→48, 53→48 (except the
+name/contact rows, which keep their header rhythm). The resume's own
+visual identity (tight lists) is kept — only the STEP VALUES normalize.
+
+Implementation: `_case-study.scss` heading/component margins +
+`_resume.scss`/mdresume output paddings. Where the rendered gap includes
+line-height overhang (the h3→body 4px case), the SCSS value is tuned so
+the RENDERED gap hits the target ±2px.
 
 Acceptance criteria:
 
@@ -645,6 +681,8 @@ Acceptance criteria:
       scale values (8/16/24/32/48/64/96), ±2px
 - [ ] Heading → body and block → block relationships keep their
       hierarchy (heading gap < block gap) — asserted in the eval
+- [ ] The rhythm scale is documented on /styleguide/ (case-study system
+      section, "Vertical rhythm")
 - [ ] Full-page before/after captures; Pedro's review closes
 - [ ] No content (md texts) changed
 
