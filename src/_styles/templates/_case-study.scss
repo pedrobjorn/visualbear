@@ -748,11 +748,12 @@ $cs-indent: 28px;
       padding: 14px 20px 14px $cs-indent;
       margin-bottom: 8px;
 
-      // Small bullet dot inside the fact card
+      // Small bullet dot inside the fact card — 8px before the text,
+      // same geometry as the plain bullet lists (ticket 22b)
       &::before {
         content: '';
         position: absolute;
-        left: 11px;
+        left: 20px;
         top: 23.5px;
         width: 5px;
         height: 5px;

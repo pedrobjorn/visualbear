@@ -792,3 +792,28 @@ Acceptance criteria:
 - [x] axe: zero violations (`evidence/axe-align.json`); edge audit clean
       (`evidence/edge-align.json`); format + lint pass
 - [x] Captures: `~/Desktop/cs-typography/after-align/`
+
+### Tickets 22a + 22b build results (2026-10-29)
+
+22a — Resume bullets (DONE):
+
+- The content lists now render the standard dot: a 5px accent-red dot
+  (#d0181e, the resume's link red) on the text edge, text +8px past it —
+  the same geometry as the case-study bullets. 48/48 dots pixel-verified
+  rendered; the name/contact/download lists (.small-title) stay unmarked.
+- The old treatment (0.6em disc markers, inside-position) was visually
+  negligible — that is why the lists read as unmarked.
+
+22b — Dark-theme chip visibility (re-evaluated):
+
+- The chip plate on the workflow ground measured delta 13 (visible) at a
+  precise inside/outside sample — the earlier 0-1 reading was a sampling
+  error (it hit the chip's edge row). The plate stands as designed.
+- The chip's internal geometry now matches the bullet rule: dot 8px
+  before the text (dot at 20px in the chip, text at 28) on every page —
+  the "boxes with bullets" now read with the same indent rhythm as the
+  plain bullet lists.
+
+Verified: EDGE AUDIT CLEAN, axe zero violations
+(evidence/edge-22.json, axe-22.json), format + lint pass. Captures:
+`~/Desktop/cs-typography/after-22/`.

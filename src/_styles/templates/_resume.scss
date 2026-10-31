@@ -95,18 +95,43 @@ ul.no-bullets {
     width: 100%;
   }
 
+  // Content bullet lists — the standard dot treatment (ticket 22a):
+  // dot on the text edge, text 8px past it. The .small-title lists
+  // (name, links, download) are excluded below.
   ul:not(.no-bullets) {
     margin-bottom: 0.5rem; // rhythm scale (ticket 21): 8pt grid
-    list-style-type: disc;
-    list-style-position: inside;
+    list-style: none;
+    padding-left: 0;
 
     li {
+      position: relative;
+      padding-left: 8px;
       margin-bottom: 0.5rem;
 
-      &::marker {
-        font-size: 0.6em;
-        color: $vb-light-grey;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.73em;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        // the resume's link red — matches the page's accent family
+        background-color: #d0181e;
       }
+
+      &::marker {
+        content: '';
+      }
+    }
+  }
+
+  // .small-title lists (name/contact, download) stay unmarked
+  .small-title ul li {
+    padding-left: 0;
+
+    &::before {
+      display: none;
     }
   }
 }
