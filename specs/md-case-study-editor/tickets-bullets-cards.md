@@ -896,3 +896,50 @@ copy-paste artifact leaking resume-scoped CSS onto the page.
 
 - Should the guide gain a tokens page (color/type/spacing as data,
   not prose)? Owner: Pedro — nice-to-have, does not block this ticket.
+
+---
+
+# Ticket 44: Hero spacing unified — one shared component (DR-0014)
+
+- Part of: `plan-bullets-cards.md` (Pedro, 2026-10-31: "verify the case
+  study hero spacings... should be a shared component and consistently
+  spaced"); decision + measured matrix: `DR-0014.md`
+- Size: M
+- Type: UI
+- Pages: all 7 (workflow is the fix target; the coupon hero on
+  ecommerce; the covers unchanged visually)
+- Status: DONE 2026-10-31 - one hero set live. MEASURED: covers 64/64
+  - gaps [16,24,24] everywhere (unchanged, as required); meta 32/32
+    (24 top below 1280); workflow 64/64 + gaps [24,24] (was 88/40,
+    [16,0]) + type roles fixed (summary 22.464, details 15.36); coupon
+    hero 64/64 (was 128/32) + subtitle/byline mt 24; sections 64
+    everywhere (workflow's 88 gone). BOX + EDGE AUDIT CLEAN, axe zero
+    (1440 + 390); hero captures for Pedro in
+    ~/Desktop/cs-typography/after-hero-unify/
+
+## Requirements
+
+- `.case-study .cs-hero` becomes the single spacing/type source:
+  `padding: 64px 0`; title margin 0; `.cs-cover-summary` 22.464 light
+  mt 24; `.cs-cover-details` 15.36 mt 24 — colors inherit.
+- The colored-cover scope keeps ONLY ground/ink: the 100vw box,
+  `padding: 64px 48px`, `color: #fff`.
+- DELETE: the dead `padding-top: 128px` rule (≥1279), the dead ≤767
+  `padding-top: 32`, the workflow's 88/40 hero override and 88px
+  section padding.
+- The coupon hero's `.cs-subtitle` mt 24 and `.cs-byline` mt 24 (was 0).
+- Cover covers' rendered geometry must not move (64/64 was already
+  their effective state — pure rule cleanup).
+
+## Acceptance criteria (agent-checkable)
+
+- [x] Every hero instance measures its variant's padding: covers
+      64/64, meta 32/32 (24 top below 1280), coupon + workflow 64/64 —
+      at 1440, 768, 390
+- [x] Workflow hero: summary 22.464px mt 24, details 15.36px mt 24
+      (computed) — the type roles hold on the dark ground
+- [x] Coupon hero: subtitle/byline gaps 24 (measured); no 128 anywhere
+- [x] Section padding 64 on workflow (was 88)
+- [x] axe zero violations on all 7 pages (1440 + 390) — the workflow
+      summary's new size re-checked against the dark ground; box-audit + edge-audit CLEAN; lint + format pass
+- [x] Full-hero captures (all 7 pages, 1440 + 390) for Pedro

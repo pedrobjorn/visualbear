@@ -36,14 +36,33 @@ $cs-indent: 28px;
   // ------------------------------------------------------------------
   .cs-hero {
     text-align: center;
-    padding: 64px 0 32px;
+    // one hero spacing set (ticket 44, DR-0014): covers keep the 48px
+    // side inset via their full-bleed scope; meta overrides below
+    padding: 64px 0;
 
     // an h2 in a hero is a secondary hero's title (second case study on
     // one page); it keeps the h1 look so only the tag changes
     h2 {
-      margin: 0 0 16px;
+      margin: 0;
       padding: 16px 0;
       font-size: $base-h1-size;
+    }
+
+    // hero type roles (ticket 44): shared by every hero variant —
+    // colors inherit from the variant's ink. Sizes/gaps were previously
+    // scoped to the colored covers only, leaving the bare heroes
+    // (workflow, coupon) at body sizes with flush gaps.
+    .cs-cover-summary {
+      max-width: 680px;
+      margin: 24px auto 0;
+      font-size: $base-h3-size;
+      font-weight: $font-light;
+    }
+
+    .cs-cover-details {
+      margin: 24px 0 0;
+      font-size: $middle-font-size;
+      letter-spacing: 0.05em;
     }
   }
 
@@ -58,14 +77,16 @@ $cs-indent: 28px;
   }
 
   h1 {
-    margin: 0 0 16px;
+    // ticket 44: the summary's mt 24 owns the title→summary gap
+    margin: 0;
   }
 
   .cs-subtitle {
     font-size: $base-h3-size;
     font-weight: $font-light;
     max-width: 720px;
-    margin: 0 auto 16px;
+    // the cover's content gap (24), collapsing over the h2's padding
+    margin: 24px auto 16px;
   }
 
   .cs-byline {
@@ -73,7 +94,8 @@ $cs-indent: 28px;
     color: $vb-light-grey;
     display: inline-block;
     padding: 8px 0;
-    margin: 0 auto 48px;
+    // the cover's content gap under the summary/subtitle (ticket 44)
+    margin: 24px auto 48px;
   }
 
   .cs-footnote {
@@ -891,10 +913,6 @@ $cs-indent: 28px;
       padding-top: 48px;
     }
 
-    .cs-hero {
-      padding-top: 32px;
-    }
-
     .cs-subtitle {
       font-size: $base-font-size;
     }
@@ -921,14 +939,9 @@ $cs-indent: 28px;
   }
 }
 
-// Wider screens — let the hero breathe before the content starts
-@media (min-width: $break-large) {
-  .case-study {
-    .cs-hero {
-      padding-top: 128px;
-    }
-  }
-}
+// (ticket 44, DR-0014): the "let the hero breathe" 128px rule is gone —
+// it never applied to the variant covers (overridden by their 64/64) and
+// only ever hit the mid-page ::: hero by accident. One hero padding: 64.
 
 // ==========================================================================
 // Pink theme — sports e-commerce redesign
@@ -1063,7 +1076,9 @@ body.cs-pink-page nav a.icon img {
   filter: hue-rotate(120deg);
 }
 
-// Full-bleed colored typographic hero, matching the case study cover slides
+// Full-bleed colored typographic hero, matching the case study cover slides.
+// Ticket 44 (DR-0014): this scope owns GROUND and INK only — the spacing
+// and type roles live on the shared .cs-hero.
 .case-study .cs-hero--pink,
 .case-study .cs-hero--red,
 .case-study .cs-hero--black,
@@ -1080,26 +1095,12 @@ body.cs-pink-page nav a.icon img {
     color: #fff;
   }
 
-  h1 {
-    color: #fff;
-    margin: 0;
-  }
-
-  .cs-cover-summary {
-    max-width: 680px;
-    margin: 24px auto 0;
-    font-size: $base-h3-size;
-    font-weight: $font-light;
-    // pure white: the previous 0.85 white measured 4.11 on teal and 3.76
-    // on red — under the 4.5 floor for this size
-    color: #fff;
-  }
-
+  // summary/details ink: the white contrast history lives here — the
+  // sizes/margins are the shared hero's (ticket 44)
+  .cs-cover-summary,
   .cs-cover-details {
-    margin: 24px 0 0;
-    font-size: $middle-font-size;
-    letter-spacing: 0.05em;
-    // pure white: the previous 0.8 white measured 3.81 on teal, 3.48 on red
+    // pure white: the previous 0.85/0.8 whites measured 4.11/3.81 on teal
+    // and 3.76/3.48 on red — under the 4.5 floor for these sizes
     color: #fff;
   }
 }
@@ -1118,8 +1119,9 @@ body.cs-pink-page nav a.icon img {
 }
 
 // In-flow hero continuation — KPIs sit right below the cover, above the fold
+// (ticket 44: own padding — the shared hero's 64/64 is for covers)
 .case-study .cs-hero--meta {
-  padding-top: 24px;
+  padding: 24px 0 32px;
 }
 
 @media (min-width: $break-large) {
@@ -1235,14 +1237,8 @@ body.cs-teal-page nav.site-nav {
   // (h2 bars, timeline dots, bullet dots) take the true #D73735
   --cs-accent: #{$cs-red};
 
-  // Breathing room: more space around and between the content
-  .cs-section {
-    padding: 88px 0;
-  }
-
-  .cs-hero {
-    padding: 88px 0 40px;
-  }
+  // (ticket 44, DR-0014): the 88px "breathing room" overrides are gone —
+  // the hero and sections join the shared rhythm (64/64, sections 64)
 
   // The suite wordmark, on its own line below the title.
   // UNUSED since Pedro replaced it with "…</br> visuAI" inside the h1
