@@ -24,10 +24,13 @@ PAGES = [
 ]
 VIEWPORTS = [1440, 390]
 
-# components whose text is allowed off the edge (display/label tiers)
+# components whose text is allowed off the edge (display/label tiers).
+# cs-quote: quotes are display elements — centered, so the text-run's
+# left edge varies with text length (DR-0009); found when the ctx
+# normalization fix un-vacuumed this audit (ticket 41)
 DISPLAY_CTX = ("cs-hero", "cs-frame", "cs-showcase", "cs-quotes",
                "cs-pullquote", "cs-summary", "cs-footnote",
-               "cs-frame-caption")
+               "cs-frame-caption", "cs-quote")
 
 
 def audit(baseUrl, jsonOut):
@@ -64,7 +67,14 @@ def audit(baseUrl, jsonOut):
                         let a = e;
                         while (a && a.tagName !== 'MAIN') {
                             const c = String(a.className || '').split(' ')[0];
-                            if (c && !['document-text','text-box','gallery-container','container'].includes(c))
+                            // shell classes must not pollute the context:
+                            // the article carries 'section section-top-
+                            // padding case-study <theme>' (their inclusion
+                            // made the edge-vote check vacuous — ctx never
+                            // equaled 'cs-section')
+                            if (c && !['document-text','text-box','gallery-container',
+                                       'container','section','section-top-padding',
+                                       'case-study'].includes(c))
                                 ctx.unshift(c);
                             a = a.parentElement;
                         }
@@ -98,10 +108,16 @@ def audit(baseUrl, jsonOut):
                     bodyLevel = r["tag"] in ("P", "LI", "H2", "H3", "H4", "BLOCKQUOTE")
                     if bodyLevel and not inDisplay and not isAnnotation:
                         # bullet lists may take a slight indent (DR-0009
-                        # amendments): dot on the edge, the 5px dot -> 8px clear gap (ticket 36); was:
-                        # the 5px dot -> text at edge + 13 (ticket 36)
+                        # amendments): plateless bullets — dot on the edge,
+                        # 8px clear gap -> text at edge + 13 (ticket 36);
+                        # plated chips (ticket 41) — the plate carries the
+                        # dot's padding: text at edge + 33 ($cs-indent + 5)
+                        isChip = "cs-facts" in r["ctx"]
                         allowed = (abs(r["x"] - edge) <= EDGE_TOLERANCE or
-                                   (isBullet and abs(r["x"] - edge - 13) <= 1))
+                                   (isBullet and not isChip and
+                                    abs(r["x"] - edge - 13) <= 1) or
+                                   (isBullet and isChip and
+                                    abs(r["x"] - edge - 33) <= 1))
                         if not allowed:
                             failures.append(
                                 f"{path}@{width}: {r['tag']} in {r['ctx']} at x={r['x']} "

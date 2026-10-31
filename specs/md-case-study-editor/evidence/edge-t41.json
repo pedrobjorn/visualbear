@@ -1,0 +1,1482 @@
+{
+ "workflow@1440": {
+  "edge": 352,
+  "elements": {
+   "cs-hero>cs-cover-summary|P|18.432px": {
+    "x": [
+     364
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-cover-details|P|18.432px": {
+    "x": [
+     545
+    ],
+    "n": 1
+   },
+   "cs-section>cs-eyebrow|P|15.36px": {
+    "x": [
+     352
+    ],
+    "n": 7
+   },
+   "cs-section|H2|28.8px": {
+    "x": [
+     352
+    ],
+    "n": 7
+   },
+   "cs-section|P|18.432px": {
+    "x": [
+     352
+    ],
+    "n": 12
+   },
+   "cs-section>cs-quote|BLOCKQUOTE|28.8px": {
+    "x": [
+     418,
+     436,
+     439
+    ],
+    "n": 3
+   },
+   "cs-section>cs-quote|P|28.8px": {
+    "x": [
+     418,
+     436,
+     439
+    ],
+    "n": 3
+   },
+   "cs-section>cs-facts|LI|18.432px": {
+    "x": [
+     385
+    ],
+    "n": 5
+   },
+   "cs-section>cs-timeline|LI|18.432px": {
+    "x": [
+     352
+    ],
+    "n": 19
+   },
+   "cs-section>cs-timeline|H3|22.464px": {
+    "x": [
+     352
+    ],
+    "n": 19
+   },
+   "cs-section>cs-timeline|P|18.432px": {
+    "x": [
+     352
+    ],
+    "n": 19
+   },
+   "cs-section>cs-cards>cs-card|H3|22.464px": {
+    "x": [
+     352
+    ],
+    "n": 10
+   },
+   "cs-section>cs-cards>cs-card|P|18.432px": {
+    "x": [
+     352
+    ],
+    "n": 10
+   }
+  }
+ },
+ "teachr@1440": {
+  "edge": 352,
+  "elements": {
+   "cs-hero>cs-eyebrow|P|15.36px": {
+    "x": [
+     530
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-cover-summary|P|22.464px": {
+    "x": [
+     384
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-cover-details|P|15.36px": {
+    "x": [
+     492
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-cards>cs-card>cs-card-title|P|22.464px": {
+    "x": [
+     685
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-cards>cs-card|P|18.432px": {
+    "x": [
+     368
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-cards>cs-related|P|15.36px": {
+    "x": [
+     465
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-summary|P|18.432px": {
+    "x": [
+     363
+    ],
+    "n": 1
+   },
+   "cs-section>cs-eyebrow|P|15.36px": {
+    "x": [
+     352
+    ],
+    "n": 7
+   },
+   "cs-section|H2|28.8px": {
+    "x": [
+     352
+    ],
+    "n": 7
+   },
+   "cs-section>cs-timeline|LI|18.432px": {
+    "x": [
+     352
+    ],
+    "n": 4
+   },
+   "cs-section>cs-timeline|H3|22.464px": {
+    "x": [
+     352
+    ],
+    "n": 4
+   },
+   "cs-section|P|18.432px": {
+    "x": [
+     352
+    ],
+    "n": 10
+   },
+   "cs-section|H3|22.464px": {
+    "x": [
+     352
+    ],
+    "n": 1
+   },
+   "cs-section>cs-facts|LI|18.432px": {
+    "x": [
+     385
+    ],
+    "n": 3
+   }
+  }
+ },
+ "teachr-agent@1440": {
+  "edge": 352,
+  "elements": {
+   "cs-hero>cs-eyebrow|P|15.36px": {
+    "x": [
+     530
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-cover-summary|P|22.464px": {
+    "x": [
+     393
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-cover-details|P|15.36px": {
+    "x": [
+     578
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-cards>cs-related|P|15.36px": {
+    "x": [
+     464
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-summary|P|18.432px": {
+    "x": [
+     357
+    ],
+    "n": 1
+   },
+   "cs-section>cs-eyebrow|P|15.36px": {
+    "x": [
+     352
+    ],
+    "n": 7
+   },
+   "cs-section|H2|28.8px": {
+    "x": [
+     352
+    ],
+    "n": 7
+   },
+   "cs-section>cs-timeline|LI|18.432px": {
+    "x": [
+     352
+    ],
+    "n": 4
+   },
+   "cs-section>cs-timeline|H3|22.464px": {
+    "x": [
+     352
+    ],
+    "n": 4
+   },
+   "cs-section|P|18.432px": {
+    "x": [
+     352
+    ],
+    "n": 23
+   },
+   "cs-section|H3|22.464px": {
+    "x": [
+     352
+    ],
+    "n": 1
+   }
+  }
+ },
+ "digital-closet@1440": {
+  "edge": 352,
+  "elements": {
+   "cs-hero>cs-eyebrow|P|15.36px": {
+    "x": [
+     660
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-cover-summary|P|22.464px": {
+    "x": [
+     387
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-cover-details|P|15.36px": {
+    "x": [
+     470
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-summary|P|18.432px": {
+    "x": [
+     355
+    ],
+    "n": 1
+   },
+   "cs-section>cs-eyebrow|P|15.36px": {
+    "x": [
+     352
+    ],
+    "n": 5
+   },
+   "cs-section|H2|28.8px": {
+    "x": [
+     352
+    ],
+    "n": 5
+   },
+   "cs-section>cs-quote|BLOCKQUOTE|28.8px": {
+    "x": [
+     420
+    ],
+    "n": 1
+   },
+   "cs-section>cs-quote|P|28.8px": {
+    "x": [
+     420
+    ],
+    "n": 1
+   },
+   "cs-section>cs-cards>cs-card|H3|22.464px": {
+    "x": [
+     352
+    ],
+    "n": 3
+   },
+   "cs-section>cs-cards>cs-card|P|18.432px": {
+    "x": [
+     352
+    ],
+    "n": 3
+   },
+   "cs-section|P|18.432px": {
+    "x": [
+     352
+    ],
+    "n": 5
+   },
+   "cs-section>cs-wide>cs-showcase|FIGCAPTION|15.36px": {
+    "x": [
+     383
+    ],
+    "n": 1
+   },
+   "cs-section|H3|22.464px": {
+    "x": [
+     352
+    ],
+    "n": 3
+   },
+   "cs-section>cs-facts|LI|18.432px": {
+    "x": [
+     385
+    ],
+    "n": 2
+   },
+   "cs-section>cs-quotes>cs-quote|BLOCKQUOTE|18.432px": {
+    "x": [
+     565,
+     487,
+     450,
+     552,
+     542,
+     530,
+     568
+    ],
+    "n": 7
+   },
+   "cs-section>cs-quotes>cs-quote|P|18.432px": {
+    "x": [
+     565,
+     487,
+     450,
+     552,
+     542,
+     530,
+     568
+    ],
+    "n": 7
+   },
+   "cs-section>cs-section-intro|P|18.432px": {
+    "x": [
+     352
+    ],
+    "n": 1
+   },
+   "cs-section>cs-comparison>cs-panel|H3|22.464px": {
+    "x": [
+     352
+    ],
+    "n": 3
+   },
+   "cs-section>cs-comparison>cs-panel|P|18.432px": {
+    "x": [
+     352
+    ],
+    "n": 3
+   },
+   "cs-section>cs-timeline|LI|18.432px": {
+    "x": [
+     352
+    ],
+    "n": 3
+   },
+   "cs-section>cs-timeline|H3|22.464px": {
+    "x": [
+     352
+    ],
+    "n": 3
+   },
+   "cs-section>cs-timeline|P|18.432px": {
+    "x": [
+     352
+    ],
+    "n": 3
+   },
+   "cs-section>cs-twocol>cs-col|H3|22.464px": {
+    "x": [
+     352
+    ],
+    "n": 2
+   },
+   "cs-section>cs-twocol>cs-col|LI|18.432px": {
+    "x": [
+     365
+    ],
+    "n": 7
+   }
+  }
+ },
+ "fashion-rebrand@1440": {
+  "edge": 352,
+  "elements": {
+   "cs-hero>cs-eyebrow|P|15.36px": {
+    "x": [
+     660
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-cover-summary|P|22.464px": {
+    "x": [
+     383
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-cover-details|P|15.36px": {
+    "x": [
+     505
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-footnote|P|15.36px": {
+    "x": [
+     423
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-summary|P|18.432px": {
+    "x": [
+     366
+    ],
+    "n": 1
+   },
+   "cs-section|H2|28.8px": {
+    "x": [
+     352
+    ],
+    "n": 6
+   },
+   "cs-section>cs-section-intro|P|18.432px": {
+    "x": [
+     352
+    ],
+    "n": 3
+   },
+   "cs-section>cs-quote|BLOCKQUOTE|28.8px": {
+    "x": [
+     418
+    ],
+    "n": 1
+   },
+   "cs-section>cs-quote|P|28.8px": {
+    "x": [
+     418
+    ],
+    "n": 1
+   },
+   "cs-section>cs-cards>cs-card|H3|22.464px": {
+    "x": [
+     352
+    ],
+    "n": 5
+   },
+   "cs-section>cs-cards>cs-card|P|18.432px": {
+    "x": [
+     352
+    ],
+    "n": 8
+   },
+   "cs-section>cs-cards>cs-card>cs-note|P|15.36px": {
+    "x": [
+     352
+    ],
+    "n": 2
+   },
+   "cs-section|H3|22.464px": {
+    "x": [
+     352
+    ],
+    "n": 5
+   },
+   "cs-section>cs-facts|LI|18.432px": {
+    "x": [
+     385
+    ],
+    "n": 22
+   },
+   "cs-section|P|18.432px": {
+    "x": [
+     352
+    ],
+    "n": 4
+   },
+   "cs-section>cs-comparison>cs-panel|H3|22.464px": {
+    "x": [
+     352
+    ],
+    "n": 4
+   },
+   "cs-section>cs-comparison>cs-panel|P|18.432px": {
+    "x": [
+     352
+    ],
+    "n": 4
+   },
+   "cs-section>cs-comparison>cs-panel>cs-frame-caption|P|15.36px": {
+    "x": [
+     605,
+     636,
+     591
+    ],
+    "n": 3
+   },
+   "cs-section>cs-wide>cs-showcase|FIGCAPTION|15.36px": {
+    "x": [
+     388,
+     383
+    ],
+    "n": 2
+   },
+   "cs-section>cs-note|P|15.36px": {
+    "x": [
+     352
+    ],
+    "n": 2
+   },
+   "cs-section>cs-timeline|LI|18.432px": {
+    "x": [
+     352
+    ],
+    "n": 4
+   },
+   "cs-section>cs-timeline|H3|22.464px": {
+    "x": [
+     352
+    ],
+    "n": 4
+   },
+   "cs-section>cs-timeline|P|18.432px": {
+    "x": [
+     352
+    ],
+    "n": 4
+   },
+   "cs-section>cs-twocol>cs-col|H3|22.464px": {
+    "x": [
+     352
+    ],
+    "n": 2
+   },
+   "cs-section>cs-twocol>cs-col|LI|18.432px": {
+    "x": [
+     365
+    ],
+    "n": 6
+   }
+  }
+ },
+ "sports-ecommerce-redesign@1440": {
+  "edge": 352,
+  "elements": {
+   "cs-hero>cs-eyebrow|P|15.36px": {
+    "x": [
+     660,
+     573
+    ],
+    "n": 2
+   },
+   "cs-hero>cs-cover-summary|P|22.464px": {
+    "x": [
+     393
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-cover-details|P|15.36px": {
+    "x": [
+     565
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-summary|P|18.432px": {
+    "x": [
+     363,
+     356
+    ],
+    "n": 2
+   },
+   "cs-section>cs-eyebrow|P|15.36px": {
+    "x": [
+     352
+    ],
+    "n": 10
+   },
+   "cs-section|H2|28.8px": {
+    "x": [
+     352
+    ],
+    "n": 11
+   },
+   "cs-section>cs-cards>cs-card|H3|22.464px": {
+    "x": [
+     352
+    ],
+    "n": 11
+   },
+   "cs-section>cs-cards>cs-card|P|18.432px": {
+    "x": [
+     352
+    ],
+    "n": 8
+   },
+   "cs-section|H3|22.464px": {
+    "x": [
+     352
+    ],
+    "n": 11
+   },
+   "cs-section>cs-facts|LI|18.432px": {
+    "x": [
+     385
+    ],
+    "n": 26
+   },
+   "cs-section>cs-timeline|LI|18.432px": {
+    "x": [
+     352
+    ],
+    "n": 8
+   },
+   "cs-section>cs-timeline|H3|22.464px": {
+    "x": [
+     352
+    ],
+    "n": 8
+   },
+   "cs-section>cs-comparison>cs-panel|H3|22.464px": {
+    "x": [
+     352
+    ],
+    "n": 4
+   },
+   "cs-section>cs-comparison>cs-panel|P|18.432px": {
+    "x": [
+     352
+    ],
+    "n": 4
+   },
+   "cs-section>cs-comparison>cs-panel>cs-frame-caption|P|15.36px": {
+    "x": [
+     556,
+     531,
+     570,
+     625,
+     517,
+     587
+    ],
+    "n": 6
+   },
+   "cs-section>cs-comparison>cs-panel>cs-note|P|15.36px": {
+    "x": [
+     352
+    ],
+    "n": 1
+   },
+   "cs-section>cs-wide>cs-showcase|FIGCAPTION|15.36px": {
+    "x": [
+     429
+    ],
+    "n": 1
+   },
+   "cs-section>cs-section-intro|P|18.432px": {
+    "x": [
+     352
+    ],
+    "n": 1
+   },
+   "cs-hero|H2|38.4px": {
+    "x": [
+     459
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-subtitle|P|22.464px": {
+    "x": [
+     364
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-byline|P|15.36px": {
+    "x": [
+     665
+    ],
+    "n": 1
+   },
+   "cs-section>cs-quote|BLOCKQUOTE|28.8px": {
+    "x": [
+     416
+    ],
+    "n": 1
+   },
+   "cs-section>cs-quote|P|28.8px": {
+    "x": [
+     416
+    ],
+    "n": 1
+   },
+   "cs-section|P|18.432px": {
+    "x": [
+     352
+    ],
+    "n": 3
+   },
+   "cs-section>cs-cards>cs-card|LI|18.432px": {
+    "x": [
+     365
+    ],
+    "n": 6
+   },
+   "cs-section>cs-note|P|15.36px": {
+    "x": [
+     352
+    ],
+    "n": 1
+   },
+   "cs-section>cs-timeline|P|18.432px": {
+    "x": [
+     352
+    ],
+    "n": 3
+   }
+  }
+ },
+ "workflow@390": {
+  "edge": 36,
+  "elements": {
+   "cs-hero>cs-cover-summary|P|17.28px": {
+    "x": [
+     44
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-cover-details|P|17.28px": {
+    "x": [
+     54
+    ],
+    "n": 1
+   },
+   "cs-section>cs-eyebrow|P|15.36px": {
+    "x": [
+     36
+    ],
+    "n": 7
+   },
+   "cs-section|H2|22.464px": {
+    "x": [
+     36
+    ],
+    "n": 7
+   },
+   "cs-section|P|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 12
+   },
+   "cs-section>cs-quote|BLOCKQUOTE|28.8px": {
+    "x": [
+     76,
+     80,
+     86
+    ],
+    "n": 3
+   },
+   "cs-section>cs-quote|P|28.8px": {
+    "x": [
+     76,
+     80,
+     86
+    ],
+    "n": 3
+   },
+   "cs-section>cs-facts|LI|17.28px": {
+    "x": [
+     69
+    ],
+    "n": 5
+   },
+   "cs-section>cs-timeline|LI|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 19
+   },
+   "cs-section>cs-timeline|H3|22.464px": {
+    "x": [
+     36
+    ],
+    "n": 19
+   },
+   "cs-section>cs-timeline|P|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 19
+   },
+   "cs-section>cs-cards>cs-card|H3|22.464px": {
+    "x": [
+     36
+    ],
+    "n": 10
+   },
+   "cs-section>cs-cards>cs-card|P|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 10
+   }
+  }
+ },
+ "teachr@390": {
+  "edge": 36,
+  "elements": {
+   "cs-hero>cs-eyebrow|P|15.36px": {
+    "x": [
+     46
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-cover-summary|P|22.464px": {
+    "x": [
+     30
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-cover-details|P|15.36px": {
+    "x": [
+     45
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-cards>cs-card>cs-card-title|P|22.464px": {
+    "x": [
+     160
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-cards>cs-card|P|17.28px": {
+    "x": [
+     39
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-cards>cs-related|P|15.36px": {
+    "x": [
+     37
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-summary|P|17.28px": {
+    "x": [
+     38
+    ],
+    "n": 1
+   },
+   "cs-section>cs-eyebrow|P|15.36px": {
+    "x": [
+     36
+    ],
+    "n": 7
+   },
+   "cs-section|H2|22.464px": {
+    "x": [
+     36
+    ],
+    "n": 7
+   },
+   "cs-section>cs-timeline|LI|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 4
+   },
+   "cs-section>cs-timeline|H3|22.464px": {
+    "x": [
+     36
+    ],
+    "n": 4
+   },
+   "cs-section|P|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 10
+   },
+   "cs-section|H3|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 1
+   },
+   "cs-section>cs-facts|LI|17.28px": {
+    "x": [
+     69
+    ],
+    "n": 3
+   }
+  }
+ },
+ "teachr-agent@390": {
+  "edge": 36,
+  "elements": {
+   "cs-hero>cs-eyebrow|P|15.36px": {
+    "x": [
+     46
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-cover-summary|P|22.464px": {
+    "x": [
+     31
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-cover-details|P|15.36px": {
+    "x": [
+     53
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-cards>cs-related|P|15.36px": {
+    "x": [
+     81
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-summary|P|17.28px": {
+    "x": [
+     61
+    ],
+    "n": 1
+   },
+   "cs-section>cs-eyebrow|P|15.36px": {
+    "x": [
+     36
+    ],
+    "n": 7
+   },
+   "cs-section|H2|22.464px": {
+    "x": [
+     36
+    ],
+    "n": 7
+   },
+   "cs-section>cs-timeline|LI|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 4
+   },
+   "cs-section>cs-timeline|H3|22.464px": {
+    "x": [
+     36
+    ],
+    "n": 4
+   },
+   "cs-section|P|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 23
+   },
+   "cs-section|H3|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 1
+   }
+  }
+ },
+ "digital-closet@390": {
+  "edge": 36,
+  "elements": {
+   "cs-hero>cs-eyebrow|P|15.36px": {
+    "x": [
+     135
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-cover-summary|P|22.464px": {
+    "x": [
+     50
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-cover-details|P|15.36px": {
+    "x": [
+     57
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-summary|P|17.28px": {
+    "x": [
+     44
+    ],
+    "n": 1
+   },
+   "cs-section>cs-eyebrow|P|15.36px": {
+    "x": [
+     36
+    ],
+    "n": 5
+   },
+   "cs-section|H2|22.464px": {
+    "x": [
+     36
+    ],
+    "n": 5
+   },
+   "cs-section>cs-quote|BLOCKQUOTE|28.8px": {
+    "x": [
+     67
+    ],
+    "n": 1
+   },
+   "cs-section>cs-quote|P|28.8px": {
+    "x": [
+     67
+    ],
+    "n": 1
+   },
+   "cs-section>cs-cards>cs-card|H3|22.464px": {
+    "x": [
+     36
+    ],
+    "n": 3
+   },
+   "cs-section>cs-cards>cs-card|P|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 3
+   },
+   "cs-section|P|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 5
+   },
+   "cs-section>cs-wide>cs-showcase|FIGCAPTION|15.36px": {
+    "x": [
+     25
+    ],
+    "n": 1
+   },
+   "cs-section|H3|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 3
+   },
+   "cs-section>cs-facts|LI|17.28px": {
+    "x": [
+     69
+    ],
+    "n": 2
+   },
+   "cs-section>cs-quotes>cs-quote|BLOCKQUOTE|17.28px": {
+    "x": [
+     49,
+     39,
+     54,
+     38,
+     66,
+     64,
+     52
+    ],
+    "n": 7
+   },
+   "cs-section>cs-quotes>cs-quote|P|17.28px": {
+    "x": [
+     49,
+     39,
+     54,
+     38,
+     66,
+     64,
+     52
+    ],
+    "n": 7
+   },
+   "cs-section>cs-section-intro|P|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 1
+   },
+   "cs-section>cs-comparison>cs-panel|H3|22.464px": {
+    "x": [
+     36
+    ],
+    "n": 3
+   },
+   "cs-section>cs-comparison>cs-panel|P|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 3
+   },
+   "cs-section>cs-timeline|LI|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 3
+   },
+   "cs-section>cs-timeline|H3|22.464px": {
+    "x": [
+     36
+    ],
+    "n": 3
+   },
+   "cs-section>cs-timeline|P|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 3
+   },
+   "cs-section>cs-twocol>cs-col|H3|22.464px": {
+    "x": [
+     36
+    ],
+    "n": 2
+   },
+   "cs-section>cs-twocol>cs-col|LI|17.28px": {
+    "x": [
+     49
+    ],
+    "n": 7
+   }
+  }
+ },
+ "fashion-rebrand@390": {
+  "edge": 36,
+  "elements": {
+   "cs-hero>cs-eyebrow|P|15.36px": {
+    "x": [
+     135
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-cover-summary|P|22.464px": {
+    "x": [
+     25
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-cover-details|P|15.36px": {
+    "x": [
+     61
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-footnote|P|15.36px": {
+    "x": [
+     45
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-summary|P|17.28px": {
+    "x": [
+     53
+    ],
+    "n": 1
+   },
+   "cs-section|H2|22.464px": {
+    "x": [
+     36
+    ],
+    "n": 6
+   },
+   "cs-section>cs-section-intro|P|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 3
+   },
+   "cs-section>cs-quote|BLOCKQUOTE|28.8px": {
+    "x": [
+     65
+    ],
+    "n": 1
+   },
+   "cs-section>cs-quote|P|28.8px": {
+    "x": [
+     65
+    ],
+    "n": 1
+   },
+   "cs-section>cs-cards>cs-card|H3|22.464px": {
+    "x": [
+     36
+    ],
+    "n": 5
+   },
+   "cs-section>cs-cards>cs-card|P|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 8
+   },
+   "cs-section>cs-cards>cs-card>cs-note|P|15.36px": {
+    "x": [
+     36
+    ],
+    "n": 2
+   },
+   "cs-section|H3|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 5
+   },
+   "cs-section>cs-facts|LI|17.28px": {
+    "x": [
+     69
+    ],
+    "n": 22
+   },
+   "cs-section|P|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 4
+   },
+   "cs-section>cs-comparison>cs-panel|H3|22.464px": {
+    "x": [
+     36
+    ],
+    "n": 4
+   },
+   "cs-section>cs-comparison>cs-panel|P|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 4
+   },
+   "cs-section>cs-comparison>cs-panel>cs-frame-caption|P|15.36px": {
+    "x": [
+     80,
+     111,
+     66
+    ],
+    "n": 3
+   },
+   "cs-section>cs-wide>cs-showcase|FIGCAPTION|15.36px": {
+    "x": [
+     3,
+     5
+    ],
+    "n": 2
+   },
+   "cs-section>cs-note|P|15.36px": {
+    "x": [
+     36
+    ],
+    "n": 2
+   },
+   "cs-section>cs-timeline|LI|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 4
+   },
+   "cs-section>cs-timeline|H3|22.464px": {
+    "x": [
+     36
+    ],
+    "n": 4
+   },
+   "cs-section>cs-timeline|P|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 4
+   },
+   "cs-section>cs-twocol>cs-col|H3|22.464px": {
+    "x": [
+     36
+    ],
+    "n": 2
+   },
+   "cs-section>cs-twocol>cs-col|LI|17.28px": {
+    "x": [
+     49
+    ],
+    "n": 6
+   }
+  }
+ },
+ "sports-ecommerce-redesign@390": {
+  "edge": 36,
+  "elements": {
+   "cs-hero>cs-eyebrow|P|15.36px": {
+    "x": [
+     135,
+     48
+    ],
+    "n": 2
+   },
+   "cs-hero>cs-cover-summary|P|22.464px": {
+    "x": [
+     43
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-cover-details|P|15.36px": {
+    "x": [
+     40
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-summary|P|17.28px": {
+    "x": [
+     43,
+     39
+    ],
+    "n": 2
+   },
+   "cs-section>cs-eyebrow|P|15.36px": {
+    "x": [
+     36
+    ],
+    "n": 10
+   },
+   "cs-section|H2|22.464px": {
+    "x": [
+     36
+    ],
+    "n": 11
+   },
+   "cs-section>cs-cards>cs-card|H3|22.464px": {
+    "x": [
+     36
+    ],
+    "n": 11
+   },
+   "cs-section>cs-cards>cs-card|P|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 8
+   },
+   "cs-section|H3|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 11
+   },
+   "cs-section>cs-facts|LI|17.28px": {
+    "x": [
+     69
+    ],
+    "n": 26
+   },
+   "cs-section>cs-timeline|LI|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 8
+   },
+   "cs-section>cs-timeline|H3|22.464px": {
+    "x": [
+     36
+    ],
+    "n": 8
+   },
+   "cs-section>cs-comparison>cs-panel|H3|22.464px": {
+    "x": [
+     36
+    ],
+    "n": 4
+   },
+   "cs-section>cs-comparison>cs-panel|P|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 4
+   },
+   "cs-section>cs-comparison>cs-panel>cs-frame-caption|P|15.36px": {
+    "x": [
+     74,
+     50,
+     45,
+     100,
+     42,
+     62
+    ],
+    "n": 6
+   },
+   "cs-section>cs-comparison>cs-panel>cs-note|P|15.36px": {
+    "x": [
+     36
+    ],
+    "n": 1
+   },
+   "cs-section>cs-wide>cs-showcase|FIGCAPTION|15.36px": {
+    "x": [
+     5
+    ],
+    "n": 1
+   },
+   "cs-section>cs-section-intro|P|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 1
+   },
+   "cs-hero|H2|38.4px": {
+    "x": [
+     49
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-subtitle|P|23.04px": {
+    "x": [
+     38
+    ],
+    "n": 1
+   },
+   "cs-hero>cs-byline|P|15.36px": {
+    "x": [
+     140
+    ],
+    "n": 1
+   },
+   "cs-section>cs-quote|BLOCKQUOTE|28.8px": {
+    "x": [
+     63
+    ],
+    "n": 1
+   },
+   "cs-section>cs-quote|P|28.8px": {
+    "x": [
+     63
+    ],
+    "n": 1
+   },
+   "cs-section|P|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 3
+   },
+   "cs-section>cs-cards>cs-card|LI|17.28px": {
+    "x": [
+     49
+    ],
+    "n": 6
+   },
+   "cs-section>cs-note|P|15.36px": {
+    "x": [
+     36
+    ],
+    "n": 1
+   },
+   "cs-section>cs-timeline|P|17.28px": {
+    "x": [
+     36
+    ],
+    "n": 3
+   }
+  }
+ }
+}

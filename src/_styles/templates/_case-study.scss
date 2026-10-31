@@ -790,18 +790,17 @@ $cs-indent: 28px;
       // override the token, never this rule
       background-color: var(--cs-chip-plate);
       border-radius: 12px;
-      // ticket 25 (rev) + 36: the dot sits ON the text edge (= the chip's
-      // own left edge now) and the text keeps the 8px clear gap after the
-      // 5px dot (text at edge + 13); symmetric padding
-      padding: 14px 13px 14px 13px;
+      // ticket 41: the plate carries inner padding for its dot — the dot
+      // sits one step in ($cs-indent - 8), the text keeps the 8px clear
+      // gap after the 5px dot ($cs-indent + 5); no flush-at-the-edge dots
+      padding: 14px ($cs-indent + 5px) 14px ($cs-indent + 5px);
       margin-bottom: 8px;
 
-      // Small bullet dot on the text edge — ticket 19's rule applied to
-      // chips (supersedes the 22b "dot 8px before the text" geometry)
+      // Small bullet dot inside the plate's left padding
       &::before {
         content: '';
         position: absolute;
-        left: 0;
+        left: ($cs-indent - 8px);
         top: calc(14px + 0.515em);
         width: 5px;
         height: 5px;

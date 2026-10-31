@@ -90,6 +90,9 @@ MEASURE_JS = """(cfg) => {
     const rendered = cs.display !== 'none' && cs.content !== 'none' &&
       cs.content !== '' && parseFloat(cs.width) > 0;
     const lr = li.getBoundingClientRect();
+    // plated chips (ticket 41): the dot sits INSIDE the plate
+    const plated = li.parentElement &&
+      String(li.parentElement.className).indexOf('cs-facts') !== -1;
     let textLeft = null;
     const w = document.createTreeWalker(li, NodeFilter.SHOW_TEXT);
     let n;
@@ -101,7 +104,7 @@ MEASURE_JS = """(cfg) => {
         if (rr && rr.width) { textLeft = rr.left; break; }
       }
     }
-    dots.push({rendered: rendered, liL: lr.left,
+    dots.push({rendered: rendered, plated: plated, liL: lr.left,
       dotL: rendered ? lr.left + parseFloat(cs.left || 0) : null,
       textL: textLeft});
   });
@@ -197,9 +200,14 @@ def audit(baseUrl, jsonOut):
                             )
                 for dt in d["dots"]:
                     if dt["rendered"] and te is not None:
-                        if abs(dt["dotL"] - te) > DOT_TOLERANCE:
-                            probs.append(f"dot off text edge ({dt['dotL']:.1f} vs {te:.1f})")
-                        # 4px clear gap after the 5px dot (ticket 36)
+                        # plated chips: dot 20px inside the plate (ticket 41);
+                        # plateless dots ON the text edge
+                        expectedDot = te + (CS_INDENT - 8) if dt["plated"] else te
+                        if abs(dt["dotL"] - expectedDot) > DOT_TOLERANCE:
+                            probs.append(
+                                f"dot off expected x ({dt['dotL']:.1f} vs {expectedDot:.1f})"
+                            )
+                        # 8px clear gap after the 5px dot (ticket 36)
                         if dt["textL"] is not None and abs(dt["textL"] - dt["dotL"] - 5 - 8) > DOT_TOLERANCE:
                             probs.append(f"bullet text gap != 8px clear ({dt['textL'] - dt['dotL'] - 5:.1f})")
                 for an in d["anns"]:

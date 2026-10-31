@@ -734,3 +734,41 @@ rgba(255, 255, 255, 0.06)` — the documented dark-ground instance;
 - [x] ecommerce/teachr/closet/workflow chips: computed styles unchanged
 - [ ] box-audit + edge-audit CLEAN; axe zero violations (1440 + 390);
       lint + format pass; before/after captures for Pedro
+
+---
+
+# Ticket 41: Chip plate inner padding — dot inside the plate, not flush
+
+- Part of: `plan-bullets-cards.md` (Pedro, 2026-10-31, screenshot:
+  "add padding to the container, unify them"); DR-0009 amendment
+- Size: S
+- Type: UI
+- Supersedes: the t39 dot position (`left: 0`) for plated chips only
+- Pages: all with chips (fashion, ecommerce, teachr, closet, visuAI)
+- Status: DONE 2026-10-31 - chips: dot at $cs-indent - 8 (20px inside
+  the plate), text at edge + 33; plateless lists unchanged (dot on the
+  edge, +13). AUDIT FIX found during verification: edge-audit's ctx
+  normalization was broken by the shells' 'section'/'case-study'
+  classes - the audit had been VACUOUSLY CLEAN (zero rows matched the
+  edge-vote check); fixed, plus cs-quote added to DISPLAY_CTX (centered
+  quotes, 24 real flags the vacuous runs missed). BOX + EDGE AUDIT
+  CLEAN, axe zero on all 7 pages (1440 + 390); close-up captures for
+  Pedro
+
+## Requirements
+
+- `.cs-facts li`: dot `left: ($cs-indent - 8px)` (20px inside the
+  plate), text `padding-left: ($cs-indent + 5px)` (33px — 8px clear gap
+  after the 5px dot), symmetric right padding.
+- `.cs-plain`, in-box lists, resume lists: unchanged (plateless — dot
+  stays ON the text edge).
+- box-audit: chip dots expected at edge + ($cs-indent − 8) ± 1;
+  plateless dots at edge ± 1.
+
+## Acceptance criteria (agent-checkable)
+
+- [x] Chip dots: 20px ± 1 inside the plate's left edge on every chip
+      page (measured at 1440 + 390); text 8px ± 1 clear after the dot
+- [x] Plateless lists unchanged: dot on the text edge ± 1 (measured)
+- [x] box-audit + edge-audit CLEAN; axe zero violations (1440 + 390);
+      lint + format pass; close-up captures for Pedro
