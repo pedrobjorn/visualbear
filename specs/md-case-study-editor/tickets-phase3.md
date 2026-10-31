@@ -458,7 +458,7 @@ revokes the gutter-hang for bullets.
    never clipped by container overflow, never removed by container
    styling. Any container edit must re-verify dot visibility.
 2. **Bulleted lists indent slightly**: the dot sits ON the text edge
-   (dot left = 0 of the li), the text indents 16px past it. Not flush,
+   (dot left = 0 of the li), the text indents 8px past it (v3: Pedro set it at 8). Not flush,
    not a deep indent — "indented a bit".
 3. **Exceptions (dots may hang in the gutter)**: timeline step numbers
    and annotation points only — they are step/point markers with their
@@ -467,16 +467,16 @@ revokes the gutter-hang for bullets.
 Amendment to DR-0009 (appended, not rewritten):
 
 - Bullet lists (the plain `ul` lists in sections, twocol boxes and
-  comparison panels) sit at **text edge + 16px**: the dot marker starts
-  on the text edge (dot left 0), the text indents 16px.
+  comparison panels) sit at **text edge + 8px**: the dot marker starts
+  on the text edge (dot left 0), the text indents 8px.
 - The 18c gutter-hang is REVOKED for bullet lists; it stands for the
   timeline and annotation points.
-- The edge-audit tool allows list items at edge + 16px ±2 as well as the
+- The edge-audit tool allows list items at edge + 8px ±2 as well as the
   edge itself.
 
 Acceptance criteria:
 
-- [x] Plain `ul` list text sits at text edge + 16px (±2px), dot marker at
+- [x] Plain `ul` list text sits at text edge + 8px (±2px), dot marker at
       the text edge (±2px), on all case-study pages at 1440 and 390
 - [x] Dots pixel-verified rendered (not just computed) — sampled dot
       positions in a full-page capture show the dot pixels

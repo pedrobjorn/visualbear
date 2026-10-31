@@ -771,7 +771,8 @@ $cs-indent: 28px;
 
     li {
       position: relative;
-      padding-left: 16px;
+      // bullet indent: 8px past the dot (Pedro, ticket 19 v3)
+      padding-left: 8px;
 
       &::before {
         content: '';
