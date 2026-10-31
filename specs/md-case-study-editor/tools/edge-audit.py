@@ -26,7 +26,8 @@ VIEWPORTS = [1440, 390]
 
 # components whose text is allowed off the edge (display/label tiers)
 DISPLAY_CTX = ("cs-hero", "cs-frame", "cs-showcase", "cs-quotes",
-               "cs-pullquote", "cs-summary", "cs-footnote")
+               "cs-pullquote", "cs-summary", "cs-footnote",
+               "cs-frame-caption")
 
 
 def audit(baseUrl, jsonOut):

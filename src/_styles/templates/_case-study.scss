@@ -502,6 +502,17 @@ $cs-indent: 28px;
     }
   }
 
+  // Image caption (ticket 37, DR-0011): a [point:] that follows an
+  // image/frames line renders as this caption — no dot, italic, the
+  // figcaption treatment (centered, label tier, axe-verified ink)
+  .cs-frame-caption {
+    margin: 8px 0 0;
+    font-size: $middle-font-size;
+    font-style: italic;
+    color: #5f6264;
+    text-align: center;
+  }
+
   // ------------------------------------------------------------------
   // Quotes
   // ------------------------------------------------------------------
@@ -760,8 +771,10 @@ $cs-indent: 28px;
   }
 
   .cs-facts {
-    // the chip list bleeds one step; li padding puts text on the edge
-    margin: 16px (-$cs-indent) 16px;
+    // ticket 39 (DR-0009 amendment): the chip is a bullet component, not
+    // a display box — it sits INSIDE the container, box edges on the
+    // text column (no bleed)
+    margin: 16px 0;
     padding: 0;
     list-style: none;
 
@@ -769,12 +782,10 @@ $cs-indent: 28px;
       position: relative;
       background-color: rgba(255, 255, 255, 0.45);
       border-radius: 12px;
-      // ticket 25 (rev) + 35: the plate bleeds $cs-indent, so the dot at
-      // $cs-indent sits exactly ON the text edge; the text takes a 4px
-      // clear gap after the 5px dot (text at edge + 13) — the same
-      // breathing room as every bullet list; symmetric right padding
-      // keeps text off the right text edge
-      padding: 14px ($cs-indent + 13px) 14px ($cs-indent + 13px);
+      // ticket 25 (rev) + 36: the dot sits ON the text edge (= the chip's
+      // own left edge now) and the text keeps the 8px clear gap after the
+      // 5px dot (text at edge + 13); symmetric padding
+      padding: 14px 13px 14px 13px;
       margin-bottom: 8px;
 
       // Small bullet dot on the text edge — ticket 19's rule applied to
@@ -782,7 +793,7 @@ $cs-indent: 28px;
       &::before {
         content: '';
         position: absolute;
-        left: $cs-indent;
+        left: 0;
         top: calc(14px + 0.515em);
         width: 5px;
         height: 5px;
@@ -796,20 +807,21 @@ $cs-indent: 28px;
   // DR-0010): the chip geometry minus the plate — the list bleeds one
   // step, the dot sits ON the text edge, the text +8px
   .cs-section ul.cs-plain {
-    margin: 16px (-$cs-indent) 16px;
+    // ticket 39: inside the container, like the chips — no bleed
+    margin: 16px 0;
     padding: 0;
     list-style: none;
 
     li {
       position: relative;
       // 8px clear gap after the 5px dot — 2x (ticket 36)
-      padding-left: $cs-indent + 13px;
+      padding-left: 13px;
       margin-bottom: 8px;
 
       &::before {
         content: '';
         position: absolute;
-        left: $cs-indent;
+        left: 0;
         top: 0.73em;
         width: 5px;
         height: 5px;
@@ -981,6 +993,15 @@ body.cs-pink-page nav.site-nav {
   background-color: #fafafa;
 
   --cs-accent: #{$cs-black};
+
+  // Fashion chip plates (ticket 38): white at 0.45 composited to a delta
+  // of 2 units on this near-white ground — invisible (22b gate: >= 8,
+  // unreachable with a brighter fill here since solid white maxes at 5).
+  // Full opacity + a hairline border carry the definition instead.
+  .cs-facts li {
+    background-color: #fff;
+    border: 1px solid rgba(17, 17, 17, 0.08);
+  }
 
   .cs-eyebrow {
     color: $cs-black;

@@ -129,6 +129,15 @@ function renderFlow(lines) {
   // in source order
   const out = [];
   let buf = [];
+  // ticket 37 / DR-0011: a [point:] that follows an image/frames line is
+  // a CAPTION, not an annotated point — no dot, caption styling. A run of
+  // points after one image is ALL caption text below that image (ecommerce
+  // has 2-3 point runs per frame).
+  let prevWasImage = false;
+  let captionRun = false;
+  const isImageLine = function (t) {
+    return /^\[(frame|image|figure):\s*/.test(t) || /^!\[[^\]]*\]\(/.test(t);
+  };
   const flush = function () {
     if (!buf.length) return;
     out.push(marked(buf.join('\n'), { renderer: new marked.Renderer() }));
@@ -143,9 +152,20 @@ function renderFlow(lines) {
     const dir = expandDirective(t);
     if (dir) {
       flush();
-      out.push(dir);
+      if (/^\[point:\s*/.test(t) && (prevWasImage || captionRun)) {
+        // caption variant: dotless, italic, centered under the image
+        const m = t.match(/^\[point:\s*(.*)\]$/);
+        out.push('<p class="cs-frame-caption">' + esc(m[1]) + '</p>');
+        captionRun = true;
+      } else {
+        out.push(dir);
+        captionRun = false;
+      }
+      prevWasImage = isImageLine(t);
       continue;
     }
+    captionRun = false;
+    prevWasImage = isImageLine(t);
     buf.push(t);
   }
   flush();

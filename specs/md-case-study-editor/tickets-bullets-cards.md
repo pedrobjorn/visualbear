@@ -552,6 +552,10 @@ the dot. Pedro wants 4px of clear space.
 - Type: UI + system
 - Pages: fashion-rebrand (3), sports-ecommerce-redesign (5) — every
   `[point:]` in the content today
+- Status: DONE 2026-10-31 - renderer emits `p.cs-frame-caption` for
+  image-following points INCLUDING point runs after one image (ecommerce
+  6, fashion 3 — zero annotation dots remain); italic/centered/15.36px/
+  #5f6264 computed-verified; AUTHORING.md sync pending (ticket 29)
 
 ## Context
 
@@ -578,17 +582,104 @@ caption look.
 
 ## Acceptance criteria (agent-checkable)
 
-- [ ] All 8 image-following points on fashion + ecommerce: zero dots
+- [x] All 8 image-following points on fashion + ecommerce: zero dots
       (computed-style: no `.cs-annotation-dot` in the rendered variant),
       italic, centered, label tier — measured at 1440 and 390
-- [ ] The image + caption pair reads as one figure (caption within the
+- [x] The image + caption pair reads as one figure (caption within the
       figure's markup or immediately adjacent, axe region/image checks pass)
-- [ ] axe zero violations on all 7 pages at 1440 + 390; edge audit
+- [x] axe zero violations on all 7 pages at 1440 + 390; edge audit
       clean (caption text exempt as a display element); box-audit clean
 - [ ] AUTHORING.md documents the image-following rule
-- [ ] lint + format pass; before/after captures for Pedro
+- [x] lint + format pass; before/after captures for Pedro
 
 ## Open questions
 
 - Centered (figcaption-like, recommended) vs left-aligned italic on the
   panel text edge — owner: Pedro, vetoable; default builds centered.
+
+---
+
+# Ticket 38: Fashion chip plates brighter / less transparent
+
+- Part of: `plan-bullets-cards.md` (Pedro, 2026-10-31: "make the chips
+  in the fashion case study brighter / less transparent")
+- Size: S
+- Type: UI
+- Page: `fashion-rebrand` (scoped to the cs-black theme)
+- Status: DONE 2026-10-31 (option A) - cs-black chips solid #fff + hairline border rgba(17,17,17,.08); ecommerce/teachr/closet chips unchanged (computed-style verified)
+- Status: SPEC'D 2026-10-31 — eval below
+
+## Eval (measured, 2026-10-31)
+
+All 22 fashion chips sit on the `#fafafa` ground with the shared plate
+`rgba(255,255,255,0.45)` → composited brightness delta **2 units**
+(ticket 22b's visibility gate: ≥ 8). The plates are effectively
+invisible on fashion — on the tinted grounds (ecommerce #fdf0f7, teachr
+#f0f8f6) the same plate reads fine.
+
+## The constraint that shapes the fix
+
+On a #fafafa ground, a brighter plate CANNOT reach the 8-unit gate:
+solid white maxes at delta 5. So visibility must come from full opacity
+PLUS edge definition. Two options:
+
+- **A (recommended)**: cs-black-scoped chip plate `#ffffff` solid +
+  hairline border `1px solid rgba(17,17,17,0.08)`. Plate reads as a
+  crisp white card on the off-white ground; no page-wide change.
+- **B (vetoable, page-wide)**: darken the fashion ground to #f5f5f6 →
+  solid white plates hit delta 10 with no border. Changes every
+  section's feel on the page — Pedro's call.
+
+## Requirements (option A default)
+
+- `.case-study.cs-black .cs-facts li { background-color: #fff;
+border: 1px solid rgba(17,17,17,0.08) }` — theme-scoped, no new
+  tokens beyond the two literal values (documented at the rule).
+- Other pages' chips unchanged (they pass the gate on tinted grounds).
+- If Pedro picks B, the border drops and the ground changes instead —
+  full-page captures either way.
+
+## Acceptance criteria (agent-checkable)
+
+- [x] Fashion chips: plate delta vs local ground measured; option A =
+      solid white + border present (computed-style) — or option B =
+      delta ≥ 8 pixel-sampled at multiple chips
+- [x] Chips on ecommerce/teachr/closet unchanged (computed-style diff:
+      no background/border change)
+- [x] axe zero violations (contrast: chip text on solid white unchanged
+      4.5+); box-audit + edge-audit clean; captures for Pedro
+
+---
+
+# Ticket 39: Chip edges inside the container, not on the bleed edge
+
+- Part of: `plan-bullets-cards.md` (Pedro, 2026-10-31: "set the edges
+  of the chip inside the bleed, not outside the bleed of the
+  container"); DR-0009 amendment (ticket 39)
+- Size: S
+- Type: UI
+- Pages: all 7 (chips + cs-plain are global components)
+- Status: DONE 2026-10-31 - chips/cs-plain at the text edge (352-1088 @1440, measured), dot on the edge, +13 text; cards/summary/cols still on the bleed edge; box-audit updated to the per-class expected edge and CLEAN
+
+## Requirements
+
+- `.cs-facts` and `.cs-plain`: `margin: 16px 0` (was
+  `16px (-$cs-indent)`) — the chip box spans the text column
+  (352–1088 at 1440), inside the container.
+- Dot moves to the chip's own left edge: `left: 0` (still ON the text
+  edge); text stays at +13 (8px clear gap, ticket 36); horizontal
+  padding stays 13px.
+- Cards, summary, quote groups, cols KEEP their bleed (DR-0009 stands
+  for display boxes).
+- box-audit: chips and cs-plain now checked against the TEXT edge
+  (±2px); the bleed-edge check keeps applying to the remaining boxes.
+
+## Acceptance criteria (agent-checkable)
+
+- [x] On all pages at 1440: chip/cs-plain box edges == section text
+      edge ± 2 (352 / 1088); at 390 == text edge (36) ± 2
+- [x] Dot ON the text edge (±1), text at +13 (±1) — measured
+- [x] Cards/summary/cols/quote groups still on the bleed edge
+      (324–1116 at 1440) — measured
+- [x] box-audit + edge-audit updated and CLEAN; axe zero violations
+      (1440 + 390, all 7 pages); lint + format pass; captures for Pedro

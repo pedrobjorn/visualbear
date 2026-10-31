@@ -44,6 +44,9 @@ VIEWPORTS = [1440, 1024, 768, 780, 390]
 EXEMPT_BLEED = ("cs-metric", "cs-frame", "cs-showcase", "cs-wide",
                 "cs-hero", "cs-panel", "cs-annotation", "cs-quote",
                 "cs-metrics", "cs-table")
+# bullet components sit INSIDE the container (ticket 39, DR-0009
+# amendment): their boxes align to the TEXT edge, not the bleed edge
+TEXT_EDGE_BOXES = ("cs-facts", "cs-plain")
 # the full-bleed tier touches the viewport edge BY DESIGN — exempt from
 # the 8px viewport-margin rule too
 EXEMPT_VIEWPORT = ("cs-wide", "cs-frame", "cs-table")
@@ -64,8 +67,13 @@ MEASURE_JS = """(cfg) => {
         if (ox === 'auto' || ox === 'scroll') { clipped = true; break; }
         a = a.parentElement;
       }
-      boxes.push({cls: String(e.className).split(' ')[0],
-                  l: r.left, r: r.right, clipped: clipped});
+      // lis carry no class of their own — resolve from the list parent
+      // (ul.cs-facts / ol.cs-timeline) so the edge checks key correctly
+      let cls = String(e.className).split(" ")[0];
+      if (!cls && e.tagName === "LI" && e.parentElement) {
+        cls = String(e.parentElement.className).split(" ")[0];
+      }
+      boxes.push({cls: cls, l: r.left, r: r.right, clipped: clipped});
   });
   const textEdgeEl = document.querySelector('.cs-section .cs-eyebrow') ||
     document.querySelector('main .cs-section > p') ||
@@ -182,8 +190,11 @@ def audit(baseUrl, jsonOut):
                     ):
                         probs.append(f"{bx['cls']} within {BOX_MARGIN}px of viewport edge [{bx['l']:.0f},{bx['r']:.0f}]")
                     elif bleedEdge is not None and bx["cls"] not in EXEMPT_BLEED:
-                        if abs(bx["l"] - bleedEdge) > BLEED_TOLERANCE:
-                            probs.append(f"{bx['cls']} off bleed edge (l {bx['l']:.0f} vs {bleedEdge:.0f})")
+                        expected = te if bx["cls"] in TEXT_EDGE_BOXES else bleedEdge
+                        if abs(bx["l"] - expected) > BLEED_TOLERANCE:
+                            probs.append(
+                                f"{bx['cls']} off expected edge (l {bx['l']:.0f} vs {expected:.0f})"
+                            )
                 for dt in d["dots"]:
                     if dt["rendered"] and te is not None:
                         if abs(dt["dotL"] - te) > DOT_TOLERANCE:
