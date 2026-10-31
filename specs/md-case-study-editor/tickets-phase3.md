@@ -259,7 +259,24 @@ Acceptance criteria:
 - [ ] axe re-run: zero violations (contrast holds at the new sizes)
 - [ ] Full-page captures before/after per page, reviewed by Pedro
 
-## Ticket 18c — One text edge: boxes bleed, markers hang (SPEC v2, refined — awaiting Pedro's approval)
+## Ticket 18c — One text edge: boxes bleed, markers hang (SPEC v2 — APPROVED, BUILT)
+
+Status: DONE 2026-10-29 — approved by Pedro ("the boxes can live within
+the bleed"), built with 18d. Decision recorded in `DR-0009.md`. The
+hero-summary-as-display-element call (item 6) was not vetoed and stands.
+
+Build results (evidence: `evidence/edge-after.json`,
+`evidence/axe-final.json`):
+
+- `edge-audit.py` (repo tool): **EDGE AUDIT CLEAN** — every body-level
+  element within ±2px of the section text edge on all 7 pages at 1440
+  and 390
+- Implementation matches the spec: `$cs-indent` token; cards/pull-quotes
+  bleed individually, fact chips bleed at the list level, quote groups
+  bleed at the container level; timeline dot column in the gutter
+  (margin-left −28, column 28, gap 0); plain-list and annotation dots
+  hang (−14/−16); twocol double indent removed; hero summary box centered
+- Quotes are display elements on every page (centered, italic, h2-size)
 
 Pedro's verdict on the second pass: sizes are unified now, but fashion-
 rebrand (and the other case studies) still read as indented + variant —
@@ -365,7 +382,64 @@ All changes live in `_case-study.scss` (+ nav/footer scoping already
 landed separately); a single `git revert` restores the prior state. No
 markdown content changes.
 
-Open question (owner: Pedro): approve the bleeding-boxes look and the
-hero-summary-as-display-element call (item 6)? Alternative for the boxes:
-flush them to the text column — but that keeps a second edge, which is
-what he asked to remove.
+Open question (owner: Pedro): ~~approve the bleeding-boxes look and the
+hero-summary-as-display-element call (item 6)?~~ RESOLVED: approved
+2026-10-29; see DR-0009.
+
+## Ticket 18d — Full-bleed tier: images, tables and background sections span the viewport (BUILT)
+
+Status: DONE 2026-10-29 — built with 18c.
+
+Build results:
+
+- Showcases (frames and bare images) and tables render
+  `cs-wide cs-wide--full`; measured on fashion-rebrand: all three
+  containers span 1440 at left 0 — true edge-to-edge (was inset 48px
+  per side)
+- `.cs-showcase img` fills the wrapper (`width: 100%`); captions stay
+  centered, constrained to 680px
+- `::: type full` modifier parses (id optional) and injects `cs-full`
+  into the container's class attribute (a first pass injected it as a
+  broken standalone attribute — caught by the unit render test and fixed)
+- `quotes` is NOT a container type (quote groups form from `>` runs) —
+  the spec example corrected; band-styling a quote group would be a
+  shell concern
+- axe: zero violations; edge audit: clean; captures:
+  `~/Desktop/cs-typography/after-v2/`
+
+Pedro: "some images are not full width it seems, just wider. have some
+elements be full width." Verified: `.cs-wide` IS a 100vw wrapper but pads
+its contents 48px each side (16px on small screens) — so images and
+tables inside it stop 96px short of the edges: wider than text, never
+full. Real `<img>` + figcaption without a frame don't even get `cs-wide`
+— they sit in the text column.
+
+### Tier 3: full-bleed (adds to DR-0009's layout system)
+
+1. **Images / showcases** — full-bleed by default: the showcase wrapper
+   renders `cs-wide cs-wide--full` (padding 0); the image spans the
+   viewport (`display: block; width: 100%; height: auto`); the caption
+   stays centered, constrained to the text column width. Placeholder
+   frames (`[image:]`) follow the same wrapper. Authors: use reasonably
+   large images — small sources will upscale (note in AUTHORING.md).
+2. **Tables** — `cs-wide cs-wide--full` as well; the table spans the
+   viewport with its cell padding intact.
+3. **Background sections (opt-in)** — a container modifier in the
+   markdown: `::: metrics full`, `::: cards full` (note: `quotes` is not
+   a container type — quote groups form automatically from consecutive
+   `>` lines, so band-styling a quote group is a shell/future concern).
+   The container's background spans the viewport (same 100vw technique);
+   its content stays inside the bleed width. Parser: container open
+   lines accept `full` as a modifier token before the optional id
+   (`::: type full id` / `::: type full`).
+
+Acceptance criteria:
+
+- [ ] Images and tables rendered through cs-wide span the full viewport
+      width at 1440 and 390 (measured: element width = viewport width)
+- [ ] Caption stays within the text column, centered
+- [ ] `::: <type> full` renders the container's background edge-to-edge
+      with content inside the bleed width (verified on a test container)
+- [ ] Existing content pages still render (the modifier is opt-in; the
+      image/table default changes are the only behavioral default)
+- [ ] axe: zero violations; full-page before/after captures for review
