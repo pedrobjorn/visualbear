@@ -258,3 +258,66 @@ Acceptance criteria:
       368/376/380/384/396/418/436/439 scatter); measured on all 6 pages
 - [ ] axe re-run: zero violations (contrast holds at the new sizes)
 - [ ] Full-page captures before/after per page, reviewed by Pedro
+
+## Ticket 18c — One text edge: boxes bleed, markers hang (REVIEW + SPEC, awaiting Pedro's approval)
+
+Pedro's verdict on the second pass: sizes are unified now, but fashion-
+rebrand (and the other case studies) still read as indented + variant —
+he is right. Measured at his viewport (Chrome, 1440 window = 1425 css px):
+
+| Content                                                   | Left edge | Offset from the text edge |
+| --------------------------------------------------------- | --------- | ------------------------- |
+| Section body/h2/h3, comparison panels, notes, lone quotes | 345       | 0 — the edge              |
+| Annotation points                                         | 361       | +16                       |
+| Cards, fact chips (22 on fashion), timeline, twocol heads | 373       | +28                       |
+| Summary box                                               | 381       | +36                       |
+| twocol list items                                         | 389       | +44 (double indent)       |
+| Cover/eyebrow/footnote/figcaptions                        | centered  | display elements          |
+
+Root cause of the lingering variance: my "tier system" kept every
+component's padding as a legitimate tier. Five edges for body-level
+content is not a system — it is the scatter Pedro flagged, one level up.
+
+Also found: on light pages a lone pull quote renders as a plain
+left-aligned paragraph (the quote display styling only exists on the
+workflow page) — a quote that looks like body text is a hierarchy failure.
+
+### Proposed system (one edge, hanging markers, bleeding boxes)
+
+1. **One text edge** — ALL body-level text (paragraphs, list text, boxed
+   content, timeline steps) aligns to the section text edge (345/352).
+2. **Boxes bleed, text stays** — cards, fact chips, the summary box and
+   quote-group cards get `margin: 0 -28px` (symmetric bleed into the
+   gutters) keeping their 28px padding: the colored box extends past the
+   text column on both sides; the text does not move. Below the small
+   breakpoint the bleed and padding shrink to 16px so boxes never touch
+   the viewport edge.
+3. **Markers hang in the gutter** — plain list dots, annotation dots and
+   the timeline's numbered dots move into the left gutter (negative
+   offset), their text on the edge. The timeline grid becomes
+   `margin-left: -28px` + `grid-template-columns: 28px 1fr`, text at the
+   edge; its connector line moves with the dot column.
+4. **twocol lists** — drop the inner `padding-left: 20px` (double
+   indent); markers hang inside the box's own padding.
+5. **Quotes everywhere get the display treatment** — the workflow quote
+   style (centered, italic, h2-size, generous margins) applies on the
+   light pages too, so a quote never reads as a body paragraph.
+6. Labels stay as-is: eyebrows/notes/annotations text 15.36, centered
+   cover/figcaption/footnote stay centered display elements.
+
+Acceptance criteria:
+
+- [ ] One measured text edge for all body-level content on every
+      case-study page (345/352 at 1425/1440; scaled equivalents at other
+      viewports) — no +16/+28/+36/+44 scatter
+- [ ] Boxes visually bleed but no box touches the viewport edge at
+      390-1440
+- [ ] Quotes are visually distinct from body text on every page
+- [ ] axe: zero violations after the change
+- [ ] Full-page before/after captures per page for Pedro's review
+- [ ] Timeline dots/connector line still align with their steps
+
+Open question (owner: Pedro): approve the bleeding-boxes look? The
+alternative is flushing boxes to the text column (narrower boxes, text
+still indented inside them) — but that keeps a second edge for boxed
+content, which is what he asked to remove.
