@@ -259,7 +259,7 @@ Acceptance criteria:
 - [ ] axe re-run: zero violations (contrast holds at the new sizes)
 - [ ] Full-page captures before/after per page, reviewed by Pedro
 
-## Ticket 18c — One text edge: boxes bleed, markers hang (REVIEW + SPEC, awaiting Pedro's approval)
+## Ticket 18c — One text edge: boxes bleed, markers hang (SPEC v2, refined — awaiting Pedro's approval)
 
 Pedro's verdict on the second pass: sizes are unified now, but fashion-
 rebrand (and the other case studies) still read as indented + variant —
@@ -274,50 +274,98 @@ he is right. Measured at his viewport (Chrome, 1440 window = 1425 css px):
 | twocol list items                                         | 389       | +44 (double indent)       |
 | Cover/eyebrow/footnote/figcaptions                        | centered  | display elements          |
 
-Root cause of the lingering variance: my "tier system" kept every
-component's padding as a legitimate tier. Five edges for body-level
-content is not a system — it is the scatter Pedro flagged, one level up.
+Root cause: the v1 "tier system" kept every component's padding as a
+legitimate tier. Five edges for body-level content is the scatter Pedro
+flagged, one level up. Secondary finding: on light pages a lone pull
+quote renders as a plain left-aligned paragraph (the display styling
+only exists on the workflow page) — a quote that reads as body text is a
+hierarchy failure.
 
-Also found: on light pages a lone pull quote renders as a plain
-left-aligned paragraph (the quote display styling only exists on the
-workflow page) — a quote that looks like body text is a hierarchy failure.
+### Refined system
 
-### Proposed system (one edge, hanging markers, bleeding boxes)
+**New token**: `$cs-indent: 28px` (defined once in `_case-study.scss`).
+Every value below references it — no raw 28px scattered across rules. It
+is the single indent step of the case-study layout: box padding, box
+bleed, timeline gutter, marker hang.
 
-1. **One text edge** — ALL body-level text (paragraphs, list text, boxed
-   content, timeline steps) aligns to the section text edge (345/352).
-2. **Boxes bleed, text stays** — cards, fact chips, the summary box and
-   quote-group cards get `margin: 0 -28px` (symmetric bleed into the
-   gutters) keeping their 28px padding: the colored box extends past the
-   text column on both sides; the text does not move. Below the small
-   breakpoint the bleed and padding shrink to 16px so boxes never touch
-   the viewport edge.
-3. **Markers hang in the gutter** — plain list dots, annotation dots and
-   the timeline's numbered dots move into the left gutter (negative
-   offset), their text on the edge. The timeline grid becomes
-   `margin-left: -28px` + `grid-template-columns: 28px 1fr`, text at the
-   edge; its connector line moves with the dot column.
-4. **twocol lists** — drop the inner `padding-left: 20px` (double
-   indent); markers hang inside the box's own padding.
-5. **Quotes everywhere get the display treatment** — the workflow quote
-   style (centered, italic, h2-size, generous margins) applies on the
-   light pages too, so a quote never reads as a body paragraph.
-6. Labels stay as-is: eyebrows/notes/annotations text 15.36, centered
-   cover/figcaption/footnote stay centered display elements.
+1. **One text edge** — all body-level text (paragraphs, list text, boxed
+   content, timeline step text) aligns to the section text edge. After
+   the change, the measured text-left of every body-level element is
+   within ±2px of the section edge on each page.
+2. **Boxes bleed, text stays** — `cs-card`, `cs-facts li`, `cs-summary`
+   get `margin-left/right: -$cs-indent`, keeping `$cs-indent` padding:
+   the box extends one step into each gutter; the text does not move.
+   Below `$break-small` the bleed and padding drop to 16px (boxes must
+   never touch the viewport edge — verified at 390). Precedent: the
+   metric chips already bleed this way (`margin: 32px -16px 0`) — this
+   system formalizes it at one step; the metrics keep their -16 (a
+   horizontal chip row with its own rhythm — accepted exception,
+   vetoable).
+3. **Markers hang in the gutter**:
+   - plain list dots: `li` padding-left 0, dot offset into the gutter
+   - annotation dots: same pattern
+   - timeline: `li` gets `margin-left: -$cs-indent`,
+     `grid-template-columns: $cs-indent 1fr`, gap 0 — dot column in the
+     gutter, step text on the edge; the connector line is re-anchored to
+     the dot column center
+4. **twocol lists** — remove `padding-left: 20px` (double indent); the
+   dot hangs inside the box's own padding like every other list.
+5. **Quotes are display elements everywhere** — the workflow quote
+   treatment (centered, italic, `$base-h2-size`, 64px vertical rhythm)
+   moves from the cs-workflow scope into the shared case-study scope, so
+   lone and grouped quotes read as quotes on light pages too. Lone
+   quotes are text (no box, no bleed); quote-group cards bleed at the
+   `.cs-quotes` container level — once, not per card — so a future
+   multi-column group cannot double the margins.
+6. **Hero summary box** — display element like the quotes: its text is
+   centered (it sits in the centered hero; a left text edge there cannot
+   match the section edge without breaking the hero's composition).
+   Pedro can veto this to "left text, box bleeds to the section edges"
+   instead.
+7. **Unchanged** — cover summary/details/eyebrow/footnote (centered hero
+   text), image/proof frames and their centered labels (visual boxes,
+   not text containers), `cs-wide` full-bleed containers (already
+   edge-to-edge), the metric chips' -16 rhythm, all type sizes from
+   Tickets 18/18b, the dark workflow ground colors.
 
-Acceptance criteria:
+### Verification protocol (reproducible, not vibes)
 
-- [ ] One measured text edge for all body-level content on every
-      case-study page (345/352 at 1425/1440; scaled equivalents at other
-      viewports) — no +16/+28/+36/+44 scatter
-- [ ] Boxes visually bleed but no box touches the viewport edge at
-      390-1440
-- [ ] Quotes are visually distinct from body text on every page
-- [ ] axe: zero violations after the change
-- [ ] Full-page before/after captures per page for Pedro's review
-- [ ] Timeline dots/connector line still align with their steps
+- The measurement script becomes a repo tool:
+  `specs/md-case-study-editor/tools/edge-audit.js` (text-left + font-size
+  per element, grouped by component) — rerunnable evidence, not session
+  scratch. Capture scripts stay session-local; the captures are artifacts.
+- Edge audit on all 7 pages at 1440 and 390, before and after; reports
+  committed under `specs/md-case-study-editor/evidence/`.
+- axe audit before and after; reports committed alongside.
+- Full-page captures at 1440 and 390 per page, before and after, saved
+  to `~/Desktop/cs-typography/` (v2) for Pedro's review.
 
-Open question (owner: Pedro): approve the bleeding-boxes look? The
-alternative is flushing boxes to the text column (narrower boxes, text
-still indented inside them) — but that keeps a second edge for boxed
-content, which is what he asked to remove.
+### Acceptance criteria (machine-checkable)
+
+- [ ] `edge-audit.js` reports every body-level element (p, li, and text
+      inside cs-card / cs-facts / cs-summary / cs-timeline / cs-twocol /
+      cs-panel) within ±2px of its page's section text edge, at 1440 AND
+      390, on all 7 pages
+- [ ] The only allowed non-edge text: centered display elements (cover
+      summary/details, eyebrow, footnote, figcaption, frame labels,
+      quotes, hero summary box)
+- [ ] No box's left or right edge comes within 8px of the viewport edge
+      at 390/768/1440 (measured)
+- [ ] Lone quotes on light pages render centered + italic + larger than
+      body (computed-style check)
+- [ ] Timeline dot centers align with the connector line (±2px) and the
+      step text sits on the edge
+- [ ] axe: zero violations at 1440 and 390 on all 7 pages
+- [ ] Before/after captures saved for Pedro's review; his visual pass
+      closes the ticket
+
+### Rollback
+
+All changes live in `_case-study.scss` (+ nav/footer scoping already
+landed separately); a single `git revert` restores the prior state. No
+markdown content changes.
+
+Open question (owner: Pedro): approve the bleeding-boxes look and the
+hero-summary-as-display-element call (item 6)? Alternative for the boxes:
+flush them to the text column — but that keeps a second edge, which is
+what he asked to remove.
