@@ -10,6 +10,7 @@
 3. **Pedro visual pass** over the 7 migrated pages (workflow, teachr, teachr-agent, digital-closet, fashion-rebrand, sports-ecommerce-redesign, resume) — machine-verified pixel-identical, not human-reviewed.
 4. [x] **Production build** — done 2026-10-29: `npm run build` (note: the task also starts watch/BrowserSync and never exits — let tasks finish, then kill; build/ is gitignored). Verified: zero `ai-mark` occurrences in `build/` (stripping works), all pages present. **Publish** itself still pending Pedro's review of `build/` + his publish flow.
 5. **Backlog (phase 4, not started)** — migrate remaining hardcoded pages (about, art-ent, adhops, blog, steam-mobile, projecto-lynx, play, climate-clock); wire `mdmeta` frontmatter into shells' `<head>`; PDF download links on case studies; regenerate resume PDF (diverges by em-dashes).
+6. **Bullets & card/text alignment unification** — specced 2026-10-31 (`plan-bullets-cards.md` + tickets 24–29, DR-0010); reference set: ecommerce, teachr, digital-closet. Blocks on Pedro's three open questions in that plan.
 
 ## Next up added 2026-10-29: QA checks (see `tickets-phase3.md`)
 

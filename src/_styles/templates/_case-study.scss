@@ -486,6 +486,22 @@ $cs-indent: 28px;
     }
   }
 
+  // Inside a box there is no gutter to hang into (ticket 33): the dot
+  // stays within the box — on its text edge — and the text takes the
+  // +8px bullet indent. Measured bug: the -16 hang put the dot 16px
+  // OUTSIDE the panel plate (and on the viewport edge at 768).
+  .cs-panel .cs-annotation {
+    margin-left: 0;
+
+    .cs-annotation-dot {
+      margin-right: 0;
+    }
+
+    p {
+      padding-left: 8px;
+    }
+  }
+
   // ------------------------------------------------------------------
   // Quotes
   // ------------------------------------------------------------------
@@ -631,6 +647,14 @@ $cs-indent: 28px;
   // ------------------------------------------------------------------
   // Outcomes table — page-wide via `.cs-wide`
   // ------------------------------------------------------------------
+  // Tables keep their min-content width; inside the full-bleed wrapper
+  // they scroll instead of widening the page (ticket 30 — fashion's
+  // outcomes table measured 496px on a 390 viewport). The wrapper gets
+  // role/tabindex from the renderer so the scroll stays keyboard-reachable.
+  .cs-tablebox {
+    overflow-x: auto;
+  }
+
   .cs-table {
     width: 100%;
     border-collapse: collapse;
@@ -745,16 +769,46 @@ $cs-indent: 28px;
       position: relative;
       background-color: rgba(255, 255, 255, 0.45);
       border-radius: 12px;
-      padding: 14px 20px 14px $cs-indent;
+      // ticket 25 (rev): the plate bleeds $cs-indent, so the dot at
+      // $cs-indent sits exactly ON the text edge and the text takes the
+      // +8px bullet indent (same rhythm as the plain bullet lists);
+      // symmetric right padding keeps text off the right text edge
+      padding: 14px ($cs-indent + 8px) 14px ($cs-indent + 8px);
       margin-bottom: 8px;
 
-      // Small bullet dot inside the fact card — 8px before the text,
-      // same geometry as the plain bullet lists (ticket 22b)
+      // Small bullet dot on the text edge — ticket 19's rule applied to
+      // chips (supersedes the 22b "dot 8px before the text" geometry)
       &::before {
         content: '';
         position: absolute;
-        left: 20px;
-        top: 23.5px;
+        left: $cs-indent;
+        top: calc(14px + 0.515em);
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: var(--cs-accent);
+      }
+    }
+  }
+
+  // Plain bullet lists authored with `*` at section level (ticket 24,
+  // DR-0010): the chip geometry minus the plate — the list bleeds one
+  // step, the dot sits ON the text edge, the text +8px
+  .cs-section ul.cs-plain {
+    margin: 16px (-$cs-indent) 16px;
+    padding: 0;
+    list-style: none;
+
+    li {
+      position: relative;
+      padding-left: $cs-indent + 8px;
+      margin-bottom: 8px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: $cs-indent;
+        top: 0.73em;
         width: 5px;
         height: 5px;
         border-radius: 50%;
@@ -766,7 +820,7 @@ $cs-indent: 28px;
   // Plain bullet lists in sections and two-column blocks — small dot on
   // the text edge, text a slight indent (16px) in (DR-0009 amendment:
   // bullets may take a slight indent; timeline/annotation stay flush)
-  .cs-section ul:not(.cs-timeline):not(.cs-facts),
+  .cs-section ul:not(.cs-timeline):not(.cs-facts):not(.cs-plain),
   .cs-twocol ul {
     list-style: none;
     padding-left: 0;
@@ -793,6 +847,19 @@ $cs-indent: 28px;
 // ---------------------------------------------------------------------------
 // Responsive
 // ---------------------------------------------------------------------------
+// Bleed invariant (DR-0009 amendment, ticket 31): the text edge must sit
+// >= 36px inside the viewport (28px bleed + 8px viewport margin) so the
+// bleeding boxes never touch or cross the edge. The shared .text-box
+// padding is 32px below $break-medium and 16px in the 768-839 band
+// (before the container's auto margins grow past 28px); 36px satisfies
+// both bands. Above 840 the auto margins already guarantee the invariant.
+@media (max-width: 839px) {
+  .case-study .text-box {
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+}
+
 @media (max-width: $break-medium) {
   .case-study {
     // The shared .container switches to 64px top padding below

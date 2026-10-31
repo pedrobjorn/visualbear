@@ -319,8 +319,10 @@ function renderHero(lines) {
 function renderTable(lines) {
   const src = lines.join('\n');
   const html = marked(src, { renderer: new marked.Renderer() });
+  // the tablebox scrolls horizontally on narrow screens (ticket 30):
+  // focusable + labelled so the scroll is keyboard-reachable (axe)
   return (
-    '<div class="cs-wide cs-wide--full">' +
+    '<div class="cs-wide cs-wide--full cs-tablebox" role="region" tabindex="0" aria-label="Table, scrolls horizontally">' +
     html.replace(/<table>/, '<table class="cs-table">') +
     '</div>'
   );
@@ -525,6 +527,37 @@ function renderMarkdown(src, opts) {
   return html;
 }
 
+// `* item` runs at section level render as plain bullet lists (ticket 24,
+// DR-0010): the chip geometry minus the plate. marked renders `-` and `*`
+// identically and its list renderer never sees the marker character, so
+// the runs are extracted before marked and rendered to
+// `<ul class="cs-plain">` — which the raw-block pass then splices back
+// byte-for-byte. Flat lists only; `-` keeps the chip treatment.
+function extractPlainStarLists(src) {
+  const lines = src.split('\n');
+  const out = [];
+  let buf = null;
+  const flush = function () {
+    if (!buf) return;
+    const html = marked(buf.join('\n'), { headerIds: false });
+    out.push('');
+    out.push(html.replace(/<ul>/, '<ul class="cs-plain">'));
+    out.push('');
+    buf = null;
+  };
+  for (const line of lines) {
+    if (/^\*\s+/.test(line)) {
+      if (!buf) buf = [];
+      buf.push(line);
+      continue;
+    }
+    flush();
+    out.push(line);
+  }
+  flush();
+  return out.join('\n');
+}
+
 // deep rule: AI-drafted copy must never ship unreviewed — warn loudly on
 // production builds
 function applyAiMarkers(html) {
@@ -568,7 +601,9 @@ function mdPage(src) {
   // raw HTML stays out of the markdown engine until the section logic has
   // run: raw <h2>s must not split sections, and raw hero/divider blocks must
   // be able to sit between sections (DR-0004)
-  const split = extractRawBlocks(parseContainers(splitFrontmatter(src).body));
+  const split = extractRawBlocks(
+    extractPlainStarLists(parseContainers(splitFrontmatter(src).body))
+  );
   let html = marked(split.md, { headerIds: false, renderer: listRenderer() });
   html = html.replace(/ id="[^"]*"/g, '');
 
