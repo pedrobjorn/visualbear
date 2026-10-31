@@ -443,3 +443,91 @@ Acceptance criteria:
 - [ ] Existing content pages still render (the modifier is opt-in; the
       image/table default changes are the only behavioral default)
 - [ ] axe: zero violations; full-page before/after captures for review
+
+## Ticket 19 — Bulleted lists may take a slight indent (SPECCED, amends DR-0009)
+
+Pedro: allow a slight indent for bulleted lists — the flush-edge rule was
+too strict for list rhythm.
+
+Amendment to DR-0009 (append, do not rewrite):
+
+- Bullet lists (the plain `ul` lists in sections, twocol boxes and
+  comparison panels) sit at **text edge + 16px**: the dot marker starts
+  on the text edge (dot left 0), the text indents 16px. A slight,
+  consistent indent — not the old +16-dot-inside drift, and not flush.
+- The timeline (numbered steps) and annotation points keep their current
+  treatment (text on the edge, marker in the gutter) — they are
+  step/point markers, not bullet lists. Vetoable.
+- The edge-audit tool learns the allowance: list items pass at
+  edge + 16px ±2 as well as the edge itself.
+
+Acceptance criteria:
+
+- [ ] Plain `ul` list text sits at text edge + 16px (±2px), dot marker at
+      the text edge (±2px), on all case-study pages at 1440 and 390
+- [ ] Timeline/annotation behavior unchanged
+- [ ] `edge-audit.py` updated with the allowance and re-run: clean
+- [ ] DR-0009 amended (appended, not rewritten)
+
+## Ticket 20 — Design-system review: systematize what the pipeline added (SPECCED)
+
+Review scope: everything the markdown-pipeline work added or modified —
+tokens, components, one-off values — then document the system on the
+design system page (`/styleguide/`, blocks in
+`src/visualbear/_styleguide_blocks/`).
+
+### Review findings (audit 2026-10-29)
+
+1. **Tiny-text token still in use**: `$small-font-size: 0.45rem` (8.64px)
+   renders TWO more things: `.cs-tag` (comparison panel labels) and
+   `.cs-table th` (table column headers) — both unreadable, same failure
+   class as the footnote fixed in 18b. Fix: both to the label tier
+   ($middle-font-size); consider deprecating $small-font-size entirely
+   (grep for remaining uses, migrate or delete).
+2. **Hard-coded colors added during the fixes** that should be tokens:
+   - `#cd3231` (teal-page link red), `#5f6264` (caption grey) — used once
+     each, scoped; promote to variables OR document as scoped one-offs
+     with their contrast rationale
+   - The verified hero/theme grounds (#d50e95, #0e7d6f, #d73735,
+     #111111, #18181b) exist as literals across `_case-study.scss` —
+     consolidate where they repeat
+   - The AI-mark pair (#EE6E73 / #B3393B) lives in `_ai-mark.scss` — fine
+     (component-scoped), document it
+3. **New components with no styleguide entry**: the case-study component
+   set (cards, fact chips, timeline, comparison panels, quote display,
+   frames, metrics) and the width system (text edge / bleed / full-bleed,
+   `full` modifier, `cs-wide--full`).
+4. **$cs-indent** — the new spacing token; document it alongside the type
+   scale.
+
+### Work items
+
+1. Token pass: promote repeated literals to variables; deprecate or
+   redefine `$small-font-size` (never below the 15.36 label tier for
+   readable text)
+2. `/styleguide/` updates:
+   - Core/Colours: add the verified case-study palette (theme grounds +
+     accent pairs with their measured contrast ratios)
+   - Core/Type: document the roles (h2 28.8, h3 22.5, body 18.4, label
+     15.4) and $cs-indent
+   - Containers: add the width tiers (text edge, bleed, full-bleed) with
+     live examples, including a `full`-modifier band
+   - Modules: add the case-study component gallery (card, fact chip,
+     timeline step, comparison panel, quote display, frame, metrics) —
+     rendered with the real classes so the guide cannot drift from the
+     code
+3. Styleguide page itself follows the new rules (it renders on its own
+   layout — check its edges/sizes against the same gates)
+
+Acceptance criteria:
+
+- [ ] No text renders below 15.36px anywhere (grep + computed-style
+      sweep on all pages including /styleguide/)
+- [ ] No repeated color literal appears more than once outside a
+      variable definition (case-study scope)
+- [ ] `/styleguide/` documents: palette + ratios, type roles, indent
+      token, width tiers (with a live full-bleed example), and the
+      case-study components
+- [ ] Styleguide page passes the edge audit's spirit (one edge, tiers)
+      and the axe audit
+- [ ] visualbear-review run over /styleguide/ after the build
