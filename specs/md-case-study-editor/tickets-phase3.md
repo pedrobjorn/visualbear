@@ -444,30 +444,46 @@ Acceptance criteria:
       image/table default changes are the only behavioral default)
 - [ ] axe: zero violations; full-page before/after captures for review
 
-## Ticket 19 — Bulleted lists may take a slight indent (DONE 2026-10-29)
+## Ticket 19 — Bulleted lists: visible bullets + slight indent (DONE, revised after Pedro's correction)
 
-Pedro: allow a slight indent for bulleted lists — the flush-edge rule was
-too strict for list rhythm.
+Pedro (v2 correction): "I didn't say remove bulletpoints, I said bulleted
+lists can be indented a bit." The 18c revision had moved bullet dots into
+the gutter, where they read as removed. This ticket states the rule and
+revokes the gutter-hang for bullets.
 
-Amendment to DR-0009 (append, do not rewrite):
+### The rule (standing, applies to any future container change)
+
+1. **Bullet visibility is unconditional.** Every `li` in a bulleted list
+   shows its dot. Dots are never moved outside the visible content area,
+   never clipped by container overflow, never removed by container
+   styling. Any container edit must re-verify dot visibility.
+2. **Bulleted lists indent slightly**: the dot sits ON the text edge
+   (dot left = 0 of the li), the text indents 16px past it. Not flush,
+   not a deep indent — "indented a bit".
+3. **Exceptions (dots may hang in the gutter)**: timeline step numbers
+   and annotation points only — they are step/point markers with their
+   own layout, not bullets.
+
+Amendment to DR-0009 (appended, not rewritten):
 
 - Bullet lists (the plain `ul` lists in sections, twocol boxes and
   comparison panels) sit at **text edge + 16px**: the dot marker starts
-  on the text edge (dot left 0), the text indents 16px. A slight,
-  consistent indent — not the old +16-dot-inside drift, and not flush.
-- The timeline (numbered steps) and annotation points keep their current
-  treatment (text on the edge, marker in the gutter) — they are
-  step/point markers, not bullet lists. Vetoable.
-- The edge-audit tool learns the allowance: list items pass at
-  edge + 16px ±2 as well as the edge itself.
+  on the text edge (dot left 0), the text indents 16px.
+- The 18c gutter-hang is REVOKED for bullet lists; it stands for the
+  timeline and annotation points.
+- The edge-audit tool allows list items at edge + 16px ±2 as well as the
+  edge itself.
 
 Acceptance criteria:
 
-- [ ] Plain `ul` list text sits at text edge + 16px (±2px), dot marker at
+- [x] Plain `ul` list text sits at text edge + 16px (±2px), dot marker at
       the text edge (±2px), on all case-study pages at 1440 and 390
-- [ ] Timeline/annotation behavior unchanged
-- [ ] `edge-audit.py` updated with the allowance and re-run: clean
-- [ ] DR-0009 amended (appended, not rewritten)
+- [x] Dots pixel-verified rendered (not just computed) — sampled dot
+      positions in a full-page capture show the dot pixels
+- [x] Timeline/annotation behavior unchanged
+- [x] `edge-audit.py` updated with the allowance and re-run: clean
+      (`evidence/edge-t19.json`)
+- [x] DR-0009 amended (appended, not rewritten)
 
 ## Ticket 20 — Design-system review: systematize what the pipeline added (DONE 2026-10-29)
 
