@@ -97,10 +97,10 @@ def audit(baseUrl, jsonOut):
                     bodyLevel = r["tag"] in ("P", "LI", "H2", "H3", "H4", "BLOCKQUOTE")
                     if bodyLevel and not inDisplay and not isAnnotation:
                         # bullet lists may take a slight indent (DR-0009
-                        # amendments): dot on the edge, 4px clear gap after
-                        # the 5px dot -> text at edge + 9 (ticket 35)
+                        # amendments): dot on the edge, the 5px dot -> 8px clear gap (ticket 36); was:
+                        # the 5px dot -> text at edge + 13 (ticket 36)
                         allowed = (abs(r["x"] - edge) <= EDGE_TOLERANCE or
-                                   (isBullet and abs(r["x"] - edge - 9) <= 1))
+                                   (isBullet and abs(r["x"] - edge - 13) <= 1))
                         if not allowed:
                             failures.append(
                                 f"{path}@{width}: {r['tag']} in {r['ctx']} at x={r['x']} "

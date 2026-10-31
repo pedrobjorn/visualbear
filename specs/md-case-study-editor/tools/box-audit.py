@@ -188,9 +188,9 @@ def audit(baseUrl, jsonOut):
                     if dt["rendered"] and te is not None:
                         if abs(dt["dotL"] - te) > DOT_TOLERANCE:
                             probs.append(f"dot off text edge ({dt['dotL']:.1f} vs {te:.1f})")
-                        # 4px clear gap after the 5px dot (ticket 35)
-                        if dt["textL"] is not None and abs(dt["textL"] - dt["dotL"] - 5 - 4) > DOT_TOLERANCE:
-                            probs.append(f"bullet text gap != 4px clear ({dt['textL'] - dt['dotL'] - 5:.1f})")
+                        # 4px clear gap after the 5px dot (ticket 36)
+                        if dt["textL"] is not None and abs(dt["textL"] - dt["dotL"] - 5 - 8) > DOT_TOLERANCE:
+                            probs.append(f"bullet text gap != 8px clear ({dt['textL'] - dt['dotL'] - 5:.1f})")
                 for an in d["anns"]:
                     if an["boxL"] is not None and an["dotL"] < an["boxL"] - 1:
                         probs.append(f"annotation dot outside its box ({an['dotL']:.0f} < {an['boxL']:.0f})")
@@ -212,9 +212,9 @@ def audit(baseUrl, jsonOut):
                         if li["gapAbove"] is not None and li["gapAbove"] < 8:
                             rprobs.append(f"resume list gap above < 8 ({li['gapAbove']:.1f})")
                     if not li["inSmall"] and li["hasDot"]:
-                        # 4px clear gap after the 5px dot (ticket 35)
-                        if li["textL"] is not None and abs(li["textL"] - li["dotL"] - 5 - 4) > DOT_TOLERANCE:
-                            rprobs.append(f"resume bullet text gap != 4px clear ({li['textL'] - li['dotL'] - 5:.1f})")
+                        # 4px clear gap after the 5px dot (ticket 36)
+                        if li["textL"] is not None and abs(li["textL"] - li["dotL"] - 5 - 8) > DOT_TOLERANCE:
+                            rprobs.append(f"resume bullet text gap != 8px clear ({li['textL'] - li['dotL'] - 5:.1f})")
                 report[f"resume-rules@{width}"] = {"problems": rprobs}
                 failures.extend(f"resume-rules@{width}: {x}" for x in rprobs)
             page.close()

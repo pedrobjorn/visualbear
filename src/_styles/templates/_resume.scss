@@ -114,8 +114,8 @@ ul.no-bullets {
 
     li {
       position: relative;
-      // 4px clear gap after the 5px dot (ticket 35)
-      padding-left: 9px;
+      // 8px clear gap after the 5px dot — 2x (ticket 36)
+      padding-left: 13px;
       margin-bottom: 0.5rem;
 
       &::before {

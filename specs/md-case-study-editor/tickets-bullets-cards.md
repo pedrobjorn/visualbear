@@ -505,3 +505,38 @@ the dot. Pedro wants 4px of clear space.
 - [x] Dot still ON the text edge (±1px) everywhere
 - [x] `tools/box-audit.py` and `tools/edge-audit.py` updated and CLEAN
 - [x] axe zero violations; lint + format pass; captures for Pedro
+
+---
+
+# Ticket 36: Bullet-to-text spacing doubled — 8px clear gap
+
+- Part of: `plan-bullets-cards.md` (Pedro, 2026-10-31: "add more space
+  to the bullets, like 2x the spacing"); DR-0009 amendment (ticket 36)
+- Size: S
+- Type: UI
+- Supersedes: ticket 35's 4px clear gap
+- Pages: all 7 (chips + plain lists) + resume
+- Status: DONE 2026-10-31 - chips/cs-plain at `$cs-indent + 13px`,
+  in-box lists and resume at 13px; both audits updated to the 8px
+  clear-gap formula and CLEAN; axe zero violations on all 7 pages at
+  1440 + 390 (evidence/axe-batch1.json, box-audit-t36.json); captures
+  refreshed in ~/Desktop/cs-typography/after-batch1/
+
+## Requirements
+
+- Dot unchanged: ON the text edge.
+- Text at text edge + 13px (5px dot + 8px clear gap):
+  `padding-left: $cs-indent + 13px` (chips, cs-plain), `13px` (in-box
+  lists), `13px` (resume content lists).
+- Chip right padding widens to `$cs-indent + 13px` (symmetric).
+- Audits ride along: box-audit clear-gap formula `text − dot − 5 = 8 ± 1`;
+  edge-audit bullet-text tolerance `edge + 13 ± 1`.
+
+## Acceptance criteria (agent-checkable)
+
+- [x] On every page at 1440 and 390: text-left − (dot-left + 5px dot)
+      = 8px ± 1, for chips, in-box plain lists and (resume) content
+      lists — measured
+- [x] Dot still ON the text edge (±1px) everywhere
+- [x] `tools/box-audit.py` and `tools/edge-audit.py` updated and CLEAN
+- [x] axe zero violations; lint + format pass; captures for Pedro

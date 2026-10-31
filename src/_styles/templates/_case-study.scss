@@ -771,10 +771,10 @@ $cs-indent: 28px;
       border-radius: 12px;
       // ticket 25 (rev) + 35: the plate bleeds $cs-indent, so the dot at
       // $cs-indent sits exactly ON the text edge; the text takes a 4px
-      // clear gap after the 5px dot (text at edge + 9) — the same
+      // clear gap after the 5px dot (text at edge + 13) — the same
       // breathing room as every bullet list; symmetric right padding
       // keeps text off the right text edge
-      padding: 14px ($cs-indent + 9px) 14px ($cs-indent + 9px);
+      padding: 14px ($cs-indent + 13px) 14px ($cs-indent + 13px);
       margin-bottom: 8px;
 
       // Small bullet dot on the text edge — ticket 19's rule applied to
@@ -802,8 +802,8 @@ $cs-indent: 28px;
 
     li {
       position: relative;
-      // 4px clear gap after the 5px dot (ticket 35)
-      padding-left: $cs-indent + 9px;
+      // 8px clear gap after the 5px dot — 2x (ticket 36)
+      padding-left: $cs-indent + 13px;
       margin-bottom: 8px;
 
       &::before {
@@ -830,8 +830,8 @@ $cs-indent: 28px;
 
     li {
       position: relative;
-      // 4px clear gap after the 5px dot (ticket 35)
-      padding-left: 9px;
+      // 8px clear gap after the 5px dot — 2x (ticket 36)
+      padding-left: 13px;
 
       &::before {
         content: '';
