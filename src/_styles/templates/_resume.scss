@@ -78,6 +78,8 @@ ul.no-bullets {
   // h3 role → h4 sub-title); they keep the h3 visual size they had
   h2.resume-section {
     font-size: $base-h3-size;
+    // heading → its list: the rhythm scale (ticket 21)
+    margin-bottom: 12px;
   }
 
   // Skill sub-titles stepped up with their section (h2 Core Skills → h3);
@@ -94,7 +96,7 @@ ul.no-bullets {
   }
 
   ul:not(.no-bullets) {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem; // rhythm scale (ticket 21): 8pt grid
     list-style-type: disc;
     list-style-position: inside;
 

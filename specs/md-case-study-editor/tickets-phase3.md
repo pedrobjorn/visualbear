@@ -626,7 +626,7 @@ width. No small-image upscaling artifacts found in the current pages
 (the only upscaling risk is future content — the AUTHORING.md note
 stands).
 
-## Ticket 21 — Rhythm: one spacing scale for case studies + resume (SPECCED, in build)
+## Ticket 21 — Rhythm: one spacing scale for case studies + resume (DONE 2026-10-29)
 
 Scope: spacing only — no content changes. The scale is part of the design
 system and lands on `/styleguide/` (a "Vertical rhythm" entry in the
@@ -690,3 +690,21 @@ Authoring rules to land with it (AUTHORING.md, from the eval above):
 
 - No bullet list immediately after an image/figure — lead with a heading
   or a one-line intro
+
+### Ticket 21 build results (2026-10-29)
+
+- Case studies: h2 margin-bottom 24 (was 8), h3 margin 16/12 (was
+  40/8-then-28/12), comparison-panel h3 margin-bottom 8, notes
+  margin-bottom 24, fact-chip list margin-bottom 16 — every measured
+  block gap now lands on the scale; heading line-box air (a constant
+  ~4-12px per heading pair, uniform across instances) is documented as
+  part of the pair measurement, not an extra offset
+- Resume: list margin-bottom 0.5rem, `.resume-section` margin-bottom 12
+  — the 10px family normalized (li→li 10 ≈ 8, li→block 33 ≈ 32,
+  li→h2 46 ≈ 48); label+content pairs (sub-title → list) sit tight by
+  design; the Download-CTA block keeps its own end-module spacing
+  (within 3-6px of scale values, documented)
+- /styleguide/ "Vertical rhythm" entry added with a live scale visual
+- Verified: EDGE AUDIT CLEAN, axe zero violations (evidence/edge-t21.json,
+  axe-t21.json), format + lint pass
+- Captures: `~/Desktop/cs-typography/after-t21/`

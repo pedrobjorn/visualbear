@@ -94,7 +94,7 @@ $cs-indent: 28px;
     padding: 64px 0;
 
     h2 {
-      margin: 0 0 8px;
+      margin: 0 0 24px;
 
       &::before {
         content: '';
@@ -108,7 +108,7 @@ $cs-indent: 28px;
     }
 
     h3 {
-      margin: 40px 0 8px;
+      margin: 16px 0 12px;
     }
   }
 
@@ -407,7 +407,7 @@ $cs-indent: 28px;
       margin: 48px 0;
 
       h3 {
-        margin: 0 0 4px;
+        margin: 0 0 8px;
         // sub-head: one h3 size everywhere
         font-size: $base-h3-size;
       }
@@ -731,12 +731,12 @@ $cs-indent: 28px;
     font-size: $middle-font-size;
     color: $vb-light-grey;
     font-style: italic;
-    margin: 8px 0 0;
+    margin: 8px 0 24px;
   }
 
   .cs-facts {
     // the chip list bleeds one step; li padding puts text on the edge
-    margin: 16px (-$cs-indent) 0;
+    margin: 16px (-$cs-indent) 16px;
     padding: 0;
     list-style: none;
 

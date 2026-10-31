@@ -1,0 +1,58 @@
+{
+ "workflow@1440": {
+  "violations": [],
+  "passes": 31
+ },
+ "teachr@1440": {
+  "violations": [],
+  "passes": 32
+ },
+ "teachr-agent@1440": {
+  "violations": [],
+  "passes": 32
+ },
+ "digital-closet@1440": {
+  "violations": [],
+  "passes": 31
+ },
+ "fashion-rebrand@1440": {
+  "violations": [],
+  "passes": 35
+ },
+ "sports-ecommerce-redesign@1440": {
+  "violations": [],
+  "passes": 35
+ },
+ "resume@1440": {
+  "violations": [],
+  "passes": 32
+ },
+ "workflow@768": {
+  "violations": [],
+  "passes": 31
+ },
+ "teachr@768": {
+  "violations": [],
+  "passes": 32
+ },
+ "teachr-agent@768": {
+  "violations": [],
+  "passes": 32
+ },
+ "digital-closet@768": {
+  "violations": [],
+  "passes": 31
+ },
+ "fashion-rebrand@768": {
+  "violations": [],
+  "passes": 35
+ },
+ "sports-ecommerce-redesign@768": {
+  "violations": [],
+  "passes": 35
+ },
+ "resume@768": {
+  "violations": [],
+  "passes": 32
+ }
+}

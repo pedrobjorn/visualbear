@@ -52,6 +52,26 @@
     </div>
   </div>
 
+  <!-- Vertical rhythm -->
+  <div class="text-block">
+    <h3 class="page-header">Vertical rhythm</h3>
+    <p>One spacing scale governs all vertical gaps: <strong>8 / 16 / 24 /
+    32 / 48 / 64 / 96</strong> (8pt grid). Roles: 8 inside components,
+    16 list rhythm, 24 around media and after headings, 32 around
+    self-contained blocks, 48 around media wrappers and h2→h3, 64 around
+    pull quotes, 96 section padding. Label+content pairs (eyebrow →
+    heading, sub-title → list) sit tight by design.</p>
+    <div class="case-study document-text" style="padding: 8px 0;">
+      <div style="background: rgba(215,55,53,0.08); border-radius: 4px; padding: 8px; text-align: center; margin-bottom: 8px;">8</div>
+      <div style="background: rgba(215,55,53,0.08); border-radius: 4px; padding: 8px; text-align: center; margin-bottom: 16px;">16</div>
+      <div style="background: rgba(215,55,53,0.08); border-radius: 4px; padding: 8px; text-align: center; margin-bottom: 24px;">24</div>
+      <div style="background: rgba(215,55,53,0.08); border-radius: 4px; padding: 8px; text-align: center; margin-bottom: 32px;">32</div>
+      <div style="background: rgba(215,55,53,0.08); border-radius: 4px; padding: 8px; text-align: center; margin-bottom: 48px;">48</div>
+      <div style="background: rgba(215,55,53,0.08); border-radius: 4px; padding: 8px; text-align: center; margin-bottom: 64px;">64</div>
+      <div style="background: rgba(215,55,53,0.08); border-radius: 4px; padding: 8px; text-align: center;">96</div>
+    </div>
+  </div>
+
   <!-- Components -->
   <div class="text-block">
     <h3 class="page-header">Components</h3>
