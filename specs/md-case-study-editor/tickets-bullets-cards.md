@@ -540,3 +540,55 @@ the dot. Pedro wants 4px of clear space.
 - [x] Dot still ON the text edge (±1px) everywhere
 - [x] `tools/box-audit.py` and `tools/edge-audit.py` updated and CLEAN
 - [x] axe zero violations; lint + format pass; captures for Pedro
+
+---
+
+# Ticket 37: `[point:]` under an image renders as a caption (dotless, italic)
+
+- Part of: `plan-bullets-cards.md` (Pedro, 2026-10-31: "Remove the dots
+  from the text below images? If these are text caption text style it
+  accordingly as italic"); decision: `DR-0011.md`
+- Size: S
+- Type: UI + system
+- Pages: fashion-rebrand (3), sports-ecommerce-redesign (5) — every
+  `[point:]` in the content today
+
+## Context
+
+All 8 `[point:]` lines sit directly below `[frame:]` placeholders in
+`::: compare` panels and render with the 8px annotation dot — captions
+in content, dotted annotations in styling. figcaption's treatment
+(centered, label tier, #5f6264, italic to be added) is the established
+caption look.
+
+## Requirements
+
+- Renderer (`renderFlow` / panel body handling): a `[point:]` whose
+  preceding rendered line is an image/frames line (`[frame:]`,
+  `[image:]`, `[figure:]`, `![…](…)` or their wrapper markup) renders
+  the caption variant — no dot, part of the image's figure markup where
+  feasible (image + caption as one accessible unit).
+- Caption variant styling: italic, label tier (15.36px), #5f6264
+  (axe-verified), centered under the image — matching
+  `.cs-showcase figcaption`.
+- Non-image-following `[point:]` keeps the annotation-dot treatment
+  (DR-0009: gutter hang at section level, contained in-box per ticket 33).
+- AUTHORING.md `[point:]` entry updated per DR-0011 (rides ticket 29's
+  sync gate).
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] All 8 image-following points on fashion + ecommerce: zero dots
+      (computed-style: no `.cs-annotation-dot` in the rendered variant),
+      italic, centered, label tier — measured at 1440 and 390
+- [ ] The image + caption pair reads as one figure (caption within the
+      figure's markup or immediately adjacent, axe region/image checks pass)
+- [ ] axe zero violations on all 7 pages at 1440 + 390; edge audit
+      clean (caption text exempt as a display element); box-audit clean
+- [ ] AUTHORING.md documents the image-following rule
+- [ ] lint + format pass; before/after captures for Pedro
+
+## Open questions
+
+- Centered (figcaption-like, recommended) vs left-aligned italic on the
+  panel text edge — owner: Pedro, vetoable; default builds centered.
