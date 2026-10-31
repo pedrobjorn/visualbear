@@ -943,3 +943,82 @@ copy-paste artifact leaking resume-scoped CSS onto the page.
 - [x] axe zero violations on all 7 pages (1440 + 390) — the workflow
       summary's new size re-checked against the dark ground; box-audit + edge-audit CLEAN; lint + format pass
 - [x] Full-hero captures (all 7 pages, 1440 + 390) for Pedro
+
+---
+
+# Ticket 45: Hero component for visuAI and the styleguide — adapted variants
+
+- Part of: `plan-bullets-cards.md` (Pedro, 2026-10-31: "add case study
+  hero for visuai and styleguide, but adapt them accordingly — i.e.
+  visuai no background just container, not case study kicker but
+  adapted")
+- Size: M
+- Type: UI + copy
+- Extends: DR-0014 (one hero component, three variants → this adds a
+  fourth: the adapted bare hero)
+- Pages: `/workflow/` (visuAI), `/styleguide/`
+- Status: SPEC'D 2026-10-31 — queued for next build batch
+
+## Context
+
+After ticket 44 the hero component has one spacing/type set across
+three variants (cover, meta, mid-page `::: hero`). Two more places
+need it, each ADAPTED rather than copied:
+
+1. **visuAI** (`/workflow/`): the hero is a bare `header.cs-hero` with
+   NO kicker — the page jumps straight to the h1. It should carry the
+   hero component's full structure with an ADAPTED eyebrow: no
+   "Case Study" kicker (this page is not a case study), no background
+   (the dark ground is the hero's ground — `background: transparent`,
+   the spotlight above carries it), the DR-0014 spacing/type roles
+   (already live since ticket 44).
+2. **styleguide**: the case-system block has NO hero documentation at
+   all — the hero (the first component on every case-study page) is
+   undocumented. Add a "Heroes" subsection demoing the variants with
+   the real classes.
+
+## Requirements
+
+### visuAI hero
+
+- Add the adapted eyebrow: kicker text is NOT "Case Study" — default
+  proposal: "The visuAI Workflow" (final copy: Pedro, open question);
+  styled with the shared `.cs-eyebrow` role, the page's lifted red
+  (#e34a47-family, axe-verified on the dark ground).
+- No background: the hero stays transparent on the dark ground (no
+  full-bleed cover box, no `--pink/--teal`-style variant class).
+- The DR-0014 spacing/type roles hold (already verified post-t44);
+  the eyebrow addition must keep the gaps on-scale (eyebrow → h1 = 16).
+
+### styleguide "Heroes" subsection
+
+- Demo the hero VARIANTS with real classes and real spacing:
+  - the adapted bare hero (visuAI-style: transparent, adapted kicker)
+  - the meta hero (`cs-hero--meta` with metrics)
+  - a cover variant — ADAPTED for the guide: the full-bleed 100vw box
+    cannot render inside the guide's container, so the demo shows the
+    cover's structure (eyebrow/h1/summary/details, white-on-color ink)
+    at container width, with a note that the real cover spans the
+    viewport (`padding: 64px 48px`, 100vw technique, DR-0014)
+- Document the variant map: cover (full-bleed, colored) / meta
+  (in-flow, KPIs) / adapted bare (transparent, any ground) / mid-page
+  (`::: hero` in markdown) — and which ink each carries.
+- Rides ticket 43's a11y + real-markup rules (no fake spans).
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] `/workflow/` hero: eyebrow present (NOT "Case Study"), computed
+      background transparent, gaps on the DR-0014 set (eyebrow→h1 16,
+      h1→summary 24, summary→details 24) — measured at 1440 + 390
+- [ ] Eyebrow ink passes axe on the dark ground (zero violations)
+- [ ] `/styleguide/` heroes subsection: all three demos render with
+      real component classes; the cover demo states the full-bleed
+      adaptation in text; axe stays clean (rides ticket 43's gates)
+- [ ] DR-0014's variant list extended with the adapted bare hero
+- [ ] box-audit + edge-audit CLEAN; lint + format pass; captures
+
+## Open questions
+
+- visuAI kicker copy ("The visuAI Workflow" default) — owner: Pedro.
+- Cover demo in the guide: container-width structure demo (recommended)
+  vs a scaled full-bleed demo — owner: Pedro, vetoable.

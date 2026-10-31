@@ -175,6 +175,7 @@ three references).
 - [ ] Ticket 36 — Bullet-to-text spacing doubled: 8px clear gap (Pedro, 2026-10-31; DR-0009 amendment) — DONE
 - [ ] Ticket 37 — `[point:]` under an image renders as a caption: dotless, italic (Pedro, 2026-10-31; DR-0011) — DONE
 - [ ] Ticket 43 — Styleguide refresh: real components, current system, a11y clean (review: `review-styleguide.md`, verdict BLOCKED)
+- [ ] Ticket 45 — Hero component for visuAI + styleguide: adapted variants (no bg on visuAI, adapted kicker; heroes documented in the guide) — SPEC'D, next batch
 
 ## Open questions
 
