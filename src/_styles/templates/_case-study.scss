@@ -57,7 +57,8 @@
   }
 
   .cs-footnote {
-    font-size: $small-font-size;
+    // was $small-font-size (0.45rem = 8.6px — unreadable); label tier size
+    font-size: $middle-font-size;
     color: $vb-light-grey;
     margin: 16px 0 0;
   }
@@ -65,7 +66,8 @@
   .cs-summary {
     max-width: 720px;
     margin: 32px auto 0;
-    padding: 16px 24px;
+    // 28px sides: the one indent step
+    padding: 16px 28px;
     background-color: rgba(255, 255, 255, 0.45);
     border-radius: 16px;
     text-align: left;
@@ -689,14 +691,15 @@
       position: relative;
       background-color: rgba(255, 255, 255, 0.45);
       border-radius: 12px;
-      padding: 14px 20px 14px 32px;
+      // 28px: the one indent step — chip text aligns with card text
+      padding: 14px 20px 14px 28px;
       margin-bottom: 8px;
 
       // Small bullet dot inside the fact card
       &::before {
         content: '';
         position: absolute;
-        left: 14px;
+        left: 11px;
         top: 23.5px;
         width: 5px;
         height: 5px;
