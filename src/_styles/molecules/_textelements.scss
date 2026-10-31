@@ -75,6 +75,17 @@
 
 .text-container {
   line-height: $base-line-height;
+
+  // gallery-text carries gallery-page box rules (min-width 768, 128px
+  // padding, max-width 960) — inside a text-container they would squeeze
+  // the content to 512px, off the unified content width (ticket 42/43,
+  // DR-0013). Inside the container it flows: the container owns the width.
+  .gallery-text {
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    padding: 0;
+  }
 }
 
 .row {

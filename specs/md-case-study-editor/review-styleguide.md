@@ -37,6 +37,21 @@
 | Case-study color tokens (t20)   | **no**    | —                    | promised by ticket 20, never landed     |
 | Type roles                      | yes       | mimicked inline      | sizes correct; not real elements        |
 
+## Addendum (2026-10-31, found applying the width style)
+
+**Width finding (now FIXED)**: the blocks' inner `article.gallery-text`
+wrappers carried the gallery-page box rules (min-width 768, 128px
+padding, max-width 960) INSIDE the 900px text-container — squeezing
+the guide's content to 512px, off the unified 836. The intro block's
+wrapper also sat outside any text-container (full-width section).
+Fixed: `.text-container .gallery-text` flows (width auto, no min/max,
+no padding — the container owns the width, DR-0013); the intro
+wrapper moved into a text-container. MEASURED after: styleguide
+content 836 at [302, 1138] at 1440 / [94, …] at 1024 / 704 at 768 —
+identical to the resume and the case studies; the demo chip renders
+on the real text edge. Blast radius: `text-container` is used only by
+resume + styleguide; the resume never combines it with gallery-text.
+
 ## Verdict: BLOCKED — spec'd as Ticket 43 (styleguide refresh)
 
 Fix direction: the guide must render REAL components in their REAL

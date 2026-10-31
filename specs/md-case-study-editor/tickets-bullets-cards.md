@@ -860,6 +860,14 @@ copy-paste artifact leaking resume-scoped CSS onto the page.
   ticket-20 color tokens, the full-bleed tier.
 - Update stale copy to the t41 wording.
 
+## Width fix (applied 2026-10-31, part of this ticket)
+
+- `.text-container .gallery-text` flows at the container width
+  (gallery box rules dropped inside the container); intro block moved
+  into a text-container. MEASURED: content 836/[302,1138] at 1440 =
+  the resume exactly; demo chip on the real text edge. Captures:
+  styleguide-1440/1024/768/390 in ~/Desktop/cs-typography/after-width-unify/
+
 ## Acceptance criteria (agent-checkable)
 
 - [ ] axe: zero violations on /styleguide/ at 1440 and 390, excluding
