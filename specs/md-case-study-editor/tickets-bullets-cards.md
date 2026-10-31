@@ -819,3 +819,72 @@ unifies the whole site.
       on all 7 pages; box-audit + edge-audit CLEAN
 - [x] axe zero violations (1440 + 390); lint + format pass
 - [x] Full-page captures (resume, one case study, home, about) for Pedro
+
+---
+
+# Ticket 43: Styleguide refresh — real components, current system, a11y clean
+
+- Part of: `plan-bullets-cards.md`; full review with evidence:
+  `review-styleguide.md` (verdict: BLOCKED)
+- Size: M
+- Type: UI + copy
+- Page: `/styleguide/` (5 blocks, 455 lines)
+
+## Context
+
+The review found: 2 serious a11y failures (swatch labels 2.32/2.71
+contrast; invalid div>li demos), a fake timeline (inline-styled spans,
+already drifted from the real `ol.cs-timeline`), a chip demo off the
+content-edge system, zero ticket-20 color tokens documented, five
+system pieces missing (frame captions, cs-plain, chip plate token,
+content width, list-context rule), stale copy ("dot on the edge" —
+t39/41 changed it), and the shell's `id="resume_container"`
+copy-paste artifact leaking resume-scoped CSS onto the page.
+
+## Requirements
+
+- Real markup only: chip demos as `ul.cs-facts > li`, timeline as
+  `ol.cs-timeline > li` (real component styles; no inline-styled
+  mimics). Inline styles in the guide are for GUIDE LAYOUT only —
+  never to fake component styling.
+- Fix the shell id: `id="styleguide_container"`; grep `_resume.scss`
+  and `_case-study.scss` for `#resume_container` scoping first — any
+  rule that must not hit the styleguide stays ID-scoped; anything the
+  styleguide needs gets its own scope.
+- Swatch labels: dark ink on light swatches (≥ 4.5, axe-verified).
+- Heading ladder: one h2 per section intro, h3 subsections (axe-clean).
+- Document the current system in the case-system block: chip plate
+  token + per-ground instances (DR-0012), bullet geometry (dot inset,
+  8px gap — t36/41), list-context rule (DR-0010, `-` vs `*` vs in-box),
+  content width 900/836 (DR-0013), frame captions (DR-0011), the
+  ticket-20 color tokens, the full-bleed tier.
+- Update stale copy to the t41 wording.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] axe: zero violations on /styleguide/ at 1440 and 390, excluding
+      only `#__bs_notify__` (dev-only)
+- [ ] No `li` without a `ul`/`ol` parent in the rendered DOM
+      (querySelectorAll check)
+- [ ] `ol.cs-timeline` and `ul.cs-facts` exist on the page and their
+      demo geometry equals a real page's (chip box on the text edge,
+      dot at +20 ± 1 inside the plate — measured)
+- [ ] The case-system block documents: chip plate token, list-context
+      rule, content width 900/836, frame captions, color tokens
+      (string checks)
+- [ ] No stale rule copy: the guide does not contain "dot on the edge,
+      text at the slight indent" (grep)
+- [ ] box-audit + edge-audit still CLEAN on the 7 content pages (the
+      styleguide shares the container styles); lint + format pass
+- [ ] Captures (full page, 1440 + 390) for Pedro
+
+## Out of scope
+
+- New components that don't exist in the system yet — the guide
+  documents what IS, not what should be.
+- The `#__bs_notify__` region violation (BrowserSync dev-only).
+
+## Open questions
+
+- Should the guide gain a tokens page (color/type/spacing as data,
+  not prose)? Owner: Pedro — nice-to-have, does not block this ticket.
