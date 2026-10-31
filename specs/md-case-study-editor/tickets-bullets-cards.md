@@ -461,3 +461,42 @@ touch the preceding title row. Pedro: "resume bullets have no spacing."
       text +8)
 - [x] Full-page diff at 1440: only the list top-margins move; axe zero
       violations; lint + format pass
+
+---
+
+# Ticket 35: 4px clear gap between bullet dot and text
+
+- Part of: `plan-bullets-cards.md` (Pedro, 2026-10-31: "spacing between
+  bullet and text 4px gap to give it a bit more breathing room");
+  DR-0009 amendment (ticket 35)
+- Size: S
+- Type: UI
+- Supersedes: the edge + 8px text offset (ticket 19 v3, build batch 1)
+- Pages: all 7 (chips + plain lists) + resume
+
+## Context
+
+The +8px offset is measured from the dot's LEFT edge. With a 5px dot,
+the clear visual gap between dot and text is only 3px — the text hugs
+the dot. Pedro wants 4px of clear space.
+
+## Requirements
+
+- Dot unchanged: ON the text edge (`left: $cs-indent` in chips/cs-plain,
+  `left: 0` in-box).
+- Text at text edge + 9px: `padding-left: $cs-indent + 9px` (chips,
+  cs-plain), `padding-left: 9px` (in-box lists), 9px on the resume.
+- Chip right padding widens by the same 1px (`$cs-indent + 9px`) —
+  symmetric overrun guard unchanged.
+- Audit updates ride along: box-audit's "text indent != +8" check
+  becomes "+9 from the dot's LEFT edge = 4px clear gap" (text − dot − 5
+  = 4 ± 1); edge-audit's bullet-text tolerance becomes edge + 9 ± 1.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] On every page at 1440 and 390: text-left − (dot-left + 5px dot)
+      = 4px ± 1, for chips, in-box plain lists and (resume) content
+      lists — measured, not eyeballed
+- [ ] Dot still ON the text edge (±1px) everywhere
+- [ ] `tools/box-audit.py` and `tools/edge-audit.py` updated and CLEAN
+- [ ] axe zero violations; lint + format pass; captures for Pedro

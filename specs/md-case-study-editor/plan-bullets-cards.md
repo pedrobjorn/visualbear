@@ -171,6 +171,7 @@ three references).
 - [ ] Ticket 32 — Box-audit tool: measure boxes, tables and horizontal overflow (closes the tool gap)
 - [ ] Ticket 33 — Annotation dots stay inside their box (fashion `[point:]`s)
 - [ ] Ticket 34 — Resume: unmark name/contact/download lists, add list rhythm
+- [ ] Ticket 35 — 4px clear gap between bullet dot and text (Pedro, 2026-10-31; DR-0009 amendment)
 
 ## Open questions
 
