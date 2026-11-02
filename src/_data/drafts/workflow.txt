@@ -1,3 +1,4 @@
+Key: your private notes - the converter ignores this line, it never reaches the page md
 Eyebrow: The visuAI Workflow
 Title: My Agentic Design Workflow </br> visuAI
 Summary: Using research, discovery and decisions to create value through my Design AI workflow.

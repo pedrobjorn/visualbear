@@ -1,3 +1,4 @@
+Key: your private notes - the converter ignores this line, it never reaches the page md
 Variant: teal
 Eyebrow: Case Study - Teachr (mock brand)
 Title: Teachr, AI Agent embedded in the Learning Dashboard

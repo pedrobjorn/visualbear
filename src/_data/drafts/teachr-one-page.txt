@@ -1,3 +1,4 @@
+Key: your private notes - the converter ignores this line, it never reaches the page md
 Teachr One Page
 
 Lead Designer, 2026

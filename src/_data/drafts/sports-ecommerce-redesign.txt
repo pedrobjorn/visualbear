@@ -1,3 +1,4 @@
+Key: your private notes - the converter ignores this line, it never reaches the page md
 Variant: pink
 Eyebrow: Case Study
 Title: Sports E-commerce Redesign

@@ -53,6 +53,10 @@ const file = process.argv[2];
 const slug = (process.argv[3] || require('path').basename(file, '.txt')).trim();
 const lines = fs.readFileSync(file, 'utf8').split('\n');
 
+// "Key: text" - Pedro's private notes: ignored END TO END (converter +
+// md + verify); may appear anywhere, including inside the head block
+const KEY_LINE = /^[Kk]ey\s*:\s*(.*)$/;
+
 const HEAD_FIELDS = ['Variant', 'Eyebrow', 'Title', 'Summary', 'Details'];
 const META_FIELD = {
   Logo: 'logo', Needs: 'needs', Related: 'related',
@@ -60,6 +64,7 @@ const META_FIELD = {
 };
 const KNOWN = HEAD_FIELDS.concat(Object.keys(META_FIELD));
 const SIDES = ['Before', 'After', 'Old', 'New'];
+let pendingBlanks = 0;
 
 const yq = function (v) {
   return '"' + String(v).replace(/\\/g, '\\\\').replace(/"/g, '\\"') + '"';
@@ -76,6 +81,12 @@ for (let i = 0; i < lines.length; i++) {
     if (t === '') continue;
     started = true;
   }
+  if (KEY_LINE.test(t)) {
+    // a Key line inside/after the head advances the head boundary, so
+    // trailing Key lines never leak into the body scan
+    if (started) headEnd = i + 1;
+    continue;
+  } // Key: private notes, ignored
   const m = t.match(/^([A-Za-z][A-Za-z ]*):\s*(.*)$/);
   if (m && KNOWN.indexOf(m[1]) !== -1 && m[2] !== '') {
     if (META_FIELD[m[1]]) hero.meta.push([META_FIELD[m[1]], m[2]]);
@@ -116,7 +127,7 @@ out.push('`## H2 | Eyebrow | id` sets section overrides - an empty eyebrow omits
 out.push('the eyebrow line. ::: blocks and [directives] are documented in');
 out.push('AUTHORING.md.');
 out.push('-->');
-out.push(''); // the canonical blank after the comment block
+pendingBlanks = Math.max(pendingBlanks, 1); // the canonical blank after the comment
 
 // ── the [rule]: plain signals -> authoring markdown ─────────────────────
 
@@ -126,8 +137,6 @@ const DIRECTIVE = {
   Divider: 'divider', Eyebrow: 'eyebrow', Subtitle: 'subtitle'
 };
 const LABEL_RE = /^(Intro|Note|Point|Figure|Byline|Wrap-up|Caption|Image|Frame|Subtitle|Divider|Eyebrow|Hero|Columns):\s*(.*)$/;
-
-let pendingBlanks = 0;
 const flushBlanks = function () {
   while (pendingBlanks > 0) { out.push(''); pendingBlanks -= 1; }
 };
@@ -234,6 +243,9 @@ while (i < lines.length) {
 
   // [ai] marker passes
   if (t === '[ai]' && !group) { flushBlanks(); out.push(t); i += 1; continue; }
+
+  // Key: private notes - ignored body-wide, never emitted, never counted
+  if (KEY_LINE.test(t)) { i += 1; continue; }
 
   // head-style label line (body directives)
   if (LABEL_RE.test(t)) {

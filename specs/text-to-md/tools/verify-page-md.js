@@ -195,6 +195,7 @@ if (!sourcePath || !fs.existsSync(sourcePath)) {
     // lines inside HTML comments are dormant (never render, may be
     // commented-out old markup) - not part of the content accounting
     const t = l.trim();
+    if (/^[Kk]ey\s*:/.test(t)) return; // Key: private notes - ignored, not content
     if (inComment) {
       if (/-->/.test(t)) inComment = false;
       return;

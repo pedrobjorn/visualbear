@@ -47,6 +47,13 @@ Body - everything else is plain text:
     "a quote"                     (a line starting with " = pull quote)
     | a | b |                     (pipe rows = table)
 
+Anywhere, any number of times - your private notes, never rendered:
+
+    Key: scratch thoughts, questions, TODOs to yourself
+
+The converter skips `Key:` lines entirely: they reach neither the page
+md nor the build. Edit or delete them freely.
+
 Everything else is prose. No :::, no [directives], no raw HTML, no
 markup beyond the above - the skill rebuilds all of it (the [rule],
 executable reference: specs/text-to-md/tools/draft-to-md.js). The
