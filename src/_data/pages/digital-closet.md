@@ -120,5 +120,3 @@ Five usability studies (desirability and time-on-task) refined the final design.
 - Served as a learning MVP.
 - Sunsetted after one year.
 :::
-
-<!-- <p class="cs-summary"><em>A feature measured not just by what it achieved, but by what it taught the team.</em></p> -->

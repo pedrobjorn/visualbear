@@ -1,21 +1,34 @@
 'use strict';
 
-// Inverse transform for reverse-engineering existing pages into drafts
-// (specs/text-to-md, DR-0003): page md -> draft txt such that running
-// the round-trip emitter (draft-to-md.js / the skill rules) on the txt
-// reproduces the md.
-//
-//   - front matter hero -> labeled fields, one per line:
-//     Variant/Eyebrow/Title/Summary/Details + meta items as
-//     Logo/Needs/Related/Metrics/Footnote/Takeaway
-//   - headings pass through verbatim ("## X | E | id", "### X") -
-//     sections stay explicit so prose colon lines never collide
-//   - "1. **X**" (fully bold timeline item, the template form) -> "1. X"
-//     (the emitter re-adds the bold); items with inner bold pass as-is
-//   - the leading page comment block is dropped (the emitter re-adds it);
-//     other comments pass through - they never render
-//   - inside ::: fences everything passes through untouched
-//   - exactly one newline at EOF
+// Inverse transform, plain format v2 (specs/text-to-md, DR-0003):
+// page md -> SUPER PLAIN draft txt. Only these survive:
+//   - # heading marks (sections keep their optional pipe overrides)
+//   - **bold** (block titles become bare bold-only lines)
+//   - plain "Label: value" lines (Note:/Intro:/Frame:/... announcements)
+//   - paragraphs, "- " bullets, "1. " steps, pipe table rows, "> " quotes
+// Everything structural is carried by signals the skill's [rule]
+// interprets (see draft-to-md.js, the reference implementation):
+//   ::: fences          -> dropped; rebuilt from bold-line groups
+//   ::: columns         -> a "Columns:" hint line
+//   ::: hero <mods>     -> a "Hero: <mods>" hint line
+//   [card: X] [col: X]  -> **X**          (bold-only line)
+//   [panel: A | B]      -> **A: B**       (bold-only line)
+//   [frame: X | Y | Z]  -> Frame: X | Y (| Z)
+//   [image: X | Y]      -> Image: X | Y
+//   [intro: X]          -> Intro: X
+//   [note: X]           -> Note: X
+//   [point: X]          -> Point: X
+//   [figure: x]         -> Figure: x
+//   [byline: X]         -> Byline: X
+//   [summary: X]        -> Wrap-up: X
+//   [divider: X]        -> Divider: X
+//   [eyebrow: X]        -> Eyebrow: X (in-body)
+//   [subtitle: X]       -> Subtitle: X
+//   1. **X**            -> 1. X           (the emitter re-adds bold)
+//   <!-- comments -->   -> dropped (never render; dormant markup dies)
+//   front matter        -> the labeled head block (Variant/Eyebrow/...)
+//   blank-line runs pass through EXACTLY (a two-blank-line run before a
+//   fact list is load-bearing for the parser)
 //
 // Usage: node md-to-draft.js src/_data/pages/<slug>.md > src/_data/drafts/<slug>.txt
 
@@ -48,34 +61,58 @@ if (m) {
   });
 }
 
-// body: skip the leading page comment, map the rest in place
+// body: drop the leading page comment, map the rest in place
 let body = m ? src.slice(m[0].length) : src;
-body = body.replace(/^\s*<!--[\s\S]*?-->\s*/, '');
 
-let fence = false;
-let inComment = false;
+// drop every HTML comment (never renders; the plain draft keeps no markup)
+body = body.replace(/<!--[\s\S]*?-->/g, '').replace(/\n{4,}/g, '\n\n');
+
+const DIRECTIVE_LABEL = {
+  intro: 'Intro', note: 'Note', point: 'Point', figure: 'Figure',
+  byline: 'Byline', summary: 'Wrap-up', caption: 'Caption',
+  image: 'Image', frame: 'Frame', divider: 'Divider',
+  eyebrow: 'Eyebrow', subtitle: 'Subtitle'
+};
+
+const fenceStack = [];
 body.split('\n').forEach(function (line) {
   const t = line.trim();
-  if (inComment) {
-    if (/-->/.test(t)) inComment = false;
-    out.push(line);
+
+  const fenceOpen = t.match(/^:::\s*([a-z-]+)\s*(.*)$/);
+  if (fenceOpen) {
+    fenceStack.push(fenceOpen[1]);
+    // hints the plain draft carries so the [rule] can rebuild:
+    // columns groups and hero blocks (with modifier) get a label line
+    if (fenceOpen[1] === 'columns') out.push('Columns:');
+    if (fenceOpen[1] === 'hero') out.push('Hero: ' + fenceOpen[2].trim());
+    return; // the fence line itself dies; the [rule] rebuilds it
+  }
+  if (fenceStack.length && t === ':::') {
+    fenceStack.pop();
     return;
   }
-  if (/^<!--/.test(t)) {
-    if (!/^<!--.*-->/.test(t)) inComment = true;
-    out.push(line);
-    return;
-  }
-  if (/^:::/.test(t)) fence = !fence;
-  if (!fence) {
-    // fully-bold timeline item: draft carries plain text, emitter re-adds
-    const step = t.match(/^(\d+)\.\s+\*\*([\s\S]*?)\*\*$/);
-    if (step) {
-      out.push(step[1] + '. ' + step[2]);
-      return;
+
+  // [card: X] / [col: X] / [panel: A | B] -> bold-only line
+  const titled = t.match(/^\[(card|col|panel):\s*(.+?)\s*\]$/);
+  if (titled) {
+    if (titled[1] === 'panel') {
+      const parts = titled[2].split('|').map(function (s) { return s.trim(); });
+      out.push('**' + parts[0] + ': ' + parts.slice(1).join(' | ') + '**');
+    } else {
+      out.push('**' + titled[2].trim() + '**');
     }
+    return;
   }
+
+  // single-line directives -> labeled lines
+  const dir = t.match(/^\[(intro|note|point|figure|byline|summary|caption|image|frame|divider|eyebrow|subtitle):\s*([\s\S]*?)\s*\]$/);
+  if (dir) {
+    out.push(DIRECTIVE_LABEL[dir[1]] + ': ' + dir[2]);
+    return;
+  }
+
   out.push(line);
 });
 
+// blank-line runs pass through EXACTLY - only the edges are trimmed
 process.stdout.write(out.join('\n').replace(/\s+$/, '') + '\n');

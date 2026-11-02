@@ -64,7 +64,6 @@ AUTHORING.md.
 ## Site Redesign: Mobile & Desktop | Discovery | site-redesign
 
 
-
 ### Mobile Web
 
 ::: compare
@@ -77,10 +76,7 @@ AUTHORING.md.
 [point: Elements were also inconsistent in spacing, like in this case where we used a 3rd party which clashed with the rest of the experience..]
 
 
-
 [note: *Excuse the blurry image, it's all we could gather from the old site.]
-
-
 
 
 [panel: How it ended up | Mobile Web · After]
@@ -227,27 +223,3 @@ A quick prototype verified whether participants understood what was happening. W
 
 - **After two weeks:** no more user complaints in feedback, a 50% drop in CS tickets, a slight (<2%) drop in abandoned carts, and a slight (<2%) increase in CR% for coupon campaigns.
 - **After a few months:** a slight uptick in return users.
-
-<!-- <div class="cs-twocol">
-    <div class="cs-col">
-        <h3>Takeaways</h3>
-        <ul>
-            <li>Automate it, remove human error.</li>
-            <li>Customer Support is a valuable source of data.</li>
-            <li>Voucher flight is a thing.</li>
-        </ul>
-    </div>
-    <div class="cs-col">
-        <h3>Details to consider</h3>
-        <ul>
-            <li>Many users were still used to copy/pasting.</li>
-            <li>Most users were not campaign-focused, but product-focused.</li>
-            <li>Coupons didn't have such a huge impact.</li>
-            <li>Checkout unchanged.</li>
-        </ul>
-    </div>
-</div>
-
-<p class="cs-note">
-    The coupon study is proof of the redesign thesis, standardisation (Design System + Discovery cycle) is what made a fast, surgical coupon fix possible. Its sobering learnings are kept verbatim and unhidden; they strengthen, not weaken, the story.
-</p> -->

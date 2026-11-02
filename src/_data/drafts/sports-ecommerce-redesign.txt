@@ -6,6 +6,9 @@ Details: Lead Product Designer ⋅ Mobile & Desktop Web
 Metrics: 15% | customer return rate ↑
 Metrics: #1 | Sports Site of the Year
 Takeaway: Increased Customer Return Rate by 15%, improved SEO and usability, and we won more awards that year for Sports Site of the Year and customers loved the changes, commenting positively on social media.
+
+
+
 ## Problems & Opportunities | Definition | definition
 
 | | |
@@ -47,70 +50,58 @@ Takeaway: Increased Customer Return Rate by 15%, improved SEO and usability, and
 ## Site Redesign: Mobile & Desktop | Discovery | site-redesign
 
 
-
 ### Mobile Web
 
-::: compare
-[panel: How it started | Mobile Web · Before]
+**How it started: Mobile Web · Before**
 
-[frame: Mobile Web · Before | Final mockup pending]
+Frame: Mobile Web · Before | Final mockup pending
 
-[point: Before we started, the colours were very heavy, elements were very close together, and the elements were very sharp.]
+Point: Before we started, the colours were very heavy, elements were very close together, and the elements were very sharp.
 
-[point: Elements were also inconsistent in spacing, like in this case where we used a 3rd party which clashed with the rest of the experience..]
-
+Point: Elements were also inconsistent in spacing, like in this case where we used a 3rd party which clashed with the rest of the experience..
 
 
-[note: *Excuse the blurry image, it's all we could gather from the old site.]
+Note: *Excuse the blurry image, it's all we could gather from the old site.
 
 
-
-
-[panel: How it ended up | Mobile Web · After]
+**How it ended up: Mobile Web · After**
 More whitespace and rounded corners, replicating the roundness and softness of gym gear and muscles, making it feel friendly. We reduced the intensity of colours and content, letting the CTA stand out and using the brand colour sparingly. Since content was still largely shot 1:1, we accommodated that while coordinating a shift to 2:3.
 
-[frame: Mobile Web · After | Final mockup pending]
+Frame: Mobile Web · After | Final mockup pending
 
-[point: Rounded corners, the softness of gym gear and muscles]
+Point: Rounded corners, the softness of gym gear and muscles
 
-[point: Brand colour used sparingly, CTA stands out]
-:::
+Point: Brand colour used sparingly, CTA stands out
 
-::: showcase
-[frame: Mobile Web, how it ended up | Big page-wide mockup · final image pending | tall]
+Frame: Mobile Web, how it ended up | Big page-wide mockup · final image pending | tall
 The redesigned mobile experience: whitespace, rounded corners and room for content.
-:::
 
 ### Desktop
 
-::: compare
-[panel: How it started | Desktop Web · Before]
+**How it started: Desktop Web · Before**
 Much like on mobile, there was an inconsistency of elements, and an overwhelming quantity of content, causing information overload.
 
-[frame: Desktop Web · Before | Final mockup pending]
+Frame: Desktop Web · Before | Final mockup pending
 
-[panel: How it ended up | Desktop Web · After]
+**How it ended up: Desktop Web · After**
 We retained the information density, customers come seeking information, and we didn't want to change the experience too much. We introduced "combination" so customers could easily add commonly-bought-together items, and kept reviews useful while updating them to feel more personal.
 
-[frame: Desktop Web · After | Final mockup pending]
+Frame: Desktop Web · After | Final mockup pending
 
-[point: Information density retained]
+Point: Information density retained
 
-[point: "Combination" pattern for commonly-bought-together items]
+Point: "Combination" pattern for commonly-bought-together items
 
-[point: Reviews updated to feel more personal]
-:::
+Point: Reviews updated to feel more personal
 
 ## Rolled Out in Phases | Delivery | site-delivery
 
-[intro: The results were rolled out in phases, per page, on web mobile and desktop, each page verified against the new standards as it shipped.]
+Intro: The results were rolled out in phases, per page, on web mobile and desktop, each page verified against the new standards as it shipped.
 
 ## Outcome | Outcome | site-outcome
 
-::: metrics
 15% | customer return rate ↑
 #1 | Sports Site of the Year
-:::
 
 [h2: Lessons]
 
@@ -119,22 +110,19 @@ We retained the information density, customers come seeking information, and we 
 - **Include Brand in product from day 1**, embed brand into the fabric of the product.
 - **Start with a solid foundation**, and iterate early and often.
 
-[divider: Deep-Dive]
+Divider: Deep-Dive
 
-::: hero coupon-hero
-[eyebrow: Case Study, Coupon System]
+Hero: coupon-hero
+Eyebrow: Case Study, Coupon System
 ## Redesigned Coupon System
-[subtitle: Improve our coupon campaign issues, which were causing our users and customer support a lot of problems, the flagship example of the redesign's standardisation paying off.]
-[byline: Lead UX Design]
+Subtitle: Improve our coupon campaign issues, which were causing our users and customer support a lot of problems, the flagship example of the redesign's standardisation paying off.
+Byline: Lead UX Design
 
-::: metrics
 0 | user complaints in feedback
 50% | drop in CS tickets
 <2% | abandon cart ↓ · CR% ↑ on coupon campaigns
-:::
 
-[summary: After two weeks: no more user complaints in feedback and a 50% drop in CS tickets. After a few months: a slight uptick in return users.]
-:::
+Wrap-up: After two weeks: no more user complaints in feedback and a 50% drop in CS tickets. After a few months: a slight uptick in return users.
 
 ## Problem & Goal | Definition | coupon-definition
 
@@ -155,19 +143,17 @@ We retained the information density, customers come seeking information, and we 
 
 Based on both internal and industry-wide findings, we knew customers want the best value for money when shopping online. But when presented with an inconvenient coupon format, the potential to miss out goes up, resulting in frustration.
 
-::: cards
-[card: Qualitatively]
+**Qualitatively**
 - Session recordings, to see it actually happen
 - Remote unmoderated user tests
 
-[card: Quantitatively]
+**Quantitatively**
 - Google Analytics & internal reporting
 - Customer Support tickets
 
-[card: External research]
+**External research**
 - Competitive analysis
 - Existing research, voucher flight
-:::
 
 ### Key issues
 
@@ -178,7 +164,7 @@ Based on both internal and industry-wide findings, we knew customers want the be
 
 These cause frustrating experiences at the cart level, a poor final impression, and users dropping off without purchasing.
 
-[note: External stat: competitive prices and valuable promotions beyond free shipping are two of the top-5 important factors for customers choosing a retailer. (Digital Commerce 360 / Bizrate Insights holiday shopping survey, October 2019, 1,055 U.S. online shoppers.)]
+Note: External stat: competitive prices and valuable promotions beyond free shipping are two of the top-5 important factors for customers choosing a retailer. (Digital Commerce 360 / Bizrate Insights holiday shopping survey, October 2019, 1,055 U.S. online shoppers.)
 
 ## Workshops, Study & Actions | Discovery | coupon-discovery
 
@@ -210,27 +196,3 @@ A quick prototype verified whether participants understood what was happening. W
 
 - **After two weeks:** no more user complaints in feedback, a 50% drop in CS tickets, a slight (<2%) drop in abandoned carts, and a slight (<2%) increase in CR% for coupon campaigns.
 - **After a few months:** a slight uptick in return users.
-
-<!-- <div class="cs-twocol">
-    <div class="cs-col">
-        <h3>Takeaways</h3>
-        <ul>
-            <li>Automate it, remove human error.</li>
-            <li>Customer Support is a valuable source of data.</li>
-            <li>Voucher flight is a thing.</li>
-        </ul>
-    </div>
-    <div class="cs-col">
-        <h3>Details to consider</h3>
-        <ul>
-            <li>Many users were still used to copy/pasting.</li>
-            <li>Most users were not campaign-focused, but product-focused.</li>
-            <li>Coupons didn't have such a huge impact.</li>
-            <li>Checkout unchanged.</li>
-        </ul>
-    </div>
-</div>
-
-<p class="cs-note">
-    The coupon study is proof of the redesign thesis, standardisation (Design System + Discovery cycle) is what made a fast, surgical coupon fix possible. Its sobering learnings are kept verbatim and unhidden; they strengthen, not weaken, the story.
-</p> -->

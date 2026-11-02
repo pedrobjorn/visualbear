@@ -6,16 +6,19 @@ Details: Lead Designer ⋅ Figjam · Claude Code
 Logo: ../images/work/fullsize/teachr/teachr_logo.png | Teachr brand mark
 Related: Part of a pair - read first | ../teachr/ | Teachr, Redesigning the Learning Experience
 Takeaway: Summary: unlocking the training dashboard experience for our users through agentic AI in the app.
+
+
+
 ## Outcomes & Impact | Outcomes & Impact | outcomes
 
-[image: Outcomes & Impact | WIP - results pending]
+Image: Outcomes & Impact | WIP - results pending
 
 ## Process
 
-1. Identifying the issue
-2. Discovery
-3. Design
-4. Delivery
+1. **Identifying the issue**
+2. **Discovery**
+3. **Design**
+4. **Delivery**
 
 This case study ran on my AI workflow - spec first, agent-drafted, visually verified at every step. The full loop: [My Agentic Design Workflow](../workflow/).
 
@@ -63,11 +66,11 @@ When building embedded AI agents one must also gather usage insights to calibrat
 
 This also means not relying on the agent to do everything, but instead to orchestrate different services.
 
-[image: Agent flow | Diagram pending]
+Image: Agent flow | Diagram pending
 
 Evals and calibration will help improve the agent's capabilities, while usage behaviour will also give us insights into UX improvements for the feature - although a lot of functionality is already established, like rating, replying, quick actions, editing, stopping processing, etc.
 
-[image: Evals cycle | Diagram pending]
+Image: Evals cycle | Diagram pending
 
 The other layer was to manage the credits and embed it into the payment plans. We did this by giving everyone a budget they could "top up" on top of the base usage.
 
@@ -75,7 +78,7 @@ The other layer was to manage the credits and embed it into the payment plans. W
 
 The design was two parts: the initial chat as a landing page, serving as a portal into other posts as recommendations.
 
-[image: Agent view | Designs pending]
+Image: Agent view | Designs pending
 
 The other service was a drawer available in any view, able to work within the context. It also enabled selecting most elements on the view to gain context for the agent.
 
@@ -83,4 +86,4 @@ The emphasis when designing this feature is a) trust, b) clarity of options and 
 
 ## Conclusion & Lessons learned | Conclusion | conclusion
 
-[image: Conclusion & Lessons learned | WIP - pending]
+Image: Conclusion & Lessons learned | WIP - pending

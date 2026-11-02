@@ -179,7 +179,7 @@ if (!sourcePath || !fs.existsSync(sourcePath)) {
         .replace(/:::/g, ' ')
         .replace(/\[(?:card|col|panel|frame):/g, ' ')
         .replace(/\[(?:ai|byline|caption|figures?|h[23]|image|intro|note|point|summary)\s*:/g, ' ')
-        .replace(/[#*_`]/g, ' ')
+        .replace(/[#*_`:]/g, ' ')
         .replace(/\[|\]|\||\(|\)/g, ' ')
         .replace(/&amp;/g, '&')
         .replace(/&lt;/g, '<')
@@ -205,12 +205,16 @@ if (!sourcePath || !fs.existsSync(sourcePath)) {
     }
     // a leading signal word (Note:/Before:/Summary:/...) becomes
     // structure - the rendered text carries the rest of the line
-    const text = textify(l).replace(/^[a-z]+\s*:\s*/i, '');
+    // a "Word: value" label prefix is signal, not content
+    const text = textify(
+      l.replace(/^\s*(variant|eyebrow|title|summary|details|logo|needs|related|metrics|footnote|takeaway|intro|note|point|figure|byline|wrap-up|caption|image|frame|divider|subtitle|hero|columns)\s*:\s*/i, '')
+    );
     if (text) srcLines.push(text);
   });
   const todos = norm(body.match(/<!--\s*TODO[^>]*>/g) || []);
+  const outLower = outText.toLowerCase();
   const unaccounted = srcLines.filter(function (line) {
-    if (outText.indexOf(line) !== -1) return false;
+    if (outLower.indexOf(line.toLowerCase()) !== -1) return false;
     // carried as TODO? (only then is it accounted for)
     return todos.indexOf(line.slice(0, 25)) === -1;
   });

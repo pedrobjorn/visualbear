@@ -89,6 +89,14 @@ Silky-smooth additions (the ergonomics that make the loop feel free):
   zero diff on all six); content-accounting green for every page
   against its draft; labeled-hero golden added (8 eval cases).
 
+- 2026-11-02 (later): drafts pushed to SUPER PLAIN TEXT per Pedro -
+  only heading marks, bold, Word: label lines, prose. The skill's [rule]
+  rebuilds every construct from the plain signals (bold-line groups ->
+  cards/columns/compare, Label: lines -> directives, value-first lines ->
+  metrics, quote-mark lines -> quotes, Columns:/Hero: hints). All six
+  drafts rewritten plain; round-trip byte-identical on all six; dormant
+  HTML comments dropped from pages (invisible; in git history).
+
 ## Goal
 
 A new case study goes from a pasted raw-text file to a live, verified

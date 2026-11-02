@@ -50,9 +50,6 @@ My role was Lead User Experience of the Global rebrand, responsible for the digi
 [note: ⚠️ Looking back, we were too centralised and waterfall, not enough room for contribution from teams and developers.]
 :::
 
-<!-- <div class="cs-frame">
-    <span class="cs-frame-label"><strong>Team Composition Diagram</strong>Final diagram pending</span>
-</div> -->
 
 ### Goals
 
@@ -170,12 +167,6 @@ The Department Navigation Tab became a single shared component, used the same wa
 | Performance | Baseline | +40% | Faster pages improved the experience and SEO ranking |
 :::
 
-<!-- <ul class="cs-facts">
-    <li>All departments gained traffic from their new presence on Mobile Web and Apps.</li>
-    <li>Business Units were happy with better discoverability, content guidelines and UI elements to work with.</li>
-    <li>Cross-area collaboration with Brand and Content improved, campaign production time &amp; cost halved.</li>
-    <li>Web experience and SEO improved thanks to consolidating department pages and reducing loading times, largely from less content on the Index and Department pages.</li>
-</ul> -->
 
 [note: ⚠️ Rebrands are often a long-term investment, we could have done more quantification work and gotten more solid insights.]
 

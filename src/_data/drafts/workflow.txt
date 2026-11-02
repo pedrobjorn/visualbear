@@ -2,6 +2,9 @@ Eyebrow: The visuAI Workflow
 Title: My Agentic Design Workflow </br> visuAI
 Summary: Using research, discovery and decisions to create value through my Design AI workflow.
 Details: Design Lead ⋅ Spec · Skills · Agents ⋅ 2026
+
+
+
 ## Why the bottleneck moved | The shift | shift
 
 AI has removed the bar of entry for production: now the separation becomes intent, vision and decision making.

@@ -1,44 +1,71 @@
 'use strict';
 
-// Round-trip checker for the reverse-engineered drafts (specs/text-to-md,
-// DR-0003): draft txt -> page md, mechanically applying the
-// visuai-text-to-md emit rules. When the output diffed against the
-// committed `src/_data/pages/<slug>.md` is empty, the draft is a faithful
-// source for that page.
+// Round-trip checker + reference implementation of the skill's [rule]
+// (specs/text-to-md, DR-0002 + DR-0003): SUPER PLAIN draft txt -> page md.
 //
-// Input conventions (the inverse mapping, documented in the drafts
-// README and the skill):
-//   - head block: labeled fields, consecutive from the first line -
-//     Variant / Eyebrow / Title / Summary / Details + meta items
-//     Logo / Needs / Related / Metrics / Footnote / Takeaway
-//   - "Title | Eyebrow | id"  -> ## section with overrides
-//   - "1. Step"               -> 1. **Step** (timeline template)
-//   - fences (:::), directives [x: ...], tables, quotes, images,
-//     bullets: pass through verbatim
-//   - everything else: paragraph text
+// The plain format (what survives in a draft):
+//   # heading marks (## sections, ### sub-heads), **bold**,
+//   "Label: value" lines, paragraphs, "- " bullets, "1. " steps,
+//   pipe table rows, lines starting with a quotation mark ("), [ai]
 //
-// Usage: node draft-to-md.js <draft.txt> [slug]   (slug for the header comment)
+// The [rule] - how plain signals map back to authoring markdown:
+//
+//   1. HEAD BLOCK: the first consecutive labeled lines are the hero
+//      front matter (Variant/Eyebrow/Title/Summary/Details + Logo/
+//      Needs/Related/Metrics/Footnote/Takeaway).
+//
+//   2. LABEL LINES become directives: Intro:/Note:/Point:/Figure:/
+//      Byline:/Wrap-up:/Caption: -> [intro:]/[note:]/[point:]/[figure:]/
+//      [byline:]/[summary:]/[caption:]; Image: X | Y -> [image: X | Y];
+//      Frame: X | Y [| Z] -> [frame: X | Y [| Z]]; Divider: X ->
+//      [divider: X]; Hero: <modifier> opens a mid-page ::: hero block
+//      (closed by the next ## heading).
+//
+//   3. BOLD-GROUP RULE: a bold-ONLY line ("**X**") is a block title;
+//      "**Label:** more" (bold + more text) is a normal paragraph. A run
+//      of 2+ bold-only blocks becomes exactly one container:
+//        - side-titled ("**Before: X**" / "**After: X**" / Old / New) ->
+//          ::: compare with [panel: Side | name]
+//        - any member contains "- " bullets          -> ::: columns
+//        - otherwise                                 -> ::: cards
+//      A lone bold-only line stays a bold paragraph.
+//
+//   4. SUBTITLE RULE: "Subtitle: X" under a heading inside a hero emits
+//      [subtitle: X].
+//
+//   5. QUOTE RULE: a line starting with a quotation mark (") is a pull
+//      quote.
+//
+//   6. METRIC RULE: 2+ consecutive pipe lines whose first cell starts
+//      with a value token -> ::: metrics.
+//
+//   7. TABLE RULE: other pipe runs -> card-grid table (no fence) or,
+//      when the first row is a text header -> ::: table.
+//
+//   8. Everything else (bullets, steps, images, [ai]) passes through.
+//
+// Usage: node draft-to-md.js <draft.txt> [slug]
 
 const fs = require('fs');
-
 const path = require('path');
 
 const file = process.argv[2];
 const slug = (process.argv[3] || require('path').basename(file, '.txt')).trim();
 const lines = fs.readFileSync(file, 'utf8').split('\n');
 
+const HEAD_FIELDS = ['Variant', 'Eyebrow', 'Title', 'Summary', 'Details'];
 const META_FIELD = {
   Logo: 'logo', Needs: 'needs', Related: 'related',
   Metrics: 'metrics', Footnote: 'footnote', Takeaway: 'summary'
 };
-const HERO_FIELDS = ['Variant', 'Eyebrow', 'Title', 'Summary', 'Details'];
-const KNOWN = HERO_FIELDS.concat(Object.keys(META_FIELD));
+const KNOWN = HEAD_FIELDS.concat(Object.keys(META_FIELD));
+const SIDES = ['Before', 'After', 'Old', 'New'];
 
 const yq = function (v) {
   return '"' + String(v).replace(/\\/g, '\\\\').replace(/"/g, '\\"') + '"';
 };
 
-// ── head block: labeled fields, consecutive from the first line ─────────
+// ── 1. head block ────────────────────────────────────────────────────────
 
 const hero = { meta: [] };
 let headEnd = 0;
@@ -50,19 +77,14 @@ for (let i = 0; i < lines.length; i++) {
     started = true;
   }
   const m = t.match(/^([A-Za-z][A-Za-z ]*):\s*(.*)$/);
-  if (started && m && KNOWN.indexOf(m[1]) !== -1 && m[2] !== '') {
-    const key = m[1];
-    if (META_FIELD[key]) {
-      hero.meta.push([META_FIELD[key], m[2]]);
-    } else {
-      hero[key.toLowerCase()] = m[2];
-    }
+  if (m && KNOWN.indexOf(m[1]) !== -1 && m[2] !== '') {
+    if (META_FIELD[m[1]]) hero.meta.push([META_FIELD[m[1]], m[2]]);
+    else hero[m[1].toLowerCase()] = m[2];
     headEnd = i + 1;
   } else if (started) {
-    if (t === '') { headEnd = headEnd || i; break; }
-    break; // first unlabeled content line ends the hero block
+    break;
   } else {
-    console.error('draft-to-md: no labeled hero head block in ' + file);
+    console.error('draft-to-md: no head block in ' + file);
     process.exit(1);
   }
 }
@@ -94,50 +116,261 @@ out.push('`## H2 | Eyebrow | id` sets section overrides - an empty eyebrow omits
 out.push('the eyebrow line. ::: blocks and [directives] are documented in');
 out.push('AUTHORING.md.');
 out.push('-->');
-out.push('');
-// ── body: in-place line mapping (spacing preserved from the draft) ──────
+out.push(''); // the canonical blank after the comment block
 
-let firstContent = true;
-let fence = false;
-let inComment = false;
-lines.slice(headEnd).forEach(function (raw) {
-  const t0 = raw.trim();
-  if (t0 !== '') firstContent = false;
-  if (/^:::/.test(t0)) fence = !fence;
-  // comment state: everything until --> passes through verbatim
-  if (inComment) {
-    if (/-->/.test(t0)) inComment = false;
-    out.push(raw.replace(/\s+$/, ''));
-    return;
+// ── the [rule]: plain signals -> authoring markdown ─────────────────────
+
+const DIRECTIVE = {
+  Intro: 'intro', Note: 'note', Point: 'point', Figure: 'figure',
+  Byline: 'byline', 'Wrap-up': 'summary', Caption: 'caption',
+  Divider: 'divider', Eyebrow: 'eyebrow', Subtitle: 'subtitle'
+};
+const LABEL_RE = /^(Intro|Note|Point|Figure|Byline|Wrap-up|Caption|Image|Frame|Subtitle|Divider|Eyebrow|Hero|Columns):\s*(.*)$/;
+
+let pendingBlanks = 0;
+const flushBlanks = function () {
+  while (pendingBlanks > 0) { out.push(''); pendingBlanks -= 1; }
+};
+const emit = function (line) { flushBlanks(); out.push(line); };
+const emitLabel = function (line) {
+  const m = line.match(LABEL_RE);
+  if (!m) return false;
+  const label = m[1];
+  const parts = m[2].split('|').map(function (s) { return s.trim(); }).filter(Boolean);
+  if (label === 'Wrap-up') emit('[summary: ' + parts.join(' | ') + ']');
+  else if (label === 'Image' || label === 'Frame') {
+    emit('[' + label.toLowerCase() + ': ' + parts.join(' | ') + ']');
+  } else emit('[' + DIRECTIVE[label] + ': ' + m[2].trim() + ']');
+  return true;
+};
+
+const isBoldOnly = function (line) {
+  return /^\*\*[^*]+\*\*$/.test(line.trim());
+};
+const sideOf = function (line) {
+  const m = line.trim().match(/^\*\*([A-Za-z]+):\s*(.+)\*\*$/);
+  return m && SIDES.indexOf(m[1]) !== -1 ? m : null;
+};
+const isQuoted = function (line) {
+  return /^["\u201c]/.test(line.trim());
+};
+const isBullet = function (line) {
+  return /^-\s/.test(line.trim());
+};
+
+// scan line-wise, grouping bold blocks on the fly
+let i = headEnd;
+let seenBody = false;
+let inHero = false;
+let nextGroupColumns = false;
+let group = null; // buffered member lines of an open bold group
+let groupType = null;
+const closeGroup = function () {
+  if (!group || !group.parts.length) { group = null; groupType = null; return; }
+  const panelTitles = group.titles.filter(function (t) {
+    return !!t.match(/^\*\*[^*]+:\s*[^*]+\*\*$/);
+  });
+  const emitPart = function (chunk, kind) {
+    if (chunk.title) {
+      if (kind === 'panel') {
+        const t = chunk.title.match(/^\*\*([^*]+):\s*([^*]+)\*\*$/);
+        out.push('[panel: ' + t[1] + ' | ' + t[2] + ']');
+      } else {
+        out.push('[' + kind + ': ' + chunk.title.slice(2, -2) + ']');
+      }
+    }
+    chunk.body.forEach(function (l) {
+      if (!emitLabel(l)) out.push(l);
+    });
+    if (!chunk.body.length) out.push('');
+  };
+  let surplus = 0;
+  const trimTrailing = function () {
+    while (out.length && out[out.length - 1] === '') { out.pop(); surplus += 1; }
+  };
+  if (group.titles.length >= 2 && panelTitles.length === group.titles.length) {
+    flushBlanks();
+    out.push('::: compare');
+    group.parts.forEach(function (chunk) { emitPart(chunk, 'panel'); });
+    trimTrailing();
+    emit(':::');
+    pendingBlanks = surplus;
+  } else if (group.columns) {
+    flushBlanks();
+    out.push('::: columns');
+    group.parts.forEach(function (chunk) { emitPart(chunk, 'col'); });
+    trimTrailing();
+    emit(':::');
+    pendingBlanks = surplus;
+  } else {
+    flushBlanks();
+    out.push('::: cards');
+    group.parts.forEach(function (chunk) { emitPart(chunk, 'card'); });
+    trimTrailing();
+    emit(':::');
+    pendingBlanks = surplus;
   }
-  if (/^<!--/.test(t0)) {
-    if (!/^<!--.*-->/.test(t0)) inComment = true;
-    out.push(raw.replace(/\s+$/, ''));
-    return;
-  }
-  if (fence || /^#|^\[|^>/.test(t0)) { out.push(raw.replace(/\s+$/, '')); return; }
+  group = null;
+  groupType = null;
+};
+const openGroup = function () {
+  group = { titles: [], parts: [], columns: !!nextGroupColumns };
+};
+
+while (i < lines.length) {
+  const raw = lines[i];
   const t = raw.trim();
-  if (firstContent && t === '') return; // drop leading blanks after the head
-  if (t !== '') firstContent = false;
+  if (t !== '') seenBody = true;
 
-  // 3-part section override: "Title | Eyebrow | id" (an empty middle
-  // part keeps its slot: "Title | | id")
-  const sec3 = t.match(/^([^|]+)\|([^|]+)\|([^|]+)$/);
-  if (sec3) {
-    const eyebrow = sec3[2].trim();
-    const head = sec3[1].trim() + ' | ' + eyebrow + ' | ' + sec3[3].trim();
-    out.push('## ' + head.replace(/ {2,}/g, ' '));
-    return;
+  if (t === '') {
+    if (!seenBody) { i += 1; continue; } // skip blanks between head and body
+    if (group) {
+      // in-group blank = member separator, carried inside the member
+      const last = group.parts[group.parts.length - 1];
+      if (last) last.body.push('');
+    } else pendingBlanks += 1;
+    i += 1; continue;
   }
-  // timeline template re-adds the bold (items already carrying bold or
-  // inner markup pass through verbatim)
-  const step = t.match(/^(\d+)\.\s+(.+)$/);
-  if (step && !/\*\*/.test(t)) {
-    out.push(step[1] + '. **' + step[2] + '**');
-    return;
-  }
-  // fences, directives, tables, quotes, images, bullets, prose: verbatim
-  out.push(raw.replace(/\s+$/, ''));
-});
 
-process.stdout.write(out.join("\n").replace(/\s+$/, "") + "\n");
+  // [ai] marker passes
+  if (t === '[ai]' && !group) { flushBlanks(); out.push(t); i += 1; continue; }
+
+  // head-style label line (body directives)
+  if (LABEL_RE.test(t)) {
+    // a Frame: label OUTSIDE any group is a standalone showcase: the
+    // frame plus the next plain paragraph (its caption) inside one fence
+    if (!group && /^(Frame|Figure):/.test(t)) {
+      flushBlanks();
+      out.push('::: showcase');
+      emitLabel(t);
+      i += 1;
+      while (i < lines.length && lines[i].trim() !== '' && !LABEL_RE.test(lines[i].trim()) && !isBoldOnly(lines[i].trim()) && !/^#{1,6}\s/.test(lines[i].trim())) {
+        emit(lines[i].replace(/\s+$/, ''));
+        i += 1;
+      }
+      emit(':::');
+      continue;
+    }
+    if (group && /^(Frame|Figure):/.test(t)) {
+      const last = group.parts[group.parts.length - 1];
+      let lastBody = '';
+      if (last) for (let k = last.body.length - 1; k >= 0; k--) { if (last.body[k].trim() !== '') { lastBody = last.body[k].trim(); break; } }
+      if (/^(Point|Note):/.test(lastBody)) {
+        closeGroup();
+        emit('::: showcase');
+        emitLabel(t);
+        i += 1;
+        while (i < lines.length && lines[i].trim() !== '' && !LABEL_RE.test(lines[i].trim()) && !isBoldOnly(lines[i].trim()) && !/^#{1,6}\s/.test(lines[i].trim())) {
+          emit(lines[i].replace(/\s+$/, ''));
+          i += 1;
+        }
+        emit(':::');
+        continue;
+      }
+    }
+    if (/^Columns:/.test(t) && !group) {
+      nextGroupColumns = true;
+      i += 1; continue;
+    }
+    if (/^Hero:/.test(t) && !group) {
+      const mod = t.replace(/^Hero:\s*/, '').trim();
+      emit('::: hero' + (mod ? ' ' + mod : ''));
+      inHero = true;
+      i += 1; continue;
+    }
+    if (group) {
+      if (group.parts.length && group.parts[group.parts.length - 1].title) {
+        group.parts[group.parts.length - 1].body.push(t);
+      } else {
+        // label between members: attach to the previous member
+        group.parts.push({ title: null, text: '' });
+        group.parts[group.parts.length - 1].body = [t];
+      }
+    } else {
+      emitLabel(t);
+      if (inHero && /^Wrap-up:/.test(t)) { emit(':::'); inHero = false; }
+    }
+    i += 1;
+    continue;
+  }
+
+  // heading
+  if (/^#{1,6}\s/.test(t)) {
+    closeGroup();
+    emit(t);
+    i += 1;
+    continue;
+  }
+
+  // group member title?
+  if (isBoldOnly(t)) {
+    if (!group) openGroup();
+    group.titles.push(t);
+    group.parts.push({ title: t, body: [] });
+    i += 1;
+    continue;
+  }
+
+  // group member body line
+  if (group) {
+    const last = group.parts[group.parts.length - 1];
+    if (last) {
+      if (isBullet(t)) group.hasBullets = true;
+      last.body.push(t);
+    }
+    i += 1;
+    continue;
+  }
+
+  // quote line?
+  if (/^["\u201c]/.test(t)) {
+    emit('> ' + t);
+    i += 1;
+    continue;
+  }
+
+  // METRIC RULE: 2+ consecutive value-first lines (pipe prefix optional)
+  const METRIC_RE = /^(\d|#|\u2191|\u2193|%|<|>)\s*[^|]*\|/;
+  if (METRIC_RE.test(t)) {
+    flushBlanks();
+    out.push('::: metrics');
+    while (i < lines.length && METRIC_RE.test(lines[i].trim())) {
+      out.push(lines[i].trim());
+      i += 1;
+    }
+    emit(':::');
+    continue;
+  }
+
+  // pipe run (tables: text header -> ::: table; empty header -> card grid)
+  if (/^\|/.test(t)) {
+    const hasHeader = !/^\|\s*\|/.test(t) && !/^\|\s*-{2,}/.test(t);
+    if (hasHeader) {
+      flushBlanks();
+      out.push('::: table');
+      while (i < lines.length && /^\|/.test(lines[i].trim())) {
+        out.push(lines[i].trim());
+        i += 1;
+      }
+      out.push(':::');
+    } else {
+      flushBlanks();
+      while (i < lines.length && /^\|/.test(lines[i].trim())) {
+        out.push(lines[i].trim());
+        i += 1;
+      }
+    }
+    continue;
+  }
+
+  // image reference ![...](...)
+  if (/^!\[/.test(t)) { emit(t); i += 1; continue; }
+
+  // anything else: plain paragraph line (indent preserved: raw HTML
+  // blocks are the escape hatch and must survive byte-for-byte)
+  emit(raw.replace(/\s+$/, ""));
+  i += 1;
+}
+closeGroup();
+
+process.stdout.write(out.join('\n').replace(/^\n+/, '').replace(/\s+$/, '') + '\n');

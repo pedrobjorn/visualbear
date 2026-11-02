@@ -58,8 +58,10 @@ PAGES.forEach(function (slug) {
 
   let body = s.slice(m[0].length);
   body = body.replace(/^[\s\S]*?-->[ \t]*\n?/, '')
-    .replace(/^[ \t]*\n+/, '')
+    .replace(/<!--[\s\S]*?-->/g, '')
+    .replace(/^\n+/, '')
     .replace(/[ \t]+\n/g, '\n')
+    .replace(/\n{4,}/g, '\n\n\n')
     .replace(/\n+$/, '\n');
 
   const comment = [

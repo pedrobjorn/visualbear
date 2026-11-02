@@ -7,16 +7,19 @@ Logo: ../images/work/fullsize/teachr/teachr_logo.png | Teachr brand mark
 Needs: Mock up a design system, and mock up the training flow vibe-coded with Claude Code.
 Related: Part of a pair - read next | ../teachr-agent/ | Teachr, AI Agent in the Learning Dashboard
 Takeaway: Summary: redesigning the training for thousands of users to make it better and faster for learning, but also more scalable and accessible.
+
+
+
 ## Outcomes & Impact | Outcomes & Impact | outcomes
 
-[image: Outcomes & Impact | WIP - results pending]
+Image: Outcomes & Impact | WIP - results pending
 
 ## Process
 
-1. Problem definition
-2. Discovery & validation
-3. Design
-4. Delivery
+1. **Problem definition**
+2. **Discovery & validation**
+3. **Design**
+4. **Delivery**
 
 This case study ran on my AI workflow - spec first, agent-drafted, visually verified at every step. The full loop: [My Agentic Design Workflow](../workflow/).
 
@@ -54,8 +57,8 @@ With the goal in mind, we decided to prioritize unifying the flow, ensuring regi
 
 ## Design & Delivery
 
-[image: Training flow, design system mockups | WIP - designs pending]
+Image: Training flow, design system mockups | WIP - designs pending
 
 ## Conclusion & Lessons learned | Conclusion | conclusion
 
-[image: Conclusion & Lessons learned | WIP - pending]
+Image: Conclusion & Lessons learned | WIP - pending
