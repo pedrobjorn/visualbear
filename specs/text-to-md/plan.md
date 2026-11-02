@@ -58,17 +58,16 @@ Risks, and how the spec handles each:
 
 Silky-smooth additions (the ergonomics that make the loop feel free):
 
-- **Inbox convention**: drop a file in `src/_data/drafts/inbox/<slug>.txt`,
-  run the skill, get `src/_data/pages/<slug>.md`, dev server reloads,
-  the processed input is archived to `src/_data/drafts/processed/`.
-  (Resolved 2026-11-02: Pedro chose "own space in data". The data
-  loader's whitelist `json|ya?ml|md` ignores `.txt`, so drafts never
-  enter `site.data` or the build.) One mental move: "text in folder,
-  page appears."
-- **Idempotence**: running the skill on an already-converted page is a
-  detected no-op, not a mangled rewrite. Re-runs after Pedro edits the
-  md by hand are refused with a diff summary unless he passes a
-  `--force`-equivalent instruction.
+- **Drafts as the copy source (DR-0003, supersedes the original inbox
+  convention the same day)**: `src/_data/drafts/<slug>.txt` is the living
+  copy source - permanently, no archiving; every txt edit re-converts the
+  derived page md, verified and shown as a diff. (The data loader's
+  whitelist `json|ya?ml|md` ignores `.txt`, so drafts never enter
+  `site.data` or the build.) One mental move: "edit the txt, the page
+  follows."
+- **Idempotence**: the conversion is deterministic; identical input
+  yields an identical page. The md is derived (DR-0003) - copy edits go
+  in the txt; re-conversion shows the before/after diff of the page md.
 - **Self-verifying finish**: the skill ends every run by running the
   existing gates (`format:check`, `doc-sync.sh`, em-dash check) and
   reporting pass/fail, so "converted" always means "converted and

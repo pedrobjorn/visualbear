@@ -12,12 +12,13 @@ This guide is the authoring contract (see
 2. Edit the page's `.md` file in `src/_data/pages/`, save
 3. The browser refreshes with the change
 
-No hand-markdown at all? Paste raw text into
-`src/_data/drafts/inbox/<slug>.txt` and run the `visuai-text-to-md`
-skill - it converts (structure only, never content) into
-`src/_data/pages/<slug>.md`, hero included, then verifies itself;
-the processed draft is archived to `src/_data/drafts/processed/`
-(text-to-md plan, DR-0002).
+No hand-markdown at all? The draft txt in `src/_data/drafts/<slug>.txt`
+is your copy source (DR-0003): edit it whenever, then run the
+`visuai-text-to-md` skill - it re-converts (structure only, never
+content) into `src/_data/pages/<slug>.md`, hero included, shows the diff
+as the copy change, and verifies itself. The page md is derived - never
+hand-edit it; txt edits are the workflow. (text-to-md plan, DR-0002 +
+DR-0003.)
 
 No template work for standard layouts. The page shell (in
 `src/<page>/index.nunjucks`) holds the hero and chrome; everything below the
