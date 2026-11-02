@@ -5,7 +5,6 @@ Node 10 — any new dev dependency must support Node 10.
 
 ---
 
-- Status marked below
 ## Ticket 1 — Hero front matter: renderer + one pilot shell
 
 Status: DONE 2026-11-02 (pilot: fashion-rebrand, pixel-identical both viewports)
