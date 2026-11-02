@@ -10,7 +10,9 @@
 3. **Pedro visual pass** over the 7 migrated pages (workflow, teachr, teachr-agent, digital-closet, fashion-rebrand, sports-ecommerce-redesign, resume) — machine-verified pixel-identical, not human-reviewed.
 4. [x] **Production build** — done 2026-10-29: `npm run build` (note: the task also starts watch/BrowserSync and never exits — let tasks finish, then kill; build/ is gitignored). Verified: zero `ai-mark` occurrences in `build/` (stripping works), all pages present. **Publish** itself still pending Pedro's review of `build/` + his publish flow.
 5. **Backlog (phase 4, not started)** — migrate remaining hardcoded pages (about, art-ent, adhops, blog, steam-mobile, projecto-lynx, play, climate-clock); wire `mdmeta` frontmatter into shells' `<head>`; PDF download links on case studies; regenerate resume PDF (diverges by em-dashes).
-6. **Bullets & card/text alignment unification** — specced 2026-10-31 (`plan-bullets-cards.md` + tickets 24–29, DR-0010); reference set: ecommerce, teachr, digital-closet. Blocks on Pedro's three open questions in that plan.
+6. **Bullets & card/text alignment unification** — specced 2026-10-31 (`plan-bullets-cards.md` + tickets 24–29, DR-0010); reference set: ecommerce, teachr, digital-closet. Blocks on Pedro's three open questions in that plan. — tickets 24–52 all executed 2026-11-01 (see that file's statuses)
+7. **Teachr behind a password** — specced 2026-11-01 (`plan-teachr-password.md`): options A–F explored (host Basic Auth / StatiCrypt / Cloudflare Access…), recommendation + tickets TP-1–4; **blocks on TP-1's hosting questions for Pedro**.
+8. **visuai-text-to-md** — specced 2026-11-02 (`../text-to-md/plan.md` + DR-0001/0002, tickets 1–6): skill converts Pedro's pasted raw text into the authoring markdown, hero included (front matter, DR-0001), determinism proven by golden files (DR-0002). **Blocks on three open questions for Pedro** (inbox location, hero-meta day-one vocabulary, final copy vs rough notes).
 
 ## Next up added 2026-10-29: QA checks (see `tickets-phase3.md`)
 
