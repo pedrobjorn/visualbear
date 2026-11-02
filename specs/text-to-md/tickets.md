@@ -19,7 +19,9 @@ Heroes and hero-meta are hardcoded in `src/<page>/index.nunjucks`
 ### Requirements
 - `mdpage` parses YAML-ish front matter from page `.md` and exposes it
   as data to the template (hero variant, eyebrow, title, summary,
-  details, meta list per DR-0001's bounded vocabulary).
+  details, meta list per DR-0001's bounded vocabulary: logo, needs,
+  related, metrics, footnote — full vocabulary from day one, per
+  Pedro 2026-11-02).
 - One pilot page (recommend `fashion-rebrand`: cover + metrics meta,
   no gated access) renders its hero + hero-meta from front matter.
 - Pages without front matter render exactly as today (no regression).
@@ -68,30 +70,33 @@ Heroes and hero-meta are hardcoded in `src/<page>/index.nunjucks`
 - Skill at `~/.vibe/skills/visuai-text-to-md/` (visuAI suite
   convention, alongside `visuaibear-*`).
 - SKILL.md contains, verbatim-checkable: the inbox convention
-  (`drafts/inbox/<slug>.txt` in → `src/_data/pages/<slug>.md` out,
-  input archived to `drafts/processed/`), the fixed precedence table
-  (DR-0002 step 2, every row with its trigger signal and target
-  construct), the tiebreak rule, the emit templates, the hard rules
-  (never drop content, never rewrite voice, `[ai]` rules per DR-0008,
-  idempotence guard), and the hero extraction rules (DR-0001 front
-  matter; missing hero fields → explicit TODO comments, never silent
-  defaults).
+  (`src/_data/drafts/inbox/<slug>.txt` in → `src/_data/pages/<slug>.md`
+  out, input archived to `src/_data/drafts/processed/`; `.txt` is
+  safe there — the data loader's `json|ya?ml|md` whitelist ignores
+  it), the fixed precedence table (DR-0002 step 2, every row with its
+  trigger signal and target construct), the tiebreak rule, the emit
+  templates, the hard rules (never drop content; structure only,
+  never content — pasted text is Pedro's final copy, content changes
+  only on explicit instruction and then `[ai]` per DR-0008; idempotence
+  guard), and the hero extraction rules (DR-0001 front matter with the
+  full meta vocabulary; missing hero fields → explicit TODO comments,
+  never silent defaults).
 - The skill ends every run by running the bundled verify gates and
   reporting pass/fail with file paths.
 
 ### Acceptance criteria (agent-checkable)
-- [ ] Running the skill on a sample input in `drafts/inbox/` produces
-  a valid `src/_data/pages/<slug>.md` (passes `doc-sync.sh`, no em
-  dashes, valid front matter per DR-0001) with hero included.
+- [ ] Running the skill on a sample input in
+  `src/_data/drafts/inbox/` produces a valid `src/_data/pages/<slug>.md`
+  (passes `doc-sync.sh`, no em dashes, valid front matter per DR-0001)
+  with hero included.
 - [ ] Every source line of the input is accounted for in the output
   (content or TODO comment) - checked by the verify gate.
+- [ ] Content-preservation check: the output's body text is a subset
+  of the input's text (structure added, no words changed) - no `[ai]`
+  markers on a default run.
 - [ ] Re-running on an already-converted, hand-edited page refuses
   with a diff summary (idempotence guard demonstrably works).
 - [ ] Output is prettier-formatted (`format:check` passes).
-
-### Open questions (blockers per plan.md)
-- Inbox location, and whether pasted text is final copy or rough
-  notes (drives default `[ai]` behavior). Owner: Pedro.
 
 ---
 

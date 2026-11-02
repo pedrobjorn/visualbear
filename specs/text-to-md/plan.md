@@ -1,12 +1,15 @@
 # Plan: visuai-text-to-md — raw text in, authoring markdown out
 
 - Date: 2026-11-02
-- Status: draft
+- Status: ready (open questions answered by Pedro 2026-11-02; no
+  blockers)
 - Evidence: user request, 2026-11-02 — "I'll paste text with basic
   instructions in a file; you create a skill called visuai-text-to-md
   that converts the text into the md format we established here; from
-  there we use that md to build out to the site." ASSUMPTION on input
-  shape (loose free text, not a fixed form) — see Open questions.
+  there we use that md to build out to the site." Open questions
+  answered by Pedro 2026-11-02 (see below): drafts in their own space
+  in `src/_data/drafts/`, hero-meta vocabulary full from day one,
+  pasted text is FINAL copy.
 
 ## Evaluation of the idea (asked for, before the spec)
 
@@ -56,10 +59,13 @@ Risks, and how the spec handles each:
 
 Silky-smooth additions (the ergonomics that make the loop feel free):
 
-- **Inbox convention**: drop a file in `drafts/inbox/<slug>.txt`, run
-  the skill, get `src/_data/pages/<slug>.md`, dev server reloads, the
-  processed input is archived to `drafts/processed/`. One mental move:
-  "text in folder, page appears."
+- **Inbox convention**: drop a file in `src/_data/drafts/inbox/<slug>.txt`,
+  run the skill, get `src/_data/pages/<slug>.md`, dev server reloads,
+  the processed input is archived to `src/_data/drafts/processed/`.
+  (Resolved 2026-11-02: Pedro chose "own space in data". The data
+  loader's whitelist `json|ya?ml|md` ignores `.txt`, so drafts never
+  enter `site.data` or the build.) One mental move: "text in folder,
+  page appears."
 - **Idempotence**: running the skill on an already-converted page is a
   detected no-op, not a mangled rewrite. Re-runs after Pedro edits the
   md by hand are refused with a diff summary unless he passes a
@@ -69,8 +75,13 @@ Silky-smooth additions (the ergonomics that make the loop feel free):
   reporting pass/fail, so "converted" always means "converted and
   clean".
 - **Hero draft included**: the skill emits the front-matter hero from
-  the source text (title/summary/details it finds there); missing
-  hero fields become explicit TODOs rather than silent defaults.
+  the source text (title/summary/details it finds there), with the
+  full hero-meta vocabulary from day one; missing hero fields become
+  explicit TODOs rather than silent defaults.
+- **Structure only, never content**: Pedro's pasted text is final
+  copy (resolved 2026-11-02). The skill restructures; it does not
+  reword, reorder into different meaning, summarize, or expand -
+  content changes only when Pedro explicitly instructs them.
 
 ## Goal
 
@@ -135,6 +146,6 @@ one-source-of-truth content model (DR-0001).
 
 | Question | Owner | Blocks build? |
 |---|---|---|
-| Where do draft files live: `drafts/inbox/` in this repo, or Pedro drops them anywhere and points the skill at a path? | Pedro | blocks ticket 3 |
-| Hero-meta vocabulary: are Needs card / related link / logo part of the front-matter `meta:` list from day one, or metrics only first? | Pedro | blocks ticket 1 |
-| Do pasted texts arrive as Pedro's final copy (no `[ai]` needed) or rough notes the skill may expand (`[ai]` on)? | Pedro | blocks ticket 3 |
+| ~~Where do draft files live~~ — RESOLVED 2026-11-02: own space in `src/_data/drafts/` (`inbox/` → `processed/`); `.txt` is ignored by the data loader's whitelist | Pedro | no |
+| ~~Hero-meta day-one vocabulary~~ — RESOLVED 2026-11-02: full vocabulary (logo, needs, related, metrics, footnote) from day one | Pedro | no |
+| ~~Final copy vs rough notes~~ — RESOLVED 2026-11-02: pasted text is FINAL copy; the skill modifies structure only, never content, unless explicitly instructed | Pedro | no |
