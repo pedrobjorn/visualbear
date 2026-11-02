@@ -15,30 +15,8 @@
                     <!-- CASE STUDY 1: E-COMMERCE REDESIGN                             -->
                     <!-- ============================================================= -->
 
-                    <!-- 01 HERO, full-bleed pink cover -->
-                    <header class="cs-hero cs-hero--pink">
-                        <p class="cs-eyebrow">Case Study</p>
-                        <h1>E-commerce Redesign</h1>
-                        <p class="cs-cover-summary">
-                            Redesigning the sports eCommerce experience and increasing our retention, with a new brand, a unified design system and a coupon system rebuilt from the ground up.
-                        </p>
-                        <p class="cs-cover-details">Lead UX Design ⋅ Mobile &amp; Desktop Web</p>
-                    </header>
-
-                    <!-- HERO META, metrics & summary -->
-                    <section class="cs-hero cs-hero--meta">
-                        <div class="cs-metrics">
-                            <div class="cs-metric">
-                                <span class="cs-metric-value" data-countup="15">15</span><span class="cs-metric-suffix">%</span>
-                                <span class="cs-metric-label">customer return rate <i class="ph ph-arrow-up"></i></span>
-                            </div>
-                            <div class="cs-metric">
-                                <span class="cs-metric-value">#1</span>
-                                <span class="cs-metric-label">Sports Site of the Year</span>
-                            </div>
-                        </div>
-                        <p class="cs-summary"><em>Outcome: increased Customer Return Rate by 15%, improved SEO and usability, and we won more awards that year for Sports Site of the Year. Customers loved the changes, commenting positively on social media.</em></p>
-                    </section>
+                    <!-- 01 HERO, from the page md's front matter (DR-0001) -->
+                    {{ site.data.pages['sports-ecommerce-redesign'] | mdhero | safe }}
 
                     {{ site.data.pages['sports-ecommerce-redesign'] | mdpage | safe }}
                 </div>

@@ -15,14 +15,12 @@
             <div class="container">
                 <div class="document-text text-box">
 
-                    <!-- HERO -->
-                    <header class="cs-hero">
-                        <h1>My Agentic Design Workflow </br> visuAI</h1>
-                        <p class="cs-cover-summary">
-                            Using research, discovery and decisions to create value through my Design AI workflow.
-                        </p>
-                        <p class="cs-cover-details">Design Lead ⋅ Spec · Skills · Agents ⋅ 2026</p>
-                    </header>
+                    <!-- HERO — adapted bare variant (ticket 45, DR-0014):
+                         no kicker/"Case Study" (not a case study), no
+                         background (the dark ground + spotlight carry it);
+                         spacing/type roles are the shared hero's -->
+                    <!-- 01 HERO, from the page md's front matter (DR-0001) -->
+                    {{ site.data.pages['workflow'] | mdhero | safe }}
 
 					<!-- content: src/_data/pages/workflow.md via mdpage -->
 					{{ site.data.pages['workflow'] | mdpage | safe }}

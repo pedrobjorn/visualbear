@@ -16,26 +16,8 @@
             <div class="container">
                 <div class="document-text text-box">
 
-                    <!-- 01 HERO, full-bleed teal cover -->
-                    <header class="cs-hero cs-hero--teal">
-                        <p class="cs-eyebrow">Case Study — Teachr (mock brand)</p>
-                        <h1>Teachr, AI Agent embedded in the Learning Dashboard</h1>
-                        <p class="cs-cover-summary">
-                            Unlocking the training dashboard experience for our users through agentic AI in the app.
-                        </p>
-                        <p class="cs-cover-details">Lead Designer ⋅ Figjam · Claude Code</p>
-                    </header>
-
-                    <!-- HERO META, brand & related case study -->
-                    <section class="cs-hero cs-hero--meta">
-                        <img src="../images/work/fullsize/teachr/teachr_logo.png" alt="Teachr brand mark" width="19" height="19" style="display:block;width:19px;height:19px;margin:0 auto 24px">
-                        <div class="cs-cards">
-                        <p class="cs-related">
-                            Part of a pair — read first: <a href="../teachr/"><strong>Teachr, Redesigning the Learning Experience</strong></a> <i class="ph ph-arrow-left"></i>
-                        </p>
-                        </div>
-                        <p class="cs-summary"><em>Summary: unlocking the training dashboard experience for our users through agentic AI in the app.</em></p>
-                    </section>
+                    <!-- 01 HERO, from the page md's front matter (DR-0001) -->
+                    {{ site.data.pages['teachr-agent'] | mdhero | safe }}
 
                     					<!-- content sections: src/_data/pages/teachr-agent.md via mdpage -->
 					{{ site.data.pages['teachr-agent'] | mdpage | safe }}

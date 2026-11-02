@@ -1,6 +1,24 @@
+---
+# Hero from front matter (specs/text-to-md/DR-0001): the shell renders
+# it via the mdhero filter. Values are raw (entities allowed), the
+# vocabulary is bounded: variant, eyebrow, title, summary, details +
+# meta items (logo | needs | related | metrics | footnote | summary).
+hero:
+  variant: teal
+  eyebrow: "Case Study — Teachr (mock brand)"
+  title: "Teachr, Redesigning the Learning Experience"
+  summary: "Revamping a teaching tool used by thousands of users to make it better and faster for learning — and more scalable and accessible to build on."
+  details: "Lead Designer ⋅ Figjam · Figma · Claude Code ⋅ 2025 – 2026"
+  meta:
+    - logo: "../images/work/fullsize/teachr/teachr_logo.png | Teachr brand mark"
+    - needs: "Mock up a design system, and mock up the training flow vibe-coded with Claude Code."
+    - related: "Part of a pair — read next | ../teachr-agent/ | Teachr, AI Agent in the Learning Dashboard"
+    - summary: "Summary: redesigning the training for thousands of users to make it better and faster for learning, but also more scalable and accessible."
+---
+
 <!--
-/teachr/ - rendered through the mdpage filter. The hero and the hero-meta
-block (logo, Needs card, related link, summary) stay in the page shell.
+/teachr/ - rendered through the mdpage filter. The hero lives in the
+front matter above (DR-0001); this file owns the content sections.
 ## = section, 1. = numbered timeline, - = fact chips, > = pull quote,
 [image: label | sub | tall] = image placeholder, [ai] = AI-drafted marker.
 -->

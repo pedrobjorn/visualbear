@@ -1,7 +1,25 @@
+---
+# Hero from front matter (specs/text-to-md/DR-0001): the shell renders
+# it via the mdhero filter. Values are raw (entities allowed), the
+# vocabulary is bounded: variant, eyebrow, title, summary, details +
+# meta items (logo | needs | related | metrics | footnote | summary).
+hero:
+  variant: red
+  eyebrow: Case Study
+  title: "My Closet, Digital Closet Feature"
+  summary: "A digital closet showing customers the apparel they already own, built to increase Member engagement, and delivered in record time."
+  details: "Lead UX Design ⋅ 5 months concept-to-delivery, a company record"
+  meta:
+    - metrics: "10% | session length increase"
+    - metrics: "↑ | sign-in correlation from the Closet page"
+    - metrics: "5 mo | concept-to-delivery"
+    - summary: "Outcome: stickiness validated in studies and live, a company-record 5-month delivery, and a feature that taught the team as much as it achieved."
+---
+
 <!--
-/digital-closet/ - rendered through the mdpage filter. The hero and the
-metrics block stay in the page shell (bespoke layout); this file owns the
-content sections. `## H2 | Eyebrow | id` sets section overrides.
+/digital-closet/ - rendered through the mdpage filter. The hero lives in
+the front matter above (DR-0001); this file owns the content sections.
+`## H2 | Eyebrow | id` sets section overrides.
 ::: blocks and [directives] are documented in AUTHORING.md.
 -->
 

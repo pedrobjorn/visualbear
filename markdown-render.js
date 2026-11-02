@@ -117,6 +117,15 @@ function expandDirective(line) {
   // [caption: text] — a caption; pairs with a preceding image into a figure
   m = line.match(/^\[caption:\s*(.*)\]$/);
   if (m) return '<figcaption>' + esc(m[1]) + '</figcaption>';
+  // [summary: text] at SECTION level (ticket 26): the closing-summary box —
+  // bleeding, centered (.cs-summary). Inside ::: hero the hero's own
+  // [summary:] handling applies (renderHero never calls this).
+  m = line.match(/^\[summary:\s*(.*)\]$/);
+  if (m) return '<p class="cs-summary"><em>' + esc(m[1]) + '</em></p>';
+  // [byline: text] (ticket 27): a label-tier line. mdPage moves one that
+  // follows a standalone quote INSIDE its blockquote, centered with it.
+  m = line.match(/^\[byline:\s*(.*)\]$/);
+  if (m) return '<p class="cs-byline">' + esc(m[1]) + '</p>';
   return null;
 }
 
@@ -348,6 +357,38 @@ function renderTable(lines) {
   );
 }
 
+// ticket 61: an image run — one image per line, its ALT TEXT is the
+// caption below it; N images side by side (the "how it started" slide),
+// wrapping when narrow. `[frame:]` placeholders work as shots.
+function renderShots(lines) {
+  let inner = '';
+  for (const raw of lines) {
+    const t = raw.trim();
+    if (!t) continue;
+    let m = t.match(/^!\[([^\]]*)\]\(([^)]+)\)\s*$/);
+    if (m) {
+      inner +=
+        '<figure class="cs-shot">' +
+        '<img src="' +
+        esc(m[2]) +
+        '" alt="' +
+        esc(m[1]) +
+        '" loading="lazy">' +
+        (m[1] ? '<figcaption>' + esc(m[1]) + '</figcaption>' : '') +
+        '</figure>';
+      continue;
+    }
+    const dir = expandDirective(t);
+    if (dir) {
+      inner += /cs-frame/.test(dir) ? '<figure class="cs-shot">' + dir + '</figure>' : dir;
+      continue;
+    }
+    console.log('markdown ::: shots: skipped line (not an image): ' + t.slice(0, 40));
+  }
+  // full-bleed tier (DR-0009): the band spans the viewport
+  return '<div class="cs-wide cs-wide--full"><div class="cs-shots">' + inner + '</div></div>';
+}
+
 function renderContainer(type, id, lines, full) {
   let html;
   if (type === 'metrics') html = renderMetrics(lines);
@@ -355,6 +396,7 @@ function renderContainer(type, id, lines, full) {
   else if (type === 'columns') html = renderColumns(lines);
   else if (type === 'cards') html = renderCards(lines);
   else if (type === 'showcase') html = renderShowcase(lines);
+  else if (type === 'shots') html = renderShots(lines);
   else if (type === 'hero') html = renderHero(lines);
   else if (type === 'table') html = renderTable(lines);
   else {
@@ -515,6 +557,21 @@ function extractRawBlocks(src) {
   return { md: out.join('\n'), raws: raws };
 }
 
+// ticket 27: a [byline:] on the line after a quote belongs to THAT
+// quote — move it inside the blockquote so it renders as the label tier,
+// centered with the quote (instead of quote-size inline text). Runs on
+// the assembled body, after the raw-HTML splice (the byline arrives as a
+// raw block), and after group formation — a trailing byline never breaks
+// a quote group; it attaches to the group's last quote.
+function attachQuoteBylines(html) {
+  return html.replace(
+    /<\/blockquote>((?:\s*<\/div>)*)\s*(<p class="cs-byline">[\s\S]*?<\/p>)/g,
+    function (m, wrapperCloses, byline) {
+      return byline + '</blockquote>' + wrapperCloses;
+    }
+  );
+}
+
 // the marked renderer with list classes (shared by mdPage and renderMarkdown)
 function listRenderer() {
   const renderer = new marked.Renderer();
@@ -585,10 +642,19 @@ function applyAiMarkers(html) {
   // the author placed it (at the end of the content it attributes)
   html = html.replace(/<p>\s*\[ai\]\s*<\/p>/g, '<div class="ai-mark">✦ AI-drafted</div>');
   // an image followed by a [caption:] wraps into the showcase figure
-  // (the image arrives wrapped in a paragraph — the wrapper is dropped)
+  // (the image arrives wrapped in a paragraph — the wrapper is dropped).
+  // ticket 61: figures already wrapped by ::: shots carry their own
+  // caption — the pass must not re-wrap them (offset check: the text
+  // right before the match is the shot figure's open tag)
   html = html.replace(
     /(?:<p>\s*)?(<img[^>]*>)(?:\s*<\/p>)?\s*<figcaption>([\s\S]*?)<\/figcaption>/g,
-    function (m, img, caption) {
+    function (m, img, caption, offset) {
+      if (
+        typeof offset === 'number' &&
+        html.slice(Math.max(0, offset - 30), offset).indexOf('cs-shot') !== -1
+      ) {
+        return m;
+      }
       return (
         '<figure class="cs-showcase">' + img + '<figcaption>' + caption + '</figcaption></figure>'
       );
@@ -707,13 +773,15 @@ function mdPage(src) {
   // derivation, no cs-section machinery
   if (!hero.match(/<h1>/) && firstH2 === -1) {
     return applyAiMarkers(
-      html
-        .replace(/<p>\s*@@RAW(\d+)@@\s*<\/p>/g, function (m, n) {
-          return typeof split.raws[n] !== 'undefined' ? split.raws[n] : m;
-        })
-        .replace(/@@RAW(\d+)@@/g, function (m, n) {
-          return typeof split.raws[n] !== 'undefined' ? split.raws[n] : m;
-        })
+      attachQuoteBylines(
+        html
+          .replace(/<p>\s*@@RAW(\d+)@@\s*<\/p>/g, function (m, n) {
+            return typeof split.raws[n] !== 'undefined' ? split.raws[n] : m;
+          })
+          .replace(/@@RAW(\d+)@@/g, function (m, n) {
+            return typeof split.raws[n] !== 'undefined' ? split.raws[n] : m;
+          })
+      )
     );
   }
 
@@ -777,7 +845,7 @@ function mdPage(src) {
 
   // AI markers + the production guard, applied to the assembled body
   const body = out.join('\n');
-  return applyAiMarkers(body);
+  return applyAiMarkers(attachQuoteBylines(body));
 }
 
 // ── resume ───────────────────────────────────────────────────────────────
@@ -1021,4 +1089,135 @@ function mdMeta(src) {
   return splitFrontmatter(src).meta;
 }
 
-module.exports = { mdPage: mdPage, mdResume: mdResume, mdMeta: mdMeta };
+// ── hero from front matter (specs/text-to-md/DR-0001) ────────────────────
+// The page shell renders the hero (cover + meta section) from the page
+// md's `hero:` front matter instead of hardcoded markup. Bounded meta
+// vocabulary: logo, needs, related, metrics, footnote, summary — the
+// item list is a YAML array of one-key mappings, rendered in source
+// order (consecutive needs/related items group inside .cs-cards, as in
+// the hand-written shells this replaces). Values pass through raw, like
+// the shell markup they replace; escape entities yourself when hand-
+// editing (the text-to-md skill emits them escaped). Returns '' when a
+// page has no hero front matter, so shells without one keep working.
+
+function metricValueHtml(value) {
+  const v = String(value).trim();
+  if (v === '↑') return '<span class="cs-metric-value"><i class="ph ph-arrow-up"></i></span>';
+  if (v === '↓') return '<span class="cs-metric-value"><i class="ph ph-arrow-down"></i></span>';
+  const m = v.match(/^(\d+)(.*)$/);
+  if (m) {
+    const suffix = m[2] ? '<span class="cs-metric-suffix">' + iconify(m[2]) + '</span>' : '';
+    return '<span class="cs-metric-value" data-countup="' + m[1] + '">' + m[1] + '</span>' + suffix;
+  }
+  return '<span class="cs-metric-value">' + iconify(v) + '</span>';
+}
+
+function heroMetaItemHtml(item) {
+  const key = Object.keys(item)[0];
+  const value = item[key];
+  if (key === 'logo') {
+    // "src | alt text" (alt optional)
+    const parts = String(value)
+      .split('|')
+      .map(function (s) {
+        return s.trim();
+      });
+    return (
+      '<img src="' +
+      parts[0] +
+      '" alt="' +
+      (parts[1] || '') +
+      '" width="19" height="19" style="display:block;width:19px;height:19px;margin:0 auto 24px">'
+    );
+  }
+  if (key === 'needs') {
+    return (
+      '<div class="cs-card"><p class="cs-card-title">Needs</p><p>' + iconify(value) + '</p></div>'
+    );
+  }
+  if (key === 'related') {
+    // "lead text | href | link title"; the arrow follows the lead's
+    // direction word (read first/previous → left, else right)
+    const parts = String(value)
+      .split('|')
+      .map(function (s) {
+        return s.trim();
+      });
+    const dir = /first|prev/i.test(parts[0]) ? 'left' : 'right';
+    return (
+      '<p class="cs-related">' +
+      parts[0] +
+      ': <a href="' +
+      parts[1] +
+      '"><strong>' +
+      parts[2] +
+      '</strong></a> <i class="ph ph-arrow-' +
+      dir +
+      '"></i></p>'
+    );
+  }
+  if (key === 'metrics') {
+    // "value | label": leading digits become the count-up value,
+    // the rest the suffix; ↑/↓ alone render as the icon
+    const parts = String(value).split('|');
+    const label = parts.slice(1).join('|').trim();
+    return [
+      '<div class="cs-metric">',
+      '    ' + metricValueHtml(parts[0]),
+      '    <span class="cs-metric-label">' + iconify(label) + '</span>',
+      '</div>'
+    ].join('\n');
+  }
+  if (key === 'footnote') return '<p class="cs-footnote">' + iconify(value) + '</p>';
+  if (key === 'summary') return '<p class="cs-summary"><em>' + value + '</em></p>';
+  return null;
+}
+
+function heroMetaHtml(items) {
+  let group = null; // 'cards' | 'metrics' — the run being grouped
+  const out = ['<section class="cs-hero cs-hero--meta">'];
+  const closeGroup = function () {
+    if (group) {
+      out.push('</div>');
+      group = null;
+    }
+  };
+  items.forEach(function (item) {
+    const key = item && Object.keys(item)[0];
+    const inCards = key === 'needs' || key === 'related';
+    const inMetrics = key === 'metrics';
+    const wanted = inCards ? 'cards' : inMetrics ? 'metrics' : null;
+    if (wanted && group !== wanted) {
+      closeGroup();
+      out.push('<div class="cs-' + wanted + '">');
+      group = wanted;
+    }
+    if (!wanted) closeGroup();
+    const html = heroMetaItemHtml(item);
+    if (html) out.push(html);
+    else console.log('markdown hero: unknown meta item key "' + key + '", skipped');
+  });
+  closeGroup();
+  out.push('</section>');
+  return out.join('\n');
+}
+
+function mdHero(src) {
+  const hero = splitFrontmatter(src).meta.hero;
+  if (!hero || typeof hero !== 'object') return '';
+  const variant = hero.variant ? ' cs-hero--' + hero.variant : '';
+  const out = [
+    '<header class="cs-hero' + variant + '">',
+    '  <p class="cs-eyebrow">' + iconify(hero.eyebrow || '') + '</p>',
+    '  <h1>' + iconify(hero.title || '') + '</h1>',
+    '  <p class="cs-cover-summary">',
+    '    ' + iconify(hero.summary || ''),
+    '  </p>',
+    '  <p class="cs-cover-details">' + iconify(hero.details || '') + '</p>',
+    '</header>'
+  ];
+  if (hero.meta && hero.meta.length) out.push(heroMetaHtml(hero.meta));
+  return out.join('\n');
+}
+
+module.exports = { mdPage: mdPage, mdResume: mdResume, mdMeta: mdMeta, mdHero: mdHero };

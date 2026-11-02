@@ -35,7 +35,7 @@ Risks, and how the spec handles each:
 1. **LLM nondeterminism breaks the "two near-identical case studies
    produce identical output" requirement.** An LLM improvising the
    mapping will drift (chips vs bullets, section naming, ordering).
-   Mitigation: DR-0002 — the skill is a *rule executor, not a writer*.
+   Mitigation: DR-0002 — the skill is a _rule executor, not a writer_.
    Every mapping decision is a fixed precedence table in the skill;
    ambiguity resolves to the plainest construct; output goes through a
    canonicalizer; a golden-file test suite is the executable proof.
@@ -133,19 +133,19 @@ one-source-of-truth content model (DR-0001).
 ## Breakdown
 
 - [ ] Ticket 1 — Hero front matter: renderer + shells read hero from
-  page md (DR-0001), pilot page pixel-verified
+      page md (DR-0001), pilot page pixel-verified
 - [ ] Ticket 2 — Migrate remaining md-page heroes to front matter
 - [ ] Ticket 3 — Create the `visuai-text-to-md` skill (mapping table,
-  precedence, inbox convention, idempotence)
+      precedence, inbox convention, idempotence)
 - [ ] Ticket 4 — Canonicalizer + verify script (gates bundled)
 - [ ] Ticket 5 — Golden-file eval set + determinism gate
 - [ ] Ticket 6 — Wire into the visuAI workflow (visuaibear-core hub
-  entry, routed after spec, before build) + AUTHORING.md doc-sync
+      entry, routed after spec, before build) + AUTHORING.md doc-sync
 
 ## Open questions
 
-| Question | Owner | Blocks build? |
-|---|---|---|
-| ~~Where do draft files live~~ — RESOLVED 2026-11-02: own space in `src/_data/drafts/` (`inbox/` → `processed/`); `.txt` is ignored by the data loader's whitelist | Pedro | no |
-| ~~Hero-meta day-one vocabulary~~ — RESOLVED 2026-11-02: full vocabulary (logo, needs, related, metrics, footnote) from day one | Pedro | no |
-| ~~Final copy vs rough notes~~ — RESOLVED 2026-11-02: pasted text is FINAL copy; the skill modifies structure only, never content, unless explicitly instructed | Pedro | no |
+| Question                                                                                                                                                          | Owner | Blocks build? |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ------------- |
+| ~~Where do draft files live~~ — RESOLVED 2026-11-02: own space in `src/_data/drafts/` (`inbox/` → `processed/`); `.txt` is ignored by the data loader's whitelist | Pedro | no            |
+| ~~Hero-meta day-one vocabulary~~ — RESOLVED 2026-11-02: full vocabulary (logo, needs, related, metrics, footnote) from day one                                    | Pedro | no            |
+| ~~Final copy vs rough notes~~ — RESOLVED 2026-11-02: pasted text is FINAL copy; the skill modifies structure only, never content, unless explicitly instructed    | Pedro | no            |

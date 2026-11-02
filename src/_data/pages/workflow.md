@@ -1,7 +1,17 @@
+---
+# Hero from front matter (specs/text-to-md/DR-0001): the shell renders
+# it via the mdhero filter. Values are raw (entities allowed).
+hero:
+  eyebrow: "The visuAI Workflow"
+  title: "My Agentic Design Workflow </br> visuAI"
+  summary: "Using research, discovery and decisions to create value through my Design AI workflow."
+  details: "Design Lead ⋅ Spec · Skills · Agents ⋅ 2026"
+---
+
 <!--
 /workflow/ - rendered through the mdpage filter.
-# = hero (stays in the shell), ## = section, 1. = numbered timeline,
-- = fact chips, > = pull quote.
+The hero lives in the front matter above (DR-0001).
+## = section, 1. = numbered timeline, - = fact chips, > = pull quote.
 AI-attribution (DR-0007): blocks marked [ai] were AI-drafted - chip shows
 on localhost only; production strips it.
 -->

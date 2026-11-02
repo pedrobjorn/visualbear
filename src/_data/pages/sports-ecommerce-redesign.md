@@ -1,26 +1,46 @@
+---
+# Hero from front matter (specs/text-to-md/DR-0001): the shell renders
+# the FIRST hero via the mdhero filter; the second case study's divider
+# + hero stay in the content below. Values are raw (entities allowed),
+# the vocabulary is bounded: variant, eyebrow, title, summary, details +
+# meta items (logo | needs | related | metrics | footnote | summary).
+hero:
+  variant: pink
+  eyebrow: Case Study
+  title: "Sports E-commerce Redesign"
+  summary: "Redesigning the sports eCommerce experience and increasing our retention, with a new brand, a unified design system and a coupon system rebuilt from the ground up."
+  details: "Lead Product Designer ⋅ Mobile & Desktop Web"
+  meta:
+    - metrics: "15% | customer return rate ↑"
+    - metrics: "#1 | Sports Site of the Year"
+    - summary: "Increased Customer Return Rate by 15%, improved SEO and usability, and we won more awards that year for Sports Site of the Year and customers loved the changes, commenting positively on social media."
+---
+
 <!--
 /sports-ecommerce-redesign/ - rendered through the mdpage filter. The first
-hero + metrics block stay in the page shell (bespoke layout); this file owns
-both case studies' content sections, including the second case study's
-divider + hero. `## H2 | Eyebrow | id` sets section overrides. ::: blocks
-and [directives] are documented in AUTHORING.md.
+hero lives in the front matter above (DR-0001); this file owns both case
+studies' content sections, including the second case study's divider + hero.
+`## H2 | Eyebrow | id` sets section overrides. ::: blocks and [directives]
+are documented in AUTHORING.md.
 -->
+
 
 ## Problems & Opportunities | Definition | definition
 
 | | |
 |---|---|
-| Stagnating growth | Retention had gone flat, the business needed a reason for customers to come back. |
+| Stagnating growth | We were not bringing in as many new customers, or retaining the ones we wanted to keep, having a "leaky bucket". |
 | Site usability issues | Impacting both the user experience and SEO. |
-| Feature friction | New features and options, such as browsing through brands, were not findable or very usable, and hard to implement on an inconsistent base. |
-| New rebrand | A new brand identity needed implementing across the entire e-commerce experience. |
+| Problems implementing new features |Due to the lack of a design system and a product vision, new features we complicated to implement. |
+| New rebrand |A new brand identity needed implementing across the entire e-commerce experience. |
+
 
 ### Insights
 
 - Service and selection were great, but the site, on mobile and desktop, was hard to use.
 - It was difficult to find products, due to the sheer quantity of selection and information.
 - A lot of features and options, such as browsing through brands, were not findable or very usable.
-- The inconsistent experience meant customers returned in spite of the experience, because of the quality of the selection and service.
+- An inconsistent experience meant customers returned in spite of the experience due to the quality of selection and service.
 
 ### Goals
 
@@ -32,30 +52,38 @@ and [directives] are documented in AUTHORING.md.
 
 | | |
 |---|---|
-| Brand visual redesign | The brand redesign was done in tandem with the site redesigns. A close collaboration with Brand meant we could embed the brand identity into the UI visual direction, centred around slanted inclines, and rounded corners combined with occasional sharp corners. |
-| Design process & Design System | We implemented a Design System, including tokens that handled fonts, colours and spacing, and introduced a Discovery cycle that unified the experience, validated our decisions and embedded the Brand direction all in one big leap. |
+| Brand visual redesign |The Brand redesign was done in tandem with the Site Redesigns.A close collaboration with branding meant we were able to embed the brand identity into the UI visual direction. This was centred around slanted inclines, and rounded corners combined with occasional sharp corners. |
+| Design process & Design System | We implemented a Design System, including Tokens that handled the Fonts, Colours and Spacing. We then introduced a Discovery cycle that included **Ideation > Prototype > Usability Study > Implement > Measure**. We managed to unify the experience, validate our decisions and embed the Brand direction all in one big leap. |
 
 ### The Discovery cycle
 
-1. **Ideation**
-2. **Prototype**
-3. **Usability Study**
-4. **Implement**
-5. **Measure**
+1. **Ideation** - Expanded the brand identity into a UI identity and a new user experience emphasizing search and product list entrances.
+2. **Prototype** - Created a vertical slice of a landing page, a product list page and a product detail page.
+3. **Usability Study** - Tested the prototype with some users to ensure the rebrand landed and the new UX such as more focused product page entrances worked.
+4. **Implement** - I collaborated with the developers to create a design system and ensuring the implementation matched the intended design.
+5. **Measure** - We followed up on the performance of the changes, evaluating hygine metrics like Bounce Rate and Conversion Rate %, as well as Retention through returning customers.
 
 ## Site Redesign: Mobile & Desktop | Discovery | site-redesign
+
+
 
 ### Mobile Web
 
 ::: compare
 [panel: How it started | Mobile Web · Before]
-The colours were very heavy, elements very close together and very sharp, claustrophobic. Images and text were badly proportioned, and spacing was inconsistent, like this 3rd-party component clashing with the rest of the experience.
 
 [frame: Mobile Web · Before | Final mockup pending]
 
-[point: Inconsistent spacing from 3rd-party components]
+[point: Before we started, the colours were very heavy, elements were very close together, and the elements were very sharp.]
+
+[point: Elements were also inconsistent in spacing, like in this case where we used a 3rd party which clashed with the rest of the experience..]
+
+
 
 [note: *Excuse the blurry image, it's all we could gather from the old site.]
+  
+
+
 
 [panel: How it ended up | Mobile Web · After]
 More whitespace and rounded corners, replicating the roundness and softness of gym gear and muscles, making it feel friendly. We reduced the intensity of colours and content, letting the CTA stand out and using the brand colour sparingly. Since content was still largely shot 1:1, we accommodated that while coordinating a shift to 2:3.
