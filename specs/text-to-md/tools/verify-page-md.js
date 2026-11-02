@@ -189,16 +189,25 @@ if (!sourcePath || !fs.existsSync(sourcePath)) {
   // body + front-matter VALUES (hero copy comes from the source too);
   // scaffold chars stripped uniformly from both sides
   const outText = textify(body) + ' ' + (fmMatch ? textify(fmMatch[1]) : '');
-  const srcLines = sourceText
-    .split('\n')
-    .map(function (l) {
-      // a leading signal word (Note:/Before:/Summary:/...) becomes
-      // structure - the rendered text carries the rest of the line
-      return textify(l).replace(/^[a-z]+\s*:\s*/i, '');
-    })
-    .filter(function (l) {
-      return l && l !== '---';
-    });
+  const srcLines = [];
+  let inComment = false;
+  sourceText.split('\n').forEach(function (l) {
+    // lines inside HTML comments are dormant (never render, may be
+    // commented-out old markup) - not part of the content accounting
+    const t = l.trim();
+    if (inComment) {
+      if (/-->/.test(t)) inComment = false;
+      return;
+    }
+    if (/^<!--/.test(t)) {
+      if (!/^<!--.*-->/.test(t)) inComment = true;
+      return;
+    }
+    // a leading signal word (Note:/Before:/Summary:/...) becomes
+    // structure - the rendered text carries the rest of the line
+    const text = textify(l).replace(/^[a-z]+\s*:\s*/i, '');
+    if (text) srcLines.push(text);
+  });
   const todos = norm(body.match(/<!--\s*TODO[^>]*>/g) || []);
   const unaccounted = srcLines.filter(function (line) {
     if (outText.indexOf(line) !== -1) return false;

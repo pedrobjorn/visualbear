@@ -1,12 +1,11 @@
 ---
 # Hero from front matter (specs/text-to-md/DR-0001): the shell renders
-# the FIRST hero via the mdhero filter; the second case study's divider
-# + hero stay in the content below. Values are raw (entities allowed),
-# the vocabulary is bounded: variant, eyebrow, title, summary, details +
+# it via the mdhero filter. Values are raw (entities allowed), the
+# vocabulary is bounded: variant, eyebrow, title, summary, details +
 # meta items (logo | needs | related | metrics | footnote | summary).
 hero:
-  variant: pink
-  eyebrow: Case Study
+  variant: "pink"
+  eyebrow: "Case Study"
   title: "Sports E-commerce Redesign"
   summary: "Redesigning the sports eCommerce experience and increasing our retention, with a new brand, a unified design system and a coupon system rebuilt from the ground up."
   details: "Lead Product Designer ⋅ Mobile & Desktop Web"
@@ -17,13 +16,12 @@ hero:
 ---
 
 <!--
-/sports-ecommerce-redesign/ - rendered through the mdpage filter. The first
-hero lives in the front matter above (DR-0001); this file owns both case
-studies' content sections, including the second case study's divider + hero.
-`## H2 | Eyebrow | id` sets section overrides. ::: blocks and [directives]
-are documented in AUTHORING.md.
+/sports-ecommerce-redesign/ - rendered through the mdpage filter. The hero lives in
+the front matter above (DR-0001); this file owns the content sections.
+`## H2 | Eyebrow | id` sets section overrides - an empty eyebrow omits
+the eyebrow line. ::: blocks and [directives] are documented in
+AUTHORING.md.
 -->
-
 
 ## Problems & Opportunities | Definition | definition
 
@@ -81,7 +79,7 @@ are documented in AUTHORING.md.
 
 
 [note: *Excuse the blurry image, it's all we could gather from the old site.]
-  
+
 
 
 

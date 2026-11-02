@@ -1,6 +1,8 @@
 ---
 # Hero from front matter (specs/text-to-md/DR-0001): the shell renders
-# it via the mdhero filter. Values are raw (entities allowed).
+# it via the mdhero filter. Values are raw (entities allowed), the
+# vocabulary is bounded: variant, eyebrow, title, summary, details +
+# meta items (logo | needs | related | metrics | footnote | summary).
 hero:
   eyebrow: "The visuAI Workflow"
   title: "My Agentic Design Workflow </br> visuAI"
@@ -9,13 +11,12 @@ hero:
 ---
 
 <!--
-/workflow/ - rendered through the mdpage filter.
-The hero lives in the front matter above (DR-0001).
-## = section, 1. = numbered timeline, - = fact chips, > = pull quote.
-AI-attribution (DR-0007): blocks marked [ai] were AI-drafted - chip shows
-on localhost only; production strips it.
+/workflow/ - rendered through the mdpage filter. The hero lives in
+the front matter above (DR-0001); this file owns the content sections.
+`## H2 | Eyebrow | id` sets section overrides - an empty eyebrow omits
+the eyebrow line. ::: blocks and [directives] are documented in
+AUTHORING.md.
 -->
-
 
 ## Why the bottleneck moved | The shift | shift
 

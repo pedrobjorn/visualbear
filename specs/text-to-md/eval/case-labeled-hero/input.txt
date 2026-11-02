@@ -1,0 +1,8 @@
+Variant: red
+Eyebrow: Case Study
+Title: Kettle, the One Page
+Summary: A one-page rebuild with the plate system throughout.
+Details: Lead Designer ⋅ 3 months
+Logo: ../images/work/fullsize/kettle/kettle_logo.png | Kettle brand mark
+Metrics: 40% | fewer clicks
+Takeaway: The one page shipped on time and stuck.

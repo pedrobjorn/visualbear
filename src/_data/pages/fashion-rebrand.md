@@ -4,9 +4,9 @@
 # vocabulary is bounded: variant, eyebrow, title, summary, details +
 # meta items (logo | needs | related | metrics | footnote | summary).
 hero:
-  variant: black
-  eyebrow: Case Study
-  title: Relaunching a Fashion Brand Experience on Web
+  variant: "black"
+  eyebrow: "Case Study"
+  title: "Relaunching a Fashion Brand Experience on Web"
   summary: "Rebuilding a global fashion retailer's entrances, the Start Page and Department navigation, to lift brand perception and move customers further down the funnel."
   details: "H&M ⋅ Staff Designer ⋅ Web Global Redesign ⋅ 9 months"
   meta:
@@ -20,8 +20,9 @@ hero:
 <!--
 /fashion-rebrand/ - rendered through the mdpage filter. The hero lives in
 the front matter above (DR-0001); this file owns the content sections.
-`## H2 | Eyebrow | id` sets section overrides - an empty eyebrow omits the
-eyebrow line. ::: blocks and [directives] are documented in AUTHORING.md.
+`## H2 | Eyebrow | id` sets section overrides - an empty eyebrow omits
+the eyebrow line. ::: blocks and [directives] are documented in
+AUTHORING.md.
 -->
 
 ## Context | | context

@@ -4,22 +4,23 @@
 # vocabulary is bounded: variant, eyebrow, title, summary, details +
 # meta items (logo | needs | related | metrics | footnote | summary).
 hero:
-  variant: teal
-  eyebrow: "Case Study — Teachr (mock brand)"
+  variant: "teal"
+  eyebrow: "Case Study - Teachr (mock brand)"
   title: "Teachr, AI Agent embedded in the Learning Dashboard"
   summary: "Unlocking the training dashboard experience for our users through agentic AI in the app."
   details: "Lead Designer ⋅ Figjam · Claude Code"
   meta:
     - logo: "../images/work/fullsize/teachr/teachr_logo.png | Teachr brand mark"
-    - related: "Part of a pair — read first | ../teachr/ | Teachr, Redesigning the Learning Experience"
+    - related: "Part of a pair - read first | ../teachr/ | Teachr, Redesigning the Learning Experience"
     - summary: "Summary: unlocking the training dashboard experience for our users through agentic AI in the app."
 ---
 
 <!--
 /teachr-agent/ - rendered through the mdpage filter. The hero lives in
 the front matter above (DR-0001); this file owns the content sections.
-## = section, 1. = numbered timeline, - = fact chips, > = pull quote,
-[image: label | sub | tall] = image placeholder, [ai] = AI-drafted marker.
+`## H2 | Eyebrow | id` sets section overrides - an empty eyebrow omits
+the eyebrow line. ::: blocks and [directives] are documented in
+AUTHORING.md.
 -->
 
 ## Outcomes & Impact | Outcomes & Impact | outcomes

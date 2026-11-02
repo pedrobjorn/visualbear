@@ -81,6 +81,14 @@ Silky-smooth additions (the ergonomics that make the loop feel free):
   reword, reorder into different meaning, summarize, or expand -
   content changes only when Pedro explicitly instructs them.
 
+## Post-ship additions
+
+- 2026-11-02: all six case-study pages reverse-engineered into
+  copy-source drafts (src/\_data/drafts/<slug>.txt, DR-0003): the
+  round-trip is byte-identical (txt -> draft-to-md.js -> committed md,
+  zero diff on all six); content-accounting green for every page
+  against its draft; labeled-hero golden added (8 eval cases).
+
 ## Goal
 
 A new case study goes from a pasted raw-text file to a live, verified

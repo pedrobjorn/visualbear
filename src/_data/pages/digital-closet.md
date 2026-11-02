@@ -4,8 +4,8 @@
 # vocabulary is bounded: variant, eyebrow, title, summary, details +
 # meta items (logo | needs | related | metrics | footnote | summary).
 hero:
-  variant: red
-  eyebrow: Case Study
+  variant: "red"
+  eyebrow: "Case Study"
   title: "My Closet, Digital Closet Feature"
   summary: "A digital closet showing customers the apparel they already own, built to increase Member engagement, and delivered in record time."
   details: "Lead UX Design ⋅ 5 months concept-to-delivery, a company record"
@@ -19,8 +19,9 @@ hero:
 <!--
 /digital-closet/ - rendered through the mdpage filter. The hero lives in
 the front matter above (DR-0001); this file owns the content sections.
-`## H2 | Eyebrow | id` sets section overrides.
-::: blocks and [directives] are documented in AUTHORING.md.
+`## H2 | Eyebrow | id` sets section overrides - an empty eyebrow omits
+the eyebrow line. ::: blocks and [directives] are documented in
+AUTHORING.md.
 -->
 
 ## Problem & Approach | Definition | definition

@@ -1,5 +1,5 @@
 <!--
-/resume/ - rendered through the mdresume filter.
+/resume/ — rendered through the mdresume filter.
 ## = section, ### Role - Company | dates = job rows, **Sub-title** = h4,
 - = bullets (closed by a blank line). `## Title |` (trailing pipe) keeps a
 section's own sub-title style instead of a heading. Nested lists under a
@@ -10,7 +10,7 @@ I'm a Product Design Lead with 10+ years of experience in digital product design
 
 ## Core Skills
 
-- **Design Leadership of theseus**
+- **Design Leadership**
   - Leading and coaching Product Designers in growth and craft
   - setting product and brand design principles
   - Design Ops: setting research, critique and delivery standards
