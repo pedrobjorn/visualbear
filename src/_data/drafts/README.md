@@ -47,12 +47,15 @@ Body - everything else is plain text:
     "a quote"                     (a line starting with " = pull quote)
     | a | b |                     (pipe rows = table)
 
-Anywhere, any number of times - your private notes, never rendered:
+Anywhere, any number of times - private notes, never rendered. Every
+draft OPENS with its `Key:` rules block (the format's cheat-sheet, kept
+in the file itself so the format travels with the draft); after it, add
+your own:
 
     Key: scratch thoughts, questions, TODOs to yourself
 
-The converter skips `Key:` lines entirely: they reach neither the page
-md nor the build. Edit or delete them freely.
+The converter skips all `Key:` lines entirely: they reach neither the
+page md nor the build. Edit or delete them freely.
 
 Everything else is prose. No :::, no [directives], no raw HTML, no
 markup beyond the above - the skill rebuilds all of it (the [rule],

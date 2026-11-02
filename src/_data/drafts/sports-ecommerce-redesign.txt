@@ -1,4 +1,25 @@
-Key: your private notes - the converter ignores this line, it never reaches the page md
+Key: FORMAT RULES - this Key block is ignored end to end; it never reaches the page md.
+Key: 1. The file opens with the hero as "Word: value" lines: Variant, Eyebrow, Title, Summary,
+Key:    Details, then meta items: Logo, Needs, Related, Metrics, Footnote, Takeaway.
+Key:    The head ends at the first line that is not one of those labels.
+Key: 2. Headings: "## Section | Eyebrow | id" (pipes optional) and "### Sub-heading".
+Key: 3. A bold-ONLY line (**Like this**) is a sub-block title: a run of 2+ becomes cards;
+Key:    colon titles (**Before: Start Page**) in a run become compare panels;
+Key:    a "Columns:" line before a run makes it columns. Bold plus more text on the
+Key:    same line is a normal paragraph, never a title.
+Key: 4. Label lines: Intro:, Note:, Point:, Figure:, Byline:, Wrap-up:, Divider:,
+Key:    Eyebrow:, Subtitle: become directives. Image: X | Y is a bare image slot;
+Key:    Frame: X | Y | tall is a frame - with its caption line it becomes a showcase
+Key:    outside a group, and stays inside its panel inside one.
+Key: 5. "Hero: modifier" opens a mid-page hero block; Wrap-up: closes it.
+Key: 6. Two or more consecutive "value | label" lines starting with a number, %, #,
+Key:    arrow, < or > become a metrics block.
+Key: 7. Pipe rows are tables: a text first row is a data table, an empty first cell
+Key:    (| | | ...) is a card-grid table.
+Key: 8. A line starting with a quotation mark is a pull quote. "1. Step" lines are a
+Key:    timeline (the bold is added on conversion). "- item" lines are bullets/chips.
+Key: 9. Everything else is prose. Add "Key: ..." lines anywhere for your own notes -
+Key:    they are always ignored and never reach the md.
 Variant: pink
 Eyebrow: Case Study
 Title: Sports E-commerce Redesign
