@@ -1,8 +1,7 @@
 # Plan: visuai-text-to-md — raw text in, authoring markdown out
 
 - Date: 2026-11-02
-- Status: ready (open questions answered by Pedro 2026-11-02; no
-  blockers)
+- Status: shipped 2026-11-02 (tickets 1-6 done)
 - Evidence: user request, 2026-11-02 — "I'll paste text with basic
   instructions in a file; you create a skill called visuai-text-to-md
   that converts the text into the md format we established here; from
@@ -132,14 +131,14 @@ one-source-of-truth content model (DR-0001).
 
 ## Breakdown
 
-- [ ] Ticket 1 — Hero front matter: renderer + shells read hero from
+- [x] Ticket 1 — Hero front matter: renderer + shells read hero from
       page md (DR-0001), pilot page pixel-verified
-- [ ] Ticket 2 — Migrate remaining md-page heroes to front matter
-- [ ] Ticket 3 — Create the `visuai-text-to-md` skill (mapping table,
+- [x] Ticket 2 — Migrate remaining md-page heroes to front matter
+- [x] Ticket 3 — Create the `visuai-text-to-md` skill (mapping table,
       precedence, inbox convention, idempotence)
-- [ ] Ticket 4 — Canonicalizer + verify script (gates bundled)
-- [ ] Ticket 5 — Golden-file eval set + determinism gate
-- [ ] Ticket 6 — Wire into the visuAI workflow (visuaibear-core hub
+- [x] Ticket 4 — Canonicalizer + verify script (gates bundled)
+- [x] Ticket 5 — Golden-file eval set + determinism gate
+- [x] Ticket 6 — Wire into the visuAI workflow (visuaibear-core hub
       entry, routed after spec, before build) + AUTHORING.md doc-sync
 
 ## Open questions

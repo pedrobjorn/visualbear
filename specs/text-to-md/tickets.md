@@ -5,7 +5,10 @@ Node 10 — any new dev dependency must support Node 10.
 
 ---
 
+- Status marked below
 ## Ticket 1 — Hero front matter: renderer + one pilot shell
+
+Status: DONE 2026-11-02 (pilot: fashion-rebrand, pixel-identical both viewports)
 
 - Part of: plan.md, DR-0001
 - Size: M
@@ -46,6 +49,8 @@ Heroes and hero-meta are hardcoded in `src/<page>/index.nunjucks`
 
 ## Ticket 2 — Migrate remaining md-page shells to hero front matter
 
+Status: DONE 2026-11-02 (all six pages; DOM + geometry identical, same-session captures bit-stable)
+
 - Part of: plan.md, DR-0001
 - Size: M
 - Type: system
@@ -67,6 +72,8 @@ Heroes and hero-meta are hardcoded in `src/<page>/index.nunjucks`
 ---
 
 ## Ticket 3 — Create the `visuai-text-to-md` skill
+
+Status: DONE 2026-11-02 (skill at ~/.vibe/skills/visuai-text-to-md; golden rehearsal byte-identical)
 
 - Part of: plan.md, DR-0002
 - Size: L
@@ -110,6 +117,8 @@ Heroes and hero-meta are hardcoded in `src/<page>/index.nunjucks`
 
 ## Ticket 4 — Canonicalizer + bundled verify script
 
+Status: DONE 2026-11-02 (five seeded-failure fixtures each caught; fixed-point verified)
+
 - Part of: plan.md, DR-0002
 - Size: M
 - Type: system
@@ -138,6 +147,8 @@ Heroes and hero-meta are hardcoded in `src/<page>/index.nunjucks`
 
 ## Ticket 5 — Golden-file eval set + determinism gate
 
+Status: DONE 2026-11-02 (run-goldens.sh: PASS; perturbation check fails as required)
+
 - Part of: plan.md, DR-0002
 - Size: M
 - Type: system
@@ -165,6 +176,8 @@ Heroes and hero-meta are hardcoded in `src/<page>/index.nunjucks`
 ---
 
 ## Ticket 6 — Wire into the visuAI workflow + doc-sync
+
+Status: DONE 2026-11-02 (visuaibear-core routing after spec, before build; AUTHORING.md front-matter + inbox docs)
 
 - Part of: plan.md
 - Size: S
