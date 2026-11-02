@@ -1,0 +1,3 @@
+Projecto Lynx
+
+A quiet portfolio rebuild: clearer reading, faster pages, and a structure the team can extend without me.

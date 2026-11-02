@@ -12,6 +12,13 @@ This guide is the authoring contract (see
 2. Edit the page's `.md` file in `src/_data/pages/`, save
 3. The browser refreshes with the change
 
+No hand-markdown at all? Paste raw text into
+`src/_data/drafts/inbox/<slug>.txt` and run the `visuai-text-to-md`
+skill - it converts (structure only, never content) into
+`src/_data/pages/<slug>.md`, hero included, then verifies itself;
+the processed draft is archived to `src/_data/drafts/processed/`
+(text-to-md plan, DR-0002).
+
 No template work for standard layouts. The page shell (in
 `src/<page>/index.nunjucks`) holds the hero and chrome; everything below the
 hero is your markdown, rendered by the `mdpage` or `mdresume` filter.
@@ -25,15 +32,52 @@ hero is your markdown, rendered by the `mdpage` or `mdresume` filter.
 
 ## Conventions: `mdpage` (case studies)
 
-| You write    | You get                                                  |
-| ------------ | -------------------------------------------------------- |
-| `# Title`    | (usually stays in the shell — hero title)                |
-| `## Section` | Full-width section block, heading text as eyebrow label  |
-| `1. step`    | Numbered timeline                                        |
-| `- item`     | Fact chips                                               |
-| `> quote`    | Centred italic pull quote                                |
-| table        | Card grid (header row dropped, each body row → one card) |
-| raw HTML     | Passes through untouched — escape hatch, not the default |
+| You write    | You get                                                     |
+| ------------ | ----------------------------------------------------------- |
+| `# Title`    | (usually stays in the shell — hero title)                   |
+| `## Section` | Full-width section block, heading text as eyebrow label     |
+| `1. step`    | Numbered timeline                                           |
+| `- item`     | Fact chips at section level; plain bullets inside a box     |
+| `* item`     | Plain bullet list at section level (the opt-out from chips) |
+| `> quote`    | Centred italic pull quote                                   |
+| table        | Card grid (header row dropped, each body row → one card)    |
+| raw HTML     | Passes through untouched — escape hatch, not the default    |
+
+The list-context rule (DR-0010): the same `- item` renders as a plated
+fact chip at section level and as a plain bullet inside `::: cards`,
+`::: columns` or `::: compare` — by design, matching the reference pages.
+`* item` is the explicit opt-out when a section-level list should not be
+a chip.
+
+### Hero from front matter (DR-0001)
+
+The hero (cover + meta block) renders from the page md's `hero:` front
+matter via the `mdhero` filter - the shell holds one line,
+`{{ site.data.pages['<slug>'] | mdhero | safe }}`, instead of hardcoded
+hero markup. Format:
+
+    ---
+    hero:
+      variant: black        # cs-hero--<variant>; omit for the plain hero
+      eyebrow: Case Study   # optional
+      title: The page title
+      summary: One line under the title
+      details: Role ⋅ Tools ⋅ Dates
+      meta:                 # the cs-hero--meta block; one-key items in source order
+        - logo: "../images/... | alt text"
+        - needs: "card body"                      # title is always "Needs"
+        - related: "lead text | ../other-page/ | Link title"
+        - metrics: "20k | new users per month*"   # count-up value; label's ↑/↓ become icons
+        - footnote: "* footnote text"
+        - summary: "block summary text"
+    ---
+
+Values are RAW (entities allowed, `&nbsp;` etc.), like the shell markup
+this replaces - escape `&` yourself; the text-to-md skill emits escaped.
+The related arrow points right (read next); a lead saying "read
+first/previous" points it left. The bounded vocabulary is enforced by
+`specs/text-to-md/tools/verify-page-md.js` (unknown keys fail). Pages
+without front matter render exactly as before.
 
 ### `:::` blocks for visual components
 
@@ -64,6 +108,17 @@ Each `[panel: tag | title]` opens a comparison panel; prose and `[frame:]`,
 `[frame: …]` → mockup placeholder (`tall` variant optional); the last text
 lines become the `figcaption`.
 
+    ::: shots
+    ![Before we started, the colours were heavy](../images/case-studies/mobile-compare/before.jpg)
+    ![Elements were inconsistent in spacing](../images/case-studies/mobile-compare/menu.jpg)
+    ![Content was not well proportioned](../images/case-studies/mobile-compare/after.jpg)
+    :::
+
+An IMAGE RUN (ticket 61): N images side by side, each image's **alt text
+is its caption** below it. Wraps when narrow (each shot ≥ 240px, stacked
+on phones). The band is full-bleed. `[frame: Label]` placeholders work
+as shots.
+
     ::: cards
     [card: Title]
     Card body (markdown).
@@ -75,6 +130,25 @@ lines become the `figcaption`.
     [col: Right title]
     content
     :::
+
+    ::: hero
+    [eyebrow: Label]
+    # Mid-page hero
+    [summary: One line under the title.]
+    :::
+
+The mid-page hero (DR-0014) is a second hero inside the page — 64/64
+padding, its subtitle/byline on the shared 24 gaps.
+
+    ::: table
+    | Column | Column |
+    | ------ | ------ |
+    | cell   | cell   |
+    :::
+
+A real data table (`table.cs-table`, scrollable box) spanning the
+viewport. Top-level markdown tables still render as card grids — only
+`::: table` gives you the real table.
 
 ### Widths: text edge, bleed, full-bleed (DR-0009)
 
@@ -88,8 +162,9 @@ edge. Media and tables go further:
 - **Background sections**: any container can take a `full` modifier so
   its background spans the viewport while the content keeps its insets:
 
-      ::: quotes full
-      > "A quote on a full-width band."
+      ::: cards full
+      [card: On a full-width band]
+      The card's background spans the viewport.
       :::
 
       ::: metrics full
@@ -100,10 +175,24 @@ edge. Media and tables go further:
 
 - `[intro: text]` → `p.cs-section-intro`
 - `[note: text]` → `p.cs-note`
-- `[point: text]` → annotation dot + text (inside panels)
+- `[point: text]` → annotation dot + text (inside panels); on the line
+  after an image/frame it renders as a dotless, italic caption (DR-0011)
+- `[summary: text]` → the closing-summary box (bleeding, centered,
+  `.cs-summary`); inside `::: hero` it is the hero's summary line
+- `[byline: text]` → label-tier byline; on the line after a `>` quote it
+  moves inside that quote's blockquote, centered with it
 - `[figure: name]` → HTML from `src/_data/patterns/name.html` (one-off
   graphics that can't be markdown, e.g. the venn diagram)
 - `[h2: text]` / `[h3: text]` → heading without opening a new section
+
+### Doc-sync rule (standing)
+
+Every `:::` type documented here must be a known container in
+`renderContainer` (`markdown-render.js`), and every container type
+handled there must be documented here. The check is mechanical:
+`specs/md-case-study-editor/tools/doc-sync.sh` (run from the repo root;
+unknown containers warn and emit an HTML comment — if you see one, the
+guide or the renderer drifted).
 
 ## Conventions: `mdresume`
 

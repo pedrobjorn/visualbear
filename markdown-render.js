@@ -1206,16 +1206,16 @@ function mdHero(src) {
   const hero = splitFrontmatter(src).meta.hero;
   if (!hero || typeof hero !== 'object') return '';
   const variant = hero.variant ? ' cs-hero--' + hero.variant : '';
-  const out = [
-    '<header class="cs-hero' + variant + '">',
-    '  <p class="cs-eyebrow">' + iconify(hero.eyebrow || '') + '</p>',
-    '  <h1>' + iconify(hero.title || '') + '</h1>',
-    '  <p class="cs-cover-summary">',
-    '    ' + iconify(hero.summary || ''),
-    '  </p>',
-    '  <p class="cs-cover-details">' + iconify(hero.details || '') + '</p>',
-    '</header>'
-  ];
+  const out = ['<header class="cs-hero' + variant + '">'];
+  if (String(hero.eyebrow || '').trim()) {
+    out.push('  <p class="cs-eyebrow">' + iconify(hero.eyebrow) + '</p>');
+  }
+  out.push('  <h1>' + iconify(hero.title || '') + '</h1>');
+  out.push('  <p class="cs-cover-summary">');
+  out.push('    ' + iconify(hero.summary || ''));
+  out.push('  </p>');
+  out.push('  <p class="cs-cover-details">' + iconify(hero.details || '') + '</p>');
+  out.push('</header>');
   if (hero.meta && hero.meta.length) out.push(heroMetaHtml(hero.meta));
   return out.join('\n');
 }

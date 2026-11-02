@@ -1,0 +1,5 @@
+Teachr=Kettle
+teachr-one-page=kettle-one-page
+2026=2027
+20k=30k
+12%=22%

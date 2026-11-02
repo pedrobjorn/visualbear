@@ -1,0 +1,9 @@
+Coupon Flow
+
+Before
+A cluttered index with inconsistent spacing and mismatched buttons.
+
+After
+A focused entry with one clear primary action and the plate system.
+
+We shipped the coupon flow in two releases.
