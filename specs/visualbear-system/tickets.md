@@ -685,3 +685,110 @@ rendered geometry.
 ## Open questions
 
 - None
+
+---
+
+# Ticket 14: The strip lives inside the active panel's hero (DR-0006)
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-12c, DR-0006)
+- Size: M
+- Type: UI + system
+- Status: DONE 2026-11-12 - strip server-renders in the visuai host,
+  relocates in paint() on switch (synchronous, one frame); focus moves
+  after the paint (keyboard path reordered); the light state collapses
+  #workflow_container (the ~775px void gone) and #styleguide_container
+  takes a 48px page clearance; the leading article's padding zeroed via
+  the adjacent-host rule. Rhythm parity probed: strip-in-hero in both
+  states; strip -> h1 = 141px in BOTH (dark: 125+141 = h1 266 = T5's
+  evidence). Focus survives relocation both directions (probed)
+
+## Context
+
+Pedro: "Make the styleguide hero contain the tab, don't put it below a
+large hero container." Measured at 1440 (design tab): strip at y=80-125,
+`#styleguide_container` at y=900 - the workflow article's
+`.gallery-container` scaffolding reserves ~775px of void above the design
+panel; the strip is stranded above, the hero a viewport down.
+
+## Requirements
+
+- One strip, one live host: the strip wrapper (`[data-vb-tablist]` + its
+  spec script) server-renders inside the VISUAI panel (host slot
+  `[data-vb-strip-host="visuai"]`, first child - the design panel stays
+  server-hidden). The design panel's host (`[data-vb-strip-host="designsystem"]`)
+  is the first child of `#styleguide_container`.
+- tabs.js relocates the strip wrapper into the active host during paint
+  (synchronous, no flash), before focusing the tab button (a focused node
+  detaches on move - paint first, focus after; the keyboard handler's
+  order updates).
+- The workflow article collapses in the light state
+  (`body.vb-system-light #workflow_container { display: none }`) so the
+  styleguide section starts right under the nav; in the dark state the
+  design section stays server-hidden.
+- Rhythm: strip top = nav bottom + 32 in BOTH states; strip -> hero content
+  = the dark state's shipped 24/64 spacing. Rule zeroing ONLY the styleguide
+  page's leading article top padding while hosted:
+  `#styleguide_container > [data-vb-strip-host] + article.text-container
+{ padding-top: 0 }`.
+- A11y: still exactly one tablist; aria wiring unchanged; keyboard
+  activation keeps focus on the active tab after the move.
+- The public `/styleguide/` page (still up, ticket 4 gated) renders
+  byte-identical - all changes are on the workflow shell or the tabs
+  molecule.
+
+## Acceptance criteria (agent-checkable)
+
+- [x] Design tab: strip's ancestor chain contains `#styleguide_container` (the hero container); the strip sits 32 under the nav bottom in the section's own top padding (the 900px void measured pre-fix is gone)
+- [x] visuAI tab: strip sits in the visuai panel; dark-state geometry unchanged vs T5's evidence (strip top 80 at both widths, h1 top 266)
+- [x] Keyboard: ArrowRight/Left switch, roving tabindex + focus land on the active tab buttons AFTER the relocation (probed: activeElement = the selected tab after both directions)
+- [x] Click-through: click on either tab switches ground, panel and strip location in one paint (synchronous relocation in paint(); no flash)
+- [x] npm build + guard + npm test pass
+
+## Out of scope
+
+- `/styleguide/` retirement (ticket 4); strip styling (T5/T7 shipped looks
+  stay); hero copy.
+
+## Open questions
+
+- None
+
+---
+
+# Ticket 15: The robot's hover plate takes the chip shape (DR-0006)
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-12c, DR-0006)
+- Size: S
+- Type: UI
+- Status: DONE 2026-11-12 - `a.robot { border-radius: 999px }`; probed:
+  rest transparent, hover AND focus = rgb(215,55,53) at radius 999px on
+  the 44x44 box - the red plate is a chip, not a square
+
+## Context
+
+Pedro: "make the hover over red match the pill shape." Measured: on
+hover/focus the global `a` rule paints `rgb(215,55,53)` on the anchor's
+44x44 box with `border-radius: 0` - a sharp red square under the robot,
+beside the 999px-rounded label chip.
+
+## Requirements
+
+- `a.robot { border-radius: 999px }` in \_pages.scss: the hover/focus red
+  renders as a rounded chip in the pill's radius language. Hit box stays
+  44x44; the label chip keeps its own plate/ink (T10/13, unchanged).
+- No other robot styles move (glyph position, pill geometry, a11y name).
+
+## Acceptance criteria (agent-checkable)
+
+- [x] Probed: no red plate at rest; on hover AND focus the anchor's computed border-radius = 999px and the red plate renders as a chip (44x44, rounded)
+- [x] Glyph position and pill geometry unchanged (probes equal T13's)
+- [x] npm build + guard + npm test pass
+
+## Out of scope
+
+- One-expanded-red-pill redesign (considered, rejected - DR-0006); the
+  pill's chip design.
+
+## Open questions
+
+- None

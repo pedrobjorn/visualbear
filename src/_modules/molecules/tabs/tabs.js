@@ -46,28 +46,40 @@ function init() {
     else if (e.key === 'ArrowLeft') action = { type: 'arrow', dir: -1 };
     else if (e.key === 'Home') action = { type: 'home' };
     else if (e.key === 'End') action = { type: 'end' };
-    // Activation follows focus (WAI-ARIA tabs pattern)
+    // Activation follows focus (WAI-ARIA tabs pattern). Paint first, then
+    // focus: the strip relocates into the active panel's host during the
+    // paint (ticket 14) and a focused node detaches on move - focusing a
+    // button that is about to be re-parented would drop it (DR-0006).
     if (action) {
       e.preventDefault();
       var next = core.reduce(state, action);
+      activate(next);
       var btn = root.querySelector('#' + core.tabId(next.activeId));
       if (btn) btn.focus();
-      activate(next);
     }
   });
 
   function activate(next) {
     state = next;
-    paint(state);
+    paint(state, root);
   }
 }
 
-// Paint one state: buttons, body ground pair, visible panel.
-function paint(state) {
+// Paint one state: buttons, body ground pair, visible panel, and the
+// strip's host (ticket 14, DR-0006: the strip lives inside the ACTIVE
+// panel's hero - its design panel host slots into #styleguide_container).
+// All synchronous, one paint frame - no flash - so the click handler and
+// the keyboard path share this order.
+function paint(state, root) {
   var ground = core.bodyGroundClass(state.activeId);
   GROUND_CLASSES.forEach(function (cls) {
     document.body.classList.toggle(cls, cls === ground);
   });
+
+  // relocate first: the strip must already sit in its host before focus
+  // and the enter animation run
+  var host = document.querySelector('[data-vb-strip-host="' + state.activeId + '"]');
+  if (host && root && root.parentElement !== host) host.appendChild(root);
 
   document.querySelectorAll('[data-vb-tab]').forEach(function (btn) {
     var id = btn.getAttribute('data-vb-tab');

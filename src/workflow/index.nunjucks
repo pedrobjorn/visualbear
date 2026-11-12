@@ -22,30 +22,20 @@
             <div class="container">
                 <div class="document-text text-box">
 
-                    <!-- visualbear system (specs/visualbear-system, ticket 6):
-                         one URL, two tabs. Each panel owns its hero (the
-                         copy-swap mechanism of ticket 2 is retired), so
-                         exactly one VISIBLE h1 exists at any time; the
-                         inactive panel is display:none. -->
-                    {{ tabsm.content({
-                        id: "vb-system",
-                        label: "visualbear system views",
-                        active: "visuai",
-                        tabs: [
-                            {
-                                id: "visuai",
-                                label: "visuAI"
-                            },
-                            {
-                                id: "designsystem",
-                                label: "Design system"
-                            }
-                        ]
-                    }) }}
+                    <!-- visualbear system (specs/visualbear-system, tickets
+                         6 + 14, DR-0001/DR-0006): one URL, two tabs. Each
+                         panel owns its hero, so exactly one VISIBLE h1
+                         exists at any time; the inactive panel is
+                         display:none, and the strip lives inside the
+                         active panel's hero (see the visuai host below). -->
 
                     <!-- panel: visuAI tab - owns the page hero (from the
                          page md's front matter, DR-0001) plus the
-                         workflow content -->
+                         workflow content. The strip lives INSIDE the
+                         active panel's hero (ticket 14, DR-0006): its
+                         server-rendered home is the host slot below -
+                         the controller moves it to the design panel's
+                         host on switch. -->
                     <section
                         id="vb-system-panel-visuai"
                         class="vb-panel"
@@ -54,6 +44,23 @@
                         tabindex="-1"
                         data-vb-panel="visuai"
                     >
+                        <div data-vb-strip-host="visuai">
+                            {{ tabsm.content({
+                                id: "vb-system",
+                                label: "visualbear system views",
+                                active: "visuai",
+                                tabs: [
+                                    {
+                                        id: "visuai",
+                                        label: "visuAI"
+                                    },
+                                    {
+                                        id: "designsystem",
+                                        label: "Design system"
+                                    }
+                                ]
+                            }) }}
+                        </div>
                         <!-- HERO — adapted bare variant (ticket 45, DR-0014):
                              no kicker/"Case Study" (not a case study), no
                              background (the dark ground + spotlight carry
@@ -85,6 +92,11 @@
         hidden
     >
         <section class="section section-top-padding" id="styleguide_container">
+            <!-- the strip's light-state host (ticket 14, DR-0006): the
+                 styleguide page's hero container holds the tab; the
+                 controller relocates the strip here when this panel is
+                 active. The empty host stays zero-height when vacated. -->
+            <div data-vb-strip-host="designsystem"></div>
             <article class="text-container">
                 <div class="row">
                     {{ intro.content({ title: "Design system" }) }}

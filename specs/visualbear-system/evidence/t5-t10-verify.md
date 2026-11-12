@@ -218,3 +218,41 @@ section#styleguide_container.section` - direct page child, no
 
 - npm run build (gulp -> mirror -> guard) exit 0; npm test PASS;
   eslint clean on touched JS; prettier repo-gate PASS.
+
+# Addendum 2026-11-12c - tickets 14-15 (DR-0006)
+
+## Ticket 14 - the strip lives inside the active panel's hero
+
+- Pre-fix measurement (design tab, 1440): strip at y=80-125, the
+  styleguide section at y=900 - the workflow article's
+  .gallery-container scaffolding reserved ~775px of void above the
+  design panel.
+- Structure: single strip, one live host - server-rendered in the
+  visuai panel's host slot; the design panel's host sits as the first
+  child of #styleguide_container. tabs.js relocates the wrapper during
+  paint (synchronous; one paint frame); the keyboard handler focuses the
+  tab AFTER paint (a focused node detaches on move).
+- Layout: the light state collapses #workflow_container (display:none;
+  the void is gone) and #styleguide_container carries the 48px page
+  clearance - probed: strip top 80, gap below nav 32, at 1440 AND 390.
+  The leading article's padding is zeroed by the adjacent-host rule
+  (static CSS, no :has()).
+- Rhythm parity: strip bottom -> h1 = 141px in BOTH states (dark h1 266 /
+  design h1 266-equivalent) - the design hero now wraps the strip with
+  exactly the dark state's spacing.
+- Keyboard: ArrowRight -> tablist relocated into the design host,
+  activeElement = vb-system-tab-designsystem (kept), ground
+  vb-system-light; ArrowLeft returns to the visuai host, focus kept.
+- Capture: evidence/t14-workflow-{1440,390}-light-full.png.
+
+## Ticket 15 - the robot's hover plate is a chip
+
+- Probed: rest = transparent bg; hover AND focus = rgb(215,55,53) with
+  border-radius 999px on the 44x44 box (was radius 0 - a sharp red
+  square). Glyph + pill geometry unchanged (T13 probes). Capture:
+  evidence/t15-robot-hover-1440.png.
+
+## Gates (final state)
+
+- npm test PASS; npm run build (gulp -> mirror -> guard) exit 0;
+  prettier rc-gate PASS.

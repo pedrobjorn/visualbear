@@ -102,6 +102,30 @@ body.workflow-page {
   }
 }
 
+// Ticket 14 (DR-0006): the strip lives inside the ACTIVE panel's hero.
+// The workflow article's .gallery-container scaffolding otherwise
+// reserves ~775px of void over the design panel in the light state (its
+// own panel is hidden but the container scaffolding keeps its height) -
+// the article collapses entirely; the strip is in the design panel by
+// then (the relocation and this rule land in the same paint frame).
+body.vb-system-light #workflow_container {
+  display: none;
+}
+
+// ...and the styleguide section takes the page's own top clearance (the
+// collapsed article used to provide it): nav height 48, so the strip
+// lands at nav-bottom + 32 = the T5 rhythm in BOTH states.
+#styleguide_container {
+  padding-top: 48px;
+}
+
+// ...and the styleguide page's leading article keeps a 32px top padding
+// for its own page - while the strip is hosted above it, the strip's own
+// margins carry the rhythm (strip -> hero = the dark state's 24/64).
+#styleguide_container > [data-vb-strip-host] + article.text-container {
+  padding-top: 0;
+}
+
 // The panel swap: the entering panel fades in over ENTER_MS (tabs.js).
 // Opacity/transform only, and reduced motion gets the plain swap.
 // [hidden] needs its own display rule: normalize's `section { display:

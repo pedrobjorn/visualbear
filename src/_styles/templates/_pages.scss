@@ -282,6 +282,15 @@
 // translucent plate inherits whichever ground is under it at that
 // moment. A solid chip reads on all of them and keeps the link's own
 // visual identity constant per page.
+// matches every surface it can reach.
+a.robot {
+  // Ticket 15 (DR-0006): the global a-rule's hover/focus plate (#d73735
+  // on the 44x44 box) rendered as a SHARP red square next to the 999px
+  // label chip - the robot's own plate takes the pill's chip shape
+  // instead.
+  border-radius: 999px;
+}
+
 a.robot .robot-pill {
   flex-shrink: 0; // ticket 13: a shrinkable 1 collapsed it to a 28px sliver
   max-width: 0;
