@@ -260,7 +260,8 @@
   position: fixed;
   bottom: 12px;
   left: 12px;
-  font-size: 22px;
+  // ticket 18: optically matching the mirror link's glyph (20px)
+  font-size: 20px;
   line-height: 1;
   z-index: 3;
 }
@@ -284,11 +285,19 @@
 // visual identity constant per page.
 // matches every surface it can reach.
 a.robot {
-  // Ticket 15 (DR-0006): the global a-rule's hover/focus plate (#d73735
-  // on the 44x44 box) rendered as a SHARP red square next to the 999px
-  // label chip - the robot's own plate takes the pill's chip shape
-  // instead.
+  // Ticket 17 (DR-0007): the plate is GONE in every state - the global
+  // a:hover/a:focus red background is overridden transparent robot-wide;
+  // the expanded label chip is the only surface ("just leave the pill").
+  // (Supersedes the plate half of ticket 15; the 999px radius stays -
+  // inert without a plate, and guards any future surface from a square.)
   border-radius: 999px;
+
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: transparent;
+  }
 }
 
 a.robot .robot-pill {

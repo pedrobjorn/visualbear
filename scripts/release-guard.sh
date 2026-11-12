@@ -89,6 +89,20 @@ done)
 NAVABS=$(grep -rh --include="index.html" -o -E 'href="/(styles|scripts|images|fonts)/[^"]*"' "build/$MIRROR" | wc -l | tr -d ' ')
 echo "release-guard: OK - walled garden holds ($NAVABS zone-served absolute asset links, no root nav links)."
 
+# 8. no internal href resolves OUTSIDE the mirror (specs/visualbear-system,
+# ticket 19): resolve every href against its page and require the result
+# to stay under build/<MIRROR>/. External page references (https://, mailto,
+# protocol-relative) are outbound references - allowed. The scan that
+# found the escape (the home's ../#work, ../#contact, ../resume) is this
+# check's logic.
+OUT=$(node "$ROOT/scripts/mirror-leak-scan.js" "build/$MIRROR" 2>&1)
+if [ -n "$OUT" ]; then
+  echo "release-guard: FAIL: internal links resolve outside the mirror:" >&2
+  echo "$OUT" >&2
+  exit 1
+fi
+echo "release-guard: OK - in-copy anchors stay inside the mirror (leak scan clean)."
+
 echo "release-guard: OK - air-lock holds at build/$MIRROR/ ($MARKED noindexed pages),"
 echo "release-guard: OK - secret pages absent from the public root, mirror path leaks nowhere."
 echo "release-guard: upload build/ as-is (both zones)."

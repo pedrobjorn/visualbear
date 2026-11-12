@@ -27,7 +27,7 @@ function visuaiLinkFor(depth) {
     'style="position:fixed;bottom:12px;left:12px;width:44px;height:44px;' +
     'z-index:3;display:flex;align-items:flex-end;justify-content:flex-start;' +
     'text-decoration:none;line-height:1;">' +
-    '<span class="robot-glyph" aria-hidden="true" style="font-size:22px;">' +
+    '<span class="robot-glyph" aria-hidden="true" style="font-size:20px;">' +
     '\uD83E\uDD16</span>' +
     '<span class="robot-pill" aria-hidden="true">workflow &amp; design system</span>' +
     '</a>\n';
@@ -56,8 +56,20 @@ function stripFloatingRobot(html) {
 // mirror behaves the same: depth-relative mirror home + #about (the
 // mirror home carries that section; #work targets it too). The about/
 // page still ships but no nav link points at it.
+//
+// Ticket 19: the mirror HOME's in-copy anchors (the hero title link and
+// the #about copy) escape at depth 0: ../#work, ../#contact resolve to
+// the PUBLIC root, ../resume leaves the zone. Depth 0 only - at depth 1+
+// every ../ href already lands inside the mirror (../#work from a
+// section page = the mirror home's gallery). Idempotent: an in-page
+// anchor no longer matches, and the already-in-page forms cannot recur.
 function relativizeNavLinks(html, depth) {
   var up = new Array(depth + 1).join('../');
+  if (depth === 0) {
+    html = html
+      .replace(/href="\.\.\/#([a-z-]+)"/g, 'href="#$1"')
+      .replace(/href="\.\.\/resume"/g, 'href="resume/"');
+  }
   return html
     .replace(/href="\/#work"/g, 'href="' + up + '#work"')
     .replace(/href="\/#about"/g, 'href="' + up + '#about"')

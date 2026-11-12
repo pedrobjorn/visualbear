@@ -256,3 +256,52 @@ section#styleguide_container.section` - direct page child, no
 
 - npm test PASS; npm run build (gulp -> mirror -> guard) exit 0;
   prettier rc-gate PASS.
+
+# Addendum 2026-11-12d - tickets 16-19 (DR-0007 + the design-system review)
+
+## Ticket 16 - design system review
+
+Full text + demo dump of the panel; the slop inventory and the odd-rows
+findings are recorded in ticket 16 verbatim (gated on Pedro's copy pass).
+The mechanical finding shipped: the cs-shots demo row's three thumbs were
+`loading="lazy"` inside a panel that ships `[hidden]` - lazy images in a
+display:none subtree never hydrate at page load, so on first tab-open the
+row rendered collapsed (climateclock/closet at 0px height until the row
+scrolled into view; no request failures - 200s on all three, 1280x256
+each). Lazy removed; probed post-fix: all three `complete &&
+naturalWidth > 0` at h=94 (the banner ratio) the moment the tab opens,
+no scrolling. Capture: evidence/t16-shots-row-1440.png.
+
+## Ticket 17 - the plate goes (DR-0007 supersedes the T15 plate)
+
+Probed: `a.robot` computed background-color = transparent at rest, on
+hover, and on keyboard focus (the global a-rule's #d73735 plate
+overridden robot-wide); the label chip remains the only surface and
+still expands (213px); radius 999px stays inert. No glyph/pill geometry
+change.
+
+## Ticket 18 - the glyph at the bear's optical size
+
+Canvas ink metrics: at 22px, bear and robot measure IDENTICAL ink boxes
+(25.0x26.0) in this environment's emoji font - the robot's design fills
+it denser, hence the optically-bigger read. Glyph span 22 -> 20px
+(mirror link's inline markup + the decorative public span's CSS, both
+probed at 20px computed); position anchors unchanged. Test assertions
+updated (the 22px form asserted absent).
+
+## Ticket 19 - the mirror home's in-copy anchors stay inside
+
+The leak scan (resolve-every-href, structural ups-vs-depth check) across
+all 23 mirror index.htmls found exactly the home's four escapes:
+`../#work` x2 (hero + about copy), `../#contact`, `../resume`. Depth-0
+rules added to relativizeNavLinks (TDD: home/depth-1/depth-2 cases +
+idempotency + external-outbound pass-through asserted); guard check 8 =
+scripts/mirror-leak-scan.js. Final build: scan clean (the only
+whitelisted root-absolute remain the 23 zone-served asset links), guard
+green. Click-through: the home's #work links scroll the gallery
+in-page (URL stays /selected-works/); resume/ lands inside the mirror.
+
+## Gates (final state)
+
+- npm test PASS; npm run build (gulp -> mirror -> guard incl. checks 7+8)
+  exit 0; eslint clean (mirror-leak-scan.js included); prettier gate PASS.

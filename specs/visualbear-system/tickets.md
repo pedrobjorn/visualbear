@@ -760,9 +760,9 @@ panel; the strip is stranded above, the hero a viewport down.
 - Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-12c, DR-0006)
 - Size: S
 - Type: UI
-- Status: DONE 2026-11-12 - `a.robot { border-radius: 999px }`; probed:
-  rest transparent, hover AND focus = rgb(215,55,53) at radius 999px on
-  the 44x44 box - the red plate is a chip, not a square
+- Status: DONE 2026-11-12, then amended 2026-11-12d: ticket 17 (DR-0007)
+  REMOVES the plate outright (just leave the pill); the 999px radius
+  stays as a guard.
 
 ## Context
 
@@ -788,6 +788,220 @@ beside the 999px-rounded label chip.
 
 - One-expanded-red-pill redesign (considered, rejected - DR-0006); the
   pill's chip design.
+
+## Open questions
+
+- None
+
+---
+
+# Ticket 16: Design system review - the slop text inventory + the odd image rows
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-12d)
+- Size: M (half review)
+- Type: review + copy + UI
+- Status: REVIEW DONE 2026-11-12 (findings recorded in the ticket; the
+  mechanical lazy fix shipped - all three thumbs render complete at
+  first tab-open, probed); the COPY rewrite is GATED on Pedro's pass
+  over the findings inventory (open question below)
+
+## Context
+
+Pedro: "review the design system, there's AI slop text and the image rows
+are odd." The design-system panel's content came from the
+md-case-study-editor tickets (agent-authored: the Case-study system
+section's prose walls, plus old lorem specimens). The review = the full
+text + demo dump of the panel, findings recorded verbatim, mechanics fixed.
+
+## Findings (2026-11-12 review, full-text + probe pass)
+
+### A. Slop / stub text flagged for the copy pass (Pedro decides each)
+
+1. `styleguide.casesystem.nunjucks` - the section PROSE reads as engineering
+   notes, not guide copy (the DR/ ticket-code inline references are the tell):
+   - "The case-study pages render from markdown (see AUTHORING.md). Their
+     layout has one text edge, bullet plates and cards inside the
+     container, display boxes that bleed one indent step into the
+     margins, and a full-bleed tier for media and background sections."
+   - "List-context rule (DR-0010): - item at section level -> fact chip;
+     ... 1. step -> numbered timeline everywhere." - inside notes, not
+     reader copy (mentions internal DR numbers: DR-0013, DR-0010, DR-0012,
+     tickets 39/41/53, $cs-indent token refs throughout the section)
+   - "One spacing scale governs all vertical gaps: 8 / 16 / 24 / 32 / 48 /
+     64 / 96 (8pt grid). Roles: 8 inside components, 16 list rhythm..."
+   - "Heroes: One hero component, one spacing/type set (DR-0014)..."
+   - Demos' explanatory strings ("2 quotes15% meta hero - KPIs sit under
+     the cover" pattern as rendered) - labels like "ticket 53" / "(ticket
+     53)" inside visible h3s: "Within the container - card (ticket 53)"
+2. `styleguide.core.nunjucks:147-148` - lorem/latin body-copy specimens
+   ("vivamus sagittis lacus...", "Nullam quis risus eget...") and the
+   abbreviation demo "An abbreviation of the word attribute is attr." -
+   classic placeholder prose; replace with REAL site copy per Pedro's
+   preference (this is the primary slop read).
+3. `styleguide.modules.nunjucks:30-31` - the Quotes demo: "Lorem ipsum
+   dolor sit amet..." + "- Someone famous in Source Title" - placeholder
+   quote; swap for a real quote (or Pedro's).
+4. `styleguide.containers.nunjucks:39` - typo "excercise" -> "exercise"
+   (flagged since ticket 3; Pedro now flags the section - fix together if
+   the pass over Containers lands).
+
+### B. The odd image rows - MEASURED, mechanical
+
+5. `styleguide.casesystem.nunjucks:190-201` - the `cs-shots` related-shots
+   demo row: all three thumbs are `loading="lazy"`, and they live inside a
+   panel that ships `[hidden]` - lazy images in a display:none subtree
+   never hydrate at page load. Measured: on first tab-open the row renders
+   collapsed (artent 469x94 = the natural 1280x256 banner ratio; the other
+   two 469x0 until the row is SCROLLED into view - then they hydrate).
+   The row reads broken/odd at the moment it matters.
+   - Fix (mechanical, in scope now): the guiide's demo images lose
+     `loading="lazy"` (eager); the panel pre-loads them - the row renders
+     complete the moment the tab opens. Guided by: the thumbs ARE the
+     real files (200, 1280x256 each in the mirror).
+6. The modules "Image Container" demo (a lone 836x424 full-width portrait)
+   and the single "Cart Gallery Container" card demo: odd as GALLERIES
+   (one item in a row). NOT fixed mechanically - belongs with the copy
+   pass (Pedro's call: single-item rows are honest demos of the module;
+   the flag is recorded).
+
+## Requirements (mechanical, this ticket)
+
+- Remove `loading="lazy"` from the panel's demo images (cs-shots row;
+  scan the other blocks - only cs-shots carries it today).
+- The copy items above stay UNTOUCHED until Pedro's pass; this ticket's
+  rewrite phase (if he greenlights) drafts the replacements with the
+  `[ai]` marker convention and PRs for his edit.
+
+## Acceptance criteria (agent-checkable)
+
+- [x] The cs-shots row renders complete on first tab-open (no load dependency on scrolling): probed all three `complete && naturalWidth > 0` at h=94 (the 1280x256 banner ratio), no zero-height tiles
+- [x] The inventory above is recorded verbatim (this ticket) and the rewrite is explicitly gated (status note) - no silent copy changes
+- [x] npm build + guard + npm test pass
+
+## Open questions
+
+- Pedro: greenlight on the copy pass? (owner: Pedro - blocks the rewrite,
+  not the lazy fix)
+
+---
+
+# Ticket 17: The robot hover keeps only the pill (DR-0007)
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-12d, DR-0007)
+- Size: S
+- Type: UI
+- Status: DONE 2026-11-12 - probed: transparent at rest/hover/focus; the
+  pill still expands (213px)
+
+## Context
+
+Pedro: "Remove the red background to the robot hover, just leave the
+pill." Supersedes the plate half of ticket 15 (DR-0006) - the 999px
+radius stays, the plate goes.
+
+## Requirements
+
+- No background plate on `a.robot` in any state: at rest, hover and focus
+  all carry `background-color: transparent` (robot-scoped override of the
+  global `a` rule).
+- The label chip stays as the only surface (T10/13: solid `$vb-light`
+  plate, `$vb-dark` ink, expands on hover/focus).
+- Glyph position, hit box, pill geometry, a11y name, reduced-motion,
+  idempotent strip: all unchanged.
+
+## Acceptance criteria (agent-checkable)
+
+- [x] Probed: computed `background-color` on `a.robot` = transparent at rest, on hover, and on keyboard focus; the pill still expands (rendered width 213px)
+- [x] npm build + guard + npm test pass
+
+## Open questions
+
+- None
+
+---
+
+# Ticket 18: Robot glyph size - optically match the bear
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-12d)
+- Size: S
+- Type: UI
+- Status: DONE 2026-11-12d - glyph 22px -> 20px on the mirror link span
+  (inline style, scripts/mirror-link.js) AND the decorative public span
+  (.floating-robot, src/styles/pages.scss); probed 20px computed on
+  /selected-works/; npm test green
+
+## Context
+
+Pedro: "make the robot emoji a bit smaller matching the bear emoji." The
+T1 swap kept 22px; the robot glyph's filled-plate emoji reads optically
+bigger at the same em (canvas ink meas: bear 22px = 25.0x26.0, robot
+22px = 25.0x26.0 - equal METRICS, the robot's face design fills them
+denser). Reduce the glyph so it reads at the bear's size.
+
+## Requirements
+
+- `font-size: 22px` -> `20px` on the glyph span (inline markup,
+  scripts/mirror-link.js + mirror-link.test.js assertions updated, TDD);
+  ~10% down.
+- The test file's size assertion carries the new value; the pill geometry
+  probes unaffected.
+- The decorative public home span (`.floating-robot`) takes the same
+  20px (pages.scss) - the two robots must match optically.
+
+## Acceptance criteria (agent-checkable)
+
+- [x] The glyph renders at 20px (computed) on the mirror link AND the public decorative span; visual position ~unchanged (bottom-left anchor)
+- [x] npm test green; mirror pages show the smaller glyph (probed at /selected-works/, 20px computed; the 22px inline form asserted absent in mirror-link.test.js)
+
+## Open questions
+
+- 20px is a draft value (down from 22) - Pedro adjusts if it still reads
+  big. Owner: Pedro.
+
+---
+
+# Ticket 19: The mirror home's in-copy anchors sit inside the garden
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-12d)
+- Size: S
+- Type: system
+- Status: DONE 2026-11-12d - depth-0 rules folded into
+  relativizeNavLinks (scripts/mirror-link.js); leak scan = release guard
+  check 8; scan clean on the built mirror; click-through verified (the
+  in-page anchor scrolls to the gallery, resume/ resolves inside the
+  mirror); npm test + build + guard green
+
+## Context
+
+Pedro: "Update the hero anchors and about anchors in the selected works to
+also sit within selected works." After ticket 8/12's nav rewrites the
+remaining escapes are the mirror HOME's in-copy anchors (the hero + the
+#about article's copy): measured - a full-uri leak scan of every mirror
+index.html leaves exactly one file with escaping hrefs:
+`../#work` (hero title link + the about section's "check out my work"),
+`../#contact` (footer-adjacent copy), `../resume` (resume link). From the
+mirror home (depth 0) each `../` resolves to the PUBLIC zone root:
+/#work, /#contact, /resume. The mirror ships `resume/`.
+
+## Requirements
+
+- `relativizeHomeAnchors(html)` or merged into `relativizeNavLinks`
+  (scripts/mirror-link.js, TDD): on depth-0 pages, `href="../#<anchor>"`
+  -> `href="#<anchor>"` in-page, `href="../<section>"` (internal route)
+  -> `href="<section>/"`. Depth-1+ pages' `../` hrefs already resolve
+  inside the mirror (../#work from a depth-1 page = the mirror home's
+  gallery) - unchanged.
+- The leak scan (resolve-every-href against its page, the diagnostic that
+  found this) is added to the release guard as check 8: zero internal
+  hrefs resolving outside the mirror (protocol-relative/mailto/external
+  https excluded - outbound references to remote pages are allowed).
+- The rewriter stays idempotent (rewritten forms cannot match again).
+
+## Acceptance criteria (agent-checkable)
+
+- [x] The guard's leak scan passes: zero hrefs resolving outside /selected-works/ on any mirrored page (check 8 clean on the built mirror)
+- [x] Click-through: the mirror home's "check out my work" scrolls the mirror home to the gallery (in-page `#work`), the resume link lands inside /selected-works/resume/
+- [x] npm test + build + guard pass; only the three escaped hrefs changed - the home copy otherwise byte-identical
 
 ## Open questions
 

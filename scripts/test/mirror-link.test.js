@@ -47,7 +47,7 @@ assert.ok(
 
 // the glyph lives in its own span so the box can grow without moving it
 assert.ok(html.indexOf('class="robot-glyph"') !== -1, 'glyph wrapped in a span');
-assert.ok(html.indexOf('font-size:22px') !== -1, 'glyph keeps its shipped 22px size');
+assert.ok(html.indexOf('font-size:20px') !== -1, 'glyph keeps its reduced 20px size (ticket 18 - optically matches the bear)');
 
 // the label pill: visual sugar only - aria-hidden, exact lowercase string
 assert.ok(html.indexOf('class="robot-pill"') !== -1, 'pill label span present');
@@ -108,5 +108,30 @@ assert.ok(
   link.relativizeNavLinks('<a href="/about/more/">x</a>', 0).indexOf('/about/more/') !== -1,
   'non-nav absolute routes untouched'
 );
+
+// ── ticket 19: the mirror home's in-copy anchors sit inside the garden ───
+
+// depth 0 (the home): ../#anchor -> in-page, ../resume -> resume/
+var homeCopy = '<p><a href="../#work">check out my work</a>' +
+  '<a href="../#contact">contact</a><a href="../resume">resume</a>' +
+  '<a href="https://www.visualbear.com">visualbear.com</a></p>';
+var relHome = link.relativizeNavLinks(homeCopy, 0);
+assert.ok(relHome.indexOf('href="#work"') !== -1, 'depth 0: ../#work -> #work (the home IS the work index)');
+assert.ok(relHome.indexOf('href="#contact"') !== -1, 'depth 0: ../#contact -> #contact');
+assert.ok(relHome.indexOf('href="resume/"') !== -1, 'depth 0: ../resume -> resume/ (inside the mirror)');
+assert.ok(relHome.indexOf('https://www.visualbear.com') !== -1, 'external outbound links untouched');
+assert.strictEqual(link.relativizeNavLinks(relHome, 0), relHome, 'home anchor rewrite is idempotent');
+
+// depth 1+: ../#work already resolves to the mirror home - unchanged
+var innerCopy = '<a href="../#work">work</a><a href="../resume">resume</a>';
+assert.strictEqual(link.relativizeNavLinks(innerCopy, 1), innerCopy,
+  'depth 1 in-copy ../ links already sit inside the mirror - untouched');
+assert.strictEqual(link.relativizeNavLinks(innerCopy, 2), innerCopy,
+  'depth 2 unchanged too');
+
+// ── ticket 18: the glyph reads at the bear's size ─────────────────────────
+
+assert.ok(html.indexOf('font-size:20px') !== -1, 'glyph is 20px (bears optical size)');
+assert.ok(html.indexOf('font-size:22px') === -1, 'the 22px glyph size is gone');
 
 console.log('mirror-link.test: PASS');
