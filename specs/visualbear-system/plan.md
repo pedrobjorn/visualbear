@@ -54,10 +54,28 @@ Applied from `visuaibear-core/foundational-heuristics.md`: H1 - no destructive o
 
 ## Breakdown
 
-- [ ] Ticket 1 - Robot on the mirror: swap the floating bear for a robot above every surface
-- [ ] Ticket 2 - Tab shell: the hero's tab strip switching grounds and content
+- [x] Ticket 1 - Robot on the mirror: swap the floating bear for a robot above every surface
+- [x] Ticket 2 - Tab shell: the hero's tab strip switching grounds and content
 - [ ] Ticket 3 - Design system tab: move the styleguide blocks in, rename to Design system
 - [ ] Ticket 4 - Retire `/styleguide/`, wire the references (gated on open question 1)
+
+## Amendment pass 2026-11-12 (Pedro's six follow-on items)
+
+Review feedback on the shipped tab shell + robot, spec'd as amendments
+and four new tickets (5-10). Facts measured 2026-11-12, listed per ticket.
+
+| #   | Item                                                   | New ticket | Amends                  |
+| --- | ------------------------------------------------------ | ---------- | ----------------------- |
+| 1   | Tabs touch the header (0px gap measured at 1440 + 390) | T5         | T2                      |
+| 2   | Design system tab = the styleguide page, same styling  | T6         | T3 (and effectively T4) |
+| 3   | Tab adapts to the (light) styleguide context           | T7         | T2                      |
+| 4   | Mirror nav stays in the walled garden                  | T8         | -                       |
+| 5   | Mobile gallery background cut-off                      | T9         | -                       |
+| 6   | Robot touch target + hover label                       | T10        | T1                      |
+
+Open question 1 note: ticket 6 effectively answers it - once the
+styleguide page lives inside the merged view, the public `/styleguide/`
+copy is redundant. Ticket 4's gate stays until Pedro confirms.
 
 ## Open questions
 

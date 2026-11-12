@@ -189,3 +189,317 @@ With the Design system living inside `/workflow/` (mirror-only per DR-0002), `sr
 ## Open questions
 
 - None (the gate itself is open question 1)
+
+---
+
+# Ticket 5: Tab strip breathing room (amends Ticket 2)
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-12)
+- Size: S
+- Type: UI
+- Status: OPEN
+
+## Context
+
+Measured on the shipped shell (probes at 1440 and 390, release build):
+the strip's top lands at exactly 48.0px = the fixed nav's height. Gap
+below the header: **0px** - "touching it" is literal. Root cause: the
+strip is the first element inside the article, and the page's
+`section-top-padding` class has NO CSS anywhere (grep across
+`src/_styles`: zero rules) - the top spacing the workflow hero had came
+from the hero's own 64px padding (`.cs-hero`, `_case-study.scss`), which
+sits BELOW the strip now.
+
+## Requirements
+
+- A visible gap below the fixed nav before the strip: 32px minimum at
+  both breakpoints (64px+ reads too much like a section start; 32 sits
+  inside the shared rhythm as a half-step).
+- Implementation: the spacing belongs on the strip's own wrapper (or the
+  `.vb-tabs` margin-top) inside the tab molecule - NOT on the dead
+  `section-top-padding` class and not on the workflow page alone; the
+  design-system tab state (T6/T7) inherits the same strip.
+- The strip keeps `justify-content: center` and the 16px page margin.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Probed at 1440 and 390: `.vb-tabs` top >= nav bottom + 32px on both tab states
+- [ ] No dead spacing class is revived in the fix (grep shows `section-top-padding` still unstyled, or the fix removes it from the page shells)
+- [ ] Hero rhythm untouched: strip-to-h1 distance unchanged (24px as shipped)
+
+## Out of scope
+
+- Any nav or hero spacing changes; the T6 panel move.
+
+## Open questions
+
+- None
+
+---
+
+# Ticket 6: Design system tab IS the styleguide (amends Ticket 3 + 2)
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-12)
+- Size: M
+- Type: UI + system
+- Status: OPEN
+
+## Context
+
+Pedro: "the Design system should effectively be the styleguide. move the
+styleguide page into the tab space, and use the same styling (light,
+etc)." The shipped approach re-scoped `#styleguide_container` styles to
+fit the cs-workflow panel; that is replaced by something simpler and
+more honest: the design-system tab renders the styleguide PAGE - its
+sections, its own light ground (`$vb` light section), its own hero -
+with its styling intact.
+
+## Requirements
+
+- The visuAI tab's panel owns its hero: the shared `data-vb-hero` moves
+  INSIDE the visuAI panel (it was placed between strip and panels in
+  T2). The "swaps the hero copy" mechanism of T2 (tabs.js hero swap +
+  the `spec[hero]` copy in the page shell) retires - not needed when
+  each panel owns its own hero.
+- The design-system panel = the styleguide page's content:
+  - imports from `src/styleguide/_styleguide_blocks/` (intro, core,
+    modules, containers, casesystem) rendered in the panel, keeping
+    `#styleguide_container` styling paths intact;
+  - the styleguide's own hero shows with the panel: single rename per
+    the original T3 - h1 "Styleguide" to "Design system"; eyebrow stays
+    "The visualbear System"; Pedro's copy otherwise untouched;
+  - the panel content keeps the styleguide's light look regardless of
+    the body state (pin the light background on the panel wrapper, not
+    on body state - the visuAI tab alternates the body).
+- `data-vb-hero` wrapper retired from the page shell; the scope-hiding
+  note in T2's markup comments updated.
+- Ticket-rule amendment (recorded): T2's "never a hidden second h1"
+  becomes "exactly one VISIBLE h1 at any time; the inactive panel (with
+  its h1) is display:none" - a panel-owned hero makes panel-hidden
+  h1s the honest structure.
+- Design panel placeholder from T2 removed (superseded).
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] visuAI tab renders byte-equivalent hero + workflow content as before (screenshot match vs pre-change)
+- [ ] Design tab renders the four styleguide sections with the styleguide's own light styling at 1440 + 390; token swatches/previews read as on the styleguide page
+- [ ] Exactly one visible h1 in EITHER tab state; h1 under Design = "Design system"
+- [ ] Styleguide page's styles apply with body WITHOUT workflow-page and WITH the light tab state - no dependence on body class for the panel's ground
+- [ ] The case-study `src/visualbear/` duplication untouched
+- [ ] npm build + the release guard pass
+
+## Out of scope
+
+- Retiring `/styleguide/` (Ticket 4, still gated on open question 1); any styleguide content rewrites; the design tab's in-page index scrollers (Core / Modules / ...) scroll inside the panel.
+
+## Open questions
+
+- None blocking (ticket 4's gate is Pedro's, not this ticket's)
+
+---
+
+# Ticket 7: Tab strip adapts to the styleguide context (amends Ticket 2)
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-12)
+- Size: S
+- Type: UI
+- Status: OPEN
+
+## Context
+
+With T6 the design tab's context becomes the styleguide's: a light
+`$vb-light` section ground. The shipped strip inks/plate for the light
+state (`body.vb-system-light` scope): white plate rgba(255,255,255,0.45)
+
+- white-on-white on the styleguide ground, effectively invisible; label
+  inks $vb-grey/#d0181e fine but the plate needs a visible surface there.
+
+## Requirements
+
+- Light-state plate: stop deriving from the case-study's white chip
+  plate; give the strip a plate that reads on `$vb-light`-style light
+  grounds - a translucent dark instance (rgba(37,37,40,0.06) meets the
+  same softness bar as the chip plates luminance band) or a subtle
+  border. Pick one, document in the scss comment.
+- Keep the dark ground values untouched (#A6ADB8 / #EA544F / white 0.04
+  plate).
+- Strip stays inside the 16px margin, no token changes.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Probed: strip plate and label inks are visible against the styleguide ground (contrast of plate edge >= the chip-plate reference band) at 1440 + 390
+- [ ] Dark ground unchanged (probe values match T2's evidence)
+- [ ] Labels keep their contrast bars (validated per T2)
+
+## Out of scope
+
+- The visuAI tab styles; the panel content.
+
+## Open questions
+
+- None
+
+---
+
+# Ticket 8: Walled garden - mirror navigation stays inside (system)
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-12)
+- Size: M
+- Type: system
+- Status: OPEN
+
+## Context
+
+The mirror's pages keep the site's nav + logo links as-is: probe of the
+built mirror workflow page shows `href="/"` (logo), `/#work`,
+`/#about`, `#contact` - three of four point at the PUBLIC zones root
+(a second garden wall: `href="/styles/main.css"` is root-absolute
+too but served by the zone; navigation alone must be fixed). Pedro:
+"make the work, about and contact relative... keep them in the walled
+garden."
+
+Facts: the mirror ships `about/`, the mirror home IS the work index,
+every mirror page carries the footer with `#contact`.
+
+## Requirements
+
+- `scripts/release-mirror.js` gains a link-rewrite pass over every
+  reversed page (same transform surface as `stripFloatingRobot`):
+  - logo `href="/"` -> depth-relative mirror root (`./`, `../`, ...);
+  - `/#work` -> depth-relative mirror home (same target as the logo);
+  - `/#about` -> depth-relative `about/` (mirror about page);
+  - `#contact` stays in-page (already correct).
+- The rewriter must be idempotent (a re-run must not double-rewrite);
+  depth is derivable from the output path (mirror pages live at depth 0
+  (home) and 1 (sections)).
+- The robot links href already stays depth-relative (T1); no change.
+- Public pages keep their absolute links - this is mirror-side only;
+  nothing in `src/` changes.
+- Guard: extend the release-guards leak-grep invariant - zero
+  `href="/` non-asset links in any mirror page (styles/scripts excluded
+  as zone-served... VERIFY on deploy: if the mirror zone serves its own
+  copy of assets, switch them to relative too and note it).
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Every built mirror page: nav + logo + robot hrefs are relative; following them from `/selected-works/workflow/` lands inside `/selected-works/` (Playwright click-through: logo -> mirror home, Work -> mirror home, About -> mirror about, Contact -> in-page scroll)
+- [ ] No nav link resolves to the public zone root
+- [ ] Re-running release-mirror on a built tree does not double-rewrite
+- [ ] Public build pages byte-identical on the nav (diff vs pre-change)
+
+## Out of scope
+
+- Deeper link-graph fixes (image/asset paths) unless the guard complains;
+  the public site's nav.
+
+## Open questions
+
+- Are mirror asset references (styles, scripts, images) served by the
+  mirror zone or the public zone? Owner: Pedro/deploy config - the
+  ticket ships navigation-relative regardless; assets follow the answer.
+
+---
+
+# Ticket 9: Mobile gallery background cut-off (investigate + fix)
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-12)
+- Status: OPEN
+- Size: M (half investigation)
+- Type: UI
+
+## Context
+
+Pedro: "On mobile fix the background color behind the gallery showing a
+clear cut-off. unsure exactly why." Measured so far (computed styles on
+the built mirror home at 390):
+
+- `.content.gallery` carries `background: linear-gradient(
+rgba(37,37,40,0) 256px, #252528 0)` - a fade that ENDS in a hard stop
+  at 256px;
+- on desktop the gallery starts at `margin-top: 66vh`, so the fade rides
+  on top of the dark hero and the hard stop sits far below the fold;
+- on mobile the same gallery gets `margin-top: 0`
+  (`max-width: 47.99em`), so the fade starts at the gallery top instead
+  of over the hero - the transparent band and the hard stop now land
+  mid-screen against whatever sits behind (body #252528, but the
+  sections above/below it are the pages light ground) - a hard edge
+  mid-viewport.
+
+## Requirements
+
+- Reproduce visually: full-page mobile screenshot of the mirror home +
+  one case page, locate the cut-off rows (pixel-scan pattern attached in
+  the eval session notes), confirm against a real device if available.
+- Fix root cause, not symptom - candidate fixes (pick after repro):
+  1. give the mobile gallery the same relationship the desktop has
+     (fade starts over the hero, no hard trailing stop), or
+  2. replace the hard stop with the fade continuing to the gallerys
+     solid band, or
+  3. drop the gradient on mobile and let the body carry the color.
+- The fix applies to the public home AND the mirror copy (same source).
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Before/after full-page screenshots at 390 (and 320) on the home; the cut-off row is gone (pixel-scan finds no mid-gradient edge)
+- [ ] Desktop (1440) home renders pixel-identical to pre-change
+- [ ] The robot/anchor evidence suite still passes on mobile
+
+## Out of scope
+
+- Any hero or nav change; the desktop layout.
+
+## Open questions
+
+- None (the repro decides the fix)
+
+---
+
+# Ticket 10: Robot touch target + hover label (amends Ticket 1)
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-12)
+- Status: OPEN
+- Size: S
+- Type: UI + a11y
+
+## Context
+
+The shipped link is a bare 22px glyph: ~26px hit box, below the 44px
+minimum (visuaibear-review accessibility gate), and it says nothing
+until you know to click it. Pedro: "have it expand to say workflow &
+design system on hover."
+
+## Requirements
+
+- Touch equivalent to the nav buttons: hit box &#62;= 44x44 (expand via
+  padding + the visual mark centered; or a transparent hit expansion -
+  whichever keeps the visual size and position exactly as T1 shipped).
+- Hover AND keyboard focus expand the mark into a labeled pill:
+  "workflow &amp; design system" (lowercase, as Pedro wrote it) beside
+  the robot emoji - text appears, glyph stays fixed; collapse is
+  instant enough to feel like a chip (<= 200ms, reduced-motion honored).
+- a11y: accessible name stays "The visualbear system" (aria-label;
+  the pill text is visual sugar on top, aria-hidden); focus ring stays
+  on the link; the expanded pill must not overlap interactive content
+  at its bottom-left position (it grows toward the page center).
+- Styling follows the page it sits on (ink/plate per ground, same DOM in
+  mirror pages and public home decoration... note: the decorative public
+  span (DR-0004) is NOT a link - it keeps aria-hidden AND does not
+  expand; only the floating LINK expands).
+- scripts/mirror-link.js markup change => scripts/test/mirror-link.test.js
+  updated (TDD, npm test) - the pure module keeps carrying the markup.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Hit box >= 44x44 at both sizes (probe `getBoundingClientRect` + tap target)
+- [ ] Hover and focus expand the pill with the exact string; reduced-motion honored; pill clears interactive content
+- [ ] Accessible name unchanged; decorative public span does not expand and stays aria-hidden
+- [ ] Mirror pages show exactly one pill-capable link (strip pass still idempotent); npm test + eslint + release guard pass
+
+## Out of scope
+
+- Custom robot artwork (asset request kept in the plan); the mirror's
+  other floating behaviors.
+
+## Open questions
+
+- None
