@@ -8,6 +8,9 @@
 // This module only answers questions - it never touches the DOM - so the
 // plain-node suite in scripts/test/tabs.test.js can hold both wiring
 // halves (macro + controller) to the same naming contract.
+//
+// (Ticket 6: each panel owns its own hero, so the hero copy swap of
+// ticket 2 - HERO_FIELDS/heroFor - is retired.)
 
 var MARKER = 'vb-system';
 
@@ -21,11 +24,6 @@ var BODY_GROUND_CLASS = {
   visuai: 'workflow-page',
   designsystem: 'vb-system-light'
 };
-
-// Hero fields the controller swaps on each switch. The design tab copies
-// per ticket 2/3; the visuAI tab re-uses what the rendered hero already
-// showed (tabbed back in, nothing gets re-typed here).
-var HERO_FIELDS = ['eyebrow', 'title', 'summary', 'details'];
 
 function tabId(id) {
   return MARKER + '-tab-' + id;
@@ -74,11 +72,7 @@ function wiring(state) {
   });
 }
 
-// Hero copy for a state: captured from the rendered hero at boot; the
-// design tab's copy comes from the page shell's spec.
-function heroFor(state, captured, specHero) {
-  return state.activeId === DEFAULT_TAB ? captured : specHero;
-}
+// Hero copy for a state: retired (ticket 6 - each panel owns its hero).
 
 // Validate the spec the page shell passes to the macro. Both tabs must be
 // declared so the controller never has to invent one.
@@ -91,12 +85,10 @@ function validateSpec(spec) {
 
 module.exports = {
   DEFAULT_TAB: DEFAULT_TAB,
-  HERO_FIELDS: HERO_FIELDS,
   MARKER: MARKER,
   TAB_IDS: TAB_IDS,
   TABLIST_ID: MARKER + '-tablist',
   bodyGroundClass: bodyGroundClass,
-  heroFor: heroFor,
   init: init,
   panelId: panelId,
   reduce: reduce,

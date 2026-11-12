@@ -70,26 +70,9 @@ assert.deepStrictEqual(
   'roving tabindex: only the active tab is a tab stop'
 );
 
-// ── single-h1 invariant: one hero, copy swapped per tab ──────────────────
-
-var captured = { // what the controller taped from the rendered hero at boot
-  eyebrow: 'The visuAI Workflow',
-  title: 'My Agentic Design Workflow </br> visuAI',
-  summary: 'Using research, discovery and decisions to create value through my Design AI workflow.',
-  details: 'Design Lead \u22C5 Spec \u00B7 Skills \u00B7 Agents \u22C5 2026'
-};
-var specHero = { // the page shell's design-system copy
-  eyebrow: 'The visualbear System',
-  title: 'The visualbear System \u00B7 Design system',
-  summary: 'A collection of all the individual components and rules used to build this site.',
-  details: 'Design reference \u22C5 2026'
-};
-
-var heroDark = core.heroFor(core.init('visuai'), captured, specHero);
-assert.deepStrictEqual(heroDark, captured, 'visuAI tab keeps its own hero copy (the captured one)');
-
-var heroLight = core.heroFor(state, captured, specHero);
-assert.deepStrictEqual(heroLight, specHero, 'design system tab shows its own hero copy');
+// ── single-h1 invariant (ticket 6): each panel owns its hero; the hero
+// copy swap of ticket 2 is retired - nothing to assert on the pure side,
+// the visible-h1 check runs in the build (evidence capture) ───────────────
 
 // ── markup contract with the macro (keeps tabs.js and tabs.nunjucks in sync)
 

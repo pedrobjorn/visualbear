@@ -56,7 +56,7 @@ Applied from `visuaibear-core/foundational-heuristics.md`: H1 - no destructive o
 
 - [x] Ticket 1 - Robot on the mirror: swap the floating bear for a robot above every surface
 - [x] Ticket 2 - Tab shell: the hero's tab strip switching grounds and content
-- [ ] Ticket 3 - Design system tab: move the styleguide blocks in, rename to Design system
+- [x] Ticket 3 - Design system tab: move the styleguide blocks in, rename to Design system (2026-11-12, delivered by amended ticket 6: the panel renders the styleguide PAGE - blocks + own hero + pinned light ground; placeholder route retired)
 - [ ] Ticket 4 - Retire `/styleguide/`, wire the references (gated on open question 1)
 
 ## Amendment pass 2026-11-12 (Pedro's six follow-on items)

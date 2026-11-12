@@ -10,6 +10,11 @@
 {% endblock %}
 
 {% import "_modules/molecules/tabs/tabs.nunjucks" as tabsm %}
+{% import "styleguide/_styleguide_blocks/styleguide.intro.nunjucks" as intro %}
+{% import "styleguide/_styleguide_blocks/styleguide.core.nunjucks" as core %}
+{% import "styleguide/_styleguide_blocks/styleguide.modules.nunjucks" as modules %}
+{% import "styleguide/_styleguide_blocks/styleguide.containers.nunjucks" as containers %}
+{% import "styleguide/_styleguide_blocks/styleguide.casesystem.nunjucks" as casesystem %}
 
 {% block content %}
     <article class="section section-top-padding case-study cs-workflow" id="workflow_container">
@@ -17,12 +22,11 @@
             <div class="container">
                 <div class="document-text text-box">
 
-                    <!-- visualbear system (specs/visualbear-system, tickets 2-3, DR-0001):
-                         one URL, two tabs. The strip sits above the hero;
-                         the hero is shared and its copy swaps per tab
-                         (tabs.js), so exactly one h1 exists at any time.
-                         The design system panel is a ticket 3 host - the
-                         placeholder below moves out when the blocks land. -->
+                    <!-- visualbear system (specs/visualbear-system, ticket 6):
+                         one URL, two tabs. Each panel owns its hero (the
+                         copy-swap mechanism of ticket 2 is retired), so
+                         exactly one VISIBLE h1 exists at any time; the
+                         inactive panel is display:none. -->
                     {{ tabsm.content({
                         id: "vb-system",
                         label: "visualbear system views",
@@ -34,28 +38,14 @@
                             },
                             {
                                 id: "designsystem",
-                                label: "Design system",
-                                hero: {
-                                    eyebrow: "The visualbear System",
-                                    title: "The visualbear System · Design system",
-                                    summary: "A collection of all the individual components and rules used to build this site.",
-                                    details: "Design reference ⋅ 2026"
-                                }
+                                label: "Design system"
                             }
                         ]
                     }) }}
 
-                    <!-- HERO — adapted bare variant (ticket 45, DR-0014):
-                         no kicker/"Case Study" (not a case study), no
-                         background (the dark ground + spotlight carry it);
-                         spacing/type roles are the shared hero's. The
-                         wrapper is the tab controller's copy-swap scope. -->
-                    <!-- 01 HERO, from the page md's front matter (DR-0001) -->
-                    <div class="vb-hero" data-vb-hero>
-                        {{ site.data.pages['workflow'] | mdhero | safe }}
-                    </div>
-
-                    <!-- panel: visuAI tab - the workflow content -->
+                    <!-- panel: visuAI tab - owns the page hero (from the
+                         page md's front matter, DR-0001) plus the
+                         workflow content -->
                     <section
                         id="vb-system-panel-visuai"
                         class="vb-panel"
@@ -64,13 +54,21 @@
                         tabindex="-1"
                         data-vb-panel="visuai"
                     >
+                        <!-- HERO — adapted bare variant (ticket 45, DR-0014):
+                             no kicker/"Case Study" (not a case study), no
+                             background (the dark ground + spotlight carry
+                             it); spacing/type roles are the shared hero's. -->
+                        {{ site.data.pages['workflow'] | mdhero | safe }}
+
                         <!-- content: src/_data/pages/workflow.md via mdpage -->
                         {{ site.data.pages['workflow'] | mdpage | safe }}
                     </section>
 
-                    <!-- panel: design system tab - the blocks move in with
-                         ticket 3; the placeholder keeps the switch verifiable
-                         until then -->
+                    <!-- panel: design system tab - the styleguide page
+                         itself (ticket 6): the four block sections with
+                         their own hero, rendered with the styleguide's
+                         light look pinned on the panel (not on the body
+                         state - the visuAI tab alternates the body). -->
                     <section
                         id="vb-system-panel-designsystem"
                         class="vb-panel vb-panel--designsystem"
@@ -80,14 +78,33 @@
                         data-vb-panel="designsystem"
                         hidden
                     >
-                        <article class="vb-ds-placeholder">
-                            <p class="vb-ds-placeholder-note">
-                                A collection of all the individual components and rules used
-                                to build this site. The full design system sections -
-                                Core, Modules, Containers and the case-study system -
-                                render here.
-                            </p>
-                        </article>
+                        <section class="vb-ds-section" id="styleguide_container">
+                            <article class="text-container">
+                                <div class="row">
+                                    {{ intro.content({ title: "Design system" }) }}
+                                </div>
+                            </article>
+                            <article class="text-container" id="core">
+                                <div class="row">
+                                    {{ core.content() }}
+                                </div>
+                            </article>
+                            <article class="text-container" id="modules">
+                                <div class="row">
+                                    {{ modules.content() }}
+                                </div>
+                            </article>
+                            <article class="text-container" id="containers">
+                                <div class="row">
+                                    {{ containers.content() }}
+                                </div>
+                            </article>
+                            <article class="text-container" id="casesystem">
+                                <div class="row">
+                                    {{ casesystem.content() }}
+                                </div>
+                            </article>
+                        </section>
                     </section>
 
                 </div>

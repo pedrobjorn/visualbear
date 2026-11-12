@@ -172,8 +172,14 @@ console.log('release-mirror: injected ' + MIRROR_CARDS.length + ' mirror-only ca
 // so the mirror stays airtight (mirror root -> workflow/, inner pages
 // -> ../workflow/ etc). Markup lives in scripts/mirror-link.js (tested:
 // scripts/test/mirror-link.test.js).
+// Ticket 8 (visualbear-system): the same per-page pass also rewrites the
+// site nav's links (logo "/", "/#work", "/#about") depth-relative so the
+// walled garden keeps its visitors - navigation must land inside the
+// mirror, never at the public zone root. Asset links stay root-absolute
+// (zone-served; ticket 8 open question - re-check on deploy).
 var mirrorLink = require('./mirror-link');
 var VISUAI_MARK = mirrorLink.VISUAI_MARK;
+var NAV_REWRITES = 0;
 
 function injectVisuai(dir, depth) {
   fs.readdirSync(dir).forEach(function (name) {
@@ -184,6 +190,9 @@ function injectVisuai(dir, depth) {
     }
     if (name !== 'index.html') return;
     var html = fs.readFileSync(p, 'utf8');
+    var before = html;
+    html = mirrorLink.relativizeNavLinks(html, depth);
+    if (html !== before) NAV_REWRITES++;
     // the decorative public robot never renders next to the linked one
     html = mirrorLink.stripFloatingRobot(html);
     if (html.indexOf(VISUAI_MARK) !== -1) return; // idempotent
@@ -194,4 +203,5 @@ function injectVisuai(dir, depth) {
 }
 
 injectVisuai(mirror, 0);
+console.log('release-mirror: nav links rewritten to relative in ' + NAV_REWRITES + ' mirrored page(s) (ticket 8).');
 console.log('visuai link applied to all mirrored pages');

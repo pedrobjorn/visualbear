@@ -13,8 +13,18 @@
 
 // On small screens the hero flows with the content (see hero.scss), so the
 // 66vh spacer that cleared the fixed hero would only leave a dead gap.
+// Ticket 9: the spacer is also what made the gallery's own fade work on
+// desktop - it starts over the hero's red ground, so the 256px transparent
+// band and the hard stop land far below the fold where the body has already
+// converged to #252528. With margin-top: 0 on mobile the same band rides
+// mid-screen over the body's still-red fade (the viewport-height layer in
+// _base.scss) and snaps to flat #252528 at gallery-top + 256 - a visible
+// cut edge (measured (76,45,44) -> (37,37,40) at 390). The body's own fade
+// then carries the color alone; the same edge measured ~13 delta on
+// desktop, invisible, so the desktop background stays untouched.
 @include mq($until: mobile){
     .content.gallery {
         margin-top: 0;
+        background: none;
     }
 }

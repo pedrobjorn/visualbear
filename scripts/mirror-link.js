@@ -14,12 +14,23 @@ var VISUAI_MARK = 'mirror-visuai: specs/release-4.0';
 
 function visuaiLinkFor(depth) {
   var href = new Array(depth + 1).join('../') + 'workflow/';
+  // Ticket 10: the link is a 44x44 touch target (visuaibear-review's
+  // a11y gate). The glyph keeps ticket 1's exact visual position - the
+  // box's bottom-left - by flex-pinning the glyph span there: the hit
+  // area grows up and toward the page center. The pill label is
+  // decoration (aria-hidden, the accessible name stays the aria-label +
+  // title); it expands on hover/focus via the .robot rules in
+  // _pages.scss (state styling cannot be inline).
   return '\n<!-- ' + VISUAI_MARK + ' -->\n' +
     '<a class="robot" href="' + href + '" title="The visualbear system" ' +
     'aria-label="The visualbear system" ' +
-    'style="position:fixed;bottom:12px;left:12px;font-size:22px;' +
-    'z-index:3;text-decoration:none;line-height:1;">' +
-    '\uD83E\uDD16</a>\n';
+    'style="position:fixed;bottom:12px;left:12px;width:44px;height:44px;' +
+    'z-index:3;display:flex;align-items:flex-end;justify-content:flex-start;' +
+    'text-decoration:none;line-height:1;">' +
+    '<span class="robot-glyph" aria-hidden="true" style="font-size:22px;">' +
+    '\uD83E\uDD16</span>' +
+    '<span class="robot-pill" aria-hidden="true">workflow &amp; design system</span>' +
+    '</a>\n';
 }
 
 // The public home carries a decorative, unlinked robot (src/index.nunjucks).
@@ -30,8 +41,26 @@ function stripFloatingRobot(html) {
   return html.replace(/<span class="floating-robot"[^>]*>[\s\S]*?<\/span>\n?/g, '');
 }
 
+// Ticket 8 - the walled garden: the mirrored pages keep the site's nav,
+// whose logo/work/about links point at the PUBLIC zone's root (href="/",
+// "/#work", "/#about"). Rewritten depth-relative so navigation lands
+// inside the mirror; #contact is in-page and stays as-is (the footer
+// carries it on every page). Exact-quoted matches only: asset links
+// (href="/styles/main.css", script srcs) and deeper absolute routes
+// never match, and root-relative fragments (#contact) are not in scope.
+// Already-relative output cannot match again, so a re-run
+// changes nothing (idempotent).
+function relativizeNavLinks(html, depth) {
+  var up = new Array(depth + 1).join('../');
+  return html
+    .replace(/href="\/#work"/g, 'href="' + up + '#work"')
+    .replace(/href="\/#about"/g, 'href="' + up + 'about/"')
+    .replace(/href="\/"/g, 'href="' + (up || './') + '"');
+}
+
 module.exports = {
   VISUAI_MARK: VISUAI_MARK,
-  visuaiLinkFor: visuaiLinkFor,
-  stripFloatingRobot: stripFloatingRobot
+  relativizeNavLinks: relativizeNavLinks,
+  stripFloatingRobot: stripFloatingRobot,
+  visuaiLinkFor: visuaiLinkFor
 };

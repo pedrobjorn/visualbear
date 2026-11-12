@@ -2,20 +2,35 @@
 {% set spec = spec or {} %}
 {% set _class = spec.class or '' %}
 {% set _content = spec.content or '{}' %}
+{% set _title = spec.title or 'Styleguide' %}
 {% block config %}
   {# Correct base url pathing for this page #}
   {% set baseUrl = '../' %}
 {% endblock %}
 <article class="gallery-text">
-  <h1 class="page-header">Styleguide</h1>
-  <p>Welcome to the website styleguide. Here you will find a collection of all the individual components and rules, used
-    to build this site. I use a modified, custom version of
-    <a href="http://patternlab.io/" alt="Link to Pattern Lab">Pattern Lab's</a> atomic design structure for my site, customised by me. </p>
+  {# ticket 46 / DR-0014: the page opens with the adapted bare hero —
+     second instance (visuAI was the first). Transparent on the section's
+     light ground, adapted kicker (not "Case Study"), shared spacing/type
+     roles. The hero owns the page's single h1. #}
+  <div class="case-study document-text">
+    <header class="cs-hero">
+      <p class="cs-eyebrow">The visualbear System</p>
+      {# title param (ticket 6): the `/workflow/` panel renames the page
+         h1 to "Design system"; the `/styleguide/` page keeps the default. #}
+      <h1>{{ _title }}</h1>
+      <p class="cs-cover-summary">A collection of all the individual components and rules
+        used to build this site. I use a modified, custom version of
+        <a href="http://patternlab.io/" title="Link to Pattern Lab">Pattern Lab's</a> atomic
+        design structure, customised by me.</p>
+      <p class="cs-cover-details">Design reference ⋅ 2026</p>
+    </header>
+  </div>
     <p>The structure is divided into:</p>
     <ul class="index">
       <li><a href="#core" onclick="scroller('stylesheet-core')">Core</a></li>
       <li><a href="#modules" onclick="scroller('stylesheet-modules')">Modules</a></li>
       <li><a href="#containers"  onclick="scroller('stylesheet-containers')">Containers</a></li>
+      <li><a href="#casesystem"  onclick="scroller('stylesheet-casesystem')">Case-study system</a></li>
       <!--<li><a href="#templates"  onclick="scroller('stylesheet-templates')">Templates</a></li>-->
     </ul>
     <p>The purpose of exposing this styleguide is to present my portfolio itself as part my portfolio work. What you see is what I use as a reference as I build the site, as it's imperative to good web design and development.</p>

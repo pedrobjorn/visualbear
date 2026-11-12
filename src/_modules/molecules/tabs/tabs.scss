@@ -11,10 +11,13 @@
   gap: 4px;
   width: max-content;
   max-width: 100%;
-  // Inside the hero's shared rhythm (ticket 44, DR-0014) - the hero's
-  // own top spacing puts the strip directly under the fixed nav; no new
-  // spacing tokens
-  margin: 0 auto 24px;
+  // Ticket 5: the strip is the page's first element and the workflow
+  // section's own top padding is a no-op (the class has no rules), so the
+  // strip sat flush under the 48px fixed nav. 32px is a half-step of the
+  // shared rhythm (64 would read as a section start); the spacing lives
+  // here on the strip itself so both tab states and their panels inherit
+  // it, not on the dead class or the workflow page alone.
+  margin: 32px auto 24px;
   padding: 4px;
   border-radius: 999px;
   // The chip-plate token (ticket 40, DR-0012): the light instance here,
@@ -56,25 +59,22 @@
 
 // Light ground (design system tab): the dark ink labels per ticket 2,
 // the active state takes the darker brand red (the light-ground instance
-// of the lifted red, 5.6:1 on white). cs-workflow forces the dark
-// ground's inks unconditionally, so the shared hero and the placeholder
-// panel need them given back while this state is on.
+// of the lifted red, 5.6:1 on white), and - ticket 7 - the strip gets a
+// plate that reads on the styleguide's $vb-light ground.
 body.vb-system-light {
-  .case-study.cs-workflow {
-    color: $vb-grey;
-
-    // the chip-plate token travels with the cs-workflow dark instance;
-    // pin the light instance back so the strip's plate reads as the
-    // light pages' chips do
-    --cs-chip-plate: rgba(255, 255, 255, 0.45);
-
-    .cs-eyebrow {
-      color: #d0181e;
-    }
-  }
-
-  .vb-ds-placeholder-note {
-    color: $vb-light-grey;
+  // Ticket 7: with ticket 6 the design tab's context is the styleguide's
+  // light ground, where the white chip plate inherited through
+  // --cs-chip-plate (rgba(255,255,255,0.45)) is white-on-white. The strip
+  // takes a translucent dark instance instead (rgba(37,37,40,0.06), the
+  // same softness band as the chip plates - a whisper of ink on light,
+  // as the dark page's rgba(255,255,255,0.04) is a whisper of white) -
+  // chosen over a border to keep the soft plate read. Dark-ground values
+  // are untouched; label ink bars validated per ticket 2.
+  // Set ON .vb-tabs: cs-workflow declares the same custom property on the
+  // strip's ancestor, and a declaration there beats a body-level one for
+  // what the strip inherits.
+  .vb-tabs {
+    --cs-chip-plate: rgba(37, 37, 40, 0.06);
   }
 
   .vb-tab {
@@ -113,6 +113,34 @@ body.workflow-page {
 .vb-panel[hidden] {
   display: none;
 }
+
+// Ticket 6: the design-system panel IS the styleguide page - sections,
+// own hero, own light ground. The look is pinned here on the panel (not
+// on a body state), so the styleguide renders its authoring look however
+// the visuAI tab alternates the body class. The panel sits inside
+// .case-study.cs-workflow, which forces the dark inks (body text, eyebrow,
+// links, chip plate) unconditionally - this block gives the light page's
+// values back, at the specificity needed to win inside that scope.
+.case-study.cs-workflow .vb-panel--designsystem {
+  background-color: $vb-light;
+  color: $vb-grey;
+
+  .cs-eyebrow {
+    color: #d0181e;
+  }
+
+  a {
+    color: $vb-primary;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      color: $vb-light;
+      background-color: $vb-primary;
+    }
+  }
+}
+
 @keyframes vb-panel-enter {
   from {
     opacity: 0;

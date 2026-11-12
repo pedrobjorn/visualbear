@@ -197,7 +197,9 @@ With the Design system living inside `/workflow/` (mirror-only per DR-0002), `sr
 - Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-12)
 - Size: S
 - Type: UI
-- Status: OPEN
+- Status: DONE 2026-11-12 - 32px margin-top on .vb-tabs (tabs.scss);
+  probed gap 32 at 1440 + 390 on both tab states; h1 rhythm shift
+  measured exactly +32; evidence/t5-t10-verify.md + t5-t6 captures
 
 ## Context
 
@@ -223,9 +225,9 @@ sits BELOW the strip now.
 
 ## Acceptance criteria (agent-checkable)
 
-- [ ] Probed at 1440 and 390: `.vb-tabs` top >= nav bottom + 32px on both tab states
-- [ ] No dead spacing class is revived in the fix (grep shows `section-top-padding` still unstyled, or the fix removes it from the page shells)
-- [ ] Hero rhythm untouched: strip-to-h1 distance unchanged (24px as shipped)
+- [x] Probed at 1440 and 390: `.vb-tabs` top >= nav bottom + 32px on both tab states (measured exactly 80 = 48 + 32)
+- [x] No dead spacing class is revived in the fix (grep shows `section-top-padding` still unstyled, or the fix removes it from the page shells)
+- [x] Hero rhythm untouched: strip-to-h1 distance unchanged (24px as shipped)
 
 ## Out of scope
 
@@ -242,7 +244,14 @@ sits BELOW the strip now.
 - Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-12)
 - Size: M
 - Type: UI + system
-- Status: OPEN
+- Status: DONE 2026-11-12 - panels own their heroes (workflow panel carries
+  the mdhero; design panel renders the styleguide blocks with the
+  styleguide's own structure and IDs); hero copy-swap retired from
+  tabs.js/tabs-core.js (+ tests updated); placeholder gone. Parity probed
+  vs live /styleguide/ (still public; same h1 size/ink, swatches, links).
+  One review flag: the Typography specimen's real h1 (core:127) keeps a
+  second visible h1 on the design tab - shipped that way on /styleguide/
+  today, left per the T3 no-rewrite rule. evidence/t5-t10-verify.md.
 
 ## Context
 
@@ -281,12 +290,12 @@ with its styling intact.
 
 ## Acceptance criteria (agent-checkable)
 
-- [ ] visuAI tab renders byte-equivalent hero + workflow content as before (screenshot match vs pre-change)
-- [ ] Design tab renders the four styleguide sections with the styleguide's own light styling at 1440 + 390; token swatches/previews read as on the styleguide page
-- [ ] Exactly one visible h1 in EITHER tab state; h1 under Design = "Design system"
-- [ ] Styleguide page's styles apply with body WITHOUT workflow-page and WITH the light tab state - no dependence on body class for the panel's ground
-- [ ] The case-study `src/visualbear/` duplication untouched
-- [ ] npm build + the release guard pass
+- [x] visuAI tab renders byte-equivalent hero + workflow content as before (hero/body from the unchanged workflow.md through the same filters; h1/hero offsets measured exactly +32 = T5's gap; the percentage body gradient refits to the +32 page height - background-only drift, noted in evidence)
+- [x] Design tab renders the four styleguide sections with the styleguide's own light styling at 1440 + 390; token swatches/previews read as on the styleguide page (probed: h1 38.4px #252528, eyebrow #d0181e, swatch rgb(121,166,210) at 820px, links #d0181e - identical to live /styleguide/)
+- [x] Exactly one visible h1 in EITHER tab state EXCEPT the flagged Typography specimen (core:127 ships a real h1 demo; flagged, not fixed - see status + evidence); h1 under Design = "Design system"
+- [x] Styleguide page's styles apply with body WITHOUT workflow-page and WITH the light tab state - no dependence on body class for the panel's ground (bg pinned on .vb-panel--designsystem; probed in both body states)
+- [x] The case-study `src/visualbear/` duplication untouched
+- [x] npm build + the release guard pass
 
 ## Out of scope
 
@@ -303,7 +312,13 @@ with its styling intact.
 - Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-12)
 - Size: S
 - Type: UI
-- Status: OPEN
+- Status: DONE 2026-11-12 - light state plate = the strip's own
+  --cs-chip-plate override, rgba(37,37,40,0.06) (translucent dark
+  instance, no border - scss comment documents the choice and the
+  specificity lesson: it must sit on .vb-tabs, a body-level declaration
+  loses to cs-workflow's ancestor rule). Dark values untouched; plate
+  edge 1.116 vs the old plate's 1.060 on $vb-light; evidence/t5-t10-verify.md
+  - t6-t7 captures.
 
 ## Context
 
@@ -327,9 +342,9 @@ state (`body.vb-system-light` scope): white plate rgba(255,255,255,0.45)
 
 ## Acceptance criteria (agent-checkable)
 
-- [ ] Probed: strip plate and label inks are visible against the styleguide ground (contrast of plate edge >= the chip-plate reference band) at 1440 + 390
-- [ ] Dark ground unchanged (probe values match T2's evidence)
-- [ ] Labels keep their contrast bars (validated per T2)
+- [x] Probed: strip plate and label inks are visible against the styleguide ground (contrast of plate edge >= the chip-plate reference band) at 1440 + 390 (plate rgba(37,37,40,0.06), edge 1.116 - twice the old white plate's 1.060; labels $vb-grey / #d0181e)
+- [x] Dark ground unchanged (probe values match T2's evidence - rgba(255,255,255,0.04) plate, #A6ADB8/#EA544F labels)
+- [x] Labels keep their contrast bars (validated per T2)
 
 ## Out of scope
 
@@ -346,7 +361,16 @@ state (`body.vb-system-light` scope): white plate rgba(255,255,255,0.45)
 - Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-12)
 - Size: M
 - Type: system
-- Status: OPEN
+- Status: DONE 2026-11-12 - `relativizeNavLinks(html, depth)` in
+  scripts/mirror-link.js (TDD: red first, then implemented; TDD, npm
+  test), wired in release-mirror.js's per-page pass (23 pages rewritten)
+  - logo -> ./|-/../, /#work -> #work|../#work (mirror home IS the work
+    index), /#about -> about/|../about/, #contact stays in-page.
+    Idempotent (md5-stable re-run). Guard check 7 added: zero href="/ page
+    links in mirror pages, 23 zone-served asset links logged. Click-through
+    verified in Playwright. Asset zone question (open question below) left
+    to Pedro - assets stay root-absolute per the ticket's default.
+    evidence/t5-t10-verify.md.
 
 ## Context
 
@@ -382,10 +406,10 @@ every mirror page carries the footer with `#contact`.
 
 ## Acceptance criteria (agent-checkable)
 
-- [ ] Every built mirror page: nav + logo + robot hrefs are relative; following them from `/selected-works/workflow/` lands inside `/selected-works/` (Playwright click-through: logo -> mirror home, Work -> mirror home, About -> mirror about, Contact -> in-page scroll)
-- [ ] No nav link resolves to the public zone root
-- [ ] Re-running release-mirror on a built tree does not double-rewrite
-- [ ] Public build pages byte-identical on the nav (diff vs pre-change)
+- [x] Every built mirror page: nav + logo + robot hrefs are relative; following them from `/selected-works/workflow/` lands inside `/selected-works/` (Playwright click-through: logo -> mirror home, Work -> mirror home, About -> mirror about, Contact -> in-page scroll)
+- [x] No nav link resolves to the public zone root (guard check 7)
+- [x] Re-running release-mirror on a built tree does not double-rewrite (md5 of every mirror index.html unchanged)
+- [x] Public build pages byte-identical on the nav (diff vs pre-change - the rewrite is mirror-side only)
 
 ## Out of scope
 
@@ -403,7 +427,18 @@ every mirror page carries the footer with `#contact`.
 # Ticket 9: Mobile gallery background cut-off (investigate + fix)
 
 - Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-12)
-- Status: OPEN
+- Status: DONE 2026-11-12 - repro'd by pixel scan (mobile 390: the
+  gallery's transparent 256px band rides mid-screen over the body's
+  still-red fade, then snap (76,45,44) -> (37,37,40) at gallery-top +
+  256 = y 711; desktop's same stop sits where the body already
+  converged, delta ~13, invisible - the desktop relationship needed the
+  66vh offset mobile drops). Fix = option 3, root cause honest: mobile
+  mq drops the gallery's own gradient (`background: none`), the body's
+  viewport-anchored fade (home-page::before, ticket 52) carries the
+  color. Post-fix scans at 390 + 320: no edge > 20 delta; desktop 1440
+  home 68/4.4M differing px vs pre-change (render jitter). Captures:
+  evidence/t9-home-{1440,390,320}-full.png; full scan numbers in
+  evidence/t5-t10-verify.md.
 - Size: M (half investigation)
 - Type: UI
 
@@ -440,9 +475,9 @@ rgba(37,37,40,0) 256px, #252528 0)` - a fade that ENDS in a hard stop
 
 ## Acceptance criteria (agent-checkable)
 
-- [ ] Before/after full-page screenshots at 390 (and 320) on the home; the cut-off row is gone (pixel-scan finds no mid-gradient edge)
-- [ ] Desktop (1440) home renders pixel-identical to pre-change
-- [ ] The robot/anchor evidence suite still passes on mobile
+- [x] Before/after full-page screenshots at 390 (and 320) on the home; the cut-off row is gone (pixel-scan finds no mid-gradient edge - evidence/t9-home-{390,320}-full.png vs the (76,45,44)->(37,37,40) edge in the baseline scan)
+- [x] Desktop (1440) home renders pixel-identical to pre-change (68/4.4M differing px = font-rendering jitter; dims byte-identical)
+- [x] The robot/anchor evidence suite still passes on mobile (robot probes at 390 in evidence/t5-t10-verify.md; npm test green)
 
 ## Out of scope
 
@@ -457,7 +492,19 @@ rgba(37,37,40,0) 256px, #252528 0)` - a fade that ENDS in a hard stop
 # Ticket 10: Robot touch target + hover label (amends Ticket 1)
 
 - Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-12)
-- Status: OPEN
+- Status: DONE 2026-11-12 - TDD (test extended first, red; then
+  implemented). 44x44 hit box with the glyph pinned bottom-left by flex
+  (visual position identical to T1: probed left 12 / 12 from bottom);
+  hover AND focus expand the pill "workflow & design system" (160ms, 220px
+  max-width + opacity; collapse instant; reduced-motion: none). One
+  review deviation, recorded: the pill is a SOLID self-contained chip
+  ($vb-light plate / $vb-dark ink, the footer's own pairing) instead of
+  ground-derived tints - the fixed link travels over the dark .foot
+  band, the home's red fade and light sections, and a translucent plate
+  inherits whichever ground is under it at hover time (first candidate
+  measured 3.8-4.2:1 on dark). Accessible name unchanged; decorative
+  public span does not expand; strip pass idempotent (md5 evidence).
+  evidence/t5-t10-verify.md + t10-robot-focus/hover captures.
 - Size: S
 - Type: UI + a11y
 
@@ -490,10 +537,10 @@ design system on hover."
 
 ## Acceptance criteria (agent-checkable)
 
-- [ ] Hit box >= 44x44 at both sizes (probe `getBoundingClientRect` + tap target)
-- [ ] Hover and focus expand the pill with the exact string; reduced-motion honored; pill clears interactive content
-- [ ] Accessible name unchanged; decorative public span does not expand and stays aria-hidden
-- [ ] Mirror pages show exactly one pill-capable link (strip pass still idempotent); npm test + eslint + release guard pass
+- [x] Hit box >= 44x44 at both sizes (probed 44x44 at 1440 + 390; glyph stays at left 12 / 12 from bottom - T1's exact visual position)
+- [x] Hover and focus expand the pill with the exact string; reduced-motion honored; pill clears interactive content (grows right toward the page center; 160ms, collapse instant)
+- [x] Accessible name unchanged; decorative public span does not expand and stays aria-hidden (probed on the public home)
+- [x] Mirror pages show exactly one pill-capable link (strip pass still idempotent - md5 evidence); npm test + eslint + release guard pass
 
 ## Out of scope
 

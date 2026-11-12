@@ -36,6 +36,35 @@ assert.ok(link.visuaiLinkFor(2).indexOf('href="../../workflow/"') !== -1, 'depth
 // idempotency: the marker comment must survive for injectVisuai's guard
 assert.ok(html.indexOf(link.VISUAI_MARK) !== -1, 'marker comment must be present');
 
+// ── ticket 10: touch target + hover pill ─────────────────────────────────
+
+// 44x44 hit box on the link itself (the glyph stays bottom-left inside it)
+assert.ok(html.indexOf('width:44px;height:44px') !== -1, 'the link is a 44x44 touch target');
+assert.ok(
+  html.indexOf('display:flex;align-items:flex-end;justify-content:flex-start') !== -1,
+  'the glyph stays pinned to the box bottom-left - visual position as ticket 1 shipped'
+);
+
+// the glyph lives in its own span so the box can grow without moving it
+assert.ok(html.indexOf('class="robot-glyph"') !== -1, 'glyph wrapped in a span');
+assert.ok(html.indexOf('font-size:22px') !== -1, 'glyph keeps its shipped 22px size');
+
+// the label pill: visual sugar only - aria-hidden, exact lowercase string
+assert.ok(html.indexOf('class="robot-pill"') !== -1, 'pill label span present');
+assert.strictEqual(
+  (html.match(/class="robot-pill"/g) || []).length,
+  1,
+  'exactly one pill span in the link'
+);
+assert.ok(
+  html.indexOf('>workflow &amp; design system</span>') !== -1,
+  'pill text is the exact lowercase string Pedro wrote'
+);
+assert.ok(/<span class="robot-pill" [^>]*aria-hidden="true"/.test(html), 'pill is aria-hidden');
+
+// the accessible name is unchanged from ticket 1
+assert.ok(html.indexOf('aria-label="The visualbear system"') !== -1, 'accessible name unchanged');
+
 // mirror copies of the public home carry the decorative public robot;
 // the injector must swap it out so the mirror never renders two robots
 var robotSpan = '<span class="floating-robot" aria-hidden="true">to-be-replaced</span>';
@@ -44,5 +73,38 @@ var stripped = link.stripFloatingRobot(home);
 assert.ok(stripped.indexOf('floating-robot') === -1, 'strip removes the public floating robot');
 assert.ok(stripped.indexOf('<p>content</p>') !== -1 && stripped.indexOf('<main>') !== -1, 'strip leaves everything else');
 assert.strictEqual(link.stripFloatingRobot(stripped), stripped, 'strip is idempotent');
+
+// ── ticket 8: walled garden - mirror nav goes depth-relative ─────────────
+
+var navPage = '<nav><a href="/" id="logo">visualbear</a>' +
+  '<a href="/#work">Work</a><a href="/#about">About</a><a href="#contact">Contact</a></nav>';
+var rel0 = link.relativizeNavLinks(navPage, 0);
+assert.ok(rel0.indexOf('href="./"') !== -1, 'depth 0: logo -> ./');
+assert.ok(rel0.indexOf('href="#work"') !== -1, 'depth 0: work -> #work (in-page - the mirror home IS the work index)');
+assert.ok(rel0.indexOf('href="about/"') !== -1, 'depth 0: about -> about/ (mirror about page)');
+assert.ok(rel0.indexOf('href="#contact"') !== -1, 'contact stays in-page');
+
+var rel1 = link.relativizeNavLinks(navPage, 1);
+assert.ok(rel1.indexOf('href="../"') !== -1, 'depth 1: logo -> ../');
+assert.ok(rel1.indexOf('href="../#work"') !== -1, 'depth 1: work -> ../#work');
+assert.ok(rel1.indexOf('href="../about/"') !== -1, 'depth 1: about -> ../about/');
+assert.ok(rel1.indexOf('href="#contact"') !== -1, 'depth 1: contact stays in-page');
+
+// already-relative pages pass through untouched (idempotent re-run)
+var deep = link.relativizeNavLinks(rel1, 1);
+assert.strictEqual(deep, rel1, 're-running the rewrite changes nothing (idempotent)');
+
+// asset links are NOT navigation: root-absolute styles/scripts keep their
+// hrefs (zone-served - VERIFY on deploy, ticket 8 open question)
+var withAssets = '<link href="/styles/main.css"><script src="/scripts/main.js"></script>' + navPage;
+var rewritten = link.relativizeNavLinks(withAssets, 0);
+assert.ok(rewritten.indexOf('href="/styles/main.css"') !== -1, 'asset hrefs untouched');
+assert.ok(rewritten.indexOf('src="/scripts/main.js"') !== -1, 'asset srcs untouched');
+
+// deeper absolute routes (not the nav trio) are left alone
+assert.ok(
+  link.relativizeNavLinks('<a href="/about/more/">x</a>', 0).indexOf('/about/more/') !== -1,
+  'non-nav absolute routes untouched'
+);
 
 console.log('mirror-link.test: PASS');

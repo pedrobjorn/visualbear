@@ -1,11 +1,12 @@
 'use strict';
 
 // visualbear system tab shell - DOM wiring (specs/visualbear-system,
-// ticket 2, DR-0001). The tab strip and the swap of ground (body class
-// pair), hero copy and visible panel; tabs-core.js owns the state
-// machine and naming, tabs.nunjucks renders the strip and the copy
-// spec. Booted from src/_scripts/main.js; a no-op on pages without a
-// strip.
+// ticket 2, DR-0001; ticket 6 retires the hero copy swap - each panel
+// owns its hero, the controller only toggles ground, buttons, panels).
+// The tab strip and the swap of ground (body class pair) and visible
+// panel; tabs-core.js owns the state machine and naming, tabs.nunjucks
+// renders the strip. Booted from src/_scripts/main.js; a no-op on pages
+// without a strip.
 
 var core = require('./tabs-core');
 
@@ -15,16 +16,6 @@ var ENTER_MS = 160; // the swap fade; the CSS keyframe runs the same length
 // babel interop for mixed ESM/require flagged in the t2 verification. The
 // consumer (main.js) requires it directly.
 
-// Hero field targets: the mdhero markup's stable classes/tag inside the
-// [data-vb-hero] wrapper. Title takes innerHTML - the copy carries raw
-// markup (the vogue `</br>` run); the rest swap as plain text.
-var HERO_TARGETS = {
-  eyebrow: '.cs-eyebrow',
-  title: 'h1',
-  summary: '.cs-cover-summary',
-  details: '.cs-cover-details'
-};
-
 var GROUND_CLASSES = ['workflow-page', 'vb-system-light'];
 
 // Boot the tab shell when a page carries one; a no-op everywhere else.
@@ -32,19 +23,14 @@ function init() {
   var root = document.querySelector('[data-vb-tablist]');
   if (!root) return;
 
-  var spec = null;
-  var specScript = root.querySelector('[data-vb-tab-spec]');
   try {
-    spec = specScript ? JSON.parse(specScript.textContent) : null;
+    var specScript = root.querySelector('[data-vb-tab-spec]');
+    var spec = specScript ? JSON.parse(specScript.textContent) : null;
+    if (spec) core.validateSpec(spec);
   } catch (e) {
-    spec = null;
+    // a broken spec only skips validation; the strip still works
   }
-  if (spec) core.validateSpec(spec);
 
-  // The rendered hero is the single source for the default (visuAI)
-  // tab's copy; tape it before any swap can touch the DOM.
-  var heroRoot = document.querySelector('[data-vb-hero]');
-  var captured = captureHero(heroRoot);
   var state = core.init(core.DEFAULT_TAB);
 
   root.addEventListener('click', function (e) {
@@ -72,22 +58,12 @@ function init() {
 
   function activate(next) {
     state = next;
-    paint(state, captured, spec, heroRoot);
+    paint(state);
   }
 }
 
-function captureHero(heroRoot) {
-  if (!heroRoot) return null;
-  var captured = {};
-  core.HERO_FIELDS.forEach(function (field) {
-    var el = heroRoot.querySelector(HERO_TARGETS[field]);
-    captured[field] = el ? (field === 'title' ? el.innerHTML : el.textContent) : '';
-  });
-  return captured;
-}
-
-// Paint one state: buttons, body ground pair, hero copy, visible panel.
-function paint(state, captured, spec, heroRoot) {
+// Paint one state: buttons, body ground pair, visible panel.
+function paint(state) {
   var ground = core.bodyGroundClass(state.activeId);
   GROUND_CLASSES.forEach(function (cls) {
     document.body.classList.toggle(cls, cls === ground);
@@ -99,19 +75,6 @@ function paint(state, captured, spec, heroRoot) {
     btn.tabIndex = id === state.activeId ? 0 : -1;
     btn.classList.toggle('vb-tab--active', id === state.activeId);
   });
-
-  var hero = core.heroFor(state, captured, specHeroFor(spec, state.activeId));
-  if (heroRoot && hero) {
-    core.HERO_FIELDS.forEach(function (field) {
-      var el = heroRoot.querySelector(HERO_TARGETS[field]);
-      if (!el) return;
-      if (field === 'title') {
-        el.innerHTML = hero[field];
-      } else {
-        el.textContent = hero[field];
-      }
-    });
-  }
 
   document.querySelectorAll('[data-vb-panel]').forEach(function (panel) {
     var isActive = panel.getAttribute('data-vb-panel') === state.activeId;
@@ -125,14 +88,6 @@ function paint(state, captured, spec, heroRoot) {
       }, ENTER_MS + 40);
     }
   });
-}
-
-function specHeroFor(spec, activeId) {
-  if (!spec || !spec.tabs) return null;
-  for (var i = 0; i < spec.tabs.length; i++) {
-    if (spec.tabs[i].id === activeId) return spec.tabs[i].hero || null;
-  }
-  return null;
 }
 
 function prefersReducedMotion() {

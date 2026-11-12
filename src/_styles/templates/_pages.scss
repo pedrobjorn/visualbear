@@ -264,3 +264,56 @@
   line-height: 1;
   z-index: 3;
 }
+
+// The mirror's LINKED robot (specs/visualbear-system, ticket 10): the
+// injected <a class="robot"> carries its geometry inline (44x44 hit box,
+// glyph pinned bottom-left); the pill expansion is a hover/focus state,
+// which inline styles cannot express - it lives here. The link only
+// exists on mirror pages, so these rules ride along in main.scss without
+// touching the public site (the decorative .floating-robot span above is
+// not a link and never matches a.robot).
+//
+// Ink/plate: the pill is a self-contained chip in the footer's own
+// light-on-dark pairing ($vb-light plate, $vb-dark ink - the same values
+// the .foot uses for its links on that dark band) rather than a
+// ground-dependent tint. Rethink recorded here (ticket 10 review): the
+// link is FIXED, so it can sit over any scroll position - the dark .foot
+// band, the home's red fade, a light case-study section - and a
+// translucent plate inherits whichever ground is under it at that
+// moment. A solid chip reads on all of them and keeps the link's own
+// visual identity constant per page.
+a.robot .robot-pill {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  color: $vb-dark;
+  font-family: $vb-body-font-family;
+  font-size: 13px;
+  font-weight: $font-bold;
+  letter-spacing: 0.08em;
+  background-color: $vb-light;
+  border-radius: 999px;
+  transform-origin: left bottom;
+
+  // collapsed: no plate, no margin - the link reads as bare ticket-1 glyph
+  margin-left: 0;
+  padding: 6px 0;
+}
+
+a.robot:hover .robot-pill,
+a.robot:focus .robot-pill {
+  max-width: 220px;
+  opacity: 1;
+  margin-left: 8px;
+  padding: 6px 14px;
+  transition: max-width 160ms ease, opacity 160ms ease, margin-left 160ms ease, padding 160ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a.robot .robot-pill,
+  a.robot:hover .robot-pill,
+  a.robot:focus .robot-pill {
+    transition: none;
+  }
+}
