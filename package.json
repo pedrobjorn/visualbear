@@ -67,7 +67,9 @@
     "format:check": "./scripts/prettier.sh --check 'markdown-render.js' 'gulp/**/*.js' 'src/_styles/**/*.scss' '*.md' 'specs/**/*.md'",
     "serve:prod": "NODE_ENV=development ./scripts/gulp.sh serve",
     "serve": "NODE_ENV=production ./scripts/gulp.sh serve --production",
-    "build": "NODE_ENV=production ./scripts/gulp.sh --production"
+    "build": "NODE_ENV=production ./scripts/release.sh",
+    "build:gulp": "NODE_ENV=production ./scripts/gulp.sh --production",
+    "test": "node scripts/test/mirror-link.test.js && node scripts/test/tabs.test.js"
   },
   "engines": {
     "node": "10.x"

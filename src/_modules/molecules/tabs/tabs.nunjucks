@@ -1,0 +1,20 @@
+{% macro content(spec) %}
+{% set active = spec.active or 'visuai' %}
+<div data-vb-tablist>
+  <div class="vb-tabs" id="{{ spec.id }}-tablist" role="tablist" aria-label="{{ spec.label }}">
+    {% for tab in spec.tabs %}
+      <button
+        type="button"
+        class="vb-tab{{ ' vb-tab--active' if tab.id == active else '' }}"
+        id="{{ spec.id }}-tab-{{ tab.id }}"
+        role="tab"
+        data-vb-tab="{{ tab.id }}"
+        aria-controls="{{ spec.id }}-panel-{{ tab.id }}"
+        aria-selected="{{ 'true' if tab.id == active else 'false' }}"
+        tabindex="{{ '0' if tab.id == active else '-1' }}"
+      >{{ tab.label }}</button>
+    {% endfor %}
+  </div>
+  <script type="application/json" data-vb-tab-spec>{{ spec | dump | safe }}</script>
+</div>
+{% endmacro %}

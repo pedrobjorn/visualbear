@@ -31,6 +31,7 @@
 @import 'templates/pages.scss';
 @import 'templates/resume.scss';
 @import 'templates/case-study.scss';
+@import 'templates/not-found.scss';
 @import 'templates/ai-mark.scss';
 
 // Color
@@ -43,6 +44,7 @@
 @import '../_modules/molecules/card/card';
 @import '../_modules/molecules/footer/footer';
 @import '../_modules/molecules/buttonslider/buttonslider';
+@import '../_modules/molecules/tabs/tabs';
 
 @import '../_modules/organisms/gallery/gallery';
 @import '../_modules/organisms/hero/hero';

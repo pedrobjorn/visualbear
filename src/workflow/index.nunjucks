@@ -9,22 +9,89 @@
     {% set baseUrl = "../" %}
 {% endblock %}
 
+{% import "_modules/molecules/tabs/tabs.nunjucks" as tabsm %}
+
 {% block content %}
     <article class="section section-top-padding case-study cs-workflow" id="workflow_container">
         <section class="gallery-container">
             <div class="container">
                 <div class="document-text text-box">
 
+                    <!-- visualbear system (specs/visualbear-system, tickets 2-3, DR-0001):
+                         one URL, two tabs. The strip sits above the hero;
+                         the hero is shared and its copy swaps per tab
+                         (tabs.js), so exactly one h1 exists at any time.
+                         The design system panel is a ticket 3 host - the
+                         placeholder below moves out when the blocks land. -->
+                    {{ tabsm.content({
+                        id: "vb-system",
+                        label: "visualbear system views",
+                        active: "visuai",
+                        tabs: [
+                            {
+                                id: "visuai",
+                                label: "visuAI"
+                            },
+                            {
+                                id: "designsystem",
+                                label: "Design system",
+                                hero: {
+                                    eyebrow: "The visualbear System",
+                                    title: "The visualbear System · Design system",
+                                    summary: "A collection of all the individual components and rules used to build this site.",
+                                    details: "Design reference ⋅ 2026"
+                                }
+                            }
+                        ]
+                    }) }}
+
                     <!-- HERO — adapted bare variant (ticket 45, DR-0014):
                          no kicker/"Case Study" (not a case study), no
                          background (the dark ground + spotlight carry it);
-                         spacing/type roles are the shared hero's -->
+                         spacing/type roles are the shared hero's. The
+                         wrapper is the tab controller's copy-swap scope. -->
                     <!-- 01 HERO, from the page md's front matter (DR-0001) -->
-                    {{ site.data.pages['workflow'] | mdhero | safe }}
+                    <div class="vb-hero" data-vb-hero>
+                        {{ site.data.pages['workflow'] | mdhero | safe }}
+                    </div>
 
-					<!-- content: src/_data/pages/workflow.md via mdpage -->
-					{{ site.data.pages['workflow'] | mdpage | safe }}
+                    <!-- panel: visuAI tab - the workflow content -->
+                    <section
+                        id="vb-system-panel-visuai"
+                        class="vb-panel"
+                        role="tabpanel"
+                        aria-labelledby="vb-system-tab-visuai"
+                        tabindex="-1"
+                        data-vb-panel="visuai"
+                    >
+                        <!-- content: src/_data/pages/workflow.md via mdpage -->
+                        {{ site.data.pages['workflow'] | mdpage | safe }}
+                    </section>
 
-</section>
+                    <!-- panel: design system tab - the blocks move in with
+                         ticket 3; the placeholder keeps the switch verifiable
+                         until then -->
+                    <section
+                        id="vb-system-panel-designsystem"
+                        class="vb-panel vb-panel--designsystem"
+                        role="tabpanel"
+                        aria-labelledby="vb-system-tab-designsystem"
+                        tabindex="-1"
+                        data-vb-panel="designsystem"
+                        hidden
+                    >
+                        <article class="vb-ds-placeholder">
+                            <p class="vb-ds-placeholder-note">
+                                A collection of all the individual components and rules used
+                                to build this site. The full design system sections -
+                                Core, Modules, Containers and the case-study system -
+                                render here.
+                            </p>
+                        </article>
+                    </section>
+
+                </div>
+            </div>
+        </section>
     </article>
 {% endblock %}

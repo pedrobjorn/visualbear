@@ -1,0 +1,136 @@
+// tab shell (visualbear system, ticket 2): the strip, its two tabs, the
+// enter fade. Inks follow the page's measured values - the dark set in
+// the workflow scopes of _case-study.scss, the dark-ground tab colors
+// re-inked here per ticket 2 (inactive #A6ADB8 7.8:1, active #E34A47
+// 4.5:1 on the dark ground).
+
+.vb-tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: max-content;
+  max-width: 100%;
+  // Inside the hero's shared rhythm (ticket 44, DR-0014) - the hero's
+  // own top spacing puts the strip directly under the fixed nav; no new
+  // spacing tokens
+  margin: 0 auto 24px;
+  padding: 4px;
+  border-radius: 999px;
+  // The chip-plate token (ticket 40, DR-0012): the light instance here,
+  // cs-workflow's dark instance arrives through the body class swap
+  background-color: var(--cs-chip-plate, rgba(255, 255, 255, 0.45));
+}
+
+.vb-tab {
+  appearance: none;
+  border: 0;
+  margin: 0;
+  padding: 8px 20px;
+  border-radius: 999px;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: $vb-body-font-family;
+  font-size: $middle-font-size;
+  font-weight: $font-bold;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  // Light-ground inks (the design system tab); the dark ground re-inks
+  // below. The active state keeps the underline treatment of
+  // .links a:hover (nav) - no plate, no box.
+  color: $vb-grey;
+  transition: color 0.16s ease, background-color 0.16s ease;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  &.vb-tab--active,
+  &[aria-selected='true'] {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}
+
+// Light ground (design system tab): the dark ink labels per ticket 2,
+// the active state takes the darker brand red (the light-ground instance
+// of the lifted red, 5.6:1 on white). cs-workflow forces the dark
+// ground's inks unconditionally, so the shared hero and the placeholder
+// panel need them given back while this state is on.
+body.vb-system-light {
+  .case-study.cs-workflow {
+    color: $vb-grey;
+
+    // the chip-plate token travels with the cs-workflow dark instance;
+    // pin the light instance back so the strip's plate reads as the
+    // light pages' chips do
+    --cs-chip-plate: rgba(255, 255, 255, 0.45);
+
+    .cs-eyebrow {
+      color: #d0181e;
+    }
+  }
+
+  .vb-ds-placeholder-note {
+    color: $vb-light-grey;
+  }
+
+  .vb-tab {
+    color: $vb-grey;
+
+    &.vb-tab--active,
+    &[aria-selected='true'] {
+      color: #d0181e;
+    }
+  }
+}
+
+// Dark ground (visuAI tab): the page's measured inks (muted #A6ADB8 at
+// 7.8:1; active #EA544F - ticket 2 pinned #E34A47 but that measured
+// 4.27:1 on the real dark ground, so the same red is lifted to clear
+// the 4.5:1 bar with margin; the underline carries the state as well).
+body.workflow-page {
+  .vb-tab {
+    color: #a6adb8;
+
+    &.vb-tab--active,
+    &[aria-selected='true'] {
+      color: #ea544f;
+    }
+  }
+}
+
+// The panel swap: the entering panel fades in over ENTER_MS (tabs.js).
+// Opacity/transform only, and reduced motion gets the plain swap.
+// [hidden] needs its own display rule: normalize's `section { display:
+// block }` otherwise beats the UA's [hidden] none.
+.vb-panel {
+  display: block;
+}
+
+.vb-panel[hidden] {
+  display: none;
+}
+@keyframes vb-panel-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.vb-panel--enter {
+  animation: vb-panel-enter 160ms ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vb-panel--enter {
+    animation: none;
+  }
+}

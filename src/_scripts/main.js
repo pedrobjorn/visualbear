@@ -3,6 +3,8 @@
 
 'use strict';
 
+const tabs = require('../_modules/molecules/tabs/tabs');
+
 const NAV_HEIGHT = 48;
 
 // Smooth scrolling for same-page anchor links. Targets stop below the fixed
@@ -83,4 +85,5 @@ function initCountUp() {
 document.addEventListener('DOMContentLoaded', function() {
   initSmoothScroll();
   initCountUp();
+  tabs.init();
 });
