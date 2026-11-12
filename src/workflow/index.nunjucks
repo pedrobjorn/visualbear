@@ -64,51 +64,52 @@
                         {{ site.data.pages['workflow'] | mdpage | safe }}
                     </section>
 
-                    <!-- panel: design system tab - the styleguide page
-                         itself (ticket 6): the four block sections with
-                         their own hero, rendered with the styleguide's
-                         light look pinned on the panel (not on the body
-                         state - the visuAI tab alternates the body). -->
-                    <section
-                        id="vb-system-panel-designsystem"
-                        class="vb-panel vb-panel--designsystem"
-                        role="tabpanel"
-                        aria-labelledby="vb-system-tab-designsystem"
-                        tabindex="-1"
-                        data-vb-panel="designsystem"
-                        hidden
-                    >
-                        <section class="vb-ds-section" id="styleguide_container">
-                            <article class="text-container">
-                                <div class="row">
-                                    {{ intro.content({ title: "Design system" }) }}
-                                </div>
-                            </article>
-                            <article class="text-container" id="core">
-                                <div class="row">
-                                    {{ core.content() }}
-                                </div>
-                            </article>
-                            <article class="text-container" id="modules">
-                                <div class="row">
-                                    {{ modules.content() }}
-                                </div>
-                            </article>
-                            <article class="text-container" id="containers">
-                                <div class="row">
-                                    {{ containers.content() }}
-                                </div>
-                            </article>
-                            <article class="text-container" id="casesystem">
-                                <div class="row">
-                                    {{ casesystem.content() }}
-                                </div>
-                            </article>
-                        </section>
-                    </section>
-
                 </div>
             </div>
         </section>
     </article>
+
+    <!-- panel: design system tab (ticket 11, DR-0005) - the styleguide
+         PAGE itself, rendered as the styleguide page does: a direct child
+         of the page, full width - NOT inside the case-study article's
+         .document-text.text-box column (that capped demo images at 512px
+         and leaked cs-workflow's dark-ground component instances into the
+         light panel). The tab controller finds it by [data-vb-panel]. -->
+    <section
+        id="vb-system-panel-designsystem"
+        class="vb-panel"
+        role="tabpanel"
+        aria-labelledby="vb-system-tab-designsystem"
+        tabindex="-1"
+        data-vb-panel="designsystem"
+        hidden
+    >
+        <section class="section section-top-padding" id="styleguide_container">
+            <article class="text-container">
+                <div class="row">
+                    {{ intro.content({ title: "Design system" }) }}
+                </div>
+            </article>
+            <article class="text-container" id="core">
+                <div class="row">
+                    {{ core.content() }}
+                </div>
+            </article>
+            <article class="text-container" id="modules">
+                <div class="row">
+                    {{ modules.content() }}
+                </div>
+            </article>
+            <article class="text-container" id="containers">
+                <div class="row">
+                    {{ containers.content() }}
+                </div>
+            </article>
+            <article class="text-container" id="casesystem">
+                <div class="row">
+                    {{ casesystem.content() }}
+                </div>
+            </article>
+        </section>
+    </section>
 {% endblock %}

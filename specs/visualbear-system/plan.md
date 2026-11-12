@@ -77,6 +77,14 @@ Open question 1 note: ticket 6 effectively answers it - once the
 styleguide page lives inside the merged view, the public `/styleguide/`
 copy is redundant. Ticket 4's gate stays until Pedro confirms.
 
+## Amendment pass 2026-11-12b (Pedro's mirror review - three regressions)
+
+Tickets 11-13, background and decisions in DR-0005. Measured on the
+built mirror the same day: design panel inside the case-study column
+(512px image cap, dark-ground instances leaking), robot pill flex-shrunk
+to a 28px sliver, About a page visit instead of the site's in-page
+anchor behavior.
+
 ## Open questions
 
 | Question                                                                                                                                                                                              | Owner | Blocks build?                                |

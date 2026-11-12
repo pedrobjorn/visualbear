@@ -81,13 +81,15 @@ var navPage = '<nav><a href="/" id="logo">visualbear</a>' +
 var rel0 = link.relativizeNavLinks(navPage, 0);
 assert.ok(rel0.indexOf('href="./"') !== -1, 'depth 0: logo -> ./');
 assert.ok(rel0.indexOf('href="#work"') !== -1, 'depth 0: work -> #work (in-page - the mirror home IS the work index)');
-assert.ok(rel0.indexOf('href="about/"') !== -1, 'depth 0: about -> about/ (mirror about page)');
+assert.ok(rel0.indexOf('href="#about"') !== -1, 'depth 0: about -> #about (in-page anchor, DR-0005 - not the about/ page)');
+assert.ok(rel0.indexOf('href="about/"') === -1, 'depth 0: no about/ page link');
 assert.ok(rel0.indexOf('href="#contact"') !== -1, 'contact stays in-page');
 
 var rel1 = link.relativizeNavLinks(navPage, 1);
 assert.ok(rel1.indexOf('href="../"') !== -1, 'depth 1: logo -> ../');
 assert.ok(rel1.indexOf('href="../#work"') !== -1, 'depth 1: work -> ../#work');
-assert.ok(rel1.indexOf('href="../about/"') !== -1, 'depth 1: about -> ../about/');
+assert.ok(rel1.indexOf('href="../#about"') !== -1, 'depth 1: about -> ../#about (the mirror home\'s about section, DR-0005)');
+assert.ok(rel1.indexOf('href="about/"') === -1, 'depth 1: no about/ page link');
 assert.ok(rel1.indexOf('href="#contact"') !== -1, 'depth 1: contact stays in-page');
 
 // already-relative pages pass through untouched (idempotent re-run)

@@ -550,3 +550,138 @@ design system on hover."
 ## Open questions
 
 - None
+
+---
+
+# Ticket 11: Design system tab renders as the full styleguide page (fixes ticket 6)
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-12b, DR-0005)
+- Size: M
+- Type: UI + system
+- Status: DONE 2026-11-12 - panel moved to a direct page child with the
+  styleguide's own structure; give-back CSS retired; probed parity vs
+  /styleguide/ (p 836/680/836, img 836 - was 512 under the text-box cap);
+  evidence addendum + t11 captures
+
+## Context
+
+Pedro: "design system is somehow in a narrow container? make it a full page
+be the styleguide page, full width, not inside a container." Ticket 6 kept
+the design panel inside the cs-workflow article's `.document-text.text-box`.
+Measured at 1440: images render 512px there (the `.text-box img` cap)
+vs 836 on the styleguide page; cs-workflow's forced dark-ground component
+instances leak into the light panel; the view reads as a narrow container.
+
+## Requirements
+
+- The design panel renders as a DIRECT child of the page (outside the
+  `#workflow_container` article, its `.gallery-container`/`.container`/
+  `.document-text.text-box` column), structured exactly like
+  `src/styleguide/index.nunjucks`: `section.section.section-top-padding#styleguide_container
+  > article.text-container > div.row > blocks`.
+- The `.case-study.cs-workflow .vb-panel--designsystem` give-back rules in
+  tabs.scss retire with the move (the panel no longer sits in that scope -
+  no ink fight, no pinned panel bg needed beyond the section's own .section
+  light fill).
+- Tab wiring unchanged: both panels still carry the `vb-panel` +
+  `data-vb-panel="designsystem"` contract; exactly one visible h1 per
+  state; keyboard/roving behavior untouched.
+- The panel's hero keeps the T3 rename (h1 "Design system" via the intro
+  spec param); peer widths must MATCH the styleguide page (paragraph 836/
+  680/836, images 836 at 1440).
+
+## Acceptance criteria (agent-checkable)
+
+- [x] Probed at 1440 + 390: panel ancestor chain no longer contains `.document-text.text-box` or `.case-study.cs-workflow`; panel section spans the full page width (1440 / 390)
+- [x] Panel images at natural width parity with /styleguide/ (img rendered 836 at 1440, not 512)
+- [x] Paragraph/gutter widths identical to /styleguide/ (836/680/836 at 1440)
+- [x] Tab switch still: one visible h1 per state (the flagged specimen "h1 Heading" excluded, as on /styleguide/ today); ground/inks probed: eyebrow #d0181e - now WITHOUT any `.case-study.cs-workflow .vb-panel--designsystem` rules (grep clean; the rules are retired)
+- [x] visuAI tab state unchanged (hero + content from the unchanged workflow.md through the same filters; nav/margins untouched)
+- [x] npm build + guard + npm test pass
+
+## Out of scope
+
+- Retiring `/styleguide/` (ticket 4, still gated); content rewrites; the
+  specimen-h1 flag from T6 (unchanged - flagged, not fixed).
+
+## Open questions
+
+- None
+
+---
+
+# Ticket 12: Mirror About anchors to the home's #about section (fixes ticket 8)
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-12b, DR-0005)
+- Size: S
+- Type: system
+- Status: DONE 2026-11-12 - mapping `/#about` -> depth-relative mirror home
+  - #about; click-through lands on the home's about section at both depths;
+    about/ still ships (unlinked); tests updated (about/ asserted absent)
+
+## Context
+
+Pedro: "uabout should anchor down to the anchor section under, not a page."
+Ticket 8 mapped the nav's `/#about` -> depth-relative `about/` (a page
+visit). On this site About is an anchor: the public nav scrolls to the
+home's `#about` section.
+
+## Requirements
+
+- `relativizeNavLinks` (scripts/mirror-link.js, TDD): `/#about` ->
+  depth-relative mirror home + `#about` (depth 0: `#about` in-page;
+  depth 1: `../#about`).
+- Logo and `/#work` mappings unchanged; `#contact` stays in-page;
+  idempotency and asset pass-through tests keep passing.
+- The mirror keeps shipping `about/` - unreachable by nav, its removal is
+  a separate (not requested) decision.
+
+## Acceptance criteria (agent-checkable)
+
+- [x] Built mirror pages: About's `href` = `#about` (depth 0 pages) / `../#about` (depth 1 pages); clicking it from a mirror page lands on the mirror home scrolled to the about section (Playwright: URL /selected-works/#about, #about in viewport)
+- [x] Guard check 7 still passes; re-run stable
+- [x] npm test green (updated assertions)
+
+## Open questions
+
+- None
+
+---
+
+# Ticket 13: Robot pill actually expands (fixes ticket 10)
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-12b, DR-0005)
+- Size: S
+- Type: UI + a11y
+- Status: DONE 2026-11-12 - flex-shrink: 0 + hover max-width 260; rendered
+  213px on hover AND focus at 1440 + 390, no clipping; collapsed still
+  0-width; glyph position unchanged
+
+## Context
+
+Pedro: "the visiai robot pill is completely broken." Root cause measured:
+the pill is a flex item of the fixed 44x44 anchor and `flex-shrink: 1`
+crushes it - computed max-width 220px but rendered width 28px at hover
+(text scrollWidth 213). T10's verification read computed max-width, not
+rendered geometry.
+
+## Requirements
+
+- `flex-shrink: 0` on `.robot-pill`; expanded pill overflows the box to the
+  right (toward the page center, as T10 pinned). Collapsed still 0-width.
+- `max-width` 260px (the string + 14px side paddings measure ~241px at
+  13px bold; 220 clipped the tail).
+- The solid chip plate/ink pair stands (grounds vary under the fixed link;
+  DR-0005). Everything else of T10 untouched (hit box, a11y name, aria-hidden,
+  reduced-motion, idempotent strip, decorative span).
+
+## Acceptance criteria (agent-checkable)
+
+- [x] Probed rendered geometry at 1440 + 390: pill width 213px on hover AND on keyboard focus; text fully visible (scrollWidth not greater than clientWidth)
+- [x] Collapsed: pill renders 0-width, no plate visible; glyph position unchanged (left 12 / 12 from bottom, probed)
+- [x] The gate upgrade is recorded: rendered geometry, not computed max-width (evidence note; DR-0005)
+- [x] npm test + build + guard pass
+
+## Open questions
+
+- None

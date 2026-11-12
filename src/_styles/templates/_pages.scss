@@ -283,6 +283,7 @@
 // moment. A solid chip reads on all of them and keeps the link's own
 // visual identity constant per page.
 a.robot .robot-pill {
+  flex-shrink: 0; // ticket 13: a shrinkable 1 collapsed it to a 28px sliver
   max-width: 0;
   opacity: 0;
   overflow: hidden;
@@ -303,7 +304,9 @@ a.robot .robot-pill {
 
 a.robot:hover .robot-pill,
 a.robot:focus .robot-pill {
-  max-width: 220px;
+  // 260px: the string + the side paddings measure ~241px at 13px bold -
+  // the shipped 220 clipped the tail (ticket 13)
+  max-width: 260px;
   opacity: 1;
   margin-left: 8px;
   padding: 6px 14px;

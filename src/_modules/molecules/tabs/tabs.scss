@@ -114,32 +114,12 @@ body.workflow-page {
   display: none;
 }
 
-// Ticket 6: the design-system panel IS the styleguide page - sections,
-// own hero, own light ground. The look is pinned here on the panel (not
-// on a body state), so the styleguide renders its authoring look however
-// the visuAI tab alternates the body class. The panel sits inside
-// .case-study.cs-workflow, which forces the dark inks (body text, eyebrow,
-// links, chip plate) unconditionally - this block gives the light page's
-// values back, at the specificity needed to win inside that scope.
-.case-study.cs-workflow .vb-panel--designsystem {
-  background-color: $vb-light;
-  color: $vb-grey;
-
-  .cs-eyebrow {
-    color: #d0181e;
-  }
-
-  a {
-    color: $vb-primary;
-
-    &:hover,
-    &:focus {
-      text-decoration: none;
-      color: $vb-light;
-      background-color: $vb-primary;
-    }
-  }
-}
+// Ticket 11 (DR-0005): the design panel renders at page level - outside
+// the cs-workflow article - as the styleguide page does. The old
+// .case-study.cs-workflow .vb-panel--designsystem give-back rules
+// (bg/color/eyebrow/links pin) retired with the move: the panel no
+// longer sits inside that scope, so the styleguide's own styles apply
+// unchanged, no ink fight.
 
 @keyframes vb-panel-enter {
   from {

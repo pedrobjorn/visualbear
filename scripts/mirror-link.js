@@ -50,11 +50,17 @@ function stripFloatingRobot(html) {
 // never match, and root-relative fragments (#contact) are not in scope.
 // Already-relative output cannot match again, so a re-run
 // changes nothing (idempotent).
+//
+// Ticket 12 (DR-0005): the site's About is an ANCHOR, not a page - the
+// public nav's /#about scrolls to the home's #about section, and the
+// mirror behaves the same: depth-relative mirror home + #about (the
+// mirror home carries that section; #work targets it too). The about/
+// page still ships but no nav link points at it.
 function relativizeNavLinks(html, depth) {
   var up = new Array(depth + 1).join('../');
   return html
     .replace(/href="\/#work"/g, 'href="' + up + '#work"')
-    .replace(/href="\/#about"/g, 'href="' + up + 'about/"')
+    .replace(/href="\/#about"/g, 'href="' + up + '#about"')
     .replace(/href="\/"/g, 'href="' + (up || './') + '"');
 }
 

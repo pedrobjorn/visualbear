@@ -162,3 +162,59 @@ a11y coverage is computed-probe based below.
   at styleguide.containers.nunjucks:41 (from ticket 3).
 - Mirror asset serving zone for the root-absolute styles/scripts (T8).
 - R4-10's pending Pedro items unaffected by this pass.
+
+---
+
+# Addendum 2026-11-12 (same day) - tickets 11-13, Pedro's mirror review
+
+Three regressions on the built mirror; spec'd in DR-0005 with tickets
+11-13 before the fixes. Probed on the final release build.
+
+## Ticket 11 - design panel renders as the full styleguide page
+
+- Before (T6's panel): ancestor chain
+  `main > article#workflow_container.case-study.cs-workflow > section.gallery-container
+  > div.container > div.document-text.text-box > panel`- demo img capped
+at the`.text-box img` 512px legacy rule (styleguide reference renders
+  > 836), cs-workflow's dark-ground instances visible in the light panel.
+- After: `main > section#vb-system-panel-designsystem.vb-panel >
+section#styleguide_container.section` - direct page child, no
+  text-box/cs-workflow ancestor (probed both widths). The give-back rules
+  in tabs.scss retired (grep clean).
+- Parity probes at 1440: paragraphs 836/680/836 and img 836 - identical
+  to live /styleguide/; eyebrow #d0181e; panel spans 1440 (390 at mobile).
+  Probed inks/section widths prove the panel no longer carries ANY
+  cs-workflow scope.
+- The specimen-h1 flag from T6 stands (light state: "Design system" +
+  "h1 Heading" - Pedro's content, not fixed).
+- Captures: evidence/t11-workflow-{1440,390}-light-full.png.
+
+## Ticket 12 - About anchors to the mirror home's #about section
+
+- Mirror inner pages: About href = `../#about` (was `about/`, ticket 8's
+  mapping); mirror home: `#about` (also was `about/`; now in-page).
+- Click-through (Playwright): from /selected-works/workflow/ - lands at
+  /selected-works/#about with the #about section in the viewport (true);
+  from the home - in-page scroll, section in viewport (true).
+- Logo (#/no change) and Work (../#work) mappings untouched; guard check
+  7 passes (no root nav links, 23 zone-served asset links); re-run
+  stable. npm test green (assertions updated: about/ explicitly asserted
+  absent).
+
+## Ticket 13 - the pill actually expands
+
+- Root cause (measured pre-fix): pill is a flex item of the 44x44 anchor
+  and flex-shrink 1 crushed it - computed max-width 220px, RENDERED
+  width 28px, text scrollWidth 213 fully clipped. T10's verification
+  read computed max-width, not geometry; this evidence records rendered
+  `getBoundingClientRect().width` from here on.
+- After (flex-shrink: 0; max-width 220 -> 260): rendered width 213 at
+  hover AND keyboard focus, both 1440 and 390; no clipping
+  (scrollWidth not greater than box); collapsed still 0-width; glyph
+  pinned at left 12 / 12 from the bottom (T1's exact position).
+- Captures: evidence/t13-robot-hover-{1440,390}.png.
+
+## Gates (final state)
+
+- npm run build (gulp -> mirror -> guard) exit 0; npm test PASS;
+  eslint clean on touched JS; prettier repo-gate PASS.
