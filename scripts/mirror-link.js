@@ -33,12 +33,18 @@ function visuaiLinkFor(depth) {
     '</a>\n';
 }
 
-// The public home carries a decorative, unlinked robot (src/index.nunjucks).
-// The mirror home must not render two robots stacked at the same spot,
-// so the injector swaps the decorative span out before its own link
-// goes in.
+// The public home carries the robot as a LINKED pill since ticket 20
+// / DR-0008 (href="#work", the public work gallery - DR-0004's
+// decorative span superseded). The mirror home must not render two
+// robots stacked at the same spot, so the injector swaps the public
+// robot out before its own link goes in. The strip is TARGETED on the
+// public hrefs - the decorative span, and the public pill's href="#work"
+// - never on class alone: the mirror's own injected a.robot hrefs are
+// depth-relative workflow/ forms and must survive a re-run.
 function stripFloatingRobot(html) {
-  return html.replace(/<span class="floating-robot"[^>]*>[\s\S]*?<\/span>\n?/g, '');
+  return html
+    .replace(/<span class="floating-robot"[^>]*>[\s\S]*?<\/span>\n?/g, '')
+    .replace(/<a class="robot" href="#work"[\s\S]*?<\/a>\n?/g, '');
 }
 
 // Ticket 8 - the walled garden: the mirrored pages keep the site's nav,

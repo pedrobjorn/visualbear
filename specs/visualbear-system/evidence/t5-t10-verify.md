@@ -305,3 +305,20 @@ in-page (URL stays /selected-works/); resume/ lands inside the mirror.
 
 - npm test PASS; npm run build (gulp -> mirror -> guard incl. checks 7+8)
   exit 0; eslint clean (mirror-leak-scan.js included); prettier gate PASS.
+
+# Addendum 2026-11-12e - ticket 20 (DR-0008): the public home's robot pill
+
+The decorative span became the linked pill (`href="#work"`, label
+"selected works", aria-label + title, glyph 20px, 44x44 hit box at
+12/844). TDD: strip tests red (`strip removes the PUBLIC robot pill`)
+then green; the targeted href="#work" strip never eats the injected
+mirror link (asserted: `href="workflow/"` survives, re-run safe).
+Build-level: `build/index.html` carries the pill, zero matches for
+`selected-works` and `mirror-visuai` in it (guard checks 3/6 hold);
+mirror home renders exactly one `a.robot` (`workflow/`); zero
+`floating-robot` residue anywhere in build/. Probes (1440x900, http):
+hover-> pill span 133.3px at opacity 1, anchor 44 (inline, by design),
+`:hover` matches; rest/hover/focus background = transparent (T17);
+click -> scrollY 546, #work in view; mirror font identical 20px.
+Capture: evidence/t20-home-hover-1440.png.
+npm test PASS; npm run build + release-guard all OK.

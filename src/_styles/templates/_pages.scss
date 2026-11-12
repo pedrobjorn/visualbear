@@ -251,28 +251,22 @@
   color: $vb-light;
 }
 
-// The decorative robot mark, fixed bottom-left on the public home
-// (specs/visualbear-system, Ticket 1, DR-0004). Untying from the link
-// rule: it is a span, not a link, and aria-hidden. z-index 3 keeps it
-// above the z-index: 1 content plates (.foot, #about) that used to
-// cover the unlayered mirror link (DR-0003).
-.floating-robot {
-  position: fixed;
-  bottom: 12px;
-  left: 12px;
-  // ticket 18: optically matching the mirror link's glyph (20px)
-  font-size: 20px;
-  line-height: 1;
-  z-index: 3;
-}
+// The PUBLIC home's robot pill (specs/visualbear-system, ticket 20 /
+// DR-0008): the link markup lives in src/index.nunjucks and carries its
+// geometry inline (44x44 hit box, glyph pinned bottom-left, z-index 3
+// above the z-index: 1 content plates). It links to this page's own
+// #work gallery - never to the air-locked mirror (release guard check 3).
+// Hover/focus, plate and expansion are the shared a.robot rules below;
+// the mirror injector strips this pill from mirror copies and injects
+// its own, so a page never renders two robots.
 
-// The mirror's LINKED robot (specs/visualbear-system, ticket 10): the
-// injected <a class="robot"> carries its geometry inline (44x44 hit box,
-// glyph pinned bottom-left); the pill expansion is a hover/focus state,
-// which inline styles cannot express - it lives here. The link only
-// exists on mirror pages, so these rules ride along in main.scss without
-// touching the public site (the decorative .floating-robot span above is
-// not a link and never matches a.robot).
+// The LINKED robot (specs/visualbear-system, tickets 1/10/20): the
+// injected <a class="robot"> AND the public home's pill carry their
+// geometry inline (44x44 hit box, glyph pinned bottom-left); the pill
+// expansion is a hover/focus state, which inline styles cannot express -
+// it lives here. Ticket 20 / DR-0008: the public home ships its own
+// a.robot (href="#work"), so these rules are no longer mirror-only - the
+// public site renders the same linked pill.
 //
 // Ink/plate: the pill is a self-contained chip in the footer's own
 // light-on-dark pairing ($vb-light plate, $vb-dark ink - the same values

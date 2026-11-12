@@ -1006,3 +1006,49 @@ mirror home (depth 0) each `../` resolves to the PUBLIC zone root:
 ## Open questions
 
 - None
+
+---
+
+# Ticket 20: The main page's robot becomes the pill - linked to the public work section
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-12e)
+- Size: S
+- Type: UI + system
+- Status: DONE 2026-11-12e - probed: public pill 44x44 @ (12,844),
+  glyph 20px, href #work, accName "selected works"; hover expands the
+  label (133px span, opacity 1), plate transparent in all states; click
+  scrolls the home to the gallery; mirror home keeps exactly one robot
+  (its own); npm test + build + guard green to the main page as well, not just
+  selected works." The public home's robot is currently the decorative,
+  unlinked `.floating-robot` span (DR-0004) - the original blocker was
+  that a public link would disclose the air-locked mirror path
+  ("information is the password", DR-R4-0003). Pedro decided (2026-11-12e
+  question): the public pill links to the PUBLIC work section (`#work`,
+  the home's own gallery) - no mirror-path disclosure, so the air-lock
+  and guard check 3 stay untouched.
+
+## Requirements
+
+- The public home's robot becomes `<a class="robot" href="#work">`:
+  same fixed geometry as the mirror pill (44x44 hit box, bottom-left,
+  z-index 3), glyph 20px (ticket 18), hover/focus pill label
+  "selected works" (the mirror pill's "workflow & design system" would
+  mislabel a link to the gallery). aria-label + title carry the
+  accessible name; the pill text stays aria-hidden (mirror parity).
+- The mirror injector strips the PUBLIC pill along with the decorative
+  span (the mirror home renders exactly one robot - its own, linking
+  in-mirror). Guard check 6's "no visuai link on the public home" keeps
+  passing: the public pill carries no mirror-visuai mark.
+- TDD: strip tests extended in scripts/test/mirror-link.test.js
+  (public pill stripped; the mirror's own injected link untouched).
+
+## Acceptance criteria (agent-checkable)
+
+- [x] The built public home (`build/index.html`) carries `<a class="robot" href="#work">` with the 20px glyph and the pill label; zero matches for the mirror path and mirror-visuai marker in it
+- [x] The mirror home does NOT contain the public pill (stripped); exactly one `a.robot` remains per built page (the mirror's own, href="workflow/"); zero floating-robot residue in build/
+- [x] Probed: hover/focus expands the pill (label span 133px, opacity 1; the anchor stays 44px inline by design), background transparent in every state (ticket 17), click scrolls the home to the gallery (scrollY 546, #work in view)
+- [x] npm test + build + guard green
+
+## Open questions
+
+- None (the href question was answered by Pedro: public work section)

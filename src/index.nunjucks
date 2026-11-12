@@ -51,10 +51,12 @@
 		</section>
 	</article>
 
-	{# decorative robot mark (specs/visualbear-system DR-0004): fixed
-	   bottom-left, unlinked, above every content surface. The mirror
-	   injector swaps this span for its own linked robot so the mirror
-	   home never renders two robots. #}
-	<span class="floating-robot" aria-hidden="true">🤖</span>
+	{# the robot pill on the public home (specs/visualbear-system DR-0008,
+	   tickets 20/18/17): fixed bottom-left, above every content surface,
+	   linking to this page's own #work gallery - never to the air-locked
+	   mirror (guard check 3). Same 44x44 geometry as the mirror's injected
+	   pill; the mirror injector strips this one before injecting its own.
+	   Hover/focus expansion and the transparent plate live in _pages.scss. #}
+	<a class="robot" href="#work" title="Selected works" aria-label="Selected works" style="position:fixed;bottom:12px;left:12px;width:44px;height:44px;z-index:3;display:flex;align-items:flex-end;justify-content:flex-start;text-decoration:none;line-height:1;"><span class="robot-glyph" aria-hidden="true" style="font-size:20px;">🤖</span><span class="robot-pill" aria-hidden="true">selected works</span></a>
 
 {% endblock %}
