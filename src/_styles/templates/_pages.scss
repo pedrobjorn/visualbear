@@ -221,3 +221,46 @@
 #about,
 #work {
 }
+
+// Styleguide (ticket 43): the global link red #D73735 measures 4.12:1 on
+// the page ground. This darker shade of the same brand red (the resume's
+// verified link ink) clears 4.5. The hover/focus/active states are
+// repeated at this specificity on purpose, same reasoning as
+// #resume_container: an id-level base color would otherwise beat the
+// global a:hover rule and leave dark red text on the red hover plate.
+#styleguide_container a {
+  color: #d0181e;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: $vb-light;
+    background-color: $vb-primary;
+  }
+
+  &:active {
+    text-decoration: none;
+    color: $vb-light;
+    background-color: $vb-secondary;
+  }
+}
+
+// The footer demo keeps its own link ink (light-blue on the dark band,
+// 8.9:1) — the rule above would otherwise override it at id specificity.
+#styleguide_container .foot a {
+  color: $vb-light;
+}
+
+// The decorative robot mark, fixed bottom-left on the public home
+// (specs/visualbear-system, Ticket 1, DR-0004). Untying from the link
+// rule: it is a span, not a link, and aria-hidden. z-index 3 keeps it
+// above the z-index: 1 content plates (.foot, #about) that used to
+// cover the unlayered mirror link (DR-0003).
+.floating-robot {
+  position: fixed;
+  bottom: 12px;
+  left: 12px;
+  font-size: 22px;
+  line-height: 1;
+  z-index: 3;
+}

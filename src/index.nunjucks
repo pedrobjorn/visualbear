@@ -51,4 +51,10 @@
 		</section>
 	</article>
 
+	{# decorative robot mark (specs/visualbear-system DR-0004): fixed
+	   bottom-left, unlinked, above every content surface. The mirror
+	   injector swaps this span for its own linked robot so the mirror
+	   home never renders two robots. #}
+	<span class="floating-robot" aria-hidden="true">🤖</span>
+
 {% endblock %}
