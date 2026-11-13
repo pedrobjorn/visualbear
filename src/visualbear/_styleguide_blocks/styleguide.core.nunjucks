@@ -164,7 +164,10 @@
     <h3 class="page-header">Headings</h3>
     <ul>
       <!--HEADINGS-->
-      <li><h1>h1 Heading  <small>Secondary text</small></h1></li>
+      {# ticket 33: the ladder's h1 specimen is demoted to h2.demo-h1 -
+         it renders as a demo, not a real h1 (one h1 per page); the class
+         keeps the h1's own type style on the specimen #}
+      <li><h2 class="demo-h1">h1 Heading  <small>Secondary text</small></h2></li>
       <li><h2>h2 Heading  <small>Secondary text</small></h2></li>
       <li><h3>h3 Heading  <small>Secondary text</small></h3></li>
       <li><h4>h4 Heading  <small>Secondary text</small></h4></li>

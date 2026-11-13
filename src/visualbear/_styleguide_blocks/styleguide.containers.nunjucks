@@ -73,7 +73,9 @@
     <h4 class="page-header" id="galleryimg"> Gallery Header</h4>
       <div class="section section-top-padding" id="steammobile_container">
         <section class="gallery-container">
-          {{headline.content({content:_headlineExtra,class:"container--gradient_light"})}}
+          {# ticket 33: demo mode - the embedded hero's h1 would leak a
+             second h1 onto the /visualbear/ case page #}
+          {{headline.content({content:_headlineExtra,class:"container--gradient_light",demo:true})}}
         </section>
       </div>
   </div>
@@ -93,7 +95,9 @@
   </div>
   <div class="text-block ">
     <h4 class="page-header" id="galleryimg">Footer</h4>
-        {{footer.content({})}}
+        {# ticket 34: the Footer demo renders inert (no id="contact", no
+           live mailto) - a visual specimen only #}
+        {{footer.content({demo: true})}}
 
       </div>
     </div>

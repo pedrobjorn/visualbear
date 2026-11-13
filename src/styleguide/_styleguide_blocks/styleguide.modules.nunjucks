@@ -4,11 +4,15 @@
 {% set _class = spec.class or '' %}
 {% set _content = spec.content or '{}' %}
 
-    {% set _cardPlay = {
-    "title": "Play",
-    "subtitle": "Illustration & Graphic design fun",
-    "href": "../play",
-    "img": "../images/work/thumbs/"
+    {# ticket 48: the demo pointed its background-image at the thumbs
+       DIRECTORY (no file) — an empty image area, and its "Play" title
+       had no matching thumb asset. Demos what IS: an existing thumb
+       with matching copy. #}
+    {% set _cardDemo = {
+    "title": "Art-Ent",
+    "subtitle": "Connecting artists and students",
+    "href": "../art-ent",
+    "img": "../images/work/thumbs/gallery_thumb_artent.jpg"
 } %}
 
 {% block config %}
@@ -16,18 +20,9 @@
   {% set baseUrl = '../' %}
 {% endblock %}
 <article class="gallery-text">
-  <small  class="page-header">Modules</small>
+  <h2 class="page-header">Modules</h2>
     <div class="text-block">
     <p>Modules are comprised of multiple core elements. Now that elements such as type and colours are defined, modules put them together into modular pieces that can be then used in containers.</p>
-  </div>
-  <div class="text-block">
-    <h3 class="page-header">Labels</h3>
-    <span class="label label-default">Default</span>
-    <span class="label label-primary">Primary</span>
-    <span class="label label-success">Success</span>
-    <span class="label label-info">Info</span>
-    <span class="label label-warning">Warning</span>
-    <span class="label label-danger">Danger</span>
   </div>
   <div class="text-block">
     <h3 class="page-header">Quotes</h3>
@@ -36,30 +31,35 @@
     <footer>- Someone famous in <cite title="Source Title">Source Title</cite></footer>
   </blockquote>
 </div>
-<!-- Sample pattern, your site's patterns will be different -->
+{# ticket 50: the demo showed a social icon oddly left-aligned on the
+   dark socialContainer band — its icon assets are gone (ticket 48).
+   Now the site's REGULAR navigation buttons (the buttonslider's
+   a.btn.vb-btn-full, flat grey with the red hover plate) on the plain
+   guide ground: Previous left-aligned, Next right-aligned. #}
 <div class="text-block">
   <h3 class="page-header">Buttons Aligned</h3>
-  <div class="socialContainer">
-    <a id="follow-button" class="vb-btn-icon " title="Follow @pedrobjorn on Twitter">
-      <img src="./../images/icons/twitter_icon_64.jpg" alt="Smiley face" width="48px" height="48px">
-    </a>
-    <a class="vb-btn-icon ">
-      <img src="../../images/icons/behance_icon_64.jpg" alt="Smiley face" width="48px" height="48px">
-    </a>
-    <a class="vb-btn-icon ">
-      <img src="../../images/icons/linkdin_icon_64.jpg" alt="Smiley face" width="48px" height="48px">
-    </a>
-  </div>
+  {# the buttonslider's real arrangement: nav.btn-container.row, two
+     col s6 halves, one button each #}
+  <nav class="btn-container row" aria-label="Previous / next demo">
+    <div class="col s6">
+      <a href="#" class="btn vb-btn-full left-align">&lt; Previous</a>
+    </div>
+    <div class="col s6">
+      <a href="#" class="btn vb-btn-full right-align">Next &gt;</a>
+    </div>
+  </nav>
 </div>
 <div class="paragraph-container">
   <h3 class="page-header">Image Container</h3>
-  <img src="./../images/work/fullsize/visualbear/visualbear_pedrobjorn.jpg" alt="visualbear logoimage">
+  {# ticket 38: inside the /workflow/ design panel (spec.lazyDemo) the
+     demo image ships lazy and flips eager on first tab-open (tabs.js) #}
+  <img src="../images/work/fullsize/visualbear/visualbear_pedrobjorn.jpg" alt="Pedro Björn, visualbear"{% if spec.lazyDemo %} loading="lazy"{% endif %}>
 </div>
 
-  <h3 class="page-header" id="linkblock">Link Block</h3>
-    <div class="text-block ">
-    <h4 class="page-header" id="galleryimg"> Cart Gallery Container</h4>
-  {{card.content({card:_cardPlay})}} 
-  </div>
+<div class="text-block" id="linkblock">
+    <h3 class="page-header">Link Block</h3>
+    <h4 class="page-header">Cart Gallery Container</h4>
+  {{card.content({card:_cardDemo})}}
+</div>
 </article>
   {% endmacro %}

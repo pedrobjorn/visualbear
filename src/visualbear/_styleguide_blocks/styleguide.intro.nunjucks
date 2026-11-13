@@ -7,7 +7,9 @@
   {% set baseUrl = '../' %}
 {% endblock %}
 <div class="paragraph-container">
-  <h1 class="page-header">Styleguide</h1>
+  {# ticket 33: demoted h1 -> h2 - this block renders inside the
+     /visualbear/ case page, whose hero owns the single h1 #}
+  <h2 class="page-header">Styleguide</h2>
   <p>This is the website styleguide. Here you will find a collection of all the individual components and rules, used to build this site. I use a modified, custom version of <a href="http://patternlab.io/" alt="Link to Pattern Lab">Pattern Lab's</a> atomic design structure for my site, customised by me. </p>
     
     <p>The structure is divided into:</p>

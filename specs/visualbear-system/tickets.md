@@ -1809,7 +1809,10 @@ chose #work precisely to avoid disclosing the air-locked mirror path
 - Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13c, item 1)
 - Size: M
 - Type: a11y
-- Status: OPEN
+- Status: DONE 2026-11-13 (DR-0011; evidence/t31-35-verify.md) - 105
+  case-page imgs alted ([ai]-drafted from file names + project context,
+  Pedro's Gate-7 pass owns wording), wrapper links named via img alt;
+  probed zero img-alt / link-name offenders on 29 pages, both engines
 - Measured (evidence/sweep-eval-2026-11-13.md, A1): /visualbear/ ships 9
   gallery <img> without alt (work/fullsize/*), so their wrapper links are
   unnamed too - the portfolio items are invisible to AT.
@@ -1833,9 +1836,9 @@ chose #work precisely to avoid disclosing the air-locked mirror path
 
 ## Acceptance criteria (agent-checkable)
 
-- [ ] Machine scan: zero a11y-link-name / a11y-img-alt hits on the case pages
-- [ ] Alt wording [ai]-marked for Pedro's pass
-- [ ] npm build + guard + npm test pass
+- [x] Machine scan: zero a11y-link-name / a11y-img-alt hits on the case pages
+- [x] Alt wording [ai]-marked for Pedro's pass
+- [x] npm build + guard + npm test pass
 
 ---
 
@@ -1860,9 +1863,9 @@ chose #work precisely to avoid disclosing the air-locked mirror path
 
 ## Acceptance criteria (agent-checkable)
 
-- [ ] Zero 404s in the console on /styleguide/ + /visualbear/ (probed)
-- [ ] No placeholder alt ("Smiley face") on the shipped icons
-- [ ] npm build + guard pass
+- [x] Zero 404s in the console on /styleguide/ + /visualbear/ (probed)
+- [x] No placeholder alt ("Smiley face") on the shipped icons
+- [x] npm build + guard pass
 
 ---
 
@@ -1871,7 +1874,10 @@ chose #work precisely to avoid disclosing the air-locked mirror path
 - Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13c, item 3)
 - Size: M
 - Type: a11y + structure
-- Status: OPEN
+- Status: DONE 2026-11-13 (DR-0011; evidence/t33-34-36-37-38-verify.md) -
+  tag-only demotion (h1 -> h2, ladder specimen h2.demo-h1, containers-
+  demo hero via headline demo:true); probed exactly one h1 on
+  /visualbear/ + /styleguide/, one VISIBLE h1 per /workflow/ tab state
 - Measured (A3): /visualbear/ renders FIVE visible h1s - the case hero +
   section h1s + the embedded styleguide COPY's own "Styleguide" h1 and
   the "h1 Heading" ladder demo. The src/visualbear/_styleguide_blocks
@@ -1892,10 +1898,10 @@ chose #work precisely to avoid disclosing the air-locked mirror path
 
 ## Acceptance criteria (agent-checkable)
 
-- [ ] Probed: exactly one VISIBLE h1 on /visualbear/, /styleguide/ and the
+- [x] Probed: exactly one VISIBLE h1 on /visualbear/, /styleguide/ and the
   design tab (the ladder demo excluded by demotion)
-- [ ] Text content byte-identical except nothing (tag-only changes)
-- [ ] npm build + guard + npm test pass
+- [x] Text content byte-identical except nothing (tag-only changes)
+- [x] npm build + guard + npm test pass
 
 ---
 
@@ -1904,7 +1910,10 @@ chose #work precisely to avoid disclosing the air-locked mirror path
 - Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13c, item 4)
 - Size: S
 - Type: a11y + structure
-- Status: OPEN
+- Status: DONE 2026-11-13 (DR-0011; evidence/t33-34-36-37-38-verify.md) -
+  footer molecule demo flag: div.foot, no id="contact", inert mailto;
+  probed exactly ONE id="contact" on all 44 built pages, demo still
+  renders as a footer specimen
 - Measured (A4): the styleguide modules' Footer demo renders a full LIVE
   <footer class="foot"><section id="contact"> with the real mailto as a
   demo inside the guide - /workflow/, /styleguide/ and /visualbear/ each
@@ -1924,10 +1933,10 @@ chose #work precisely to avoid disclosing the air-locked mirror path
 
 ## Acceptance criteria (agent-checkable)
 
-- [ ] Probed: exactly ONE id="contact" per built page (all 23 zones' pages)
-- [ ] The demo still RENDERS as a footer specimen visually (camera check
+- [x] Probed: exactly ONE id="contact" per built page (all 23 zones' pages)
+- [x] The demo still RENDERS as a footer specimen visually (camera check
   design tab vs pre-change - the DEMO LOOK survives)
-- [ ] npm build + guard + npm test pass
+- [x] npm build + guard + npm test pass
 
 ---
 
@@ -1936,7 +1945,14 @@ chose #work precisely to avoid disclosing the air-locked mirror path
 - Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13c, item 5)
 - Size: M
 - Type: a11y + UI
-- Status: OPEN
+- Status: DONE 2026-11-13 (DR-0011; evidence/t31-35-verify.md) - DEVIATION
+  RECORDED: #EA544F pixel-measured 3.87-4.14 on the eyebrow's real
+  (spotlight-tinted) ground, so the lift went to the palette's #EE6E73;
+  metric-label -> #66686D (T47 recipe); light link red -> #D0181E scoped
+  to body.home-page/about-page with guards. Probed >= 4.5 pixel on the
+  real ground, both engines, 390 + 1440 (eyebrow 4.69-5.75, metric 5.21,
+  links 4.83). Residual recorded: strip active label 4.19-4.33 under the
+  spotlight's brightest ~100px - Pedro's brand call
 - Measured (A5, pixel-verified):
   - /workflow/ cs-eyebrow #E34A47 15.36px: 3.64 best-case on the
     gradient/spotlight ground. T2's #EA544F (4.65 on the dark grounds)
@@ -1960,10 +1976,10 @@ chose #work precisely to avoid disclosing the air-locked mirror path
 
 ## Acceptance criteria (agent-checkable)
 
-- [ ] Pixel-probed: every flagged element >= 4.5 on its REAL rendered ground
+- [x] Pixel-probed: every flagged element >= 4.5 on its REAL rendered ground
   (not the computed walk), both engines at 390 + 1440
-- [ ] Dark grounds unchanged where they already pass
-- [ ] npm build + guard + npm test pass
+- [x] Dark grounds unchanged where they already pass
+- [x] npm build + guard + npm test pass
 
 ---
 
@@ -1972,7 +1988,9 @@ chose #work precisely to avoid disclosing the air-locked mirror path
 - Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13c, item 6)
 - Size: S
 - Type: a11y + copy
-- Status: OPEN
+- Status: DONE 2026-11-13 (DR-0011; evidence/t33-34-36-37-38-verify.md) -
+  one <h1>About</h1> on /about/ ([ai] draft default wording); recorded:
+  the home #about section stays heading-free (home hero owns that h1)
 - Measured (A6): /about/ ships ZERO headings. The /about/ page (and the
   home's #about section it duplicates) are all paragraphs.
 
@@ -1987,9 +2005,9 @@ chose #work precisely to avoid disclosing the air-locked mirror path
 
 ## Acceptance criteria (agent-checkable)
 
-- [ ] /about/ carries exactly one h1 (probed); its copy unchanged otherwise
-- [ ] The home #about rhythm + anchors re-probed clean (T23/T28 evidence)
-- [ ] npm build + guard + npm test pass
+- [x] /about/ carries exactly one h1 (probed); its copy unchanged otherwise
+- [x] The home #about rhythm + anchors re-probed clean (T23/T28 evidence)
+- [x] npm build + guard + npm test pass
 
 ---
 
@@ -1998,7 +2016,11 @@ chose #work precisely to avoid disclosing the air-locked mirror path
 - Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13c, item 7)
 - Size: S
 - Type: a11y + UI
-- Status: OPEN
+- Status: DONE 2026-11-13 (DR-0011; evidence/t33-34-36-37-38-verify.md) -
+  tabs 45-46px tall (vertical padding only; T22 strip contract re-probed
+  green 320/360/375 both engines), logo 44x44, footer bear 47x46.7 -
+  visuals pinned (img 32px, glyph unchanged, resume plate 40px); probing
+  390 + 1440 both engines
 - Measured (A7): interactive elements under the 44x44 target -
   the nav logo 40x40; .vb-tab buttons 37px tall (T21's tall-target rule
   covered the main nav, never the strip); the FOOTER BEAR 19x21 (an
@@ -2018,11 +2040,11 @@ chose #work precisely to avoid disclosing the air-locked mirror path
 
 ## Acceptance criteria (agent-checkable)
 
-- [ ] Probed 390 + 1440: tabs, logo, footer bear >= 44x44 hit boxes;
+- [x] Probed 390 + 1440: tabs, logo, footer bear >= 44x44 hit boxes;
   VISUAL size/position unchanged (camera diff vs pre-change)
-- [ ] T22's one-line-per-label contract still green (strip re-probed at
+- [x] T22's one-line-per-label contract still green (strip re-probed at
   320/360/375, both engines)
-- [ ] npm build + guard + npm test pass
+- [x] npm build + guard + npm test pass
 
 ---
 
@@ -2031,7 +2053,12 @@ chose #work precisely to avoid disclosing the air-locked mirror path
 - Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13c, item 8)
 - Size: S
 - Type: performance
-- Status: OPEN
+- Status: DONE 2026-11-13 (DR-0011; evidence/t33-34-36-37-38-verify.md) -
+  panel demo imgs lazy in HTML (lazyDemo param, /workflow/ panel only;
+  /styleguide/ standalone stays eager - recorded), tabs.js paint() flips
+  them eager on first activation. Probed clean-room: initial load 2 img
+  requests / 3.4KB, total 126KB vs 488KB baseline; cs-shots complete &&
+  naturalWidth>0 on first tab-open
 - Measured (P1): /workflow/ + /styleguide/ (+ the mirror copies)
   eagerly download 324KB / 6 images for the [hidden] design panel on
   every visit incl. gallery_thumb_closet.jpg at 131KB. Cause: T16
@@ -2053,10 +2080,10 @@ chose #work precisely to avoid disclosing the air-locked mirror path
 
 ## Acceptance criteria (agent-checkable)
 
-- [ ] /workflow/ transferWeight drops ~300KB (probe: requests + transferKB
+- [x] /workflow/ transferWeight drops ~300KB (probe: requests + transferKB
   vs eval_perf.json's 488KB) with no degradation on first design-open
-- [ ] The cs-shots row complete on first open (T16 probe re-run)
-- [ ] npm build + guard + npm test pass
+- [x] The cs-shots row complete on first open (T16 probe re-run)
+- [x] npm build + guard + npm test pass
 
 ---
 

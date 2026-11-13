@@ -2,13 +2,21 @@
 {% set spec = spec or {} %}
 {% set _class = spec.class or '' %}
 {% set _content = spec.content or '{}' %}
+{# ticket 33: demo mode renders the hero's h1 as an h2 - the molecule is
+   the case pages' real hero (its h1 owns the page's single h1), but the
+   styleguide containers demo embeds it inside another page that already
+   carries a hero h1. Tag-only; the string is unchanged. #}
+{% set _demo = spec.demo %}
 {% block content %}
 	<div class="container {{_class}}" style="padding-bottom:0;">
 		<div class="document-text text-box">
 			<div class="logo-image">
-				<img src="{{_content.logoImg}}" title="Image"  width="auto" height="auto">
+				{# ticket 31: the logo mark is decorative here - the h1 right
+				   below carries the project's name, so alt="" (no placeholder
+				   title) #}
+				<img src="{{_content.logoImg}}" alt="" width="auto" height="auto">
 			</div>
-			<h1 class="center-justified">{{_content.description}}</h1>
+			{% if _demo %}<h2 class="center-justified">{{_content.description}}</h2>{% else %}<h1 class="center-justified">{{_content.description}}</h1>{% endif %}
 			<div class="paragraph-container center-justified">
 				<div class="row">
 					<div class="col m12 s12">
@@ -52,7 +60,9 @@
 			</div>
 			{% if _content.headline_img %}
 				<div class="gallery-image__small">
-					<img src="{{_content.headline_img}}" title="Image"  width="auto" height="auto">
+					{# ticket 31: the hero image takes its alt from the project
+					   data (headline_img_alt, [ai]-drafted) #}
+					<img src="{{_content.headline_img}}" alt="{{_content.headline_img_alt or ''}}" width="auto" height="auto">
 				</div>
 			{% endif %}
 		</div>

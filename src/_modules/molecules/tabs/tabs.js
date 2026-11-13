@@ -91,6 +91,16 @@ function paint(state, root) {
   document.querySelectorAll('[data-vb-panel]').forEach(function (panel) {
     var isActive = panel.getAttribute('data-vb-panel') === state.activeId;
     panel.hidden = !isActive;
+    if (isActive) {
+      // Ticket 38: the design panel ships [hidden], so its demo images
+      // carry loading="lazy" and would never hydrate on their own (and a
+      // below-the-fold row would wait for a scroll - ticket 16's bug).
+      // On activation - first open included - flip them eager in this
+      // same paint, so the row renders complete the moment the tab opens.
+      panel.querySelectorAll('img[loading="lazy"]').forEach(function (img) {
+        img.loading = 'eager';
+      });
+    }
     panel.classList.remove('vb-panel--enter');
     if (isActive && !prefersReducedMotion()) {
       void panel.offsetWidth; // restart the enter fade

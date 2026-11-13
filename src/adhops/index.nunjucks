@@ -14,20 +14,21 @@
 			<div class="container--padded">
 				<div class="document-text text-box">
 					<div class="col-xs-12 gallery-image">
-						<a href="../images/work/fullsize/adhops/adhops_first.jpg" alt="Ad Hops logo">
-							<img src="../images/work/fullsize/adhops/adhops_first.jpg" title="Ad Hops logo example 1 image" width="924" height="480">
+						<a href="../images/work/fullsize/adhops/adhops_first.jpg">
+							<!-- Ticket 31 (visualbear-system): the img alts below are [ai]-drafted from the real file names + project context - Pedro's wording pass (Gate 7) owns the final strings. The invalid alt= on wrapper <a> tags was removed; each gallery link takes its accessible name from its img's alt. -->
+<img alt="Ad Hops logo" src="../images/work/fullsize/adhops/adhops_first.jpg" title="Ad Hops logo example 1 image" width="924" height="480">
 						</a>
-						<a href="../images/work/fullsize/adhops/adhops_alt.jpg" alt="Ad Hops alternative logo">
-							<img src="../images/work/fullsize/adhops/adhops_alt.jpg" title="Ad Hops logo example 2 image" width="924" height="480">
+						<a href="../images/work/fullsize/adhops/adhops_alt.jpg">
+							<img alt="Ad Hops alternative logo" src="../images/work/fullsize/adhops/adhops_alt.jpg" title="Ad Hops logo example 2 image" width="924" height="480">
 						</a>
-						<a href="../images/work/fullsize/adhops/adhops_bw.jpg" alt="Ad Hops black and white">
-							<img src="../images/work/fullsize/adhops/adhops_bw.jpg" title="Ad Hops black and white logo  image" width="924" height="484">
+						<a href="../images/work/fullsize/adhops/adhops_bw.jpg">
+							<img alt="Ad Hops black and white" src="../images/work/fullsize/adhops/adhops_bw.jpg" title="Ad Hops black and white logo  image" width="924" height="484">
 						</a>
-						<a href="../images/work/fullsize/adhops/adhops_colors.jpg" alt="Ad Hops colours">
-							<img src="../images/work/fullsize/adhops/adhops_colors.jpg" title="Ad Hops color palette image" width="924" height="387">
+						<a href="../images/work/fullsize/adhops/adhops_colors.jpg">
+							<img alt="Ad Hops colours" src="../images/work/fullsize/adhops/adhops_colors.jpg" title="Ad Hops color palette image" width="924" height="387">
 						</a>
-						<a href="../images/work/fullsize/adhops/adhops_card.jpg" alt="Ad Hops business card">
-							<img src="../images/work/fullsize/adhops/adhops_card.jpg" title="Ad Hops business card image" width="924" height="362">
+						<a href="../images/work/fullsize/adhops/adhops_card.jpg">
+							<img alt="Ad Hops business card" src="../images/work/fullsize/adhops/adhops_card.jpg" title="Ad Hops business card image" width="924" height="362">
 						</a>
 					</div>
 					<div class="document-text text-box">
@@ -39,26 +40,26 @@
 						</div>
 					</div>
 					<div class="col-xs-12 gallery-image">
-						<a href="../images/work/fullsize/adhops/adhops_magnum_a.jpg" alt="Ad Hops magnum logo one">
-							<img src="../images/work/fullsize/adhops/adhops_magnum_a.jpg" title="Magnum Hopus logo example 1 image" width="923" height="481">
+						<a href="../images/work/fullsize/adhops/adhops_magnum_a.jpg">
+							<img alt="Ad Hops magnum logo one" src="../images/work/fullsize/adhops/adhops_magnum_a.jpg" title="Magnum Hopus logo example 1 image" width="923" height="481">
 						</a>
-						<a href="../images/work/fullsize/adhops/adhops-magnum_b.jpg" alt="Ad Hops magnum logo two">
-							<img src="../images/work/fullsize/adhops/adhops-magnum_b.jpg" title="Magnum Hopus logo example 2 image" width="923" height="480">
+						<a href="../images/work/fullsize/adhops/adhops-magnum_b.jpg">
+							<img alt="Ad Hops magnum logo two" src="../images/work/fullsize/adhops/adhops-magnum_b.jpg" title="Magnum Hopus logo example 2 image" width="923" height="480">
 						</a>
-						<a href="../images/work/fullsize/adhops/adhops_magnum_bw.jpg" alt="Ad Hops magnum logo black white">
-							<img src="../images/work/fullsize/adhops/adhops_magnum_bw.jpg" title="Magnum Hopus black and white logo image" width="923" height="483">
+						<a href="../images/work/fullsize/adhops/adhops_magnum_bw.jpg">
+							<img alt="Ad Hops magnum logo black white" src="../images/work/fullsize/adhops/adhops_magnum_bw.jpg" title="Magnum Hopus black and white logo image" width="923" height="483">
 						</a>
-						<a href="../images/work/fullsize/adhops/adhops_magnum_bottle.jpg" alt="Ad Hops magnum bottle">
-							<img src="../images/work/fullsize/adhops/adhops_magnum_bottle.jpg" title="Magnum Hopus bottle concept image" width="924" height="952">
+						<a href="../images/work/fullsize/adhops/adhops_magnum_bottle.jpg">
+							<img alt="Ad Hops magnum bottle" src="../images/work/fullsize/adhops/adhops_magnum_bottle.jpg" title="Magnum Hopus bottle concept image" width="924" height="952">
 						</a>
-						<a href="../images/work/fullsize/adhops/adhops_magnum_can.jpg" alt="Ad Hops magnum can">
-							<img src="../images/work/fullsize/adhops/adhops_magnum_can.jpg" title="Magnum Hopus beer can concept image" width="924" height="482">
+						<a href="../images/work/fullsize/adhops/adhops_magnum_can.jpg">
+							<img alt="Ad Hops magnum can" src="../images/work/fullsize/adhops/adhops_magnum_can.jpg" title="Magnum Hopus beer can concept image" width="924" height="482">
 						</a>
-						<a href="../images/work/fullsize/adhops/adhops_magnum_coaster.jpg" alt="Ad Hops magnum coaster">
-							<img src="../images/work/fullsize/adhops/adhops_magnum_coaster.jpg" title="Magnum Hopus beer coaster image"  width="924" height="482">
+						<a href="../images/work/fullsize/adhops/adhops_magnum_coaster.jpg">
+							<img alt="Ad Hops magnum coaster" src="../images/work/fullsize/adhops/adhops_magnum_coaster.jpg" title="Magnum Hopus beer coaster image"  width="924" height="482">
 						</a>
-						<a href="../images/work/fullsize/adhops/adhops_pres.jpg" alt="Ad Hops magnum summary">
-							<img src="../images/work/fullsize/adhops/adhops_pres.jpg" title="Ad Hops and Magnum Hopus application image" width="921" height="981">
+						<a href="../images/work/fullsize/adhops/adhops_pres.jpg">
+							<img alt="Ad Hops magnum summary" src="../images/work/fullsize/adhops/adhops_pres.jpg" title="Ad Hops and Magnum Hopus application image" width="921" height="981">
 						</a>
 					</div>
 				</div>

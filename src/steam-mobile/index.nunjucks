@@ -15,7 +15,7 @@
                     <div class="paragraph-container--icons center-justified row">
                         <div class="col m4 s12">
                             <h3>Research</h3>
-                            <img class="img-small" src="../images/work/fullsize/steam/details/research_icon.jpg" title="Image"  width="256" height="256">
+                            <img alt="Steam Mobile — Research icon" class="img-small" src="../images/work/fullsize/steam/details/research_icon.jpg" title="Image"  width="256" height="256">
                             <ul>
                                 <li>
                                     App Taxonomy
@@ -27,7 +27,7 @@
                         </div>
                         <div class="col m4 s12">
                             <h3>Ideation</h3>
-                            <img class="img-small" src="../images/work/fullsize/steam/details/ideation_icon.jpg" title="Image" width="256" height="256">
+                            <img alt="Steam Mobile — Ideation icon" class="img-small" src="../images/work/fullsize/steam/details/ideation_icon.jpg" title="Image" width="256" height="256">
                             <ul>
                                 <li>
                                     Sketching
@@ -39,7 +39,7 @@
                         </div>
                         <div class="col m4 s12">
                             <h3>Iterations</h3>
-                            <img class="img-small" src="../images/work/fullsize/steam/details/iterate_icon.jpg" title="Image"  width="256" height="256">
+                            <img alt="Steam Mobile — Iterate icon" class="img-small" src="../images/work/fullsize/steam/details/iterate_icon.jpg" title="Image"  width="256" height="256">
                             <ul>
                                 <li>
                                     Feature Breakdown
@@ -62,7 +62,7 @@
                         <h2>TAXONOMY</h2>
                         <p>Here we take a screen shot of every view, and organize its various elements into categories. This will help us keep track of everything as we reshape the app.</p>
                     </div>
-                    <img src="../images/work/fullsize/steam/details/taxonomy.png" title="Image"  width="100%" height="100%">
+                    <img alt="Steam Mobile — Taxonomy" src="../images/work/fullsize/steam/details/taxonomy.png" title="Image"  width="100%" height="100%">
                 </div>
             </div>
             <div class="container light-bg">
@@ -72,9 +72,10 @@
                         <p>A new sitemap is created based on a new, trimmed and organized Information Architecture, since the old one was very flat and disconnected.</p>
                         
                     </div>
-                    <div class="gallery-image">
-                        <a href="../images/work/fullsize/steam/details/sitemap.png" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/steam/details/sitemap.png" title="Image"  width="100%" height="100%">
+                    <!-- Ticket 31 (visualbear-system): the img alts below are [ai]-drafted from the real file names + project context - Pedro's wording pass (Gate 7) owns the final strings. The invalid alt= on wrapper <a> tags was removed; each gallery link takes its accessible name from its img's alt. -->
+<div class="gallery-image">
+                        <a href="../images/work/fullsize/steam/details/sitemap.png">
+                            <img alt="Steam Mobile — Sitemap" src="../images/work/fullsize/steam/details/sitemap.png" title="Image"  width="100%" height="100%">
                             
                         </a>
                     </div>
@@ -87,8 +88,8 @@
                         <p>With the new structure established, we begin sketching and ideating each view, with variations of UI elements, and structures. We then select the best candidates based on feedback and established patterns.</p>
                     </div>
                     <div class="gallery-image">
-                        <a href="../images/work/fullsize/steam/details/sketches.png" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/steam/details/sketches.png" title="Image"  width="100%" height="100%">
+                        <a href="../images/work/fullsize/steam/details/sketches.png">
+                            <img alt="Steam Mobile — Sketches" src="../images/work/fullsize/steam/details/sketches.png" title="Image"  width="100%" height="100%">
                             
                         </a>
                     </div>
@@ -105,10 +106,10 @@
                     </div>
                     <div class="paragraph-container--unpadded row">
                         <div class="col-md-6">
-                            <img src="../images/work/fullsize/steam/details/typeface-roboto.png" title="Image"  width="75%" height="75%">
+                            <img alt="Steam Mobile — Typeface roboto" src="../images/work/fullsize/steam/details/typeface-roboto.png" title="Image"  width="75%" height="75%">
                         </div>
                         <div class="col-md-6">
-                            <img src="../images/work/fullsize/steam/details/typeface-din.png" title="Image"  width="75%" height="75%">
+                            <img alt="Steam Mobile — Typeface din" src="../images/work/fullsize/steam/details/typeface-din.png" title="Image"  width="75%" height="75%">
                         </div>
                     </div>
                 </div>
@@ -118,7 +119,7 @@
                     <div class="paragraph-container--unpadded">
                         <h2>COLORS</h2>
                     </div>
-                    <img src="../images/work/fullsize/steam/details/colors.png" title="Image"  width="100%" height="100%">
+                    <img alt="Steam Mobile — Colors" src="../images/work/fullsize/steam/details/colors.png" title="Image"  width="100%" height="100%">
                 </div>
             </div>
             <div class="container--padded  container--gradient_dark">
@@ -126,7 +127,7 @@
                     <div class="paragraph-container--unpadded">
                         <h2>ICONS</h2>    
                     </div>
-                    <img src="../images/work/fullsize/steam/details/icons.svg" title="Image"  width="100%" height="100%">
+                    <img alt="Steam Mobile — Icons" src="../images/work/fullsize/steam/details/icons.svg" title="Image"  width="100%" height="100%">
                 </div>
             </div>
             <!-- RESULTS -->
@@ -138,8 +139,8 @@
                     <div class="paragraph-container">
                         <h2>Start &amp; Login</h2>
                         <div class="gallery-image">
-                            <a href="../images/work/fullsize/steam/screens/start.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/steam/screens/start.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/steam/screens/start.jpg">
+                                <img alt="Steam Mobile — Start" src="../images/work/fullsize/steam/screens/start.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         <subtitle class="subtitle">
@@ -151,8 +152,8 @@
                     <div class="paragraph-container--icons">
                         <h2>Profile</h2>
                         <div class="gallery-image--medium center-align">
-                            <a href="../images/work/fullsize/steam/screens/profile.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/steam/screens/profile.jpg" title="Image"  width="50%" height="50%">
+                            <a href="../images/work/fullsize/steam/screens/profile.jpg">
+                                <img alt="Steam Mobile — Profile" src="../images/work/fullsize/steam/screens/profile.jpg" title="Image"  width="50%" height="50%">
                             </a>
                         </div>
                         <subtitle class="subtitle">
@@ -164,8 +165,8 @@
                     <div class="paragraph-container">
                         <h2>UI Details - Header &amp; Tabs</h2>
                         <div class="gallery-image">
-                            <a href="../images/work/fullsize/steam/screens/ui-detail_header.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/steam/screens/ui-detail_header.jpg" title="Image"  width="50%" height="50%">
+                            <a href="../images/work/fullsize/steam/screens/ui-detail_header.jpg">
+                                <img alt="Steam Mobile — Ui detail header" src="../images/work/fullsize/steam/screens/ui-detail_header.jpg" title="Image"  width="50%" height="50%">
                             </a>
                         </div>
                         <subtitle class="subtitle">
@@ -177,8 +178,8 @@
                     <div class="paragraph-container">
                         <h2>Library</h2>
                         <div class="gallery-image">
-                            <a href="../images/work/fullsize/steam/screens/library.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/steam/screens/library.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/steam/screens/library.jpg">
+                                <img alt="Steam Mobile — Library" src="../images/work/fullsize/steam/screens/library.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         <subtitle class="subtitle">
@@ -190,8 +191,8 @@
                     <div class="paragraph-container">
                         <h2>UI Details - Search Navigation &amp; Filtering</h2>
                         <div class="gallery-image">
-                            <a href="../images/work/fullsize/steam/screens/ui-detail_filters.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/steam/screens/ui-detail_filters.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/steam/screens/ui-detail_filters.jpg">
+                                <img alt="Steam Mobile — Ui detail filters" src="../images/work/fullsize/steam/screens/ui-detail_filters.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         <subtitle class="subtitle">
@@ -203,8 +204,8 @@
                     <div class="paragraph-container">
                         <h2>Steam Chat</h2>
                         <div class="gallery-image">
-                            <a href="../images/work/fullsize/steam/screens/chat.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/steam/screens/chat.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/steam/screens/chat.jpg">
+                                <img alt="Steam Mobile — Chat" src="../images/work/fullsize/steam/screens/chat.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         <subtitle class="subtitle">
@@ -217,8 +218,8 @@
                     <div class="paragraph-container--icons">
                         <h2>Store</h2>
                         <div class="gallery-image--medium center-align">
-                            <a href="../images/work/fullsize/steam/screens/store.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/steam/screens/store.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/steam/screens/store.jpg">
+                                <img alt="Steam Mobile — Store" src="../images/work/fullsize/steam/screens/store.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         <subtitle class="subtitle">
@@ -230,8 +231,8 @@
                     <div class="paragraph-container--icons">
                         <h2>Game Detail View</h2>
                         <div class="gallery-image--medium center-align">
-                            <a href="../images/work/fullsize/steam/screens/game-detail.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/steam/screens/game-detail.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/steam/screens/game-detail.jpg">
+                                <img alt="Steam Mobile — Game detail" src="../images/work/fullsize/steam/screens/game-detail.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         <subtitle class="subtitle">
@@ -243,8 +244,8 @@
                     <div class="paragraph-container">
                         <h2>UI Details - Action Button</h2>
                         <div class="gallery-image--medium center-align">
-                            <a href="../images/work/fullsize/steam/screens/ui-detail_action-buttons.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/steam/screens/ui-detail_action-buttons.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/steam/screens/ui-detail_action-buttons.jpg">
+                                <img alt="Steam Mobile — Ui detail action buttons" src="../images/work/fullsize/steam/screens/ui-detail_action-buttons.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         <subtitle class="subtitle">
@@ -256,8 +257,8 @@
                     <div class="paragraph-container--icons">
                         <h2>Steam Community - Market</h2>
                         <div class="gallery-image--medium center-align">
-                            <a href="../images/work/fullsize/steam/screens/market.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/steam/screens/market.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/steam/screens/market.jpg">
+                                <img alt="Steam Mobile — Market" src="../images/work/fullsize/steam/screens/market.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         <subtitle class="subtitle">
@@ -269,8 +270,8 @@
                     <div class="paragraph-container--icons">
                         <h2>Steam Guard &amp; Confirmations</h2>
                         <div class="gallery-image--medium center-align">
-                            <a href="../images/work/fullsize/steam/screens/guard.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/steam/screens/guard.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/steam/screens/guard.jpg">
+                                <img alt="Steam Mobile — Guard" src="../images/work/fullsize/steam/screens/guard.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         <subtitle class="subtitle">
@@ -283,7 +284,7 @@
             </div>
             <div class="container" style="padding:0;">
                 <div class="gallery-image__full">
-                    <img src="../images/work/fullsize/steam/details/bottom-image.jpg" title="Image"  width="100%" height="100%">
+                    <img alt="Steam Mobile — Bottom image" src="../images/work/fullsize/steam/details/bottom-image.jpg" title="Image"  width="100%" height="100%">
                 </div>
             </div>
             <div class="container--padded container--gradient_light">

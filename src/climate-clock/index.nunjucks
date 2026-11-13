@@ -11,7 +11,7 @@
                 
                 {{headline.content({content:site.data.project_climateclock})}}
                 
-                <img src="../images/work/fullsize/climateclock/details/ice_pattern.png" title="Icecaps melting"  width="100%" height="100%" style="margin-bottom:-12px">
+                <img alt="Climate Clock — Ice pattern" src="../images/work/fullsize/climateclock/details/ice_pattern.png" title="Icecaps melting"  width="100%" height="100%" style="margin-bottom:-12px">
             </div>
             <!-- OVERVIEW -->
             <div class="container" id="definition">
@@ -21,9 +21,10 @@
                         <p>
                             The goal was to pick an existing property and give it a a bold redesign. For this case, the <a href="https://climateclock.world/" alt="Climate Clock link" target="_blank" >Climate Clock</a> was a perfect candidate, being a great cause and having a lot of potential.
                         </p>
-                    <div class="gallery-image--medium">
-                        <a href="../images/work/fullsize/climateclock/screens/cc_original.jpg" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/climateclock/screens/cc_original.jpg" title="Image"  width="100%" height="100%">
+                    <!-- Ticket 31 (visualbear-system): the img alts below are [ai]-drafted from the real file names + project context - Pedro's wording pass (Gate 7) owns the final strings. The invalid alt= on wrapper <a> tags was removed; each gallery link takes its accessible name from its img's alt. -->
+<div class="gallery-image--medium">
+                        <a href="../images/work/fullsize/climateclock/screens/cc_original.jpg">
+                            <img alt="Climate Clock — Cc original" src="../images/work/fullsize/climateclock/screens/cc_original.jpg" title="Image"  width="100%" height="100%">
                         </a>
                         <p class="image_text">The original page is a great first step with a lot of potential. I borrowed a lot from here and simply took it a step further.</p>
                     </div>
@@ -35,7 +36,7 @@
                 </div>
             </div>
             <div class="gallery-image--full">
-                <img src="../images/work/fullsize/climateclock/details/mobile-index-splash.png" title="Image"  width="100%" height="100%">
+                <img alt="Climate Clock — Mobile index splash" src="../images/work/fullsize/climateclock/details/mobile-index-splash.png" title="Image"  width="100%" height="100%">
             </div>
             <!-- BRANDING -->
             <div class="container dark-bg" id="iteration">
@@ -48,8 +49,8 @@
                         </p>
                     </div>
                     <div class="gallery-image--medium">
-                        <a href="../images/work/fullsize/climateclock/details/logo_icon-white.png" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/climateclock/details/logo_icon-white.png" title="Image"  width="100%" height="100%">
+                        <a href="../images/work/fullsize/climateclock/details/logo_icon-white.png">
+                            <img alt="Climate Clock — Logo icon white" src="../images/work/fullsize/climateclock/details/logo_icon-white.png" title="Image"  width="100%" height="100%">
                         </a>
                         <p class="image_text">The outside representing the Deadline, and the inside for the Lifeline, the two circles can vary in completeness, allowing for a dynamic presentation of the logomark.</p>
                     </div>
@@ -60,8 +61,8 @@
                         </p>
                     </div>
                     <div class="gallery-image">
-                        <a href="../images/work/fullsize/climateclock/details/logotype.png" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/climateclock/details/logotype.png" title="Image"  width="100%" height="100%">
+                        <a href="../images/work/fullsize/climateclock/details/logotype.png">
+                            <img alt="Climate Clock — Logotype" src="../images/work/fullsize/climateclock/details/logotype.png" title="Image"  width="100%" height="100%">
                         </a>
                         <p class="image_text"></p>
                     </div>
@@ -70,8 +71,8 @@
             <div class="container--unpadded dark-bg" id="iteration">
                 <div class="document-text text-box">
                     <div class="gallery-image">
-                        <a href="../images/work/fullsize/climateclock/details/visual_identity.png" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/climateclock/details/visual_identity.png" title="Image"  width="100%" height="100%">
+                        <a href="../images/work/fullsize/climateclock/details/visual_identity.png">
+                            <img alt="Climate Clock — Visual identity" src="../images/work/fullsize/climateclock/details/visual_identity.png" title="Image"  width="100%" height="100%">
                         </a>
                     </div>
                     <div class="paragraph-container">
@@ -84,7 +85,7 @@
                 </div>
             </div>
             <div class="black-bg">
-                <img src="../images/work/fullsize/climateclock/details/ice_image.png" title="Icecaps melting"  width="100%" height="100%" style="margin-bottom:-9px;">
+                <img alt="Climate Clock — Ice image" src="../images/work/fullsize/climateclock/details/ice_image.png" title="Icecaps melting"  width="100%" height="100%" style="margin-bottom:-9px;">
             </div>
             <div class="container--padded">
                 <div class="document-text text-box">
@@ -101,19 +102,19 @@
                         </p>
                     </div>
                     <div class="gallery-image--medium mobile-show">
-                        <a href="../images/work/fullsize/climateclock/screens/mobile-index-default.jpg" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/climateclock/screens/mobile-index-default.jpg" title="Image"  width="100%" height="100%">
+                        <a href="../images/work/fullsize/climateclock/screens/mobile-index-default.jpg">
+                            <img alt="Climate Clock — Mobile index default" src="../images/work/fullsize/climateclock/screens/mobile-index-default.jpg" title="Image"  width="100%" height="100%">
                         </a>
                     </div>
                     <div class="gallery-image--medium mobile-show">
-                        <a href="../images/work/fullsize/climateclock/screens/mobile-index-emissions.jpg" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/climateclock/screens/mobile-index-emissions.jpg" title="Image"  width="100%" height="100%">
+                        <a href="../images/work/fullsize/climateclock/screens/mobile-index-emissions.jpg">
+                            <img alt="Climate Clock — Mobile index emissions" src="../images/work/fullsize/climateclock/screens/mobile-index-emissions.jpg" title="Image"  width="100%" height="100%">
                         </a>
                         <p class="image_text">The transition between the Deadline and Lifeline counter is a scroll-based animation that converts the ominous graphic into a more hopeful vision.</p>
                     </div>
                     <div class="gallery-image mobile-hide">
-                        <a href="../images/work/fullsize/climateclock/screens/mobile-index-default-double.jpg" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/climateclock/screens/mobile-index-default-double.jpg" title="Image"  width="100%" height="100%">
+                        <a href="../images/work/fullsize/climateclock/screens/mobile-index-default-double.jpg">
+                            <img alt="Climate Clock — Mobile index default double" src="../images/work/fullsize/climateclock/screens/mobile-index-default-double.jpg" title="Image"  width="100%" height="100%">
                         </a>
                         <p class="image_text">The transition between the Deadline and Lifeline counter is a scoll-based animation that converts the ominous graphic into a more hopeful vision.</p>
                     </div>
@@ -122,8 +123,8 @@
             <div class="container--padded dark-bg">
                 <div class="document-text text-box">
                     <div class="gallery-image--medium">
-                        <a href="../images/work/fullsize/climateclock/gifs/mobile-index.gif" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/climateclock/gifs/mobile-index.gif" title="Image"  width="100%" height="100%">
+                        <a href="../images/work/fullsize/climateclock/gifs/mobile-index.gif">
+                            <img alt="Climate Clock — Mobile index" src="../images/work/fullsize/climateclock/gifs/mobile-index.gif" title="Image"  width="100%" height="100%">
                         </a>
                     </div>
                 </div>
@@ -140,8 +141,8 @@
                                 This is followed by subscription bar and climate data section, ending with the About section.
                             </p>
                         </div>
-                        <a href="../images/work/fullsize/climateclock/screens/desktop-index-full.jpg" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/climateclock/screens/desktop-index-full.jpg" title="Image"  width="100%" height="100%">
+                        <a href="../images/work/fullsize/climateclock/screens/desktop-index-full.jpg">
+                            <img alt="Climate Clock — Desktop index full" src="../images/work/fullsize/climateclock/screens/desktop-index-full.jpg" title="Image"  width="100%" height="100%">
                         </a>
                         <p class="image_text">The layout is based on a structure of <i>Concern, Inform, Act</i>, guiding the player from awareness to action as they scroll down.</p>
                     </div>
@@ -159,26 +160,26 @@
                         </p>
                     </div>
                     <div class="gallery-image--full mobile-show">
-                        <a href="../images/work/fullsize/climateclock/screens/mobile-main-nav.jpg" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/climateclock/screens/mobile-main-nav.jpg" title="Image"  width="100%" height="100%">
+                        <a href="../images/work/fullsize/climateclock/screens/mobile-main-nav.jpg">
+                            <img alt="Climate Clock — Mobile main nav" src="../images/work/fullsize/climateclock/screens/mobile-main-nav.jpg" title="Image"  width="100%" height="100%">
                         </a>
                         <p class="image_text">The Nav Menu is always available, to ensure users can find their way around.</p>
                     </div>
                     <div class="gallery-image--full mobile-show">
-                        <a href="../images/work/fullsize/climateclock/screens/mobile-index-FAB.jpg" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/climateclock/screens/mobile-index-FAB.jpg" title="Image"  width="100%" height="100%">
+                        <a href="../images/work/fullsize/climateclock/screens/mobile-index-FAB.jpg">
+                            <img alt="Climate Clock — Mobile index FAB" src="../images/work/fullsize/climateclock/screens/mobile-index-FAB.jpg" title="Image"  width="100%" height="100%">
                         </a>
                         <p class="image_text">The "Action FAB" always provides options to act, be it something simple like sharing, or more advanced like navigating to the guide for Clock building.</p>
                     </div>
                     <div class="gallery-image--full mobile-show">
-                        <a href="../images/work/fullsize/climateclock/screens/mobile-display-action.jpg" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/climateclock/screens/mobile-display-action.jpg" title="Image"  width="100%" height="100%">
+                        <a href="../images/work/fullsize/climateclock/screens/mobile-display-action.jpg">
+                            <img alt="Climate Clock — Mobile display action" src="../images/work/fullsize/climateclock/screens/mobile-display-action.jpg" title="Image"  width="100%" height="100%">
                         </a>
                         <p class="image_text">On the Display section, the FAB provides display options, such as changing Dark / Light mode.</p>
                     </div>
                     <div class="gallery-image--full mobile-hide">
-                        <a href="../images/work/fullsize/climateclock/screens/mobile-action-triple.jpg" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/climateclock/screens/mobile-action-triple.jpg" title="Image"  width="100%" height="100%">
+                        <a href="../images/work/fullsize/climateclock/screens/mobile-action-triple.jpg">
+                            <img alt="Climate Clock — Mobile action triple" src="../images/work/fullsize/climateclock/screens/mobile-action-triple.jpg" title="Image"  width="100%" height="100%">
                         </a>
                         <p class="image_text">The Nav Menu is always available, to ensure users can find their way around. The "Action FAB" always provides options to act, and on the Display section, the FAB provides display options.</p>
                     </div>
@@ -198,32 +199,32 @@
                                 The Mobile Display / App does have a limited use. Due to this, an Action Fab should be added to the core view in the app. It can still serve as an interesting data display view, perhaps connectable to a projector.
                             </p>
                         </div>
-                            <a href="../images/work/fullsize/climateclock/screens/mobile-index-display_base_angled.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/climateclock/screens/mobile-index-display_base_angled.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/climateclock/screens/mobile-index-display_base_angled.jpg">
+                                <img alt="Climate Clock — Mobile index display base angled" src="../images/work/fullsize/climateclock/screens/mobile-index-display_base_angled.jpg" title="Image"  width="100%" height="100%">
                             </a>
                             <p class="image_text">Three display types will show 3 different presentations of data: The Circular Graph, the Counters and the Dashboard.</p>
                         </div>
                         <div class="gallery-image--full mobile-show">
-                            <a href="../images/work/fullsize/climateclock/screens/mobile-index-display_graph.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/climateclock/screens/mobile-index-display_graph.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/climateclock/screens/mobile-index-display_graph.jpg">
+                                <img alt="Climate Clock — Mobile index display graph" src="../images/work/fullsize/climateclock/screens/mobile-index-display_graph.jpg" title="Image"  width="100%" height="100%">
                             </a>
                              <p class="image_text">The Timer emphasises the visual presentation, displaying the titular circular counter graphic.</p>
                         </div>
                         <div class="gallery-image--full mobile-show">
-                            <a href="../images/work/fullsize/climateclock/screens/mobile-index-display_counter2.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/climateclock/screens/mobile-index-display_counter2.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/climateclock/screens/mobile-index-display_counter2.jpg">
+                                <img alt="Climate Clock — Mobile index display counter2" src="../images/work/fullsize/climateclock/screens/mobile-index-display_counter2.jpg" title="Image"  width="100%" height="100%">
                             </a>
                              <p class="image_text">The Counter provides a balance between information and emphasis, with large numbers taking up most of the screen.</p>
                         </div>
                         <div class="gallery-image--full mobile-show">
-                            <a href="../images/work/fullsize/climateclock/screens/mobile-index-display_dashboard.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/climateclock/screens/mobile-index-display_dashboard.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/climateclock/screens/mobile-index-display_dashboard.jpg">
+                                <img alt="Climate Clock — Mobile index display dashboard" src="../images/work/fullsize/climateclock/screens/mobile-index-display_dashboard.jpg" title="Image"  width="100%" height="100%">
                             </a>
                              <p class="image_text">The Dashboard provides the most information at a cost of emphasis, allowing users to switch between different scenarios.</p>
                         </div>
                         <div class="gallery-image--full mobile-hide">
-                            <a href="../images/work/fullsize/climateclock/screens/mobile-display-triple.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/climateclock/screens/mobile-display-triple.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/climateclock/screens/mobile-display-triple.jpg">
+                                <img alt="Climate Clock — Mobile display triple" src="../images/work/fullsize/climateclock/screens/mobile-display-triple.jpg" title="Image"  width="100%" height="100%">
                             </a>
                              <p class="image_text">The Timer graphic emphasises the visual presentation, the Counter provides a balance between information and emphasis, and the Dashboard provides the most information at a cost of emphasis.</p>
                         </div>
@@ -233,8 +234,8 @@
             <div class="container--padded dark-bg">
                 <div class="document-text text-box">
                     <div class="gallery-image--medium">
-                        <a href="../images/work/fullsize/climateclock/gifs/mobile-display.gif" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/climateclock/gifs/mobile-display.gif" title="Image"  width="100%" height="100%">
+                        <a href="../images/work/fullsize/climateclock/gifs/mobile-display.gif">
+                            <img alt="Climate Clock — Mobile display" src="../images/work/fullsize/climateclock/gifs/mobile-display.gif" title="Image"  width="100%" height="100%">
                         </a>
                     </div>
                 </div>
@@ -248,8 +249,8 @@
                         </p>
                     </div>
                     <div class="gallery-image--full ">
-                        <a href="../images/work/fullsize/climateclock/screens/desktop_display-web.jpg" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/climateclock/screens/desktop_display-web.jpg" title="Image"  width="100%" height="100%">
+                        <a href="../images/work/fullsize/climateclock/screens/desktop_display-web.jpg">
+                            <img alt="Climate Clock — Desktop display web" src="../images/work/fullsize/climateclock/screens/desktop_display-web.jpg" title="Image"  width="100%" height="100%">
                         </a>
                         <p class="image_text">All the Display views have a "focus" screen that hide all interactive elements, making it optimal for displaying publically.</p>
                     </div>
@@ -264,8 +265,8 @@
                             </p>
                         </div>
                         <div class="gallery-image--full ">
-                            <a href="../images/work/fullsize/climateclock/screens/watch_display-web.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/climateclock/screens/watch_display-web.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/climateclock/screens/watch_display-web.jpg">
+                                <img alt="Climate Clock — Watch display web" src="../images/work/fullsize/climateclock/screens/watch_display-web.jpg" title="Image"  width="100%" height="100%">
                             </a>
                             <p class="image_text">On smart watches, the app would do without the Dashboard display view, due to lack of space. However, there maybe could be room for actions.</p>
                         </div>
@@ -274,8 +275,8 @@
             <div class="container--padded dark-bg">
                 <div class="document-text text-box">
                     <div class="gallery-image--medium">
-                        <a href="../images/work/fullsize/climateclock/gifs/watch-display.gif" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/climateclock/gifs/watch-display.gif" title="Image"  width="100%" height="100%">
+                        <a href="../images/work/fullsize/climateclock/gifs/watch-display.gif">
+                            <img alt="Climate Clock — Watch display" src="../images/work/fullsize/climateclock/gifs/watch-display.gif" title="Image"  width="100%" height="100%">
                         </a>
                     </div>
                 </div>
@@ -290,15 +291,15 @@
                             </p>
                         </div>
                         <div class="gallery-image--full ">
-                            <a href="../images/work/fullsize/climateclock/screens/desktop_about-web.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/climateclock/screens/desktop_about-web.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/climateclock/screens/desktop_about-web.jpg">
+                                <img alt="Climate Clock — Desktop about web" src="../images/work/fullsize/climateclock/screens/desktop_about-web.jpg" title="Image"  width="100%" height="100%">
                             </a>
                             <p class="image_text">The "Make a Clock" page is only a part of the whole tutorial, which is very long. It's also the most different of the three, using images combined with text containers.</p>
                         </div>
                 </div>
             </div>
             <div class="black-bg">
-                <img src="../images/work/fullsize/climateclock/details/ice_pattern-flipped.png" title="Icecaps melting"  width="100%" height="100%">
+                <img alt="Climate Clock — Ice pattern flipped" src="../images/work/fullsize/climateclock/details/ice_pattern-flipped.png" title="Icecaps melting"  width="100%" height="100%">
             </div>
             <div class="container--padded black-bg">
              <div class="document-text text-box">       

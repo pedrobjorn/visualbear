@@ -250,6 +250,70 @@
   color: $vb-light;
 }
 
+// Ticket 35 (sweep A5): the global link red #D73735 measures ~4.12:1 on
+// the 2026 light pages' grounds - home + /about/ carry it in body copy.
+// The #styleguide_container recipe (ticket 43) generalized: the darker
+// brand red #d0181e clears 4.5, scoped to the light-ground body pages
+// ONLY (the dark pages keep their own lifted instances - cs-workflow's
+// $cs-red-lifted). Hover/focus/active are repeated at the same
+// specificity on purpose, same reasoning as above: a body-level base
+// color would otherwise beat the global a:hover rule and leave dark red
+// text on the red hover plate. Guards after the states keep the nav's
+// white links, the footer band's light links and the robot pill's
+// plate-free states intact.
+body.home-page a,
+body.about-page a {
+  color: #d0181e;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: $vb-light;
+    background-color: $vb-primary;
+  }
+
+  &:active {
+    text-decoration: none;
+    color: $vb-light;
+    background-color: $vb-secondary;
+  }
+}
+
+// Guards (same specificity, later in the sheet): the fixed nav keeps its
+// white labels on its colored bar, the footer band keeps its light-blue
+// links, and the robot pill stays plate-free in every state (ticket 17).
+body.home-page nav.site-nav a,
+body.about-page nav.site-nav a {
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: transparent;
+  }
+}
+
+body.home-page nav.site-nav .links a:link,
+body.home-page nav.site-nav .links a:visited,
+body.about-page nav.site-nav .links a:link,
+body.about-page nav.site-nav .links a:visited {
+  color: #fff;
+}
+
+body.home-page .foot a,
+body.about-page .foot a {
+  color: $vb-light;
+}
+
+body.home-page a.robot,
+body.about-page a.robot {
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: transparent;
+  }
+}
+
 // The PUBLIC home's robot pill (specs/visualbear-system, ticket 20 /
 // DR-0008): the link markup lives in src/index.nunjucks and carries its
 // geometry inline (44x44 hit box, glyph pinned bottom-left, z-index 3

@@ -1,16 +1,23 @@
 {% macro content(spec) %}
 {% set spec = spec or {} %}
 {% set _class = spec.class or '' %}
+{# ticket 34 (visualbear-system): demo mode renders the footer as an
+   inert visual specimen - a div (a second contentinfo landmark is not
+   allowed), no id="contact" (one per page), and the mailto is inert -
+   so the styleguide's Footer demo stops duplicating the live hooks.
+   The real footer (layouts) calls this without demo and is unchanged. #}
+{% set _demo = spec.demo %}
+{% set _lazy = spec.lazyDemo %}
 <!-- Footer -->
-<footer class="foot">
-  <section class="container" id="contact">
+{% if _demo %}<div class="foot">{% else %}<footer class="foot">{% endif %}
+  {% if _demo %}<section class="container">{% else %}<section class="container" id="contact">{% endif %}
     <div class="content">
       <div class="row">
         <div class="col s12 m12 text-center">
-          <h3>You can contact me at</h3>
-          <h3>
-          <a href="mailto:hello@visualbear.com?Subject=Hello%20visualbear!" target="_top">hello@visualbear.com</a>
-          </h3>
+          <p class="foot-contact-label">You can contact me at</p>
+          <p class="foot-contact-mail">
+          {% if _demo %}<a href="#" aria-label="demo link (inert specimen)">hello@visualbear.com</a>{% else %}<a href="mailto:hello@visualbear.com?Subject=Hello%20visualbear!" target="_top">hello@visualbear.com</a>{% endif %}
+          </p>
         </div>
       </div>
     </div>
@@ -19,7 +26,9 @@
     <ul class="socialContainer">
       <li>
         <a href="https://www.linkedin.com/in/pedro-johan-bjorn-7417324b" class="vb-btn-icon " title="Visit LinkedIn" target="_blank">
-          <img src="/images/icons/linkdin_icon_64.jpg" alt="LinkedIn Icon" width="48" height="48">
+          {# ticket 38: inside the [hidden] design panel this icon ships
+             lazy and flips eager on the panel's first tab-open (tabs.js) #}
+          <img src="/images/icons/linkdin_icon_64.jpg" alt="LinkedIn Icon" width="48" height="48"{% if _lazy %} loading="lazy"{% endif %}>
         </a>
       </li>
     </ul>
@@ -30,10 +39,13 @@
       <p>Made by Pedro Bj&#246;rn with paws and vibes. </p>
       <p>&copy; 2026 visualbear All Rights Reserved.</p>
       <p style="padding:16px 0;">
-        <a href="https://assets.fastcompany.com/image/upload/w_596,c_limit,q_auto:best,f_auto,fl_lossy/fc/3033256-inline-i-bearpage.png" title="All rights belong to USA Today." style="text-decoration: none;" target="_blank">🐻</a>
-        <a href="../workflow/" title="My agentic design workflow" style="text-decoration: none;">🤖</a>
+        {# ticket 37: the bear glyph link's hit box (was 19x21) reaches
+           44x44 via the .foot-bear padding; the negative margin keeps
+           the layout footprint, so the glyph's visual size/position are
+           pinned (the ticket-10 robot-pill shape) #}
+        <a href="https://assets.fastcompany.com/image/upload/w_596,c_limit,q_auto:best,f_auto,fl_lossy/fc/3033256-inline-i-bearpage.png" title="All rights belong to USA Today." class="foot-bear" style="text-decoration: none;" target="_blank">🐻</a>
       </p>
     </div>
   </div>
-</footer>
+{% if _demo %}</div>{% else %}</footer>{% endif %}
 {% endmacro %}

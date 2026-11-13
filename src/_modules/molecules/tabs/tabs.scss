@@ -29,7 +29,11 @@
   appearance: none;
   border: 0;
   margin: 0;
-  padding: 8px 20px;
+  // Ticket 37 (sweep A7): the tab's hit box was 37px tall - the T21
+  // 44px rule covered the main nav, never the strip. 12px vertical
+  // padding reaches 45px; horizontal padding is untouched, so the T22
+  // one-line/nowrap contract (strip width at 320-375) is unaffected.
+  padding: 12px 20px;
   border-radius: 999px;
   background-color: transparent;
   cursor: pointer;
@@ -92,16 +96,18 @@ body.vb-system-light {
 }
 
 // Dark ground (visuAI tab): the page's measured inks (muted #A6ADB8 at
-// 7.8:1; active #EA544F - ticket 2 pinned #E34A47 but that measured
-// 4.27:1 on the real dark ground, so the same red is lifted to clear
-// the 4.5:1 bar with margin; the underline carries the state as well).
+// 7.8:1; active lifted red - ticket 2 pinned #E34A47, lifted to #EA544F,
+// but the pixel probe on the strip's REAL ground (top of page, under the
+// strongest spotlight) measured 3.47-3.58 for #EA544F, so ticket 35
+// lifts it to the same #EE6E73 instance as the eyebrow - 4.6+ there;
+// the underline carries the state as well).
 body.workflow-page {
   .vb-tab {
     color: #a6adb8;
 
     &.vb-tab--active,
     &[aria-selected='true'] {
-      color: #ea544f;
+      color: #ee6e73;
     }
   }
 }
@@ -114,7 +120,9 @@ body.workflow-page {
 // the ticket pinned for the 320 worst case.
 @include mq($until: mobileLandscape) {
   .vb-tab {
-    padding: 8px 10px;
+    // ticket 37: vertical padding keeps the 44px hit box; the side
+    // paddings stay per ticket 22's width budget
+    padding: 12px 10px;
     letter-spacing: 0.12em;
   }
 }
@@ -125,7 +133,7 @@ body.workflow-page {
     // the 320 worst case: Firefox's strip content measures 4px over the
     // 248px column with 10px side paddings - the 8px paddings leave the
     // plate headroom in both engines
-    padding: 8px 8px;
+    padding: 12px 8px;
   }
 }
 

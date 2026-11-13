@@ -8,7 +8,7 @@
 {% endblock %}
 <!--FONTS-->
 <article class="gallery-text">
-  <small  class="page-header">Core</small>
+  <h2 class="page-header">Core</h2>
   <div class="text-block">
     <p>Core elements are the most basic components used to build the site. Colours, type and basic buttons are defined here.</p>
   </div>
@@ -22,25 +22,25 @@
         </span>
       </div> -->
       <div class="col-md-6">
-        <span class="box-container" style="background: #e6f2ff;padding:8px;font-weight:700;">
+        <span class="box-container" style="background: #e6f2ff;color: #18181b;padding:8px;font-weight:700;">
           #E6F2FF
           <p>Light Grey Blue</p>
         </span>
       </div>
       <div class="col-md-6">
-        <span class="box-container" style="background: #79a6d2;color: #ebf5ff;padding:8px;font-weight:700;">
+        <span class="box-container" style="background: #79a6d2;color: #18181b;padding:8px;font-weight:700;">
           #79A6D2
           <p>Blue</p>
         </span>
       </div>
       <div class="col-md-6">
-        <span class="box-container" style="background:  #ff621a;color: #ebf5ff;padding:8px; font-weight:700;">
+        <span class="box-container" style="background:  #ff621a;color: #18181b;padding:8px; font-weight:700;">
           #FF621A
           <p>Orange</p>
         </span>
       </div>
       <div class="col-md-6">
-        <span class="box-container" style="background:  #f63f3c;color: #ebf5ff;padding:8px; font-weight:700;">
+        <span class="box-container" style="background:  #f63f3c;color: #18181b;padding:8px; font-weight:700;">
           #F63F3C
           <p>Tomato</p>
         </span>
@@ -81,7 +81,7 @@
     <h3 class="page-header">Fonts</h3>
     <ul>
       <li>
-        <p>Primary font: "<a href="https://www.google.com/fonts/specimen/Nunito" alt="Google fonts link" target="_blank">Nunito</a>", sans-serif;</p>
+        <p>Primary font: "<a href="https://www.google.com/fonts/specimen/Nunito" title="Google fonts link" target="_blank">Nunito</a>", sans-serif;</p>
       </li>
       <li>
         <div class="center-justified">
@@ -124,7 +124,11 @@
     see the case-study system section for the content roles).</p>
     <ul>
       <!--HEADINGS-->
-      <li><h1>h1 Heading</h1></li>
+      {# ticket 33: the ladder's h1 specimen is demoted to h2.demo-h1 -
+         it renders as a demo, not a real h1 (one h1 per page, incl. the
+         /workflow/ design panel where this copy ships); the class keeps
+         the h1's own type style on the specimen #}
+      <li><h2 class="demo-h1">h1 Heading</h2></li>
       <li><h2>h2 Heading</h2></li>
       <li><h3>h3 Heading</h3></li>
       <li><h4>h4 Heading</h4></li>
@@ -138,7 +142,7 @@
     <h3 class="page-header">Links</h3>
     <ul>
       <li><a href="#visual"  id="workLink1"><b>Link A</b></a></li>
-      <li><a href="#visual"  id="workLink1">Link B</a></li>
+      <li><a href="#visual"  id="workLink2">Link B</a></li>
     </ul>
   </div>
   <div class="text-block">
@@ -146,7 +150,7 @@
     <h2>Example body text</h2>
     <p class="lead">Lead paragraph: vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.</p>
     <p>Nullam quis risus eget <a href="#">urna mollis ornare</a> vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
-    <p><div class="light">This line of text is meant to be treated as fine print.</div></p>
+    <div class="light">This line of text is meant to be treated as fine print.</div>
     <p>The following snippet of text is <strong>rendered as bold text</strong>.</p>
     <p>The following snippet of text is <i>rendered as italicized text</i>.</p>
     <p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>

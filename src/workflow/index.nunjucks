@@ -107,19 +107,26 @@
                     {{ core.content() }}
                 </div>
             </article>
+            <!-- ticket 38: the panel ships [hidden], so its demo images
+                 ship loading="lazy" (they stopped weighing 324KB on every
+                 /workflow/ visit) and tabs.js flips them eager on the
+                 panel's first activation - the row still renders complete
+                 at first tab-open (ticket 16's contract). The standalone
+                 /styleguide/ page calls the same blocks WITHOUT lazyDemo
+                 and keeps eager loading (recorded decision). -->
             <article class="text-container" id="modules">
                 <div class="row">
-                    {{ modules.content() }}
+                    {{ modules.content({lazyDemo: true}) }}
                 </div>
             </article>
             <article class="text-container" id="containers">
                 <div class="row">
-                    {{ containers.content() }}
+                    {{ containers.content({lazyDemo: true}) }}
                 </div>
             </article>
             <article class="text-container" id="casesystem">
                 <div class="row">
-                    {{ casesystem.content() }}
+                    {{ casesystem.content({lazyDemo: true}) }}
                 </div>
             </article>
         </section>

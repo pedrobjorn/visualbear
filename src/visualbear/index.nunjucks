@@ -20,31 +20,35 @@
 			<div class="container--padded">
 				<div class="document-text text-box">
 					<div class="paragraph-container--icons row" id="styleguide">
-					 <h1 class="page-header">Brand Identity</h1>
+					 {# ticket 33: demoted h1 -> h2 - the case hero (headline
+					    molecule's h1) owns the page's single h1; this section
+					    header was a leaked h1 on the public case page. #}
+					 <h2 class="page-header">Brand Identity</h2>
   						<p>
   							The core principles for my brand were <b>attention</b>, <b>minimal</b>, and <b>soft</b>. These principles influnced the selection of colour, soft edges, and typography.
   						</p>
     				</div>
  
-					<div class="gallery-image">
-						<a href="../images/work/fullsize/visualbear/visualbear_first.jpg" alt="Visualbear logo">
-							<img src="../images/work/fullsize/visualbear/visualbear_first.jpg" title="Visualbear logo" width="900" height="425">
+					<!-- Ticket 31 (visualbear-system): the img alts below are [ai]-drafted from the real file names + project context - Pedro's wording pass (Gate 7) owns the final strings. The invalid alt= on wrapper <a> tags was removed; each gallery link takes its accessible name from its img's alt. -->
+<div class="gallery-image">
+						<a href="../images/work/fullsize/visualbear/visualbear_first.jpg">
+							<img alt="Visualbear logo" src="../images/work/fullsize/visualbear/visualbear_first.jpg" title="Visualbear logo" width="900" height="425">
 						</a>
-						<a href="../images/work/fullsize/visualbear/visualbear_alt.jpg" alt="Visualbear alternate logo">
-							<img src="../images/work/fullsize/visualbear/visualbear_alt.jpg" title="visualbear alternate logo image" width="900" height="425">
+						<a href="../images/work/fullsize/visualbear/visualbear_alt.jpg">
+							<img alt="Visualbear alternate logo" src="../images/work/fullsize/visualbear/visualbear_alt.jpg" title="visualbear alternate logo image" width="900" height="425">
 						</a>
 						
-						<a href="../images/work/fullsize/visualbear/visualbear_grid2.jpg" alt="Visualbear logo grid">
-							<img src="../images/work/fullsize/visualbear/visualbear_grid2.jpg" title="visualbear logo grid" width="900" height="422">
+						<a href="../images/work/fullsize/visualbear/visualbear_grid2.jpg">
+							<img alt="Visualbear logo grid" src="../images/work/fullsize/visualbear/visualbear_grid2.jpg" title="visualbear logo grid" width="900" height="422">
 						</a>
-						<a href="../images/work/fullsize/visualbear/visualbear_grid3.jpg" alt="Visualbear logo grid">
-							<img src="../images/work/fullsize/visualbear/visualbear_grid3.jpg" title="visualbear logo grid" width="900" height="422">
+						<a href="../images/work/fullsize/visualbear/visualbear_grid3.jpg">
+							<img alt="Visualbear logo grid" src="../images/work/fullsize/visualbear/visualbear_grid3.jpg" title="visualbear logo grid" width="900" height="422">
 						</a>
-						<a href="../images/work/fullsize/visualbear/visualbear_grid4.jpg" alt="Visualbear logo grid">
-							<img src="../images/work/fullsize/visualbear/visualbear_grid4.jpg" title="visualbear logo grid" width="900" height="422">
+						<a href="../images/work/fullsize/visualbear/visualbear_grid4.jpg">
+							<img alt="Visualbear logo grid" src="../images/work/fullsize/visualbear/visualbear_grid4.jpg" title="visualbear logo grid" width="900" height="422">
 						</a>
-						<a href="../images/work/fullsize/visualbear/visualbear_pedrobjorn.jpg" alt="Visualbear pedro bjorn logos">
-							<img src="../images/work/fullsize/visualbear/visualbear_pedrobjorn.jpg" title="Visualbear pedro bjorn logos" width="900" height="422">
+						<a href="../images/work/fullsize/visualbear/visualbear_pedrobjorn.jpg">
+							<img alt="Visualbear pedro bjorn logos" src="../images/work/fullsize/visualbear/visualbear_pedrobjorn.jpg" title="Visualbear pedro bjorn logos" width="900" height="422">
 						</a>
 					</div>
 					<div class="paragraph-container--icons row" id="styleguide">

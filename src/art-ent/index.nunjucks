@@ -73,9 +73,10 @@
                             </ul>
                         </p>
                         
-                        <div class="gallery-image">
-                            <a href="../images/work/fullsize/artent/details/notice_board.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/artent/details/notice_board.jpg" title="Image"  width="100%" height="100%">
+                        <!-- Ticket 31 (visualbear-system): the img alts below are [ai]-drafted from the real file names + project context - Pedro's wording pass (Gate 7) owns the final strings. The invalid alt= on wrapper <a> tags was removed; each gallery link takes its accessible name from its img's alt. -->
+<div class="gallery-image">
+                            <a href="../images/work/fullsize/artent/details/notice_board.jpg">
+                                <img alt="Art-Ent — Notice board" src="../images/work/fullsize/artent/details/notice_board.jpg" title="Image"  width="100%" height="100%">
                             </a>
 
                         <p class="image_text">Can you find the various music or craft lesson notices?</p>
@@ -87,8 +88,8 @@
                         <p>Looking at the market, we found a lot of apps providing marketplaces for all sorts of services: utilities, technical lessons, lessons online, as well as a state sponsored children's cultural classes.</p>
 
                         <div class="gallery-image--small">
-                            <a href="../images/work/fullsize/artent/details/market_example.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/artent/details/market_example.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/artent/details/market_example.jpg">
+                                <img alt="Art-Ent — Market example" src="../images/work/fullsize/artent/details/market_example.jpg" title="Image"  width="100%" height="100%">
                             </a>
                             
                         <p class="image_text">The <a href="https://kulturskolan.stockholm.se/" title="Cultural Lesson site link" target="_blank">Cultural Institute Classes</a> are great, but unfortunately are restricted to children.</p>
@@ -122,8 +123,8 @@
                         <p>Looking back, I should have taken the brainstorm sessions further with sketches and exercises. But this was enough to set us on a unified direction at least.</p>
                     </div>
                     <div class="gallery-image">
-                        <a href="../images/work/fullsize/artent/details/ideation_sketches.jpg" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/artent/details/ideation_sketches.jpg" title="Image"  width="100%" height="100%">
+                        <a href="../images/work/fullsize/artent/details/ideation_sketches.jpg">
+                            <img alt="Art-Ent — Ideation sketches" src="../images/work/fullsize/artent/details/ideation_sketches.jpg" title="Image"  width="100%" height="100%">
                         </a>
                         <p class="image_text">We took 5 minute increments to jot down action verbs in black and emotional experiences in yellow.</p>
                     </div>
@@ -132,8 +133,8 @@
                         <p>Once we had agreed upon some key principles for the app, we proceeded with exploring the flow both artists and students would take in order to achieve their goals.</p>
                     </div>
                    <div class="gallery-image">
-                        <a href="../images/work/fullsize/artent/details/old-site_map.jpg" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/artent/details/old-site_map.jpg" title="Image"  width="100%" height="100%">
+                        <a href="../images/work/fullsize/artent/details/old-site_map.jpg">
+                            <img alt="Art-Ent — Old site map" src="../images/work/fullsize/artent/details/old-site_map.jpg" title="Image"  width="100%" height="100%">
                         </a>
                         <p class="image_text">We kicked off with requiring sign-up for all users, and excluding Artists from browsing lessons. We also aimed to have Chat and Notification views.</p>
                     </div>
@@ -142,18 +143,18 @@
                         <p>With the new structure established, we begin sketching and ideating each view, with variations of UI elements, and structures. We then select the best candidates based on feedback and established patterns.</p>
 
                    <div class="gallery-image">
-                        <a href="../images/work/fullsize/artent/details/sketches_example_3.jpg" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/artent/details/sketches_example_3.jpg" title="Image"  width="100%" height="100%">
+                        <a href="../images/work/fullsize/artent/details/sketches_example_3.jpg">
+                            <img alt="Art-Ent — Sketches example 3" src="../images/work/fullsize/artent/details/sketches_example_3.jpg" title="Image"  width="100%" height="100%">
                         </a>
                     </div>
                     <div class="gallery-image">
-                        <a href="../images/work/fullsize/artent/details/sketches_example.jpg" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/artent/details/sketches_example.jpg" title="Image"  width="100%" height="100%">
+                        <a href="../images/work/fullsize/artent/details/sketches_example.jpg">
+                            <img alt="Art-Ent — Sketches example" src="../images/work/fullsize/artent/details/sketches_example.jpg" title="Image"  width="100%" height="100%">
                         </a>
                     </div>
                     <div class="gallery-image">
-                        <a href="../images/work/fullsize/artent/details/sketches_example_2.jpg" alt="Value Proposition Photo">
-                            <img src="../images/work/fullsize/artent/details/sketches_example_2.jpg" title="Image"  width="100%" height="100%">
+                        <a href="../images/work/fullsize/artent/details/sketches_example_2.jpg">
+                            <img alt="Art-Ent — Sketches example 2" src="../images/work/fullsize/artent/details/sketches_example_2.jpg" title="Image"  width="100%" height="100%">
                         </a>
 
                         <p class="image_text">Initial sketches were very abstract, and focused on behaviour flows and task objectives. Eventually sketches became more visual and UI focused. We even worked on the logo design via sketching. We didn't actually pick any from this direction, but it was a valuable exploration nonetheless. </p>
@@ -187,8 +188,8 @@
                         </p>
 
                         <div class="gallery-image--medium">
-                            <a href="../images/work/fullsize/artent/details/colour_palette.png" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/artent/details/colour_palette.png" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/artent/details/colour_palette.png">
+                                <img alt="Art-Ent — Colour palette" src="../images/work/fullsize/artent/details/colour_palette.png" title="Image"  width="100%" height="100%">
                             </a>
                             
                         </div>
@@ -210,8 +211,8 @@
                             The logo design was quite informal and very free form in experimentation. We mostly decided to go with a play on the letters "a" and "e".
                          </p>
                         <div class="gallery-image">
-                            <a href="../images/work/fullsize/artent/details/artent_logo-iterations.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/artent/details/artent_logo-iterations.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/artent/details/artent_logo-iterations.jpg">
+                                <img alt="Art-Ent — Artent logo iterations" src="../images/work/fullsize/artent/details/artent_logo-iterations.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                     </div>
@@ -224,8 +225,8 @@
                         <h3>Wireframes</h3>
                         <p>Very early wireframes were created for some developers we collaborated with early on  to create a quick app prototype using the Ionic App framework.</p>
                          <div class="gallery-image">
-                            <a href="../images/work/fullsize/artent/details/wireflow_container.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/artent/details/wireflow_container.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/artent/details/wireflow_container.jpg">
+                                <img alt="Art-Ent — Wireflow container" src="../images/work/fullsize/artent/details/wireflow_container.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         <p class="image_text">
@@ -238,8 +239,8 @@
                         </p>
                         <p>Most of the iterations continued on in code as we quickly iterated on ideas using CSS and Typescript. Here are some quick examples of the Mockups:</p>
                         <div class="gallery-image">
-                            <a href="../images/work/fullsize/artent/screens/onboarding-multi.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/artent/screens/onboarding-multi.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/artent/screens/onboarding-multi.jpg">
+                                <img alt="Art-Ent — Onboarding multi" src="../images/work/fullsize/artent/screens/onboarding-multi.jpg" title="Image"  width="100%" height="100%">
                             </a>
 
                             <p class="image_text">
@@ -247,8 +248,8 @@
                             </p>
                         </div>
                         <div class="gallery-image">
-                            <a href="../images/work/fullsize/artent/screens/browsing-multi.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/artent/screens/browsing-multi.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/artent/screens/browsing-multi.jpg">
+                                <img alt="Art-Ent — Browsing multi" src="../images/work/fullsize/artent/screens/browsing-multi.jpg" title="Image"  width="100%" height="100%">
                             </a>
                             
                             <p class="image_text">
@@ -256,8 +257,8 @@
                             </p>
                         </div>
                          <div class="gallery-image">
-                            <a href="../images/work/fullsize/artent/screens/create_lesson-multi.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/artent/screens/create_lesson-multi.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/artent/screens/create_lesson-multi.jpg">
+                                <img alt="Art-Ent — Create lesson multi" src="../images/work/fullsize/artent/screens/create_lesson-multi.jpg" title="Image"  width="100%" height="100%">
                             </a>
                             
                             <p class="image_text">
@@ -271,7 +272,7 @@
                         <p> <a href="https://invis.io/ARYUE528TBE" target="_blank" alt="Value Proposition Photo"> View the prototype in Invision</a></p>
                         <div class="gallery-image--medium center-align">   
                            
-                                 <img src="../images/work/fullsize/artent/details/prototype.gif" title="Image"  width="100%" height="100%">
+                                 <img alt="Art-Ent — Prototype" src="../images/work/fullsize/artent/details/prototype.gif" title="Image"  width="100%" height="100%">
                         
                             <p class="image_text">
                                 The prototype helped us get through most of the screen flows which got quite complex due to having two distinct user journeys. 
@@ -288,8 +289,8 @@
                         <p>When we got into development, we started off with an on-boarding process for all users, and aimed to include a payment system (e.g Stripe) and full booking handling for artists. However, we quickly noticed that this would take a lot more work, and slow down adoption.</p>
                         <p>We quickly pivoted to simplify the app, removing any payment system, and focusing on connecting students and artists. We also removed on-boarding at the start of the app, and only required an account creation for users that wanted to give lessons.</p>
                         <div class="gallery-image">
-                            <a href="../images/work/fullsize/artent/details/new-site_map.png" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/artent/details/new-site_map.png" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/artent/details/new-site_map.png">
+                                <img alt="Art-Ent — New site map" src="../images/work/fullsize/artent/details/new-site_map.png" title="Image"  width="100%" height="100%">
                             </a>
                             <p class="image_text">The new site-map ensures everyone starts off as a Student, and expands the functionality when they register as an Artist.</p>
                         </div>
@@ -307,8 +308,8 @@
                         <p>One of the main goals of this project was to learn how to build a hybrid mobile app, so we kicked off with <a href="https://ionicframework.com/" alt="Ionic Framework link"> Ionic 2.0</a>, which at the time was one of the two big Hybrid app frameworks, the other being React Native.</p>
                         
                         <div class="gallery-image--small">
-                            <a href="https://ionicframework.com/" alt="Ionic Framework link">
-                                <img src="../images/work/fullsize/artent/details/1200px-Ionic-logo-landscape.png" title="Image"  width="100%" height="100%">
+                            <a href="https://ionicframework.com/">
+                                <img alt="Ionic Framework link" src="../images/work/fullsize/artent/details/1200px-Ionic-logo-landscape.png" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         
@@ -332,13 +333,13 @@
                     <div class="paragraph-container">
                         <h3>Start screen</h3>
                         <div class="gallery-image">
-                            <a href="../images/work/fullsize/artent/screens/start.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/artent/screens/start.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/artent/screens/start.jpg">
+                                <img alt="Art-Ent — Start" src="../images/work/fullsize/artent/screens/start.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         <div class="gallery-image">
-                            <a href="../images/work/fullsize/artent/screens/start_expanded.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/artent/screens/start_expanded.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/artent/screens/start_expanded.jpg">
+                                <img alt="Art-Ent — Start expanded" src="../images/work/fullsize/artent/screens/start_expanded.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         <p class="image_text">
@@ -350,8 +351,8 @@
                     <div class="paragraph-container--icons">
                         <h3>Open Lesson</h3>
                         <div class="gallery-image center-align">
-                            <a href="../images/work/fullsize/artent/screens/lesson_open.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/artent/screens/lesson_open.jpg" title="Image"  width="50%" height="50%">
+                            <a href="../images/work/fullsize/artent/screens/lesson_open.jpg">
+                                <img alt="Art-Ent — Lesson open" src="../images/work/fullsize/artent/screens/lesson_open.jpg" title="Image"  width="50%" height="50%">
                             </a>
                         </div>
                         <p class="image_text">
@@ -364,8 +365,8 @@
                     <div class="paragraph-container">
                         <h3>Lesson Browsing</h3>
                         <div class="gallery-image">
-                            <a href="../images/work/fullsize/artent/screens/lesson_browse.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/artent/screens/lesson_browse.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/artent/screens/lesson_browse.jpg">
+                                <img alt="Art-Ent — Lesson browse" src="../images/work/fullsize/artent/screens/lesson_browse.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         <p class="image_text">
@@ -375,16 +376,16 @@
                     <div class="paragraph-container">
                         <h3>Lesson Details</h3>
                         <div class="gallery-image">
-                            <a href="../images/work/fullsize/artent/screens/lesson_details.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/artent/screens/lesson_details.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/artent/screens/lesson_details.jpg">
+                                <img alt="Art-Ent — Lesson details" src="../images/work/fullsize/artent/screens/lesson_details.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         <p class="image_text">
                         The user lesson details displays basic information for making a decision about booking a lesson, such as date &amp; time, location and cost per hour, as well as available class times, which get toggled by the artist.
                         </p>
                         <div class="gallery-image">
-                            <a href="../images/work/fullsize/artent/screens/lesson_details_expanded.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/artent/screens/lesson_details_expanded.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/artent/screens/lesson_details_expanded.jpg">
+                                <img alt="Art-Ent — Lesson details expanded" src="../images/work/fullsize/artent/screens/lesson_details_expanded.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         <p class="image_text">
@@ -394,8 +395,8 @@
                     <div class="paragraph-container--icons">
                         <h3>Becoming an Artist</h3>
                         <div class="gallery-image center-align">
-                            <a href="../images/work/fullsize/artent/screens/register_intro.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/artent/screens/register_intro.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/artent/screens/register_intro.jpg">
+                                <img alt="Art-Ent — Register intro" src="../images/work/fullsize/artent/screens/register_intro.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         <p class="image_text">
@@ -407,8 +408,8 @@
                     <div class="paragraph-container--icons">
                         <h3>Artist - Registration flow</h3>
                         <div class="gallery-image center-align">
-                            <a href="../images/work/fullsize/artent/screens/register_flow.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/artent/screens/register_flow.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/artent/screens/register_flow.jpg">
+                                <img alt="Art-Ent — Register flow" src="../images/work/fullsize/artent/screens/register_flow.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         <p class="image_text">
@@ -418,8 +419,8 @@
                     <div class="paragraph-container--icons">
                         <h3>Artist - Lesson View</h3>
                         <div class="gallery-image center-align">
-                            <a href="../images/work/fullsize/artent/screens/artist_lesson_browse.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/artent/screens/artist_lesson_browse.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/artent/screens/artist_lesson_browse.jpg">
+                                <img alt="Art-Ent — Artist lesson browse" src="../images/work/fullsize/artent/screens/artist_lesson_browse.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         <p class="image_text">
@@ -431,8 +432,8 @@
                     <div class="paragraph-container">
                         <h3>UI Details - Artist Lesson Card</h3>
                         <div class="gallery-image center-align">
-                            <a href="../images/work/fullsize/artent/screens/card_detail.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/artent/screens/card_detail.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/artent/screens/card_detail.jpg">
+                                <img alt="Art-Ent — Card detail" src="../images/work/fullsize/artent/screens/card_detail.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         <p class="image_text">
@@ -444,8 +445,8 @@
                     <div class="paragraph-container--icons">
                         <h3>Artist - Create &amp; Edit Lesson</h3>
                         <div class="gallery-image center-align">
-                            <a href="../images/work/fullsize/artent/screens/create_edit_lesson.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/artent/screens/create_edit_lesson.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/artent/screens/create_edit_lesson.jpg">
+                                <img alt="Art-Ent — Create edit lesson" src="../images/work/fullsize/artent/screens/create_edit_lesson.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         <p class="image_text">
@@ -457,8 +458,8 @@
                     <div class="paragraph-container--icons">
                         <h3>Artist - Lesson Detail</h3>
                         <div class="gallery-image center-align">
-                            <a href="../images/work/fullsize/artent/screens/artist_lesson_detail.jpg" alt="Value Proposition Photo">
-                                <img src="../images/work/fullsize/artent/screens/artist_lesson_detail.jpg" title="Image"  width="100%" height="100%">
+                            <a href="../images/work/fullsize/artent/screens/artist_lesson_detail.jpg">
+                                <img alt="Art-Ent — Artist lesson detail" src="../images/work/fullsize/artent/screens/artist_lesson_detail.jpg" title="Image"  width="100%" height="100%">
                             </a>
                         </div>
                         <p class="image_text">
@@ -469,7 +470,7 @@
             </div>
             <div class="container" style="padding:0;">
                 <div class="gallery-image__full">
-                    <img src="../images/work/fullsize/artent/details/bottom-image.jpg" title="Image"  width="100%" height="100%">
+                    <img alt="Art-Ent — Bottom image" src="../images/work/fullsize/artent/details/bottom-image.jpg" title="Image"  width="100%" height="100%">
                 </div>
             </div>
             <div class="container--padded">

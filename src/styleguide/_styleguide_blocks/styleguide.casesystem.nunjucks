@@ -8,44 +8,62 @@
 {% set _content = spec.content or '{}' %}
 
 <article class="gallery-text">
-  <small class="page-header">Case-study system</small>
+  <h2 class="page-header">Case-study system</h2>
   <div class="text-block">
     <p>The case-study pages render from markdown (see AUTHORING.md). Their
-    layout has one text edge, boxes that bleed one indent step into the
-    margins, and a full-bleed tier for media and background sections.</p>
+    layout has one text edge, bullet plates and cards inside the
+    container, display boxes that bleed one indent step into the margins,
+    and a full-bleed tier for media and background sections.</p>
   </div>
 
   <!-- Type roles -->
   <div class="text-block">
     <h3 class="page-header">Type roles</h3>
-    <div class="case-study document-text" style="padding: 8px 0;">
+    <div class="case-study document-text" style="padding-top: 8px; padding-bottom: 8px;">
       <p style="font-size: 1.5rem; font-weight: 700; margin: 0 0 8px;">Headline — h2, 28.8px / 700</p>
       <p style="font-size: 1.17rem; font-weight: 700; margin: 0 0 8px;">Sub-head — h3, 22.5px / 700</p>
       <p style="margin: 0 0 4px;">Body copy — 18.4px / 300. One size for paragraphs and list text.</p>
-      <p style="font-size: 0.8rem; color: #6e6e73; margin: 0;">Label — 15.4px (eyebrows, notes, captions). Never below this size.</p>
+      <p style="font-size: 0.8rem; color: #66686d; margin: 0;">Label — 15.4px (eyebrows, notes, captions). Never below this size.</p>
     </div>
     <p style="margin-top: 8px;">Indent token: <code>$cs-indent = 28px</code> — box padding, box
     bleed, timeline gutter and marker hang all derive from it.</p>
+    <p style="margin-top: 8px;">Content width: <strong>900/836</strong> — one content width
+    site-wide (DR-0013); every page's text column is the container's 836px
+    inner width at 1440.</p>
+    <p style="margin-top: 8px;">List-context rule (DR-0010): <code>- item</code> at section
+    level → fact chip; <code>- item</code> inside a box → plain bullet;
+    <code>* item</code> → plain bullet list at section level (the opt-out);
+    <code>1. step</code> → numbered timeline everywhere.</p>
+    <p style="margin-top: 8px;">Chip plate: one token, <code>--cs-chip-plate</code>
+    (white 0.45; the dark ground's documented instance is 0.06 — DR-0012).
+    Bullet geometry: the dot sits 20px inside the plate, text 8px clear of
+    the dot; plateless lists keep the dot ON the text edge (tickets 39/41).</p>
   </div>
 
   <!-- Width tiers -->
   <div class="text-block">
     <h3 class="page-header">Width tiers</h3>
     <p><strong>Text edge</strong> — all body copy aligns here.
-    <strong>Bleed</strong> — boxes extend one indent step into each margin,
-    text stays on the edge. <strong>Full-bleed</strong> — media, tables and
-    <code>full</code>-flagged containers span the viewport.</p>
-    <div class="case-study document-text" style="padding: 8px 0;">
+    <strong>Bleed</strong> — display boxes (summary, quote groups, cols)
+    extend one indent step into each margin. <strong>Full-bleed</strong> —
+    media, tables and <code>full</code>-flagged containers span the
+    viewport. Bullet plates (chips, plain lists) and cards sit WITHIN the
+    container (tickets 39/53).</p>
+    <div class="case-study document-text" style="padding-top: 8px; padding-bottom: 8px;">
+      <div class="cs-summary"><em>Bleed example — the summary box extends
+        past the text edge by one indent step on both sides.</em></div>
+    </div>
+    <div class="case-study document-text" style="padding-top: 8px; padding-bottom: 8px;">
       <div class="cs-cards">
         <div class="cs-card">
-          <h3>Bleed example — card</h3>
-          <p>The tinted box extends past the text edge by one indent step on
-          both sides; this text stays on the edge.</p>
+          <h3>Within the container — card (ticket 53)</h3>
+          <p>The card's box spans the text column; its text sits inset
+          inside the plate, like the chips.</p>
         </div>
       </div>
     </div>
-    <div class="case-study document-text" style="padding: 8px 0;">
-      <div class="cs-full" style="background-color: rgba(215, 55, 53, 0.12); border-radius: 8px;">
+    <div class="case-study document-text" style="padding-top: 8px; padding-bottom: 8px;">
+      <div class="cs-full" style="background-color: rgba(24, 24, 27, 0.12); border-radius: 8px;">
         <p style="text-align: center; margin: 0;">Full-bleed band — <code>::: type full</code>
         (the background spans the viewport; content keeps its insets)</p>
       </div>
@@ -61,44 +79,205 @@
     self-contained blocks, 48 around media wrappers and h2→h3, 64 around
     pull quotes, 96 section padding. Label+content pairs (eyebrow →
     heading, sub-title → list) sit tight by design.</p>
-    <div class="case-study document-text" style="padding: 8px 0;">
-      <div style="background: rgba(215,55,53,0.08); border-radius: 4px; padding: 8px; text-align: center; margin-bottom: 8px;">8</div>
-      <div style="background: rgba(215,55,53,0.08); border-radius: 4px; padding: 8px; text-align: center; margin-bottom: 16px;">16</div>
-      <div style="background: rgba(215,55,53,0.08); border-radius: 4px; padding: 8px; text-align: center; margin-bottom: 24px;">24</div>
-      <div style="background: rgba(215,55,53,0.08); border-radius: 4px; padding: 8px; text-align: center; margin-bottom: 32px;">32</div>
-      <div style="background: rgba(215,55,53,0.08); border-radius: 4px; padding: 8px; text-align: center; margin-bottom: 48px;">48</div>
-      <div style="background: rgba(215,55,53,0.08); border-radius: 4px; padding: 8px; text-align: center; margin-bottom: 64px;">64</div>
-      <div style="background: rgba(215,55,53,0.08); border-radius: 4px; padding: 8px; text-align: center;">96</div>
+    <div class="case-study document-text" style="padding-top: 8px; padding-bottom: 8px;">
+      <div style="background: rgba(24,24,27,0.08); border-radius: 4px; padding: 8px; text-align: center; margin-bottom: 8px;">8</div>
+      <div style="background: rgba(24,24,27,0.08); border-radius: 4px; padding: 8px; text-align: center; margin-bottom: 16px;">16</div>
+      <div style="background: rgba(24,24,27,0.08); border-radius: 4px; padding: 8px; text-align: center; margin-bottom: 24px;">24</div>
+      <div style="background: rgba(24,24,27,0.08); border-radius: 4px; padding: 8px; text-align: center; margin-bottom: 32px;">32</div>
+      <div style="background: rgba(24,24,27,0.08); border-radius: 4px; padding: 8px; text-align: center; margin-bottom: 48px;">48</div>
+      <div style="background: rgba(24,24,27,0.08); border-radius: 4px; padding: 8px; text-align: center; margin-bottom: 64px;">64</div>
+      <div style="background: rgba(24,24,27,0.08); border-radius: 4px; padding: 8px; text-align: center;">96</div>
+    </div>
+  </div>
+
+  <!-- Heroes (ticket 45, DR-0014) -->
+  <div class="text-block">
+    <h3 class="page-header">Heroes</h3>
+    <p>One hero component, one spacing/type set (DR-0014): eyebrow → h1
+    16, h1 → summary 24, summary → details 24, padding 64/64. The variant
+    picks <strong>ground and ink only</strong> — <strong>cover</strong>
+    (full-bleed colored band, white ink), <strong>meta</strong> (in-flow,
+    KPIs under the cover), <strong>adapted bare</strong> (transparent —
+    the page's ground carries it, e.g. visuAI's dark page, with an
+    adapted kicker instead of "Case Study"), and the mid-page
+    <code>::: hero</code> from markdown.</p>
+
+    <div class="case-study document-text" style="padding-top: 8px; padding-bottom: 8px;">
+      {# guide-ladder note: demo titles are h2 (one h1 per page); the
+         guide-flat-title class neutralizes the h2-in-hero's 16px padding
+         so the demo shows the DR-0014 gaps exactly #}
+      <header class="cs-hero guide-flat-title">
+        <p class="cs-eyebrow">The visuAI Workflow</p>
+        <h2>Adapted bare hero</h2>
+        <p class="cs-cover-summary">Transparent on any ground — no cover box,
+        an adapted eyebrow instead of the case-study kicker.</p>
+        <p class="cs-cover-details">Design Lead ⋅ 2026</p>
+      </header>
+    </div>
+
+    <div class="case-study document-text" style="padding-top: 8px; padding-bottom: 8px;">
+      <section class="cs-hero cs-hero--meta">
+        <div class="cs-metrics">
+          <div class="cs-metric">
+            <span class="cs-metric-value">15</span><span class="cs-metric-suffix">%</span>
+            <span class="cs-metric-label">meta hero — KPIs sit under the cover</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="case-study document-text" style="padding-top: 8px; padding-bottom: 8px;">
+      <header class="cs-hero cs-hero--red guide-flat-title">
+        <p class="cs-eyebrow">Case Study</p>
+        <h2>Cover hero</h2>
+        <p class="cs-cover-summary">White-on-color ink; the real cover spans
+        the viewport (100vw technique, 64px/48px padding — DR-0014). This
+        demo shows its structure at container width.</p>
+        <p class="cs-cover-details">Details line</p>
+      </header>
+    </div>
+
+    <div class="case-study document-text" style="padding-top: 8px; padding-bottom: 8px;">
+      {# the real ::: hero output — its h2 keeps the h1 look via the
+         component's secondary-hero rule (16px vertical padding included) #}
+      <header class="cs-hero">
+        <p class="cs-eyebrow">Section Label</p>
+        <h2>Mid-page hero</h2>
+        <p class="cs-subtitle">Emitted by the ::: hero container in markdown —
+        64/64 padding, subtitle and byline on the shared 24 gaps (DR-0014).</p>
+      </header>
     </div>
   </div>
 
   <!-- Components -->
   <div class="text-block">
     <h3 class="page-header">Components</h3>
-    <div class="case-study document-text" style="padding: 8px 0;">
-      <div class="cs-facts">
-        <li style="list-style: none;">Fact chip — key stats and proof points</li>
-        <li style="list-style: none;">Second chip — dot on the edge, text at the slight indent</li>
-      </div>
+    <div class="case-study document-text" style="padding-top: 8px; padding-bottom: 8px;">
+      <ul class="cs-facts">
+        <li>Fact chip — key stats and proof points</li>
+        <li>Second chip — dot 20px inside the plate, text 8px clear of the dot (tickets 39/41)</li>
+      </ul>
 
-      <div class="cs-timeline" style="margin-top: 24px;">
-        <li style="list-style: none;"><span style="display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background-color: #d73735; color: #fff; font-weight: 700;">1</span></li>
-        <li style="list-style: none;"><span style="display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background-color: #d73735; color: #fff; font-weight: 700;">2</span></li>
-      </div>
+      <p style="margin-top: 16px;"><code>* item</code> at section level — the plain bullet list
+      (<code>ul.cs-plain</code>, DR-0010): chip geometry, no plate.</p>
+      <ul class="cs-plain">
+        <li>Plain bullet — the dot sits ON the text edge, text +8px</li>
+        <li>Second plain bullet — the opt-out when a list should not be a chip</li>
+      </ul>
+
+      <ol class="cs-timeline" style="margin-top: 24px;">
+        <li><h3>Timeline step one</h3><p>Real markup: ol.cs-timeline > li — the numbered dot and connector are the component's.</p></li>
+        <li><h3>Timeline step two</h3><p>Numbers baseline-align with their titles.</p></li>
+      </ol>
+
+      <p class="cs-note">Note — [note: text], the muted annotation line with its icon.</p>
 
       <blockquote class="cs-quote" style="margin: 32px auto;">
         <p>"Display quote — centered, italic, h2-size, on every page."</p>
       </blockquote>
 
+      <div class="cs-quotes">
+        <div class="cs-quote"><blockquote><p>"Quote group — runs of 2+ quotes share one bleeding plate."</p></blockquote></div>
+        <div class="cs-quote"><blockquote><p>"Each quote keeps its own blockquote inside the group."</p></blockquote></div>
+      </div>
+
+      <p class="cs-summary"><em>Summary box — [summary: text]; the bleeding closing-summary of a case study.</em></p>
+
+      <p style="margin-top: 16px;">Image run (ticket 61): <code>::: shots</code> — N images
+      side by side, each image's alt text = its caption below. Wraps on
+      narrow screens.</p>
+      <div class="cs-wide cs-wide--full">
+        <div class="cs-shots">
+          {# ticket 16 made these eager (the panel ships [hidden], so lazy
+             images in a display:none subtree never hydrated and the row
+             rendered collapsed until scrolled). Ticket 38 refines it:
+             when this block renders inside the /workflow/ design panel
+             (spec.lazyDemo), the thumbs ship loading="lazy" - they stop
+             weighing on every visit - and tabs.js flips them eager on the
+             panel's FIRST activation, so the row is still complete the
+             moment the tab opens. The standalone /styleguide/ page calls
+             this without lazyDemo and keeps eager loading. #}
+          <figure class="cs-shot">
+            <img src="../images/work/thumbs/gallery_thumb_artent.jpg" alt="Art-Ent — connecting artists and students"{% if spec.lazyDemo %} loading="lazy"{% endif %}>
+            <figcaption>Art-Ent — the first shot's caption</figcaption>
+          </figure>
+          <figure class="cs-shot">
+            <img src="../images/work/thumbs/gallery_thumb_climateclock.jpg" alt="Climate Clock — the second shot"{% if spec.lazyDemo %} loading="lazy"{% endif %}>
+            <figcaption>Climate Clock — the second shot's caption</figcaption>
+          </figure>
+          <figure class="cs-shot">
+            <img src="../images/work/thumbs/gallery_thumb_closet.jpg" alt="Digital Closet — the third shot"{% if spec.lazyDemo %} loading="lazy"{% endif %}>
+            <figcaption>Digital Closet — the third shot's caption</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="cs-divider" role="separator"><span>Divider</span></div>
+
       <div class="cs-frame" style="min-height: 120px;">
         <span class="cs-frame-label"><strong>Frame</strong>placeholder for mockups and pending media</span>
       </div>
+
+      <p class="cs-frame-caption">Frame caption — a [point:] under an image renders
+      as a dotless, italic caption (DR-0011)</p>
 
       <div class="cs-metrics" style="margin-top: 24px;">
         <div class="cs-metric">
           <span class="cs-metric-value">15</span><span class="cs-metric-suffix">%</span>
           <span class="cs-metric-label">metric chip</span>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Color tokens (ticket 20) -->
+  <div class="text-block">
+    <h3 class="page-header">Color tokens</h3>
+    <p>The case-study system's seven verified tokens (ticket 20), used as
+    grounds, accents and inks across the themes. Contrast rationale lives
+    at each usage site in <code>_case-study.scss</code>.</p>
+    <div class="row">
+      <div class="col-md-6">
+        <span class="box-container" style="background: #111111;color: #ebf5ff;padding:8px;font-weight:700;">
+          #111111
+          <p>cs-black — fashion ground/accent</p>
+        </span>
+      </div>
+      <div class="col-md-6">
+        <span class="box-container" style="background: #0e7d6f;color: #ebf5ff;padding:8px;font-weight:700;">
+          #0E7D6F
+          <p>cs-teal-ground — teachr ground</p>
+        </span>
+      </div>
+      <div class="col-md-6">
+        <span class="box-container" style="background: #14a08d;color: #18181b;padding:8px;font-weight:700;">
+          #14A08D
+          <p>cs-teal-base — teachr accent</p>
+        </span>
+      </div>
+      <div class="col-md-6">
+        <span class="box-container" style="background: #d50e95;color: #fff;padding:8px;font-weight:700;">
+          #D50E95
+          <p>cs-pink-ground — ecommerce ground</p>
+        </span>
+      </div>
+      <div class="col-md-6">
+        <span class="box-container" style="background: #c10d82;color: #ebf5ff;padding:8px;font-weight:700;">
+          #C10D82
+          <p>cs-pink-deep — ecommerce deep accent</p>
+        </span>
+      </div>
+      <div class="col-md-6">
+        <span class="box-container" style="background: #d73735;color: #fff;padding:8px;font-weight:700;">
+          #D73735
+          <p>cs-red — brand accent (= $vb-primary)</p>
+        </span>
+      </div>
+      <div class="col-md-6">
+        <span class="box-container" style="background: #e34a47;color: #18181b;padding:8px;font-weight:700;">
+          #E34A47
+          <p>cs-red-lifted — red for dark grounds (visuAI)</p>
+        </span>
       </div>
     </div>
   </div>

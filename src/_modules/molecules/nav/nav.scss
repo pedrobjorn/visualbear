@@ -34,9 +34,14 @@ nav.site-nav {
     align-items: center;
     justify-content: center;
     vertical-align: middle;
-    width: 40px;
-    height: 40px;
+    // Ticket 37 (sweep A7): the logo's hit box was 40x40 - 44x44 now
+    // (the 48px bar still holds it). The -2px margin keeps the 40px
+    // layout footprint, and the img stays 32px, so the visual size and
+    // position are pinned (the ticket-10 robot-pill shape).
+    width: 44px;
+    height: 44px;
     padding: 0;
+    margin: -2px;
     border-radius: 50%;
     background-color: transparent;
 
@@ -151,6 +156,11 @@ body.resume-page nav.site-nav {
 
   a.icon {
     background-color: #252528;
+    // Ticket 37: the link's hit box grew to 44px; the visible plate
+    // stays 40px - padding + content-clip pin the background to the
+    // 40px content box (camera-identical to the old 40x40 plate)
+    padding: 2px;
+    background-clip: content-box;
   }
 }
 
@@ -180,10 +190,13 @@ body.resume-page nav.site-nav {
 
     a.icon {
       vertical-align: middle;
-      width: 40px;
-      height: 40px;
+      // ticket 37: 44x44 hit box; margin keeps the row's 56px footprint
+      // (44 + 6px sides) and the 40px vertical footprint - the T21 slack
+      // budget and the 32px glyph are untouched
+      width: 44px;
+      height: 44px;
       padding: 0;
-      margin: 0 8px;
+      margin: -2px 6px;
 
       img {
         height: 32px;

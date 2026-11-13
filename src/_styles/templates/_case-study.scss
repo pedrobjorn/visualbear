@@ -14,7 +14,15 @@
 $cs-black: #111111;
 $cs-teal-ground: #0e7d6f;
 $cs-pink-deep: #c10d82;
-$cs-red-lifted: #e34a47;
+// Ticket 35 (sweep A5): #E34A47 measured 3.64 best-case on the workflow
+// eyebrow's real ground (the spotlight-tinted gradient, not flat
+// #18181B). Ticket 35 named #EA544F (ticket 2's shipped instance), but the
+// pixel probe on the real ground measured 3.87-4.14 for it - under the
+// 4.5 bar - so the lift goes one palette step further to #EE6E73
+// (visualbear-red lighten-2, the value this file's header already
+// documents as the eyebrow's 6.0:1 pick on the dark ground). Still no
+// new color: an existing palette entry.
+$cs-red-lifted: #ee6e73;
 $cs-pink-ground: #d50e95;
 $cs-teal-base: #14a08d;
 $cs-red: #d73735; // = $vb-primary
@@ -107,8 +115,8 @@ $cs-indent: 28px;
 
   .cs-summary {
     // bleeds like every other box (DR-0009) — no inset exception
-    margin: 32px (-$cs-indent) 0;
-    padding: 16px $cs-indent;
+    margin: 32px 0;
+    padding: $cs-indent;
     background-color: rgba(255, 255, 255, 0.45);
     border-radius: 16px;
     // display element in the centered hero (DR-0009): centered text
@@ -152,9 +160,10 @@ $cs-indent: 28px;
   .cs-cards {
     .cs-card {
       flex: 1 1 100%;
-      // the box bleeds one step into each gutter; its text stays on the
-      // text edge (DR-0009)
-      margin: 16px (-$cs-indent);
+      // ticket 53 (DR-0009 amendment): the card sits WITHIN the container
+      // — no bleed, box edges on the text column; its text sits inset 28px
+      // inside the plate (the chips' inside-the-plate pattern, t41)
+      margin: 16px 0;
       padding: $cs-indent;
       background-color: rgba(255, 255, 255, 0.45);
       border-radius: 16px;
@@ -192,54 +201,8 @@ $cs-indent: 28px;
     }
   }
 
-  // ------------------------------------------------------------------
-  // Steps — a borderless numbered timeline (process, delivery, JTBD)
-  // Numbers baseline-aligned with their titles
-  // ------------------------------------------------------------------
-  .cs-steps {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    .cs-step {
-      display: flex;
-      align-items: baseline;
-      padding: 24px 0;
-      border-bottom: 1px solid rgba(37, 37, 40, 0.08);
-
-      &:first-child {
-        padding-top: 0;
-      }
-
-      &:last-child {
-        border-bottom: none;
-        padding-bottom: 0;
-      }
-    }
-
-    .cs-number {
-      flex: 0 0 48px;
-      font-size: $base-h3-size;
-      font-weight: $font-bold;
-      color: $vb-primary;
-      line-height: 1;
-    }
-
-    h3,
-    h4 {
-      margin: 0 0 4px;
-      font-size: $base-h4-size;
-    }
-
-    p {
-      margin: 0;
-      font-size: $middle-font-size;
-    }
-
-    .cs-frame {
-      margin-top: 16px;
-    }
-  }
+  // (ticket 28): the dead .cs-steps rules are gone — no renderer path
+  // emits them; timelines render as .cs-timeline.
 
   // ------------------------------------------------------------------
   // Process timeline — vertical numbered steps with a connecting line
@@ -265,13 +228,21 @@ $cs-indent: 28px;
         padding-bottom: 0;
       }
 
-      // Numbered dot (themed below)
+      // Numbered dot (themed below). Ticket 60: the dot is CENTERED in
+      // the title's row by the grid (align-self) — a fixed margin-top can
+      // never track the title's glyph box, which snaps ±2-3px with
+      // viewport width (that was the 51-57 chase). z-index 1 keeps the
+      // connector's top hidden behind the dot (its fixed top: 40 is
+      // above the dot's bottom at any geometry).
       &::before {
         content: counter(cs-step);
         display: grid;
         place-items: center;
         width: 26px;
         height: 26px;
+        margin-top: 0;
+        align-self: center;
+        z-index: 1;
         border-radius: 50%;
         background-color: $vb-primary;
         color: #fff;
@@ -279,11 +250,12 @@ $cs-indent: 28px;
         font-weight: $font-bold;
       }
 
-      // Connecting line down to the next dot
+      // Connecting line down to the next dot — its top hides behind the
+      // dot (z-order, ticket 60), so the fixed top works at every width
       &:not(:last-child)::after {
         content: '';
         position: absolute;
-        top: 30px;
+        top: 40px;
         bottom: -6px;
         left: 13px;
         width: 2px;
@@ -292,13 +264,19 @@ $cs-indent: 28px;
 
       h3 {
         grid-column: 2;
-        margin: 2px 0 4px;
+        // ticket 54: 8px clear of the dot column (the 26px dot ends at 26,
+        // the column starts at 28 — a bare 2px gap read as glued on)
+        padding-left: 8px;
+        // ticket 59 (FINAL — Pedro: "leave it at that"): margin 4px 0
+        margin: 4px 0;
         font-size: $base-h3-size;
         line-height: 1.35;
       }
 
       p {
         grid-column: 2;
+        // ticket 54: same 8px off the dot as the heading
+        padding-left: 8px;
         margin: 0;
         // body copy: one size everywhere — inherits .document-text
         line-height: 1.35;
@@ -386,10 +364,57 @@ $cs-indent: 28px;
     padding: 0;
   }
 
-  .cs-showcase img {
-    display: block;
-    width: 100%;
-    height: auto;
+  .cs-showcase {
+    // showcase sits on the text measure by default; the tier classes
+    // (set from the image's own dimensions, markdown-render.js) move
+    // wide sources full-bleed and phone-tall sources narrow
+    margin: 40px 0;
+    @media (min-width: $break-medium) {
+      margin: 48px 0;
+    }
+
+    &.cs-showcase--wide {
+      // full bleed (DR-0009 tier): wide assets span the viewport,
+      // edge to edge, same breakout as .cs-wide--full
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      margin-left: -50vw;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      padding: 0;
+      box-sizing: border-box;
+      @media (min-width: $break-medium) {
+        margin-top: 56px;
+        margin-bottom: 56px;
+      }
+
+      // the tier owns sizing: beat .text-box img's legacy 512px cap,
+      // which otherwise clamps the full-bleed image to a centred stamp
+      img {
+        max-width: none;
+      }
+    }
+
+    &.cs-showcase--tall {
+      // tall (phone) captures read at phone scale: narrower than the
+      // text measure, centred, with generous air around them
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 48px;
+      margin-bottom: 48px;
+
+      img {
+        max-width: none;
+      }
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
   }
 
   .cs-showcase figcaption {
@@ -409,7 +434,8 @@ $cs-indent: 28px;
   }
 
   .cs-showcase {
-    margin: 0;
+    // margins live in the first .cs-showcase block above (they differ
+    // per tier); this block only carries layout for its inner parts
 
     .cs-frame {
       width: 100%;
@@ -420,6 +446,39 @@ $cs-indent: 28px;
       font-size: $middle-font-size;
       // darkened from $vb-light-grey, which measured 4.46 on the light
       // blue venn ground — just under the 4.5 floor
+      color: #5f6264;
+      text-align: center;
+    }
+  }
+
+  // ------------------------------------------------------------------
+  // Image runs (ticket 61) — N images side by side, caption below each
+  // (the "how it started" slide). Full-bleed band, like showcases.
+  // ------------------------------------------------------------------
+  .cs-shots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    .cs-shot {
+      flex: 1 1 0;
+      // each shot ≥ 240px: three across from ~770, stacked on phones
+      min-width: 240px;
+      margin: 0;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      // beat .text-box img's legacy 512px cap: the band owns sizing
+      max-width: none;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    figcaption {
+      margin-top: 8px;
+      font-size: $middle-font-size;
       color: #5f6264;
       text-align: center;
     }
@@ -544,26 +603,8 @@ $cs-indent: 28px;
   // ------------------------------------------------------------------
   // Quotes
   // ------------------------------------------------------------------
-  .cs-pullquote {
-    max-width: 760px;
-    // bleeds like the other boxes; text on the edge
-    margin: 32px (-$cs-indent);
-    padding: 24px $cs-indent;
-    border: 1px solid rgba(37, 37, 40, 0.12);
-    border-radius: 16px;
-    background-color: rgba(255, 255, 255, 0.45);
-    font-size: $base-h3-size;
-    font-weight: $font-light;
-    font-style: italic;
-
-    cite {
-      display: block;
-      margin-top: 8px;
-      font-size: $middle-font-size;
-      font-style: normal;
-      color: $vb-light-grey;
-    }
-  }
+  // (ticket 28): the dead .cs-pullquote rule is gone — no renderer path
+  // emits it; quotes render as blockquote.cs-quote / .cs-quotes groups.
 
   // Pull quotes are display elements on every page (DR-0009): a quote
   // never reads as body copy. Strips the global blockquote chrome.
@@ -578,6 +619,14 @@ $cs-indent: 28px;
 
     > p {
       margin: 0;
+      padding: 0;
+    }
+
+    // ticket 27: a [byline:] inside the quote's blockquote — label tier
+    // tight under the quote text (the cover byline's margins don't apply)
+    .cs-byline {
+      display: block;
+      margin: 8px 0 0;
       padding: 0;
     }
   }
@@ -968,7 +1017,6 @@ $cs-indent: 28px;
     background-color: #e40f9e;
   }
 
-  .cs-steps .cs-number,
   .cs-cards .cs-number {
     color: $cs-pink-deep;
   }
@@ -1038,7 +1086,6 @@ body.cs-pink-page nav.site-nav {
     background-color: $cs-black;
   }
 
-  .cs-steps .cs-number,
   .cs-cards .cs-number {
     color: $cs-black;
   }
@@ -1138,6 +1185,54 @@ body.cs-pink-page nav a.icon img {
   }
 }
 
+// Styleguide only (ticket 45): the cover demo shows the cover's STRUCTURE
+// at container width — the real cover spans the viewport via the 100vw
+// technique above, which cannot render inside the guide's container.
+// Scoped to the styleguide shell so real pages keep the full-bleed box.
+#styleguide_container .cs-hero--pink,
+#styleguide_container .cs-hero--red,
+#styleguide_container .cs-hero--black,
+#styleguide_container .cs-hero--teal {
+  width: auto;
+  position: static;
+  margin-left: 0;
+  border-radius: 8px;
+}
+
+// Styleguide only (ticket 45): the guide page's heading ladder allows one
+// h1, so the hero DEMOS carry their titles as h2 — the component's own
+// secondary-hero form. The 16px vertical padding is neutralized on the
+// flat demos only (guide-flat-title class) so they show the DR-0014 gaps
+// exactly (eyebrow → title 16); the mid-page ::: hero demo keeps the
+// component's real h2 rendering.
+#styleguide_container .cs-hero.guide-flat-title h2 {
+  padding: 0;
+}
+
+// Styleguide only (ticket 47): the demo wrappers carry the case-study
+// components but not the shells' .text-box, so ticket 31's viewport
+// inset never reached them — at 390 the bleeding demos (card, timeline
+// gutter) spilled 9px of horizontal scroll. Same inset as the real
+// shells, scoped to the guide.
+@media (max-width: 907px) {
+  #styleguide_container .case-study.document-text {
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+}
+
+// Styleguide only (ticket 47): the guide's light-blue section ground is
+// darker than the case-study pages' grounds — the muted label ink token
+// ($vb-light-grey) measures ~4.46 here, under the 4.5 floor. Same
+// per-ground-instance pattern as the black theme (ticket 40): one step
+// down, documented. Ticket 35 (sweep A5) adds .cs-metric-label, which
+// measured 4.47 on this same ground.
+#styleguide_container .case-study .cs-note,
+#styleguide_container .case-study .cs-divider span,
+#styleguide_container .case-study .cs-metric-label {
+  color: #66686d;
+}
+
 // ==========================================================================
 // Teal theme — Teachr (mock brand)
 // Accent and hero use the Teachr teal; the secondary light background is a
@@ -1169,7 +1264,6 @@ body.cs-pink-page nav a.icon img {
     background-color: $cs-teal-base;
   }
 
-  .cs-steps .cs-number,
   .cs-cards .cs-number {
     color: $cs-teal-ground;
   }
@@ -1232,8 +1326,9 @@ body.cs-teal-page nav.site-nav {
   color: $vb-light;
 
   // The strong brand red for this page. On the dark ground #D73735
-  // measures 3.8:1, so text accents use #E34A47 — the same strong red,
-  // lifted just enough to clear 4.5:1 — while decorative accents
+  // measures 3.8:1, so text accents use $cs-red-lifted (#EE6E73 since
+  // ticket 35 - pixel-verified >= 4.5 on the spotlight-tinted ground,
+  // where #EA544F still measured 3.87-4.14) — while decorative accents
   // (h2 bars, timeline dots, bullet dots) take the true #D73735
   --cs-accent: #{$cs-red};
 

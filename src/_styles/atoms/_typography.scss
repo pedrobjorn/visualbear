@@ -173,6 +173,14 @@ h1 {
   padding: 16px 0;
 }
 
+// Ticket 33 (visualbear-system): the styleguide's headings-ladder demo
+// shows the h1 specimen without shipping a real h1 (one h1 per page) -
+// the demoted h2 carries the h1's own type style.
+.demo-h1 {
+  font-size: $base-h1-size;
+  padding: 16px 0;
+}
+
 h2 {
   font-size: $base-h2-size;
   padding: 8px 0;

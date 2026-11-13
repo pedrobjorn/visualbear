@@ -5,6 +5,9 @@
 	{# Correct base url pathing for this page #}
 	{% set baseUrl = '../' %}
 {% endblock %}
+{# ticket 36: the about page's body class - scoping hook for page-level
+   rules (ticket 35's light-ground link red uses it) #}
+{% block bodyattrs %} class="about-page"{% endblock %}
 {% block content %}
 
 	<article class="section section-top-padding" id="">
@@ -19,6 +22,12 @@
 				     paragraphs sit flush. The .about-copy class stays as
 				     the two copies' scoping hook. -->
 				<div class="document-text text-box about-copy">
+					<!-- Ticket 36: the /about/ page ships one h1 (it had zero
+					     headings). Wording "About" is the [ai] draft default -
+					     Pedro's pass may reword. Recorded: the home #about
+					     SECTION stays heading-free - the home hero owns that
+					     page's h1. -->
+					<h1>About</h1>
 					<div class="headshot-container">
 						<img src="../images/misc/profile_photo.png" alt="Pedro Björn" height="192px" width="192px">
 					</div>

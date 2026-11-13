@@ -40,11 +40,26 @@
     background-color: $vb-dark;
     position: relative;
 
-    // Label and email link share the same size
-    h3 {
+    // Label and email line share the same size. They were h3 elements —
+    // demoted to styled paragraphs (R4 404 ticket): a footer contact line
+    // is not a section; the h3s also broke heading order on pages whose
+    // only heading is the 404's h1. Weight/size/match the old h3 exactly.
+    .foot-contact-label,
+    .foot-contact-mail {
         font-size: 1rem;
         margin: 8px 0;
+        font-weight: 700;
     }
+}
+
+// Ticket 37 (sweep A7): the bear glyph link's hit box was 19x21 - the
+// .foot-bear padding expands it past 44x44 and the negative margin keeps
+// the layout footprint, so the glyph's visual size/position are pinned
+// (the ticket-10 robot-pill shape).
+.foot-bear {
+    display: inline-block;
+    padding: 13px 14px;
+    margin: -13px -14px;
 }
 
 // Tighten the bottom rhythm: contact block -> social icons -> copyright

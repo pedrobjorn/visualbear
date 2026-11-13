@@ -145,3 +145,11 @@ mechanical fixes and Pedro's calls.
 | 7 | Touch targets under 44: logo 40x40, .vb-tab 37 tall, footer bear 19x21 (highlight chips = text links, recorded) | T37 | T21 |
 | 8 | 324KB of hidden-panel demo images eager-load on every /workflow/ visit (T16's lazy removal) | T38 | T16 |
 | 9 | profile_photo.png - a photo as 119KB PNG (home + about) | T39 (asset: Pedro provides webp/jpg) | - |
+
+Executed 2026-11-13 (DR-0011): T31, T33-T38 DONE - evidence/
+t33-34-36-37-38-verify.md and evidence/t31-35-verify.md (build + guard +
+npm test + Playwright probes, both engines). T32 + T39 remain gated on
+Pedro's asset calls. T35 recorded deviation: #EA544F measured 3.87-4.14
+on the eyebrow's real spotlight-tinted ground, so the lift went to the
+palette's #EE6E73; the strip's active label still measures 4.19-4.33
+under the spotlight's brightest ~100px (Pedro's brand call). |
