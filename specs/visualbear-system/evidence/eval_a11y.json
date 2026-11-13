@@ -1,0 +1,385 @@
+{
+ "public-home-390": {
+  "size": 390,
+  "console": [],
+  "a11y": [
+   {
+    "type": "a11y-link-name",
+    "detail": "/"
+   },
+   {
+    "type": "a11y-touch-target",
+    "detail": "icon 40x40 | A 230x41 | A 47x23 | highlight 145x27 | highlight 57x27 | highlight 73x27"
+   },
+   {
+    "type": "contrast-low",
+    "detail": "[{\"sel\":\"A\",\"ratio\":3.27,\"cutoff\":4.5,\"fs\":23.04,\"color\":\"rgb(215, 55, 53)\",\"bg\":\"rgba(0, 0, 0, 0)\",\"txt\":\"Rebranding a global \"},{\"sel\":\"robot-glyph\",\"ratio\":3.27,\"cutoff\":4.5,\"fs\":20,\"color\":\"rgb(215, 55, 53)\",\"bg\":\"rgba(0, 0, 0, 0)\",\"txt\":\"\ud83e\udd16\"}]"
+   }
+  ]
+ },
+ "public-home-1440": {
+  "size": 1440,
+  "console": [],
+  "a11y": [
+   {
+    "type": "a11y-link-name",
+    "detail": "/"
+   },
+   {
+    "type": "a11y-touch-target",
+    "detail": "icon 40x40 | A 50x26 | highlight 154x30 | highlight 61x30 | highlight 78x30 | A 192x26"
+   },
+   {
+    "type": "contrast-low",
+    "detail": "[{\"sel\":\"A\",\"ratio\":3.27,\"cutoff\":4.5,\"fs\":23.04,\"color\":\"rgb(215, 55, 53)\",\"bg\":\"rgba(0, 0, 0, 0)\",\"txt\":\"Rebranding a global \"},{\"sel\":\"robot-glyph\",\"ratio\":3.27,\"cutoff\":4.5,\"fs\":20,\"color\":\"rgb(215, 55, 53)\",\"bg\":\"rgba(0, 0, 0, 0)\",\"txt\":\"\ud83e\udd16\"}]"
+   }
+  ]
+ },
+ "workflow-390": {
+  "size": 390,
+  "console": [],
+  "a11y": [
+   {
+    "type": "a11y-dup-ids",
+    "detail": "contact x2"
+   },
+   {
+    "type": "a11y-h1-multiple",
+    "detail": "3 h1s: My Agentic Design Wo | Design system | h1 Heading"
+   },
+   {
+    "type": "a11y-link-name",
+    "detail": "/"
+   },
+   {
+    "type": "a11y-touch-target",
+    "detail": "icon 40x40 | vb-tab vb-tab--active 83x37 | vb-tab 166x37 | A 172x31 | A 175x31 | A 198x31"
+   },
+   {
+    "type": "contrast-low",
+    "detail": "[{\"sel\":\"cs-eyebrow\",\"ratio\":4.22,\"cutoff\":4.5,\"fs\":15.36,\"color\":\"rgb(227, 74, 71)\",\"bg\":\"rgba(0, 0, 0, 0)\",\"txt\":\"The visuAI Workflow\"},{\"sel\":\"A\",\"ratio\":4.22,\"cutoff\":4.5,\"fs\":22.464,\"color\":\"rgb(227, 74, 71)\",\"bg\":\"rgba(0, 0, 0, 0)\",\"txt\":\"visuaibear-core\"},{\"sel\":\"A\",\"ratio\":4.22,\"cutoff\":4.5,\"fs\":17.28,\"color\":\"rgb(227, 74, 71)\",\"bg\":\"rgba(0, 0, 0, 0)\",\"txt\":\"frontend-design, web\"}]"
+   }
+  ],
+  "a11y-design-tab": [
+   {
+    "type": "a11y-dup-ids",
+    "detail": "contact x2"
+   },
+   {
+    "type": "a11y-h1-multiple",
+    "detail": "3 h1s: My Agentic Design Wo | Design system | h1 Heading"
+   },
+   {
+    "type": "a11y-link-name",
+    "detail": "/"
+   },
+   {
+    "type": "a11y-touch-target",
+    "detail": "icon 40x40 | vb-tab 83x37 | vb-tab vb-tab--active 166x37 | A 135x31 | A 36x23 | A 68x23"
+   },
+   {
+    "type": "contrast-low",
+    "detail": "[{\"sel\":\"cs-metric-label\",\"ratio\":4.47,\"cutoff\":4.5,\"fs\":15.36,\"color\":\"rgb(110, 110, 115)\",\"bg\":\"rgba(0, 0, 0, 0)\",\"txt\":\"meta hero \u2014 KPIs sit\"}]"
+   }
+  ]
+ },
+ "workflow-1440": {
+  "size": 1440,
+  "console": [],
+  "a11y": [
+   {
+    "type": "a11y-dup-ids",
+    "detail": "contact x2"
+   },
+   {
+    "type": "a11y-h1-multiple",
+    "detail": "3 h1s: My Agentic Design Wo | Design system | h1 Heading"
+   },
+   {
+    "type": "a11y-link-name",
+    "detail": "/"
+   },
+   {
+    "type": "a11y-touch-target",
+    "detail": "icon 40x40 | vb-tab vb-tab--active 109x37 | vb-tab 198x37 | A 172x31 | A 175x31 | A 198x31"
+   },
+   {
+    "type": "contrast-low",
+    "detail": "[{\"sel\":\"cs-eyebrow\",\"ratio\":4.22,\"cutoff\":4.5,\"fs\":15.36,\"color\":\"rgb(227, 74, 71)\",\"bg\":\"rgba(0, 0, 0, 0)\",\"txt\":\"The visuAI Workflow\"},{\"sel\":\"A\",\"ratio\":4.22,\"cutoff\":4.5,\"fs\":22.464,\"color\":\"rgb(227, 74, 71)\",\"bg\":\"rgba(0, 0, 0, 0)\",\"txt\":\"visuaibear-core\"},{\"sel\":\"A\",\"ratio\":4.22,\"cutoff\":4.5,\"fs\":18.432,\"color\":\"rgb(227, 74, 71)\",\"bg\":\"rgba(0, 0, 0, 0)\",\"txt\":\"frontend-design, web\"}]"
+   }
+  ],
+  "a11y-design-tab": [
+   {
+    "type": "a11y-dup-ids",
+    "detail": "contact x2"
+   },
+   {
+    "type": "a11y-h1-multiple",
+    "detail": "3 h1s: My Agentic Design Wo | Design system | h1 Heading"
+   },
+   {
+    "type": "a11y-link-name",
+    "detail": "/"
+   },
+   {
+    "type": "a11y-touch-target",
+    "detail": "icon 40x40 | vb-tab 109x37 | vb-tab vb-tab--active 198x37 | A 135x31 | A 39x26 | A 72x26"
+   },
+   {
+    "type": "contrast-low",
+    "detail": "[{\"sel\":\"cs-metric-label\",\"ratio\":4.47,\"cutoff\":4.5,\"fs\":15.36,\"color\":\"rgb(110, 110, 115)\",\"bg\":\"rgba(0, 0, 0, 0)\",\"txt\":\"meta hero \u2014 KPIs sit\"}]"
+   }
+  ]
+ },
+ "about-390": {
+  "size": 390,
+  "console": [],
+  "a11y": [
+   {
+    "type": "a11y-headings",
+    "detail": "no headings at all"
+   },
+   {
+    "type": "a11y-h1-missing",
+    "detail": "no h1"
+   },
+   {
+    "type": "a11y-link-name",
+    "detail": "/"
+   },
+   {
+    "type": "a11y-touch-target",
+    "detail": "icon 40x40 | A 47x23 | highlight 145x27 | highlight 73x27 | A 192x26 | A 19x21"
+   },
+   {
+    "type": "contrast-low",
+    "detail": "[{\"sel\":\"A\",\"ratio\":4.12,\"cutoff\":4.5,\"fs\":17.28,\"color\":\"rgb(215, 55, 53)\",\"bg\":\"rgba(0, 0, 0, 0)\",\"txt\":\"Quizrr\"}]"
+   }
+  ]
+ },
+ "styleguide-390": {
+  "size": 390,
+  "console": [],
+  "a11y": [
+   {
+    "type": "a11y-dup-ids",
+    "detail": "contact x2"
+   },
+   {
+    "type": "a11y-h1-multiple",
+    "detail": "2 h1s: Styleguide | h1 Heading"
+   },
+   {
+    "type": "a11y-link-name",
+    "detail": "/"
+   },
+   {
+    "type": "a11y-touch-target",
+    "detail": "icon 40x40 | A 135x31 | A 27x18 | A 51x18 | A 63x18 | A 112x18"
+   },
+   {
+    "type": "contrast-low",
+    "detail": "[{\"sel\":\"cs-metric-label\",\"ratio\":4.47,\"cutoff\":4.5,\"fs\":15.36,\"color\":\"rgb(110, 110, 115)\",\"bg\":\"rgba(0, 0, 0, 0)\",\"txt\":\"meta hero \u2014 KPIs sit\"}]"
+   }
+  ]
+ },
+ "resume-390": {
+  "size": 390,
+  "console": [],
+  "a11y": [
+   {
+    "type": "a11y-link-name",
+    "detail": "/"
+   },
+   {
+    "type": "a11y-touch-target",
+    "detail": "icon 40x40 | A 173x23 | A 66x23 | A 66x23 | A 86x23 | A 136x23"
+   },
+   {
+    "type": "contrast-low",
+    "detail": "[{\"sel\":\"LI\",\"ratio\":1.1,\"cutoff\":4.5,\"fs\":23.04,\"color\":\"rgb(255, 255, 255)\",\"bg\":\"rgba(0, 0, 0, 0)\",\"txt\":\"Work\"}]"
+   }
+  ]
+ },
+ "case-visualbear-390": {
+  "size": 390,
+  "console": [
+   "error: Failed to load resource: the server responded with a status of 404 (File not found)",
+   "error: Failed to load resource: the server responded with a status of 404 (File not found)"
+  ],
+  "a11y": [
+   {
+    "type": "a11y-dup-ids",
+    "detail": "styleguide x2, workLink1 x2, galleryimg x5, contact x2"
+   },
+   {
+    "type": "a11y-h1-multiple",
+    "detail": "5 h1s: visualbear  Brand &  | Brand Identity | Styleguide | h1 Heading  Secondar"
+   },
+   {
+    "type": "a11y-heading-skip",
+    "detail": "1->3 \"Duration\""
+   },
+   {
+    "type": "a11y-heading-skip",
+    "detail": "2->4 \"Button Slider\""
+   },
+   {
+    "type": "a11y-heading-skip",
+    "detail": "1->3 \"Duration\""
+   },
+   {
+    "type": "a11y-img-alt",
+    "detail": "visualbear_logo.svg"
+   },
+   {
+    "type": "a11y-img-alt",
+    "detail": "visualbear_first.jpg"
+   },
+   {
+    "type": "a11y-img-alt",
+    "detail": "visualbear_alt.jpg"
+   },
+   {
+    "type": "a11y-img-alt",
+    "detail": "visualbear_grid2.jpg"
+   },
+   {
+    "type": "a11y-img-alt",
+    "detail": "visualbear_grid3.jpg"
+   },
+   {
+    "type": "a11y-img-alt",
+    "detail": "visualbear_grid4.jpg"
+   },
+   {
+    "type": "a11y-img-alt",
+    "detail": "visualbear_pedrobjorn.jpg"
+   },
+   {
+    "type": "img-broken",
+    "detail": "twitter_icon_64.jpg"
+   },
+   {
+    "type": "img-broken",
+    "detail": "behance_icon_64.jpg"
+   },
+   {
+    "type": "a11y-img-alt",
+    "detail": "logo_main.png"
+   },
+   {
+    "type": "a11y-img-alt",
+    "detail": "profile-screen_sneek.png"
+   },
+   {
+    "type": "a11y-link-name",
+    "detail": "/"
+   },
+   {
+    "type": "a11y-link-name",
+    "detail": "../images/work/fullsize/visualbear/visua"
+   },
+   {
+    "type": "a11y-link-name",
+    "detail": "../images/work/fullsize/visualbear/visua"
+   },
+   {
+    "type": "a11y-link-name",
+    "detail": "../images/work/fullsize/visualbear/visua"
+   },
+   {
+    "type": "a11y-link-name",
+    "detail": "../images/work/fullsize/visualbear/visua"
+   },
+   {
+    "type": "a11y-link-name",
+    "detail": "../images/work/fullsize/visualbear/visua"
+   },
+   {
+    "type": "a11y-link-name",
+    "detail": "../images/work/fullsize/visualbear/visua"
+   },
+   {
+    "type": "a11y-touch-target",
+    "detail": "icon 40x40 | A 104x23 | A 36x23 | A 68x23 | A 85x23 | A 61x23"
+   },
+   {
+    "type": "contrast-low",
+    "detail": "[{\"sel\":\"A\",\"ratio\":4.24,\"cutoff\":4.5,\"fs\":17.28,\"color\":\"rgb(215, 55, 53)\",\"bg\":\"rgba(0, 0, 0, 0)\",\"txt\":\"Pattern Lab's\"},{\"sel\":\"box-container\",\"ratio\":2.32,\"cutoff\":4.5,\"fs\":17.28,\"color\":\"rgb(235, 245, 255)\",\"bg\":\"rgb(121, 166, 210)\",\"txt\":\"#79A6D2\\n          Bl\"},{\"sel\":\"P\",\"ratio\":2.32,\"cutoff\":4.5,\"fs\":17.28,\"color\":\"rgb(235, 245, 255)\",\"bg\":\"rgba(0, 0, 0, 0)\",\"txt\":\"Blue\"},{\"sel\":\"box-container\",\"ratio\":2.71,\"cutoff\":4.5,\"fs\":17.28,\"color\":\"rgb(235, 245, 255)\",\"bg\":\"rgb(255, 98, 26)\",\"txt\":\"#FF621A\\n          Or\"},{\"sel\":\"box-container\",\"ratio\":3.34,\"cutoff\":4.5,\"fs\":17.28,\"color\":\"rgb(235, 245, 255)\",\"bg\":\"rgb(246, 63, 60)\",\"txt\":\"#F63F3C\\n          To\"},{\"sel\":\"center-justified\",\"ratio\":2.56,\"cutoff\":3,\"fs\":23.328,\"color\":\"rgb(230, 242, 255)\",\"bg\":\"rgba(0, 0, 0, 0)\",\"txt\":\"Connecting artist an\"}]"
+   }
+  ]
+ },
+ "case-workflow404-390": {
+  "size": 390,
+  "console": [],
+  "a11y": [
+   {
+    "type": "a11y-link-name",
+    "detail": "/"
+   },
+   {
+    "type": "a11y-touch-target",
+    "detail": "icon 40x40 | A 225x31 | A 173x21 | A 192x26 | A 19x21"
+   }
+  ]
+ },
+ "mirror-home-390": {
+  "size": 390,
+  "console": [],
+  "a11y": [
+   {
+    "type": "a11y-link-name",
+    "detail": "./"
+   },
+   {
+    "type": "a11y-touch-target",
+    "detail": "icon 40x40 | A 230x41 | A 47x23 | highlight 145x27 | highlight 57x27 | highlight 73x27"
+   },
+   {
+    "type": "contrast-low",
+    "detail": "[{\"sel\":\"A\",\"ratio\":3.27,\"cutoff\":4.5,\"fs\":23.04,\"color\":\"rgb(215, 55, 53)\",\"bg\":\"rgba(0, 0, 0, 0)\",\"txt\":\"Redesigning the lear\"},{\"sel\":\"robot-glyph\",\"ratio\":3.27,\"cutoff\":4.5,\"fs\":20,\"color\":\"rgb(215, 55, 53)\",\"bg\":\"rgba(0, 0, 0, 0)\",\"txt\":\"\ud83e\udd16\"}]"
+   }
+  ]
+ },
+ "mirror-workflow-390": {
+  "size": 390,
+  "console": [],
+  "a11y": [
+   {
+    "type": "a11y-dup-ids",
+    "detail": "contact x2"
+   },
+   {
+    "type": "a11y-h1-multiple",
+    "detail": "3 h1s: My Agentic Design Wo | Design system | h1 Heading"
+   },
+   {
+    "type": "a11y-link-name",
+    "detail": "../"
+   },
+   {
+    "type": "a11y-touch-target",
+    "detail": "icon 40x40 | vb-tab vb-tab--active 83x37 | vb-tab 166x37 | A 172x31 | A 175x31 | A 198x31"
+   },
+   {
+    "type": "contrast-low",
+    "detail": "[{\"sel\":\"cs-eyebrow\",\"ratio\":4.22,\"cutoff\":4.5,\"fs\":15.36,\"color\":\"rgb(227, 74, 71)\",\"bg\":\"rgba(0, 0, 0, 0)\",\"txt\":\"The visuAI Workflow\"},{\"sel\":\"A\",\"ratio\":4.22,\"cutoff\":4.5,\"fs\":22.464,\"color\":\"rgb(227, 74, 71)\",\"bg\":\"rgba(0, 0, 0, 0)\",\"txt\":\"visuaibear-core\"},{\"sel\":\"A\",\"ratio\":4.22,\"cutoff\":4.5,\"fs\":17.28,\"color\":\"rgb(227, 74, 71)\",\"bg\":\"rgba(0, 0, 0, 0)\",\"txt\":\"frontend-design, web\"},{\"sel\":\"robot-glyph\",\"ratio\":3.55,\"cutoff\":4.5,\"fs\":20,\"color\":\"rgb(215, 55, 53)\",\"bg\":\"rgba(0, 0, 0, 0)\",\"txt\":\"\ud83e\udd16\"}]"
+   }
+  ]
+ },
+ "mirror-teachr-390": {
+  "size": 390,
+  "console": [],
+  "a11y": [
+   {
+    "type": "a11y-link-name",
+    "detail": "../"
+   },
+   {
+    "type": "a11y-touch-target",
+    "detail": "icon 40x40 | A 247x42 | A 192x26 | A 19x21"
+   }
+  ]
+ }
+}

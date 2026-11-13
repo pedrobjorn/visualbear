@@ -125,3 +125,23 @@ items are spec'd as verify/finish tickets, not new work.
 | 4 | About paragraph gap: one space (16px), not two (24px shipped in T23) | T28 (DONE 2026-11-13, amended same day: the margin itself removed - paragraphs flush) | T23 |
 | 5 | Robot the same size as the bear (verify 20px on-device; lever to 18px if it still reads big) | T29 (DONE 2026-11-13 - 20px verified, 18px lever open on-device) | T18 |
 | 6 | Robot links to the visuAI / design system page on the index - mirror index already does; PUBLIC home now too via DR-0010 (page duplicated to the root) | T30 (DONE, DR-0010) | T20 |
+
+## Amendment pass 2026-11-13c (whole-build sweep: accessibility + performance)
+
+Measured against the post-7d99707 build; facts in
+evidence/sweep-eval-2026-11-13.md (+ eval_a11y.json / eval_perf.json).
+A full-build machine eval (12 pages, public + mirror, both tab states)
+with pixel-verified contrast. No review blocker; the finds split into
+mechanical fixes and Pedro's calls.
+
+| # | Item | New ticket | Amends |
+| - | --- | --- | --- |
+| 1 | Case-study gallery images carry no alt; gallery wrapper links unnamed | T31 | - |
+| 2 | Styleguide modules demo ships two 404 icons (twitter/behance) + placeholder alts, on /styleguide/ AND /visualbear/ | T32 (asset decision: Pedro) | T16 |
+| 3 | /visualbear/ renders 5 visible h1s - its embedded styleguide copy + ladder demo leak real h1s onto a public case page | T33 | T3, T16 |
+| 4 | The design panel's Footer demo ships a full live footer (duplicate id="contact", real mailto) | T34 (mechanical: demo goes inert) | T16 |
+| 5 | Contrast: workflow cs-eyebrow #E34A47 = 3.64-4.2 on its real ground (T2's EA544F never reached it); cs-metric-label 4.47; global link red #D73735 ~4.12 on light grounds | T35 | T2, T43 |
+| 6 | /about/ has zero headings - no h1 | T36 | T23 |
+| 7 | Touch targets under 44: logo 40x40, .vb-tab 37 tall, footer bear 19x21 (highlight chips = text links, recorded) | T37 | T21 |
+| 8 | 324KB of hidden-panel demo images eager-load on every /workflow/ visit (T16's lazy removal) | T38 | T16 |
+| 9 | profile_photo.png - a photo as 119KB PNG (home + about) | T39 (asset: Pedro provides webp/jpg) | - |

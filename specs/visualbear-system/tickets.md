@@ -1801,3 +1801,283 @@ chose #work precisely to avoid disclosing the air-locked mirror path
 - RESOLVED 2026-11-13 (Pedro): "index" = the PUBLIC home; duplicate the
   system page to the root (option b). Implemented per DR-0010; the
   former open question is closed.
+
+---
+
+# Ticket 31: Case-study gallery images get accessible names
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13c, item 1)
+- Size: M
+- Type: a11y
+- Status: OPEN
+- Measured (evidence/sweep-eval-2026-11-13.md, A1): /visualbear/ ships 9
+  gallery <img> without alt (work/fullsize/*), so their wrapper links are
+  unnamed too - the portfolio items are invisible to AT.
+- Unpack: no text on AI-drafted case pages carries the [ai] marker here -
+  alts name the WORK (Pedro's imagery, H2 provenance: descriptions come
+  from him; draft with the real file names + project context and mark
+  [ai], Pedro edits).
+- Gated: the alt WORDING lands only after Pedro's pass (Gate 7); the
+  mechanical part (title/aria-label on the gallery links so no unnamed
+  link ships) is NOT gated.
+
+## Requirements
+
+- Every case-study gallery img gets an alt (or alt="" if purely
+  decorative with a titled link parent) - all case pages, the source
+  templates AND the src/visualbear/_styleguide_blocks duplication
+  copies.
+- The gallery wrapper links carry an accessible name STRICTLY (the
+  a11y scanner uses aria-label/title/img alt chain - assert on the
+  rendered tree).
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Machine scan: zero a11y-link-name / a11y-img-alt hits on the case pages
+- [ ] Alt wording [ai]-marked for Pedro's pass
+- [ ] npm build + guard + npm test pass
+
+---
+
+# Ticket 32: The modules demo's broken icons - can't ship 404s (asset)
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13c, item 2)
+- Size: S
+- Type: a11y + assets
+- Status: OPEN - GATED on Pedro's asset call
+- Measured (A2): styleguide.modules.nunjucks:44,47 reference
+  icons/twitter_icon_64.jpg + icons/behance_icon_64.jpg - neither file
+  exists in the build (grep-verified). Two 404 console errors on
+  /styleguide/ AND /visualbear/; alt="Smiley face" is placeholder copy.
+  build/images/icons/ ships github_icon_64.png + linkdin_icon_64.jpg.
+
+## Requirements
+
+- Pedro decides: (a) provide the missing twitter/behance 64px assets
+  (planned files per H2 - no stand-ins), or (b) the demo trims to the two
+  icons that exist, alt text re-authored (not "Smiley face").
+- Either way: zero console errors on the pages that render the demo.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Zero 404s in the console on /styleguide/ + /visualbear/ (probed)
+- [ ] No placeholder alt ("Smiley face") on the shipped icons
+- [ ] npm build + guard pass
+
+---
+
+# Ticket 33: The case pages' embedded styleguide copy stops leaking h1s
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13c, item 3)
+- Size: M
+- Type: a11y + structure
+- Status: OPEN
+- Measured (A3): /visualbear/ renders FIVE visible h1s - the case hero +
+  section h1s + the embedded styleguide COPY's own "Styleguide" h1 and
+  the "h1 Heading" ladder demo. The src/visualbear/_styleguide_blocks
+  duplication (T3's "content untouched" zone) leaks heading STRUCTURE
+  onto a public case page.
+- This is a tag-level fix (h1 -> h2), not a copy rewrite: no string
+  changes; T16's copy gate unaffected.
+
+## Requirements
+
+- On the EMBEDDED copy inside the case pages (and its duplication
+  block), demote the non-hero h1s to the proper section level; the
+  "h1 Heading" ladder demo renders as a DEMO (not as a real h1 - the
+  /workflow/ design panel solved the same concern per T6/T14 there).
+- One visible h1 per page (the case hero), probed.
+- The standalone /styleguide/ page's own instance gets the same fix
+  for consistency - its shipped flag (T6) finally resolved.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Probed: exactly one VISIBLE h1 on /visualbear/, /styleguide/ and the
+  design tab (the ladder demo excluded by demotion)
+- [ ] Text content byte-identical except nothing (tag-only changes)
+- [ ] npm build + guard + npm test pass
+
+---
+
+# Ticket 34: The footer demo goes inert (duplicate id=contact)
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13c, item 4)
+- Size: S
+- Type: a11y + structure
+- Status: OPEN
+- Measured (A4): the styleguide modules' Footer demo renders a full LIVE
+  <footer class="foot"><section id="contact"> with the real mailto as a
+  demo inside the guide - /workflow/, /styleguide/ and /visualbear/ each
+  ship TWO id="contact" (home/about/resume ship one). Duplicate ids break
+  anchor + landmark resolution.
+- Demo = visual specimen: keep it looking like a footer, strip its
+  LIVE hooks. Mechanical - no copy changes.
+
+## Requirements
+
+- The demo's footer loses the id="contact" (and any role/landmark
+  semantics it would duplicate OR the demo wraps it in an inert
+  container whose ids are namespaced) - pick the smallest mechanical
+  route, document in the scss/nunjucks comment.
+- The mailto demo link is inert (href="#" + aria-label "demo" or
+  flagged copy - no live anchor duplication after the in-page contact).
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Probed: exactly ONE id="contact" per built page (all 23 zones' pages)
+- [ ] The demo still RENDERS as a footer specimen visually (camera check
+  design tab vs pre-change - the DEMO LOOK survives)
+- [ ] npm build + guard + npm test pass
+
+---
+
+# Ticket 35: The contrast stragglers - eyebrow, metric-label, link red
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13c, item 5)
+- Size: M
+- Type: a11y + UI
+- Status: OPEN
+- Measured (A5, pixel-verified):
+  - /workflow/ cs-eyebrow #E34A47 15.36px: 3.64 best-case on the
+    gradient/spotlight ground. T2's #EA544F (4.65 on the dark grounds)
+    covers the STRIP's active label - the eyebrow kept the old ink.
+  - cs-metric-label 4.47 (0.03 under the bar, 15.36px).
+  - The GLOBAL link red #D73735 measures ~4.12 on light grounds - the
+    2026 light pages (home, about) carry it in body copy; /styleguide/
+    (#d0181e) + /resume/ (#cd3231) already ship the darker instances.
+
+## Requirements
+
+- The workflow eyebrow takes #EA544F (the shipped T2 instance - one
+  file, no new color).
+- cs-metric-label: one step down per the established per-ground instance
+  pattern (the T47 note's #66686d recipe), documented.
+- The light pages' link red takes a ground-dark instance (the
+  #styleguide_container recipe generalized - scoped to the light-ground
+  body pages, not the dark ones; verify each page's hover plate).
+- Dark-ground pages: verify each change on both grounds - no 3.8 regressions,
+  no hover-state regressions (hover plates sit under the link).
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Pixel-probed: every flagged element >= 4.5 on its REAL rendered ground
+  (not the computed walk), both engines at 390 + 1440
+- [ ] Dark grounds unchanged where they already pass
+- [ ] npm build + guard + npm test pass
+
+---
+
+# Ticket 36: /about/ gets its h1
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13c, item 6)
+- Size: S
+- Type: a11y + copy
+- Status: OPEN
+- Measured (A6): /about/ ships ZERO headings. The /about/ page (and the
+  home's #about section it duplicates) are all paragraphs.
+
+## Requirements
+
+- The /about/ PAGE gets one h1 (Pedro's wording; [ai]-marked draft in
+  the ticket if he delegates: "About" is the honest default).
+- The home's #about SECTION copy stays heading-free (the home's hero
+  already owns the page h1) - or gets an sr-only h2 if the structure
+  wants it: record which.
+- Mobile eval regression: T23's rhythm survives the markup addition.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] /about/ carries exactly one h1 (probed); its copy unchanged otherwise
+- [ ] The home #about rhythm + anchors re-probed clean (T23/T28 evidence)
+- [ ] npm build + guard + npm test pass
+
+---
+
+# Ticket 37: Touch targets under 44 - strip, logo, footer bear
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13c, item 7)
+- Size: S
+- Type: a11y + UI
+- Status: OPEN
+- Measured (A7): interactive elements under the 44x44 target -
+  the nav logo 40x40; .vb-tab buttons 37px tall (T21's tall-target rule
+  covered the main nav, never the strip); the FOOTER BEAR 19x21 (an
+  <a> glyph); the .highlight chips 27px tall (in-copy text links -
+  RECORDED as acceptable text-link affordance, not fixed).
+
+## Requirements
+
+- The strip's tab buttons: padding per the T21 pattern so the hit box
+  reaches 44 tall without the one-line/nowrap regression (T22's probe
+  contract re-run).
+- The logo + the footer bear: padding-expanded hit box, visual size
+  pinned (same shape as the T10 robot fix).
+- The .highlight chips: recorded here as conforming text links - no
+  change (WCAG 2.5.8's 24px bar is met; the 44 best-practice bar does
+  not apply to in-copy links).
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Probed 390 + 1440: tabs, logo, footer bear >= 44x44 hit boxes;
+  VISUAL size/position unchanged (camera diff vs pre-change)
+- [ ] T22's one-line-per-label contract still green (strip re-probed at
+  320/360/375, both engines)
+- [ ] npm build + guard + npm test pass
+
+---
+
+# Ticket 38: The design panel's demo images stop weighing on every visit
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13c, item 8)
+- Size: S
+- Type: performance
+- Status: OPEN
+- Measured (P1): /workflow/ + /styleguide/ (+ the mirror copies)
+  eagerly download 324KB / 6 images for the [hidden] design panel on
+  every visit incl. gallery_thumb_closet.jpg at 131KB. Cause: T16
+  removed loading="lazy" wholesale to make the cs-shots row render
+  complete on first tab-open.
+
+## Requirements
+
+- Restore loading="lazy" on the design panel's demo images; on the
+  FIRST design-tab open, flip them eager (one pass in tabs.js's paint -
+  the panel is [hidden] at load, so lazy would never fire otherwise;
+  hook the panel's first activation).
+- T16's contract holds: the cs-shots row renders COMPLETE on first
+  tab-open (probe: all three complete && naturalWidth > 0 within one
+  frame of the first open).
+- The /styleguide/ PAGE standalone: its own loading state keeps today's
+  behavior (it is the page - images eager there are honest) unless the
+  probe shows mid-page savings; record which.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] /workflow/ transferWeight drops ~300KB (probe: requests + transferKB
+  vs eval_perf.json's 488KB) with no degradation on first design-open
+- [ ] The cs-shots row complete on first open (T16 probe re-run)
+- [ ] npm build + guard + npm test pass
+
+---
+
+# Ticket 39: profile_photo as a modern format (asset)
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13c, item 9)
+- Size: S
+- Type: performance + assets
+- Status: OPEN - GATED on Pedro's asset (H2)
+- Measured (P2): profile_photo.png - a PHOTO as PNG, 119KB, shipped on
+  the home + /about/.
+
+## Requirements
+
+- Pedro provides a re-encoded photo (webp preferred, jpg acceptable -
+  the pipeline's image task handles formats; no agent-invented asset).
+- Same filename or a new one with the <img> updated; visual parity
+  (camera diff).
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] The home + /about/ carry the image at ~half the transfer weight
+- [ ] Visual parity at 390 + 1440 (capture pair)
+- [ ] npm build + guard pass

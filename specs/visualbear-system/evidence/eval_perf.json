@@ -1,0 +1,504 @@
+{
+ "home-390-4x": {
+  "ttfb": 5,
+  "fcp": 312,
+  "lcp": 356,
+  "domComplete": 419,
+  "transferKB": 574,
+  "decodedKB": 589,
+  "requests": 11,
+  "longTasks": 1,
+  "longTotalms": 143,
+  "byType": {
+   "link": {
+    "count": 2,
+    "bytes": 119437
+   },
+   "img": {
+    "count": 3,
+    "bytes": 124839
+   },
+   "script": {
+    "count": 1,
+    "bytes": 4394
+   },
+   "css": {
+    "count": 4,
+    "bytes": 330958
+   }
+  },
+  "biggest": [
+   "main.css 117KB",
+   "profile_photo.png 119KB",
+   "gallery_thumb_fashion.jpg 116KB",
+   "gallery_thumb_coupon.jpg 75KB",
+   "gallery_thumb_closet.jpg 131KB"
+  ],
+  "domNodes": 118,
+  "imgs": [
+   {
+    "src": "logo_default.svg",
+    "natural": "599x599",
+    "rendered": "32x32",
+    "lazy": false,
+    "visible": true
+   },
+   {
+    "src": "profile_photo.png",
+    "natural": "256x256",
+    "rendered": "128x128",
+    "lazy": false,
+    "visible": true
+   },
+   {
+    "src": "linkdin_icon_64.jpg",
+    "natural": "64x64",
+    "rendered": "48x48",
+    "lazy": false,
+    "visible": true
+   }
+  ]
+ },
+ "home-1440": {
+  "ttfb": 3,
+  "fcp": 168,
+  "lcp": 196,
+  "domComplete": 263,
+  "transferKB": 574,
+  "decodedKB": 589,
+  "requests": 11,
+  "longTasks": 0,
+  "longTotalms": 0,
+  "byType": {
+   "link": {
+    "count": 2,
+    "bytes": 119437
+   },
+   "img": {
+    "count": 3,
+    "bytes": 124839
+   },
+   "script": {
+    "count": 1,
+    "bytes": 4394
+   },
+   "css": {
+    "count": 4,
+    "bytes": 330958
+   }
+  },
+  "biggest": [
+   "main.css 117KB",
+   "profile_photo.png 119KB",
+   "gallery_thumb_fashion.jpg 116KB",
+   "gallery_thumb_coupon.jpg 75KB",
+   "gallery_thumb_closet.jpg 131KB"
+  ],
+  "domNodes": 118,
+  "imgs": [
+   {
+    "src": "logo_default.svg",
+    "natural": "599x599",
+    "rendered": "32x32",
+    "lazy": false,
+    "visible": true
+   },
+   {
+    "src": "profile_photo.png",
+    "natural": "256x256",
+    "rendered": "196x196",
+    "lazy": false,
+    "visible": true
+   },
+   {
+    "src": "linkdin_icon_64.jpg",
+    "natural": "64x64",
+    "rendered": "48x48",
+    "lazy": false,
+    "visible": true
+   }
+  ]
+ },
+ "workflow-390-4x": {
+  "ttfb": 3,
+  "fcp": 412,
+  "lcp": 412,
+  "domComplete": 553,
+  "transferKB": 488,
+  "decodedKB": 503,
+  "requests": 11,
+  "longTasks": 2,
+  "longTotalms": 404,
+  "byType": {
+   "link": {
+    "count": 2,
+    "bytes": 119437
+   },
+   "img": {
+    "count": 6,
+    "bytes": 331873
+   },
+   "script": {
+    "count": 1,
+    "bytes": 4394
+   },
+   "css": {
+    "count": 1,
+    "bytes": 1161
+   }
+  },
+  "biggest": [
+   "main.css 117KB",
+   "gallery_thumb_artent.jpg 102KB",
+   "gallery_thumb_climateclock.jpg 63KB",
+   "gallery_thumb_closet.jpg 131KB"
+  ],
+  "domNodes": 592,
+  "imgs": [
+   {
+    "src": "logo_default.svg",
+    "natural": "599x599",
+    "rendered": "32x32",
+    "lazy": false,
+    "visible": true
+   },
+   {
+    "src": "visualbear_pedrobjorn.jpg",
+    "natural": "1024x480",
+    "rendered": "0x0",
+    "lazy": false,
+    "visible": false
+   },
+   {
+    "src": "linkdin_icon_64.jpg",
+    "natural": "64x64",
+    "rendered": "0x0",
+    "lazy": false,
+    "visible": false
+   },
+   {
+    "src": "gallery_thumb_artent.jpg",
+    "natural": "1280x256",
+    "rendered": "0x0",
+    "lazy": false,
+    "visible": false
+   },
+   {
+    "src": "gallery_thumb_climateclock.jpg",
+    "natural": "1280x256",
+    "rendered": "0x0",
+    "lazy": false,
+    "visible": false
+   },
+   {
+    "src": "gallery_thumb_closet.jpg",
+    "natural": "2560x512",
+    "rendered": "0x0",
+    "lazy": false,
+    "visible": false
+   },
+   {
+    "src": "linkdin_icon_64.jpg",
+    "natural": "64x64",
+    "rendered": "48x48",
+    "lazy": false,
+    "visible": true
+   }
+  ]
+ },
+ "visualbear-390-4x": {
+  "ttfb": 2,
+  "fcp": 372,
+  "lcp": 372,
+  "domComplete": 619,
+  "transferKB": 487,
+  "decodedKB": 499,
+  "requests": 19,
+  "longTasks": 2,
+  "longTotalms": 346,
+  "byType": {
+   "link": {
+    "count": 2,
+    "bytes": 119437
+   },
+   "img": {
+    "count": 13,
+    "bytes": 345510
+   },
+   "script": {
+    "count": 1,
+    "bytes": 4394
+   },
+   "css": {
+    "count": 2,
+    "bytes": 4234
+   }
+  },
+  "biggest": [
+   "main.css 117KB",
+   "profile-screen_sneek.png 119KB"
+  ],
+  "domNodes": 376,
+  "imgs": [
+   {
+    "src": "logo_default.svg",
+    "natural": "599x599",
+    "rendered": "32x32",
+    "lazy": false,
+    "visible": true
+   },
+   {
+    "src": "visualbear_logo.svg",
+    "natural": "900x643",
+    "rendered": "82x58",
+    "lazy": false,
+    "visible": true
+   },
+   {
+    "src": "visualbear_first.jpg",
+    "natural": "1024x484",
+    "rendered": "326x154",
+    "lazy": false,
+    "visible": true
+   },
+   {
+    "src": "visualbear_alt.jpg",
+    "natural": "1024x480",
+    "rendered": "326x153",
+    "lazy": false,
+    "visible": true
+   },
+   {
+    "src": "visualbear_grid2.jpg",
+    "natural": "1024x480",
+    "rendered": "326x153",
+    "lazy": false,
+    "visible": true
+   },
+   {
+    "src": "visualbear_grid3.jpg",
+    "natural": "1024x480",
+    "rendered": "326x153",
+    "lazy": false,
+    "visible": true
+   },
+   {
+    "src": "visualbear_grid4.jpg",
+    "natural": "1024x480",
+    "rendered": "326x153",
+    "lazy": false,
+    "visible": true
+   },
+   {
+    "src": "visualbear_pedrobjorn.jpg",
+    "natural": "1024x480",
+    "rendered": "326x153",
+    "lazy": false,
+    "visible": true
+   },
+   {
+    "src": "twitter_icon_64.jpg",
+    "natural": "0x0",
+    "rendered": "48x70",
+    "lazy": false,
+    "visible": true
+   },
+   {
+    "src": "behance_icon_64.jpg",
+    "natural": "0x0",
+    "rendered": "48x70",
+    "lazy": false,
+    "visible": true
+   },
+   {
+    "src": "linkdin_icon_64.jpg",
+    "natural": "64x64",
+    "rendered": "48x48",
+    "lazy": false,
+    "visible": true
+   },
+   {
+    "src": "visualbear_pedrobjorn.jpg",
+    "natural": "1024x480",
+    "rendered": "326x185",
+    "lazy": false,
+    "visible": true
+   },
+   {
+    "src": "logo_main.png",
+    "natural": "332x355",
+    "rendered": "66x70",
+    "lazy": false,
+    "visible": true
+   },
+   {
+    "src": "profile-screen_sneek.png",
+    "natural": "768x751",
+    "rendered": "262x256",
+    "lazy": false,
+    "visible": true
+   },
+   {
+    "src": "linkdin_icon_64.jpg",
+    "natural": "64x64",
+    "rendered": "48x48",
+    "lazy": false,
+    "visible": true
+   },
+   {
+    "src": "linkdin_icon_64.jpg",
+    "natural": "64x64",
+    "rendered": "48x48",
+    "lazy": false,
+    "visible": true
+   }
+  ]
+ },
+ "mirror-home-390-4x": {
+  "ttfb": 2,
+  "fcp": 248,
+  "lcp": 296,
+  "domComplete": 357,
+  "transferKB": 566,
+  "decodedKB": 583,
+  "requests": 11,
+  "longTasks": 1,
+  "longTotalms": 113,
+  "byType": {
+   "link": {
+    "count": 2,
+    "bytes": 119437
+   },
+   "img": {
+    "count": 3,
+    "bytes": 124839
+   },
+   "script": {
+    "count": 1,
+    "bytes": 4394
+   },
+   "css": {
+    "count": 4,
+    "bytes": 322119
+   }
+  },
+  "biggest": [
+   "main.css 117KB",
+   "profile_photo.png 119KB",
+   "gallery_thumb_teachr.jpg 122KB",
+   "gallery_thumb_fashion.jpg 116KB",
+   "gallery_thumb_coupon.jpg 75KB"
+  ],
+  "domNodes": 119,
+  "imgs": [
+   {
+    "src": "logo_default.svg",
+    "natural": "599x599",
+    "rendered": "32x32",
+    "lazy": false,
+    "visible": true
+   },
+   {
+    "src": "profile_photo.png",
+    "natural": "256x256",
+    "rendered": "128x128",
+    "lazy": false,
+    "visible": true
+   },
+   {
+    "src": "linkdin_icon_64.jpg",
+    "natural": "64x64",
+    "rendered": "48x48",
+    "lazy": false,
+    "visible": true
+   }
+  ]
+ },
+ "styleguide-390-4x": {
+  "ttfb": 2,
+  "fcp": 504,
+  "lcp": 504,
+  "domComplete": 622,
+  "transferKB": 475,
+  "decodedKB": 489,
+  "requests": 11,
+  "longTasks": 2,
+  "longTotalms": 517,
+  "byType": {
+   "link": {
+    "count": 2,
+    "bytes": 119437
+   },
+   "img": {
+    "count": 6,
+    "bytes": 331873
+   },
+   "script": {
+    "count": 1,
+    "bytes": 4394
+   },
+   "css": {
+    "count": 1,
+    "bytes": 1161
+   }
+  },
+  "biggest": [
+   "main.css 117KB",
+   "gallery_thumb_artent.jpg 102KB",
+   "gallery_thumb_climateclock.jpg 63KB",
+   "gallery_thumb_closet.jpg 131KB"
+  ],
+  "domNodes": 414,
+  "imgs": [
+   {
+    "src": "logo_default.svg",
+    "natural": "599x599",
+    "rendered": "32x32",
+    "lazy": false,
+    "visible": true
+   },
+   {
+    "src": "visualbear_pedrobjorn.jpg",
+    "natural": "1024x480",
+    "rendered": "351x197",
+    "lazy": false,
+    "visible": true
+   },
+   {
+    "src": "linkdin_icon_64.jpg",
+    "natural": "64x64",
+    "rendered": "48x48",
+    "lazy": false,
+    "visible": true
+   },
+   {
+    "src": "gallery_thumb_artent.jpg",
+    "natural": "1280x256",
+    "rendered": "390x78",
+    "lazy": false,
+    "visible": true
+   },
+   {
+    "src": "gallery_thumb_climateclock.jpg",
+    "natural": "1280x256",
+    "rendered": "390x78",
+    "lazy": false,
+    "visible": true
+   },
+   {
+    "src": "gallery_thumb_closet.jpg",
+    "natural": "2560x512",
+    "rendered": "390x78",
+    "lazy": false,
+    "visible": true
+   },
+   {
+    "src": "linkdin_icon_64.jpg",
+    "natural": "64x64",
+    "rendered": "48x48",
+    "lazy": false,
+    "visible": true
+   }
+  ]
+ }
+}
