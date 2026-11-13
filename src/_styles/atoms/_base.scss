@@ -5,12 +5,16 @@ body {
   font-size: 1.5em;
 
   /* 1 */
-  -webkit-text-size-adjust: 1.5em;
+  // Ticket 21 (mobile eval, DR-0009): the legacy `1.5em` here was an
+  // invalid value (CSS allows auto | none | <percentage> only) and the
+  // one engine-divergent text knob in the shipped CSS — Firefox for
+  // Android implements text-size-adjust, Chrome drops the em. One valid
+  // declaration, no scaling at 100% (the canonical font-inflation off
+  // switch; `none` has Chrome rendering history), so Android text sizes
+  // stop being a per-engine variable.
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 
-  /* 2 */
-  -ms-text-size-adjust: 1.5em;
-
-  /* 2 */
   /* No background-color here on purpose: with a painted html element the
      body's gradient cannot propagate to the canvas, and the strip below
      the body's box shows as a flat plate (visible on pages whose fade
@@ -113,6 +117,34 @@ body {
   min-height: 100vh;
   min-height: 100svh;
   flex-direction: column;
+}
+
+// Home page (ticket 52): the base body gradient above propagates to the
+// canvas (html paints no background), and a canvas-propagated gradient is
+// sized to the VIEWPORT — the 900px tile repeats and the fade restarts
+// bright red at every 900px boundary (measured: #252528 at page 892 snaps
+// to (215,55,53) at page 967). So the home fade is painted on a page-
+// anchored layer instead: one viewport tall, fading over the fold exactly
+// as the fold renders today (measured-identical curve), with the flat
+// brand dark beneath for the rest of the page. The layer scrolls with the
+// content — what the nav's scroll-fade timeline assumes.
+body.home-page {
+  // the shorthand (not just background-color) clears the base gradient's
+  // background-image — the tiled tile must never show beneath the layer
+  background: #252528;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    height: 100svh;
+    z-index: -1;
+    background: linear-gradient(180deg, #d73735 10%, #252528 100%);
+    background: linear-gradient(180deg in oklab, #d73735 10%, #252528 100%);
+  }
 }
 
 main {

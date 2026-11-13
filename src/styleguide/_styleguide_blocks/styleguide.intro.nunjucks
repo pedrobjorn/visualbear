@@ -27,11 +27,11 @@
   </div>
     <p>The structure is divided into:</p>
     <ul class="index">
-      <li><a href="#core" onclick="scroller('stylesheet-core')">Core</a></li>
-      <li><a href="#modules" onclick="scroller('stylesheet-modules')">Modules</a></li>
-      <li><a href="#containers"  onclick="scroller('stylesheet-containers')">Containers</a></li>
-      <li><a href="#casesystem"  onclick="scroller('stylesheet-casesystem')">Case-study system</a></li>
-      <!--<li><a href="#templates"  onclick="scroller('stylesheet-templates')">Templates</a></li>-->
+      <li><a href="#core">Core</a></li>
+      <li><a href="#modules">Modules</a></li>
+      <li><a href="#containers" >Containers</a></li>
+      <li><a href="#casesystem" >Case-study system</a></li>
+      <!--<li><a href="#templates" >Templates</a></li>-->
     </ul>
     <p>The purpose of exposing this styleguide is to present my portfolio itself as part my portfolio work. What you see is what I use as a reference as I build the site, as it's imperative to good web design and development.</p>
     <p>Built using:</p>

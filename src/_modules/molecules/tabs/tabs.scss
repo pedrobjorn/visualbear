@@ -38,6 +38,10 @@
   font-weight: $font-bold;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+  // Ticket 22 (mobile eval): one line per label, always - a shrunk strip
+  // must never reflow "Design system" into a two-line chip (it rendered
+  // h 58 vs 37, misaligned, at 360-375)
+  white-space: nowrap;
   // Light-ground inks (the design system tab); the dark ground re-inks
   // below. The active state keeps the underline treatment of
   // .links a:hover (nav) - no plate, no box.
@@ -99,6 +103,29 @@ body.workflow-page {
     &[aria-selected='true'] {
       color: #ea544f;
     }
+  }
+}
+
+// Ticket 22 (mobile eval): compact strip envelope. The labels' nowrap
+// width is 303px; the workflow text column is 288 at 360 / 248 at 320, so
+// below mobileLandscape the padding tightens (20 -> 10 each side) and the
+// tracking eases (.18em -> .12em). Label size, radius, inks, plate and the
+// strip's rhythm are untouched. <=360: tracking .1em, the release lever
+// the ticket pinned for the 320 worst case.
+@include mq($until: mobileLandscape) {
+  .vb-tab {
+    padding: 8px 10px;
+    letter-spacing: 0.12em;
+  }
+}
+
+@media (max-width: 360px) {
+  .vb-tab {
+    letter-spacing: 0.1em;
+    // the 320 worst case: Firefox's strip content measures 4px over the
+    // 248px column with 10px side paddings - the 8px paddings leave the
+    // plate headroom in both engines
+    padding: 8px 8px;
   }
 }
 

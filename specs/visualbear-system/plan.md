@@ -92,3 +92,20 @@ anchor behavior.
 | 1. The merged page is mirror-only (DR-0002) - does the public site lose `/styleguide/` on purpose? If the design system should stay public, the shape changes (see DR-0002) and Ticket 4 is rescoped. | Pedro | Tickets 3–4 only (Ticket 1 ships regardless) |
 | 2. Tab labels: "visuAI" and "Design system" as drafted - Pedro's voice may want different strings.                                                                                                    | Pedro | No (labels are one-line swaps)               |
 | 3. Default tab on arrival: visuAI (recommended - the page's current identity) or Design system?                                                                                                       | Pedro | No                                           |
+
+## Amendment pass 2026-11-13 (Pedro's mobile eval - 360-375, Firefox Android)
+
+Measured evidence: evidence/mobile-eval-2026-11-13.md. Facts measured on
+the Nov-12 build: the nav row fits 360 EXACTLY (Contact box right edge =
+the viewport edge, zero slack), the tab strip's "Design system" label
+wraps into two lines at both 360 and 375, and the about paragraphs'
+rhythm is bare `<br>` line boxes (23px each) with one gap flush (0px).
+No document-level horizontal overflow was measured anywhere at 360/375 -
+"looks zoomed out" = the wrapped/misaligned strip, not page width.
+
+| # | Item                                                                                                                        | New ticket                    | Amends |
+| - | --------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | ------ |
+| 1 | Header nav overflows on Firefox Android at ~360: exact-fit budget + a nonstandard text-size-adjust pair (root-cause ASSUMPTION, needs on-device validation) | T21 (fix is budget-safe)      | -      |
+| 2 | Design System tab wraps to 2 lines inside the strip (also Chrome Android): nowrap labels + a compact strip envelope at small widths | T22                           | T2, T7 |
+| 3 | About paragraphs: uniform gap instead of bare `<br>`; dead inline scroller handlers removed in the same markup              | T23                           | -      |
+| 4 | JS disposition (inventory in the evidence file): tabs init and countup KEEP; smooth scroll replaceable by CSS                | T24 (optional, gated)         | -      |

@@ -1,92 +1,92 @@
 nav.site-nav {
-    width: 100%;
-    height: 48px;
-    position: fixed;
-    line-height: 48px;
-    z-index: 2;
-    // Materialize gives nav a drop shadow; on the dark/transparent
-    // workflow header it reads as a hairline. The nav is flat.
-    box-shadow: none;
-    background-color: $vb-primary;
-    font-size: $base-font-size;
+  width: 100%;
+  height: 48px;
+  position: fixed;
+  line-height: 48px;
+  z-index: 2;
+  // Materialize gives nav a drop shadow; on the dark/transparent
+  // workflow header it reads as a hairline. The nav is flat.
+  box-shadow: none;
+  background-color: $vb-primary;
+  font-size: $base-font-size;
 
-    .content {
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-items: center;
+  .content {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  ul a {
+    padding: 0 12px;
+  }
+
+  // Keep the last link inside the 16px page margin (edge-text rule)
+  ul a:last-child {
+    padding-right: 16px;
+  }
+
+  // Every logo sits in the same round container so the mark lands on the
+  // same spot in every nav bar; the background stays empty per page and
+  // only pages that need it (resume) paint the plate
+  a.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: transparent;
+
+    img {
+      height: 32px;
+      width: auto;
+    }
+  }
+
+  .links {
+    a:link,
+    a:visited {
+      text-decoration: none;
+      // White, not $vb-light: E6F2FF on the brand red is 4.12:1,
+      // white clears 4.5:1 (5.38)
+      color: #fff;
+    }
+  }
+
+  // The fixed header changes color per page (e.g. black and pink case
+  // studies), so hover and click must not paint a fixed brand color over
+  // it — the logo's transparent bear cutout would shine it through. Keep
+  // whatever the header background is; feedback comes from the underline
+  // and a slight dim instead of a colored box. This scales to any header
+  // color without per-color rules.
+  a {
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: transparent;
+    }
+  }
+
+  .links a {
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+
+  a.icon {
+    &:hover,
+    &:focus {
+      opacity: 0.85;
     }
 
-
-    ul a {
-        padding: 0 12px;
+    &:active {
+      opacity: 0.75;
     }
-
-    // Keep the last link inside the 16px page margin (edge-text rule)
-    ul a:last-child {
-        padding-right: 16px;
-    }
-
-    // Every logo sits in the same round container so the mark lands on the
-    // same spot in every nav bar; the background stays empty per page and
-    // only pages that need it (resume) paint the plate
-    a.icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        vertical-align: middle;
-        width: 40px;
-        height: 40px;
-        padding: 0;
-        border-radius: 50%;
-        background-color: transparent;
-
-        img {
-            height: 32px;
-            width: auto;
-        }
-    }
-
-    .links {
-        a:link, a:visited {
-            text-decoration: none;
-            // White, not $vb-light: E6F2FF on the brand red is 4.12:1,
-            // white clears 4.5:1 (5.38)
-            color: #fff;
-        }
-    }
-
-    // The fixed header changes color per page (e.g. black and pink case
-    // studies), so hover and click must not paint a fixed brand color over
-    // it — the logo's transparent bear cutout would shine it through. Keep
-    // whatever the header background is; feedback comes from the underline
-    // and a slight dim instead of a colored box. This scales to any header
-    // color without per-color rules.
-    a {
-        &:hover,
-        &:focus,
-        &:active {
-            background-color: transparent;
-        }
-    }
-
-    .links a {
-        &:hover,
-        &:focus {
-            text-decoration: underline;
-        }
-    }
-
-    a.icon {
-        &:hover,
-        &:focus {
-            opacity: 0.85;
-        }
-
-        &:active {
-            opacity: 0.75;
-        }
-    }
+  }
 }
 
 // Home page: the fixed nav matches the body's red-to-dark gradient as the
@@ -95,87 +95,100 @@ nav.site-nav {
 // gradient's 10% stop over the full page height. Browsers without
 // scroll-timeline support simply keep the solid brand red.
 body.home-page nav.site-nav {
-    background-color: $vb-primary;
+  background-color: $vb-primary;
 }
 
 @supports (animation-timeline: scroll()) {
-    @keyframes nav-scroll-fade {
-        0% {
-            background-color: #D73735;
-        }
-
-        // Dark reached before scroll end — the gradient's darkest stretch
-        // (bottom viewport-height of the page) never passes under the nav
-        22%,
-        38%,
-        85% {
-            background-color: #252528;
-        }
-
-        100% {
-            background-color: #191919;
-        }
+  @keyframes nav-scroll-fade {
+    0% {
+      background-color: #d73735;
     }
 
+    // Retuned to the restored gradient geometry (ticket 52): the fade
+    // runs over the FIRST viewport (layer, not canvas propagation), so
+    // the nav tracks the body color at the viewport top — the fold
+    // fade's blend at the 22% scroll position (#8c3733, oklab-derived)
+    // — and reaches the flat #252528 when the fold has scrolled past
+    // (47.5% of the scroll range). The gradient's darkest stretch
+    // never passes under the nav; #252528 holds to 100%.
+    22% {
+      background-color: #8c3733;
+    }
+
+    47%,
+    100% {
+      background-color: #252528;
+    }
+  }
+
+  body.home-page nav.site-nav {
+    // animation-timeline is declared after the shorthand: the shorthand
+    // resets it to auto otherwise
+    animation: nav-scroll-fade linear both;
+    animation-timeline: scroll(root);
+  }
+
+  // No scroll-driven movement for reduced-motion users; the solid brand
+  // red from the base rule holds instead
+  @media (prefers-reduced-motion: reduce) {
     body.home-page nav.site-nav {
-        // animation-timeline is declared after the shorthand: the shorthand
-        // resets it to auto otherwise
-        animation: nav-scroll-fade linear both;
-        animation-timeline: scroll(root);
+      animation: none;
     }
-
-    // No scroll-driven movement for reduced-motion users; the solid brand
-    // red from the base rule holds instead
-    @media (prefers-reduced-motion: reduce) {
-        body.home-page nav.site-nav {
-            animation: none;
-        }
-    }
+  }
 }
 
 // Resume page: the menu takes the page's light blue, links flip dark for
 // contrast on it, and the shared logo container paints its dark plate
 body.resume-page nav.site-nav {
-    background-color: #EBF5FF;
+  background-color: #ebf5ff;
 
-    .links {
-        a:link,
-        a:visited {
-            color: #252528;
-        }
+  .links {
+    a:link,
+    a:visited {
+      color: #252528;
     }
+  }
 
-    a.icon {
-        background-color: #252528;
-    }
+  a.icon {
+    background-color: #252528;
+  }
 }
 
 // Phones and small tablets share one layout; the two former
 // $until:mobile / mobile→tablet blocks were identical and are merged here
 @include mq($until: tablet) {
-    nav.site-nav {
-        width: 100%;
-        height: 48px;
-        line-height: 48px;
+  nav.site-nav {
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
 
-        .content {
-            flex-direction: row;
-            flex-wrap: nowrap;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        a.icon {
-            vertical-align: middle;
-            width: 40px;
-            height: 40px;
-            padding: 0;
-            margin: 0 12px;
-
-            img {
-                height: 32px;
-                width: auto;
-            }
-        }
+    .content {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
     }
+
+    // Ticket 21 (mobile eval, DR-0009): the row fitted 360 EXACTLY - the
+    // Contact box edge ON the viewport boundary - so any Android-side
+    // text widening (engine rounding, inflation) overflowed the bar.
+    // Tighter side paddings give the row ~30px of slack; the 48px bar,
+    // the labels and the 44px touch targets stay.
+    ul a {
+      padding: 0 8px;
+    }
+
+    a.icon {
+      vertical-align: middle;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      margin: 0 8px;
+
+      img {
+        height: 32px;
+        width: auto;
+      }
+    }
+  }
 }

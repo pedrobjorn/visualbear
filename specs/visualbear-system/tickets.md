@@ -1052,3 +1052,299 @@ mirror home (depth 0) each `../` resolves to the PUBLIC zone root:
 ## Open questions
 
 - None (the href question was answered by Pedro: public work section)
+
+---
+
+# Ticket 21: Nav survives 360px - slack budget + valid text-size-adjust (mobile eval, DR-0009)
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13)
+- Size: S
+- Type: UI
+- Status: DONE 2026-11-13 - one standard pair
+  (-webkit-)text-size-adjust:100% in _base.scss (the 1.5em/MS lines gone,
+  grep-verified in the built CSS); link padding 12->8 and logo margin
+  12->8 inside the mq($until: tablet) block. Probes (evidence/t21-23-verify.md):
+  elastic nav headroom 30.2px at 320 (worst case), 70.2 at 360, 85.2 at
+  375 - both engines, three pages; zero document overflow everywhere; nav
+  height 48 (targets intact); 1440 layout untouched. AC correction
+  recorded: the original "Contact right edge <= viewport - 8" measured the
+  wrong thing (the row is right-aligned BY DESIGN; the margin lives inside
+  Contact's padding) - the honest slack metric is the elastic headroom.
+
+## Context
+
+Pedro: on Firefox Android the header nav overflows at ~360. Measured on
+the Nov-12 build (evidence/mobile-eval-2026-11-13.md): the nav renders
+19.2px links and fits 320/360/375 with the Contact box's right edge ON
+the viewport boundary - the flex row is exact-fit, zero slack beyond the
+54px logo-link gap. Any Android-side text widening (engine rounding, font
+inflation) overflows the bar. The shipped CSS carries the only plausible
+knob for an engine divergence: `-webkit-text-size-adjust: 1.5em` +
+`-ms-text-size-adjust: 1.5em` (built CSS; source `_base.scss:8-11`) -
+INVALID per the CSS spec (auto | none | <percentage> only) and Firefox
+for Android ships text-size-adjust support, so its treatment of the value
+can diverge from Chrome's. On-device Firefox Android behavior was NOT
+reproducible in the eval harness (desktop-mode Firefox measured identical
+to Chromium) - the budget fix is chosen because it removes the overflow
+class regardless of which Android path caused it (DR-0009).
+
+## Requirements
+
+- Replace the pair in `src/_styles/atoms/_base.scss` with one standard
+  declaration on `html, body`: `text-size-adjust: 100%` (plus the
+  `-webkit-` prefix Chrome requires). 100% = no user-agent text scaling,
+  the canonical font-boosting off switch; do not use `none` (Chrome's
+  historical rendering bugs), do not keep a length unit.
+- Reclaim slack at the `mq($until: tablet)` nav block
+  (`nav.scss`): link padding `0 12px` -> `0 8px`; the logo's
+  `margin: 0 12px` -> `0 8px`. Keep the last-child `padding-right: 16px`
+  page-margin rule and the 48px bar/line-height.
+- Desktop/tablet ranges unchanged: both changes live in the mobile
+  include only.
+
+## Design references
+
+- Figma: n/a · Hooks used: none · Principles applied: DR-0009 (reclaim
+  padding slack, never shrink the nav identity: 19.2px ink, 48px bar,
+  44px targets).
+- Existing style refs: `nav.scss` (`ul a` + `a.icon` mobile overrides),
+  `_base.scss` text-size adjust pair.
+
+## Acceptance criteria - results
+
+- [x] Probed at 320, 360, 375 (Chromium + desktop Firefox, mobile-emulated Chromium): document.scrollWidth == innerWidth on home, about, workflow, and one case-study page
+- [x] Slack measured, no longer exact-fit - AC CORRECTED to the honest metric: elastic headroom (space-between middle gap) >= 30px at 320 in both engines (the original "Contact right edge <= viewport - 8" criterion contradicted the designed right-aligned row; see evidence/t21-23-verify.md)
+- [x] Built CSS contains no nonstandard text-size-adjust value (grep zero `text-size-adjust:1.5em`; the shipped pair is the grammar-valid 100%)
+- [x] Desktop nav (1440) geometry unchanged (nav h 48, headroom 262; the edited rules live inside mq($until: tablet))
+- [x] A11y: touch targets still >= 48px tall; labels unchanged
+- [ ] Gates: passes `visuaibear-review` checklist (see evidence/t21-23-verify.md gates row; on-device Firefox Android capture still open - Pedro)
+
+## Out of scope
+
+- Any nav font-size, bar height, or logo change; the desktop nav; per-nav
+  page colors.
+
+## Open questions
+
+- On-device confirmation (owner: Pedro): capture the Firefox Android
+  bar pre/post-fix on the real phone - validates the DR-0009 assumption,
+  does not gate the build.
+
+---
+
+# Ticket 22: Tab strip nowrap - one line per label at 360-375 (mobile eval)
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13)
+- Size: S
+- Type: UI
+- Status: DONE 2026-11-13 - `.vb-tab { white-space: nowrap }` on the base
+  rule; compact envelope at mq($until: mobileLandscape): padding 8px 10px
+  + letter-spacing .12em; the <=360 release lever ships letter-spacing
+  .1em + padding 8px 8px (the probe found Firefox's strip content 4px
+  over the 248px column when the lever was letter-spacing only, so the
+  paddings joined it - recorded per this ticket's "record which values
+  shipped"). Label size, radius, inks, plate untouched. Probes
+  (evidence/t21-23-verify.md): exactly ONE line per tab at 320/360/375,
+  BOTH engines, BOTH tab states (was 2 lines, h 58 vs 37); strip content
+  fits its plate (scrollWidth == clientWidth everywhere); 1440 geometry
+  unchanged (x 561 / w 318 / h 45); click-through ground swap, panel
+  visibility and strip relocation round-trip probe-verified at 360 + 1440.
+  Captures t21-t23-workflow-{320,360}-after.png vs the pre-fix wrap in
+  mobile-eval-workflow-360-*.png.
+
+## Context
+
+Pedro: "the Design System tab overflows, widens the tab selector, looks a
+bit odd (zoomed out?)" - on Chrome Android AND Firefox Android. Measured
+(evidence/mobile-eval-2026-11-13.md): no document overflow anywhere;
+the real defect is a WRAP. The strip's nowrap intrinsic width is 303px
+(109 + 182 + 4 gap + 8 plate padding). The workflow text column is 288px
+at 360 (page margins + container paddings) and boundary-exact 303 at 375
+- so at both widths the flex chain shrinks the button and "DESIGN
+SYSTEM" (uppercase, letter-spacing .18em, 0.8rem bold) breaks into two
+lines: tab h 58 vs 37, y 84 vs 95 - a two-line chip in a one-line strip,
+which reads as broken/wrong-size, hence "odd". Both desktop engines
+reproduce it identically, so it was always there below ~376px.
+
+## Requirements
+
+- One line per label, always: `white-space: nowrap` on `.vb-tab`.
+- A compact strip envelope under the shared mobile breakpoint
+  (`mq($until: mobile)` or ~480px max - mirror the gallery's
+  `max-width: 47.99em` idiom): tab padding `8px 20px` -> `8px 12px`
+  and letter-spacing `.18em` -> `.12em`. Keep the 0.8rem label size, the
+  radius, the inks, and the plate (tickets 2/5/7 states untouched).
+- Target: both labels + plate fit the text column at 320 (worst case:
+  column 248). If the math falls short at 320, the release lever is
+  letter-spacing `.1em` at <=360 only - record which values shipped.
+- No JS change: the wrap fix is CSS-only (tabs.js relocation untouched).
+
+## Design references
+
+- Figma: n/a · Hooks used: none · Principles applied: the chip-plate
+  token (ticket 40/DR-0012) and the strip rhythm (T5) survive; envelope
+  compression only.
+- Existing style refs: `tabs.scss` (.vb-tabs, .vb-tab).
+
+## Acceptance criteria - results
+
+- [x] Probed at 320, 360, 375 (Chromium + desktop Firefox, mobile-emulated Chromium): every `.vb-tab` renders exactly ONE text line (range-rect count == 1); strip h == the one-line height (was 58px tabs)
+- [x] Strip fits its host: at 320 the strip is 247 wide inside the 248 column, content scrollWidth == clientWidth in BOTH engines (no plate content overflow)
+- [x] Inks unchanged by diff (no color rule touched; ground swap + strip relocation behavior re-probed both states at 360 + 1440)
+- [x] 1440 strip geometry unchanged vs ticket 5 evidence (x 561, w 318, one-line)
+- [ ] Gates: passes `visuaibear-review` checklist (see evidence/t21-23-verify.md)
+
+## Out of scope
+
+- Label copy ("visuAI" / "Design system" - Pedro's, open question 2);
+  the strip's vertical rhythm (T5); any panel/ground change.
+
+## Open questions
+
+- None blocking (the 320 lever letter-spacing is pre-authorized here).
+
+---
+
+# Ticket 23: About paragraphs - one uniform gap, bare `<br>` retired (mobile eval)
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13)
+- Size: S
+- Type: copy/UI
+- Status: DONE 2026-11-13, with ONE recorded deviation - the dead
+  `scroller` handlers also lived in BOTH styleguide intro index copies
+  (src/styleguide/_styleguide_blocks/styleguide.intro.nunjucks - the live
+  blocks that render in /styleguide/ AND the workflow design panel - and
+  the src/visualbear/ case-study duplicate). The "case-study duplicates
+  untouched" rule (ticket 3) was about CONTENT; a dead-handler removal is
+  the ticket-16 class of mechanical fix, and the anchors jump natively
+  without it. Removed in both; `scroller` grep = zero in src/ (minus two
+  comment mentions). Home + /about/: `about-copy` class on the
+  .document-text.text-box, all br gone,/.about-copy p + p margin-top:24px
+  in _pages.scss, /about/ img alt in. Probes (evidence/t21-23-verify.md):
+  paragraph gaps [24,24,24,24] uniform at 320/360/375/1440 on home #about
+  AND /about/, both engines; zero br / onclick in the built pages;
+  fashion-rebrand probed clean at 320/360/375. Capture
+  t21-t23-about-360-after.png.
+
+## Context
+
+Pedro: the About Me text has extra space between the first and second
+paragraph - make it one space, consistent. Measured
+(evidence/mobile-eval-2026-11-13.md): in the about block
+(`.document-text`), paragraph margins are 0 and the visible rhythm is
+bare `<br>` elements - each adds one 23px line box. Three of four gaps
+carry the +23 box; the p3->p4 gap has NO br and renders 0 (flush). The
+block exists twice, byte-similar: home `#about` (`src/index.nunjucks`)
+and `/about/` (`src/about/index.nunjucks`). Both copies also carry inline
+`onclick="scroller('gallery')"` / `scroller('contact')` handlers -
+`scroller` is defined nowhere (grep src/ + build zero hits): every click
+throws a ReferenceError and falls through to the anchor default (found in
+the JS eval, amendment item 4). The home copy's img has
+`alt="Pedro Björn"`, the /about/ img has NO alt - a11y defect, fix as part
+of the same markup work.
+
+## Requirements
+
+- Remove every bare `<br>` in BOTH copies; separation becomes uniform
+  paragraph margins: a scoped rule (the about surfaces ONLY - do not
+  touch global `.document-text` spacing used by case studies)
+  `p + p { margin-top: 24px }` (8pt rhythm, ~parity with today's 23px
+  br line box; note the exact shipped value in the PR).
+- The p3->p4 gap becomes 24 like the others - the "flush + extra"
+  inconsistency Pedro saw dies with the `<br>`s.
+- Remove the two dead `onclick="scroller(...)"` attributes in both
+  copies (the site's own smooth-scroll init in `_scripts/main.js` already
+  handles same-page `#contact`; `../#work`/`../resume` navigate
+  natively).
+- The /about/ img gets `alt="Pedro Björn"` (parity with the home copy).
+- Duplication flag (not fixed here): the block is hand-duplicated in two
+  templates and HAS drifted ("resume" vs "online resume"). A shared
+  partial is the structural fix - record as a candidate, owner Pedro.
+
+## Design references
+
+- Figma: n/a · Hooks used: none · Principles applied: copy rule (no em
+  dashes - none present), review gate 1 (alt text).
+- Existing style refs: `_pages.scss` #about; the about page's info
+  layout (same classes).
+
+## Acceptance criteria - results
+
+- [x] Probed at 360 + 1440 (plus 320/375, both engines) on the home #about AND /about/: every consecutive-paragraph gap measures 24 (+/-0); zero `<br>` in either built page
+- [x] No `onclick=` attribute remains in the about blocks or the styleguide intro blocks (built-HTML grep clean); `scroller` = zero hits in src/ outside comment text (the deviation note above)
+- [x] /about/ img has an accessible name (`alt="Pedro Björn"`)
+- [x] Case-study pages unaffected by the spacing rule (proxy: the rule's selector only matches .about-copy; fashion-rebrand probed clean at 320/360/375. NOTE: the visualbear case page's intro anchors lost their dead onclick - the one intended diff)
+- [ ] Gates: passes `visuaibear-review` checklist (see evidence/t21-23-verify.md)
+
+## Out of scope
+
+- De-duplicating the two copies (flagged, owner Pedro); the global
+  `.document-text` p spacing; the footer contact.
+
+## Open questions
+
+- None blocking (the shared-partial candidate rides with Pedro)
+
+---
+
+# Ticket 24 (optional): The smooth-scroll init migrates to CSS (JS disposition)
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13, item 4)
+- Size: S
+- Type: system
+- GATED on Pedro (open question below); the JS inventory that motivates it
+  is recorded in evidence/mobile-eval-2026-11-13.md (section 4)
+
+## Context
+
+JS inventory result: of `main.js`'s three bootstraps, `tabs.init()` is
+required (no CSS-only tab pattern with roving focus + panel relocation),
+and `initCountUp()` stays (markup-first: real numbers ship in the HTML,
+JS only animates; used on the case-study pages). `initSmoothScroll()`
+(~30 lines + NAV_HEIGHT constant) re-implements what the platform now
+does: `html { scroll-behavior: smooth }` + `scroll-margin-top: 48px` on
+targets replaces the intercept/offset/scrollTo chain in CSS, with
+reduced-motion free (`@media (prefers-reduced-motion: reduce)` keeps
+`scroll-behavior: auto`). Support: Chrome 61+ (2017), Firefox 36+,
+Safari 15.4 (2022) - older Safari simply JUMPS (correct offset is a
+paint-time layout matter, so behavior degrades to instant, never broken).
+`scroll-margin-top` also covers the same-page case the JS covers only
+partially (it skips cross-page navigations anyway).
+
+## Requirements
+
+- Remove `initSmoothScroll()` from `_scripts/main.js`; add
+  `html { scroll-behavior: smooth }` (reduced-motion guard) and
+  `scroll-margin-top: 48px` on the anchor targets - an explicit selector
+  list of the ids actually used (#work, #about, #contact and the gallery
+  targets), NOT a global `[id]` rule (one that would paint a margin on
+  every id on the site).
+- Verify the anchor behaviors that depend on JS today: nav Work/About
+  (cross-page `/#work` etc. - native navigation, unchanged), in-page
+  `#contact`, the robot pill's `href="#work"` scroll (probed in ticket
+  20 - MUST still stop below the nav).
+- Keep `tabs.init()` and `initCountUp()` untouched.
+
+## Design references
+
+- Figma: n/a · Hooks used: none · Principles applied: progressive
+  enhancement (behavior survives without JS; CSS owns presentation).
+- Existing style refs: `_base.scss`; `_scripts/main.js` initSmoothScroll.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Probed: clicking nav #contact and the robot pill (href #work) scrolls smoothly and lands >= 8px below the nav bottom at 360 + 1440
+- [ ] `no-js` behavior: with JS disabled, same-page anchors still land below the nav (CSS path) - the current JS-free behavior (instant, hidden-under-nav) improves
+- [ ] `main.js` shrinks (no smooth-scroll code; bundles diff clean otherwise); npm build + guard + npm test pass
+- [ ] Gates: passes `visuaibear-review` checklist
+
+## Out of scope
+
+- CountUp removal; any tabs change; the `no-js`/`js` class hook (dead -
+  removal candidate folded into ticket 23's markup pass or its own
+  cleanup; flagged).
+
+## Open questions
+
+- Drop JS smooth scroll (older Safari < 15.4 jumps instantly instead of
+  animating)? Owner: Pedro (gates this ticket; nothing else blocks).
