@@ -74,19 +74,22 @@ assert.ok(stripped.indexOf('floating-robot') === -1, 'strip removes the public f
 assert.ok(stripped.indexOf('<p>content</p>') !== -1 && stripped.indexOf('<main>') !== -1, 'strip leaves everything else');
 assert.strictEqual(link.stripFloatingRobot(stripped), stripped, 'strip is idempotent');
 
-// ── ticket 20 (DR-0008): the public home's robot is now the LINKED pill
-// (href="#work", public work section). The mirror strip must take it out
-// too - targeted on the href so the mirror's own injected a.robot (in
-// mirror-relative workflow/form hrefs) can never be eaten.
+// ── ticket 20 (DR-0008) + ticket 30 (DR-0010): the public home's robot is
+// the LINKED pill, now targeting the PUBLIC system page (href="workflow/",
+// marker data-vb-public-pill). The mirror strip must take it out - targeted
+// on the marker, NOT on the href: since DR-0010 the public href="workflow/"
+// equals the mirror root's own injected robot href, so the marker is the
+// only collision-free selector.
 
 var publicPill =
-  '<a class="robot" href="#work" title="Selected works" aria-label="Selected works" ' +
+  '<a class="robot" data-vb-public-pill href="workflow/" title="The visualbear system" aria-label="The visualbear system" ' +
   'style="position:fixed;bottom:12px;left:12px;width:44px;height:44px;z-index:3;">' +
   '<span class="robot-glyph" aria-hidden="true" style="font-size:20px;">R</span>' +
-  '<span class="robot-pill" aria-hidden="true">selected works</span></a>';
+  '<span class="robot-pill" aria-hidden="true">workflow &amp; design system</span></a>';
 var home2 = '<main><p>content</p></main>\n' + publicPill + '\n';
 var stripped2 = link.stripFloatingRobot(home2);
-assert.ok(stripped2.indexOf('class="robot"') === -1, 'strip removes the PUBLIC robot pill (ticket 20)');
+assert.ok(stripped2.indexOf('class="robot"') === -1, 'strip removes the PUBLIC robot pill (tickets 20/30)');
+assert.ok(stripped2.indexOf('data-vb-public-pill') === -1, 'strip removes the public pill marker too');
 assert.ok(stripped2.indexOf('<p>content</p>') !== -1, 'strip leaves everything else (public pill case)');
 assert.strictEqual(link.stripFloatingRobot(stripped2), stripped2, 'strip is idempotent (public pill case)');
 
@@ -98,7 +101,7 @@ assert.strictEqual(link.stripFloatingRobot(mirrorHome), mirrorHome, 'strip never
 var withBoth = '<main></main>\n' + robotSpan + publicPill + '\n' + injected + '\n';
 var withBothStripped = link.stripFloatingRobot(withBoth);
 assert.ok(withBothStripped.indexOf('floating-robot') === -1, 'strip removes the decorative span when both are present');
-assert.ok(withBothStripped.indexOf('href="#work"') === -1, 'strip removes the public pill when both are present');
+assert.ok(withBothStripped.indexOf('data-vb-public-pill') === -1, 'strip removes the public pill when both are present');
 assert.ok(withBothStripped.indexOf('href="workflow/"') !== -1, 'the mirror-injected link survives when both are present');
 
 // ── ticket 8: walled garden - mirror nav goes depth-relative ─────────────

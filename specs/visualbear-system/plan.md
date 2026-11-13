@@ -124,4 +124,4 @@ items are spec'd as verify/finish tickets, not new work.
 | 3 | Design System body text matches visuAI / case-study views; cleanup esp. mobile (column 324 vs 288, legacy 28.8px intro ps) | T27 | T3, T11 |
 | 4 | About paragraph gap: one space (16px), not two (24px shipped in T23) | T28 | T23 |
 | 5 | Robot the same size as the bear (verify 20px on-device; lever to 18px if it still reads big) | T29 | T18 |
-| 6 | Robot links to the visuAI / design system page on the index - mirror index already does; PUBLIC index conflicts with the air-lock (DR-R4-0002/0003) | T30 (GATED on open question) | T20 |
+| 6 | Robot links to the visuAI / design system page on the index - mirror index already does; PUBLIC home now too via DR-0010 (page duplicated to the root) | T30 (DONE, DR-0010) | T20 |

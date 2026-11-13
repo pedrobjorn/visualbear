@@ -1641,13 +1641,29 @@ pass with a pre-authorized lever, not new design.
 
 ---
 
-# Ticket 30: The robot on the index links to the visuAI / design system page (amends ticket 20) - GATED
+# Ticket 30: The robot on the index links to the visuAI / design system page (amends ticket 20)
 
 - Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13b, item 6)
 - Size: S
 - Type: system
-- GATED on open question 1 below (the air-lock reversal is Pedro's call,
-  it reverses DR-R4-0002/DR-R4-0003)
+- Status: DONE 2026-11-13 - gate ANSWERED by Pedro same day ("index is
+  always public home... just duplicate the pages and add them to root,
+  simple"): option (b) via DUPLICATION, recorded in DR-0010. Shipped:
+  `workflow` out of `SECRET_DIRS` (release-mirror.js) so the fresh
+  gulp build's build/workflow/ ships at the public root; guard check 2
+  now prunes/asserts teachr* only and positively asserts public
+  build/workflow/index.html exists; public home pill in
+  src/index.nunjucks retargeted href "#work" -> "workflow/" with the
+  truthful name "The visualbear system" + pill label "workflow & design
+  system", carrying a new `data-vb-public-pill` marker; the mirror strip
+  (mirror-link.js stripFloatingRobot) targets the marker, not the href
+  (post-DR-0010 the href string collides with the mirror root's own
+  robot); tests updated (mirror-link.test.js, idempotency + re-run safety
+  asserted); /workflow/ added to src/sitemap.xml. Verified: npm test
+  PASS, npm run build + guard OK, Playwright click-through public home
+  pill -> /workflow/ 200 (no noindex, no mirror mark) and mirror home
+  pill -> /selected-works/workflow/; public home carries exactly one
+  robot, mirror home exactly one.
 
 ## Context
 
@@ -1700,6 +1716,6 @@ chose #work precisely to avoid disclosing the air-locked mirror path
 
 ## Open questions
 
-| Question | Owner | Blocks build? |
-| --- | --- | --- |
-| 1. Does "the index" mean the mirror index (already linked - verify only) or the PUBLIC home? If public: un-prune /workflow/ and reverse the air-lock for it, or keep #work? | Pedro | Yes - this ticket |
+- RESOLVED 2026-11-13 (Pedro): "index" = the PUBLIC home; duplicate the
+  system page to the root (option b). Implemented per DR-0010; the
+  former open question is closed.

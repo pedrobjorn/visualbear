@@ -23,7 +23,12 @@ var path = require('path');
 var ROOT = path.join(__dirname, '..');
 var BUILD = path.join(ROOT, 'build');
 var CONFIG = path.join(ROOT, 'src', '_data', 'private-path.json');
-var SECRET_DIRS = ['teachr', 'teachr-agent', 'workflow'];
+var SECRET_DIRS = ['teachr', 'teachr-agent'];
+// 'workflow' left the prune list in DR-0010 (ticket 30, Pedro 2026-11-13):
+// the merged visualbear-system page is DUPLICATED to the public root - the
+// fresh gulp build's build/workflow/ simply ships, while the mirror keeps
+// its own rewritten copy under build/<mirrorPath>/workflow/. teachr stays
+// air-locked.
 
 function fail(msg) {
   console.error('release-mirror: ' + msg);
@@ -75,6 +80,7 @@ function copyOnto(from, to) {
 copyOnto(BUILD, mirror);
 
 // 2. prune the secret pages from the public root (their only home is the mirror)
+//    (workflow is public since DR-0010 - it is NOT pruned)
 SECRET_DIRS.forEach(function (dir) {
   var publicDir = path.join(BUILD, dir);
   if (fs.existsSync(publicDir)) {

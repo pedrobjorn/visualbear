@@ -16,6 +16,10 @@ cd "$ROOT"
 
 CONFIG="src/_data/private-path.json"
 SECRET_PAGES="teachr teachr-agent workflow"
+# DR-0010 (ticket 30): workflow is PUBLIC at the root since 2026-11-13 -
+# it must exist in the mirror AND at the public root; only teachr* are
+# pruned from the public root.
+PRUNED_PAGES="teachr teachr-agent"
 
 fail() { echo "release-guard: FAIL: $1" >&2; exit 1; }
 
@@ -35,10 +39,12 @@ for page in $SECRET_PAGES; do
     || fail "build/$MIRROR/$page/index.html missing - rebuild (npm run build) before publishing."
 done
 
-# 2. the secret pages are gone from the public root
-for page in $SECRET_PAGES; do
+# 2. the pruned secret pages are gone from the public root (workflow is
+#    public since DR-0010 - asserted PRESENT here, absent only for teachr*)
+for page in $PRUNED_PAGES; do
   [ ! -d "build/$page" ] || fail "public build/$page/ still exists - the mirror/prune step did not run."
 done
+[ -f "build/workflow/index.html" ] || fail "public build/workflow/index.html missing - DR-0010 says the system page ships at the root."
 
 # 3. the mirror path leaks nowhere
 for f in build/sitemap.xml build/robots.txt; do

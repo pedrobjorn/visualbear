@@ -10,6 +10,12 @@
 <lastmod>2020-08-12T19:32:54+00:00</lastmod>
 <priority>0.80</priority>
 </url>
+<!-- DR-0010 (ticket 30): the visualbear-system page is public at the root -->
+<url>
+<loc>https://www.visualbear.com/workflow/</loc>
+<lastmod>2026-11-13T12:00:00+00:00</lastmod>
+<priority>0.80</priority>
+</url>
 <url>
 <loc>https://www.visualbear.com/steam-mobile/</loc>
 <lastmod>2020-08-12T19:35:42+00:00</lastmod>

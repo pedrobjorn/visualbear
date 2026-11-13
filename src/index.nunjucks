@@ -55,11 +55,15 @@
 	</article>
 
 	{# the robot pill on the public home (specs/visualbear-system DR-0008,
-	   tickets 20/18/17): fixed bottom-left, above every content surface,
-	   linking to this page's own #work gallery - never to the air-locked
-	   mirror (guard check 3). Same 44x44 geometry as the mirror's injected
-	   pill; the mirror injector strips this one before injecting its own.
-	   Hover/focus expansion and the transparent plate live in _pages.scss. #}
-	<a class="robot" href="#work" title="Selected works" aria-label="Selected works" style="position:fixed;bottom:12px;left:12px;width:44px;height:44px;z-index:3;display:flex;align-items:flex-end;justify-content:flex-start;text-decoration:none;line-height:1;"><span class="robot-glyph" aria-hidden="true" style="font-size:20px;">🤖</span><span class="robot-pill" aria-hidden="true">selected works</span></a>
+	   tickets 20/18/17; href retargeted by ticket 30 / DR-0010): fixed
+	   bottom-left, above every content surface, linking to the PUBLIC
+	   system page workflow/ (duplicated to the root by DR-0010). The
+	   data-vb-public-pill marker is what the mirror injector's strip
+	   targets - the href alone would collide with the mirror's own
+	   depth-0 robot (also href="workflow/"). Same 44x44 geometry as the
+	   mirror's injected pill; the mirror injector strips this one before
+	   injecting its own. Hover/focus expansion and the transparent plate
+	   live in _pages.scss. #}
+	<a class="robot" data-vb-public-pill href="workflow/" title="The visualbear system" aria-label="The visualbear system" style="position:fixed;bottom:12px;left:12px;width:44px;height:44px;z-index:3;display:flex;align-items:flex-end;justify-content:flex-start;text-decoration:none;line-height:1;"><span class="robot-glyph" aria-hidden="true" style="font-size:20px;">🤖</span><span class="robot-pill" aria-hidden="true">workflow &amp; design system</span></a>
 
 {% endblock %}
