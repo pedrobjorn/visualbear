@@ -1348,3 +1348,358 @@ partially (it skips cross-page navigations anyway).
 
 - Drop JS smooth scroll (older Safari < 15.4 jumps instantly instead of
   animating)? Owner: Pedro (gates this ticket; nothing else blocks).
+
+---
+
+# Ticket 25: Hide the My Closet card from the home gallery (both zones)
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13b, item 1)
+- Size: S
+- Type: UI + data
+
+## Context
+
+Pedro: "Hide the My Closet card." Measured (evidence/amend-2026-11-13b-eval.md):
+the card is the second entry of `src/_data/work.json` ("A new digital
+closet experience", external Drive link). It is consumed ONLY by the
+home gallery - `src/index.nunjucks:17` ->
+`_modules/organisms/gallery/gallery.nunjucks`, which loops EVERY entry
+into `card.content` with no filtering (only showPlay/showBlog exist, for
+the Play/Blog cards). The mirror home renders the same `site.data.work`
+plus one injected mirror-only card, so the hide must live in the data or
+the macro to cover both zones. The closet thumb also appears in the
+styleguide casesystem DEMO (`styleguide.casesystem.nunjucks`) - that demo
+stays; only the gallery card hides.
+
+## Requirements
+
+- Add a per-entry hide flag, not a deletion: `"hidden": true` on the
+  closet entry in `src/_data/work.json` (the data stays for later
+  re-show; deletion is a destructive op nobody asked for).
+- Teach the gallery macro to skip hidden entries:
+  `{% if not val.hidden %}{{card.content({card:val})}}{% endif %}` in the
+  work loop of `gallery.nunjucks`. No other card types change.
+- Public home and mirror home both drop the card; the remaining cards
+  (fashion, sports) and the mirror-only teachr card stay put.
+
+## Design references
+
+- Figma: n/a - Hooks used: none - Principles applied: data-preserving
+  hide over deletion (H1-adjacent: no unrequested destructive edits).
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Built public home (`build/index.html`) AND mirror home
+  (`build/selected-works/index.html`): zero occurrences of
+  "digital closet" / `gallery_thumb_closet` in the gallery markup
+  (grep); the other work cards + the mirror-only card present
+- [ ] The styleguide casesystem demo still references its thumb (the
+  demo is untouched - diff limited to work.json + gallery.nunjucks)
+- [ ] Gallery grid re-flows cleanly at 360 + 1440 (no empty slot box -
+  probe card count and row geometry)
+- [ ] npm build + guard + npm test pass
+
+## Out of scope
+
+- Removing the /digital-closet/ page or its images; the styleguide demo
+  usage of the thumb; any other card.
+
+## Open questions
+
+- None (hide, not delete, was Pedro's word).
+
+---
+
+# Ticket 26: The Design System hero matches the visuAI hero (amends tickets 6/11/46)
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13b, item 2)
+- Size: S
+- Type: UI
+
+## Context
+
+Pedro: "Match the Design System hero to the VisuAI." Measured on the
+merged view (evidence/amend-2026-11-13b-eval.md): at 1440 the heroes
+already match (strip top 80, hero top 149, h1 38.4px, eyebrow/summary
+identical type) - the divergence is MOBILE ONLY: at 360 the design h1
+renders 17.496px vs the visuAI h1's 31.104px, and the design hero column
+is 252 vs 288. Candidate rules: the global mobile h1 ladder
+(`_typography.scss:661-690, 770-790, 884-900`, `$mobile-h1-size`) reaches
+the styleguide hero because its host chain (`#styleguide_container >
+article.text-container`) differs from the workflow shell's, so the
+cs-hero h1 sizing in `_case-study.scss` does not win there.
+
+## Requirements
+
+- The cs-hero h1 (and its mobile scale) must be scoped to the hero
+  COMPONENT (`.cs-hero h1`), not to the page shell, so both panels' heroes
+  render identically: 38.4px at 1440, 31.104px at 360.
+- The design hero's mobile column matches the visuAI shell: hero width
+  288 at 360 (not 252) - i.e. the panel's `.text-container` gets the same
+  mobile inset the workflow shell uses (36px per side, cf. ticket 47's
+  rule), or the hero is pulled into the same text-box rhythm.
+- Eyebrow/summary/details already match - keep. Ground inks differ by
+  design (light vs dark) - keep.
+- The public `/styleguide/` page (still up, ticket 4 gated) must keep
+  rendering its own hero unchanged in type metrics.
+
+## Design references
+
+- Figma: n/a - Hooks used: none - Principles applied: one hero component,
+  one type set (the T46/DR-0014 rule) - the component owns its sizing.
+- Existing style refs: `_case-study.scss` cs-hero rules; the probe table
+  in evidence/amend-2026-11-13b-eval.md.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Probed at 360 + 1440 on BOTH tab states: h1 computed font-size
+  equal across panels (38.4 at 1440, 31.104 at 360); hero top and strip
+  top equal (149 / 80); hero width equal (836 / 288)
+- [ ] Eyebrow, summary, details sizes equal across panels at both widths
+- [ ] Public /styleguide/ hero unchanged (probe h1 size/position vs
+  pre-change capture)
+- [ ] npm build + guard + npm test pass
+
+## Out of scope
+
+- The hero COPY (eyebrow/h1/summary strings are Pedro's); the strip;
+  panel content below the hero (ticket 27).
+
+## Open questions
+
+- None.
+
+---
+
+# Ticket 27: Design System body text matches the case-study views; cleanup, esp. mobile (amends tickets 3/11)
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13b, item 3)
+- Size: M
+- Type: UI + system
+
+## Context
+
+Pedro: "Update the Design System body text styling to match visuAI and
+other views, clean it up, especially on mobile." Measured
+(evidence/amend-2026-11-13b-eval.md): the design panel still renders the
+LEGACY styleguide typography - first body paragraph 28.8px bold
+(`.gallery-text` intro style, `_textelements.scss:83+`), section h2
+16.848px at 360 (vs visuAI h2 22.464px), and the panel column is 324px at
+360 vs the workflow shell's 288 (the `.text-container` 32px padding at
+all widths, `_typography.scss:440-447`; ticket 47's 36px mobile inset
+only reaches `.case-study.document-text` elements inside the container,
+not the section-level blocks). At 1440 the columns match (836) but the
+intro paragraphs still render 28.8 bold vs the visuAI body 18.432 light.
+
+## Requirements
+
+- Inside the design PANEL (the /workflow/ Design system tab), section
+  body text takes the shared case-study document rhythm: body 18.432px
+  (17.28 at 360), h2 28.8 (22.464 at 360), same line-heights and inks as
+  the visuAI panel - i.e. scope the panel's content blocks under the same
+  `.case-study .document-text` text styles the other views use.
+- The panel's mobile column matches the shells: 288px at 360 (36px
+  insets), not 324.
+- The legacy `.gallery-text` intro-paragraph styling (28.8 bold) does not
+  apply inside the panel.
+- The public `/styleguide/` page keeps its own look (ticket 4 gate) -
+  all changes scoped to the workflow panel (`[data-vb-panel="designsystem"]`
+  / `#styleguide_container` inside `body.vb-system-light`... choose the
+  narrowest selector that hits only the panel; the public page must
+  diff-clean).
+- Demo specimens inside the guide (swatches, component previews, the
+  typography ladder block) keep their authoring look - only the GUIDE'S
+  OWN prose (intro paragraphs, section paragraphs, index lists) moves to
+  the shared rhythm. The Typography specimen block itself is a demo -
+  untouched.
+
+## Design references
+
+- Figma: n/a - Hooks used: none - Principles applied: one text edge, one
+  body rhythm across views (the DR-0009/T16 spacing-scale rule: 8 inside
+  components, 16 list rhythm, 24+ section gaps).
+- Existing style refs: `_case-study.scss` document-text rules; probe
+  numbers in evidence/amend-2026-11-13b-eval.md.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Probed at 360 + 1440 in the design tab: first section paragraph
+  == visuAI body metrics (18.432/300 at 1440, 17.28/300 at 360); panel
+  `.document-text` width 836 at 1440 and 288 at 360; h2 28.8/22.464
+- [ ] No horizontal overflow at 320/360 in the design tab
+  (document.scrollWidth == innerWidth)
+- [ ] Demo specimens unchanged (swatch colors + the typography ladder
+  probe vs pre-change)
+- [ ] Public /styleguide/ page diff-clean (probe: intro p still its own
+  style there)
+- [ ] visuAI tab byte/probe-identical
+- [ ] npm build + guard + npm test pass
+
+## Out of scope
+
+- Rewriting guide COPY (T16's slop inventory stays gated on Pedro);
+  the specimen demos; retiring /styleguide/ (ticket 4).
+
+## Open questions
+
+- None blocking.
+
+---
+
+# Ticket 28: About paragraph gap is ONE space - 16px, not 24 (amends ticket 23)
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13b, item 4)
+- Size: S
+- Type: UI
+
+## Context
+
+Ticket 23 shipped `.about-copy p + p { margin-top: 24px }` (probed uniform
+24 at all widths). Pedro: "Reduce the gap between paragraphs on about to
+1, not two spaces, don't double it" - 24 reads as two rhythm steps; one
+space = 16px (the scale's list-rhythm step; 8 is inside components per
+the T16 spacing-scale note).
+
+## Requirements
+
+- `.about-copy p + p { margin-top: 24px }` -> `16px` in
+  `_pages.scss` (the one rule T23 added). Nothing else moves.
+
+## Design references
+
+- Figma: n/a - Hooks used: none - Principles applied: the shared 8pt
+  scale (16 = one space above component-internal 8).
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Probed at 360 + 1440 on home #about AND /about/: all consecutive
+  paragraph gaps == 16 (+/-1), both engines
+- [ ] No other spacing on those pages changes (diff the built CSS block)
+- [ ] npm build + guard + npm test pass
+
+## Out of scope
+
+- Any other page's paragraph spacing; the T23 markup (br removal etc.)
+  stands.
+
+## Open questions
+
+- None (16px = "one space" on the shared scale; if Pedro means 8, it is
+  a one-line change - recorded here).
+
+---
+
+# Ticket 29: Robot is the same size as the bear - verify 20px on-device (amends ticket 18)
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13b, item 5)
+- Size: S
+- Type: UI + review
+
+## Context
+
+Pedro: "Make the robot the same size as the bear." Ticket 18 already
+shipped 20px on both robots (mirror-link.js inline style + the public
+`.floating-robot`/pill span) after measuring that the robot glyph's
+filled plate reads optically bigger than the bear at equal em; grep on
+the current build confirms BOTH robots at `font-size:20px`
+(evidence/amend-2026-11-13b-eval.md). So this ticket is a VERIFICATION
+pass with a pre-authorized lever, not new design.
+
+## Requirements
+
+- Probe the glyph's computed font-size on the public home and the mirror
+  home at 360 + 1440: expect 20px both.
+- Capture the robot next to a bear reference at the same nominal size
+  (the old bear markup is gone; reconstruct the 22px bear span in a
+  scratch page or use T18's canvas-ink measurement from
+  evidence/t5-t10-verify.md) - if the robot still reads bigger, drop BOTH
+  to 18px (mirror-link.js inline style + `_pages.scss` robot span) and
+  update `scripts/test/mirror-link.test.js`'s size assertion (TDD).
+- 20px stays unless the capture says otherwise; record which value ships.
+
+## Design references
+
+- Figma: n/a - Hooks used: none - Principles applied: optical size parity
+  over metric parity (T18's measured lesson).
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Computed glyph size equal on public + mirror, probed at 360 + 1440
+- [ ] Capture pair (robot vs bear reference) stored under evidence/
+- [ ] If changed: test updated red-green, npm test green, both robots
+  carry the same value (grep)
+- [ ] npm build + guard pass
+
+## Out of scope
+
+- The pill geometry (T10/13), the hover behavior, the href (ticket 30).
+
+## Open questions
+
+- Final size value if the capture disagrees with 20 - owner Pedro (visual
+  call on his phone).
+
+---
+
+# Ticket 30: The robot on the index links to the visuAI / design system page (amends ticket 20) - GATED
+
+- Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13b, item 6)
+- Size: S
+- Type: system
+- GATED on open question 1 below (the air-lock reversal is Pedro's call,
+  it reverses DR-R4-0002/DR-R4-0003)
+
+## Context
+
+Pedro: "Make the robot link to the visuAI / design system page on the
+index." Current state (grep on the build): the MIRROR index robot already
+links there - `href="workflow/"` in build/selected-works/index.html
+(since ticket 1). The PUBLIC index robot links `href="#work"` (T20's
+explicit decision): the public zone PRUNES /workflow/ (release-mirror
+prunes it, DR-R4-0002), so a public href="/workflow/" would 404, and T20
+chose #work precisely to avoid disclosing the air-locked mirror path
+("information is the password", DR-R4-0003).
+
+## Requirements (once the gate clears)
+
+- Public home robot `<a class="robot">` href `#work` -> the system page.
+  Two ways, chosen by open question 1:
+  (a) keep the public zone air-locked and change only the MIRROR index -
+  already done; then this ticket is a no-op verify (assert
+  `href="workflow/"` on the mirror home, `href="#work"` on public) -
+  ship as tests only;
+  (b) un-prune /workflow/ publicly (release-mirror stops pruning it,
+  guard check "secret pages absent from the public root" is amended for
+  this one route with a DR superseding DR-R4-0002 for it) and point the
+  public pill at `/workflow/` (depth-relative `workflow/` from the home).
+- Whichever: the pill's accessible name stays truthful (T20: label
+  "selected works" must change if the target changes - e.g. "The
+  visualbear system"), the mirror strip pass stays idempotent, and the
+  release guard's leak checks are updated to match the new posture.
+- TDD: mirror-link.test.js assertions extended for the chosen option.
+
+## Design references
+
+- Figma: n/a - Hooks used: none - Principles applied: the air-lock
+  principle (visuaibear-core #7) UNTIL Pedro explicitly overrides it -
+  this ticket records that override if he chooses (b).
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] The built index page in the chosen zone carries the robot link to
+  the system page (grep + Playwright click-through lands on
+  /selected-works/workflow/ or /workflow/ per the option)
+- [ ] Accessible name matches the actual destination
+- [ ] Release guard green under the chosen posture; npm test green
+- [ ] If (b): a new DR records the air-lock reversal and DR-R4-0002 is
+  marked superseded-for-this-route
+
+## Out of scope
+
+- Any other page's robot; the pill visuals.
+
+## Open questions
+
+| Question | Owner | Blocks build? |
+| --- | --- | --- |
+| 1. Does "the index" mean the mirror index (already linked - verify only) or the PUBLIC home? If public: un-prune /workflow/ and reverse the air-lock for it, or keep #work? | Pedro | Yes - this ticket |
