@@ -314,6 +314,31 @@ body.about-page a.robot {
   }
 }
 
+// Correction to the ticket-35 rule above: it re-inked the home hero's
+// links dark red on the dark/red hero ground (body.home-page a outranks
+// .hero a). The hero text and its links are white there - #fff is 5.38:1
+// on the brand-red top of the gradient where $vb-light is only 4.12:1.
+body.home-page .hero {
+  color: #fff;
+
+  a {
+    color: #fff;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      color: #fff;
+      background-color: $vb-primary;
+    }
+
+    &:active {
+      text-decoration: none;
+      color: #fff;
+      background-color: $vb-secondary;
+    }
+  }
+}
+
 // The PUBLIC home's robot pill (specs/visualbear-system, ticket 20 /
 // DR-0008): the link markup lives in src/index.nunjucks and carries its
 // geometry inline (44x44 hit box, glyph pinned bottom-left, z-index 3

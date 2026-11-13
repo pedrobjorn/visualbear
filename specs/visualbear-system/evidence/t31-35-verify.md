@@ -65,3 +65,13 @@ UP (3.8 -> 5.4+); light grounds that already passed (/resume/ 4.97,
 shipped recipe (light ink on the red plate, same as the ticket-43
 styleguide instance). Nav links stay white, footer links stay light-blue
 (guards probed: computed colors unchanged).
+
+ADDENDUM 2026-11-13 (regression fix, same ticket): the body.home-page
+rule had re-inked the home HERO's links dark red (#D0181E) on the dark/
+red hero ground - `body.home-page a` (0,1,2) outranked `.hero a`
+(0,1,1). Fixed with a hero guard: `body.home-page .hero` and its links
+are pure #fff again. Probed on public + mirror home, 390 + 1440:
+hero h1 + all 3 hero links compute rgb(255,255,255), pixel ratio
+5.37-5.41 on the real red ground (was ~1.9 for the red links). No
+other link colors moved (#about links, nav, footer, /about/ body links
+all re-probed unchanged).
