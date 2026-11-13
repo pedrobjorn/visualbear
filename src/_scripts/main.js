@@ -5,35 +5,6 @@
 
 const tabs = require('../_modules/molecules/tabs/tabs');
 
-const NAV_HEIGHT = 48;
-
-// Smooth scrolling for same-page anchor links. Targets stop below the fixed
-// nav (48px) instead of hiding underneath it.
-function initSmoothScroll() {
-  document.addEventListener('click', function(e) {
-    const link = e.target.closest('a[href*="#"]');
-    if (!link || link.getAttribute('href') === '#') return;
-
-    if (link.pathname.replace(/^\//, '') !== location.pathname.replace(/^\//, '') ||
-        link.hostname !== location.hostname) return;
-
-    const target = document.getElementById(link.hash.slice(1)) ||
-                   document.getElementsByName(link.hash.slice(1))[0];
-    if (!target) return;
-
-    e.preventDefault();
-    const top = target.getBoundingClientRect().top + window.scrollY - NAV_HEIGHT;
-    const reduceMotion =
-      window.matchMedia &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    window.scrollTo({
-      top: top,
-      behavior: reduceMotion ? 'auto' : 'smooth'
-    });
-  });
-}
-
 // Animate case-study metric numbers from 0 to their target value.
 // The final value is already in the markup, so no-JS users see real numbers.
 function initCountUp() {
@@ -83,7 +54,6 @@ function initCountUp() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  initSmoothScroll();
   initCountUp();
   tabs.init();
 });

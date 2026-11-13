@@ -193,3 +193,85 @@ body.vb-system-light #workflow_container {
     animation: none;
   }
 }
+
+// Tickets 26 + 27 (amend pass 2026-11-13b): the design panel's typography
+// joins the shared case-study rhythm. Measured (evidence/
+// amend-2026-11-13b-eval.md): the styleguide page's em chain compounds
+// through the mobile 0.75em steps (.text-container + .gallery-text +
+// .document-text) - at 360 the panel's hero h1 read 17.496px where the
+// visuAI hero reads 31.104px (1.8em of the shell's 17.28px document
+// font), its section h2 16.848 vs 22.464, its prose 12.96 vs 17.28 - and
+// the .text-container keeps the styleguide page's 90%-width column (324px
+// at 360) where the workflow shell's text edge is 36px per side (288px,
+// ticket 47's inset). Scope is [data-vb-panel] ONLY: the public
+// /styleguide/ page (ticket 4 gate) carries no vb-panel and keeps its
+// look, and the demo specimens (swatch boxes, the headings ladder, the
+// lorem demos) keep their authoring look - only the hero chain and the
+// guide's own reading prose move. rem values, not em: pinning the
+// compounded chain is the defect being fixed.
+[data-vb-panel='designsystem'] {
+  // The shared document font on the hero's chain (.case-study.document-text
+  // wraps the cs-hero). With the em base back at the shell's 17.28px, the
+  // hero's own em-based h1 (1.8em mobile, 2rem-scale desktop) matches the
+  // visuAI hero exactly - no per-panel h1 size needed (ticket 26).
+  .case-study.document-text {
+    font-size: $base-font-size / 1.25; // >= 992px: 18.432px = the shared document font
+
+    @media (max-width: $break-big) {
+      font-size: 0.9rem; // <= 991px: 17.28px = the shell's mobile font
+    }
+  }
+
+  // The guide's own prose (ticket 27): the intro article's paragraphs and
+  // index lists, plus each section's lead paragraphs (the .text-block
+  // first child before any demo box). Demo paragraphs that follow a demo
+  // heading are specimens - untouched. The legacy .gallery-text intro
+  // size (1.2rem/23.04px at 1440) does not reach these anymore.
+  .gallery-text > p,
+  .text-block > p:first-child,
+  ul.index {
+    font-size: $base-font-size / 1.25; // 0.96rem = the shared body size
+
+    @media (max-width: $break-big) {
+      font-size: 0.9rem;
+    }
+  }
+
+  // Section headers (h2.page-header): the shared ladder's mobile h2 is
+  // 22.464px (1.3em of the 17.28px base); aired in rem to escape the
+  // compounded chain. Desktop h2 (1.5rem) applies untouched above 991.
+  h2.page-header {
+    font-size: 1.17rem;
+
+    @media (min-width: $break-big + 1) {
+      font-size: 1.5rem;
+    }
+  }
+
+  // The shell's mobile column (both tickets): full-width container with
+  // ticket 47's 36px side inset below 908 - not the styleguide page's
+  // 90% width with 0 side padding (324px at 360).
+  .text-container {
+    @media (max-width: 907px) {
+      width: auto;
+      padding-left: 36px;
+      padding-right: 36px;
+    }
+  }
+
+  // One text edge: with the panel's container carrying the 36px inset,
+  // ticket 47's rule on the hero's own node (.case-study.document-text,
+  // id-scoped so it needs the id here to win the cascade) must not add a
+  // second one - measured at 360 with both rules live: hero content 216px,
+  // eyebrow wrapping to two lines. The workflow shell's inset lives on the
+  // column node exactly once (its .text-box); same shape here. The id +
+  // the panel attribute (this block's parent) is also what keeps the
+  // public /styleguide/ page out of scope: it has the section id but no
+  // vb-panel.
+  #styleguide_container .case-study.document-text {
+    @media (max-width: 907px) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}

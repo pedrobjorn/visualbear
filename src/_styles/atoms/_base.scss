@@ -26,6 +26,32 @@ body {
   line-height: $base-line-height;
 }
 
+// Ticket 24 (amendment pass 2026-11-13b, JS disposition): same-page
+// anchoring moves to the platform - the JS intercept/scrollTo chain in
+// _scripts/main.js retired. scroll-behavior: smooth with the
+// reduced-motion opt-out; older Safari (< 15.4) degrades to an instant
+// jump, never a broken offset (scroll-margin-top is layout, not scroll
+// animation). The margin list is explicit - the ids actually used as
+// anchor targets - NOT a global [id] rule, which would paint a margin on
+// every id on the site.
+html {
+  scroll-behavior: smooth;
+
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+
+#work,
+#about,
+#contact,
+#core,
+#modules,
+#containers,
+#casesystem {
+  scroll-margin-top: 48px; // the fixed nav's height
+}
+
 body {
   webkit-tap-highlight-color: transparentize($vb-light, 0.8);
   position: relative;

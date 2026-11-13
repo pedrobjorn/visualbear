@@ -201,6 +201,9 @@ function injectVisuai(dir, depth) {
     if (html !== before) NAV_REWRITES++;
     // the decorative public robot never renders next to the linked one
     html = mirrorLink.stripFloatingRobot(html);
+    // the closet card is public-only (ticket 25 amend): the mirror's
+    // gallery stays fashion + sports (+ this pass's own mirror cards)
+    html = mirrorLink.stripClosetCard(html);
     if (html.indexOf(VISUAI_MARK) !== -1) return; // idempotent
     if (html.indexOf('</body>') === -1) fail('mirror page has no </body>: ' + p);
     html = html.replace('</body>', mirrorLink.visuaiLinkFor(depth) + '</body>');

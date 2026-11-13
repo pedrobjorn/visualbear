@@ -109,6 +109,19 @@ if [ -n "$OUT" ]; then
 fi
 echo "release-guard: OK - in-copy anchors stay inside the mirror (leak scan clean)."
 
+# 9. the closet card is public-only (specs/visualbear-system, ticket 25
+# amend 2026-11-13): re-added to the public index (bottom of the cards),
+# stripped from the mirror. Targeted on the work-gallery card's drive href
+# (unique in every gallery markup) - the styleguide casesystem DEMO (a bare
+# <figure><img> with the same thumb, no card anchor) is exempt on both
+# sides: only the card's href counts.
+CLOSET_ID='1rY9YPYkL4HQcolMwhOtlk25uNjkFSBiw'
+CLOSET_LEAK=$(find "build/$MIRROR" -type f -name '*.html' -exec grep -l "$CLOSET_ID" {} + || true)
+[ -z "$CLOSET_LEAK" ] || { echo "release-guard: FAIL: the closet card leaked into the mirror:" >&2; echo "$CLOSET_LEAK" >&2; exit 1; }
+grep -q "$CLOSET_ID" build/index.html \
+  || fail "the public index lost the re-added closet card (bottom of the cards)."
+echo "release-guard: OK - the closet card is public-index-only (bottom of the cards)."
+
 echo "release-guard: OK - air-lock holds at build/$MIRROR/ ($MARKED noindexed pages),"
 echo "release-guard: OK - secret pages absent from the public root, mirror path leaks nowhere."
 echo "release-guard: upload build/ as-is (both zones)."

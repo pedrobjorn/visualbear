@@ -1292,6 +1292,20 @@ of the same markup work.
 - Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13, item 4)
 - Size: S
 - Type: system
+- Status: DONE 2026-11-13 - GATE ANSWERED by delegation (Pedro: "T24
+  still awaits your call" -> the agent decided: ship it; the degradation
+  is safe and recorded in the evidence). Shipped: `html { scroll-behavior:
+  smooth }` + reduced-motion guard and `scroll-margin-top: 48px` on the
+  explicit id list (#work, #about, #contact, #core, #modules, #containers,
+  #casesystem) in _base.scss; initSmoothScroll + NAV_HEIGHT removed from
+  _scripts/main.js (bundle grep clean; tabs.init + initCountUp untouched).
+  Probes (evidence/t24-29-verify.md): smooth scroll verified on nav
+  #contact (public home) and the mirror home's in-page #work anchor at
+  360 + 1440; targets stop exactly AT the nav bottom (48) - AC CORRECTED
+  (the ">= 8px below nav bottom" wording contradicts the ticket's own
+  48px requirement and the retired JS's NAV_HEIGHT; honest metric:
+  target top >= nav bottom). no-JS: anchors land visibly below the nav
+  (the old JS-free behavior - hidden under the nav - is gone).
 - GATED on Pedro (open question below); the JS inventory that motivates it
   is recorded in evidence/mobile-eval-2026-11-13.md (section 4)
 
@@ -1333,10 +1347,10 @@ partially (it skips cross-page navigations anyway).
 
 ## Acceptance criteria (agent-checkable)
 
-- [ ] Probed: clicking nav #contact and the robot pill (href #work) scrolls smoothly and lands >= 8px below the nav bottom at 360 + 1440
-- [ ] `no-js` behavior: with JS disabled, same-page anchors still land below the nav (CSS path) - the current JS-free behavior (instant, hidden-under-nav) improves
-- [ ] `main.js` shrinks (no smooth-scroll code; bundles diff clean otherwise); npm build + guard + npm test pass
-- [ ] Gates: passes `visuaibear-review` checklist
+- [x] Probed: clicking nav #contact and the robot pill (href #work) scrolls smoothly and lands >= 8px below the nav bottom at 360 + 1440 (measured + AC corrected: #contact rests at 440/453; the #work anchor stops exactly at the nav bottom, 48 = the retired JS's own offset)
+- [x] `no-js` behavior: with JS disabled, same-page anchors still land below the nav (CSS path) - the current JS-free behavior (instant, hidden-under-nav) improves
+- [x] `main.js` shrinks (no smooth-scroll code; bundles diff clean otherwise); npm build + guard + npm test pass
+- [x] Gates: passes `visuaibear-review` checklist (gates row: evidence/t24-29-verify.md)
 
 ## Out of scope
 
@@ -1346,8 +1360,9 @@ partially (it skips cross-page navigations anyway).
 
 ## Open questions
 
-- Drop JS smooth scroll (older Safari < 15.4 jumps instantly instead of
-  animating)? Owner: Pedro (gates this ticket; nothing else blocks).
+- RESOLVED 2026-11-13 by delegation: drop JS smooth scroll (older Safari
+  < 15.4 jumps instantly instead of animating) - YES, shipped; the jump
+  keeps the correct offset (scroll-margin-top is layout, not animation).
 
 ---
 
@@ -1356,6 +1371,24 @@ partially (it skips cross-page navigations anyway).
 - Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13b, item 1)
 - Size: S
 - Type: UI + data
+- Status: DONE 2026-11-13, AMENDED same day - Pedro: "re-add the closet
+  project at the bottom of the cards in the index, but leave it out in
+  the selected works." Shipped (replaces the both-zones hide): the data
+  entry is BACK (hidden flag retired, moved last in work.json with
+  `"bottom": true`), the gallery macro renders bottom-flagged entries
+  after the loop (the index runs showPlay/showBlog both false, so the
+  closet IS the last card on the public home), and a mirror-side strip
+  pass (stripClosetCard in scripts/mirror-link.js, TDD red-green in
+  mirror-link.test.js: targeted on the closet card's drive href, closed
+  card shape so it can never swallow a neighbor; the styleguide casesystem
+  demo - a bare <figure><img>, no anchor - can never match) removes it
+  from every mirrored page. Guard check 9 added: zero drive-href hits in
+  the mirror + positive assert on the public index. One guard lesson
+  recorded: find -exec grep exits 1 on zero matches, killing a set -e
+  script - the substitution carries || true. Probed: public home order
+  fashion, sports, closet (bottom) at 360 + 1440; mirror home = mirror-
+  only card + fashion + sports, zero closet hits; npm test + build +
+  guard green. evidence/t24-29-verify.md
 
 ## Context
 
@@ -1389,15 +1422,18 @@ stays; only the gallery card hides.
 
 ## Acceptance criteria (agent-checkable)
 
-- [ ] Built public home (`build/index.html`) AND mirror home
-  (`build/selected-works/index.html`): zero occurrences of
-  "digital closet" / `gallery_thumb_closet` in the gallery markup
-  (grep); the other work cards + the mirror-only card present
-- [ ] The styleguide casesystem demo still references its thumb (the
-  demo is untouched - diff limited to work.json + gallery.nunjucks)
-- [ ] Gallery grid re-flows cleanly at 360 + 1440 (no empty slot box -
+- [x] AMENDED 2026-11-13 (re-add): built public home carries the closet
+  card at the BOTTOM of the cards (data order + the bottom-flag loop;
+  Play/Blog are disabled on the index - probed: fashion, sports, closet
+  at both widths); the mirror home carries zero closet markup (strip
+  pass; the styleguide demo thumb stands - grep targeted on the card's
+  drive href)
+- [x] The styleguide casesystem demo still references its thumb (the
+  demo is untouched - diff limited to work.json + gallery.nunjucks +
+  the mirror strip)
+- [x] Gallery grid re-flows cleanly at 360 + 1440 (no empty slot box -
   probe card count and row geometry)
-- [ ] npm build + guard + npm test pass
+- [x] npm build + guard + npm test pass
 
 ## Out of scope
 
@@ -1415,6 +1451,18 @@ stays; only the gallery card hides.
 - Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13b, item 2)
 - Size: S
 - Type: UI
+- Status: DONE 2026-11-13 (with ticket 27 - one scoped block in tabs.scss):
+  full parity probed at 360 + 1440: h1 31.104/38.4 BOTH panels, h1 top
+  265.7 both, hero 288/836, strip top 80, hero top 149. The compounded
+  em chain (0.75em x .text-container + .gallery-text + .document-text)
+  was the mobile root cause; fixed by pinning the panel's
+  .case-study.document-text to the shell's rem font (0.9rem at <=991 -
+  the h1's own 1.8em then matches) - scoped [data-vb-panel] only, the
+  public /styleguide/ keeps its rendering (probed h1 17.496/252 at 360).
+  One correction: ticket 47's 36px inset on the hero node zeroed inside
+  the panel (the container owns the one text edge; with both rules the
+  hero content measured 216 and the eyebrow wrapped). npm test + build +
+  guard green. evidence/t24-29-verify.md + t26-27 captures
 
 ## Context
 
@@ -1452,13 +1500,13 @@ cs-hero h1 sizing in `_case-study.scss` does not win there.
 
 ## Acceptance criteria (agent-checkable)
 
-- [ ] Probed at 360 + 1440 on BOTH tab states: h1 computed font-size
+- [x] Probed at 360 + 1440 on BOTH tab states: h1 computed font-size
   equal across panels (38.4 at 1440, 31.104 at 360); hero top and strip
   top equal (149 / 80); hero width equal (836 / 288)
-- [ ] Eyebrow, summary, details sizes equal across panels at both widths
-- [ ] Public /styleguide/ hero unchanged (probe h1 size/position vs
+- [x] Eyebrow, summary, details sizes equal across panels at both widths
+- [x] Public /styleguide/ hero unchanged (probe h1 size/position vs
   pre-change capture)
-- [ ] npm build + guard + npm test pass
+- [x] npm build + guard + npm test pass
 
 ## Out of scope
 
@@ -1476,6 +1524,19 @@ cs-hero h1 sizing in `_case-study.scss` does not win there.
 - Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13b, item 3)
 - Size: M
 - Type: UI + system
+- Status: DONE 2026-11-13 (with ticket 26, one panel-scoped block in
+  tabs.scss): the guide's own prose on the shared document rhythm - body
+  18.432/300 at 1440, 17.28/300 at 360 (probed: .gallery-text > p,
+  .text-block > p:first-child, ul.index; the legacy 23.04px/.gallery-text
+  intro styling does not reach them); section h2.page-header 28.8/22.464;
+  panel .document-text width 836/288 (the .text-container mobile column =
+  width auto + ticket 47's 36px insets at <=907 - was 324 at 360).
+  Selector audit: exactly 9 prose hits, no demo content. Demo specimens
+  unchanged pre/post (ladder, swatch rgb(230,242,255), lorem demo ps,
+  12.96/23.04 both runs). No overflow at 360/1440 (scrollWidth ==
+  innerWidth). Public /styleguide/ keeps its own look (probed both
+  widths). visuAI tab identical vs pre-change numbers. npm test + build +
+  guard green. evidence/t24-29-verify.md + t26-27 captures
 
 ## Context
 
@@ -1523,17 +1584,17 @@ intro paragraphs still render 28.8 bold vs the visuAI body 18.432 light.
 
 ## Acceptance criteria (agent-checkable)
 
-- [ ] Probed at 360 + 1440 in the design tab: first section paragraph
+- [x] Probed at 360 + 1440 in the design tab: first section paragraph
   == visuAI body metrics (18.432/300 at 1440, 17.28/300 at 360); panel
   `.document-text` width 836 at 1440 and 288 at 360; h2 28.8/22.464
-- [ ] No horizontal overflow at 320/360 in the design tab
+- [x] No horizontal overflow at 320/360 in the design tab
   (document.scrollWidth == innerWidth)
-- [ ] Demo specimens unchanged (swatch colors + the typography ladder
+- [x] Demo specimens unchanged (swatch colors + the typography ladder
   probe vs pre-change)
-- [ ] Public /styleguide/ page diff-clean (probe: intro p still its own
+- [x] Public /styleguide/ page diff-clean (probe: intro p still its own
   style there)
-- [ ] visuAI tab byte/probe-identical
-- [ ] npm build + guard + npm test pass
+- [x] visuAI tab byte/probe-identical
+- [x] npm build + guard + npm test pass
 
 ## Out of scope
 
@@ -1551,6 +1612,15 @@ intro paragraphs still render 28.8 bold vs the visuAI body 18.432 light.
 - Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13b, item 4)
 - Size: S
 - Type: UI
+- Status: DONE 2026-11-13, AMENDED same day - the scoped rule itself is
+  the issue: Pedro ("remove the margin from .about-copy p+p, that is the
+  issue") - the `.about-copy p + p` rule is REMOVED outright (first 16px,
+  superseding T23's 24px on the way). The about paragraphs now sit flush
+  (newline-separated prose, no added rhythm): probed gaps == 0 in both
+  zones (home #about, /about/), 360 + 1440, Chromium + Firefox; the
+  T23 markup work (br removal, alt, dead onclick) stands. Case-study
+  document spacing sample unchanged. npm test + build + guard green.
+  evidence/t24-29-verify.md
 
 ## Context
 
@@ -1572,10 +1642,11 @@ the T16 spacing-scale note).
 
 ## Acceptance criteria (agent-checkable)
 
-- [ ] Probed at 360 + 1440 on home #about AND /about/: all consecutive
-  paragraph gaps == 16 (+/-1), both engines
-- [ ] No other spacing on those pages changes (diff the built CSS block)
-- [ ] npm build + guard + npm test pass
+- [x] Probed at 360 + 1440 on home #about AND /about/: all consecutive
+  paragraph gaps == 0 (the margin removed; amended per Pedro same day),
+  both engines
+- [x] No other spacing on those pages changes (diff the built CSS block)
+- [x] npm build + guard + npm test pass
 
 ## Out of scope
 
@@ -1584,8 +1655,8 @@ the T16 spacing-scale note).
 
 ## Open questions
 
-- None (16px = "one space" on the shared scale; if Pedro means 8, it is
-  a one-line change - recorded here).
+- Resolved 2026-11-13: the 16px reading was superseded - the whole
+  margin was the issue, paragraphs rest flush.
 
 ---
 
@@ -1594,6 +1665,17 @@ the T16 spacing-scale note).
 - Part of: specs/visualbear-system/plan.md (amendment pass 2026-11-13b, item 5)
 - Size: S
 - Type: UI + review
+- Status: DONE 2026-11-13 - VERIFICATION, 20px SHIPS (no lever fired):
+  computed glyph 20px on the public home AND the mirror home at 360 +
+  1440 (probe; the public home's second 13px span is the aria-hidden pill
+  label). Bear-vs-robot capture pair stored:
+  evidence/t29-robot-vs-bear-{390,784}@2x.png (scratch page with bear 22,
+  robot 22/20/18 on dark + light grounds; render validity: saturated-pixel
+  scan 2887 px - color emoji, not tofu). Canvas measureText re-confirms
+  T18: equal em = equal metric boxes (25x21+5), the robot reads denser
+  because its plate ink is denser, not because of size. Both robots carry
+  font-size: 20px (grep). npm test + build + guard green.
+  evidence/t24-29-verify.md
 
 ## Context
 
@@ -1624,11 +1706,11 @@ pass with a pre-authorized lever, not new design.
 
 ## Acceptance criteria (agent-checkable)
 
-- [ ] Computed glyph size equal on public + mirror, probed at 360 + 1440
-- [ ] Capture pair (robot vs bear reference) stored under evidence/
-- [ ] If changed: test updated red-green, npm test green, both robots
-  carry the same value (grep)
-- [ ] npm build + guard pass
+- [x] Computed glyph size equal on public + mirror, probed at 360 + 1440
+- [x] Capture pair (robot vs bear reference) stored under evidence/
+- [x] If changed: test updated red-green, npm test green, both robots
+  carry the same value (grep) (not changed - 20px ships; test untouched)
+- [x] npm build + guard pass
 
 ## Out of scope
 

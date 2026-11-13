@@ -221,18 +221,6 @@
 #work {
 }
 
-// Ticket 23 (mobile eval): the about copies' paragraph rhythm. The block
-// (home #about, /about/) separated its paragraphs with bare <br> line
-// boxes (+23px, with one gap left flush) and ~0 paragraph margins; the
-// uniform gap is one scoped rule instead. Scoped on purpose - the global
-// .document-text spacing owns the case-study pages. 24px = the shared
-// rhythm step, ~parity with the retired 23px line box.
-.about-copy {
-  p + p {
-    margin-top: 24px;
-  }
-}
-
 // Styleguide (ticket 43): the global link red #D73735 measures 4.12:1 on
 // the page ground. This darker shade of the same brand red (the resume's
 // verified link ink) clears 4.5. The hover/focus/active states are

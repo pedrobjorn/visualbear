@@ -20,12 +20,14 @@
 		<section class="gallery-container">
 			
 			<div class="container--padded">
-				<!-- Ticket 23 (mobile eval): the paragraphs' rhythm is the
-				     scoped .about-copy p + p margin - the bare br line boxes
+				<!-- Ticket 23 (mobile eval): the bare br line boxes
 				     (and the one flush gap they hid) are retired; the dead
 				     inline scroller handlers are gone (scroller is
 				     defined nowhere; the site's smooth-scroll init owns
-				     same-page anchors). -->
+				     same-page anchors). Ticket 28 (amend pass
+				     2026-11-13b): no scoped paragraph margin (Pedro
+				     removed it) - the copy's paragraphs sit flush.
+				     .about-copy stays as the two copies' scoping hook. -->
 				<div class="document-text text-box about-copy">
 					<div class="headshot-container">
 						<img src="../images/misc/profile_photo.png" alt="Pedro Björn" height="192" width="192">

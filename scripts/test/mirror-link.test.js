@@ -164,4 +164,55 @@ assert.strictEqual(link.relativizeNavLinks(innerCopy, 2), innerCopy,
 assert.ok(html.indexOf('font-size:20px') !== -1, 'glyph is 20px (bears optical size)');
 assert.ok(html.indexOf('font-size:22px') === -1, 'the 22px glyph size is gone');
 
+// ── ticket 25 (amend pass 2026-11-13b): the closet card is public-only ────
+// Pedro: "re-add the closet project at the bottom of the cards in the
+// index, but leave it out in the selected works." Both zones render the
+// same gallery from work.json, so the mirror-side pass strips the work
+// gallery CARD (the <a href=<closet drive link> target="_blank"> block).
+// The styleguide casesystem demo (a bare <figure><img> with the same
+// thumb, no anchor) can never match; closed card shape = the strip can
+// never swallow a neighboring card.
+
+var CLOSET_HREF = 'https://drive.google.com/file/d/1rY9YPYkL4HQcolMwhOtlk25uNjkFSBiw/view?usp=sharing';
+var FASHION_HREF = 'https://drive.google.com/file/d/1XeZi2BfcTFRr2HSVrUE8MFVx-JGd5hiu/view?usp=sharing';
+
+function galleryCard(href) {
+  return '<a href="' + href + '" target="_blank">\n' +
+    '  <div class=" row">\n' +
+    '    <div class="col s12 m12">\n' +
+    '      <div class="card-container card medium">\n' +
+    '        <div class="card-container card-image" style="background-image: url(../images/work/thumbs/x.jpg)"\n' +
+    '             data-mobile-image="x.jpg">\n' +
+    '          <span class="card-title"><h2>x</h2></span>\n' +
+    '        </div>\n' +
+    '      </div>\n' +
+    '    </div>\n' +
+    '  </div>\n' +
+    '</a>\n';
+}
+
+var galPage =
+  '<div class="content gallery">\n' +
+  galleryCard(FASHION_HREF) +
+  galleryCard(CLOSET_HREF) +
+  galleryCard('https://drive.google.com/file/d/9999999/view?usp=link') +
+  '</div>';
+
+var galStripped = link.stripClosetCard(galPage);
+assert.ok(galStripped.indexOf('1rY9YPYkL4HQcolMwhOtlk25uNjkFSBiw') === -1, 'strip removes the closet card (tickets 25/30)');
+assert.ok(galStripped.indexOf(FASHION_HREF) !== -1, 'strip keeps the neighboring fashion card');
+assert.ok(galStripped.indexOf('9999999') !== -1, 'strip keeps the card after the closet');
+assert.strictEqual(link.stripClosetCard(galStripped), galStripped, 'closet strip is idempotent');
+
+// the styleguide demo (<figure><img>, no anchor) is never touched
+var demoPage = '<div class="cs-shots">' +
+  '<a href="https://example.com/" target="_blank">a link before it</a>' +
+  '<figure class="cs-shot"><img src="../images/work/thumbs/gallery_thumb_closet.jpg" alt="Digital Closet"></figure>' +
+  '</div>';
+assert.strictEqual(link.stripClosetCard(demoPage), demoPage, 'the styleguide demo thumb is untouched');
+
+// a page with no closet content at all is unchanged
+var plainPage = '<main><a href="workflow/">x</a></main>';
+assert.strictEqual(link.stripClosetCard(plainPage), plainPage, 'no-op pages pass through byte-identical');
+
 console.log('mirror-link.test: PASS');

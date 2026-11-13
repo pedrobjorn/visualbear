@@ -12,9 +12,12 @@
 			
 			<div class="container--padded">
 				<!-- Ticket 23 (mobile eval): same rhythm + handler pass as the
-				     home #about copy - .about-copy owns the paragraph gap,
-				     the dead scroller handlers are gone, the img alt is
-				     in (the home copy carries it). -->
+				     home #about copy - the dead scroller handlers are gone,
+				     the img alt is in (the home copy carries it).
+				     Ticket 28 (amend pass 2026-11-13b): no scoped
+				     paragraph margin (Pedro removed it) - the copy's
+				     paragraphs sit flush. The .about-copy class stays as
+				     the two copies' scoping hook. -->
 				<div class="document-text text-box about-copy">
 					<div class="headshot-container">
 						<img src="../images/misc/profile_photo.png" alt="Pedro Björn" height="192px" width="192px">

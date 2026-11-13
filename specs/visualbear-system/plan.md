@@ -108,7 +108,7 @@ No document-level horizontal overflow was measured anywhere at 360/375 -
 | 1 | Header nav overflows on Firefox Android at ~360: exact-fit budget + a nonstandard text-size-adjust pair (root-cause ASSUMPTION, needs on-device validation) | T21 (fix is budget-safe)      | -      |
 | 2 | Design System tab wraps to 2 lines inside the strip (also Chrome Android): nowrap labels + a compact strip envelope at small widths | T22                           | T2, T7 |
 | 3 | About paragraphs: uniform gap instead of bare `<br>`; dead inline scroller handlers removed in the same markup              | T23                           | -      |
-| 4 | JS disposition (inventory in the evidence file): tabs init and countup KEEP; smooth scroll replaceable by CSS                | T24 (optional, gated)         | -      |
+| 4 | JS disposition (inventory in the evidence file): tabs init and countup KEEP; smooth scroll replaceable by CSS                | T24 (DONE 2026-11-13 - gate answered by delegation, shipped) | -      |
 
 ## Amendment pass 2026-11-13b (Pedro's missed-items list)
 
@@ -119,9 +119,9 @@ items are spec'd as verify/finish tickets, not new work.
 
 | # | Item | New ticket | Amends |
 | - | --- | --- | --- |
-| 1 | Hide the My Closet card (home gallery, both zones) | T25 | - |
-| 2 | Match the Design System hero to the visuAI hero (mobile h1 17.5 vs 31.1 at 360) | T26 | T6, T11, T46 |
-| 3 | Design System body text matches visuAI / case-study views; cleanup esp. mobile (column 324 vs 288, legacy 28.8px intro ps) | T27 | T3, T11 |
-| 4 | About paragraph gap: one space (16px), not two (24px shipped in T23) | T28 | T23 |
-| 5 | Robot the same size as the bear (verify 20px on-device; lever to 18px if it still reads big) | T29 | T18 |
+| 1 | Hide the My Closet card (home gallery, both zones) | T25 (DONE 2026-11-13, amended same day: re-added at the BOTTOM of the index cards, public-only - mirror strip pass + guard check 9) | - |
+| 2 | Match the Design System hero to the visuAI hero (mobile h1 17.5 vs 31.1 at 360) | T26 (DONE 2026-11-13, with T27) | T6, T11, T46 |
+| 3 | Design System body text matches visuAI / case-study views; cleanup esp. mobile (column 324 vs 288, legacy 28.8px intro ps) | T27 (DONE 2026-11-13, with T26) | T3, T11 |
+| 4 | About paragraph gap: one space (16px), not two (24px shipped in T23) | T28 (DONE 2026-11-13, amended same day: the margin itself removed - paragraphs flush) | T23 |
+| 5 | Robot the same size as the bear (verify 20px on-device; lever to 18px if it still reads big) | T29 (DONE 2026-11-13 - 20px verified, 18px lever open on-device) | T18 |
 | 6 | Robot links to the visuAI / design system page on the index - mirror index already does; PUBLIC home now too via DR-0010 (page duplicated to the root) | T30 (DONE, DR-0010) | T20 |
