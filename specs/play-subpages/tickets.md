@@ -667,6 +667,30 @@ Controllers boot from `src/_scripts/main.js` on `DOMContentLoaded` (see `tabs.in
 
 ---
 
+# Ticket 17: Photography view switch - grid / full size, sticky below the header
+
+- Part of: specs/play-subpages/plan.md (Pedro's request 2026-11-14, post-T16: "add a grid view switch: grid and full size. grid is fine, make full size just the full size image and scrolling. sticky the grid / full view on scroll below the header")
+- Depends on: Tickets 10, 11, 14, 15
+- Size: S
+- Type: UI
+- Status: DONE 2026-11-14 - evidence in evidence/t17-verify.md (+ t17-_.png captures): switch bar (Grid/Full size, aria-pressed) above the grid, sticky at top:48px below the fixed header (measured 48px after 600px scroll at 1440 + 390); full view = stacked full-width natural-size images sharing the data-lb-_ hooks (lightbox works from both views); default grid unchanged; empty state safe; worktree diff shows only play/photography changed; `npm run build` exit 0 + guards, `npm test` 5/5, lint/prettier clean
+
+## Requirements
+
+- `/play/photography/` gets a view switch above the grid: two buttons "Grid" / "Full size" (`role="group"`, `aria-pressed` on the active one). Default = grid (current behavior unchanged).
+- Full size = the same photos as full-width stacked `<img>`s (natural size, page scrolls) - no cards, no grid. Same `data-lb-*` hooks, so the lightbox still opens from full view and the no-JS href fallback stays.
+- The switch bar is `position: sticky; top: 48px` (the fixed `nav.site-nav` is 48px, z-index 2; the bar sits at z-index 1 under it) with a solid plate so content scrolling under it is hidden.
+- Implementation reuses existing hooks: the gallery `photogrid` branch renders both containers (`.gallery-grid` + hidden `.gallery-full`); a small `photoview.js` controller toggles `hidden` + `aria-pressed`; `lightbox.js` delegation moves to the shared `.content.gallery` so both views open the lightbox. New CSS is appended in `gallery.scss`, scoped to the new classes - no existing rule touched.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Default view is the grid; clicking "Full size" hides the grid and shows the stacked full-size images (and vice versa); `aria-pressed` follows the active button
+- [ ] Scrolled down, the switch bar's top stays at 48px (below the fixed header) at 1440 and 390 - sticky verified by measuring its bounding rect after scrolling
+- [ ] Lightbox opens from both views; empty folder: switch renders, both containers empty, no errors
+- [ ] Gates: `npm run build` + guards, `npm test`, lint, prettier; screenshots at 1440 + 390 (evidence/t17-\*.png); no changes on existing pages (worktree diff)
+
+---
+
 # Ticket 16: Verify the feature end to end
 
 - Part of: specs/play-subpages/plan.md
