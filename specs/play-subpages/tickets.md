@@ -62,6 +62,7 @@ The index gallery is `gallery.content({content: site.data.work, contentType: '',
 
 - Amendment 1 (DR-0003): Play lives INSIDE the gallery, not in a separate block - the v1 separate `.play-teaser` wrapper let the absolutely positioned `.card-title` (~118px) overflow the 112px card onto the gallery's gradient background.
 - Amendment 2 (DR-0004, Pedro: "can't the play card still be slim but part of the gallery list?"): yes - keep the 112px slim card inside the gallery and fix the title fit in CSS (`.card--thin` title padding 16px -> 8px, ~102px block < 112px card). No new macro flag: the card macro's existing `class` passthrough carries `card--thin`.
+- Amendment 3 (DR-0005, Pedro: "let's put play at the bottom of the gallery"): the Play card renders AFTER the bottom-flagged cards, so it is the very last card in the gallery (closet card moves one up). Locked by `scripts/test/gallery-order.test.js` (RED before the move, GREEN after).
 
 ## Requirements (as amended)
 
@@ -69,7 +70,7 @@ The index gallery is `gallery.content({content: site.data.work, contentType: '',
 - `gallery.nunjucks`: the work branch renders `card.content({id: "play-teaser", class: "card--thin", card: _playCard})`; `_playCard` gets copy "Play" / "Stuff I do for fun", href `../play`, img = existing shipped thumb `../images/work/thumbs/gallery_thumb_prettyugly.jpg` (ASSUMPTION - Pedro; H2).
 - `card.scss`: `.card--thin .card-container.card.medium { height: 112px; }` and the title-fit rule `.card--thin .card-container.card.medium .card-image .card-title { padding: 8px 16px; }` (specificity 0,5,0 beats the base 0,4,0 rule, no `!important`).
 - The Play card is public-only: `stripPlayTeaser` in `scripts/mirror-link.js` strips just the `<a id="play-teaser">` anchor from mirrored pages; wired in `release-mirror.js`; asserted in `scripts/test/mirror-link.test.js`. Reason unchanged: /play/ is not mirrored and its `../play` href would escape the air-lock (guard check 8).
-- Card order on the index: work cards, then the slim Play card, then bottom-flagged cards (the closet card stays last - ticket 25 amend).
+- Card order on the index: work cards, bottom-flagged cards (closet), then the slim Play card LAST (DR-0005).
 
 ## Design references
 
