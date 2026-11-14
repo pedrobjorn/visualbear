@@ -371,7 +371,7 @@ The "new post" flow (Pedro: "can be manual"): drop `blog-<slug>.md` in `src/_dat
 - Depends on: Ticket 8
 - Size: S
 - Type: system
-- Status: open
+- Status: DONE 2026-11-14 - evidence in evidence/t9-verify.md: dev `['nunjucks']` watcher in `gulp/watch.js` now globs `src/_images/play/photography/**/*`; `src/_images/play/photography/.gitkeep` committed so the folder exists at watch start (gulp 3 gaze misses dirs created later). Live dev-serve check: dropping a photo fired `nunjucks` + `imagemin` in the log; empty folder (just .gitkeep) still scans to `[]`; `npm run build` exit 0 + guards OK, `npm test` all suites pass
 
 ## Context
 

@@ -9,6 +9,28 @@ export default function (gulp, plugins, args, config, taskTarget, browserSync) {
   // NOTE: This project runs Gulp 3, so watchers use task-name arrays
   // instead of the Gulp 4 only `gulp.series()`.
   gulp.task('watch', () => {
+    if (args.production) {
+      // Production watch (build:gulp / serve): every change rebuilds the
+      // public tree through sync-mirror, which re-runs the release mirror
+      // so build/ stays 1:1 with a `npm run build` release.
+      gulp.watch(
+        [
+          path.join(dirs.source, dirs.styles, '**/*.{scss,sass}'),
+          path.join(dirs.source, dirs.modules, '**/*.{scss,sass}'),
+          path.join(dirs.source, '**/*.nunjucks'),
+          path.join(dirs.source, dirs.data, '**/*.{json,yaml,yml,md}'),
+          path.join(dirs.source, '**/*'),
+          '!' + path.join(dirs.source, '{**/_*,**/_*/**}'),
+          '!' + path.join(dirs.source, '**/*.nunjucks')
+        ],
+        ['sync-mirror']
+      );
+
+      // Mirror and other build-output HTML changes - reload
+      gulp.watch([path.join(taskTarget, '**/*.html')]).on('change', browserSync.reload);
+      return;
+    }
+
     if (!args.production) {
       // Styles - compile and stream CSS updates via browserSync.stream()
       // in the sass task (no reload needed)
@@ -21,10 +43,13 @@ export default function (gulp, plugins, args, config, taskTarget, browserSync) {
       );
 
       // Nunjucks Templates - the nunjucks task reloads the browser on end
+      // (play-subpages T9: the photography folder is part of this watcher so a
+      // dropped photo re-runs nunjucks and regenerates site.data.photogallery)
       gulp.watch(
         [
           path.join(dirs.source, '**/*.nunjucks'),
-          path.join(dirs.source, dirs.data, '**/*.{json,yaml,yml,md}')
+          path.join(dirs.source, dirs.data, '**/*.{json,yaml,yml,md}'),
+          path.join(dirs.source, dirs.images, 'play', 'photography', '**/*')
         ],
         ['nunjucks']
       );
