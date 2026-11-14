@@ -54,7 +54,7 @@ Tickets are ordered by dependency - build top-down. All are size S; each is inde
 - [x] Ticket 5 - `blog.json` entries repointed, date as subtitle
 - [x] Ticket 6 - blog post shell `/play/blog/<slug>/index.nunjucks`
 - [x] Ticket 7 - seed post data + top card (md, project json, `blog.json` prepend)
-- [ ] Ticket 8 - photogallery folder scan in `gulp/nunjucks.js`
+- [x] Ticket 8 - photogallery folder scan in `gulp/nunjucks.js`
 - [ ] Ticket 9 - dev watch wiring for the photography folder
 - [ ] Ticket 10 - photogrid macros (gallery branch + card `grid`/`notext` flags + lightbox data hooks)
 - [ ] Ticket 11 - photogrid styles (grid layout, red-outline-only hover)

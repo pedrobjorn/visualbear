@@ -326,7 +326,7 @@ The "new post" flow (Pedro: "can be manual"): drop `blog-<slug>.md` in `src/_dat
 - Depends on: -
 - Size: S
 - Type: system
-- Status: open
+- Status: DONE 2026-11-14 - evidence in evidence/t8-verify.md: after the foldero load, `gulp/nunjucks.js` scans `src/_images/play/photography/` for jpg/jpeg/png/webp, sorts mtime-desc, sets `siteData.photogallery = [{file, title (humanized), img}]`; missing folder = `[]` no error. Verified via a throwaway dump-probe through the real nunjucks task (`--debug` itself can't run through gulp-cli on node 10 - it respawns with a literal `node --debug`): empty folder -> `[]`, 3 temp photos -> newest-first with humanized titles, 4th newer drop -> first entry; `npm run build` exit 0 + guards OK; `npm test` all suites pass
 - Blocked on: seed photos (H2) for sign-off only
 
 ## Context

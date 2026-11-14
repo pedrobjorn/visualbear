@@ -45,6 +45,32 @@ export default function (gulp, plugins, args, config, taskTarget, browserSync) {
       });
     }
 
+    // Photogallery (specs/play-subpages, DR-0002): a second, derived data
+    // source - the image folder itself, newest first. Missing folder = []
+    // Missing/empty folder must never break the build.
+    let photoDir = path.join(dirs.source, dirs.images, 'play', 'photography');
+    siteData.photogallery = fs.existsSync(photoDir)
+      ? fs
+          .readdirSync(photoDir)
+          .filter(function (file) {
+            return /\.(jpe?g|png|webp)$/i.test(file);
+          })
+          .map(function (file) {
+            return {
+              file: file,
+              title: path.basename(file, path.extname(file)).replace(/[-_]+/g, ' '),
+              img: file,
+              mtime: fs.statSync(path.join(photoDir, file)).mtimeMs
+            };
+          })
+          .sort(function (a, b) {
+            return b.mtime - a.mtime;
+          })
+          .map(function (photo) {
+            return { file: photo.file, title: photo.title, img: photo.img };
+          })
+      : [];
+
     // Add --debug option to your gulp task to view
     // what data is being loaded into your templates
     if (args.debug) {
