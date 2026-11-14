@@ -454,7 +454,7 @@ In dev, `gulp/watch.js` re-runs `['nunjucks']` only on template/data globs, so a
 - Depends on: Ticket 10
 - Size: S
 - Type: UI
-- Status: open
+- Status: DONE 2026-11-14 - evidence in evidence/t11-verify.md (+ t11-probe-1440/390/hover screenshots): `.gallery-grid` appended to gallery.scss (3 cols / 2 at mobile, 16px gap, square cells via aspect-ratio); card.scss gets a `.gallery-grid`-scoped hover override (red outline only, image kept via a grid-only `--vb-card-img` inline var, plate suppressed by specificity). Purely additive - worktree build diff shows all 23 existing pages byte-identical (whitespace-normalized) and /play/ + / hover still shows the red plate in a real browser. Playwright probe: 3 cols @1440, 2 @390, 16px gap, square cells, hover = `solid 2px rgb(215,55,53)` + transparent bg + image visible. `npm run build` exit 0 + guards OK, `npm test` pass, prettier clean
 
 ## Context
 
