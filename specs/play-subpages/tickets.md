@@ -149,7 +149,7 @@ The index gallery is `gallery.content({content: site.data.work, contentType: '',
 - Depends on: -
 - Size: S
 - Type: UI
-- Status: open
+- Status: DONE 2026-11-14 - evidence in evidence/t4-verify.md: new `src/_data/bloghero.yml` (name blog, title "Blog") + `src/play/blog/index.nunjucks` (gallery layout, `baseUrl = '../../'`, hero + `contentType: 'blog'` gallery over `blog.json`); `npm run build` exit 0 with all guard checks OK; `build/play/blog/index.html` shows the "Blog" h1 + one card per entry (`blog2/`, `blog1/`); empty `blog.json` renders hero + zero cards without errors; live check on `npm run serve`: `GET /play/blog` 301 -> `/play/blog/` 200 (no more "Cannot GET /play/blog"), `GET /blog/` 404 as expected after T3
 
 ## Context
 
