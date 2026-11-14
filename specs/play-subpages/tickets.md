@@ -29,6 +29,12 @@ Requirement source for every ticket in this file: Pedro's request 2026-11-14 (se
 - [ ] `/play/` renders hero + exactly those two cards; `npm run build` passes
 - [ ] Gates: prettier `format:check` clean
 
+## Manual test steps (Pedro)
+
+- `npm run serve`, open http://localhost:3000/play/
+- Expect the hero + exactly two cards, in order: "Blog / Ramblings" then "Photography / Phone shots"
+- Hover each card: the status bar shows .../play/blog and .../play/photography (the pages 404 until Tickets 4/14 land - expected)
+
 ## Out of scope
 
 - The index thinner card (Ticket 2), stub deletion (Ticket 3), the blog/photography pages themselves.
@@ -69,6 +75,12 @@ The index gallery passes `showPlay:false, showBlog:false`, so the built-in Play/
 - [ ] Copy exactly "Play" / "Stuff I do for fun"; `npm run build` passes; screenshots at 1440 + 390
 - [ ] Gates: prettier clean
 
+## Manual test steps (Pedro)
+
+- `npm run serve`, open http://localhost:3000/ and scroll below the work cards
+- Expect one card clearly shorter than the work cards (~112px), reading "Play / Stuff I do for fun"; click it and you land on /play/
+- Resize to 390px wide: the card stays full-width and 112px tall, no horizontal scroll
+
 ## Out of scope
 
 - Any change to the in-gallery `_playCard`/`_blogCard` machinery (stays disabled); nav/sitemap.
@@ -107,6 +119,11 @@ The index gallery passes `showPlay:false, showBlog:false`, so the built-in Play/
 - [ ] `grep -rn "visualbear/blog\|play_photography" src/` returns no live references
 - [ ] Gates: `npm run build` passes
 
+## Manual test steps (Pedro)
+
+- Open http://localhost:3000/blog/ and http://localhost:3000/play/play_photography/ directly - both should show the 404 page
+- Click every card on / and /play/ - none leads to a removed stub
+
 ## Out of scope
 
 - Deleting the other `play_*` stubs; any redirect for the old URLs.
@@ -144,6 +161,12 @@ The index/play structure is `hero.content(...)` + `gallery.content(...)` inside 
 - [ ] `/play/blog/` renders the hero + one card per `blog.json` entry
 - [ ] Empty `blog.json` (`[]`) renders the gallery shell with zero cards, no template errors
 - [ ] Gates: `npm run build` passes; prettier clean
+
+## Manual test steps (Pedro)
+
+- `npm run serve`, open http://localhost:3000/play/blog/
+- Expect the "Blog" hero + the post cards from `blog.json` (two seeded by Ticket 5), newest first
+- Hard-refresh; no console errors
 
 ## Out of scope
 
@@ -184,6 +207,11 @@ The index/play structure is `hero.content(...)` + `gallery.content(...)` inside 
 - [ ] `grep -rn "visualbear/blog" src/` finds nothing
 - [ ] Gates: `npm run build` passes; prettier clean
 
+## Manual test steps (Pedro)
+
+- On /play/blog/ (after Ticket 4): each card shows the title with a date as the subtitle line (default "14 Nov 2026" style)
+- Card order matches `blog.json` top-to-bottom: first entry renders as the top card
+
 ## Out of scope
 
 - The post pages the hrefs point at (Tickets 6-7).
@@ -220,6 +248,11 @@ Case-study pages are the template: `_layouts/work.nunjucks` shell, hero via `{{ 
 
 - [ ] Shell file exists at `src/play/blog/hello-world/index.nunjucks` and structurally matches the teachr shell (diff review: same wrappers, same filters, `baseUrl = '../../../'`)
 - [ ] Renders correctly once Ticket 7 data lands (verified there); `npm run build` passes with the page present
+
+## Manual test steps (Pedro)
+
+- No page to open yet (the shell renders once Ticket 7's data lands) - check the file exists: `src/play/blog/hello-world/index.nunjucks`, and diff it against `src/teachr/index.nunjucks` to see the same shell shape
+- The real page test happens in Ticket 7
 
 ## Out of scope
 
@@ -262,6 +295,12 @@ The "new post" flow (Pedro: "can be manual"): drop `blog-<slug>.md` in `src/_dat
 - [ ] New-post flow verified once: add md + json prepend, rebuild, new card appears on top (re-checked in Ticket 16)
 - [ ] A11y: one h1, landmarks intact, axe clean; Gates: `npm run build`, `npm test` pass
 
+## Manual test steps (Pedro)
+
+- On /play/blog/ the TOP card is the seed post; its title and date match the post page's hero exactly
+- Open /play/blog/hello-world/: hero, body text, and a bottom nav with "< Blog" (goes back to /play/blog/) and NO ">" next arrow
+- Authoring flow: copy the shell into a new `src/play/blog/<slug>/` dir, add `blog-<slug>.md` + `project_blog_<slug>.json`, prepend one entry to `blog.json`, save - the dev server reloads and the new card appears on top of /play/blog/
+
 ## Out of scope
 
 - A second post; automating the flow.
@@ -301,6 +340,12 @@ The "new post" flow (Pedro: "can be manual"): drop `blog-<slug>.md` in `src/_dat
 - [ ] Dropping a new jpg into `src/_images/play/photography/` and re-running the nunjucks task makes it the first entry (top-left card downstream)
 - [ ] Missing/empty folder: `[]`, `npm run build` passes with no error
 
+## Manual test steps (Pedro)
+
+- Drop a .jpg into `src/_images/play/photography/` and save
+- Rebuild (`npm run build:gulp` with `--headless`, or wait for Ticket 9's watch wiring on the dev server) and open /play/photography/ (after Ticket 14): the new photo is the top-left card
+- Filenames with dashes/underscores become the lightbox title, e.g. "beach-day.jpg" -> "beach day"
+
 ## Out of scope
 
 - Thumbnail generation (grid reuses the imagemin'd image with `background-size: cover` - Ticket 11); watch wiring (Ticket 9).
@@ -335,6 +380,11 @@ In dev, `gulp/watch.js` re-runs `['nunjucks']` only on template/data globs, so a
 
 - [ ] The dev `['nunjucks']` watcher glob list includes the photography folder (code check + dev-serve log shows the nunjucks task firing when a file is added there)
 - [ ] Gates: `npm run build` passes (watch file is build config, not shipped output)
+
+## Manual test steps (Pedro)
+
+- With `npm run serve` running, drop a new photo into `src/_images/play/photography/` - the terminal should show the `nunjucks` task firing, and the browser reloads
+- On /play/photography/ (after Ticket 14) the new photo appears top-left without restarting the server
 
 ## Out of scope
 
@@ -374,6 +424,11 @@ In dev, `gulp/watch.js` re-runs `['nunjucks']` only on template/data globs, so a
 - [ ] Anchors keep the real image as `href` (no-JS fallback)
 - [ ] Gates: `npm run build` passes
 
+## Manual test steps (Pedro)
+
+- On /play/photography/ (after Ticket 14): cards show the image only - no title or subtitle text on them
+- Inspect a card (devtools): the anchor's href is the full image URL, so "open image in new tab" shows the photo even with JS off; `data-lb-index`/`data-lb-img`/`data-lb-title` attributes are present
+
 ## Out of scope
 
 - Grid styles (Ticket 11), the page (Ticket 14), the modal behavior (Ticket 15).
@@ -412,6 +467,12 @@ In dev, `gulp/watch.js` re-runs `['nunjucks']` only on template/data globs, so a
 - [ ] Grid is 3 columns at 1440, 2 at 390, 16px gap, square cells
 - [ ] Gates: sass compiles, `npm run build` passes, prettier clean
 
+## Manual test steps (Pedro)
+
+- On /play/photography/, hover a grid card: a thin red outline appears and the image stays visible (no red plate swap)
+- Tab to a grid card with the keyboard: the same red outline shows on focus
+- At 1440px wide: 3 columns; at 390px: 2 columns; gaps 16px; cells square
+
 ## Out of scope
 
 - Any hover change outside `.gallery-grid` (work/play/blog cards keep the red plate).
@@ -449,6 +510,10 @@ House pattern for testable JS: pure core module + DOM controller + `scripts/test
 
 - [ ] `npm test` passes including the new suite (run output shows all three test files)
 - [ ] `lightbox-core.js` has no DOM access (grep: no `document`/`window`)
+
+## Manual test steps (Pedro)
+
+- Terminal only: `npm test` - the output should include "lightbox.test: OK" alongside the other suites
 
 ## Out of scope
 
@@ -489,6 +554,11 @@ No modal exists in `src/`. The dialog markup renders hidden by default on the ph
 - [ ] Buttons >= 44x44, caption contrast >= 4.5:1 (probe), `role="dialog"` + `aria-modal` present
 - [ ] Gates: `npm run build` passes, prettier clean
 
+## Manual test steps (Pedro)
+
+- On /play/photography/ (after Ticket 14), inspect the DOM: the `.lightbox` dialog exists but is `hidden`
+- In devtools, measure the arrow and close buttons: each at least 44x44px
+
 ## Out of scope
 
 - Controller behavior (Ticket 15); applying the dialog anywhere else.
@@ -528,6 +598,11 @@ The photogallery has no hero (Pedro's rule) - just the grid. The lightbox contro
 - [ ] `#photogrid-data` JSON matches `site.data.photogallery` order; dialog markup present and `hidden`
 - [ ] Empty folder: empty grid, valid empty JSON, no template errors; `npm run build` passes
 
+## Manual test steps (Pedro)
+
+- Open http://localhost:3000/play/photography/: no hero or big title - the grid starts at the top; the newest photo in the folder is the top-left card
+- Devtools console shows no errors; the `#photogrid-data` script tag contains the photo list as JSON, in grid order
+
 ## Out of scope
 
 - Lightbox behavior (Ticket 15); seed photos (assets).
@@ -566,6 +641,13 @@ Controllers boot from `src/_scripts/main.js` on `DOMContentLoaded` (see `tabs.in
 - [ ] Single-photo grid: arrows render, stepping stays on the one photo; empty grid: no modal triggers, no errors
 - [ ] A11y: dialog semantics + focus behavior asserted (Playwright probe at 1440 + 390), axe clean; Gates: `npm test`, `npm run build`, visuaibear-review pass; screenshots in evidence/
 
+## Manual test steps (Pedro)
+
+- On /play/photography/, click a thumbnail: the modal opens on that photo with its title at the bottom
+- Right arrow button / Right-arrow key steps forward and wraps after the last photo; left arrow / Left-arrow wraps back to the last
+- Esc, clicking the dark backdrop, and the X button each close the modal; focus returns to the thumbnail you clicked
+- With exactly one photo in the folder: the arrows keep you on that photo
+
 ## Out of scope
 
 - Zoom/pan/download/share in the modal.
@@ -602,6 +684,11 @@ House gates: `npm run build` (release), `npm test`, `npm run lint`, prettier `fo
 
 - [ ] All gates pass; evidence files committed under `specs/play-subpages/evidence/`
 - [ ] No regressions on existing pages (`/`, a case study, `/workflow/`) - spot-check screenshots
+
+## Manual test steps (Pedro)
+
+- Run the gates yourself: `npm run build`, `npm test`, `npm run lint`, `npm run format:check` (expect only the 11 pre-existing `specs/visualbear-system/` prettier warnings, nothing new)
+- Walk the whole flow once at 1440px and once at 390px: / -> thinner Play card -> /play/ -> Blog card -> /play/blog/ -> top card -> post page -> "< Blog" back; /play/ -> Photography card -> /play/photography/ -> click a photo -> step with arrows -> close
 
 ## Out of scope
 

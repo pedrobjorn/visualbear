@@ -45,7 +45,7 @@ H1: Ticket 3 deletes the two superseded stub dirs (`src/blog/`, `src/play/play_p
 
 ## Breakdown
 
-Tickets are ordered by dependency - build top-down. All are size S; each is independently verifiable.
+Tickets are ordered by dependency - build top-down. All are size S; each is independently verifiable, and each ticket carries a "Manual test steps (Pedro)" section for hand-testing (`npm run serve` -> http://localhost:3000 unless the step says otherwise).
 
 - [x] Ticket 1 - `play.json` becomes exactly Blog + Photography cards
 - [ ] Ticket 2 - thinner Play card below the index gallery (`card--thin`)
