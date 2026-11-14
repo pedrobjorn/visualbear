@@ -279,8 +279,8 @@ Case-study pages are the template: `_layouts/work.nunjucks` shell, hero via `{{ 
 - Depends on: Tickets 4, 5, 6
 - Size: S
 - Type: system + copy
-- Status: open
-- Blocked on: seed post cover img (H2)
+- Status: DONE 2026-11-14 - evidence in evidence/t7-verify.md: `blog-hello-world.md` (hero title "Hello World", details "14 Nov 2026", short `[ai]`-marked body) + `project_blog_hello_world.json` + `blog.json` prepend (`hello-world/` on top, same title+date as the md hero); `/play/blog/hello-world/` renders 1 h1 + body + "< Blog" prev and no next arrow; `/play/blog/` top card = Hello World / 14 Nov 2026; `npm run build` exit 0 + guards OK, `npm test` all suites pass. NOTE: prevhref uses `"../"` not the ticket text's `"../../"` - from depth 3, `../` is what resolves to `/play/blog/` per the acceptance criteria. Cover img = reused shipped thumb pending H2 (one-line swap)
+- Blocked on: seed post cover img (H2) - sign-off only, defaulted per T1/T2 pattern
 
 ## Context
 

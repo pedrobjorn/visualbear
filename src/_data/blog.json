@@ -1,4 +1,9 @@
 [{
+  "title": "Hello World",
+  "subtitle": "14 Nov 2026",
+  "href":"hello-world/",
+  "img":"../../images/work/thumbs/gallery_thumb_prettyugly.jpg"
+},{
   "title": "First blog post",
   "subtitle": "14 Nov 2026",
   "href":"blog2/",
