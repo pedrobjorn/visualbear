@@ -8,14 +8,23 @@
 {% set _card = spec.card or [] %}
 {% set _title = spec.title or 'Default Title' %}
 {% set _subtitle = spec.subtitle or 'Default Subtitle' %}
+{# play-subpages T10: variant flags on the existing card, no new component.
+   grid = photogrid cell class, notext = suppress the title block,
+   lightbox = data-lb-* hooks for the T15 controller (index passed by the
+   gallery loop as spec.index) #}
+{% set _grid = spec.grid or false %}
+{% set _notext = spec.notext or false %}
+{% set _lightbox = spec.lightbox or false %}
+{% set _index = spec.index or 0 %}
 
 <!-- ../images/work/thumbs/gallery_thumb_steam.jpg -->
 
 <a
   id="{{_id}}"
-  class="{{_class}}"
+  class="{{_class}}{% if _grid %} card--grid{% endif %}"
   href="{{_card.href}}"
   target="{{_card.target}}"
+  {% if _lightbox %}data-lb-index="{{_index}}" data-lb-img="{{_card.href}}" data-lb-title="{{_card.title}}"{% endif %}
 >
   <div class=" row">
     <div class="col s12 m12">
@@ -23,6 +32,7 @@
         <div class="card-container card-image" 
              style="background-image: url({{_card.img}})" 
              data-mobile-image="{{_card.img_mobile or _card.img}}">
+          {% if not _notext %}
           <span class="card-title">
             <h2>
               {{_card.title}}
@@ -31,6 +41,7 @@
               {{_card.subtitle}}
             </p>
           </span>
+          {% endif %}
         </div>
       </div>
     </div>

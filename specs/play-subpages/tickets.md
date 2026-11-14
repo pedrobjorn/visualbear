@@ -411,7 +411,7 @@ In dev, `gulp/watch.js` re-runs `['nunjucks']` only on template/data globs, so a
 - Depends on: -
 - Size: S
 - Type: UI
-- Status: open
+- Status: DONE 2026-11-14 - evidence in evidence/t10-verify.md: gallery `photogrid` branch renders `<div class="gallery-grid">` mapping each `photogallery` entry to `{title, img, href}` at `../../images/play/photography/<file>` via `card.content({grid: true, notext: true, lightbox: true, index: loop.index0})`; card molecule gains `card--grid` class, suppressed title span, and `data-lb-index`/`data-lb-img`/`data-lb-title` hooks; anchors keep the real image href (no-JS fallback); probe render verified all hooks + order, existing card pages unchanged; `npm run build` exit 0 + guards OK, `npm test` all suites pass
 
 ## Context
 

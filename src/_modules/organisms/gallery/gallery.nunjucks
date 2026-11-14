@@ -91,6 +91,18 @@
 {% endfor %}
 </div>
 
+{% elif _contentType == 'photogrid' %}
+{# play-subpages T10 (DR-0002): textless grid cells fed by
+   site.data.photogallery (T8). The anchor keeps the full image as href
+   (no-JS fallback opens the image); JS intercepts via the data-lb-* hooks
+   (T15). img/href are depth-2 relative: this branch only renders on
+   /play/photography/ #}
+<div class="gallery-grid">
+{% for val in _content %}
+{{card.content({card: {title: val.title, img: '../../images/play/photography/' + val.file, href: '../../images/play/photography/' + val.file}, grid: true, notext: true, lightbox: true, index: loop.index0})}}
+{% endfor %}
+</div>
+
 {% endif %}
 </div>
 {% endmacro %}

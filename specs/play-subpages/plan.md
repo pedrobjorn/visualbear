@@ -56,7 +56,7 @@ Tickets are ordered by dependency - build top-down. All are size S; each is inde
 - [x] Ticket 7 - seed post data + top card (md, project json, `blog.json` prepend)
 - [x] Ticket 8 - photogallery folder scan in `gulp/nunjucks.js`
 - [x] Ticket 9 - dev watch wiring for the photography folder
-- [ ] Ticket 10 - photogrid macros (gallery branch + card `grid`/`notext` flags + lightbox data hooks)
+- [x] Ticket 10 - photogrid macros (gallery branch + card `grid`/`notext` flags + lightbox data hooks)
 - [ ] Ticket 11 - photogrid styles (grid layout, red-outline-only hover)
 - [ ] Ticket 12 - lightbox core (`lightbox-core.js`) + `npm test`
 - [ ] Ticket 13 - lightbox markup + styles
