@@ -54,9 +54,10 @@
 {% endif %}
 {% endfor %}
 
-<!-- Play gallery option -->
+<!-- Play gallery option (play-subpages T2, DR-0004: slim card inside the
+     gallery via the macro's class passthrough; id is the mirror strip target) -->
 {% if _showPlay %}
-{{card.content({id:"play-teaser", card:_playCard})}}
+{{card.content({id:"play-teaser", class:"card--thin", card:_playCard})}}
 {% endif %}
 
 <!-- Blog gallery option -->

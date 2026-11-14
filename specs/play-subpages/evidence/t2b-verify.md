@@ -26,8 +26,10 @@ Build + output:
 - mirror `build/selected-works/index.html`: 0 `play-teaser`, 0 `../play`
   hrefs, gallery wrapper and sibling cards intact
 
-Visual probes (Playwright, static serve of `build/`; captures
-`t2b-index-1440.png` / `t2b-index-390.png`):
+Visual probes (Playwright, static serve of `build/`; the v2 full-page
+captures `t2b-index-*.png` were later overwritten by probe re-runs and are
+removed - this measurement log is the v2 record; v3 captures are
+`t2c-index-*.png`, see t2c-verify.md):
 
 - 1440 + 390: card found, href `../play`, text "Play Stuff I do for fun",
   card height 256, `titleInsideCard: true`, `h2InsideCard: true` (no

@@ -223,7 +223,7 @@ assert.strictEqual(link.stripClosetCard(plainPage), plainPage, 'no-op pages pass
 // href alone, and leaves the gallery wrapper and sibling cards alone.
 
 var teaserAnchor =
-  '<a id="play-teaser" class="" href="../play" target="">' +
+  '<a id="play-teaser" class="card--thin" href="../play" target="">' +
   '<div class=" row"><div class="col s12 m12"><div class="card-container card medium">' +
   '<div class="card-container card-image" style="background-image: url(../images/work/thumbs/gallery_thumb_prettyugly.jpg)">' +
   '<span class="card-title"><h2>Play</h2><p class="card-content">Stuff I do for fun</p></span>' +

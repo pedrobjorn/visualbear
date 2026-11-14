@@ -45,49 +45,49 @@ Requirement source for every ticket in this file: Pedro's request 2026-11-14 (se
 
 ---
 
-# Ticket 2: Play card at the bottom of the index gallery
+# Ticket 2: Slim Play card at the bottom of the index gallery
 
-- Part of: specs/play-subpages/plan.md (placement per DR-0003, which amends DR-0001)
+- Part of: specs/play-subpages/plan.md (in-gallery placement per DR-0003, slim per DR-0004)
 - Depends on: -
 - Size: S
 - Type: UI
-- Status: DONE 2026-11-14, amended same day after Pedro's visual review - first approach (separate 112px `card--thin` teaser block below `#work`) is recorded in evidence/t2-verify.md; the amended approach (Play card inside the work gallery) is verified in evidence/t2b-verify.md. Full `npm run build` exit 0, all guard checks OK; mirror home carries no Play card (guard check 8 clean)
+- Status: DONE 2026-11-14, amended twice the same day after Pedro's visual reviews - v1: separate 112px teaser block below `#work` (title overflowed onto the gallery background, measured ~118px title in a 112px card); v2: full-size card in the gallery (DR-0003); v3 (shipped): slim 112px card INSIDE the gallery with the title-fit fix (DR-0004). Evidence: evidence/t2-verify.md (v1), evidence/t2b-verify.md (v2), evidence/t2c-verify.md (v3). Full `npm run build` exit 0, all guard checks OK; mirror home carries no Play card (guard check 8 clean)
 - Blocked on: card img asset (H2) for final visual sign-off only
 
 ## Context
 
-The index gallery is `gallery.content({content: site.data.work, contentType: '', showPlay: ..., showBlog: ...})`; the gallery organism's work branch already renders a built-in `_playCard` when `showPlay` is true (disabled on the index until now).
+The index gallery is `gallery.content({content: site.data.work, contentType: '', showPlay: ..., showBlog: ...})`; the gallery organism's work branch already renders a built-in `_playCard` when `showPlay` is true.
 
-## Amendment 2026-11-14 (Pedro's visual review): Play lives INSIDE the gallery, not in a separate block
+## Amendment history
 
-- Bug measured on the first shipped approach (Playwright, 1440 + 390): the `.card-title` block is ~118px tall (16px padding + h2 + p) inside a 112px `card--thin` card; absolutely positioned at `bottom: 0`, it overflows the card's top edge and paints over the gallery's gradient background - the reported "messes with the background and hiding the text". Details: DR-0003.
-- Fix: drop the separate `.play-teaser` wrapper and the whole `card--thin` variant; render Play as a normal 256px card at the bottom of the work gallery through the existing `showPlay` mechanism.
+- Amendment 1 (DR-0003): Play lives INSIDE the gallery, not in a separate block - the v1 separate `.play-teaser` wrapper let the absolutely positioned `.card-title` (~118px) overflow the 112px card onto the gallery's gradient background.
+- Amendment 2 (DR-0004, Pedro: "can't the play card still be slim but part of the gallery list?"): yes - keep the 112px slim card inside the gallery and fix the title fit in CSS (`.card--thin` title padding 16px -> 8px, ~102px block < 112px card). No new macro flag: the card macro's existing `class` passthrough carries `card--thin`.
 
 ## Requirements (as amended)
 
-- `src/index.nunjucks`: the gallery call becomes `showPlay: true, showBlog: false`; the separate teaser block is removed.
-- `gallery.nunjucks`: the work branch renders `card.content({id: "play-teaser", card: _playCard})`; `_playCard` gets copy "Play" / "Stuff I do for fun", href `../play`, img = existing shipped thumb `../images/work/thumbs/gallery_thumb_prettyugly.jpg` (ASSUMPTION - Pedro; H2).
-- The `thin` flag in `card.nunjucks`, the `.card--thin` rule in `card.scss`, the `.play-teaser` rule in `gallery.scss`, and `scripts/test/card-thin.test.js` (plus its `package.json` wiring) are removed.
-- The Play card is public-only: `stripPlayTeaser` in `scripts/mirror-link.js` strips just the `<a id="play-teaser">` anchor from mirrored pages (no wrapper anymore); wired in `release-mirror.js`; asserted in `scripts/test/mirror-link.test.js`. Reason unchanged: /play/ is not mirrored and its `../play` href would escape the air-lock (guard check 8).
-- Card order on the index: work cards, then the Play card, then bottom-flagged cards (the closet card stays last - ticket 25 amend).
+- `src/index.nunjucks`: the gallery call is `showPlay: true, showBlog: false`; no separate teaser block.
+- `gallery.nunjucks`: the work branch renders `card.content({id: "play-teaser", class: "card--thin", card: _playCard})`; `_playCard` gets copy "Play" / "Stuff I do for fun", href `../play`, img = existing shipped thumb `../images/work/thumbs/gallery_thumb_prettyugly.jpg` (ASSUMPTION - Pedro; H2).
+- `card.scss`: `.card--thin .card-container.card.medium { height: 112px; }` and the title-fit rule `.card--thin .card-container.card.medium .card-image .card-title { padding: 8px 16px; }` (specificity 0,5,0 beats the base 0,4,0 rule, no `!important`).
+- The Play card is public-only: `stripPlayTeaser` in `scripts/mirror-link.js` strips just the `<a id="play-teaser">` anchor from mirrored pages; wired in `release-mirror.js`; asserted in `scripts/test/mirror-link.test.js`. Reason unchanged: /play/ is not mirrored and its `../play` href would escape the air-lock (guard check 8).
+- Card order on the index: work cards, then the slim Play card, then bottom-flagged cards (the closet card stays last - ticket 25 amend).
 
 ## Design references
 
-- Figma: n/a. Hooks used: gallery organism work branch (`_playCard`/`showPlay`), card molecule. Principles applied: design-principles #4 (reuse the existing in-gallery mechanism, no new variant) and #6.
-- Existing style refs: `gallery.nunjucks`, `card.scss`, `src/index.nunjucks`.
+- Figma: n/a. Hooks used: gallery organism work branch (`_playCard`/`showPlay`), card molecule `class` passthrough. Principles applied: design-principles #4 (reuse existing mechanisms, no new flag) and #6.
+- Existing style refs: `gallery.nunjucks`, `card.scss` (base `.card-title` padding 16px being overridden), `src/index.nunjucks`.
 
 ## Acceptance criteria (agent-checkable)
 
-- [ ] `/` renders the work cards, then the Play card inside the same gallery (full-size card, no separate block), linking to `/play/`; no `.play-teaser`/`card--thin` markup or CSS remains in the build
-- [ ] The Play card's title sits fully inside the card image (title rect within the card rect at 1440 + 390) - no overflow onto the gallery background
+- [ ] `/` renders the work cards, then the slim Play card (112px at 1440 AND 390) inside the same gallery, linking to `/play/`; no separate teaser block
+- [ ] The Play card's title rect sits fully inside the card rect at 1440 + 390 (no overflow onto the gallery background) - the DR-0003 bug stays fixed
 - [ ] Copy exactly "Play" / "Stuff I do for fun"; `npm run build` exit 0 with all guard checks OK; mirror home has zero `play-teaser` / `../play` references
-- [ ] Screenshots at 1440 + 390 (evidence/t2b-index-\*.png); prettier clean
+- [ ] Screenshots at 1440 + 390 (evidence/t2c-index-\*.png); prettier clean
 
 ## Manual test steps (Pedro)
 
 - `npm run serve`, open http://localhost:3000/ and scroll to the bottom of the work cards
-- The Play card is in the gallery there (same size as the work cards), reading "Play / Stuff I do for fun"; click it and you land on /play/
-- The card text is fully visible on the image at 1440 and at 390; hover shows the usual red plate
+- The Play card is in the gallery there, slimmer than the work cards (~112px vs 256px), reading "Play / Stuff I do for fun" with the text fully on the card image; click it and you land on /play/
+- Check at 1440 and at 390: text visible, no overlap with the card above, hover shows the usual red plate
 
 ## Out of scope
 

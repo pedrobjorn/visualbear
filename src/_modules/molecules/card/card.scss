@@ -67,6 +67,22 @@
     }
 }
 
+// play-subpages T2 (DR-0004): the slim Play card inside the index gallery.
+// 112px tall, and the card-title padding drops from 16px to 8px so the
+// title block (~102px) fits inside the 112px card instead of overflowing
+// onto the gallery background (the DR-0003 bug, measured ~118px block).
+// Specificity 0,5,0 beats the base `.medium.card .card-image .card-title`
+// rule (0,4,0) without !important.
+.card--thin {
+    .card-container.card.medium {
+        height: 112px;
+    }
+
+    .card-container.card.medium .card-image .card-title {
+        padding: 8px 16px;
+    }
+}
+
 // Responsive images for mobile variants
 @media (max-width: 768px) {
 
