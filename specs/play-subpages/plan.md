@@ -51,7 +51,7 @@ Tickets are ordered by dependency - build top-down. All are size S; each is inde
 - [x] Ticket 2 - thinner Play card below the index gallery (`card--thin`)
 - [x] Ticket 3 - remove the superseded stubs + reference grep
 - [x] Ticket 4 - blog index shell: `bloghero.yml` + `/play/blog/` page
-- [ ] Ticket 5 - `blog.json` entries repointed, date as subtitle
+- [x] Ticket 5 - `blog.json` entries repointed, date as subtitle
 - [ ] Ticket 6 - blog post shell `/play/blog/<slug>/index.nunjucks`
 - [ ] Ticket 7 - seed post data + top card (md, project json, `blog.json` prepend)
 - [ ] Ticket 8 - photogallery folder scan in `gulp/nunjucks.js`

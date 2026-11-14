@@ -193,7 +193,7 @@ The index/play structure is `hero.content(...)` + `gallery.content(...)` inside 
 - Depends on: -
 - Size: S
 - Type: system
-- Status: open
+- Status: DONE 2026-11-14 - evidence in evidence/t5-verify.md: both entries now `{title, subtitle: "14 Nov 2026", href: "<slug>/", img: "../../images/work/thumbs/gallery_thumb_prettyugly.jpg"}` (slugs `blog2/`, `blog1/`, order kept newest-first); no `visualbear` left in `blog.json`; `grep -rn "visualbear/blog" src/` clean; `npm run build` exit 0 + guards OK; served `/play/blog/` shows both cards with date subtitles and slug hrefs; `npm test` all suites pass
 
 ## Context
 

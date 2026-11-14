@@ -1,11 +1,11 @@
 [{
   "title": "First blog post",
-  "subtitle": "This is my first blog post",
+  "subtitle": "14 Nov 2026",
   "href":"blog2/",
-  "img":"../visualbear/images/work/thumbs/gallery_thumb_prettyugly.jpg"
+  "img":"../../images/work/thumbs/gallery_thumb_prettyugly.jpg"
 },{
   "title": "Second blog posts",
-  "subtitle": "This is my second blog post",
+  "subtitle": "14 Nov 2026",
   "href":"blog1/",
-  "img":"../visualbear/images/work/thumbs/gallery_thumb_prettyugly.jpg"
+  "img":"../../images/work/thumbs/gallery_thumb_prettyugly.jpg"
 }]
