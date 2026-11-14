@@ -49,7 +49,7 @@ Tickets are ordered by dependency - build top-down. All are size S; each is inde
 
 - [x] Ticket 1 - `play.json` becomes exactly Blog + Photography cards
 - [x] Ticket 2 - thinner Play card below the index gallery (`card--thin`)
-- [ ] Ticket 3 - remove the superseded stubs + reference grep
+- [x] Ticket 3 - remove the superseded stubs + reference grep
 - [ ] Ticket 4 - blog index shell: `bloghero.yml` + `/play/blog/` page
 - [ ] Ticket 5 - `blog.json` entries repointed, date as subtitle
 - [ ] Ticket 6 - blog post shell `/play/blog/<slug>/index.nunjucks`

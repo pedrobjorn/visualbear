@@ -106,7 +106,7 @@ The index gallery is `gallery.content({content: site.data.work, contentType: '',
 - Depends on: Ticket 1
 - Size: S
 - Type: system
-- Status: open
+- Status: DONE 2026-11-14 - evidence in evidence/t3-verify.md: `src/blog/` and `src/play/play_photography/` deleted (git rm, named in plan H1); the `play_photography` `<url>` removed from `src/sitemap.xml`; `blog.json` hrefs repointed to the slug form (`blog2/`, `blog1/`) so `grep -rn "visualbear/blog\|play_photography" src/` returns zero matches; the other `play_*` stubs stay on disk, unlinked; `npm test` all 4 suites pass; `npm run build` exit 0 with all guard checks OK; build output has no `build/blog/` (so `/blog/` 404s) and no `build/play/play_photography/`, zero stub references anywhere in `build/`
 
 ## Context
 
