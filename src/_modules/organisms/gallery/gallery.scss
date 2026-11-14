@@ -28,3 +28,43 @@
         background: none;
     }
 }
+
+// play-subpages T11 (DR-0002): the photogrid - a real CSS grid of square,
+// textless cells. Everything is scoped under .gallery-grid (or :has() it),
+// so the work/play/blog galleries keep their existing flex layout untouched.
+.gallery-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+
+    // the card molecule wraps its image in a materialize .row/.col; zero
+    // those inside the grid so each card fills its grid track exactly
+    .card--grid .row {
+        margin: 0;
+
+        .col {
+            padding: 0;
+        }
+    }
+
+    // square cells: aspect-ratio drives the height, overriding the base
+    // .medium.card 256px height and margin (specificity 0,4,0 > base 0,2,0)
+    .card--grid .card-container.card.medium {
+        height: auto;
+        margin: 0;
+        aspect-ratio: 1 / 1;
+    }
+
+    @include mq($until: mobile) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+// The photogrid page has no hero (plan: "no hero, just the grid"), so the
+// 66vh hero-clearing spacer on .content.gallery would be a dead gap there.
+// :has() scopes this to gallery pages that contain a photogrid only.
+.content.gallery:has(.gallery-grid) {
+    margin-top: 0;
+    background: none;
+}

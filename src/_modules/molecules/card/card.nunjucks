@@ -30,7 +30,7 @@
     <div class="col s12 m12">
       <div class="card-container card medium">
         <div class="card-container card-image" 
-             style="background-image: url({{_card.img}})" 
+             style="background-image: url({{_card.img}}){% if _grid %}; --vb-card-img: url({{_card.img}}){% endif %}"
              data-mobile-image="{{_card.img_mobile or _card.img}}">
           {% if not _notext %}
           <span class="card-title">

@@ -87,3 +87,20 @@
 @media (max-width: 768px) {
 
 }
+// play-subpages T11: inside the photogrid, hover/focus shows a red outline
+// ONLY - the default red-plate background swap is suppressed and the image
+// stays visible. Scoped under .gallery-grid, so work/play/blog cards keep
+// the plate hover. --vb-card-img is set inline on grid cards only
+// (card.nunjucks, T10) and restores the image against the base
+// `background-image: url("") !important` hover rule: this selector is 0,4,0
+// vs the base 0,3,0, so it wins at equal !important.
+.gallery-grid .card--grid .card-image {
+    &:active,
+    &:focus,
+    &:hover,
+    &:focus-visible {
+        background-color: transparent;
+        background-image: var(--vb-card-img) !important;
+        outline: 2px solid $vb-primary;
+    }
+}
