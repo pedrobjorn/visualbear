@@ -540,7 +540,7 @@ House pattern for testable JS: pure core module + DOM controller + `scripts/test
 - Depends on: -
 - Size: S
 - Type: UI
-- Status: open
+- Status: DONE 2026-11-14 - evidence in evidence/t13-verify.md: new `lightbox.nunjucks` macro (`hidden` dialog, `role="dialog" aria-modal`, backdrop, figure+img+caption, prev/next `.btn.vb-btn` `<`/`>`, close with `aria-label="Close"`) + new `lightbox.scss` (fixed inset-0 dark plate, img 80vh/90vw, bottom-center caption at 15.6:1 contrast, buttons 48x48, `:focus-visible` red outline, `[hidden]` display rule, reduced-motion) + one import line in main.scss. Browser-probed on the T14 page: dialog hidden by default, buttons >= 44x44, keyboard focus outline works; `npm run build` exit 0 + guards OK, `npm test` 5/5, prettier clean
 
 ## Context
 

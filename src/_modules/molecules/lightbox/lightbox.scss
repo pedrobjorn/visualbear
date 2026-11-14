@@ -1,0 +1,91 @@
+// lightbox styles - play-subpages T13 (DR-0002): one modal for the
+// photogrid, reusing the buttonslider's .btn.vb-btn arrows. Appended as a
+// new module; no existing rule is touched.
+
+// [hidden] needs its own display rule: normalize's `div { display: block }`
+// otherwise beats the UA's `[hidden] { display: none }` (same pattern as
+// .vb-panel[hidden] in tabs.scss).
+.lightbox[hidden] {
+    display: none;
+}
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// dark plate over the page
+.lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba($vb-dark, 0.92);
+    transition: opacity 160ms ease;
+}
+
+.lightbox-figure {
+    position: relative;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-img {
+    max-height: 80vh;
+    max-width: 90vw;
+    object-fit: contain;
+}
+
+// small bottom-center title; $vb-light (#e6f2ff) on the $vb-dark plate is
+// ~15:1 contrast, well above the 4.5:1 floor
+.lightbox-caption {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    font-size: 14px;
+    color: $vb-light;
+}
+
+// arrows reuse .btn.vb-btn (48x48); min 44x44 per the a11y floor anyway
+.lightbox-prev,
+.lightbox-next,
+.lightbox-close {
+    position: absolute;
+    min-width: 44px;
+    min-height: 44px;
+}
+
+.lightbox-prev {
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox-next {
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox-close {
+    top: 16px;
+    right: 16px;
+}
+
+// visible keyboard focus on every lightbox control
+.lightbox :focus-visible {
+    outline: 2px solid $vb-primary;
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .lightbox-backdrop {
+        transition: none;
+    }
+}

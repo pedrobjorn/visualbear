@@ -1,0 +1,17 @@
+{% macro content(spec) %}
+{% set spec = spec or {} %}
+{# play-subpages T13 (DR-0002): one modal for the photogrid. Rendered hidden
+   on /play/photography/ (T14); the controller (lightbox.js, T15) toggles
+   the hidden attribute. [hidden] needs its own display rule in
+   lightbox.scss - normalize's div display otherwise beats the UA's. #}
+<div class="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <div class="lightbox-backdrop"></div>
+  <figure class="lightbox-figure">
+    <img class="lightbox-img" alt="">
+    <figcaption class="lightbox-caption"></figcaption>
+  </figure>
+  <button type="button" class="btn vb-btn lightbox-prev" aria-label="Previous photo">&lt;</button>
+  <button type="button" class="btn vb-btn lightbox-next" aria-label="Next photo">&gt;</button>
+  <button type="button" class="btn vb-btn lightbox-close" aria-label="Close">X</button>
+</div>
+{% endmacro %}
