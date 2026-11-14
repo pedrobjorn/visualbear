@@ -1,0 +1,22 @@
+{% extends '_layouts/gallery.nunjucks' %}
+
+{% import "_modules/organisms/gallery/gallery.nunjucks" as gallery %}
+{% import "_modules/molecules/lightbox/lightbox.nunjucks" as lightbox %}
+
+{% block config %}
+  {# Correct base url pathing for this page (depth 2) #}
+  {% set baseUrl = '../../' %}
+{% endblock %}
+
+{% block content %}
+{# play-subpages T14 (DR-0002): no hero on this page - just the photogrid
+   fed by site.data.photogallery (T8 folder scan, newest first). The dialog
+   markup (T13) renders hidden; the controller (T15) reads #photogrid-data. #}
+
+{{gallery.content({content: site.data.photogallery, contentType: 'photogrid'})}}
+
+{{lightbox.content({})}}
+
+<script type="application/json" id="photogrid-data">{{ site.data.photogallery | dump | safe }}</script>
+
+{% endblock %}

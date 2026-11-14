@@ -60,7 +60,7 @@ Tickets are ordered by dependency - build top-down. All are size S; each is inde
 - [x] Ticket 11 - photogrid styles (grid layout, red-outline-only hover)
 - [x] Ticket 12 - lightbox core (`lightbox-core.js`) + `npm test`
 - [x] Ticket 13 - lightbox markup + styles
-- [ ] Ticket 14 - `/play/photography/` page (grid + data JSON + dialog)
+- [x] Ticket 14 - `/play/photography/` page (grid + data JSON + dialog)
 - [ ] Ticket 15 - lightbox controller + boot
 - [ ] Ticket 16 - verify: gates, evidence, both authoring flows
 

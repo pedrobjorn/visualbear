@@ -584,7 +584,7 @@ No modal exists in `src/`. The dialog markup renders hidden by default on the ph
 - Depends on: Tickets 8, 10, 13
 - Size: S
 - Type: UI
-- Status: open
+- Status: DONE 2026-11-14 - evidence in evidence/t14-verify.md (+ t14-photography-1440/390 screenshots): `src/play/photography/index.nunjucks` (gallery layout, `baseUrl = '../../'`, no hero) renders the photogrid over `site.data.photogallery` + hidden `lightbox.content({})` + `#photogrid-data` JSON; browser-probed: 0 h1, newest-first cards, JSON matches grid order, 3 cols @1440 / 2 @390, no console errors; empty folder -> 0 cards + `[]` + no errors; `npm run build` exit 0 + guards OK, `npm test` 5/5
 - Blocked on: seed photos (H2) for sign-off only
 
 ## Context
