@@ -68,3 +68,72 @@
     margin-top: 0;
     background: none;
 }
+
+// play-subpages T17: the photography view switch (grid / full size).
+// Scoped to the new classes only - no existing rule touched.
+// .photoview pads the page under the fixed 48px nav (nav is fixed, z-index 2).
+.photoview {
+    padding-top: 48px;
+}
+
+// The switch bar sticks directly below the fixed header on scroll.
+.photoview-switch {
+    position: sticky;
+    top: 48px;
+    z-index: 1;
+    display: flex;
+    gap: 8px;
+    padding: 8px 16px;
+    background: $vb-dark;
+}
+
+.photoview-btn {
+    min-height: 44px;
+    padding: 0 16px;
+    background: transparent;
+    border: 2px solid transparent;
+    color: $vb-light;
+    font-size: 14px;
+    cursor: pointer;
+
+    // active view: red border (UI indicator, 3.4:1 on the dark plate >= 3:1),
+    // ink stays $vb-light (15:1 on the plate)
+    &[aria-pressed="true"] {
+        border-color: $vb-primary;
+        font-weight: 600;
+    }
+
+    &:hover {
+        border-color: $vb-primary;
+    }
+}
+
+// full-size view: stacked images at natural size, the page scrolls
+.gallery-full {
+    width: 100%;
+    padding: 16px;
+
+    .photofull-item {
+        display: block;
+        margin: 0 0 16px;
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        &:hover,
+        &:focus-visible {
+            outline: 2px solid $vb-primary;
+            outline-offset: 2px;
+        }
+    }
+}
+
+// [hidden] needs explicit display rules: the display:grid/display:block above
+// and normalize both beat the UA's [hidden] none
+.gallery-grid[hidden],
+.gallery-full[hidden] {
+    display: none;
+}

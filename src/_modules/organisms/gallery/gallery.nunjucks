@@ -103,6 +103,18 @@
 {% endfor %}
 </div>
 
+{# play-subpages T17: the full-size view of the same photos - stacked
+   full-width images, natural size, the page scrolls. Shares the data-lb-*
+   hooks so the lightbox (T15) opens from this view too and the no-JS href
+   fallback stays. Hidden by default; the .photoview-switch toggles it. #}
+<div class="gallery-full" hidden>
+{% for val in _content %}
+<a class="photofull-item" href="../../images/play/photography/{{val.file}}" data-lb-index="{{loop.index0}}" data-lb-img="../../images/play/photography/{{val.file}}" data-lb-title="{{val.title}}">
+  <img src="../../images/play/photography/{{val.file}}" alt="{{val.title}}" loading="lazy">
+</a>
+{% endfor %}
+</div>
+
 {% endif %}
 </div>
 {% endmacro %}

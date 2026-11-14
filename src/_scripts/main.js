@@ -5,6 +5,7 @@
 
 const tabs = require('../_modules/molecules/tabs/tabs');
 const lightbox = require('../_modules/molecules/lightbox/lightbox');
+const photoview = require('../_modules/organisms/gallery/photoview');
 
 // Animate case-study metric numbers from 0 to their target value.
 // The final value is already in the markup, so no-JS users see real numbers.
@@ -58,4 +59,5 @@ document.addEventListener('DOMContentLoaded', function() {
   initCountUp();
   tabs.init();
   lightbox.init();
+  photoview.init();
 });

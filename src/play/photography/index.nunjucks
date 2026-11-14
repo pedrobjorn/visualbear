@@ -11,9 +11,18 @@
 {% block content %}
 {# play-subpages T14 (DR-0002): no hero on this page - just the photogrid
    fed by site.data.photogallery (T8 folder scan, newest first). The dialog
-   markup (T13) renders hidden; the controller (T15) reads #photogrid-data. #}
+   markup (T13) renders hidden; the controller (T15) reads #photogrid-data.
+   T17: the view switch (grid / full size); .photoview pads under the fixed
+   48px nav and the switch bar sticks below it on scroll. #}
+
+<div class="photoview">
+  <div class="photoview-switch" role="group" aria-label="Photo view">
+    <button type="button" class="photoview-btn" data-view="grid" aria-pressed="true">Grid</button>
+    <button type="button" class="photoview-btn" data-view="full" aria-pressed="false">Full size</button>
+  </div>
 
 {{gallery.content({content: site.data.photogallery, contentType: 'photogrid'})}}
+</div>
 
 {{lightbox.content({})}}
 

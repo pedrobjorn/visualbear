@@ -24,8 +24,10 @@ function init() {
   }
 
   var dialog = document.querySelector('.lightbox');
-  var grid = document.querySelector('.gallery-grid');
-  if (!dialog || !grid) return;
+  // T17: one gallery wrapper holds both view containers (.gallery-grid and
+  // .gallery-full), so delegation on it covers the lightbox hooks in either
+  var gallery = document.querySelector('.content.gallery');
+  if (!dialog || !gallery) return;
 
   var img = dialog.querySelector('.lightbox-img');
   var caption = dialog.querySelector('.lightbox-caption');
@@ -36,7 +38,7 @@ function init() {
 
   // The JSON carries bare filenames (img = "beach-day.jpg"); resolve them
   // against the image directory the grid anchors already point at.
-  var anchors = grid.querySelectorAll('a[data-lb-index]');
+  var anchors = gallery.querySelectorAll('a[data-lb-index]');
   var base = '';
   if (anchors.length) {
     var full = anchors[0].getAttribute('data-lb-img');
@@ -76,8 +78,8 @@ function init() {
     render();
   }
 
-  // delegated: one listener covers every grid anchor, present and future
-  grid.addEventListener('click', function (e) {
+  // delegated: one listener covers every view's anchors, present and future
+  gallery.addEventListener('click', function (e) {
     var a = e.target.closest('a[data-lb-index]');
     if (!a) return;
     e.preventDefault();
