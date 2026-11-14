@@ -237,7 +237,7 @@ The index/play structure is `hero.content(...)` + `gallery.content(...)` inside 
 - Depends on: -
 - Size: S
 - Type: UI
-- Status: open
+- Status: DONE 2026-11-14 - evidence in evidence/t6-verify.md: `src/play/blog/hello-world/index.nunjucks` created - work layout, `baseUrl = '../../../'`, teachr wrappers, `mdhero`/`mdpage` on `site.data.pages['blog-hello-world']`, `buttonslider` from `project_blog_hello_world`, authoring comment on top; diff vs teachr shell shows only intended deltas; `npm run build` exit 0 + guards OK with the shell present (page output lands with T7 data - one plumber-logged template error until then, expected); `npm test` all suites pass
 
 ## Context
 

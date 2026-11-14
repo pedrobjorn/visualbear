@@ -1,0 +1,33 @@
+{% extends "_layouts/work.nunjucks" %}
+{% import "_modules/molecules/buttonslider/buttonslider.nunjucks" as buttonslider %}
+{# New post: copy this file into a new src/play/blog/<slug>/ dir, drop
+   blog-<slug>.md into src/_data/pages/ + project_blog_<slug>.json into
+   src/_data/, and prepend one entry to src/_data/blog.json (manual flow,
+   see specs/play-subpages/plan.md and AUTHORING.md) #}
+
+{% block config %}
+    {# Correct base url pathing for this page (depth 3) #}
+    {% set baseUrl = "../../../" %}
+{% endblock %}
+
+{% block content %}
+    <article class="section section-top-padding case-study" id="blog-hello-world_container">
+        <section class="gallery-container">
+            <div class="container">
+                <div class="document-text text-box">
+
+                    <!-- HERO, from the post md's front matter (blog-hello-world.md) -->
+                    {{ site.data.pages['blog-hello-world'] | mdhero | safe }}
+
+                    <!-- body: src/_data/pages/blog-hello-world.md via mdpage -->
+                    {{ site.data.pages['blog-hello-world'] | mdpage | safe }}
+
+                </div>
+            </div>
+            {{buttonslider.content({
+            nexthref: site.data.project_blog_hello_world.nexthref,
+            prevhref: site.data.project_blog_hello_world.prevhref
+            })}}
+        </section>
+    </article>
+{% endblock %}
