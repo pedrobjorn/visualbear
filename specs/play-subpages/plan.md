@@ -62,7 +62,7 @@ Tickets are ordered by dependency - build top-down. All are size S; each is inde
 - [x] Ticket 13 - lightbox markup + styles
 - [x] Ticket 14 - `/play/photography/` page (grid + data JSON + dialog)
 - [x] Ticket 15 - lightbox controller + boot
-- [ ] Ticket 16 - verify: gates, evidence, both authoring flows
+- [x] Ticket 16 - verify: gates, evidence, both authoring flows
 
 ## Open questions
 

@@ -673,7 +673,7 @@ Controllers boot from `src/_scripts/main.js` on `DOMContentLoaded` (see `tabs.in
 - Depends on: Tickets 1-15
 - Size: S
 - Type: system
-- Status: open
+- Status: DONE 2026-11-14 - evidence in evidence/t16-verify.md + evidence/t16-review.md + 20 t16-\*.png captures: all gates pass (build exit 0 + 5/5 guards, npm test 5/5, lint 0 errors, prettier only pre-existing warnings); 5 feature pages + lightbox open captured at 1440 + 390 with zero console errors; both authoring flows confirmed once each (verify-post appeared on top then removed; dropped photo became top-left card then removed); regression pages /, /steam-mobile/, /workflow/ clean. Found+fixed in this pass: nav logo 404 on depth-3 post pages -> root-absolute (commit 5c76a44). Review verdict: PASS with notes (axe deferred - not vendored offline; [ai] draft copy awaits Pedro)
 
 ## Context
 
