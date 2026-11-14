@@ -628,7 +628,7 @@ The photogallery has no hero (Pedro's rule) - just the grid. The lightbox contro
 - Depends on: Tickets 10, 12, 13, 14
 - Size: S
 - Type: UI + system
-- Status: open
+- Status: DONE 2026-11-14 - evidence in evidence/t15-verify.md (+ t15-lightbox-open-1440/390 screenshots): `lightbox.js` controller (parse #photogrid-data via normalizePhotos, delegated data-lb-index clicks, stepIndex wrap stepping on buttons + arrow keys, Esc/backdrop/close, focus to close on open and back to the anchor on close, body scroll lock, hidden-attribute toggle) booted from main.js. Playwright E2E on the real page: open/step/wrap/close/focus-return all pass at 1440 + 390, single-photo and empty-grid safe, zero console errors; `npm run build` exit 0 + guards OK, `npm test` 5/5, lint clean
 
 ## Context
 
