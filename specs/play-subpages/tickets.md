@@ -51,7 +51,7 @@ Requirement source for every ticket in this file: Pedro's request 2026-11-14 (se
 - Depends on: -
 - Size: S
 - Type: UI
-- Status: open
+- Status: DONE 2026-11-14 - evidence in evidence/t2-verify.md: `thin` flag on the card macro (guard test `card-thin.test.js`, watched RED then GREEN), `.card--thin` = 112px, teaser rendered below `#work` on the index with copy "Play / Stuff I do for fun"; Playwright probes at 1440 + 390 (exactly one teaser, 112px, click -> /play/, no console errors; screenshots t2-index-{1440,390}.png); full `npm run build` exit 0, all 5 guard checks OK. Amendment during build: the teaser is public-only - `stripPlayTeaser` (mirror-link.js, targeted on `id="play-teaser"`) removes it from mirrored pages in release-mirror.js, because /play/ is not mirrored and its `../play` href would escape the air-lock (guard check 8 failed until the strip landed; covered in mirror-link.test.js)
 - Blocked on: card img asset (H2) for final visual sign-off only
 
 ## Context
@@ -62,7 +62,8 @@ The index gallery passes `showPlay:false, showBlog:false`, so the built-in Play/
 
 - `card.nunjucks`: new `spec.thin` flag adds the class `card--thin` to the card anchor.
 - `card.scss`: `.card--thin .card-container.card` height 112px (within the 96-120px band), same `card-radius`/`drop-shadow`/`background-image` pattern; default hover plate unchanged.
-- `src/index.nunjucks`: after the `#work` div, render `card.content({card: {title: "Play", subtitle: "Stuff I do for fun", href: "../play", img: <default thumb, ASSUMPTION - Pedro>}, thin: true})`.
+- `src/index.nunjucks`: after the `#work` div, render `card.content({id: "play-teaser", card: {title: "Play", subtitle: "Stuff I do for fun", href: "../play", img: <default thumb, ASSUMPTION - Pedro>}, thin: true})` inside a `.content.gallery.play-teaser` wrapper (gallery.scss: same 900px column, `margin-top: 0; background: none`).
+- Amendment 2026-11-14 (release guard check 8 caught it): the teaser is PUBLIC-ONLY. `stripPlayTeaser` in `scripts/mirror-link.js` (targeted on the anchor's unique `id="play-teaser"`, never the href) removes wrapper + anchor from every mirrored page; wired in `release-mirror.js` next to the closet/pill strips; asserted in `scripts/test/mirror-link.test.js`.
 
 ## Design references
 

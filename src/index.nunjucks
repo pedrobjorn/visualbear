@@ -16,6 +16,14 @@
 <div id="work">
 {{gallery.content({content:site.data.work, contentType:'', showPlay:false, showBlog:false})}}
 </div>
+{# play-subpages T2 (DR-0001): one thinner card below the work gallery
+   leading to /play/. img defaults to an existing shipped thumb
+   (ASSUMPTION - Pedro); swap when play art arrives (H2). #}
+<div class="content gallery play-teaser">
+<div style="width:100%">
+{{card.content({id:"play-teaser", card:{title:"Play", subtitle:"Stuff I do for fun", href:"../play", img:"../images/work/thumbs/gallery_thumb_prettyugly.jpg"}, thin:true})}}
+</div>
+</div>
 <article class="section section-top-padding" id="about">
 		<section class="gallery-container">
 			

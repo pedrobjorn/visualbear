@@ -204,6 +204,9 @@ function injectVisuai(dir, depth) {
     // the closet card is public-only (ticket 25 amend): the mirror's
     // gallery stays fashion + sports (+ this pass's own mirror cards)
     html = mirrorLink.stripClosetCard(html);
+    // play-subpages T2: the thinner Play teaser is public-only (/play/ is
+    // not mirrored; its ../play href would escape the air-lock, guard 8)
+    html = mirrorLink.stripPlayTeaser(html);
     if (html.indexOf(VISUAI_MARK) !== -1) return; // idempotent
     if (html.indexOf('</body>') === -1) fail('mirror page has no </body>: ' + p);
     html = html.replace('</body>', mirrorLink.visuaiLinkFor(depth) + '</body>');
