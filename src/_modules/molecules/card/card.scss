@@ -67,15 +67,6 @@
     }
 }
 
-// play-subpages T2: the thinner card variant (e.g. the Play teaser below the
-// index gallery) - same radius/shadow/background pattern, reduced height.
-// Higher specificity than `.medium.card` so it wins without !important.
-.card--thin {
-    .card-container.card.medium {
-        height: 112px;
-    }
-}
-
 // Responsive images for mobile variants
 @media (max-width: 768px) {
 

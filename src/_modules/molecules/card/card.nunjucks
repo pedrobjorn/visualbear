@@ -8,14 +8,12 @@
 {% set _card = spec.card or [] %}
 {% set _title = spec.title or 'Default Title' %}
 {% set _subtitle = spec.subtitle or 'Default Subtitle' %}
-{# play-subpages T2: thin:true renders the thinner card variant (card--thin) #}
-{% set _thin = spec.thin or false %}
 
 <!-- ../images/work/thumbs/gallery_thumb_steam.jpg -->
 
 <a
   id="{{_id}}"
-  class="{{_class}}{% if _thin %} card--thin{% endif %}"
+  class="{{_class}}"
   href="{{_card.href}}"
   target="{{_card.target}}"
 >

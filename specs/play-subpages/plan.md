@@ -23,7 +23,7 @@ Ship `/play/blog/` (hero + gallery of posts; post pages in the case-study shape)
 
 - Routes under `/play/` (DR-0001): `/play/blog/`, `/play/blog/<slug>/`, `/play/photography/`.
 - Play keeps its current shape (hero from `playhero.yml` + gallery); `play.json` becomes exactly two cards: Blog, Photography.
-- Index: the work gallery keeps `showPlay:false, showBlog:false`; one thinner card is added below the `#work` gallery linking to `../play`.
+- Index: the work gallery renders the built-in Play card at the bottom of the gallery (`showPlay: true, showBlog: false`) linking to `../play` (placement per DR-0003).
 - Blog index mirrors the index structure: hero organism + gallery `contentType: 'blog'` over `src/_data/blog.json`. Card title = post title, card subtitle = post date.
 - Blog posts reuse the case-study structure 1:1: work layout + `mdhero`/`mdpage` filters on `src/_data/pages/blog-<slug>.md` + `buttonslider` prev/next from `src/_data/project_blog_<slug>.json`. The existing markdown pipeline (`AUTHORING.md`) applies unchanged.
 - Photogallery: new gallery `contentType: 'photogrid'` - the card molecule in a CSS grid, text suppressed, hover is a red outline only. Fed by `site.data.photogallery`, which the nunjucks gulp task builds by scanning `src/_images/play/photography/` newest first (DR-0002).

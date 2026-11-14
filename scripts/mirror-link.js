@@ -102,17 +102,14 @@ function relativizeNavLinks(html, depth) {
     .replace(/href="\/"/g, 'href="' + (up || './') + '"');
 }
 
-// play-subpages T2: the thinner Play teaser below the index gallery is
-// PUBLIC-ONLY - /play/ is not part of the mirror, so from a mirrored page
-// its ../play href would resolve outside the air-locked zone (release
-// guard check 8). Targeted on the anchor's unique id="play-teaser" (never
-// on the href alone); the emptied wrapper div goes in the same pass.
+// play-subpages T2 (amended, DR-0003): the Play card inside the index work
+// gallery is PUBLIC-ONLY - /play/ is not part of the mirror, so from a
+// mirrored page its ../play href would resolve outside the air-locked zone
+// (release guard check 8). Targeted on the anchor's unique id="play-teaser"
+// (never on the href alone); the gallery wrapper and sibling cards stay.
 // Idempotent: a stripped page has nothing left to match.
 function stripPlayTeaser(html) {
-  return html.replace(
-    /<div class="content gallery play-teaser"[^>]*>[\s\S]*?<a id="play-teaser"[\s\S]*?<\/a>\s*<\/div>\s*<\/div>\n?/g,
-    ''
-  );
+  return html.replace(/<a id="play-teaser"[\s\S]*?<\/a>\n?/g, '');
 }
 
 module.exports = {

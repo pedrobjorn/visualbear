@@ -22,11 +22,14 @@
 {% set _showBlog = false %}
 {% endif %}
 
+{# play-subpages T2 (DR-0003): the in-gallery Play card. id="play-teaser"
+   is the mirror strip's target (stripPlayTeaser in scripts/mirror-link.js).
+   img defaults to an existing shipped thumb (ASSUMPTION - Pedro; H2). #}
 {% set _playCard = {
     "title": "Play",
-    "subtitle": "Illustration & Graphic design fun",
+    "subtitle": "Stuff I do for fun",
     "href": "../play",
-    "img": "../images/work/thumbs/"
+    "img": "../images/work/thumbs/gallery_thumb_prettyugly.jpg"
 } %}
 {% set _blogCard = {
     "title": "Blog",
@@ -41,19 +44,31 @@
 
 <div style="width:100%">
 {% for val in _content %}
-
+{# Ticket 25 (amend pass 2026-11-13b): per-entry hide flag - the data
+   stays for a later re-show; covers public + mirror homes (same data) #}
+{# Ticket 25 amend (2026-11-13b, re-add): entries flagged "bottom"
+   (the re-added closet card) render AFTER the Play/Blog options -
+   Pedro: "at the bottom of the cards in the index" #}
+{% if not val.hidden and not val.bottom %}
 {{card.content({card:val})}}
+{% endif %}
 {% endfor %}
 
 <!-- Play gallery option -->
 {% if _showPlay %}
-{{card.content({card:_playCard})}}
+{{card.content({id:"play-teaser", card:_playCard})}}
 {% endif %}
 
 <!-- Blog gallery option -->
 {% if _showBlog %}
 {{card.content({card:_blogCard})}}
 {% endif %}
+
+{% for val in _content %}
+{% if not val.hidden and val.bottom %}
+{{card.content({card:val})}}
+{% endif %}
+{% endfor %}
 </div>
 
 {% elif _contentType == 'play' %}

@@ -215,27 +215,29 @@ assert.strictEqual(link.stripClosetCard(demoPage), demoPage, 'the styleguide dem
 var plainPage = '<main><a href="workflow/">x</a></main>';
 assert.strictEqual(link.stripClosetCard(plainPage), plainPage, 'no-op pages pass through byte-identical');
 
-// ── play-subpages T2: the thinner Play teaser is public-only ──────────────
-// /play/ is not mirrored, so from a mirrored page its ../play href would
-// resolve OUTSIDE the air-locked zone (guard check 8). The teaser anchor
-// carries the unique id="play-teaser"; the strip is targeted on that id,
-// never on the href alone, and also removes the emptied wrapper div.
+// ── play-subpages T2 (amended, DR-0003): the Play card is public-only ─────
+// The Play card now renders INSIDE the index work gallery (unique
+// id="play-teaser" on the anchor). /play/ is not mirrored, so from a
+// mirrored page its ../play href would resolve OUTSIDE the air-locked zone
+// (guard check 8). The strip is targeted on the anchor's id, never on the
+// href alone, and leaves the gallery wrapper and sibling cards alone.
 
 var teaserAnchor =
-  '<a id="play-teaser" class=" card--thin" href="../play" target="">' +
+  '<a id="play-teaser" class="" href="../play" target="">' +
   '<div class=" row"><div class="col s12 m12"><div class="card-container card medium">' +
   '<div class="card-container card-image" style="background-image: url(../images/work/thumbs/gallery_thumb_prettyugly.jpg)">' +
   '<span class="card-title"><h2>Play</h2><p class="card-content">Stuff I do for fun</p></span>' +
   '</div></div></div></div></a>';
-var teaserHome = '<div id="work">cards</div>\n' +
-  '<div class="content gallery play-teaser">\n<div style="width:100%">\n' + teaserAnchor + '\n</div>\n</div>\n' +
-  '<article id="about">about</article>\n';
-var teaserStripped = link.stripPlayTeaser(teaserHome);
-assert.ok(teaserStripped.indexOf('play-teaser') === -1, 'strip removes the teaser anchor');
+var galleryHome =
+  '<div id="work"><div class="content gallery"><div style="width:100%">' +
+  '<a href="https://drive.google.com/x">Fashion</a>' + teaserAnchor +
+  '</div></div></div>\n';
+var teaserStripped = link.stripPlayTeaser(galleryHome);
+assert.ok(teaserStripped.indexOf('play-teaser') === -1, 'strip removes the in-gallery Play card anchor');
 assert.ok(teaserStripped.indexOf('../play') === -1, 'strip removes the escaping ../play href');
-assert.ok(teaserStripped.indexOf('play-teaser') === -1 && teaserStripped.indexOf('content gallery play-teaser') === -1, 'strip removes the emptied wrapper');
-assert.ok(teaserStripped.indexOf('<article id="about">') !== -1 && teaserStripped.indexOf('id="work"') !== -1, 'strip leaves the rest of the home');
+assert.ok(teaserStripped.indexOf('drive.google.com/x') !== -1, 'strip leaves the sibling gallery cards');
+assert.ok(teaserStripped.indexOf('content gallery') !== -1, 'strip leaves the gallery wrapper itself');
 assert.strictEqual(link.stripPlayTeaser(teaserStripped), teaserStripped, 'teaser strip is idempotent');
-assert.strictEqual(link.stripPlayTeaser(plainPage), plainPage, 'pages without a teaser pass through byte-identical');
+assert.strictEqual(link.stripPlayTeaser(plainPage), plainPage, 'pages without the Play card pass through byte-identical');
 
 console.log('mirror-link.test: PASS');
