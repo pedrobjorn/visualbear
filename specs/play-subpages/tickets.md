@@ -1,0 +1,612 @@
+Requirement source for every ticket in this file: Pedro's request 2026-11-14 (see plan.md Evidence - the request IS the requirement). Anything not traceable to that request is marked ASSUMPTION. Tickets are ordered by dependency - build top-down.
+
+# Ticket 1: `play.json` becomes exactly Blog + Photography cards
+
+- Part of: specs/play-subpages/plan.md (routes per DR-0001)
+- Depends on: -
+- Size: S
+- Type: system
+- Status: DONE 2026-11-14 - evidence in evidence/t1-verify.md: guard test `scripts/test/play-data.test.js` added to `npm test` (watched RED 3!=2, then GREEN, full suite passes); `play.json` = Blog (`../play/blog`) then Photography (`../play/photography`); headless build and full `npm run build` exit 0 (mirror + guard OK); `build/play/index.html` shows exactly the two card hrefs, no old stub hrefs, both default thumb imgs ship in `build/images/`
+- Blocked on: card img assets (H2) for final visual sign-off only
+
+## Context
+
+`src/play/index.nunjucks` renders the hero (`site.data.playhero`) + gallery `contentType: 'play'` over `site.data.play`. `play.json` currently holds three cards pointing at placeholder sub-pages, and the `play-*-card.jpg` images it references do not exist in the repo (verified 2026-11-14).
+
+## Requirements
+
+- `src/_data/play.json` becomes exactly two entries, in order: Blog (`href: "../play/blog"`) then Photography (`href: "../play/photography"`), each with `title`, `subtitle`, `img`.
+- `img` default: reuse an existing shipped thumb (ASSUMPTION - needs Pedro's validation; one-line swap when play-specific art arrives, H2).
+
+## Design references
+
+- Figma: n/a - reuse of existing modules. Hooks used: card molecule (`src/_modules/molecules/card/`), gallery organism. Principles applied: design-principles #4 (no new pattern) and #6 (rounded card, red accent).
+- Existing style refs: `card.scss` (`.medium.card` 256px, radius/shadow mixins), `gallery.scss`, `colour-variables.scss`.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] `play.json` parses, exactly 2 entries, hrefs `../play/blog` and `../play/photography`, order Blog then Photography
+- [ ] `/play/` renders hero + exactly those two cards; `npm run build` passes
+- [ ] Gates: prettier `format:check` clean
+
+## Out of scope
+
+- The index thinner card (Ticket 2), stub deletion (Ticket 3), the blog/photography pages themselves.
+
+## Open questions
+
+- Card subtitles copy - defaults "Ramblings" (Blog) and "Phone shots" (Photography), one-line swaps (Pedro)
+
+---
+
+# Ticket 2: Thinner Play card below the index gallery
+
+- Part of: specs/play-subpages/plan.md
+- Depends on: -
+- Size: S
+- Type: UI
+- Status: open
+- Blocked on: card img asset (H2) for final visual sign-off only
+
+## Context
+
+The index gallery passes `showPlay:false, showBlog:false`, so the built-in Play/Blog cards stay hidden; Play must surface as ONE thinner card below the `#work` gallery. The card molecule's smallest current size is `.medium.card` at 256px.
+
+## Requirements
+
+- `card.nunjucks`: new `spec.thin` flag adds the class `card--thin` to the card anchor.
+- `card.scss`: `.card--thin .card-container.card` height 112px (within the 96-120px band), same `card-radius`/`drop-shadow`/`background-image` pattern; default hover plate unchanged.
+- `src/index.nunjucks`: after the `#work` div, render `card.content({card: {title: "Play", subtitle: "Stuff I do for fun", href: "../play", img: <default thumb, ASSUMPTION - Pedro>}, thin: true})`.
+
+## Design references
+
+- Figma: n/a. Hooks used: card molecule. Principles applied: design-principles #4 (one modifier, not a new component) and #6.
+- Existing style refs: `card.scss`, `src/index.nunjucks` (the `#work` gallery block), `gallery.scss`.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] `/` renders the work cards, then exactly one thinner card (112px tall at 1440 and 390) linking to `/play/`; the work gallery itself has no Play/Blog card
+- [ ] Copy exactly "Play" / "Stuff I do for fun"; `npm run build` passes; screenshots at 1440 + 390
+- [ ] Gates: prettier clean
+
+## Out of scope
+
+- Any change to the in-gallery `_playCard`/`_blogCard` machinery (stays disabled); nav/sitemap.
+
+## Open questions
+
+- Card copy and img (Pedro) - defaults above
+
+---
+
+# Ticket 3: Remove the superseded stubs + reference grep
+
+- Part of: specs/play-subpages/plan.md
+- Depends on: Ticket 1
+- Size: S
+- Type: system
+- Status: open
+
+## Context
+
+`src/blog/index.nunjucks` references a data key that does not exist; `src/play/play_photography/index.nunjucks` renders the word "test". Both are unlinked once `play.json` changes. H1: this deletion is named in plan.md Foundational checks.
+
+## Requirements
+
+- Delete the dirs `src/blog/` and `src/play/play_photography/`.
+- Grep `src/` for live references to `visualbear/blog` and `play_photography` - none may remain (specs/ excluded).
+- The other `play_*` stubs (`play_graphic_design`, `play_drawings`, `play_web`) stay on disk, unlinked (plan non-goal).
+
+## Design references
+
+- Hooks used: none (file ops). Principles applied: foundational H1 (deletion pre-declared in the plan).
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Both dirs gone from the tree and from the build output (`/blog/` 404s)
+- [ ] `grep -rn "visualbear/blog\|play_photography" src/` returns no live references
+- [ ] Gates: `npm run build` passes
+
+## Out of scope
+
+- Deleting the other `play_*` stubs; any redirect for the old URLs.
+
+## Open questions
+
+- None
+
+---
+
+# Ticket 4: Blog index shell - `bloghero.yml` + `/play/blog/` page
+
+- Part of: specs/play-subpages/plan.md
+- Depends on: -
+- Size: S
+- Type: UI
+- Status: open
+
+## Context
+
+The index/play structure is `hero.content(...)` + `gallery.content(...)` inside `_layouts/gallery.nunjucks`. The gallery organism already has a `contentType: 'blog'` branch rendering one card per entry.
+
+## Requirements
+
+- New `src/_data/bloghero.yml` with the same `name`/`title` shape as `playhero.yml`; default `title: "Blog"` (draft copy - Pedro rewrites; yml has no `[ai]` mechanism, so the default ships as-is and is Pedro's to replace).
+- New `src/play/blog/index.nunjucks`: extends `_layouts/gallery.nunjucks`, `baseUrl = '../../'`, then `hero.content({content: site.data.bloghero, class: hero-about})` + `gallery.content({content: site.data.blog, contentType: 'blog'})`.
+
+## Design references
+
+- Figma: n/a - mirrors `src/play/index.nunjucks`. Hooks used: hero organism, gallery organism `blog` branch. Principles applied: design-principles #4 (reuse) and #5 (big is beautiful - full-size cards).
+- Existing style refs: `src/play/index.nunjucks`, `src/_data/playhero.yml`, `hero.scss`, `gallery.scss`.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] `/play/blog/` renders the hero + one card per `blog.json` entry
+- [ ] Empty `blog.json` (`[]`) renders the gallery shell with zero cards, no template errors
+- [ ] Gates: `npm run build` passes; prettier clean
+
+## Out of scope
+
+- `blog.json` content itself (Ticket 5); post pages (Tickets 6-7).
+
+## Open questions
+
+- Hero copy (Pedro) - default "Blog"
+
+---
+
+# Ticket 5: `blog.json` entries repointed, date as the card subtitle
+
+- Part of: specs/play-subpages/plan.md
+- Depends on: -
+- Size: S
+- Type: system
+- Status: open
+
+## Context
+
+`src/_data/blog.json` has two entries with mirror-era broken hrefs (`../visualbear/blog/blog2`, `../visualbear/blog/blog1`) and non-date subtitles. The card molecule already renders `title` (h2) + `subtitle` (p), so the date goes in `subtitle` with no template change.
+
+## Requirements
+
+- Entry shape: `{ "title": "<post title>", "subtitle": "<post date>", "href": "<slug>/", "img": "<thumb>" }` (href relative from `/play/blog/`, depth 2).
+- Repoint the two existing entries to their post slugs; subtitles become dates, default format "14 Nov 2026".
+- Array order = display order: newest post first (top card = entry 0).
+
+## Design references
+
+- Hooks used: card molecule (title/subtitle fields). Principles applied: design-principles #4 (no new fields).
+- Existing style refs: `src/_data/blog.json`, `card.nunjucks`.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] `/play/blog/` cards each show title + date and link to `/play/blog/<slug>/`
+- [ ] `grep -rn "visualbear/blog" src/` finds nothing
+- [ ] Gates: `npm run build` passes; prettier clean
+
+## Out of scope
+
+- The post pages the hrefs point at (Tickets 6-7).
+
+## Open questions
+
+- Date format: "14 Nov 2026" (default) vs ISO `2026-11-14` (Pedro) - one-line change per entry
+
+---
+
+# Ticket 6: Blog post shell `/play/blog/<slug>/index.nunjucks`
+
+- Part of: specs/play-subpages/plan.md
+- Depends on: -
+- Size: S
+- Type: UI
+- Status: open
+
+## Context
+
+Case-study pages are the template: `_layouts/work.nunjucks` shell, hero via `{{ site.data.pages['<slug>'] | mdhero | safe }}`, body via `mdpage`, bottom prev/next via `buttonslider` from `src/_data/project_<slug>.json` (`"../disabled"` renders no arrow). Static build, so one dir per post: new posts copy this shell file into a new `src/play/blog/<slug>/` dir (manual flow - plan non-goal: no CMS).
+
+## Requirements
+
+- Create `src/play/blog/hello-world/index.nunjucks`: extends `_layouts/work.nunjucks`, `baseUrl = '../../../'`, article/section/`gallery-container` wrappers copied from `src/teachr/index.nunjucks`, content = `mdhero` + `mdpage` on `site.data.pages['blog-hello-world']`, then `buttonslider.content({nexthref: site.data.project_blog_hello_world.nexthref, prevhref: site.data.project_blog_hello_world.prevhref})`.
+- A short comment at the top of the file states the copy-per-post authoring step.
+
+## Design references
+
+- Figma: n/a - 1:1 copy of the case-study shell. Hooks used: `mdhero`/`mdpage` filters (`markdown-render.js`), `buttonslider` molecule, `_layouts/work.nunjucks`. Principles applied: design-principles #2 (one h1, landmarks, focus) and #4 (no new machinery).
+- Existing style refs: `src/teachr/index.nunjucks`, `src/_styles/templates/_case-study.scss`, `buttonslider.scss`, `AUTHORING.md`.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Shell file exists at `src/play/blog/hello-world/index.nunjucks` and structurally matches the teachr shell (diff review: same wrappers, same filters, `baseUrl = '../../../'`)
+- [ ] Renders correctly once Ticket 7 data lands (verified there); `npm run build` passes with the page present
+
+## Out of scope
+
+- Seed post content and `blog.json` entry (Ticket 7); any change to `markdown-render.js`/`AUTHORING.md`.
+
+## Open questions
+
+- None
+
+---
+
+# Ticket 7: Seed post data + top card (md, project json, `blog.json` prepend)
+
+- Part of: specs/play-subpages/plan.md
+- Depends on: Tickets 4, 5, 6
+- Size: S
+- Type: system + copy
+- Status: open
+- Blocked on: seed post cover img (H2)
+
+## Context
+
+The "new post" flow (Pedro: "can be manual"): drop `blog-<slug>.md` in `src/_data/pages/` (auto-loaded by foldero), add `src/_data/project_blog_<slug>.json`, prepend one entry to the TOP of `blog.json`. Title and date are manual and must match the md hero.
+
+## Requirements
+
+- `src/_data/pages/blog-hello-world.md`: front-matter hero per `AUTHORING.md` (title + date in hero meta) and a short body; agent-drafted copy carries the `[ai]` marker per visuaibear-core #7.
+- `src/_data/project_blog_hello_world.json`: `{ "prevhref": {"link": "../../", "text": "Blog"}, "nexthref": {"link": "../disabled", "text": ""} }`.
+- Prepend `{ "title": "<md hero title>", "subtitle": "<md hero date>", "href": "hello-world/", "img": "<cover, pending H2>" }` to the top of `blog.json`; title/date identical to the md hero.
+
+## Design references
+
+- Hooks used: foldero data load, `mdhero`/`mdpage`, `buttonslider`. Principles applied: core #7 (`[ai]` marking), design-principles #4.
+- Existing style refs: `src/_data/pages/teachr.md` (front-matter format), `src/_data/project_teachr.json`.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] `/play/blog/hello-world/` renders the md hero + markdown body + bottom nav: prev links to `/play/blog/`, next arrow absent (`"../disabled"`)
+- [ ] `/play/blog/` top card shows the same title + date as the post hero
+- [ ] New-post flow verified once: add md + json prepend, rebuild, new card appears on top (re-checked in Ticket 16)
+- [ ] A11y: one h1, landmarks intact, axe clean; Gates: `npm run build`, `npm test` pass
+
+## Out of scope
+
+- A second post; automating the flow.
+
+## Open questions
+
+- Seed post copy is `[ai]`-drafted - Pedro rewrites (core #7)
+
+---
+
+# Ticket 8: Photogallery folder scan in `gulp/nunjucks.js`
+
+- Part of: specs/play-subpages/plan.md (DR-0002)
+- Depends on: -
+- Size: S
+- Type: system
+- Status: open
+- Blocked on: seed photos (H2) for sign-off only
+
+## Context
+
+`gulp/nunjucks.js` loads `src/_data/` via foldero into `site.data`. The photogallery needs a second, derived data source: the image folder itself (DR-0002). Same task, same stack (`fs`/`path` already imported).
+
+## Requirements
+
+- After the foldero load, scan `path.join(dirs.source, dirs.images, 'play', 'photography')` for `.jpg/.jpeg/.png/.webp`; sort by mtime descending; set `siteData.photogallery = [{ file, title, img }]` where `title` = basename without extension, `-`/`_` humanized to spaces, and `img` = bare filename.
+- Missing folder = `siteData.photogallery = []`, no error.
+
+## Design references
+
+- Hooks used: foldero load pattern in `gulp/nunjucks.js`. Principles applied: design-principles #4 (no new dependency, no new config).
+- Existing style refs: `gulp/nunjucks.js` (loader), `gulp/copy.js` + `gulp/imagemin.js` (the folder already ships to `images/play/photography/`).
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Build debug output (`--debug`) shows `site.data.photogallery` sorted newest first
+- [ ] Dropping a new jpg into `src/_images/play/photography/` and re-running the nunjucks task makes it the first entry (top-left card downstream)
+- [ ] Missing/empty folder: `[]`, `npm run build` passes with no error
+
+## Out of scope
+
+- Thumbnail generation (grid reuses the imagemin'd image with `background-size: cover` - Ticket 11); watch wiring (Ticket 9).
+
+## Open questions
+
+- Seed photos (Pedro) - blocks sign-off only (H2)
+
+---
+
+# Ticket 9: Dev watch wiring for the photography folder
+
+- Part of: specs/play-subpages/plan.md (DR-0002)
+- Depends on: Ticket 8
+- Size: S
+- Type: system
+- Status: open
+
+## Context
+
+In dev, `gulp/watch.js` re-runs `['nunjucks']` only on template/data globs, so a dropped photo would not regenerate pages. The production watch already full-rebuilds via `sync-mirror`.
+
+## Requirements
+
+- Dev branch of `gulp/watch.js`: add `path.join(dirs.source, dirs.images, 'play', 'photography', '**/*')` to the watcher that runs `['nunjucks']`.
+
+## Design references
+
+- Hooks used: existing watcher arrays in `gulp/watch.js`. Principles applied: design-principles #4.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] The dev `['nunjucks']` watcher glob list includes the photography folder (code check + dev-serve log shows the nunjucks task firing when a file is added there)
+- [ ] Gates: `npm run build` passes (watch file is build config, not shipped output)
+
+## Out of scope
+
+- Production watch (already covered by `sync-mirror`).
+
+## Open questions
+
+- None
+
+---
+
+# Ticket 10: Photogrid macros - gallery branch + card `grid`/`notext` flags + lightbox data hooks
+
+- Part of: specs/play-subpages/plan.md
+- Depends on: -
+- Size: S
+- Type: UI
+- Status: open
+
+## Context
+
+`gallery.nunjucks` switches on `contentType` ('work'/'play'/'blog'); `card.nunjucks` renders `card.href/img/title/subtitle`. The photogrid reuses the card as a textless grid cell and a lightbox trigger: anchor `href` = the full image (no-JS opens the image directly), JS intercepts for the modal (Ticket 15).
+
+## Requirements
+
+- `gallery.nunjucks`: new `photogrid` branch - wrapper `<div class="gallery-grid">`, loop mapping each entry to `{ title: val.title, img: '../../images/play/photography/' + val.file, href: '../../images/play/photography/' + val.file }` and rendering `card.content({card: mapped, grid: true, notext: true, lightbox: true})`.
+- `card.nunjucks`: when `notext`, omit the `.card-title` span; when `grid`, add class `card--grid` to the anchor; when `lightbox`, add `data-lb-index` (loop index - pass `spec.index`), `data-lb-img` (= href), `data-lb-title` (= title).
+
+## Design references
+
+- Figma: n/a. Hooks used: gallery organism, card molecule. Principles applied: design-principles #4 (variant flags on the existing card, not a new component) and #2 (works without JS via the real href).
+- Existing style refs: `gallery.nunjucks`, `card.nunjucks`.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Rendered grid cards (via Ticket 14's page) have no text, `card--grid` class, correct `../../images/play/photography/<file>` URLs, and `data-lb-index`/`data-lb-img`/`data-lb-title` hooks
+- [ ] Anchors keep the real image as `href` (no-JS fallback)
+- [ ] Gates: `npm run build` passes
+
+## Out of scope
+
+- Grid styles (Ticket 11), the page (Ticket 14), the modal behavior (Ticket 15).
+
+## Open questions
+
+- None
+
+---
+
+# Ticket 11: Photogrid styles - grid layout, red-outline-only hover
+
+- Part of: specs/play-subpages/plan.md
+- Depends on: Ticket 10
+- Size: S
+- Type: UI
+- Status: open
+
+## Context
+
+`card.scss` `.card-image:hover` swaps the background for a red plate (`$vb-primary`) - the photogrid must instead show a red outline only. `gallery.scss` owns `.content.gallery`; module scss is imported in `src/_styles/main.scss` (line 49).
+
+## Requirements
+
+- `gallery.scss`: `.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }`, 2 columns at mobile; grid cells `aspect-ratio: 1/1`.
+- `card.scss`: inside `.gallery-grid`, `.card--grid .card-image:hover` / `:focus-visible` = `outline: 2px solid #d73735` (visualbear-red base) ONLY - the default background-swap hover is suppressed there; image stays visible.
+
+## Design references
+
+- Figma: n/a. Hooks used: card molecule styles. Principles applied: design-principles #3 (no new images, `background-size: cover` on the existing file) and #6 (brand red token, no palette drift).
+- Existing style refs: `card.scss` (`&:hover` block to override), `gallery.scss`, `colour-variables.scss` (`#d73735`).
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Hover/focus on a grid card shows the red outline and nothing else (screenshots 1440 + 390)
+- [ ] Grid is 3 columns at 1440, 2 at 390, 16px gap, square cells
+- [ ] Gates: sass compiles, `npm run build` passes, prettier clean
+
+## Out of scope
+
+- Any hover change outside `.gallery-grid` (work/play/blog cards keep the red plate).
+
+## Open questions
+
+- None
+
+---
+
+# Ticket 12: Lightbox core (`lightbox-core.js`) + `npm test`
+
+- Part of: specs/play-subpages/plan.md
+- Depends on: -
+- Size: S
+- Type: system
+- Status: open
+
+## Context
+
+House pattern for testable JS: pure core module + DOM controller + `scripts/test/*.test.js` wired into `npm test` (see `tabs-core.js` / `scripts/test/tabs.test.js`). The lightbox needs wrap-around stepping and input validation only - no DOM.
+
+## Requirements
+
+- New `src/_modules/molecules/lightbox/lightbox-core.js` (CJS like `tabs-core.js`): `stepIndex(i, dir, len)` wrapping both directions; `normalizePhotos(list)` returning `[{img, title}]` and rejecting non-arrays/missing fields.
+- New `scripts/test/lightbox.test.js` with asserts: forward/back wrap, single item stays, empty list safe, invalid input throws.
+- `package.json` `test` script: append `&& node scripts/test/lightbox.test.js`.
+
+## Design references
+
+- Hooks used: `tabs-core.js` + `scripts/test/tabs.test.js` pattern. Principles applied: design-principles #4 (pure core, no DOM).
+- Existing style refs: `src/_modules/molecules/tabs/tabs-core.js`, `package.json` scripts.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] `npm test` passes including the new suite (run output shows all three test files)
+- [ ] `lightbox-core.js` has no DOM access (grep: no `document`/`window`)
+
+## Out of scope
+
+- Markup, styles, controller (Tickets 13/15).
+
+## Open questions
+
+- None
+
+---
+
+# Ticket 13: Lightbox markup + styles
+
+- Part of: specs/play-subpages/plan.md
+- Depends on: -
+- Size: S
+- Type: UI
+- Status: open
+
+## Context
+
+No modal exists in `src/`. The dialog markup renders hidden by default on the photography page (Ticket 14 includes the macro) and is shown by the controller (Ticket 15). Arrows reuse the buttonslider `<` / `>` style.
+
+## Requirements
+
+- `lightbox.nunjucks` macro `content(spec)`: `<div class="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">`, backdrop, `<figure>` with `img.lightbox-img` + `figcaption.lightbox-caption` (the small bottom title), prev/next buttons (`class="btn vb-btn"`, text `<` / `>`), close button top-right with `aria-label="Close"`.
+- `lightbox.scss`: fixed overlay `inset: 0`, dark plate; image `max-height: 80vh; max-width: 90vw`; caption small, bottom-center, ink with contrast >= 4.5:1 on the plate; all buttons >= 44x44; `:focus-visible` outline; `[hidden]` respected; `prefers-reduced-motion` disables transitions.
+- Import `lightbox.scss` in `src/_styles/main.scss` (next to the other molecule imports, ~line 46).
+
+## Design references
+
+- Figma: n/a. Hooks used: `buttonslider` arrow style, `tabs.scss` `[hidden]` pattern. Principles applied: design-principles #2 (targets >= 44px, contrast >= 4.5:1, visible focus, reduced motion) and #4 (one modal, no extra chrome).
+- Existing style refs: `buttonslider.nunjucks`/`buttonslider.scss`, `_case-study.scss` ink values, `tabs.scss`.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Sass compiles with the new import; the macro renders the dialog markup hidden on the photography page (after Ticket 14)
+- [ ] Buttons >= 44x44, caption contrast >= 4.5:1 (probe), `role="dialog"` + `aria-modal` present
+- [ ] Gates: `npm run build` passes, prettier clean
+
+## Out of scope
+
+- Controller behavior (Ticket 15); applying the dialog anywhere else.
+
+## Open questions
+
+- None
+
+---
+
+# Ticket 14: `/play/photography/` page - grid + data JSON + dialog
+
+- Part of: specs/play-subpages/plan.md
+- Depends on: Tickets 8, 10, 13
+- Size: S
+- Type: UI
+- Status: open
+- Blocked on: seed photos (H2) for sign-off only
+
+## Context
+
+The photogallery has no hero (Pedro's rule) - just the grid. The lightbox controller (Ticket 15) needs the photo array in the DOM: embed it as JSON.
+
+## Requirements
+
+- New `src/play/photography/index.nunjucks`: extends `_layouts/gallery.nunjucks`, `baseUrl = '../../'`, NO hero call - just `gallery.content({content: site.data.photogallery, contentType: 'photogrid'})`.
+- Same page includes `lightbox.content({})` (dialog markup) and `<script type="application/json" id="photogrid-data">{{ site.data.photogallery | dump | safe }}</script>`.
+
+## Design references
+
+- Figma: n/a. Hooks used: gallery organism `photogrid` branch, lightbox macro, nunjucks `dump` filter. Principles applied: design-principles #4 and #5.
+- Existing style refs: `src/play/index.nunjucks` (layout sibling), `gallery.nunjucks`, DR-0002.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] `/play/photography/` renders no hero (no h1), just the grid; newest file in the folder is the top-left card
+- [ ] `#photogrid-data` JSON matches `site.data.photogallery` order; dialog markup present and `hidden`
+- [ ] Empty folder: empty grid, valid empty JSON, no template errors; `npm run build` passes
+
+## Out of scope
+
+- Lightbox behavior (Ticket 15); seed photos (assets).
+
+## Open questions
+
+- None
+
+---
+
+# Ticket 15: Lightbox controller + boot
+
+- Part of: specs/play-subpages/plan.md
+- Depends on: Tickets 10, 12, 13, 14
+- Size: S
+- Type: UI + system
+- Status: open
+
+## Context
+
+Controllers boot from `src/_scripts/main.js` on `DOMContentLoaded` (see `tabs.init()`). The page provides `#photogrid-data` JSON and grid anchors with `data-lb-*` hooks (Ticket 10).
+
+## Requirements
+
+- `lightbox.js`: on boot, if `#photogrid-data` exists, parse it via `normalizePhotos`; delegate clicks on `.gallery-grid a[data-lb-index]` → `preventDefault`, open the dialog at that index; render `img.src` + caption; prev/next buttons and ArrowLeft/ArrowRight step via `stepIndex` (wrap); close button, Esc, and backdrop click close; focus moves to the close button on open and returns to the clicked anchor on close; `document.body` scroll locked while open; `hidden` attribute toggles visibility.
+- Boot: `require` + `init()` in `src/_scripts/main.js`.
+
+## Design references
+
+- Hooks used: `tabs.js` controller pattern, `main.js` boot. Principles applied: design-principles #2 (keyboard parity, focus management, reduced motion via CSS) and #4.
+- Existing style refs: `src/_modules/molecules/tabs/tabs.js`, `src/_scripts/main.js`.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Click a thumb → modal opens with that image + bottom title; arrows/keys step through all photos and wrap; Esc/backdrop/close all close; focus returns to the card
+- [ ] Single-photo grid: arrows render, stepping stays on the one photo; empty grid: no modal triggers, no errors
+- [ ] A11y: dialog semantics + focus behavior asserted (Playwright probe at 1440 + 390), axe clean; Gates: `npm test`, `npm run build`, visuaibear-review pass; screenshots in evidence/
+
+## Out of scope
+
+- Zoom/pan/download/share in the modal.
+
+## Open questions
+
+- Caption = humanized filename (default, DR-0002)
+
+---
+
+# Ticket 16: Verify the feature end to end
+
+- Part of: specs/play-subpages/plan.md
+- Depends on: Tickets 1-15
+- Size: S
+- Type: system
+- Status: open
+
+## Context
+
+House gates: `npm run build` (release), `npm test`, `npm run lint`, prettier `format:check`, `visuaibear-review` on changed pages, `visuaibear-prototype` capture loop at 1440 + 390.
+
+## Requirements
+
+- Run the full gate set on `/`, `/play/`, `/play/blog/`, `/play/blog/hello-world/`, `/play/photography/` plus the lightbox open state, at 1440 + 390.
+- File screenshots + verify notes in `specs/play-subpages/evidence/`.
+- Confirm both authoring flows once each: new post (Ticket 7 flow), new photo (Ticket 8 flow).
+
+## Design references
+
+- Hooks used: `visuaibear-review` gates, `visuaibear-prototype` capture loop. Principles applied: visuaibear-core #4 (done is machine-checkable) and #5 (nothing ships unseen).
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] All gates pass; evidence files committed under `specs/play-subpages/evidence/`
+- [ ] No regressions on existing pages (`/`, a case study, `/workflow/`) - spot-check screenshots
+
+## Out of scope
+
+- Anything outside the five pages listed above.
+
+## Open questions
+
+- None
