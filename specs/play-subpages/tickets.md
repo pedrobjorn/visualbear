@@ -498,7 +498,7 @@ In dev, `gulp/watch.js` re-runs `['nunjucks']` only on template/data globs, so a
 - Depends on: -
 - Size: S
 - Type: system
-- Status: open
+- Status: DONE 2026-11-14 - evidence in evidence/t12-verify.md: `src/_modules/molecules/lightbox/lightbox-core.js` (CJS like tabs-core.js) with `stepIndex` (wraps both ways, len 0 -> -1, single item stays) and `normalizePhotos` (clean `[{img,title}]`, throws on non-array/missing fields); `scripts/test/lightbox.test.js` wired into `npm test` - all 5 suites pass incl. `lightbox.test: OK`; grep confirms no `document`/`window` in the core; `npm run build` exit 0 + guards OK
 
 ## Context
 
