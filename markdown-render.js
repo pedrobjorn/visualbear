@@ -637,6 +637,80 @@ function extractPlainStarLists(src) {
 
 // deep rule: AI-drafted copy must never ship unreviewed — warn loudly on
 // production builds
+// ── showcase image tier ─────────────────────────────────────────────────
+// Sizing comes from the image itself, not the author: the tier is read
+// from the asset's pixel dimensions at render time (PNG IHDR, JPEG SOF,
+// GIF headers — no deps, no copies). Wide sources go full-bleed, tall
+// (phone) sources render narrow at phone width, everything else sits on
+// the text measure. Thresholds sit where the classifications are
+// unambiguous: a 16:10 desktop capture is never "narrow", a phone
+// capture is never "wide" at any rotation.
+const showcaseDimCache = Object.create(null);
+
+function showcaseDims(rel) {
+  if (rel in showcaseDimCache) return showcaseDimCache[rel];
+  showcaseDimCache[rel] = null;
+  try {
+    // page md references the built path (../images/…) — the source
+    // sits in src/_images (imagemin strips the underscore at build)
+    const file = path.join(
+      __dirname,
+      'src',
+      '_images',
+      rel.replace(/^(?:\.\.\/)+/, '').replace(/^images\//, '')
+    );
+    const buf = fs.readFileSync(file);
+    let w = null,
+      h = null;
+    if (buf.length > 24 && buf.readUInt32BE(12) === 0x49484452) {
+      // PNG: IHDR data starts at byte 16
+      w = buf.readUInt32BE(16);
+      h = buf.readUInt32BE(20);
+    } else if (buf.length > 10 && buf.toString('ascii', 0, 3) === 'GIF') {
+      w = buf.readUInt16LE(6);
+      h = buf.readUInt16LE(8);
+    } else if (buf.length > 4 && buf[0] === 0xff && buf[1] === 0xd8) {
+      // JPEG: walk the marker segments to a SOFn frame header
+      let i = 2;
+      while (i + 9 < buf.length) {
+        if (buf[i] !== 0xff) {
+          i += 1;
+          continue;
+        }
+        const marker = buf[i + 1];
+        if (
+          marker >= 0xc0 &&
+          marker <= 0xcf &&
+          marker !== 0xc4 &&
+          marker !== 0xc8 &&
+          marker !== 0xcc
+        ) {
+          h = buf.readUInt16BE(i + 5);
+          w = buf.readUInt16BE(i + 7);
+          break;
+        }
+        i += 2 + buf.readUInt16BE(i + 2);
+      }
+    }
+    if (w && h) showcaseDimCache[rel] = { w: w, h: h, ratio: w / h };
+  } catch (e) {
+    showcaseDimCache[rel] = null; // unreadable/external → the default tier
+  }
+  return showcaseDimCache[rel];
+}
+
+function showcaseTier(imgTag) {
+  const src = (imgTag.match(/\ssrc=["']([^"']+)["']/) || [])[1];
+  if (!src || /^https?:/.test(src)) return '';
+  const dims = showcaseDims(src);
+  if (!dims) return '';
+  if (dims.ratio >= 1.4 && dims.w >= 1800) return ' cs-showcase--wide';
+  // <=1200 keeps portrait tablet captures (e.g. the 1120w design-system
+  // sheet) in the narrow tier; below ~300 the upscale guard bites anyway
+  if (dims.ratio <= 0.75 && dims.w <= 1200) return ' cs-showcase--tall';
+  return '';
+}
+
 function applyAiMarkers(html) {
   // the [ai] marker line becomes a standalone label element exactly where
   // the author placed it (at the end of the content it attributes)
@@ -656,7 +730,13 @@ function applyAiMarkers(html) {
         return m;
       }
       return (
-        '<figure class="cs-showcase">' + img + '<figcaption>' + caption + '</figcaption></figure>'
+        '<figure class="cs-showcase' +
+        showcaseTier(img) +
+        '">' +
+        img +
+        '<figcaption>' +
+        caption +
+        '</figcaption></figure>'
       );
     }
   );

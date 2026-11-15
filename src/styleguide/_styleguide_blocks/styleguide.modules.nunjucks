@@ -22,12 +22,19 @@
 <article class="gallery-text">
   <h2 class="page-header">Modules</h2>
     <div class="text-block">
-    <p>Modules are comprised of multiple core elements. Now that elements such as type and colours are defined, modules put them together into modular pieces that can be then used in containers.</p>
+    <p>Modules combine core elements into pieces that containers then group:</p>
+    <ul>
+      <li>Quotes</li>
+      <li>Buttons</li>
+      <li>Image container</li>
+      <li>Link block (card)</li>
+    </ul>
+    <div class="ai-mark">✦ AI-drafted</div>
   </div>
   <div class="text-block">
     <h3 class="page-header">Quotes</h3>
     <blockquote>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     <footer>- Someone famous in <cite title="Source Title">Source Title</cite></footer>
   </blockquote>
 </div>

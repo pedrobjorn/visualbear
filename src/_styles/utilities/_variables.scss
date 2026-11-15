@@ -35,6 +35,9 @@
 
 //Colours
 $vb-primary: #d73735 !default;
+// The page column: the nav's .content box and every body container share it
+// (edge-alignment DR-0001) so body content aligns with the menu elements' edges
+$content-width: 916px !default;
 $vb-secondary: #79a6d2 !default;
 $vb-light: #e6f2ff !default;
 // Muted/secondary text grey. #999 failed 4.5:1 on white (2.85); #6E6E73

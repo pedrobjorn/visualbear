@@ -1,0 +1,37 @@
+{% extends "_layouts/work.nunjucks" %}
+{% import "_modules/molecules/buttonslider/buttonslider.nunjucks" as buttonslider %}
+{# New post: copy this file into a new src/play/blog/<slug>/ dir, drop
+   blog-<slug>.md into src/_data/pages/ + project_blog_<slug>.json into
+   src/_data/, and prepend one entry to src/_data/blog.json (manual flow,
+   see specs/play-subpages/plan.md and AUTHORING.md).
+   play-subpages T23: placeholder post 2 (DR-0007). #}
+
+{% block config %}
+    {# Correct base url pathing for this page (depth 3) #}
+    {% set baseUrl = "../../../" %}
+{% endblock %}
+
+{# play-subpages T22 (DR-0007): page-anchored brand fade, no viewport tile #}
+{% block bodyattrs %} class="page-blog"{% endblock %}
+
+{% block content %}
+    <article class="section section-top-padding case-study" id="blog-blog2_container">
+        <section class="gallery-container">
+            <div class="container">
+                <div class="document-text text-box">
+
+                    <!-- HERO, from the post md's front matter (blog-blog2.md) -->
+                    {{ site.data.pages['blog-blog2'] | mdhero | safe }}
+
+                    <!-- body: src/_data/pages/blog-blog2.md via mdpage -->
+                    {{ site.data.pages['blog-blog2'] | mdpage | safe }}
+
+                </div>
+            </div>
+            {{buttonslider.content({
+            nexthref: site.data.project_blog_blog2.nexthref,
+            prevhref: site.data.project_blog_blog2.prevhref
+            })}}
+        </section>
+    </article>
+{% endblock %}

@@ -8,6 +8,10 @@
   {% set baseUrl = '../../' %}
 {% endblock %}
 
+{# play-subpages T19 (DR-0006): opt this page out of the red brand body
+   gradient - body.page-photography paints the dark grey gradient instead #}
+{% block bodyattrs %} class="page-photography"{% endblock %}
+
 {% block content %}
 {# play-subpages T14 (DR-0002): no hero on this page - just the photogrid
    fed by site.data.photogallery (T8 folder scan, newest first). The dialog
@@ -16,6 +20,9 @@
    48px nav and the switch bar sticks below it on scroll. #}
 
 <div class="photoview">
+  {# play-subpages T19 (DR-0006): the page h1 - the page had no heading at
+     all; light ink so it matches the dark grey gradient ground #}
+  <h1 class="photoview-title">Photography</h1>
   <div class="photoview-switch" role="group" aria-label="Photo view">
     <button type="button" class="photoview-btn" data-view="grid" aria-pressed="true">Grid</button>
     <button type="button" class="photoview-btn" data-view="full" aria-pressed="false">Full size</button>

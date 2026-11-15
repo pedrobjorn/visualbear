@@ -15,6 +15,10 @@
     .content {
         padding-top: 32px;
         padding-bottom: 32px;
+        // edge-alignment T9 (DR-0002): hero text sits at the nav's 16px page
+        // margin, scoped to .hero so the nav's own .content is not padded
+        padding-left: 16px;
+        padding-right: 16px;
     }
 
     a {

@@ -6,11 +6,11 @@ RED -> GREEN on the title fit (Playwright, static serve of `build/`):
   `titleInsideCard: false` at 1440 and 390 (the DR-0003 overflow reproduced
   inside the gallery)
 - GREEN: added `.card--thin .card-container.card.medium .card-image .card-title
-  { padding: 8px 16px; }` -> rebuild -> `cardH: 112`, `titleInsideCard: true`,
+{ padding: 8px 16px; }` -> rebuild -> `cardH: 112`, `titleInsideCard: true`,
   `h2InsideCard: true`, `cardInsideGallery: true` at BOTH widths, zero console
   errors, click -> `/play/`. Captures: `t2c-index-1440.png`, `t2c-index-390.png`
 
-Note: the t2b-index-*.png captures (v2, full-size card) were overwritten by
+Note: the t2b-index-\*.png captures (v2, full-size card) were overwritten by
 later probe runs and are removed; v2's record is the measurement log in
 t2b-verify.md.
 

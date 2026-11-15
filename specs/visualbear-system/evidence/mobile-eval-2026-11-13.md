@@ -14,12 +14,12 @@ came from the toy AM.
 nav.site-nav > .content.nav-wrapper, viewport 360 (Chromium; Firefox
 identical to 0.1px):
 
-| link    | box                     | font    | right edge |
-| ------- | ----------------------- | ------- | ---------- |
-| logo    | x 12, w 40              | -       | 52         |
-| Work    | x 106, w 76             | 19.2px  | 182        |
-| About   | x 182, w 82             | 19.2px  | 264.4      |
-| Contact | x 264.4, w 95.6         | 19.2px  | 360.0 = viewport edge |
+| link    | box             | font   | right edge            |
+| ------- | --------------- | ------ | --------------------- |
+| logo    | x 12, w 40      | -      | 52                    |
+| Work    | x 106, w 76     | 19.2px | 182                   |
+| About   | x 182, w 82     | 19.2px | 264.4                 |
+| Contact | x 264.4, w 95.6 | 19.2px | 360.0 = viewport edge |
 
 - document.scrollWidth == innerWidth == 360 on home / about / workflow in
   BOTH desktop engines: the row FITS - but with the Contact box pinned to
@@ -46,11 +46,11 @@ identical to 0.1px):
 host column = 288px wide (page margins 16 x2 + container paddings);
 `.vb-tabs` caps there via max-width:100%.
 
-| strip / tab          | 360 (both engines)                | 375 (both engines)               |
-| -------------------- | --------------------------------- | -------------------------------- |
-| strip box            | w 288, h 66                       | w 303, h 66                      |
-| tab visuAI           | w 109, ONE line, h 37, y 95       | w 109, 1 line, h 37              |
-| tab Design system    | w 167, TWO lines, h 58, y 84      | w 182, TWO lines, h 58           |
+| strip / tab       | 360 (both engines)           | 375 (both engines)     |
+| ----------------- | ---------------------------- | ---------------------- |
+| strip box         | w 288, h 66                  | w 303, h 66            |
+| tab visuAI        | w 109, ONE line, h 37, y 95  | w 109, 1 line, h 37    |
+| tab Design system | w 167, TWO lines, h 58, y 84 | w 182, TWO lines, h 58 |
 
 - The strip's nowrap intrinsic width is 303px (109 + 182 + 4 gap + 8
   plate padding). At 360 the host is 288 -> the flex chain shrinks the
@@ -70,8 +70,8 @@ separation is ENTIRELY bare `<br>` elements - each contributes one 23px
 line box (the paragraphs' line-height). Measured at 360 (chromium;
 firefox identical):
 
-| gap                                       | br before? | gap px |
-| ----------------------------------------- | ---------- | ------ |
+| gap                                        | br before? | gap px |
+| ------------------------------------------ | ---------- | ------ |
 | p1 (Hi! I'm Pedro) -> p2 (I'm a Stockholm) | YES        | +23    |
 | p2 -> p3 (I have worked)                   | YES        | +23    |
 | p3 -> p4 (I love design)                   | NO         | 0      |
@@ -99,11 +99,11 @@ Dead code sitting in both copies.
 `build/scripts/main.js` = 4.6 kB minified, three bootstraps from
 `src/_scripts/main.js`:
 
-| init             | what it does | needed? |
-| ---------------- | ------------ | ------- |
-| `tabs.init()`    | the visualbear-system tab widget: click/arrow-key switching, panel relocation (ticket 14), ground + panel swap, 160ms enter. No CSS-only equivalent with roving keyboard focus exists. Sans JS the visuAI panel renders (server-shipped) and the design panel stays `hidden`. | KEEP - required by tickets 2/6/11/14 |
-| `initCountUp()`  | animates `[data-countup]` metrics on case-study pages (used in build: fashion-rebrand, sports-ecommerce-redesign, digital-closet + mirrors). Markup-first: final value ships in the HTML and is only reset to 0 when IntersectionObserver exists AND motion is allowed. | KEEP - content degrades to the real numbers without it, |
-| `initSmoothScroll()` | same-page anchor clicks: offsets by the 48px fixed nav, scrolls smoothly, honors reduced-motion. | REPLACEABLE - `html { scroll-behavior: smooth }` + `scroll-margin-top: 48px` on the targets does the same in CSS (progressive: older Safari < 15.4 jumps instantly but correctly). ~30 lines retire. Ticket 24, gated on Pedro. |
+| init                 | what it does                                                                                                                                                                                                                                                                  | needed?                                                                                                                                                                                                                         |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `tabs.init()`        | the visualbear-system tab widget: click/arrow-key switching, panel relocation (ticket 14), ground + panel swap, 160ms enter. No CSS-only equivalent with roving keyboard focus exists. Sans JS the visuAI panel renders (server-shipped) and the design panel stays `hidden`. | KEEP - required by tickets 2/6/11/14                                                                                                                                                                                            |
+| `initCountUp()`      | animates `[data-countup]` metrics on case-study pages (used in build: fashion-rebrand, sports-ecommerce-redesign, digital-closet + mirrors). Markup-first: final value ships in the HTML and is only reset to 0 when IntersectionObserver exists AND motion is allowed.       | KEEP - content degrades to the real numbers without it,                                                                                                                                                                         |
+| `initSmoothScroll()` | same-page anchor clicks: offsets by the 48px fixed nav, scrolls smoothly, honors reduced-motion.                                                                                                                                                                              | REPLACEABLE - `html { scroll-behavior: smooth }` + `scroll-margin-top: 48px` on the targets does the same in CSS (progressive: older Safari < 15.4 jumps instantly but correctly). ~30 lines retire. Ticket 24, gated on Pedro. |
 
 Dead JS found: the `onclick="scroller(...)"` handlers above (undefined
 function), and the `no-js` class on `<html>` (base.nunjucks:9) is never

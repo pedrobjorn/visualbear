@@ -153,7 +153,12 @@ while ((m = re.exec(body))) refs.push(m[1]);
 const badRefs = refs.filter(function (u) {
   if (/^https?:/.test(u)) return false;
   const file = u.replace(/^(\.\.\/)+/, '').replace(/^images\//, '');
-  return !fs.existsSync(path.join(repoRoot, 'src', 'images', file));
+  // source tree stores images under src/_images; imagemin strips the
+  // underscore at build time (gulp/imagemin.js), so resolve both
+  return (
+    !fs.existsSync(path.join(repoRoot, 'src', '_images', file)) &&
+    !fs.existsSync(path.join(repoRoot, 'src', 'images', file))
+  );
 });
 if (!refs.length) {
   pass('images: no real image refs (placeholders only)');

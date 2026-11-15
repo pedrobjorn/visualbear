@@ -10,7 +10,15 @@
 <article class="gallery-text">
   <h2 class="page-header">Core</h2>
   <div class="text-block">
-    <p>Core elements are the most basic components used to build the site. Colours, type and basic buttons are defined here.</p>
+    <p>Core elements are the basics everything else builds on:</p>
+    <ul>
+      <li>Colours</li>
+      <li>Fonts</li>
+      <li>Headings</li>
+      <li>Links</li>
+      <li>Text</li>
+    </ul>
+    <div class="ai-mark">✦ AI-drafted</div>
   </div>
   <div class="text-block">
     <h3 class="page-header">Colours</h3>
@@ -120,8 +128,7 @@
   </div>
   <div class="text-block">
     <h3 class="page-header">Headings</h3>
-    <p>The system uses h1-h4 only (h5/h6 are not part of the type scale;
-    see the case-study system section for the content roles).</p>
+    <p>The system uses h1-h4 only (h5/h6 are not in the type scale; see the case-study system section for content roles).</p>
     <ul>
       <!--HEADINGS-->
       {# ticket 33: the ladder's h1 specimen is demoted to h2.demo-h1 -
@@ -148,15 +155,14 @@
   <div class="text-block">
     <h3 class="page-header">Text</h3>
     <h2>Example body text</h2>
-    <p class="lead">Lead paragraph: vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.</p>
-    <p>Nullam quis risus eget <a href="#">urna mollis ornare</a> vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+    <p class="lead">Lead paragraph: vivamus sagittis lacus vel augue laoreet rutrum faucibus.</p>
+    <p>Body with <a href="#">an inline link</a>.</p>
     <div class="light">This line of text is meant to be treated as fine print.</div>
-    <p>The following snippet of text is <strong>rendered as bold text</strong>.</p>
-    <p>The following snippet of text is <i>rendered as italicized text</i>.</p>
-    <p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>
+    <p><strong>Bold text</strong>, <i>italic text</i>, an <abbr title="attribute">attr</abbr> abbreviation.</p>
     <p class="left-align">Left aligned text.</p>
     <p class="center-align">Center aligned text.</p>
     <p class="right-align">Right aligned text.</p>
+    <div class="ai-mark">✦ AI-drafted</div>
   </div>
 </article>
   {% endmacro %}

@@ -31,11 +31,11 @@ Ship `/play/blog/` (hero + gallery of posts; post pages in the case-study shape)
 
 ## Asset requests
 
-| Asset                          | Position in design                      | Min size / format                          | Status                                                                                                |
-| ------------------------------ | --------------------------------------- | ------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
-| 3-5 seed photos                | photogrid thumbs + lightbox             | jpg, shipped through the existing imagemin | pending (Pedro) - blocks Tickets 8/14 sign-off (H2)                                                   |
-| 1 seed post cover              | first blog card img + post hero         | jpg thumb like `src/_images/work/thumbs/*` | pending (Pedro) - blocks Ticket 7 (H2)                                                                |
-| Play/Blog/Photography card img | `/play/` cards + the index thinner card | jpg card                                   | default: reuse existing shipped thumbs (ASSUMPTION - needs Pedro's validation); play art pending (H2) |
+| Asset                          | Position in design                      | Min size / format                          | Status                                                                                                                                                                             |
+| ------------------------------ | --------------------------------------- | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 3-5 seed photos                | photogrid thumbs + lightbox             | jpg, shipped through the existing imagemin | PROVIDED 2026-11-14: 5 photos in `src/_images/play/photography/` (preview-dukebox/-game-detail/-library/-market/-store.jpg), rendering newest-first in the grid (t18/t21 captures) |
+| 1 seed post cover              | first blog card img + post hero         | jpg thumb like `src/_images/work/thumbs/*` | pending (Pedro) - blocks Ticket 7 (H2)                                                                                                                                             |
+| Play/Blog/Photography card img | `/play/` cards + the index thinner card | jpg card                                   | default: reuse existing shipped thumbs (ASSUMPTION - needs Pedro's validation); play art pending (H2)                                                                              |
 
 Verified 2026-11-14: the `play-*-card.jpg` files the current `play.json` references do not exist in the repo, so those cards already render broken images - the card imgs are new assets, not reuses. Empty states (zero photos, zero posts) must still render without errors. No placeholder fallback ships for the pending assets (H2) - each pending asset blocks only the section that needs it.
 
@@ -64,6 +64,13 @@ Tickets are ordered by dependency - build top-down. All are size S; each is inde
 - [x] Ticket 15 - lightbox controller + boot
 - [x] Ticket 16 - verify: gates, evidence, both authoring flows
 - [x] Ticket 17 - photography view switch (grid / full size), sticky below the header
+- [x] Ticket 18 - photogrid full-bleed reskin: full-width container, 24px padding under the header, 1px hairline seams, square corners, 4px hover border (DR-0006)
+- [x] Ticket 19 - photography page dark grey gradient + light "Photography" h1 (DR-0006)
+- [x] Ticket 20 - lightbox buttons visible on the dark backdrop (DR-0006)
+- [x] Ticket 21 - photography controls: title above the bar, transparent bar, visuAI/Design-system tab look, full-size images 3164px (DR-0007)
+- [x] Ticket 22 - blog background: page-anchored fade, no viewport-tile restart (DR-0007)
+- [x] Ticket 23 - three wired blog placeholder posts (DR-0007)
+- [x] Ticket 24 - photography controls: option buttons take the page background color; title + controls on the 900px content line (DR-0008)
 
 ## Open questions
 

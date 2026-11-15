@@ -11,6 +11,10 @@
   {% set baseUrl = '../../' %}
 {% endblock %}
 
+{# play-subpages T22 (DR-0007): page-anchored brand fade - without this the
+   canvas gradient re-tiles every viewport and the red restarts mid-page #}
+{% block bodyattrs %} class="page-blog"{% endblock %}
+
 {% block content %}
 
 {{hero.content({content:site.data.bloghero,class:hero-about})}}

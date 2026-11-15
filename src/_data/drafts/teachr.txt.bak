@@ -1,0 +1,86 @@
+Key: FORMAT RULES - this Key block is ignored end to end; it never reaches the page md.
+Key: 1. The file opens with the hero as "Word: value" lines: Variant, Eyebrow, Title, Summary,
+Key:    Details, then meta items: Logo, Needs, Related, Metrics, Footnote, Takeaway.
+Key:    The head ends at the first line that is not one of those labels.
+Key: 2. Headings: "## Section | Eyebrow | id" (pipes optional) and "### Sub-heading".
+Key: 3. A bold-ONLY line (**Like this**) is a sub-block title: a run of 2+ becomes cards;
+Key:    colon titles (**Before: Start Page**) in a run become compare panels;
+Key:    a "Columns:" line before a run makes it columns. Bold plus more text on the
+Key:    same line is a normal paragraph, never a title.
+Key: 4. Label lines: Intro:, Note:, Point:, Figure:, Byline:, Wrap-up:, Divider:,
+Key:    Eyebrow:, Subtitle: become directives. Image: X | Y is a bare image slot;
+Key:    Frame: X | Y | tall is a frame - with its caption line it becomes a showcase
+Key:    outside a group, and stays inside its panel inside one.
+Key: 5. "Hero: modifier" opens a mid-page hero block; Wrap-up: closes it.
+Key: 6. Two or more consecutive "value | label" lines starting with a number, %, #,
+Key:    arrow, < or > become a metrics block.
+Key: 7. Pipe rows are tables: a text first row is a data table, an empty first cell
+Key:    (| | | ...) is a card-grid table.
+Key: 8. A line starting with a quotation mark is a pull quote. "1. Step" lines are a
+Key:    timeline (the bold is added on conversion). "- item" lines are bullets/chips.
+Key: 9. Everything else is prose. Add "Key: ..." lines anywhere for your own notes -
+Key:    they are always ignored and never reach the md.
+Variant: teal
+Eyebrow: Case Study - Teachr (mock brand)
+Title: Teachr, Redesigning the Learning Experience
+Summary: Revamping a teaching tool used by thousands of users to make it better and faster for learning - and more scalable and accessible to build on.
+Details: Lead Designer ⋅ Figjam · Figma · Claude Code ⋅ 2025 – 2026
+Logo: ../images/work/fullsize/teachr/teachr_logo.png | Teachr brand mark
+Needs: Mock up a design system, and mock up the training flow vibe-coded with Claude Code.
+Related: Part of a pair - read next | ../teachr-agent/ | Teachr, AI Agent in the Learning Dashboard
+Takeaway: Summary: redesigning the training for thousands of users to make it better and faster for learning, but also more scalable and accessible.
+
+
+
+## Outcomes & Impact | Outcomes & Impact | outcomes
+
+Image: Outcomes & Impact | WIP - results pending
+
+## Process
+
+1. **Problem definition**
+2. **Discovery & validation**
+3. **Design**
+4. **Delivery**
+
+This case study ran on my AI workflow - spec first, agent-drafted, visually verified at every step. The full loop: [My Agentic Design Workflow](../workflow/).
+
+[ai]
+
+## Problem & Goal (Why!?) | Problem Definition | problem
+
+The learning experience faced a number of issues, from registration errors to slow training times.
+
+This was due to a variety of factors, among which was the inconsistency of the experience making it very difficult to modify and add to the experience.
+
+The goal was to streamline and unify the experience in order to reduce human errors and speed up training whilst maintaining learning quality.
+
+### Users and Needs
+
+Users of our learning tools tended to be factory workers, and had low to medium digital literacy, and in some extreme cases our app was the first software they'd ever seen.
+
+They also needed to do learning while on the job, and thus had very little time to use our product.
+
+Their needs and the needs of their supervisors are different, but they all share urgency to get the learning over with few errors.
+
+## Research
+
+Aside from product performance metrics we also spoke with workplace managers and participants to get their perspectives.
+
+Our findings could be summarised as:
+
+- Registration was confusing, with a lot of information on screen at a time, making it hard to solve errors quickly.
+- The lessons were slow and took time, jumping between videos, questions, and a map, which made it hard to know what to do next.
+- There wasn't a lot of information about certain lessons, making it awkward to navigate things like training in groups, switching lessons, etc.
+
+## Discovery & Validation | Discovery | discovery
+
+With the goal in mind, we decided to prioritize unifying the flow, ensuring registration and lessons used similar, simple and recognisable UX patterns.
+
+## Design & Delivery
+
+Image: Training flow, design system mockups | WIP - designs pending
+
+## Conclusion & Lessons learned | Conclusion | conclusion
+
+Image: Conclusion & Lessons learned | WIP - pending

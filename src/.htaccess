@@ -1,0 +1,5 @@
+# 404 (the page lives at /404.html, built from src/404.nunjucks).
+# Some shared hosts restrict ErrorDocument in .htaccess - if Porkbun
+# rejects this directive the file is inert, and many Apache defaults
+# already serve /404.html on their own. Verify at publish (specs/release-4.0).
+ErrorDocument 404 /404.html

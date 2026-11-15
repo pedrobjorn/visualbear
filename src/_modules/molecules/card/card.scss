@@ -1,70 +1,73 @@
 // card styles
 
 .card {
-    &:first-child {
-        margin-top: 0;
-    }
+  &:first-child {
+    margin-top: 0;
+  }
 
-    position: relative;
-    margin: 1rem 0;
-    background-color: #000;
+  position: relative;
+  margin: 1rem 0;
+  background-color: #000;
 
-    @include card-radius;
+  @include card-radius;
 }
 
 .small.card {
-    @extend .card;
+  @extend .card;
 
-    height: 256px;
+  height: 256px;
 }
 
 .medium.card {
-    @extend .card;
+  @extend .card;
 
-    height: 256px;
+  height: 256px;
 }
 
-.large.card, .medium.card, .small.card {
-    @extend .card;
+.large.card,
+.medium.card,
+.small.card {
+  @extend .card;
 
-    position: relative;
+  position: relative;
 
-    .card-image {
-        @include card-radius;
-        @include drop-shadow;
+  .card-image {
+    @include card-radius;
+    @include drop-shadow;
 
-        max-height: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center;
+    max-height: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
 
-        .card-title {
-            color: #fff;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            max-width: 100%;
-            padding: 16px;
+    .card-title {
+      color: #fff;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      max-width: 100%;
+      padding: 16px;
 
-            h2, p {
-                padding: 4px 0;
-            }
-        }
-
-        &:active,
-        &:focus,
-        &:hover {
-            //I am super ashamed of this, but I find no better way of 
-            //overriding an inline style rule added to work with 
-            //nunchucks templating engine
-            background-image: url("") !important;
-            background-color: $vb-primary;
-            -webkit-transition: -webkit-box-shadow .25s;
-            transition: -webkit-box-shadow .25s;
-            transition: box-shadow .25s;
-            transition: box-shadow .25s, -webkit-box-shadow .25s;
-        }
+      h2,
+      p {
+        padding: 4px 0;
+      }
     }
+
+    &:active,
+    &:focus,
+    &:hover {
+      //I am super ashamed of this, but I find no better way of
+      //overriding an inline style rule added to work with
+      //nunchucks templating engine
+      background-image: url('') !important;
+      background-color: $vb-primary;
+      -webkit-transition: -webkit-box-shadow 0.25s;
+      transition: -webkit-box-shadow 0.25s;
+      transition: box-shadow 0.25s;
+      transition: box-shadow 0.25s, -webkit-box-shadow 0.25s;
+    }
+  }
 }
 
 // play-subpages T2 (DR-0004): the slim Play card inside the index gallery.
@@ -74,18 +77,17 @@
 // Specificity 0,5,0 beats the base `.medium.card .card-image .card-title`
 // rule (0,4,0) without !important.
 .card--thin {
-    .card-container.card.medium {
-        height: 112px;
-    }
+  .card-container.card.medium {
+    height: 112px;
+  }
 
-    .card-container.card.medium .card-image .card-title {
-        padding: 8px 16px;
-    }
+  .card-container.card.medium .card-image .card-title {
+    padding: 8px 16px;
+  }
 }
 
 // Responsive images for mobile variants
 @media (max-width: 768px) {
-
 }
 // play-subpages T11: inside the photogrid, hover/focus shows a red outline
 // ONLY - the default red-plate background swap is suppressed and the image
@@ -95,12 +97,30 @@
 // `background-image: url("") !important` hover rule: this selector is 0,4,0
 // vs the base 0,3,0, so it wins at equal !important.
 .gallery-grid .card--grid .card-image {
-    &:active,
-    &:focus,
-    &:hover,
-    &:focus-visible {
-        background-color: transparent;
-        background-image: var(--vb-card-img) !important;
-        outline: 2px solid $vb-primary;
-    }
+  &:active,
+  &:focus,
+  &:hover,
+  &:focus-visible {
+    background-color: transparent;
+    background-image: var(--vb-card-img) !important;
+    // play-subpages T18 (DR-0006): bigger hover border - 4px, inset
+    // (negative offset) so the frame never bleeds over a neighbouring
+    // cell across the grid's 1px seam
+    outline: 4px solid $vb-primary;
+    outline-offset: -4px;
+  }
+}
+
+// play-subpages T18 (DR-0006): square corners and flat cells in the
+// photogrid - kills the 8px card-radius and the drop-shadow so the flush
+// hairline grid stays crisp. Scoped under .gallery-grid only.
+.gallery-grid .card--grid {
+  .card-container.card {
+    border-radius: 0;
+  }
+
+  .card-image {
+    border-radius: 0;
+    box-shadow: none;
+  }
 }

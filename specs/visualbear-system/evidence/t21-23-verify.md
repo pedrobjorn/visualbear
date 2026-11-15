@@ -43,30 +43,30 @@ probes verify the geometry class, not the Android path.
   swap (workflow-page <-> vb-system-light), panel visibility, strip
   relocation into the design host, roving round-trip back to visuAI all
   probe-verified. Captures: t21-t23-workflow-{320,360}-after.png (the
-  one-line strip; pre-fix wrap in mobile-eval-workflow-360-*.png).
+  one-line strip; pre-fix wrap in mobile-eval-workflow-360-\*.png).
 
 ## Ticket 23 - about rhythm scoped rule
 
 - Shipped: `.about-copy p + p { margin-top: 24px }` (scoped rule in
-  _pages.scss); both templates carry the `about-copy` class on their
+  \_pages.scss); both templates carry the `about-copy` class on their
   `.document-text.text-box`; zero bare `<br>` in either copy.
 - Paragraph-gap probe at 320/360/375/1440, both engines, home #about AND
   /about/: gaps [24, 24, 24, 24], uniform (was: three 23px br line boxes
-  + one flush 0). Zero `onclick=` attributes in the about blocks
-  (`scroller` grep = zero hits in src/), /about/ img alt in.
+  - one flush 0). Zero `onclick=` attributes in the about blocks
+    (`scroller` grep = zero hits in src/), /about/ img alt in.
 - Case-study pages unaffected (the rule's selector hits only .about-copy;
   fashion-rebrand probed clean at 320/360/375).
 - Capture: t21-t23-about-360-after.png.
 
 ## Gates (visuaibear-review, this pass)
 
-| Gate | Result | Evidence |
-| --- | --- | --- |
-| A11y | PASS | nav targets 48px tall at every probed width (navH probe); /about/ img alt in; focus/hover rules untouched; the dead scroller handlers (console ReferenceError per click) removed everywhere |
-| States | PASS | both tab states probed (ground swap, panel relocation, roving round-trip) at 360 + 1440; nowrap labels hold in both |
-| Tokens & system | PASS | no new hard-coded colors; the strip envelope reuses the 8px step + the mobileLandscape breakpoint; 24px gap = the shared rhythm step |
-| Copy | PASS | no copy changed (labels untouched); no em dash introduced |
-| Consistency | PASS | DR-0009 budget approach (padding slack, no font shrink); gallery's 47.99em idiom mirrored by the mobileLandscape mq |
-| Regressions | PASS | 1440 strip geometry == T5's evidence; 1440 nav headroom 262 (desktop untouched); fashion-rebrand probed clean; npm build + guard + npm test green |
-| AI-attribution | PASS | no copy authored here (markup/class/handlers only); no [ai] markers involved |
-| Foundational | PASS | no destructive ops (all edits are tracked-file modifications; build regenerated); the Firefox Android root cause stays an ASSUMPTION with the on-device check assigned to Pedro - no silent guess shipped beyond DR-0009's recorded posture |
+| Gate            | Result | Evidence                                                                                                                                                                                                                                    |
+| --------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| A11y            | PASS   | nav targets 48px tall at every probed width (navH probe); /about/ img alt in; focus/hover rules untouched; the dead scroller handlers (console ReferenceError per click) removed everywhere                                                 |
+| States          | PASS   | both tab states probed (ground swap, panel relocation, roving round-trip) at 360 + 1440; nowrap labels hold in both                                                                                                                         |
+| Tokens & system | PASS   | no new hard-coded colors; the strip envelope reuses the 8px step + the mobileLandscape breakpoint; 24px gap = the shared rhythm step                                                                                                        |
+| Copy            | PASS   | no copy changed (labels untouched); no em dash introduced                                                                                                                                                                                   |
+| Consistency     | PASS   | DR-0009 budget approach (padding slack, no font shrink); gallery's 47.99em idiom mirrored by the mobileLandscape mq                                                                                                                         |
+| Regressions     | PASS   | 1440 strip geometry == T5's evidence; 1440 nav headroom 262 (desktop untouched); fashion-rebrand probed clean; npm build + guard + npm test green                                                                                           |
+| AI-attribution  | PASS   | no copy authored here (markup/class/handlers only); no [ai] markers involved                                                                                                                                                                |
+| Foundational    | PASS   | no destructive ops (all edits are tracked-file modifications; build regenerated); the Firefox Android root cause stays an ASSUMPTION with the on-device check assigned to Pedro - no silent guess shipped beyond DR-0009's recorded posture |

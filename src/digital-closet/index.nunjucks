@@ -1,5 +1,6 @@
 {% extends "_layouts/work.nunjucks" %}
 {% import "_modules/molecules/buttonslider/buttonslider.nunjucks" as buttonslider %}
+{% block robots %}<meta name="robots" content="noindex, nofollow"/>{% endblock %}
 {% block title %}visualbear - My Closet, Digital Closet Feature{% endblock %}
 {% block config %}
     {% set baseUrl = "../" %}

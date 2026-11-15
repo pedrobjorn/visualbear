@@ -1,0 +1,23 @@
+{% extends "base.nunjucks" %}
+
+{% block title %}visualbear - Page not found{% endblock %}
+
+{% block description %}This page moved or never existed. If you can't find what you're looking for, please contact hello@visualbear.com.{% endblock %}
+
+{% block robots %}<meta name="robots" content="noindex, nofollow"/>{% endblock %}
+
+{% block bodyattrs %} class="nf-page"{% endblock %}
+
+{% block content %}
+    <article class="section section-top-padding case-study" id="notfound_container">
+        <header class="cs-hero nf-hero">
+            <p class="cs-eyebrow">Error 404</p>
+            <h1>Page not found</h1>
+            <p class="cs-cover-summary">
+                If you can't find what you're looking for, please contact
+                <a href="mailto:hello@visualbear.com?Subject=Hello%20visualbear!">hello@visualbear.com</a>.
+            </p>
+            <p class="cs-cover-details"><a href="/">Back to the front page</a></p>
+        </header>
+    </article>
+{% endblock %}

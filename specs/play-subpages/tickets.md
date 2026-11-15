@@ -730,3 +730,323 @@ House gates: `npm run build` (release), `npm test`, `npm run lint`, prettier `fo
 ## Open questions
 
 - None
+
+---
+
+# Ticket 18: Photogrid goes full-bleed - wider container, hairline seams, square corners, bigger hover border, padding under the header
+
+- Part of: specs/play-subpages/plan.md (Pedro's spec-fix request 2026-11-14: "make the hover border bigger... make the images padding from the header, make the image container bigger so the grid is full page and wider... no gap between them just a thin line... make the corners not round")
+- Depends on: Tickets 10, 11, 17
+- Size: S
+- Type: UI
+- Status: DONE 2026-11-14 - see evidence/t18-verify.md and t18-\*.png captures
+
+## Context
+
+`/play/photography/` renders `.photoview` > `.photoview-switch` (sticky, top: 48px) + `.content.gallery` > `.gallery-grid` (3-col, `gap: 16px`, cells are `.card--grid` cards with 8px radius and a 2px red hover outline). The container `.content.gallery` is capped at `max-width: 900px`. All changes are scoped to the photogrid page via `.content.gallery:has(.gallery-grid)` / `.gallery-grid` / `.photoview*` - the work/play/blog galleries keep their flex layout and rounded cards untouched.
+
+## Requirements
+
+- Full page width: `.content.gallery:has(.gallery-grid)` gets `max-width: none; width: 100%` so the grid spans the full page width at every breakpoint (mobile keeps its 2-col grid).
+- Padding from the header: 24px of space between the sticky switch bar (which sits at top: 48px under the fixed nav) and the first row of images - implemented as `padding-top: 24px` on the same `:has()` container (plus `padding-bottom: 32px` so the last row clears the footer).
+- No gap, thin line only: `.gallery-grid` `gap: 16px` -> `gap: 1px`, and the grid container gets `background-color: #0c0c0e` so exactly a 1px dark hairline shows between cells (no line on the outer edge).
+- Square corners: inside `.gallery-grid`, `.card--grid .card-container.card` and `.card--grid .card-image` get `border-radius: 0` (kills the 8px `card-radius` mixin), and `.card-image` loses its `drop-shadow` so the flush grid stays flat.
+- Bigger hover border: the photogrid hover/focus outline goes from `2px` to `4px solid $vb-primary` with `outline-offset: -4px` (inset, so the 4px frame never bleeds over a neighbouring cell across the 1px seam). The full-size view's `.photofull-item` hover outline also goes to 4px (offset 2px kept - that view has padding around each image).
+
+## Design references
+
+- Hooks used: gallery organism + card molecule (existing variants only). Principles applied: design-principles #4 (no new pattern - scoped overrides of existing molecules) and #6 (red accent on hover). Tokens: `$vb-primary`, `$vb-dark` from `_variables.scss`; the seam color `#0c0c0e` is a one-off hairline (not a token) - recorded in DR-0006.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] At 1440px the `.gallery-grid` bounding box spans the full viewport width (left = 0, right = viewport width) and `.content.gallery:has(.gallery-grid)` computed `max-width` is `none`
+- [ ] Computed `gap` on `.gallery-grid` is `1px`; the grid container's computed background-color is the hairline color; a pixel probe between two cells shows the line, a probe inside a cell shows the photo
+- [ ] 24px vertical distance between the switch bar's bottom and the grid's top at rest (bounding rects at 1440 and 390)
+- [ ] Computed `border-radius` on `.card--grid .card-container.card` and `.card--grid .card-image` is `0px`; `box-shadow` on the card-image is `none`
+- [ ] Hover on a grid cell: computed outline-width `4px`, outline-color `rgb(215, 55, 53)`, outline-offset `-4px`; hover on a `.photofull-item`: outline-width `4px`
+- [ ] Mobile 390: grid stays 2 columns, same hairline/corners/hover rules apply
+- [ ] Regression: `/`, `/play/`, `/play/blog/` galleries unchanged (worktree diff touches only photography-scoped selectors + the photography template); captures at 1440 + 390 in evidence/
+- [ ] Gates: build (sass + nunjucks tasks) exit 0, `npm test` 5/5, lint clean, prettier `format:check` clean on touched files
+
+## Manual test steps (Pedro)
+
+- `npm run serve` -> http://localhost:3000/play/photography/ at 1440 and 390
+- The grid now runs edge to edge; cells are square-cornered with a thin dark line between them, no white space; hover a photo for the thicker red frame; there is clear space between the Grid/Full size bar and the first row
+
+## Out of scope
+
+- Column count changes (stays 3 desktop / 2 mobile), the view switch itself, the lightbox (Ticket 20), the page background/headline (Ticket 19).
+
+## Open questions
+
+- None
+
+---
+
+# Ticket 19: Photography page theme - dark grey gradient background with a matching light headline
+
+- Part of: specs/play-subpages/plan.md (Pedro's spec-fix request 2026-11-14: "have the background be dark grey gradient, and headline match it")
+- Depends on: Ticket 14
+- Size: S
+- Type: UI
+- Status: DONE 2026-11-14 - see evidence/t19-verify.md and t19-\*.png captures
+
+## Context
+
+Every page inherits the body brand gradient (red `#d73735` 10% -> `#252528` 100%, `_base.scss`). The photography page has no hero and no heading - the only text above the grid is the Grid/Full size switch. Pedro wants the page itself on a dark grey gradient with the headline matching it. ASSUMPTION (needs Pedro's validation, H3): "headline" = a page h1, because `/play/photography/` currently renders NO h1 at all (verified in build output 2026-11-14) - so the ticket adds `<h1 class="photoview-title">Photography</h1>` in light ink rather than recolouring an existing one.
+
+## Requirements
+
+- The photography page opts out of the red brand gradient via a body class: `src/play/photography/index.nunjucks` sets `{% block bodyattrs %} class="page-photography"{% endblock %}` (the `bodyattrs` block exists in `_layouts/base.nunjucks`).
+- `body.page-photography` paints a dark grey gradient instead, reusing the `body.home-page` pattern (flat base + one viewport-tall `::before` layer, so the canvas-propagated gradient never tiles): base `background: #18181b` ($vb-dark), layer `linear-gradient(180deg, #3a3a41 0%, #18181b 100%)` plus the `in oklab` variant, `height: 100vh/100svh`, `z-index: -1`. No red anywhere on the page.
+- Headline: `<h1 class="photoview-title">Photography</h1>` as the first element inside `.photoview` (above the sticky switch), styled `color: $vb-light` (#e6f2ff, ~15:1 on $vb-dark), `font-size: $base-h1-size`, `margin: 0`, `padding: 24px 16px 0`. It scrolls away normally; the switch bar stays sticky at top: 48px.
+- Copy: "Photography" (matches the card title in `play.json`; not AI-drafted prose - a label).
+
+## Design references
+
+- Hooks used: `bodyattrs` block in base layout, `body.home-page` gradient-layer pattern in `_base.scss`. Tokens: `$vb-dark`, `$vb-light`, `$base-h1-size`. Decision record: DR-0006.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] `build/play/photography/index.html` body tag carries `class="page-photography"`; no other page's body tag changed (worktree diff)
+- [ ] Computed background of `body.page-photography` has no red: pixel probe at top of the photography page is a dark grey (each channel within the #3a3a41..#18181b ramp, R=G=B within 3), and a probe at 80% page height is #18181b
+- [ ] The page has exactly one h1, text "Photography", computed color `rgb(230, 242, 255)` (15:1 on the dark ground, >= 4.5:1)
+- [ ] `/`, `/play/`, `/play/blog/` still carry the red brand gradient (pixel probe at fold shows the red ramp) - no global body rule touched
+- [ ] Captures at 1440 + 390 in evidence/; Gates: build exit 0, `npm test` 5/5, lint, prettier clean
+
+## Manual test steps (Pedro)
+
+- http://localhost:3000/play/photography/ - the page sits on a dark grey gradient (no red), the "Photography" headline is light and readable on it, and the rest of the site keeps the red fade
+
+## Out of scope
+
+- Changing the global body gradient, other pages' headers, the nav color.
+
+## Open questions
+
+- Headline copy: "Photography" default (matches play.json card title) - one-line change if Pedro wants something else
+
+---
+
+# Ticket 20: Lightbox buttons visible on the dark backdrop
+
+- Part of: specs/play-subpages/plan.md (Pedro's spec-fix request 2026-11-14: "make the lightroom buttons visible in dark")
+- Depends on: Tickets 13, 15
+- Size: S
+- Type: UI
+- Status: DONE 2026-11-14 - see evidence/t20-verify.md and t20-\*.png captures
+
+## Context
+
+The lightbox controls reuse `.btn.vb-btn`: glyph color `$vb-primary` (#d73735), transparent background, 2px transparent border, 48x48 (min 44x44). On the lightbox's dark backdrop (rgba($vb-dark, 0.92) over the page) the red "<" ">" "X" glyphs measure ~3.9:1 - below the 4.5:1 floor for 12px text, so the controls read as barely-visible dark red on near-black.
+
+## Requirements
+
+- Inside `.lightbox` only, the prev/next/close buttons get: `color: $vb-light` (#e6f2ff, ~15:1 on the backdrop), `border: 2px solid $vb-light`, and a translucent dark plate `background: rgba($vb-dark, 0.6)` so each control reads as a visible button in the dark. Hover keeps the brand behavior (red plate, light glyph); active/focus keeps `$vb-secondary`.
+- Focus indicator inside the lightbox becomes `outline: 2px solid $vb-light` (was `$vb-primary`, 3.9:1 - passes 3:1 for UI but the light outline is unambiguous on dark).
+- Touch targets stay >= 44x44 (48x48 already). No markup change; CSS appended in `lightbox.scss`, scoped under `.lightbox` - `.vb-btn` elsewhere (buttonslider) untouched.
+
+## Design references
+
+- Hooks used: lightbox molecule. Tokens: `$vb-light`, `$vb-dark`, `$vb-primary`, `$vb-secondary`. Contrast math recorded in evidence/t20-verify.md.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] With the lightbox open at 1440 and 390: computed `color` of `.lightbox-prev/.lightbox-next/.lightbox-close` is `rgb(230, 242, 255)` and computed `border-color` is the same; contrast vs the backdrop >= 4.5:1 (math in evidence)
+- [ ] Computed outline on `:focus-visible` inside `.lightbox` is `2px solid rgb(230, 242, 255)`
+- [ ] Button boxes remain 48x48 (>= 44x44); hover state shows the red plate (capture in evidence)
+- [ ] Regression: buttonslider `.vb-btn` on case-study pages unchanged (worktree diff scoped to `.lightbox` selectors)
+- [ ] Gates: build exit 0, `npm test` 5/5, lint, prettier clean; captures of the open lightbox at 1440 + 390 in evidence/
+
+## Manual test steps (Pedro)
+
+- http://localhost:3000/play/photography/ -> click any photo: the < > X controls are clearly visible on the dark viewer; Tab reaches each with a light focus ring; Esc/backdrop/X close it
+
+## Out of scope
+
+- Lightbox layout, image sizing, caption, keyboard stepping logic (Ticket 15, unchanged).
+
+## Open questions
+
+- None
+
+---
+
+# Ticket 21: Photography controls - title above the bar, transparent bar, visuAI/Design-system tab look, full-size images 3164px tall
+
+- Part of: specs/play-subpages/plan.md (Pedro's eval pass 2026-11-14: "Put the photography title above the grid controls. Make the grid bar no background. Make the tab same as visuAI and design system. Add height to the images to be around 3164px" - the images item resolved with Pedro: full-size view images, height ~3164px, no crop)
+- Depends on: Tickets 17, 18, 19
+- Size: S
+- Type: UI
+- Status: DONE 2026-11-14 - evidence in evidence/t21-verify.md + t21-\*.png captures
+
+## Context
+
+After T18/T19 the page is `.photoview` > `h1.photoview-title` + `.photoview-switch` (sticky, `background: $vb-dark`) + grid. The switch buttons are `.photoview-btn` with a 2px red border as the active state. The /workflow/ tab strip (`.vb-tabs`/`.vb-tab`, tabs.scss) is the reference look: pill buttons, uppercase, 0.18em tracking, underline active state, muted ink `#a6adb8` / active lifted red `#ee6e73` on dark grounds.
+
+## Requirements
+
+- Title above the grid controls: `h1.photoview-title` stays the first element of `.photoview`, directly above `.photoview-switch` (verified by rects: h1.bottom <= switch.top at 1440 and 390). No DOM reorder needed if the check passes; the transparent bar (next item) makes the title read clearly.
+- Grid bar no background: `.photoview-switch` loses `background: $vb-dark` -> `background: transparent`. It stays `position: sticky; top: 48px` with its padding.
+- Tab same as visuAI / Design system: `.photoview-btn` takes the `.vb-tab` look (values mirrored in gallery.scss, scoped to `.photoview`, with a comment pointing at tabs.scss): `border: 0; border-radius: 999px; padding: 12px 20px; font-size: $middle-font-size; font-weight: $font-bold; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap; background: transparent; color: #a6adb8;` hover/focus underline (`text-underline-offset: 4px`); active `[aria-pressed="true"]` = underline + `color: #ee6e73`. The old 2px red border states are removed. Compact breakpoints mirror tabs.scss (<= mobileLandscape: padding 12px 10px, tracking 0.12em; <= 360: padding 12px 8px, tracking 0.1em). Hit box stays >= 44px (12px vertical padding reaches 45px). No markup change; `photoview.js` keeps toggling `aria-pressed`.
+- Full-size images ~3164px tall, no crop (Pedro's answer): `.gallery-full .photofull-item img` gets `height: 3164px; object-fit: contain;` (width stays 100%, display block). The value lives in one place: `--photofull-img-height: 3164px` on `.gallery-full`, consumed by the img rule.
+
+## Design references
+
+- Hooks used: tabs molecule's visual language (`.vb-tab`, tabs.scss) mirrored, not re-imported (the photoview switch is an aria-pressed view switch, not a tablist - the tabs controller must not boot on it). Tokens: `$middle-font-size`, `$font-bold`; the dark-ground inks `#a6adb8`/`#ee6e73` are the workflow strip's measured values (ticket 2/35 in tabs.scss). DR-0007.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Rect check at 1440 + 390: `h1.photoview-title`.bottom <= `.photoview-switch`.top; h1 is the page's only h1
+- [ ] `.photoview-switch` computed background-color is fully transparent (`rgba(0, 0, 0, 0)`); still sticky at top 48 after 700px scroll
+- [ ] `.photoview-btn` computed: border-radius 999px, text-transform uppercase, letter-spacing 0.18em, color `rgb(166, 173, 184)`; active button (`aria-pressed="true"`) color `rgb(238, 110, 115)` + underline; hover underlines; no border (border-width 0); height >= 44px at 1440, 390, 360
+- [ ] Switch still works: clicking Full size hides `.gallery-grid`, shows `.gallery-full`, aria-pressed follows (photoview.js untouched)
+- [ ] Full-size view: each `.photofull-item img` computed height 3164px, object-fit contain, width 100% (1440 + 390)
+- [ ] Captures: t21-\*.png at 1440 + 390 (default, hover on a tab, full-size view, scrolled sticky bar)
+- [ ] Gates: `npm run build` exit 0 (mirror+guard), `npm test` 5/5, eslint 0 errors, prettier clean on touched files, zero console errors
+
+## Manual test steps (Pedro)
+
+- /play/photography/ at 1440 and 390: the "Photography" title sits above the Grid/Full size control; the control bar itself has no background and the two tabs look like the visuAI / Design system tabs on /workflow/; Full size shows each photo on a ~3164px-tall stage, nothing cropped
+
+## Out of scope
+
+- The lightbox (T20), the grid itself (T18), other pages' switch bars (none exist).
+
+## Open questions
+
+- None (the 3164px target was resolved with Pedro: full-size view, contain, no crop)
+
+---
+
+# Ticket 22: Blog background consistency - kill the viewport-tile red restart on /play/blog/
+
+- Part of: specs/play-subpages/plan.md (Pedro's eval pass 2026-11-14: "Make the background of the blog more consistent, it's currently broken")
+- Depends on: Ticket 4
+- Size: S
+- Type: UI
+- Status: DONE 2026-11-14 - evidence in evidence/t22-verify.md + t22-\*.png captures
+
+## Context
+
+Measured 2026-11-14 (full-page capture, 1440x1898): on /play/blog/ the body brand gradient is canvas-propagated and sized to the viewport, so it TILES - the left edge snaps from (150,56,52) back to bright red (215,55,53) at y=900 (the viewport boundary) and again at 1800. Same defect ticket 52 fixed for the home page (`body.home-page`: flat base + one 100svh `::before` gradient layer). Blog post pages (/play/blog/hello-world/, 1346px tall at 1440) show the same restart.
+
+## Requirements
+
+- `/play/blog/` and every blog post page opt into the page-anchored fade: the blog index and each `src/play/blog/<slug>/index.nunjucks` set `{% block bodyattrs %} class="page-blog"{% endblock %}`.
+- `_base.scss`: the `body.home-page` rule becomes `body.home-page, body.page-blog` (same flat `#252528` base + one 100vh/100svh oklab red->dark `::before` layer). No other page's body class changes.
+- Result: the red->dark fade renders once over the first viewport; below it the flat dark continues - no restart at any scroll depth, on index and posts, 1440 + 390.
+
+## Design references
+
+- Hook: the `body.home-page` gradient-layer pattern (ticket 52) + `bodyattrs` block in base layout. DR-0007 records the scoping decision.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] `build/play/blog/index.html` and each post page's body tag carries `class="page-blog"`; `/`, `/play/`, `/play/photography/` body tags unchanged
+- [ ] Pixel probe of a full-page capture at 1440 (x=3, left edge): red ramp only in y < 900, then monotone dark to page bottom - NO snap back to red at y=900 (contrast with before: (215,55,53) at y=900). Same at 390
+- [ ] /play/photography/ still on its own dark grey gradient (T19) - `page-photography` and `page-blog` rules don't collide (different classes)
+- [ ] `/` still red-ramp on first viewport (regression capture)
+- [ ] Gates: `npm run build` exit 0, `npm test` 5/5, eslint 0 errors, prettier clean on touched files
+
+## Manual test steps (Pedro)
+
+- /play/blog/ at 1440 and 390, scroll slowly: the red fades to dark once at the top and stays dark - no red band reappearing mid-page
+
+## Out of scope
+
+- Case-study pages' grounds (they set their own body classes), the gallery card layout, blog content.
+
+## Open questions
+
+- None
+
+---
+
+# Ticket 23: Three blog placeholder posts, wired end to end for Pedro to fill in
+
+- Part of: specs/play-subpages/plan.md (Pedro's eval pass 2026-11-14: "Create 3 blog placeholder files for me to fill in")
+- Depends on: Tickets 5, 6, 7
+- Size: S
+- Type: system
+- Status: DONE 2026-11-14 - evidence in evidence/t23-verify.md + t23-\*.png captures
+
+## Context
+
+`blog.json` already carried two junk entries ("First blog post" -> blog2/, "Second blog posts" -> blog1/) pointing at pages that don't exist (404). The authoring flow (AUTHORING.md + hello-world template comment): new post = `src/play/blog/<slug>/index.nunjucks` + `src/_data/pages/blog-<slug>.md` + `src/_data/project_blog_<slug>.json` + one entry in `blog.json`.
+
+## Requirements
+
+- Three placeholder posts, slugs blog1, blog2, blog3: each gets all four pieces (page dir, md, project json, blog.json entry). blog.json becomes exactly: Hello World, then Placeholder post 1 (blog1/), 2 (blog2/), 3 (blog3/) - same thumb img as Hello World (existing shipped asset, H2-safe), subtitle "Draft".
+- Placeholder md: hero front matter (eyebrow "Blog", title "Placeholder post N", summary "To be written.", details "14 Nov 2026") + one `## TODO` section with a single line "Fill this in." - no [ai] marker (placeholder, not AI copy).
+- Project jsons mirror hello-world's shape (prevhref back to Blog, nexthref disabled/empty).
+- Post pages set `class="page-blog"` bodyattrs (Ticket 22); hello-world gets it too.
+- Empty-state and ordering unchanged: blog index lists 4 cards, newest first per blog.json order.
+
+## Design references
+
+- Hooks: the blog authoring flow (AUTHORING.md, play-subpages plan non-goals: "Adding a post = drop the md file + prepend one entry to blog.json"). DR-0007.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] `src/play/blog/blog{1,2,3}/index.nunjucks`, `src/_data/pages/blog-blog{1,2,3}.md`, `src/_data/project_blog_blog{1,2,3}.json` all exist; blog.json parses, exactly 4 entries, order Hello World / Placeholder 1 / 2 / 3 with hrefs hello-world/, blog1/, blog2/, blog3/
+- [ ] Build renders /play/blog/blog1|2|3/ with hero title "Placeholder post N", a "< Blog" prev link, and the page-blog body class; /play/blog/ lists 4 cards in order
+- [ ] No 404s: every blog.json href resolves to a built page (grep build output)
+- [ ] Gates: `npm run build` exit 0 (mirror+guard), `npm test` 5/5, eslint 0 errors, prettier clean on touched files; captures t23-blog-1440.png, t23-post-1440.png in evidence/
+
+## Manual test steps (Pedro)
+
+- /play/blog/ shows Hello World + three "Placeholder post N / Draft" cards; each opens to a stub post with a TODO section, ready to fill in
+
+## Out of scope
+
+- Real post copy, images per post (placeholders reuse the shipped thumb), deleting hello-world.
+
+## Open questions
+
+- None
+
+---
+
+# Ticket 24: Photography controls - option buttons take the page background color; title + controls align to the 900px content line
+
+- Part of: specs/play-subpages/plan.md (Pedro's eval pass 2026-11-14, round 3: "Photography grid options should still match the background color so they don't have the photos in their background. Still keep the controls and title within line as the other content from other pages (max width)")
+- Depends on: Tickets 18, 19, 21
+- Size: S
+- Type: UI
+- Status: DONE 2026-11-14 - evidence in evidence/t24-verify.md + t24-\*.png captures
+
+## Context
+
+T21 made the switch bar transparent, so when it sticks at top:48 the scrolling photos show through behind the Grid / Full size labels. And T18 made the grid full-bleed, while the title and the bar still span the full viewport - other pages' content sits on a 900px centered line (`.content.gallery`).
+
+## Requirements
+
+- Option buttons match the background color: `.photoview-btn` gets a solid `background-color: $vb-dark` (#18181b, the photography page's base background color) so no photo shows through a stuck control. The bar itself (`.photoview-switch`) stays transparent (T21). Hover/active keep the underline + ink change; add no border.
+- Title + controls within the content line: `.photoview-title` and `.photoview-switch` get `max-width: 900px; margin-left/right: auto` - the same 900px centered column the other gallery pages use (`.content.gallery`). The grid itself stays full-bleed (T18 untouched). At viewports < 900px both simply span the full width with their existing padding.
+- Sticky behavior unchanged: bar still sticks at top: 48px.
+
+## Design references
+
+- Tokens: `$vb-dark` (page background base), 900px = the galleries' content width. DR-0008 records the two decisions.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] `.photoview-btn` computed background-color = `rgb(24, 24, 27)`; `.photoview-switch` computed background-color still `rgba(0, 0, 0, 0)` (1440 + 390)
+- [ ] At 1440: `.photoview-title` and `.photoview-switch` bounding rects are centered on the 900px line - rect.left == rect of `.content.gallery` on `/play/` (== (1440-900)/2 = 270) within 1px; at 390 they span the full viewport width
+- [ ] Title still above the controls: h1.bottom <= switch.top; switch still sticks at top 48 after 700px scroll
+- [ ] Pixel probe with the bar stuck over a photo (scrolled capture): pixels inside a button read ~#18181b, not photo colors (buttons opaque); capture t24-scrolled-\*.png
+- [ ] Regression: grid still full-bleed (grid rect 0..1440), tab look (pill/uppercase/underline active) unchanged
+- [ ] Gates: `npm run build` exit 0 (mirror + guard), `npm test` 5/5, eslint 0 errors, prettier clean on touched files, zero console errors
+
+## Manual test steps (Pedro)
+
+- /play/photography/ at 1440: the "Photography" title and the Grid / Full size options align with the 900px column the other pages use, while the photo grid still runs edge to edge; scroll down - the stuck options sit on the dark background, no photo bleeding through them
+
+## Out of scope
+
+- The grid's full-bleed width (T18), the lightbox, other pages' headers.
+
+## Open questions
+
+- None

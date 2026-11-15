@@ -43,20 +43,23 @@ VIEWPORTS = [1440, 1024, 768, 780, 390]
 # display elements and the full-bleed tier)
 EXEMPT_BLEED = ("cs-metric", "cs-frame", "cs-showcase", "cs-wide",
                 "cs-hero", "cs-panel", "cs-annotation", "cs-quote",
-                "cs-metrics", "cs-table")
+                "cs-metrics", "cs-table", "cs-shots")
 # bullet components sit INSIDE the container (ticket 39, DR-0009
 # amendment): their boxes align to the TEXT edge, not the bleed edge
-TEXT_EDGE_BOXES = ("cs-facts", "cs-plain")
+# ticket 53: cards join them — no bleed, box on the text column
+TEXT_EDGE_BOXES = ("cs-facts", "cs-plain", "cs-card",
+                # Pedro 2026-11-01: the summary no longer bleeds either
+                "cs-summary")
 # the full-bleed tier touches the viewport edge BY DESIGN — exempt from
 # the 8px viewport-margin rule too
-EXEMPT_VIEWPORT = ("cs-wide", "cs-frame", "cs-table")
+EXEMPT_VIEWPORT = ("cs-wide", "cs-frame", "cs-table", "cs-shots")
 
 MEASURE_JS = """(cfg) => {
   const boxes = [];
   document.querySelectorAll(
     '.cs-card, .cs-facts li, .cs-summary, .cs-col, .cs-panel, .cs-quote,' +
     '.cs-quotes .cs-quote, .cs-frame, .cs-wide, .cs-metrics, .cs-table,' +
-    '.cs-timeline li, .cs-plain').forEach(e => {
+    '.cs-shots, .cs-timeline li, .cs-plain').forEach(e => {
       const r = e.getBoundingClientRect();
       if (r.width === 0 && r.height === 0) return;
       // a box inside a horizontal scroll container (cs-tablebox) is
@@ -104,7 +107,8 @@ MEASURE_JS = """(cfg) => {
         if (rr && rr.width) { textLeft = rr.left; break; }
       }
     }
-    dots.push({rendered: rendered, plated: plated, liL: lr.left,
+    dots.push({rendered: rendered, plated: plated,
+      inCard: !!li.closest('.cs-card'), liL: lr.left,
       dotL: rendered ? lr.left + parseFloat(cs.left || 0) : null,
       textL: textLeft});
   });
@@ -201,8 +205,11 @@ def audit(baseUrl, jsonOut):
                 for dt in d["dots"]:
                     if dt["rendered"] and te is not None:
                         # plated chips: dot 20px inside the plate (ticket 41);
+                        # card lists (ticket 53): dot on the card's text edge
+                        # — the plate's 28px padding insets it;
                         # plateless dots ON the text edge
-                        expectedDot = te + (CS_INDENT - 8) if dt["plated"] else te
+                        expectedDot = te + (CS_INDENT - 8) if dt["plated"] else (
+                            te + CS_INDENT if dt["inCard"] else te)
                         if abs(dt["dotL"] - expectedDot) > DOT_TOLERANCE:
                             probs.append(
                                 f"dot off expected x ({dt['dotL']:.1f} vs {expectedDot:.1f})"

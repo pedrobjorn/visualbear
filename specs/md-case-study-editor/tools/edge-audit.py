@@ -18,6 +18,7 @@ from collections import defaultdict
 from playwright.sync_api import sync_playwright
 
 EDGE_TOLERANCE = 2  # px
+CS_INDENT_EDGE = 28  # the card plate's inner padding (ticket 53): text at edge + 28
 PAGES = [
     "workflow", "teachr", "teachr-agent", "digital-closet",
     "fashion-rebrand", "sports-ecommerce-redesign", "resume",
@@ -30,7 +31,7 @@ VIEWPORTS = [1440, 390]
 # normalization fix un-vacuumed this audit (ticket 41)
 DISPLAY_CTX = ("cs-hero", "cs-frame", "cs-showcase", "cs-quotes",
                "cs-pullquote", "cs-summary", "cs-footnote",
-               "cs-frame-caption", "cs-quote")
+               "cs-frame-caption", "cs-quote", "cs-shots")
 
 
 def audit(baseUrl, jsonOut):
@@ -111,13 +112,28 @@ def audit(baseUrl, jsonOut):
                         # amendments): plateless bullets — dot on the edge,
                         # 8px clear gap -> text at edge + 13 (ticket 36);
                         # plated chips (ticket 41) — the plate carries the
-                        # dot's padding: text at edge + 33 ($cs-indent + 5)
+                        # dot's padding: text at edge + 33 ($cs-indent + 5);
+                        # cards (ticket 53) — no bleed, the plate's own 28px
+                        # padding insets the text: edge + $cs-indent; card
+                        # bullet lists: the inset PLUS the bullet's +13
                         isChip = "cs-facts" in r["ctx"]
+                        isCard = "cs-card" in r["ctx"]
+                        # timeline text (ticket 54): the heading/paragraph
+                        # (and plain li steps — workflow has no-h3 items)
+                        # carry 8px left padding off the dot column
+                        isTimelineText = ("cs-timeline" in r["ctx"] and
+                                          r["tag"] in ("P", "H3", "LI"))
                         allowed = (abs(r["x"] - edge) <= EDGE_TOLERANCE or
+                                   (isTimelineText and
+                                    abs(r["x"] - edge - 8) <= 1) or
                                    (isBullet and not isChip and
                                     abs(r["x"] - edge - 13) <= 1) or
                                    (isBullet and isChip and
-                                    abs(r["x"] - edge - 33) <= 1))
+                                    abs(r["x"] - edge - 33) <= 1) or
+                                   (isBullet and isCard and
+                                    abs(r["x"] - edge - CS_INDENT_EDGE - 13) <= 2) or
+                                   (isCard and
+                                    abs(r["x"] - edge - CS_INDENT_EDGE) <= 2))
                         if not allowed:
                             failures.append(
                                 f"{path}@{width}: {r['tag']} in {r['ctx']} at x={r['x']} "

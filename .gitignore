@@ -4,3 +4,7 @@ tmp
 .grunt
 .DS_Store
 build
+# the air-locked application path (specs/release-4.0/DR-R4-0004)
+src/_data/private-path.json
+# spec evidence artifacts (captures, probe dumps, verify logs) are local-only
+specs/**/evidence/

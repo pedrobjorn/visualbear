@@ -257,13 +257,13 @@ body.vb-system-light #workflow_container {
   }
 
   // The shell's mobile column (both tickets): full-width container with
-  // ticket 47's 36px side inset below 908 - not the styleguide page's
-  // 90% width with 0 side padding (324px at 360).
+  // the nav's 16px page margin below 916 (edge-alignment T8/T9, DR-0002) -
+  // not the styleguide page's 90% width with 0 side padding (324px at 360).
   .text-container {
-    @media (max-width: 907px) {
+    @media (max-width: 915px) {
       width: auto;
-      padding-left: 36px;
-      padding-right: 36px;
+      padding-left: 16px;
+      padding-right: 16px;
     }
   }
 
@@ -277,7 +277,7 @@ body.vb-system-light #workflow_container {
   // public /styleguide/ page out of scope: it has the section id but no
   // vb-panel.
   #styleguide_container .case-study.document-text {
-    @media (max-width: 907px) {
+    @media (max-width: 915px) {
       padding-left: 0;
       padding-right: 0;
     }

@@ -16,22 +16,26 @@ Raw complete JSON: evidence/eval_a11y.json, evidence/eval_perf.json.
 ## Findings (confirmed)
 
 ### A1. Case-study gallery images have no alt text (MAJOR)
-/visualbear/ ships 9 `<img>` without alt (the work/fullsize/* gallery);
+
+/visualbear/ ships 9 `<img>` without alt (the work/fullsize/\* gallery);
 their wrapper links also end up with no accessible name. The visualbear
 case renders its own copy of the gallery pipeline - the other case pages
 need the same check when the ticket runs.
 
 ### A2. Broken icon assets in the styleguide modules demo (MAJOR)
+
 `src/visualbear/_styleguide_blocks/styleguide.modules.nunjucks:44,47`
 reference `icons/twitter_icon_64.jpg` and `icons/behance_icon_64.jpg` -
 neither file exists in build/images/icons/ (grep; only github_icon_64.png
-+ linkdin_icon_64.jpg ship). Two 404 console errors on every page that
-renders the design system demo: the public /styleguide/ AND the
-`/visualbear/` case study (its duplicate blocks). The alts are
-alt="Smiley face" (Bootstrap placeholder).
+
+- linkdin_icon_64.jpg ship). Two 404 console errors on every page that
+  renders the design system demo: the public /styleguide/ AND the
+  `/visualbear/` case study (its duplicate blocks). The alts are
+  alt="Smiley face" (Bootstrap placeholder).
 
 ### A3. /visualbear/ renders FIVE visible h1s (MAJOR)
-The case's embedded styleguide copy (src/visualbear/_styleguide_blocks
+
+The case's embedded styleguide copy (src/visualbear/\_styleguide_blocks
 duplication, the T3-era "case-study duplicates untouched" zone) ships its
 own "Styleguide" h1 and the "h1 Heading" ladder demo on a PUBLIC case-
 study page. Measured h1s: the hero "visualbear - Brand & Portfolio",
@@ -39,6 +43,7 @@ study page. Measured h1s: the hero "visualbear - Brand & Portfolio",
 pages own mid-page h1.
 
 ### A4. Duplicate id="contact" - the design panel's Footer demo (MEDIUM)
+
 The styleguide modules demo renders a full LIVE footer copy
 (`<footer class="foot"><section ... id="contact">`, the real mailto) as a
 "use the Footer component" demo. /workflow/, /styleguide/ and
@@ -47,6 +52,7 @@ Duplicate ids break in-page anchor + landmark resolution (browsers scroll
 to the first; AT sees two). Demo = visual specimen, not a live footer.
 
 ### A5. The workflow eyebrow fails AA on its real ground (MEDIUM)
+
 `/workflow/` cs-eyebrow renders #E34A47 at 15.36px; pixel scan of the
 gradient/spotlight ground behind it: best-case ratio 3.64 (worst lower).
 Ticket 2's fix shipped #EA544F (4.65:1) for the STRIP's active label -
@@ -57,16 +63,19 @@ measures 4.47 (0.03 under the 4.5 bar, 15.36px). The GLOBAL link red
 instances - the 2026 light-ground pages do not).
 
 ### A6. /about/ has no headings at all (MEDIUM)
+
 Zero h1-h6 on the page; no h1. The home's #about section shares the
 markup (no heading inside .about-copy) - the page-level one is the
 structural miss.
 
 ### A7. Interactive elements under the 44px target (MINOR)
+
 Nav logo 40x40; .vb-tab buttons 37px tall (the T21 44/48px-tall-target
 rule covered the main nav, never the strip); the footer bear glyph 19x21;
 the .highlight chips 27px tall (in-copy text links - record, not fix).
 
 ### A8. False positives ruled out (do NOT "fix" these)
+
 - Logo link "unnamed": named via its inner img alt "visualbear home".
 - Home 3.27-contrast item: red color on an EMPTY link (the logo icon) -
   no text, n/a.

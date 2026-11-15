@@ -1,7 +1,7 @@
 {% extends "_layouts/work.nunjucks" %}
 {% block title %}visualbear - My Agentic Design Workflow{% endblock %}
 
-{% block description %}How Pedro Björn runs an AI-collaborative design workflow — spec, guardrails, visual validation — and the visuAIbear suite that holds it together.{% endblock %}
+{% block description %}How Pedro Björn runs an AI-collaborative design workflow: spec, guardrails, visual validation, and the visuAIbear suite that holds it together.{% endblock %}
 
 {% block bodyattrs %} class="workflow-page"{% endblock %}
 

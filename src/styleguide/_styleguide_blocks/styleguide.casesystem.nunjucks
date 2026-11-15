@@ -10,53 +10,52 @@
 <article class="gallery-text">
   <h2 class="page-header">Case-study system</h2>
   <div class="text-block">
-    <p>The case-study pages render from markdown (see AUTHORING.md). Their
-    layout has one text edge, bullet plates and cards inside the
-    container, display boxes that bleed one indent step into the margins,
-    and a full-bleed tier for media and background sections.</p>
+    <p>Case-study pages render from markdown (see AUTHORING.md). The layout rules:</p>
+    <ul>
+      <li>One text edge for all body copy</li>
+      <li>Bullet plates and cards inside the container</li>
+      <li>Display boxes bleed one indent step into the margins</li>
+      <li>Full-bleed tier for media and background sections</li>
+    </ul>
+    <div class="ai-mark">✦ AI-drafted</div>
   </div>
 
   <!-- Type roles -->
   <div class="text-block">
     <h3 class="page-header">Type roles</h3>
     <div class="case-study document-text" style="padding-top: 8px; padding-bottom: 8px;">
-      <p style="font-size: 1.5rem; font-weight: 700; margin: 0 0 8px;">Headline — h2, 28.8px / 700</p>
-      <p style="font-size: 1.17rem; font-weight: 700; margin: 0 0 8px;">Sub-head — h3, 22.5px / 700</p>
-      <p style="margin: 0 0 4px;">Body copy — 18.4px / 300. One size for paragraphs and list text.</p>
-      <p style="font-size: 0.8rem; color: #66686d; margin: 0;">Label — 15.4px (eyebrows, notes, captions). Never below this size.</p>
+      <p style="font-size: 1.5rem; font-weight: 700; margin: 0 0 8px;">Headline: h2, 28.8px / 700</p>
+      <p style="font-size: 1.17rem; font-weight: 700; margin: 0 0 8px;">Sub-head: h3, 22.5px / 700</p>
+      <p style="margin: 0 0 4px;">Body copy: 18.4px / 300. One size for paragraphs and list text.</p>
+      <p style="font-size: 0.8rem; color: #66686d; margin: 0;">Label: 15.4px (eyebrows, notes, captions). Never below this size.</p>
     </div>
-    <p style="margin-top: 8px;">Indent token: <code>$cs-indent = 28px</code> — box padding, box
-    bleed, timeline gutter and marker hang all derive from it.</p>
-    <p style="margin-top: 8px;">Content width: <strong>900/836</strong> — one content width
-    site-wide (DR-0013); every page's text column is the container's 836px
-    inner width at 1440.</p>
-    <p style="margin-top: 8px;">List-context rule (DR-0010): <code>- item</code> at section
-    level → fact chip; <code>- item</code> inside a box → plain bullet;
-    <code>* item</code> → plain bullet list at section level (the opt-out);
-    <code>1. step</code> → numbered timeline everywhere.</p>
-    <p style="margin-top: 8px;">Chip plate: one token, <code>--cs-chip-plate</code>
-    (white 0.45; the dark ground's documented instance is 0.06 — DR-0012).
-    Bullet geometry: the dot sits 20px inside the plate, text 8px clear of
-    the dot; plateless lists keep the dot ON the text edge (tickets 39/41).</p>
+    <ul>
+      <li>Indent token: <code>$cs-indent = 28px</code> - box padding, box bleed, timeline gutter and marker hang all derive from it</li>
+      <li>Content width: <strong>916/884</strong> - one content width site-wide (DR-0013; edge-alignment DR-0002: the nav's .content box); every page's text column is the container's 884px inner width at 1440 - the nav's 16px page margin inside the box</li>
+      <li>List-context rule (DR-0010): <code>- item</code> at section level renders a fact chip; inside a box a plain bullet; <code>* item</code> is the plain-list opt-out; <code>1. step</code> is a numbered timeline</li>
+      <li>Chip plate: one token, <code>--cs-chip-plate</code> (white 0.45; dark ground 0.06 - DR-0012). Dot 20px inside the plate, text 8px clear of the dot; plateless lists keep the dot ON the text edge (tickets 39/41)</li>
+    </ul>
+    <div class="ai-mark">✦ AI-drafted</div>
   </div>
 
   <!-- Width tiers -->
   <div class="text-block">
     <h3 class="page-header">Width tiers</h3>
-    <p><strong>Text edge</strong> — all body copy aligns here.
-    <strong>Bleed</strong> — display boxes (summary, quote groups, cols)
-    extend one indent step into each margin. <strong>Full-bleed</strong> —
-    media, tables and <code>full</code>-flagged containers span the
-    viewport. Bullet plates (chips, plain lists) and cards sit WITHIN the
-    container (tickets 39/53).</p>
+    <ul>
+      <li><strong>Text edge</strong>: all body copy aligns here</li>
+      <li><strong>Bleed</strong>: display boxes (summary, quote groups, cols) extend one indent step into each margin</li>
+      <li><strong>Full-bleed</strong>: media, tables and <code>full</code>-flagged containers span the viewport</li>
+      <li>Bullet plates (chips, plain lists) and cards sit WITHIN the container (tickets 39/53)</li>
+    </ul>
+    <div class="ai-mark">✦ AI-drafted</div>
     <div class="case-study document-text" style="padding-top: 8px; padding-bottom: 8px;">
-      <div class="cs-summary"><em>Bleed example — the summary box extends
+      <div class="cs-summary"><em>Bleed example: the summary box extends
         past the text edge by one indent step on both sides.</em></div>
     </div>
     <div class="case-study document-text" style="padding-top: 8px; padding-bottom: 8px;">
       <div class="cs-cards">
         <div class="cs-card">
-          <h3>Within the container — card (ticket 53)</h3>
+          <h3>Within the container: card (ticket 53)</h3>
           <p>The card's box spans the text column; its text sits inset
           inside the plate, like the chips.</p>
         </div>
@@ -64,7 +63,7 @@
     </div>
     <div class="case-study document-text" style="padding-top: 8px; padding-bottom: 8px;">
       <div class="cs-full" style="background-color: rgba(24, 24, 27, 0.12); border-radius: 8px;">
-        <p style="text-align: center; margin: 0;">Full-bleed band — <code>::: type full</code>
+        <p style="text-align: center; margin: 0;">Full-bleed band: <code>::: type full</code>
         (the background spans the viewport; content keeps its insets)</p>
       </div>
     </div>
@@ -73,12 +72,18 @@
   <!-- Vertical rhythm -->
   <div class="text-block">
     <h3 class="page-header">Vertical rhythm</h3>
-    <p>One spacing scale governs all vertical gaps: <strong>8 / 16 / 24 /
-    32 / 48 / 64 / 96</strong> (8pt grid). Roles: 8 inside components,
-    16 list rhythm, 24 around media and after headings, 32 around
-    self-contained blocks, 48 around media wrappers and h2→h3, 64 around
-    pull quotes, 96 section padding. Label+content pairs (eyebrow →
-    heading, sub-title → list) sit tight by design.</p>
+    <p>One spacing scale governs all vertical gaps: <strong>8 / 16 / 24 / 32 / 48 / 64 / 96</strong> (8pt grid):</p>
+    <ul>
+      <li>8 - inside components</li>
+      <li>16 - list rhythm</li>
+      <li>24 - around media and after headings</li>
+      <li>32 - around self-contained blocks</li>
+      <li>48 - around media wrappers and h2→h3</li>
+      <li>64 - around pull quotes</li>
+      <li>96 - section padding</li>
+    </ul>
+    <p>Label+content pairs (eyebrow → heading, sub-title → list) sit tight by design.</p>
+    <div class="ai-mark">✦ AI-drafted</div>
     <div class="case-study document-text" style="padding-top: 8px; padding-bottom: 8px;">
       <div style="background: rgba(24,24,27,0.08); border-radius: 4px; padding: 8px; text-align: center; margin-bottom: 8px;">8</div>
       <div style="background: rgba(24,24,27,0.08); border-radius: 4px; padding: 8px; text-align: center; margin-bottom: 16px;">16</div>
@@ -93,14 +98,16 @@
   <!-- Heroes (ticket 45, DR-0014) -->
   <div class="text-block">
     <h3 class="page-header">Heroes</h3>
-    <p>One hero component, one spacing/type set (DR-0014): eyebrow → h1
-    16, h1 → summary 24, summary → details 24, padding 64/64. The variant
-    picks <strong>ground and ink only</strong> — <strong>cover</strong>
-    (full-bleed colored band, white ink), <strong>meta</strong> (in-flow,
-    KPIs under the cover), <strong>adapted bare</strong> (transparent —
-    the page's ground carries it, e.g. visuAI's dark page, with an
-    adapted kicker instead of "Case Study"), and the mid-page
-    <code>::: hero</code> from markdown.</p>
+    <p>One hero component, one spacing/type set (DR-0014): eyebrow → h1 16,
+    h1 → summary 24, summary → details 24, padding 64/64. The variant picks
+    <strong>ground and ink only</strong>:</p>
+    <ul>
+      <li><strong>cover</strong>: full-bleed colored band, white ink</li>
+      <li><strong>meta</strong>: in-flow, KPIs under the cover</li>
+      <li><strong>adapted bare</strong>: transparent, the page's ground carries it (e.g. the visuAI dark page, with an adapted kicker instead of "Case Study")</li>
+      <li>mid-page <code>::: hero</code> from markdown</li>
+    </ul>
+    <div class="ai-mark">✦ AI-drafted</div>
 
     <div class="case-study document-text" style="padding-top: 8px; padding-bottom: 8px;">
       {# guide-ladder note: demo titles are h2 (one h1 per page); the
@@ -109,7 +116,7 @@
       <header class="cs-hero guide-flat-title">
         <p class="cs-eyebrow">The visuAI Workflow</p>
         <h2>Adapted bare hero</h2>
-        <p class="cs-cover-summary">Transparent on any ground — no cover box,
+        <p class="cs-cover-summary">Transparent on any ground: no cover box,
         an adapted eyebrow instead of the case-study kicker.</p>
         <p class="cs-cover-details">Design Lead ⋅ 2026</p>
       </header>
@@ -120,7 +127,7 @@
         <div class="cs-metrics">
           <div class="cs-metric">
             <span class="cs-metric-value">15</span><span class="cs-metric-suffix">%</span>
-            <span class="cs-metric-label">meta hero — KPIs sit under the cover</span>
+            <span class="cs-metric-label">meta hero :  KPIs sit under the cover</span>
           </div>
         </div>
       </section>
@@ -131,19 +138,19 @@
         <p class="cs-eyebrow">Case Study</p>
         <h2>Cover hero</h2>
         <p class="cs-cover-summary">White-on-color ink; the real cover spans
-        the viewport (100vw technique, 64px/48px padding — DR-0014). This
+        the viewport (100vw technique, 64px/48px padding - DR-0014). This
         demo shows its structure at container width.</p>
         <p class="cs-cover-details">Details line</p>
       </header>
     </div>
 
     <div class="case-study document-text" style="padding-top: 8px; padding-bottom: 8px;">
-      {# the real ::: hero output — its h2 keeps the h1 look via the
+      {# the real ::: hero output :  its h2 keeps the h1 look via the
          component's secondary-hero rule (16px vertical padding included) #}
       <header class="cs-hero">
         <p class="cs-eyebrow">Section Label</p>
         <h2>Mid-page hero</h2>
-        <p class="cs-subtitle">Emitted by the ::: hero container in markdown —
+        <p class="cs-subtitle">Emitted by the ::: hero container in markdown:
         64/64 padding, subtitle and byline on the shared 24 gaps (DR-0014).</p>
       </header>
     </div>
@@ -154,36 +161,36 @@
     <h3 class="page-header">Components</h3>
     <div class="case-study document-text" style="padding-top: 8px; padding-bottom: 8px;">
       <ul class="cs-facts">
-        <li>Fact chip — key stats and proof points</li>
-        <li>Second chip — dot 20px inside the plate, text 8px clear of the dot (tickets 39/41)</li>
+        <li>Fact chip :  key stats and proof points</li>
+        <li>Second chip :  dot 20px inside the plate, text 8px clear of the dot (tickets 39/41)</li>
       </ul>
 
-      <p style="margin-top: 16px;"><code>* item</code> at section level — the plain bullet list
+      <p style="margin-top: 16px;"><code>* item</code> at section level :  the plain bullet list
       (<code>ul.cs-plain</code>, DR-0010): chip geometry, no plate.</p>
       <ul class="cs-plain">
-        <li>Plain bullet — the dot sits ON the text edge, text +8px</li>
-        <li>Second plain bullet — the opt-out when a list should not be a chip</li>
+        <li>Plain bullet :  the dot sits ON the text edge, text +8px</li>
+        <li>Second plain bullet :  the opt-out when a list should not be a chip</li>
       </ul>
 
       <ol class="cs-timeline" style="margin-top: 24px;">
-        <li><h3>Timeline step one</h3><p>Real markup: ol.cs-timeline > li — the numbered dot and connector are the component's.</p></li>
+        <li><h3>Timeline step one</h3><p>Real markup: ol.cs-timeline > li :  the numbered dot and connector are the component's.</p></li>
         <li><h3>Timeline step two</h3><p>Numbers baseline-align with their titles.</p></li>
       </ol>
 
-      <p class="cs-note">Note — [note: text], the muted annotation line with its icon.</p>
+      <p class="cs-note">Note :  [note: text], the muted annotation line with its icon.</p>
 
       <blockquote class="cs-quote" style="margin: 32px auto;">
-        <p>"Display quote — centered, italic, h2-size, on every page."</p>
+        <p>"Display quote :  centered, italic, h2-size, on every page."</p>
       </blockquote>
 
       <div class="cs-quotes">
-        <div class="cs-quote"><blockquote><p>"Quote group — runs of 2+ quotes share one bleeding plate."</p></blockquote></div>
+        <div class="cs-quote"><blockquote><p>"Quote group :  runs of 2+ quotes share one bleeding plate."</p></blockquote></div>
         <div class="cs-quote"><blockquote><p>"Each quote keeps its own blockquote inside the group."</p></blockquote></div>
       </div>
 
-      <p class="cs-summary"><em>Summary box — [summary: text]; the bleeding closing-summary of a case study.</em></p>
+      <p class="cs-summary"><em>Summary box :  [summary: text]; the bleeding closing-summary of a case study.</em></p>
 
-      <p style="margin-top: 16px;">Image run (ticket 61): <code>::: shots</code> — N images
+      <p style="margin-top: 16px;">Image run (ticket 61): <code>::: shots</code> :  N images
       side by side, each image's alt text = its caption below. Wraps on
       narrow screens.</p>
       <div class="cs-wide cs-wide--full">
@@ -198,16 +205,16 @@
              moment the tab opens. The standalone /styleguide/ page calls
              this without lazyDemo and keeps eager loading. #}
           <figure class="cs-shot">
-            <img src="../images/work/thumbs/gallery_thumb_artent.jpg" alt="Art-Ent — connecting artists and students"{% if spec.lazyDemo %} loading="lazy"{% endif %}>
-            <figcaption>Art-Ent — the first shot's caption</figcaption>
+            <img src="../images/work/thumbs/gallery_thumb_artent.jpg" alt="Art-Ent :  connecting artists and students"{% if spec.lazyDemo %} loading="lazy"{% endif %}>
+            <figcaption>Art-Ent :  the first shot's caption</figcaption>
           </figure>
           <figure class="cs-shot">
-            <img src="../images/work/thumbs/gallery_thumb_climateclock.jpg" alt="Climate Clock — the second shot"{% if spec.lazyDemo %} loading="lazy"{% endif %}>
-            <figcaption>Climate Clock — the second shot's caption</figcaption>
+            <img src="../images/work/thumbs/gallery_thumb_climateclock.jpg" alt="Climate Clock :  the second shot"{% if spec.lazyDemo %} loading="lazy"{% endif %}>
+            <figcaption>Climate Clock :  the second shot's caption</figcaption>
           </figure>
           <figure class="cs-shot">
-            <img src="../images/work/thumbs/gallery_thumb_closet.jpg" alt="Digital Closet — the third shot"{% if spec.lazyDemo %} loading="lazy"{% endif %}>
-            <figcaption>Digital Closet — the third shot's caption</figcaption>
+            <img src="../images/work/thumbs/gallery_thumb_closet.jpg" alt="Digital Closet :  the third shot"{% if spec.lazyDemo %} loading="lazy"{% endif %}>
+            <figcaption>Digital Closet :  the third shot's caption</figcaption>
           </figure>
         </div>
       </div>
@@ -218,7 +225,7 @@
         <span class="cs-frame-label"><strong>Frame</strong>placeholder for mockups and pending media</span>
       </div>
 
-      <p class="cs-frame-caption">Frame caption — a [point:] under an image renders
+      <p class="cs-frame-caption">Frame caption :  a [point:] under an image renders
       as a dotless, italic caption (DR-0011)</p>
 
       <div class="cs-metrics" style="margin-top: 24px;">
@@ -240,43 +247,43 @@
       <div class="col-md-6">
         <span class="box-container" style="background: #111111;color: #ebf5ff;padding:8px;font-weight:700;">
           #111111
-          <p>cs-black — fashion ground/accent</p>
+          <p>cs-black :  fashion ground/accent</p>
         </span>
       </div>
       <div class="col-md-6">
         <span class="box-container" style="background: #0e7d6f;color: #ebf5ff;padding:8px;font-weight:700;">
           #0E7D6F
-          <p>cs-teal-ground — teachr ground</p>
+          <p>cs-teal-ground :  teachr ground</p>
         </span>
       </div>
       <div class="col-md-6">
         <span class="box-container" style="background: #14a08d;color: #18181b;padding:8px;font-weight:700;">
           #14A08D
-          <p>cs-teal-base — teachr accent</p>
+          <p>cs-teal-base :  teachr accent</p>
         </span>
       </div>
       <div class="col-md-6">
         <span class="box-container" style="background: #d50e95;color: #fff;padding:8px;font-weight:700;">
           #D50E95
-          <p>cs-pink-ground — ecommerce ground</p>
+          <p>cs-pink-ground :  ecommerce ground</p>
         </span>
       </div>
       <div class="col-md-6">
         <span class="box-container" style="background: #c10d82;color: #ebf5ff;padding:8px;font-weight:700;">
           #C10D82
-          <p>cs-pink-deep — ecommerce deep accent</p>
+          <p>cs-pink-deep :  ecommerce deep accent</p>
         </span>
       </div>
       <div class="col-md-6">
         <span class="box-container" style="background: #d73735;color: #fff;padding:8px;font-weight:700;">
           #D73735
-          <p>cs-red — brand accent (= $vb-primary)</p>
+          <p>cs-red :  brand accent (= $vb-primary)</p>
         </span>
       </div>
       <div class="col-md-6">
         <span class="box-container" style="background: #e34a47;color: #18181b;padding:8px;font-weight:700;">
           #E34A47
-          <p>cs-red-lifted — red for dark grounds (visuAI)</p>
+          <p>cs-red-lifted :  red for dark grounds (visuAI)</p>
         </span>
       </div>
     </div>

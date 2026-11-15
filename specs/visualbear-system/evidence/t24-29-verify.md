@@ -65,7 +65,7 @@ below). Recorded here as the ticket's gate answer.
     stripFloatingRobot);
   - `release-guard.sh` check 9: zero drive-href hits in the mirror +
     positive assert on the public index. Lesson recorded: `find -exec
-    grep` exits 1 on zero matches, which killed the set -e guard - the
+grep` exits 1 on zero matches, which killed the set -e guard - the
     substitution carries `|| true`.
 - Probed: public home card order = fashion, sports, closet (bottom) at
   360 + 1440; mirror home = mirror-only card, fashion, sports; closet
@@ -95,18 +95,18 @@ wrapping to two lines).
 
 Probe table (computed, both tab states):
 
-| metric | 360 visuAI | 360 design | 1440 visuAI | 1440 design |
-| --- | --- | --- | --- | --- |
-| strip top | 80 | 80 | 80 | 80 |
-| hero top | 149 | 149 | 149 | 149 |
-| hero w | 288 | 288 | 836 | 836 |
-| h1 | 31.104px | 31.104px | 38.4px | 38.4px |
-| h1 top | 265.7 | 265.7 | 265.7 | 265.7 |
-| eyebrow | 15.36 / w 288 | 15.36 / w 288 | 15.36 / w 836 | 15.36 / w 836 |
-| summary fs | 22.464 | 22.464 | 22.464 | 22.464 |
-| first prose p | 17.28 / 300 / w 288 | 17.28 / 300 / w 288 | 18.432 / 300 / w 836 | 18.432 / 300 / w 836 |
-| section h2 | 22.464 | 22.464 | 28.8 | 28.8 |
-| .document-text w | (box 360, content 288) | 288 | (900 box) | 836 |
+| metric           | 360 visuAI             | 360 design          | 1440 visuAI          | 1440 design          |
+| ---------------- | ---------------------- | ------------------- | -------------------- | -------------------- |
+| strip top        | 80                     | 80                  | 80                   | 80                   |
+| hero top         | 149                    | 149                 | 149                  | 149                  |
+| hero w           | 288                    | 288                 | 836                  | 836                  |
+| h1               | 31.104px               | 31.104px            | 38.4px               | 38.4px               |
+| h1 top           | 265.7                  | 265.7               | 265.7                | 265.7                |
+| eyebrow          | 15.36 / w 288          | 15.36 / w 288       | 15.36 / w 836        | 15.36 / w 836        |
+| summary fs       | 22.464                 | 22.464              | 22.464               | 22.464               |
+| first prose p    | 17.28 / 300 / w 288    | 17.28 / 300 / w 288 | 18.432 / 300 / w 836 | 18.432 / 300 / w 836 |
+| section h2       | 22.464                 | 22.464              | 28.8                 | 28.8                 |
+| .document-text w | (box 360, content 288) | 288                 | (900 box)            | 836                  |
 
 - Demo specimens unchanged (probe before/after identical): headings ladder
   (12.96/12.96/12.96/23.328 at 360; 22.464/22.464/22.464/38.4 at 1440),
@@ -158,16 +158,16 @@ Probe table (computed, both tab states):
 
 ## Gates (visuaibear-review, tickets 24-29 surfaces)
 
-| Gate | Result | Evidence |
-| --- | --- | --- |
-| A11y: a11y | PASS | no ink/color rules touched (typography + behavior only) - prior contrast gates stand; reduced-motion: scroll-behavior guard + kept chip transitions; inks/labels/targets unchanged (robot 44x44, pill a11y name probed) |
-| States | PASS | gallery with 1 hidden entry re-flows with no empty slot (mirror tiles uniform 331x256 / 871x256, probed); no state carries new loading/error paths |
-| Tokens & system | PASS | panel typography = the shared case-study tokens ($base-font-size / 1.25); the three remaining literals (0.9rem, 1.17rem, 48px) are the ticket-mandated computed values, derivation-commented; breakpoints reuse the system's bands ($break-big) and ticket 47's 907 idiom - no one-off grid math |
-| Copy | PASS | no copy changed; no em dashes introduced in code comments |
-| Consistency (principles/hooks) | PASS | one hero component / one type set (DR-0014), one text edge (DR-0009), the shared rhythm - the tickets' own principles |
-| Regressions | PASS | visuAI tab probed identical vs pre-change; public /styleguide/ keeps its values (probed); npm test + build + guard green; case-study pages untouched (selectors scoped to [data-vb-panel] / .about-copy) |
-| AI-attribution | PASS | zero `data-ai` attributes in the built home/workflow/mirror pages (grep); no `[ai]`-marked copy added |
-| Foundational heuristics | PASS | H1: nothing deleted - the closet data is HIDDEN, not removed; the only code removal is initSmoothScroll, the ticket's explicit instruction (and the T24 gate decision was recorded, not silently guessed - H3); H2: no site assets added (captures are evidence files under evidence/) |
+| Gate                           | Result | Evidence                                                                                                                                                                                                                                                                                         |
+| ------------------------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| A11y: a11y                     | PASS   | no ink/color rules touched (typography + behavior only) - prior contrast gates stand; reduced-motion: scroll-behavior guard + kept chip transitions; inks/labels/targets unchanged (robot 44x44, pill a11y name probed)                                                                          |
+| States                         | PASS   | gallery with 1 hidden entry re-flows with no empty slot (mirror tiles uniform 331x256 / 871x256, probed); no state carries new loading/error paths                                                                                                                                               |
+| Tokens & system                | PASS   | panel typography = the shared case-study tokens ($base-font-size / 1.25); the three remaining literals (0.9rem, 1.17rem, 48px) are the ticket-mandated computed values, derivation-commented; breakpoints reuse the system's bands ($break-big) and ticket 47's 907 idiom - no one-off grid math |
+| Copy                           | PASS   | no copy changed; no em dashes introduced in code comments                                                                                                                                                                                                                                        |
+| Consistency (principles/hooks) | PASS   | one hero component / one type set (DR-0014), one text edge (DR-0009), the shared rhythm - the tickets' own principles                                                                                                                                                                            |
+| Regressions                    | PASS   | visuAI tab probed identical vs pre-change; public /styleguide/ keeps its values (probed); npm test + build + guard green; case-study pages untouched (selectors scoped to [data-vb-panel] / .about-copy)                                                                                         |
+| AI-attribution                 | PASS   | zero `data-ai` attributes in the built home/workflow/mirror pages (grep); no `[ai]`-marked copy added                                                                                                                                                                                            |
+| Foundational heuristics        | PASS   | H1: nothing deleted - the closet data is HIDDEN, not removed; the only code removal is initSmoothScroll, the ticket's explicit instruction (and the T24 gate decision was recorded, not silently guessed - H3); H2: no site assets added (captures are evidence files under evidence/)           |
 
 Verdict: PASS with notes - T29's on-device visual call stays Pedro's
 (the 18px lever is pre-authorized); on-device Firefox Android validation

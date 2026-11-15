@@ -1,14 +1,25 @@
 // gallery styles
 
 .content.gallery {
-    height: auto;
-    max-width: 900px;
-    width: auto;
-    margin: auto;
-    margin-top: 66vh;
-    padding-bottom: 32px;
-    display: flex;
-    background: linear-gradient(to bottom, rgba(37, 37, 40, 0.0) 256px, rgba(37, 37, 40, 1.0) 0px);
+  height: auto;
+  max-width: $content-width;
+  width: auto;
+  margin: auto;
+  margin-top: 66vh;
+  padding-bottom: 32px;
+  display: flex;
+  background: linear-gradient(to bottom, rgba(37, 37, 40, 0) 256px, rgba(37, 37, 40, 1) 0px);
+
+  // edge-alignment T7 (DR-0002): cards are body content, not image bleeds -
+  // they sit at the nav's 16px page margin inside the page column (the
+  // photogrid's .gallery-grid below keeps its zeroed gutter: image bleed)
+  .row {
+    margin: 0;
+
+    .col {
+      padding: 0 16px;
+    }
+  }
 }
 
 // On small screens the hero flows with the content (see hero.scss), so the
@@ -22,118 +33,183 @@
 // cut edge (measured (76,45,44) -> (37,37,40) at 390). The body's own fade
 // then carries the color alone; the same edge measured ~13 delta on
 // desktop, invisible, so the desktop background stays untouched.
-@include mq($until: mobile){
-    .content.gallery {
-        margin-top: 0;
-        background: none;
-    }
+@include mq($until: mobile) {
+  .content.gallery {
+    margin-top: 0;
+    background: none;
+  }
 }
 
 // play-subpages T11 (DR-0002): the photogrid - a real CSS grid of square,
 // textless cells. Everything is scoped under .gallery-grid (or :has() it),
 // so the work/play/blog galleries keep their existing flex layout untouched.
 .gallery-grid {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  // play-subpages T18 (DR-0006): no gap between cells, just a thin line -
+  // 1px of gap lets the container's dark background show through as a
+  // hairline seam between images (none on the outer edge)
+  gap: 1px;
+  background-color: #0c0c0e;
 
-    // the card molecule wraps its image in a materialize .row/.col; zero
-    // those inside the grid so each card fills its grid track exactly
-    .card--grid .row {
-        margin: 0;
+  // the card molecule wraps its image in a materialize .row/.col; zero
+  // those inside the grid so each card fills its grid track exactly
+  .card--grid .row {
+    margin: 0;
 
-        .col {
-            padding: 0;
-        }
+    .col {
+      padding: 0;
     }
+  }
 
-    // square cells: aspect-ratio drives the height, overriding the base
-    // .medium.card 256px height and margin (specificity 0,4,0 > base 0,2,0)
-    .card--grid .card-container.card.medium {
-        height: auto;
-        margin: 0;
-        aspect-ratio: 1 / 1;
-    }
+  // square cells: aspect-ratio drives the height, overriding the base
+  // .medium.card 256px height and margin (specificity 0,4,0 > base 0,2,0)
+  .card--grid .card-container.card.medium {
+    height: auto;
+    margin: 0;
+    aspect-ratio: 1 / 1;
+  }
 
-    @include mq($until: mobile) {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  @include mq($until: mobile) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 // The photogrid page has no hero (plan: "no hero, just the grid"), so the
 // 66vh hero-clearing spacer on .content.gallery would be a dead gap there.
 // :has() scopes this to gallery pages that contain a photogrid only.
+// play-subpages T18 (DR-0006): the photogrid is full-bleed - the container
+// drops its 900px cap and spans the page, and 24px of padding under the
+// sticky switch bar gives the images room from the header.
 .content.gallery:has(.gallery-grid) {
-    margin-top: 0;
-    background: none;
+  margin-top: 0;
+  background: none;
+  max-width: none;
+  width: 100%;
+  padding: 24px 0 32px;
 }
 
 // play-subpages T17: the photography view switch (grid / full size).
 // Scoped to the new classes only - no existing rule touched.
 // .photoview pads the page under the fixed 48px nav (nav is fixed, z-index 2).
 .photoview {
-    padding-top: 48px;
+  padding-top: 48px;
+}
+
+// play-subpages T19 (DR-0006): the page headline - the page had no h1 at
+// all; $vb-light (~15:1 on the dark grey gradient) so it matches the ground.
+// T24 (DR-0008): pinned to the $content-width line the other gallery pages
+// use, so the title aligns with the site's content column (grid stays
+// full-bleed)
+.photoview-title {
+  max-width: $content-width;
+  margin: 0 auto;
+  padding: 24px 16px 0;
+  color: $vb-light;
+  font-size: $base-h1-size;
 }
 
 // The switch bar sticks directly below the fixed header on scroll.
+// play-subpages T21 (DR-0007): the bar itself has NO background - the tabs
+// sit directly on the page ground (Pedro: "make the grid bar no background").
+// T24 (DR-0008): the bar is pinned to the same $content-width line as the title
 .photoview-switch {
-    position: sticky;
-    top: 48px;
-    z-index: 1;
-    display: flex;
-    gap: 8px;
-    padding: 8px 16px;
-    background: $vb-dark;
+  position: sticky;
+  top: 48px;
+  z-index: 1;
+  display: flex;
+  gap: 8px;
+  max-width: $content-width;
+  margin: 0 auto;
+  padding: 8px 16px;
+  background: transparent;
 }
 
+// play-subpages T21 (DR-0007): the view buttons wear the same look as the
+// visuAI / Design system tabs on /workflow/ (`.vb-tab`, tabs.scss) - the
+// values are mirrored here, scoped to .photoview, because the switch is an
+// aria-pressed group, not a tablist (the tabs controller must not boot on
+// it). If the strip's inks ever change in tabs.scss, change them here too.
 .photoview-btn {
-    min-height: 44px;
-    padding: 0 16px;
-    background: transparent;
-    border: 2px solid transparent;
-    color: $vb-light;
-    font-size: 14px;
-    cursor: pointer;
+  min-height: 44px; // 12px vertical padding reaches 45px; the 44px floor holds
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 999px;
+  // play-subpages T24 (DR-0008): solid page-background color, so when the
+  // bar sticks over scrolling photos no photo shows through the option
+  background: $vb-dark;
+  color: #a6adb8; // the strip's dark-ground muted ink (7.8:1 on $vb-dark)
+  font-size: $middle-font-size;
+  font-weight: $font-bold;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.16s ease, background-color 0.16s ease;
 
-    // active view: red border (UI indicator, 3.4:1 on the dark plate >= 3:1),
-    // ink stays $vb-light (15:1 on the plate)
-    &[aria-pressed="true"] {
-        border-color: $vb-primary;
-        font-weight: 600;
-    }
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
 
-    &:hover {
-        border-color: $vb-primary;
-    }
+  // active view: lifted red + underline, same as .vb-tab--active on dark
+  &[aria-pressed='true'] {
+    color: #ee6e73;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
 }
 
-// full-size view: stacked images at natural size, the page scrolls
+// compact strip envelope, mirroring tabs.scss (ticket 22): the labels stay
+// one line at 320-375
+@include mq($until: mobileLandscape) {
+  .photoview-btn {
+    padding: 12px 10px;
+    letter-spacing: 0.12em;
+  }
+}
+
+@media (max-width: 360px) {
+  .photoview-btn {
+    padding: 12px 8px;
+    letter-spacing: 0.1em;
+  }
+}
+
+// full-size view: stacked images on a tall stage, the page scrolls.
+// play-subpages T21 (DR-0007): each image gets ~3164px of height, contained
+// (no crop) - Pedro's resolved target; the value lives in one custom property
 .gallery-full {
-    width: 100%;
-    padding: 16px;
+  --photofull-img-height: 3164px;
 
-    .photofull-item {
-        display: block;
-        margin: 0 0 16px;
+  width: 100%;
+  padding: 16px;
 
-        img {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
+  .photofull-item {
+    display: block;
+    margin: 0 0 16px;
 
-        &:hover,
-        &:focus-visible {
-            outline: 2px solid $vb-primary;
-            outline-offset: 2px;
-        }
+    img {
+      display: block;
+      width: 100%;
+      height: var(--photofull-img-height);
+      object-fit: contain;
     }
+
+    &:hover,
+    &:focus-visible {
+      // T18 (DR-0006): bigger hover border than the 2px grid default
+      outline: 4px solid $vb-primary;
+      outline-offset: 2px;
+    }
+  }
 }
 
 // [hidden] needs explicit display rules: the display:grid/display:block above
 // and normalize both beat the UA's [hidden] none
 .gallery-grid[hidden],
 .gallery-full[hidden] {
-    display: none;
+  display: none;
 }

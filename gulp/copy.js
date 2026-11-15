@@ -15,7 +15,10 @@ export default function (gulp, plugins, args, config, taskTarget, browserSync) {
         '!' + path.join(dirs.source, '**/*.nunjucks'),
         // Source archive of the case-study PDFs (hosted on Google Drive);
         // unreferenced by the site and ~31MB per deploy
-        '!' + path.join(dirs.source, 'case-studies{,/**}')
+        '!' + path.join(dirs.source, 'case-studies{,/**}'),
+        // dotfiles are not matched by the glob above: ship the Apache
+        // ErrorDocument config (specs/release-4.0, the 404 ticket)
+        path.join(dirs.source, '.htaccess')
       ])
       .pipe(plugins.changed(dest))
       .pipe(gulp.dest(dest));

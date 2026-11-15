@@ -944,11 +944,25 @@ $cs-indent: 28px;
 // >= 36px inside the viewport (28px bleed + 8px viewport margin) so the
 // bleeding boxes never touch or cross the edge. With the 900px container
 // (ticket 42) the text edge is (vw-900)/2 + 32; it reaches 36 only at
-// vw >= 908, so the 36px bump carries every band below that.
-@media (max-width: 907px) {
-  .case-study .text-box {
-    padding-left: 36px;
-    padding-right: 36px;
+// vw >= 908, so the 36px bump carried every band below that. Edge-alignment
+// (DR-0001): below the 916px column the container is full-bleed, so the text
+// gutter is a flat 16px - the same inner gutter the nav links have, landing
+// the text edge where the last menu label ends.
+@media (max-width: 915px) {
+  // the bleed is one indent step into the margin; below 916px the gutter is
+  // the nav's 16px page margin, so the bleed caps at 8px - bleeding boxes
+  // keep 8px clearance from the viewport edge. Nothing but image bleeds
+  // (cs-wide--full, the photogrid) touches the bleed (DR-0002)
+  .case-study {
+    .cs-timeline li {
+      margin-left: -8px;
+    }
+
+    .cs-quotes,
+    .cs-twocol .cs-col {
+      margin-left: -8px;
+      margin-right: -8px;
+    }
   }
 }
 
@@ -1214,10 +1228,10 @@ body.cs-pink-page nav a.icon img {
 // inset never reached them — at 390 the bleeding demos (card, timeline
 // gutter) spilled 9px of horizontal scroll. Same inset as the real
 // shells, scoped to the guide.
-@media (max-width: 907px) {
+@media (max-width: 915px) {
   #styleguide_container .case-study.document-text {
-    padding-left: 36px;
-    padding-right: 36px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
 

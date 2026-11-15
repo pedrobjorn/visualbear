@@ -162,10 +162,10 @@ three references).
 
 - [ ] Ticket 24 — Renderer: plain-bullet syntax + list-context rule (`*` vs `-`)
 - [ ] Ticket 25 — Chip geometry unified with the bullet rule (dot on the text edge, text +8) — REVISED 2026-10-31
-- [ ] Ticket 26 — `[summary:]` directive at section level + migrate commented raw HTML
-- [ ] Ticket 27 — Quote byline syntax
-- [ ] Ticket 28 — Dead CSS removal (`.cs-pullquote`, `.cs-steps`)
-- [ ] Ticket 29 — AUTHORING.md sync + doc-sync gate
+- [ ] Ticket 26 — `[summary:]` directive at section level + migrate commented raw HTML — SYNTAX DONE (migration half blocked on Pedro)
+- [ ] Ticket 27 — Quote byline syntax — SYNTAX DONE (adoption blocked on Pedro)
+- [x] Ticket 28 — Dead CSS removal (`.cs-pullquote`, `.cs-steps`) — DONE 2026-11-01
+- [x] Ticket 29 — AUTHORING.md sync + doc-sync gate — DONE 2026-11-01
 - [ ] Ticket 30 — Fashion `::: table` mobile overflow (spills 106px at 390)
 - [ ] Ticket 31 — Bleed vs container inset: kill the 768–791 spill band, restore the 8px viewport margin
 - [ ] Ticket 32 — Box-audit tool: measure boxes, tables and horizontal overflow (closes the tool gap)
@@ -174,13 +174,31 @@ three references).
 - [ ] Ticket 35 — 4px clear gap between bullet dot and text (Pedro, 2026-10-31; DR-0009 amendment) — DONE
 - [ ] Ticket 36 — Bullet-to-text spacing doubled: 8px clear gap (Pedro, 2026-10-31; DR-0009 amendment) — DONE
 - [ ] Ticket 37 — `[point:]` under an image renders as a caption: dotless, italic (Pedro, 2026-10-31; DR-0011) — DONE
-- [ ] Ticket 43 — Styleguide refresh: real components, current system, a11y clean (review: `review-styleguide.md`, verdict BLOCKED)
-- [ ] Ticket 45 — Hero component for visuAI + styleguide: adapted variants (no bg on visuAI, adapted kicker; heroes documented in the guide) — SPEC'D, next batch
+- [x] Ticket 43 — Styleguide refresh: real components, current system, a11y clean (review: `review-styleguide.md`, verdict BLOCKED) — DONE 2026-11-01 (one known remaining axe flag from the legacy steammobile demo — Pedro's call)
+- [x] Ticket 45 — Hero component for visuAI + styleguide: adapted variants (no bg on visuAI, adapted kicker; heroes documented in the guide) — DONE 2026-11-01
+- [x] Ticket 46 — The styleguide page opens with a hero (adapted bare variant, second instance after visuAI) — DONE 2026-11-01
+- [x] Ticket 47 — Styleguide evaluation: broken/misaligned fixes (9px mobile scroll, unstyled labels demo, invalid HTML, dup ids, steammobile demo) + blueprint coverage (cs-plain, quote group, note, divider, summary demos) — DONE 2026-11-01
+- [x] Ticket 48 — Styleguide presentation fixes: broken icon/card assets, alt/width attributes, structure nits (no fundamental styling changes) — DONE 2026-11-01
+- [x] Ticket 49 — Rhythm spacer bars on the brand palette: dark-grey tint (#18181B at 0.08; light blue closed — the bars sit on the light-blue ground) — DONE 2026-11-01
+- [x] Ticket 50 — Full-bleed band demo to the dark-grey tint (supersedes t49's out-of-scope note, per Pedro) + Buttons Aligned rebuilt on the regular navigation buttons, plain ground — DONE 2026-11-01
+- [x] Ticket 51 — Timeline dot aligned with its step title (dot margin 14.5px, connector 44.5px; was floating 15.5px high) — DONE 2026-11-01
+- [x] Ticket 52 — Index background gradient FIXED: fade on a one-viewport body::before layer (no more canvas-propagated 900px repeat), nav scroll-fade retuned, fold curve unchanged — DONE 2026-11-01
+- [x] Ticket 53 — Cards within the container: cs-cards bleed removed (DR-0009 amendment; audits retuned: card box on the text edge, text +28, card bullets +41) — DONE 2026-11-01
+- [x] Ticket 54 — Timeline text 8px off the dot: h3/p padding-left 8px (gap 2px → 10px; edge-audit rule +8, plain li steps included) — DONE 2026-11-01
+- [x] Ticket 55 — Timeline h3 top margin 4px; dot margin 16.5px + connector 46.5px follow (centering kept ±1) — DONE 2026-11-01
+- [x] Ticket 56 — Timeline h3 top margin 8px (+4 more); dot 20.5px + connector 50.5px follow — DONE 2026-11-01, superseded same day by 57
+- [x] Ticket 57 — Timeline h3 top margin 12px ("actually make it 12px"); dot 24.5px + connector 54.5px follow — DONE 2026-11-01, superseded by 58
+- [x] Ticket 58 — Timeline h3 margins REMOVED (the 55-57 nudge chase abandoned); dot 12.5px + connector 42.5px re-centered, ±1 held — DONE 2026-11-01
+- [x] Ticket 60 — Timeline dot alignment ROOT CAUSE fixed: the glyph box snaps ±2-3px per viewport, so the fixed margin could never hold — the grid centers the dot now (align-self: center, 0.7px at every width) — DONE 2026-11-01
+- [x] Ticket 59 — Timeline h3 `margin: 4px 0` FINAL (Pedro: "leave it at that"); dot 16.5px + connector 47.5px follow — DONE 2026-11-01
+- [x] Ticket 61 — Image runs: `::: shots` container (N images side by side, alt = caption below; the "how it started" slide) + the photo workflow documented — DONE 2026-11-01
 
 ## Open questions
 
-| Question                                                                                                                    | Owner | Blocks build?            |
-| --------------------------------------------------------------------------------------------------------------------------- | ----- | ------------------------ |
-| Ecommerce "KPIs" and "Key issues" lists: confirm they stay chips (reference look)                                           | Pedro | No (default: chips)      |
-| Migrate the commented-out cs-summary / cs-twocol blocks into rendered content (changes live pages), or delete the comments? | Pedro | Ticket 26 migration half |
-| Quote bylines wanted? (ticket 27 builds the syntax either way)                                                              | Pedro | Ticket 27 adopt half     |
+| Question                                                                                                                                                | Owner | Blocks build?                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | -------------------------------------------------------------- |
+| Ecommerce "KPIs" and "Key issues" lists: confirm they stay chips (reference look)                                                                       | Pedro | No (default: chips)                                            |
+| Migrate the commented-out cs-summary / cs-twocol blocks into rendered content (changes live pages), or delete the comments?                             | Pedro | Ticket 26 migration half                                       |
+| Quote bylines wanted? (ticket 27 builds the syntax either way)                                                                                          | Pedro | Ticket 27 adopt half                                           |
+| visuAI kicker copy ("The visuAI Workflow" shipped as default) — vetoable                                                                                | Pedro | No                                                             |
+| Legacy steammobile gallery-header demo in the styleguide containers block: drop it, or change the headline module (its h1→h3 breaks axe heading-order)? | Pedro | Only the ticket-43 "axe zero" criterion; everything else clean |

@@ -1,0 +1,4 @@
+{
+  "//": "EXAMPLE ONLY - the real mirror path lives in private-path.json (gitignored). Shape: <harmless-phrase>-<6 lowercase alphanumerics>, see specs/release-4.0/DR-R4-0004.",
+  "mirrorPath": "selected-works-XXXXXX"
+}

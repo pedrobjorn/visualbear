@@ -1,5 +1,6 @@
 {% extends "_layouts/work.nunjucks" %}
 {% import "_modules/molecules/buttonslider/buttonslider.nunjucks" as buttonslider %}
+{% block robots %}<meta name="robots" content="noindex, nofollow"/>{% endblock %}
 {% block title %}visualbear - Sports E-commerce Redesign{% endblock %}
 {% block config %}
     {% set baseUrl = "../" %}

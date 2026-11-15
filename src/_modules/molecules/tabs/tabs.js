@@ -18,51 +18,8 @@ var ENTER_MS = 160; // the swap fade; the CSS keyframe runs the same length
 
 var GROUND_CLASSES = ['workflow-page', 'vb-system-light'];
 
-// Boot the tab shell when a page carries one; a no-op everywhere else.
-function init() {
-  var root = document.querySelector('[data-vb-tablist]');
-  if (!root) return;
-
-  try {
-    var specScript = root.querySelector('[data-vb-tab-spec]');
-    var spec = specScript ? JSON.parse(specScript.textContent) : null;
-    if (spec) core.validateSpec(spec);
-  } catch (e) {
-    // a broken spec only skips validation; the strip still works
-  }
-
-  var state = core.init(core.DEFAULT_TAB);
-
-  root.addEventListener('click', function (e) {
-    var btn = e.target.closest('[data-vb-tab]');
-    if (btn) {
-      activate(core.reduce(state, { type: 'activate', id: btn.getAttribute('data-vb-tab') }));
-    }
-  });
-
-  root.addEventListener('keydown', function (e) {
-    var action = null;
-    if (e.key === 'ArrowRight') action = { type: 'arrow', dir: 1 };
-    else if (e.key === 'ArrowLeft') action = { type: 'arrow', dir: -1 };
-    else if (e.key === 'Home') action = { type: 'home' };
-    else if (e.key === 'End') action = { type: 'end' };
-    // Activation follows focus (WAI-ARIA tabs pattern). Paint first, then
-    // focus: the strip relocates into the active panel's host during the
-    // paint (ticket 14) and a focused node detaches on move - focusing a
-    // button that is about to be re-parented would drop it (DR-0006).
-    if (action) {
-      e.preventDefault();
-      var next = core.reduce(state, action);
-      activate(next);
-      var btn = root.querySelector('#' + core.tabId(next.activeId));
-      if (btn) btn.focus();
-    }
-  });
-
-  function activate(next) {
-    state = next;
-    paint(state, root);
-  }
+function prefersReducedMotion() {
+  return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
 
 // Paint one state: buttons, body ground pair, visible panel, and the
@@ -112,8 +69,56 @@ function paint(state, root) {
   });
 }
 
-function prefersReducedMotion() {
-  return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+// Boot the tab shell when a page carries one; a no-op everywhere else.
+function init() {
+  var root = document.querySelector('[data-vb-tablist]');
+  if (!root) return;
+
+  var spec = null;
+  try {
+    var specScript = root.querySelector('[data-vb-tab-spec]');
+    spec = specScript ? JSON.parse(specScript.textContent) : null;
+    if (spec) core.validateSpec(spec);
+  }
+  catch (e) {
+    // a broken spec only skips validation; the strip still works
+  }
+
+  // T62 (DR-0015): the host page picks the initial tab through the strip
+  // spec's `active` (/styleguide/ opens on Design system); without a spec the
+  // default stays visuAI, so /workflow/ is unchanged
+  var state = core.init((spec && spec.active) || core.DEFAULT_TAB);
+
+  function activate(next) {
+    state = next;
+    paint(state, root);
+  }
+
+  root.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-vb-tab]');
+    if (btn) {
+      activate(core.reduce(state, { type: 'activate', id: btn.getAttribute('data-vb-tab') }));
+    }
+  });
+
+  root.addEventListener('keydown', function (e) {
+    var action = null;
+    if (e.key === 'ArrowRight') action = { type: 'arrow', dir: 1 };
+    else if (e.key === 'ArrowLeft') action = { type: 'arrow', dir: -1 };
+    else if (e.key === 'Home') action = { type: 'home' };
+    else if (e.key === 'End') action = { type: 'end' };
+    // Activation follows focus (WAI-ARIA tabs pattern). Paint first, then
+    // focus: the strip relocates into the active panel's host during the
+    // paint (ticket 14) and a focused node detaches on move - focusing a
+    // button that is about to be re-parented would drop it (DR-0006).
+    if (action) {
+      e.preventDefault();
+      var next = core.reduce(state, action);
+      activate(next);
+      var btn = root.querySelector('#' + core.tabId(next.activeId));
+      if (btn) btn.focus();
+    }
+  });
 }
 
 module.exports = { init: init };

@@ -1061,7 +1061,7 @@ mirror home (depth 0) each `../` resolves to the PUBLIC zone root:
 - Size: S
 - Type: UI
 - Status: DONE 2026-11-13 - one standard pair
-  (-webkit-)text-size-adjust:100% in _base.scss (the 1.5em/MS lines gone,
+  (-webkit-)text-size-adjust:100% in \_base.scss (the 1.5em/MS lines gone,
   grep-verified in the built CSS); link padding 12->8 and logo margin
   12->8 inside the mq($until: tablet) block. Probes (evidence/t21-23-verify.md):
   elastic nav headroom 30.2px at 320 (worst case), 70.2 at 360, 85.2 at
@@ -1139,18 +1139,18 @@ class regardless of which Android path caused it (DR-0009).
 - Type: UI
 - Status: DONE 2026-11-13 - `.vb-tab { white-space: nowrap }` on the base
   rule; compact envelope at mq($until: mobileLandscape): padding 8px 10px
-  + letter-spacing .12em; the <=360 release lever ships letter-spacing
-  .1em + padding 8px 8px (the probe found Firefox's strip content 4px
-  over the 248px column when the lever was letter-spacing only, so the
-  paddings joined it - recorded per this ticket's "record which values
-  shipped"). Label size, radius, inks, plate untouched. Probes
-  (evidence/t21-23-verify.md): exactly ONE line per tab at 320/360/375,
-  BOTH engines, BOTH tab states (was 2 lines, h 58 vs 37); strip content
-  fits its plate (scrollWidth == clientWidth everywhere); 1440 geometry
-  unchanged (x 561 / w 318 / h 45); click-through ground swap, panel
-  visibility and strip relocation round-trip probe-verified at 360 + 1440.
-  Captures t21-t23-workflow-{320,360}-after.png vs the pre-fix wrap in
-  mobile-eval-workflow-360-*.png.
+  - letter-spacing .12em; the <=360 release lever ships letter-spacing
+    .1em + padding 8px 8px (the probe found Firefox's strip content 4px
+    over the 248px column when the lever was letter-spacing only, so the
+    paddings joined it - recorded per this ticket's "record which values
+    shipped"). Label size, radius, inks, plate untouched. Probes
+    (evidence/t21-23-verify.md): exactly ONE line per tab at 320/360/375,
+    BOTH engines, BOTH tab states (was 2 lines, h 58 vs 37); strip content
+    fits its plate (scrollWidth == clientWidth everywhere); 1440 geometry
+    unchanged (x 561 / w 318 / h 45); click-through ground swap, panel
+    visibility and strip relocation round-trip probe-verified at 360 + 1440.
+    Captures t21-t23-workflow-{320,360}-after.png vs the pre-fix wrap in
+    mobile-eval-workflow-360-\*.png.
 
 ## Context
 
@@ -1160,11 +1160,12 @@ bit odd (zoomed out?)" - on Chrome Android AND Firefox Android. Measured
 the real defect is a WRAP. The strip's nowrap intrinsic width is 303px
 (109 + 182 + 4 gap + 8 plate padding). The workflow text column is 288px
 at 360 (page margins + container paddings) and boundary-exact 303 at 375
+
 - so at both widths the flex chain shrinks the button and "DESIGN
-SYSTEM" (uppercase, letter-spacing .18em, 0.8rem bold) breaks into two
-lines: tab h 58 vs 37, y 84 vs 95 - a two-line chip in a one-line strip,
-which reads as broken/wrong-size, hence "odd". Both desktop engines
-reproduce it identically, so it was always there below ~376px.
+  SYSTEM" (uppercase, letter-spacing .18em, 0.8rem bold) breaks into two
+  lines: tab h 58 vs 37, y 84 vs 95 - a two-line chip in a one-line strip,
+  which reads as broken/wrong-size, hence "odd". Both desktop engines
+  reproduce it identically, so it was always there below ~376px.
 
 ## Requirements
 
@@ -1212,7 +1213,7 @@ reproduce it identically, so it was always there below ~376px.
 - Type: copy/UI
 - Status: DONE 2026-11-13, with ONE recorded deviation - the dead
   `scroller` handlers also lived in BOTH styleguide intro index copies
-  (src/styleguide/_styleguide_blocks/styleguide.intro.nunjucks - the live
+  (src/styleguide/\_styleguide_blocks/styleguide.intro.nunjucks - the live
   blocks that render in /styleguide/ AND the workflow design panel - and
   the src/visualbear/ case-study duplicate). The "case-study duplicates
   untouched" rule (ticket 3) was about CONTENT; a dead-handler removal is
@@ -1220,7 +1221,7 @@ reproduce it identically, so it was always there below ~376px.
   without it. Removed in both; `scroller` grep = zero in src/ (minus two
   comment mentions). Home + /about/: `about-copy` class on the
   .document-text.text-box, all br gone,/.about-copy p + p margin-top:24px
-  in _pages.scss, /about/ img alt in. Probes (evidence/t21-23-verify.md):
+  in \_pages.scss, /about/ img alt in. Probes (evidence/t21-23-verify.md):
   paragraph gaps [24,24,24,24] uniform at 320/360/375/1440 on home #about
   AND /about/, both engines; zero br / onclick in the built pages;
   fashion-rebrand probed clean at 320/360/375. Capture
@@ -1295,10 +1296,10 @@ of the same markup work.
 - Status: DONE 2026-11-13 - GATE ANSWERED by delegation (Pedro: "T24
   still awaits your call" -> the agent decided: ship it; the degradation
   is safe and recorded in the evidence). Shipped: `html { scroll-behavior:
-  smooth }` + reduced-motion guard and `scroll-margin-top: 48px` on the
+smooth }` + reduced-motion guard and `scroll-margin-top: 48px` on the
   explicit id list (#work, #about, #contact, #core, #modules, #containers,
-  #casesystem) in _base.scss; initSmoothScroll + NAV_HEIGHT removed from
-  _scripts/main.js (bundle grep clean; tabs.init + initCountUp untouched).
+  #casesystem) in \_base.scss; initSmoothScroll + NAV_HEIGHT removed from
+  \_scripts/main.js (bundle grep clean; tabs.init + initCountUp untouched).
   Probes (evidence/t24-29-verify.md): smooth scroll verified on nav
   #contact (public home) and the mirror home's in-page #work anchor at
   360 + 1440; targets stop exactly AT the nav bottom (48) - AC CORRECTED
@@ -1423,16 +1424,16 @@ stays; only the gallery card hides.
 ## Acceptance criteria (agent-checkable)
 
 - [x] AMENDED 2026-11-13 (re-add): built public home carries the closet
-  card at the BOTTOM of the cards (data order + the bottom-flag loop;
-  Play/Blog are disabled on the index - probed: fashion, sports, closet
-  at both widths); the mirror home carries zero closet markup (strip
-  pass; the styleguide demo thumb stands - grep targeted on the card's
-  drive href)
+      card at the BOTTOM of the cards (data order + the bottom-flag loop;
+      Play/Blog are disabled on the index - probed: fashion, sports, closet
+      at both widths); the mirror home carries zero closet markup (strip
+      pass; the styleguide demo thumb stands - grep targeted on the card's
+      drive href)
 - [x] The styleguide casesystem demo still references its thumb (the
-  demo is untouched - diff limited to work.json + gallery.nunjucks +
-  the mirror strip)
+      demo is untouched - diff limited to work.json + gallery.nunjucks +
+      the mirror strip)
 - [x] Gallery grid re-flows cleanly at 360 + 1440 (no empty slot box -
-  probe card count and row geometry)
+      probe card count and row geometry)
 - [x] npm build + guard + npm test pass
 
 ## Out of scope
@@ -1501,11 +1502,11 @@ cs-hero h1 sizing in `_case-study.scss` does not win there.
 ## Acceptance criteria (agent-checkable)
 
 - [x] Probed at 360 + 1440 on BOTH tab states: h1 computed font-size
-  equal across panels (38.4 at 1440, 31.104 at 360); hero top and strip
-  top equal (149 / 80); hero width equal (836 / 288)
+      equal across panels (38.4 at 1440, 31.104 at 360); hero top and strip
+      top equal (149 / 80); hero width equal (836 / 288)
 - [x] Eyebrow, summary, details sizes equal across panels at both widths
 - [x] Public /styleguide/ hero unchanged (probe h1 size/position vs
-  pre-change capture)
+      pre-change capture)
 - [x] npm build + guard + npm test pass
 
 ## Out of scope
@@ -1585,14 +1586,14 @@ intro paragraphs still render 28.8 bold vs the visuAI body 18.432 light.
 ## Acceptance criteria (agent-checkable)
 
 - [x] Probed at 360 + 1440 in the design tab: first section paragraph
-  == visuAI body metrics (18.432/300 at 1440, 17.28/300 at 360); panel
-  `.document-text` width 836 at 1440 and 288 at 360; h2 28.8/22.464
+      == visuAI body metrics (18.432/300 at 1440, 17.28/300 at 360); panel
+      `.document-text` width 836 at 1440 and 288 at 360; h2 28.8/22.464
 - [x] No horizontal overflow at 320/360 in the design tab
-  (document.scrollWidth == innerWidth)
+      (document.scrollWidth == innerWidth)
 - [x] Demo specimens unchanged (swatch colors + the typography ladder
-  probe vs pre-change)
+      probe vs pre-change)
 - [x] Public /styleguide/ page diff-clean (probe: intro p still its own
-  style there)
+      style there)
 - [x] visuAI tab byte/probe-identical
 - [x] npm build + guard + npm test pass
 
@@ -1643,8 +1644,8 @@ the T16 spacing-scale note).
 ## Acceptance criteria (agent-checkable)
 
 - [x] Probed at 360 + 1440 on home #about AND /about/: all consecutive
-  paragraph gaps == 0 (the margin removed; amended per Pedro same day),
-  both engines
+      paragraph gaps == 0 (the margin removed; amended per Pedro same day),
+      both engines
 - [x] No other spacing on those pages changes (diff the built CSS block)
 - [x] npm build + guard + npm test pass
 
@@ -1709,7 +1710,7 @@ pass with a pre-authorized lever, not new design.
 - [x] Computed glyph size equal on public + mirror, probed at 360 + 1440
 - [x] Capture pair (robot vs bear reference) stored under evidence/
 - [x] If changed: test updated red-green, npm test green, both robots
-  carry the same value (grep) (not changed - 20px ships; test untouched)
+      carry the same value (grep) (not changed - 20px ships; test untouched)
 - [x] npm build + guard pass
 
 ## Out of scope
@@ -1733,7 +1734,7 @@ pass with a pre-authorized lever, not new design.
   simple"): option (b) via DUPLICATION, recorded in DR-0010. Shipped:
   `workflow` out of `SECRET_DIRS` (release-mirror.js) so the fresh
   gulp build's build/workflow/ ships at the public root; guard check 2
-  now prunes/asserts teachr* only and positively asserts public
+  now prunes/asserts teachr\* only and positively asserts public
   build/workflow/index.html exists; public home pill in
   src/index.nunjucks retargeted href "#work" -> "workflow/" with the
   truthful name "The visualbear system" + pill label "workflow & design
@@ -1785,12 +1786,12 @@ chose #work precisely to avoid disclosing the air-locked mirror path
 ## Acceptance criteria (agent-checkable)
 
 - [ ] The built index page in the chosen zone carries the robot link to
-  the system page (grep + Playwright click-through lands on
-  /selected-works/workflow/ or /workflow/ per the option)
+      the system page (grep + Playwright click-through lands on
+      /selected-works/workflow/ or /workflow/ per the option)
 - [ ] Accessible name matches the actual destination
 - [ ] Release guard green under the chosen posture; npm test green
 - [ ] If (b): a new DR records the air-lock reversal and DR-R4-0002 is
-  marked superseded-for-this-route
+      marked superseded-for-this-route
 
 ## Out of scope
 
@@ -1814,7 +1815,7 @@ chose #work precisely to avoid disclosing the air-locked mirror path
   Pedro's Gate-7 pass owns wording), wrapper links named via img alt;
   probed zero img-alt / link-name offenders on 29 pages, both engines
 - Measured (evidence/sweep-eval-2026-11-13.md, A1): /visualbear/ ships 9
-  gallery <img> without alt (work/fullsize/*), so their wrapper links are
+  gallery <img> without alt (work/fullsize/\*), so their wrapper links are
   unnamed too - the portfolio items are invisible to AT.
 - Unpack: no text on AI-drafted case pages carries the [ai] marker here -
   alts name the WORK (Pedro's imagery, H2 provenance: descriptions come
@@ -1828,7 +1829,7 @@ chose #work precisely to avoid disclosing the air-locked mirror path
 
 - Every case-study gallery img gets an alt (or alt="" if purely
   decorative with a titled link parent) - all case pages, the source
-  templates AND the src/visualbear/_styleguide_blocks duplication
+  templates AND the src/visualbear/\_styleguide_blocks duplication
   copies.
 - The gallery wrapper links carry an accessible name STRICTLY (the
   a11y scanner uses aria-label/title/img alt chain - assert on the
@@ -1880,7 +1881,7 @@ chose #work precisely to avoid disclosing the air-locked mirror path
   /visualbear/ + /styleguide/, one VISIBLE h1 per /workflow/ tab state
 - Measured (A3): /visualbear/ renders FIVE visible h1s - the case hero +
   section h1s + the embedded styleguide COPY's own "Styleguide" h1 and
-  the "h1 Heading" ladder demo. The src/visualbear/_styleguide_blocks
+  the "h1 Heading" ladder demo. The src/visualbear/\_styleguide_blocks
   duplication (T3's "content untouched" zone) leaks heading STRUCTURE
   onto a public case page.
 - This is a tag-level fix (h1 -> h2), not a copy rewrite: no string
@@ -1899,7 +1900,7 @@ chose #work precisely to avoid disclosing the air-locked mirror path
 ## Acceptance criteria (agent-checkable)
 
 - [x] Probed: exactly one VISIBLE h1 on /visualbear/, /styleguide/ and the
-  design tab (the ladder demo excluded by demotion)
+      design tab (the ladder demo excluded by demotion)
 - [x] Text content byte-identical except nothing (tag-only changes)
 - [x] npm build + guard + npm test pass
 
@@ -1935,7 +1936,7 @@ chose #work precisely to avoid disclosing the air-locked mirror path
 
 - [x] Probed: exactly ONE id="contact" per built page (all 23 zones' pages)
 - [x] The demo still RENDERS as a footer specimen visually (camera check
-  design tab vs pre-change - the DEMO LOOK survives)
+      design tab vs pre-change - the DEMO LOOK survives)
 - [x] npm build + guard + npm test pass
 
 ---
@@ -1977,7 +1978,7 @@ chose #work precisely to avoid disclosing the air-locked mirror path
 ## Acceptance criteria (agent-checkable)
 
 - [x] Pixel-probed: every flagged element >= 4.5 on its REAL rendered ground
-  (not the computed walk), both engines at 390 + 1440
+      (not the computed walk), both engines at 390 + 1440
 - [x] Dark grounds unchanged where they already pass
 - [x] npm build + guard + npm test pass
 
@@ -2041,9 +2042,9 @@ chose #work precisely to avoid disclosing the air-locked mirror path
 ## Acceptance criteria (agent-checkable)
 
 - [x] Probed 390 + 1440: tabs, logo, footer bear >= 44x44 hit boxes;
-  VISUAL size/position unchanged (camera diff vs pre-change)
+      VISUAL size/position unchanged (camera diff vs pre-change)
 - [x] T22's one-line-per-label contract still green (strip re-probed at
-  320/360/375, both engines)
+      320/360/375, both engines)
 - [x] npm build + guard + npm test pass
 
 ---
@@ -2081,7 +2082,7 @@ chose #work precisely to avoid disclosing the air-locked mirror path
 ## Acceptance criteria (agent-checkable)
 
 - [x] /workflow/ transferWeight drops ~300KB (probe: requests + transferKB
-  vs eval_perf.json's 488KB) with no degradation on first design-open
+      vs eval_perf.json's 488KB) with no degradation on first design-open
 - [x] The cs-shots row complete on first open (T16 probe re-run)
 - [x] npm build + guard + npm test pass
 
@@ -2108,3 +2109,41 @@ chose #work precisely to avoid disclosing the air-locked mirror path
 - [ ] The home + /about/ carry the image at ~half the transfer weight
 - [ ] Visual parity at 390 + 1440 (capture pair)
 - [ ] npm build + guard pass
+
+---
+
+# Ticket 40: Close Ticket 4 per DR-0015 - /styleguide/ stays public as a second tab host; verify the reference wiring
+
+- Part of: specs/visualbear-system/plan.md (Pedro's eval pass 2026-11-14 answer: "Add the visuAI and Design system tab to the design system" - implemented as md-case-study-editor Ticket 62 + DR-0015; this ticket closes the old retire-gate here)
+- Depends on: md-case-study-editor Ticket 62 (shipped 2026-11-14)
+- Size: S
+- Type: system
+- Status: DONE 2026-11-14 - evidence in evidence/t40-verify.md + t40-\*.png captures
+
+## Context
+
+Ticket 4 ("retire /styleguide/, wire the references") was gated on open question 1. Pedro answered 2026-11-14: the design system stays public AND carries the visuAI / Design system tabs, so /styleguide/ is now a second host of the tab system (md-case-study-editor T62, DR-0015). Nothing is retired; the wiring to verify is that both public URLs serve and the existing entry points still land correctly.
+
+## Requirements
+
+- No route changes: `/styleguide/` and `/workflow/` both keep serving publicly (no deletion, no redirect - H1).
+- Reference wiring verified, not changed: the public home's robot pill still links to `workflow/` ("workflow & design system"); the nav sitemap stays Work/About/Contact (styleguide was never in the nav - reachable by URL and via the /workflow/ Design system tab); footer unchanged.
+- Both pages' tab strips show the same two labels "visuAI" / "Design system" (open question 2: labels kept as drafted).
+- Default tab per host: /workflow/ arrives on visuAI, /styleguide/ on Design system (open question 3, per DR-0015/T62).
+- Plan housekeeping: T4 marked rescoped/closed, open questions 1-3 answered in plan.md.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] GET /styleguide/ and /workflow/ both return 200 on the public build; build/ has both index.html files
+- [ ] Both pages render `[data-vb-tablist]` with exactly the labels "visuAI" and "Design system"; /workflow/ default aria-selected = visuAI, /styleguide/ default = designsystem (measured in a headless browser at 1440 + 390)
+- [ ] Public home still carries the robot pill linking to workflow/ (markup grep + capture)
+- [ ] nav sitemap and footer unchanged (worktree diff on sitemap.json / footer.nunjucks = empty)
+- [ ] Gates: `npm run build` exit 0 (mirror + guard OK), `npm test` 5/5, eslint 0 errors, prettier clean on touched spec files
+
+## Out of scope
+
+- Adding new public links to /styleguide/ (discovery stays via the robot pill -> /workflow/ tabs and direct URL), any copy changes, T32/T39 (still gated on Pedro's asset calls).
+
+## Open questions
+
+- None

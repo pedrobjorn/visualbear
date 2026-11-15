@@ -1,0 +1,34 @@
+// 404 page (build/404.html, served by the web root's ErrorDocument).
+// Pedro's art direction (2026-11-04): light-blue page ground ($vb-light,
+// the brand light), NO hero background - the shared .cs-hero layout
+// (centered, full type roles) sits directly on the page ground -, and
+// red ink. Not $vb-primary #d73735: it sits at ~4.3:1 on light grounds;
+// #d0181e is the site's documented red that clears 4.5:1 everywhere
+// (same token the .cs-eyebrow already uses).
+body.nf-page {
+  background-color: $vb-light;
+}
+
+.nf-hero {
+  min-height: calc(100vh - 96px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  color: #d0181e;
+
+  .cs-cover-summary,
+  .cs-cover-details {
+    color: inherit;
+  }
+
+  // the site's `a:link` (materialize) is (0,2,1) and out-specifies a bare
+  // `.nf-hero a` - match it, we import later so the last rule wins
+  a:link,
+  a:visited,
+  a:hover,
+  a:focus,
+  a {
+    color: #d0181e;
+  }
+}

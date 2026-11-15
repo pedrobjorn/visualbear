@@ -8,7 +8,7 @@ measured 2026-11-13 against build/ (commit 666809b + pending tree).
 
 - The card is the second entry of `src/_data/work.json`
   ("A new digital closet experience", thumb `gallery_thumb_closet.jpg`,
-  external Google Drive href, target _blank).
+  external Google Drive href, target \_blank).
 - Consumed ONLY by the home gallery: `src/index.nunjucks:17`
   `{{gallery.content({content:site.data.work, ...})}}` ->
   `_modules/organisms/gallery/gallery.nunjucks` loops every entry into
@@ -26,14 +26,14 @@ measured 2026-11-13 against build/ (commit 666809b + pending tree).
 Panel heroes compared on /selected-works/workflow/ at 1440 and 360
 (both probed per tab state; hidden panel reads w 0):
 
-| metric | 1440 visuAI | 1440 design | 360 visuAI | 360 design |
-| --- | --- | --- | --- | --- |
-| strip top | 80 | 80 | 80 | 80 |
-| hero top | 149 | 149 | 149 | 149 |
-| hero w | 836 | 836 | 288 | 252 |
-| h1 size | 38.4px | 38.4px | 31.104px | 17.496px |
-| eyebrow | 15.36/16mb | 15.36/16mb | 15.36/16mb | 15.36/16mb |
-| summary | 22.464, w680 | 22.464, w680 | 22.464 | 22.464, w252 |
+| metric    | 1440 visuAI  | 1440 design  | 360 visuAI | 360 design   |
+| --------- | ------------ | ------------ | ---------- | ------------ |
+| strip top | 80           | 80           | 80         | 80           |
+| hero top  | 149          | 149          | 149        | 149          |
+| hero w    | 836          | 836          | 288        | 252          |
+| h1 size   | 38.4px       | 38.4px       | 31.104px   | 17.496px     |
+| eyebrow   | 15.36/16mb   | 15.36/16mb   | 15.36/16mb | 15.36/16mb   |
+| summary   | 22.464, w680 | 22.464, w680 | 22.464     | 22.464, w252 |
 
 - 1440: heroes already match in type/spacing (ticket 46's cs-hero
   conversion landed). The divergence is MOBILE ONLY: at 360 the design
@@ -55,7 +55,7 @@ Panel heroes compared on /selected-works/workflow/ at 1440 and 360
   visuAI's 288 (the styleguide page's `.text-container` padding is 32px
   at all widths, `_typography.scss:440-447`; the workflow shell insets
   36px per side on mobile via ticket 47's `#styleguide_container
-  .case-study.document-text` rule - which only reaches elements carrying
+.case-study.document-text` rule - which only reaches elements carrying
   BOTH classes inside the container, not the section-level blocks).
 - First body `<p>` of the design panel: 28.8px bold (legacy
   `.gallery-text` intro style, `_textelements.scss:83+`) vs visuAI body
@@ -82,7 +82,7 @@ Panel heroes compared on /selected-works/workflow/ at 1440 and 360
   equal metrics but denser ink, hence 20px.
 - If Pedro still reads the robot bigger on-device, the lever is 20 ->
   18px on both (mirror-link.js inline style + .floating-robot public
-  span in _pages.scss) - spec'd as a verify ticket with the capture.
+  span in \_pages.scss) - spec'd as a verify ticket with the capture.
 
 ## Item: robot link target on the index
 

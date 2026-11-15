@@ -4,36 +4,91 @@
 {% import "styleguide/_styleguide_blocks/styleguide.modules.nunjucks" as modules %}
 {% import "styleguide/_styleguide_blocks/styleguide.containers.nunjucks" as containers %}
 {% import "styleguide/_styleguide_blocks/styleguide.casesystem.nunjucks" as casesystem %}
+{% import "_modules/molecules/tabs/tabs.nunjucks" as tabsm %}
 {% block config %}
 	{# Correct base url pathing for this page #}
 	{% set baseUrl = '../' %}
 {% endblock %}
+
+{# md-case-study-editor T62 (DR-0015): /styleguide/ is a second host of the
+   visuAI / Design system tab system (the /workflow/ page is the first). The
+   Design system panel is the default tab here, so the light ground ships
+   initially; tabs.js swaps the body class pair on switch. #}
+{% block bodyattrs %} class="vb-system-light"{% endblock %}
+
 {% block content %}
-	<section class="section section-top-padding"  id="resume_container">
-		<article class="text-container">
-			<div class="row">
-				{{intro.content()}}
-			</div>
+	<!-- panel: visuAI tab - the workflow article, same shape as /workflow/'s
+	     visuAI panel. Ships [hidden]; the controller reveals it on switch. -->
+	<section
+		id="vb-system-panel-visuai"
+		class="vb-panel"
+		role="tabpanel"
+		aria-labelledby="vb-system-tab-visuai"
+		tabindex="-1"
+		data-vb-panel="visuai"
+		hidden
+	>
+		<div data-vb-strip-host="visuai"></div>
+		<article class="section section-top-padding case-study cs-workflow" id="workflow_container">
+			<section class="gallery-container">
+				<div class="container">
+					<div class="document-text text-box">
+						{{ site.data.pages['workflow'] | mdhero | safe }}
+						{{ site.data.pages['workflow'] | mdpage | safe }}
+					</div>
+				</div>
+			</section>
 		</article>
-		<article class="text-container" id="core">
-			<div class="row">
-				{{core.content()}}
+	</section>
+
+	<!-- panel: Design system tab (active by default on this page) - the
+	     styleguide blocks as the standalone page rendered them, eager images
+	     (ticket 38's recorded decision: only the /workflow/ panel ships lazy) -->
+	<section
+		id="vb-system-panel-designsystem"
+		class="vb-panel"
+		role="tabpanel"
+		aria-labelledby="vb-system-tab-designsystem"
+		tabindex="-1"
+		data-vb-panel="designsystem"
+	>
+		<section class="section section-top-padding" id="styleguide_container">
+			<div data-vb-strip-host="designsystem">
+				{{ tabsm.content({
+					id: "vb-system",
+					label: "visualbear system views",
+					active: "designsystem",
+					tabs: [
+						{ id: "visuai", label: "visuAI" },
+						{ id: "designsystem", label: "Design system" }
+					]
+				}) }}
 			</div>
-		</article>
-		<article class="text-container" id="modules">
-			<div class="row">
-				{{modules.content()}}
-			</div>
-		</article>
-		<article class="text-container" id="containers">
-			<div class="row">
-				{{containers.content()}}
-			</div>
-		</article>
-		<article class="text-container" id="casesystem">
-			<div class="row">
-				{{casesystem.content()}}
-			</div>
-		</article>
+			<article class="text-container">
+				<div class="row">
+					{{intro.content({ title: "Design system" })}}
+				</div>
+			</article>
+			<article class="text-container" id="core">
+				<div class="row">
+					{{core.content()}}
+				</div>
+			</article>
+			<article class="text-container" id="modules">
+				<div class="row">
+					{{modules.content()}}
+				</div>
+			</article>
+			<article class="text-container" id="containers">
+				<div class="row">
+					{{containers.content()}}
+				</div>
+			</article>
+			<article class="text-container" id="casesystem">
+				<div class="row">
+					{{casesystem.content()}}
+				</div>
+			</article>
+		</section>
 	</section>
 {% endblock %}

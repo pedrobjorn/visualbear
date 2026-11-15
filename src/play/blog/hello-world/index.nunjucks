@@ -10,6 +10,9 @@
     {% set baseUrl = "../../../" %}
 {% endblock %}
 
+{# play-subpages T22 (DR-0007): page-anchored brand fade, no viewport tile #}
+{% block bodyattrs %} class="page-blog"{% endblock %}
+
 {% block content %}
     <article class="section section-top-padding case-study" id="blog-hello-world_container">
         <section class="gallery-container">

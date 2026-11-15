@@ -57,7 +57,8 @@ Applied from `visuaibear-core/foundational-heuristics.md`: H1 - no destructive o
 - [x] Ticket 1 - Robot on the mirror: swap the floating bear for a robot above every surface
 - [x] Ticket 2 - Tab shell: the hero's tab strip switching grounds and content
 - [x] Ticket 3 - Design system tab: move the styleguide blocks in, rename to Design system (2026-11-12, delivered by amended ticket 6: the panel renders the styleguide PAGE - blocks + own hero + pinned light ground; placeholder route retired)
-- [ ] Ticket 4 - Retire `/styleguide/`, wire the references (gated on open question 1)
+- [x] Ticket 4 - RESCOPED per DR-0015 (md-case-study-editor) + Pedro 2026-11-14: `/styleguide/` is NOT retired - it stays public as a second host of the visuAI / Design system tab strip (md-case-study-editor Ticket 62). Closed by Ticket 40 below.
+- [x] Ticket 40 - Close T4 per DR-0015: keep `/styleguide/` public, verify the reference wiring (both URLs live, robot pill intact)
 
 ## Amendment pass 2026-11-12 (Pedro's six follow-on items)
 
@@ -87,11 +88,11 @@ anchor behavior.
 
 ## Open questions
 
-| Question                                                                                                                                                                                              | Owner | Blocks build?                                |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | -------------------------------------------- |
-| 1. The merged page is mirror-only (DR-0002) - does the public site lose `/styleguide/` on purpose? If the design system should stay public, the shape changes (see DR-0002) and Ticket 4 is rescoped. | Pedro | Tickets 3–4 only (Ticket 1 ships regardless) |
-| 2. Tab labels: "visuAI" and "Design system" as drafted - Pedro's voice may want different strings.                                                                                                    | Pedro | No (labels are one-line swaps)               |
-| 3. Default tab on arrival: visuAI (recommended - the page's current identity) or Design system?                                                                                                       | Pedro | No                                           |
+| Question                                                                                           | Owner | Blocks build?                                                                                                                                                |
+| -------------------------------------------------------------------------------------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1. The merged page is mirror-only (DR-0002) - does the public site lose `/styleguide/` on purpose? | Pedro | **Answered 2026-11-14 (DR-0015):** NO - the design system stays public; `/styleguide/` ships as a second tab host. Ticket 4 rescoped and closed (Ticket 40). |
+| 2. Tab labels: "visuAI" and "Design system" as drafted - Pedro's voice may want different strings. | Pedro | **Answered 2026-11-14:** keep the drafted labels "visuAI" / "Design system" (unchanged through two eval passes; one-line swaps if Pedro wants otherwise)     |
+| 3. Default tab on arrival: visuAI (recommended) or Design system?                                  | Pedro | **Answered 2026-11-14 (DR-0015):** per host - `/workflow/` arrives on visuAI (its identity), `/styleguide/` arrives on Design system (its content)           |
 
 ## Amendment pass 2026-11-13 (Pedro's mobile eval - 360-375, Firefox Android)
 
@@ -103,12 +104,12 @@ rhythm is bare `<br>` line boxes (23px each) with one gap flush (0px).
 No document-level horizontal overflow was measured anywhere at 360/375 -
 "looks zoomed out" = the wrapped/misaligned strip, not page width.
 
-| # | Item                                                                                                                        | New ticket                    | Amends |
-| - | --------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | ------ |
-| 1 | Header nav overflows on Firefox Android at ~360: exact-fit budget + a nonstandard text-size-adjust pair (root-cause ASSUMPTION, needs on-device validation) | T21 (fix is budget-safe)      | -      |
-| 2 | Design System tab wraps to 2 lines inside the strip (also Chrome Android): nowrap labels + a compact strip envelope at small widths | T22                           | T2, T7 |
-| 3 | About paragraphs: uniform gap instead of bare `<br>`; dead inline scroller handlers removed in the same markup              | T23                           | -      |
-| 4 | JS disposition (inventory in the evidence file): tabs init and countup KEEP; smooth scroll replaceable by CSS                | T24 (DONE 2026-11-13 - gate answered by delegation, shipped) | -      |
+| #   | Item                                                                                                                                                        | New ticket                                                   | Amends |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------ |
+| 1   | Header nav overflows on Firefox Android at ~360: exact-fit budget + a nonstandard text-size-adjust pair (root-cause ASSUMPTION, needs on-device validation) | T21 (fix is budget-safe)                                     | -      |
+| 2   | Design System tab wraps to 2 lines inside the strip (also Chrome Android): nowrap labels + a compact strip envelope at small widths                         | T22                                                          | T2, T7 |
+| 3   | About paragraphs: uniform gap instead of bare `<br>`; dead inline scroller handlers removed in the same markup                                              | T23                                                          | -      |
+| 4   | JS disposition (inventory in the evidence file): tabs init and countup KEEP; smooth scroll replaceable by CSS                                               | T24 (DONE 2026-11-13 - gate answered by delegation, shipped) | -      |
 
 ## Amendment pass 2026-11-13b (Pedro's missed-items list)
 
@@ -117,14 +118,14 @@ evidence/amend-2026-11-13b-eval.md. Note on overlap: robot size (T18)
 and the mirror robot's link target (T1) shipped earlier - those two
 items are spec'd as verify/finish tickets, not new work.
 
-| # | Item | New ticket | Amends |
-| - | --- | --- | --- |
-| 1 | Hide the My Closet card (home gallery, both zones) | T25 (DONE 2026-11-13, amended same day: re-added at the BOTTOM of the index cards, public-only - mirror strip pass + guard check 9) | - |
-| 2 | Match the Design System hero to the visuAI hero (mobile h1 17.5 vs 31.1 at 360) | T26 (DONE 2026-11-13, with T27) | T6, T11, T46 |
-| 3 | Design System body text matches visuAI / case-study views; cleanup esp. mobile (column 324 vs 288, legacy 28.8px intro ps) | T27 (DONE 2026-11-13, with T26) | T3, T11 |
-| 4 | About paragraph gap: one space (16px), not two (24px shipped in T23) | T28 (DONE 2026-11-13, amended same day: the margin itself removed - paragraphs flush) | T23 |
-| 5 | Robot the same size as the bear (verify 20px on-device; lever to 18px if it still reads big) | T29 (DONE 2026-11-13 - 20px verified, 18px lever open on-device) | T18 |
-| 6 | Robot links to the visuAI / design system page on the index - mirror index already does; PUBLIC home now too via DR-0010 (page duplicated to the root) | T30 (DONE, DR-0010) | T20 |
+| #   | Item                                                                                                                                                   | New ticket                                                                                                                          | Amends       |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| 1   | Hide the My Closet card (home gallery, both zones)                                                                                                     | T25 (DONE 2026-11-13, amended same day: re-added at the BOTTOM of the index cards, public-only - mirror strip pass + guard check 9) | -            |
+| 2   | Match the Design System hero to the visuAI hero (mobile h1 17.5 vs 31.1 at 360)                                                                        | T26 (DONE 2026-11-13, with T27)                                                                                                     | T6, T11, T46 |
+| 3   | Design System body text matches visuAI / case-study views; cleanup esp. mobile (column 324 vs 288, legacy 28.8px intro ps)                             | T27 (DONE 2026-11-13, with T26)                                                                                                     | T3, T11      |
+| 4   | About paragraph gap: one space (16px), not two (24px shipped in T23)                                                                                   | T28 (DONE 2026-11-13, amended same day: the margin itself removed - paragraphs flush)                                               | T23          |
+| 5   | Robot the same size as the bear (verify 20px on-device; lever to 18px if it still reads big)                                                           | T29 (DONE 2026-11-13 - 20px verified, 18px lever open on-device)                                                                    | T18          |
+| 6   | Robot links to the visuAI / design system page on the index - mirror index already does; PUBLIC home now too via DR-0010 (page duplicated to the root) | T30 (DONE, DR-0010)                                                                                                                 | T20          |
 
 ## Amendment pass 2026-11-13c (whole-build sweep: accessibility + performance)
 
@@ -134,17 +135,17 @@ A full-build machine eval (12 pages, public + mirror, both tab states)
 with pixel-verified contrast. No review blocker; the finds split into
 mechanical fixes and Pedro's calls.
 
-| # | Item | New ticket | Amends |
-| - | --- | --- | --- |
-| 1 | Case-study gallery images carry no alt; gallery wrapper links unnamed | T31 | - |
-| 2 | Styleguide modules demo ships two 404 icons (twitter/behance) + placeholder alts, on /styleguide/ AND /visualbear/ | T32 (asset decision: Pedro) | T16 |
-| 3 | /visualbear/ renders 5 visible h1s - its embedded styleguide copy + ladder demo leak real h1s onto a public case page | T33 | T3, T16 |
-| 4 | The design panel's Footer demo ships a full live footer (duplicate id="contact", real mailto) | T34 (mechanical: demo goes inert) | T16 |
-| 5 | Contrast: workflow cs-eyebrow #E34A47 = 3.64-4.2 on its real ground (T2's EA544F never reached it); cs-metric-label 4.47; global link red #D73735 ~4.12 on light grounds | T35 | T2, T43 |
-| 6 | /about/ has zero headings - no h1 | T36 | T23 |
-| 7 | Touch targets under 44: logo 40x40, .vb-tab 37 tall, footer bear 19x21 (highlight chips = text links, recorded) | T37 | T21 |
-| 8 | 324KB of hidden-panel demo images eager-load on every /workflow/ visit (T16's lazy removal) | T38 | T16 |
-| 9 | profile_photo.png - a photo as 119KB PNG (home + about) | T39 (asset: Pedro provides webp/jpg) | - |
+| #   | Item                                                                                                                                                                     | New ticket                           | Amends  |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------ | ------- |
+| 1   | Case-study gallery images carry no alt; gallery wrapper links unnamed                                                                                                    | T31                                  | -       |
+| 2   | Styleguide modules demo ships two 404 icons (twitter/behance) + placeholder alts, on /styleguide/ AND /visualbear/                                                       | T32 (asset decision: Pedro)          | T16     |
+| 3   | /visualbear/ renders 5 visible h1s - its embedded styleguide copy + ladder demo leak real h1s onto a public case page                                                    | T33                                  | T3, T16 |
+| 4   | The design panel's Footer demo ships a full live footer (duplicate id="contact", real mailto)                                                                            | T34 (mechanical: demo goes inert)    | T16     |
+| 5   | Contrast: workflow cs-eyebrow #E34A47 = 3.64-4.2 on its real ground (T2's EA544F never reached it); cs-metric-label 4.47; global link red #D73735 ~4.12 on light grounds | T35                                  | T2, T43 |
+| 6   | /about/ has zero headings - no h1                                                                                                                                        | T36                                  | T23     |
+| 7   | Touch targets under 44: logo 40x40, .vb-tab 37 tall, footer bear 19x21 (highlight chips = text links, recorded)                                                          | T37                                  | T21     |
+| 8   | 324KB of hidden-panel demo images eager-load on every /workflow/ visit (T16's lazy removal)                                                                              | T38                                  | T16     |
+| 9   | profile_photo.png - a photo as 119KB PNG (home + about)                                                                                                                  | T39 (asset: Pedro provides webp/jpg) | -       |
 
 Executed 2026-11-13 (DR-0011): T31, T33-T38 DONE - evidence/
 t33-34-36-37-38-verify.md and evidence/t31-35-verify.md (build + guard +

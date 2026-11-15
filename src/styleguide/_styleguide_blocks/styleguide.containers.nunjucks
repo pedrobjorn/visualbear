@@ -19,7 +19,13 @@
 <article class="gallery-text">
   <h2 class="page-header">Containers</h2>
   <div class="text-block">
-    <p>Containers will consist of one or more module within a block / container element. This is used to group modules into chunks that serve a purpose.</p>
+    <p>Containers group one or more modules into a block that serves a purpose:</p>
+    <ul>
+      <li>Button slider</li>
+      <li>Text container</li>
+      <li>Footer</li>
+    </ul>
+    <div class="ai-mark">✦ AI-drafted</div>
   </div>
 
     <div class="text-block">

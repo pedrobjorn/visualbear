@@ -99,12 +99,15 @@ ul.no-bullets {
   // dot on the text edge, text 8px past it. The .small-title lists
   // (name, links, download) are excluded below.
   // Skill detail lists (nested under their h3 sub-title inside the
-  // parent no-bullets list) rendered flush too — same rhythm (ticket 34)
+  // parent no-bullets list) get the same red dot as content lists
+  // (ticket 7, Pedro 2026-11-15: "add the red bullets to the core skills
+  // bullets")
   ul li > ul {
     margin-top: 0.5rem;
   }
 
-  ul:not(.no-bullets) {
+  ul:not(.no-bullets),
+  ul.no-bullets ul.no-bullets {
     // vertical rhythm (ticket 21): the lists sat flush — 0px — under the
     // preceding title row (ticket 34)
     margin-top: 0.5rem;
@@ -628,6 +631,27 @@ ul.no-bullets {
       width: 100%;
 
       @include transform(translateY(-45%));
+    }
+  }
+}
+
+// edge-alignment T9 (DR-0002): the nav's 16px page margin applies to the
+// resume at all widths; id-level so it beats the per-band #resume_container
+// rules. The inner row/col grid gutter zeroes too, so resume text lands on
+// the same 16px line as every other page
+#resume_container {
+  .text-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+
+    .col {
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 }

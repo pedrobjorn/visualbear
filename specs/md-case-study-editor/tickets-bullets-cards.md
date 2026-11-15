@@ -117,6 +117,10 @@ violation and the right-edge overrun.
 - Part of: `plan-bullets-cards.md` (finding 4)
 - Size: S
 - Type: system + copy
+- Status: SYNTAX DONE 2026-11-01 — `expandDirective` handles section-level
+  `[summary:]` (full render diff of all 7 pages EMPTY; hero containers
+  unchanged, verified by render). MIGRATION HALF STILL BLOCKED on Pedro's
+  open question (render or delete the commented blocks).
 
 ## Context
 
@@ -154,6 +158,10 @@ HTML, which ships in the built output as comments:
 - Part of: `plan-bullets-cards.md` (finding 5)
 - Size: S
 - Type: UI + copy
+- Status: SYNTAX DONE 2026-11-01 — `[byline:]` after a quote moves inside
+  its blockquote (verified: lone quote + group; a trailing byline does not
+  break group formation; quote-scoped label-tier style shipped). ADOPTION
+  on ecommerce still blocked on Pedro's open question.
 
 ## Context
 
@@ -187,6 +195,10 @@ it renders at quote size/weight instead of the label tier.
 - Part of: `plan-bullets-cards.md` (finding 6)
 - Size: S
 - Type: system
+- Status: DONE 2026-11-01 — `.cs-pullquote` and `.cs-steps` deleted from
+  `_case-study.scss` (including the three theme-scoped `.cs-steps
+.cs-number` selectors); zero live refs; full render diff EMPTY; lint +
+  format pass.
 
 ## Context
 
@@ -218,6 +230,12 @@ explicitly kept per its in-place comment.)
 - Part of: `plan-bullets-cards.md` (findings 1, 3)
 - Size: S
 - Type: copy
+- Status: DONE 2026-11-01 — list-context rule + `*` syntax in the
+  convention table; `::: quotes full` replaced with `::: cards full`;
+  `[summary:]`/`[byline:]` documented; `::: hero` and `::: table` added
+  (the doc-sync gate caught them as undocumented). Gate committed as
+  `specs/md-case-study-editor/tools/doc-sync.sh` — passes: 7 types in
+  both sets. format:check passes.
 
 ## Context
 
@@ -829,6 +847,15 @@ unifies the whole site.
 - Size: M
 - Type: UI + copy
 - Page: `/styleguide/` (5 blocks, 455 lines)
+- Status: DONE 2026-11-01 — shell id fixed (`styleguide_container`), real
+  markup (ul.cs-facts / ol.cs-timeline), heading ladder (h2 intros, h3
+  subsections), swatch ink fixed, case-system block documents chip plate +
+  list-context rule + 900/836 + frame captions + the seven color tokens +
+  heroes; stale copy updated. Verified: axe ZERO color-contrast at 1440 +
+  390; box/edge audits CLEAN. ONE KNOWN REMAINING FLAG: axe heading-order
+  (moderate) from the LEGACY steammobile gallery-header demo in the
+  containers block (the real headline module emits h1 → h3) — predates
+  this ticket, fix = drop that demo or change the module; owner: Pedro.
 
 ## Context
 
@@ -946,6 +973,930 @@ copy-paste artifact leaking resume-scoped CSS onto the page.
 
 ---
 
+# Ticket 46: The styleguide page opens with a hero — adapted bare variant
+
+- Part of: `plan-bullets-cards.md` (Pedro, 2026-11-01: "the styleguide
+  should also have a Hero at the top for the title like the other case
+  studies. Not just as a component.")
+- Size: S
+- Type: UI + copy
+- Extends: ticket 45 / DR-0014 — the styleguide page becomes the adapted
+  bare hero's second instance (visuAI was the first)
+- Page: `/styleguide/`
+- Status: DONE 2026-11-01 — adapted bare hero live at the top of the
+  page: eyebrow "The visualbear System" (#d0181e ink), h1 "Styleguide"
+  (moved from the intro block), summary (the welcome copy), details
+  "Design reference ⋅ 2026". Transparent on the section ground, shared
+  DR-0014 gaps 16/24/24 measured at 1440 + 390; axe zero new violations.
+  Evidence: `evidence/t46-verify.json` + `evidence/t46-styleguide-hero-*.png`.
+
+## Context
+
+Every case-study page opens with the hero component (DR-0014). The
+styleguide opens with a bare `h1.page-header` in the intro block — the
+page that documents the system doesn't use it.
+
+## Requirements
+
+- Shell-level adapted bare hero (DR-0014, no variant class): a
+  `header.cs-hero` inside a `.case-study document-text` wrapper at the
+  top of the intro article. Transparent — the section's light ground
+  carries it, like visuAI's dark ground.
+- Adapted kicker: NOT "Case Study" — default "The visualbear System"
+  (Pedro-vetoable). Ink: the default `.cs-eyebrow` red #d0181e — the
+  page's verified link red (4.97:1 on the light-blue ground).
+- The hero takes over the page title: the h1 "Styleguide" moves from the
+  intro block into the hero; the welcome copy becomes the hero's
+  `.cs-cover-summary`; the details line is "Design reference ⋅ 2026"
+  (not a repeat of the index nav). The intro block keeps the Pattern
+  Lab, purpose and built-using paragraphs and the index nav — no
+  duplicated copy.
+- Shared DR-0014 spacing/type roles only — no new overrides.
+
+## Acceptance criteria (agent-checkable)
+
+- [x] `/styleguide/` opens with `header.cs-hero`: eyebrow (not
+      "Case Study"), h1 "Styleguide", `.cs-cover-summary`,
+      `.cs-cover-details`; computed hero bg transparent — measured at
+      1440 + 390 (evidence: `evidence/t46-verify.json`)
+- [x] Gaps on the DR-0014 set (eyebrow→h1 16, h1→summary 24,
+      summary→details 24) — measured at both widths
+- [x] One STRUCTURAL h1 per page (the hero's; the two remaining h1s are
+      pre-existing demo samples — the core headings ladder demo and the
+      steammobile headline demo, both inside demos, not page structure);
+      heading ladder intact; axe zero NEW violations at 1440 + 390 (the
+      pre-existing steammobile heading-order flag is tracked in ticket 43)
+- [x] No duplicated welcome copy (grep count 0); the index nav still
+      lists and anchors to all four sections
+- [x] box-audit + edge-audit CLEAN; lint + format pass; captures
+      (`evidence/t46-styleguide-hero-{1440,390}.png`)
+
+## Open questions
+
+- Kicker copy ("The visualbear System" default) — owner: Pedro,
+  vetoable; does not block the build.
+
+---
+
+# Ticket 47: Styleguide evaluation — broken/misaligned fixes + blueprint coverage
+
+- Part of: `plan-bullets-cards.md` (Pedro, 2026-11-01: "review the
+  styleguide and fix any broken or poorly aligned components. Apply more
+  of the case study blueprint styling.")
+- Size: M
+- Type: UI + copy + system
+- Page: `/styleguide/`
+- Status: DONE 2026-11-01 — all six findings fixed and verified
+  (evidence: `evidence/t47-verify.json` + captures
+  `t47-styleguide-{1440,390}.png`); axe zero, no h-scroll at any width,
+  audits clean.
+
+## Evaluation findings
+
+1. **9px horizontal scroll at 390** — the bleeding demo components
+   (`.cs-card` "Bleed example", `.cs-timeline li` gutter) render at
+   −8…399 on the 390 viewport. Root cause: the guide's demo wrappers
+   (`.case-study.document-text`) carry the components but NOT the
+   shells' `.text-box`, so ticket 31's ≤907 36px viewport inset never
+   reaches them. The box-audit covers the 7 real pages only — the
+   guide was never in its scope.
+2. **Labels demo renders unstyled** — seven `.label-default/-primary/…`
+   spans: no background, plain text. The styles exist nowhere in the
+   system (bootstrap-era legacy); zero usage outside the guide.
+   Documents what ISN'T — the opposite of the guide's rule.
+3. **Invalid HTML in the core block**: `<p><div class="light">…</div></p>`
+   (the browser splits the paragraph around the div); `alt` attribute on
+   two anchors (invalid on `<a>`); duplicate ids: `workLink1` ×2,
+   `galleryimg` ×4, `contact` ×2.
+4. **Empty text-block** in the containers section (no content, no
+   purpose).
+5. **Steammobile gallery-header demo** — the last axe heading-order
+   violation (the real headline module emits h1→h3), plus mismatched
+   demo content (art-ent config carrying Steam copy) and a full-bleed
+   legacy module inside the guide. Pedro's t43 open decision is
+   resolved here by this review: DROP (the guide documents the current
+   md system; the organism remains documented on the legacy pages).
+6. **Blueprint components missing from the case-system section**:
+   `cs-plain` (DR-0010's own `*` syntax), quote groups (`.cs-quotes`),
+   `[note:]`, `[divider:]`, and the `[summary:]` box — all shipped
+   system components with no demo.
+
+## Requirements
+
+- **Demo-wrapper inset (finding 1)**: `#styleguide_container
+.case-study.document-text` gets the same 36px side padding at ≤907 as
+  the shells' `.text-box` (ticket 31) — guide-scoped, documented.
+- **Remove the Labels block (finding 2)** — the guide documents what IS.
+- **Fix invalid markup (finding 3)**: unwrap `div.light` from its `p`;
+  `alt` → `title` on the two anchors; unique ids (`workLink2`; the
+  containers demo headings get distinct ids).
+- **Drop the steammobile gallery-header demo (finding 5)** — heading
+  ladder clean.
+- **Remove the empty text-block (finding 4)**.
+- **Extend the Components block (finding 6)** with real-class demos:
+  `ul.cs-plain` (the `*` list), a `.cs-quotes` group (2 quotes),
+  `p.cs-note`, the `.cs-divider`, and the `.cs-summary` box — real
+  spacing, no inline fakes.
+- Accepted minor (noted, not fixed): `#contact` id duplication — the
+  footer demo renders the real footer macro, which hardcodes the id;
+  the real-macro rule (ticket 43) wins over id uniqueness here.
+
+## Acceptance criteria (agent-checkable)
+
+- [x] `scrollWidth == innerWidth` at 320/390/480/768/1024/1440 on
+      /styleguide/ (was 12/9/4px at 320/390/480; the demo wrappers'
+      inline `padding: 8px 0` was also switched to vertical-only so the
+      inset rule reaches them)
+- [x] axe: ZERO violations at 1440 + 390 (steammobile flag gone with
+      its demo; the note/divider demos exposed the muted ink at ~4.46
+      on the guide's light-blue ground — fixed with a documented
+      per-ground instance, #66686d, the ticket-40 pattern)
+- [x] No `.label-*` spans, no `a[alt]`, no duplicate ids except
+      `#contact` (accepted minor), no empty text-blocks, no
+      div-inside-p (evidence: `evidence/t47-verify.json`)
+- [x] The Components block demos cs-plain, quote group, note, divider,
+      summary — real classes, real spacing
+- [x] box-audit + edge-audit CLEAN (7 content pages); lint + format
+      pass; captures `evidence/t47-styleguide-{1440,390}.png`
+
+## Open questions
+
+- Should the guide gain section-intro eyebrow styling (the cs-section
+  treatment) for its own h2 sections — more blueprint, or is the
+  legacy `page-header` style the guide's identity? Owner: Pedro.
+
+---
+
+# Ticket 48: Styleguide presentation fixes — broken assets, attributes, structure
+
+- Part of: `plan-bullets-cards.md` (Pedro, 2026-11-01: "apply fixes to
+  these, without changing their fundamental styling, only fixing or
+  improving presentation")
+- Size: S
+- Type: UI + copy
+- Page: `/styleguide/` (core / modules / containers blocks)
+- Status: DONE 2026-11-01 — all findings fixed and verified at 1440 +
+  390 (evidence: `evidence/t48-verify.json` + captures
+  `t48-styleguide-{1440,390}.png`): zero broken images, axe zero,
+  audits clean, alignment was already clean (measured, no changes
+  needed).
+
+## Findings
+
+1. **Two broken images in the "Buttons Aligned" demo** — the twitter and
+   behance icon assets exist nowhere in `src/_images/icons/` (natural
+   width 0 at runtime); the demo also carries `alt="Smiley face"` ×3
+   (meaningless) and invalid `width="48px"` attribute values.
+2. **The card demo's background-image points at the thumbs DIRECTORY**
+   (`url(../images/work/thumbs/)`) — an empty image area; the "Play"
+   title has no matching thumb asset in the repo.
+3. **Structure/attribute nits**: the "Link Block" h3 sits outside its
+   text-block; `style="max-height:auto"` no-op on the button-slider
+   block; the portrait img's alt reads "visualbear logoimage" (it is a
+   portrait).
+
+## Requirements (presentation only — no fundamental styling changes)
+
+- Buttons demo: demo the ONE icon that exists (LinkedIn, the footer's
+  real pattern: real href + title + alt + integer width/height).
+- Card demo: an existing thumb (`gallery_thumb_artent.jpg`) with
+  matching copy (Art-Ent) — real asset, coherent demo.
+- Wrap the Link Block h3 into its text-block; drop the no-op inline
+  style; fix the portrait's alt.
+
+## Acceptance criteria (agent-checkable)
+
+- [x] Zero broken images on /styleguide/ (every `<img>` naturalWidth >
+      0; background-image demos point at existing files)
+- [x] No `alt="Smiley face"`, no `width="48px"`-style attributes, no
+      alt="visualbear logoimage"
+- [x] Heading ladder intact (h3 → h4 in the link block); axe stays
+      zero-violation at 1440 + 390
+- [x] box-audit + edge-audit CLEAN; lint + format pass
+
+## Open questions
+
+- None.
+
+---
+
+# Ticket 49: Rhythm spacer bars on the brand palette
+
+- Part of: `plan-bullets-cards.md` (Pedro, 2026-11-01: "adjust the
+  spacer color to match the brand, make it light blue or dark grey")
+- Size: S
+- Type: UI
+- Page: `/styleguide/` — the Vertical rhythm block's seven spacer bars
+- Status: DONE 2026-11-01 — all seven bars on rgba(24,24,27,0.08)
+  (computed verified, zero red bars remain); axe zero at 1440 + 390;
+  audits CLEAN. Evidence: `evidence/t49-verify.json` +
+  `evidence/t49-casesystem-{1440,390}.png`
+
+## Context
+
+The spacer bars demo the 8/16/24/32/48/64/96 scale as tinted boxes;
+their tint is the case-study red at 0.08
+(`rgba(215, 55, 53, 0.08)`) — a case-study accent, not the guide's
+brand palette (Core section: Light Grey Blue #E6F2FF / Blue #79A6D2 /
+Medium Grey #313135 / Dark Grey #18181B).
+
+## Decision (within Pedro's either/or)
+
+**Dark grey** (`rgba(24, 24, 27, 0.08)` — #18181B at the same 0.08
+strength). Light blue is technically unusable here: the bars sit on the
+section's light-blue ground ($vb-light = #E6F2FF) — a light-blue tint
+on it is invisible. Dark grey keeps the exact tint strength the red
+version had, so the bar values (dark ink, centered) keep their
+contrast.
+
+## Requirements
+
+- The seven spacer bars take `background: rgba(24, 24, 27, 0.08)`;
+  nothing else changes (labels, sizes, spacing).
+- Out of scope: the full-bleed band demo keeps its red — it demos a
+  COLORED band (the cover heroes are brand red); that red is
+  meaningful, not decorative drift.
+
+## Acceptance criteria (agent-checkable)
+
+- [x] All seven bars' computed background-color is the dark-grey tint
+      (rgba(24,24,27,0.08) — computed verified), none red
+- [x] Bar labels still ≥4.5:1 on their bar (axe zero at 1440 + 390)
+- [x] box-audit + edge-audit CLEAN; lint + format pass
+
+## Open questions
+
+- None (the light-blue option is closed by the ground-color conflict;
+  recorded here so the choice is traceable).
+
+---
+
+# Ticket 50: Full-bleed demo tint + Buttons Aligned on regular nav buttons
+
+- Part of: `plan-bullets-cards.md` (Pedro, 2026-11-01: "same for the
+  full bleed. Also fix the Buttons Aligned section which shows the
+  linkedin button oddly left aligned. use regular navigation buttons
+  for this on a plain background instead")
+- Size: S
+- Type: UI
+- Page: `/styleguide/`
+- Status: DONE 2026-11-01 — full-bleed band on rgba(24,24,27,0.12)
+  (zero red tints left in the case-system block); Buttons Aligned
+  rebuilt on the slider's real arrangement (nav.btn-container.row, two
+  col s6, Previous/Next), plain ground, no icon/band. axe zero at
+  1440 + 390, hover red plate verified. Evidence:
+  `evidence/t50-verify.json` + `evidence/t50-modules-{1440,390}.png`
+
+## Context
+
+1. Ticket 49 put the rhythm spacer bars on the dark-grey tint and
+   scoped OUT the full-bleed band demo (its red demos a colored band).
+   Pedro's "same for the full bleed" supersedes that scoping — the
+   demo's tint goes dark grey too.
+2. The "Buttons Aligned" demo shows the one remaining social icon
+   (LinkedIn) left-aligned inside `socialContainer` — the component's
+   `margin: auto` centers the container while the icon floats left, so
+   the button reads oddly placed; the demo also sits on the dark
+   `$vb-dark` band. The icon demo outlived its assets (twitter/behance
+   are gone, ticket 48).
+
+## Requirements
+
+- **Full-bleed band demo**: `rgba(215, 55, 53, 0.12)` →
+  `rgba(24, 24, 27, 0.12)` — the same dark-grey treatment as the
+  spacers (ticket 49), same strength. No other change.
+- **Buttons Aligned demo**: replace the icon-in-band with the site's
+  REGULAR navigation buttons — the buttonslider's
+  `a.btn.vb-btn-full` (flat grey, hover red plate) — a Previous /
+  Next pair (left/right aligned, exactly as the slider uses them),
+  directly on the plain guide ground: no `socialContainer`, no dark
+  band, no icon.
+
+## Acceptance criteria (agent-checkable)
+
+- [x] The full-bleed band demo's computed background is
+      rgba(24,24,27,0.12); no red tint remains in the case-system block
+      (accent DOTS are opaque brand red by design — not tints)
+- [x] The Buttons Aligned block contains no `socialContainer`, no
+      `.vb-btn-icon`, no dark band — two `a.btn.vb-btn-full` buttons in
+      the slider's real col-s6 arrangement (Previous | Next), plain ground
+- [x] Buttons' hover/focus states work (red plate, computed check)
+- [x] axe zero at 1440 + 390; box-audit + edge-audit CLEAN; lint +
+      format pass; captures `evidence/t50-modules-{1440,390}.png`
+
+## Open questions
+
+- None.
+
+---
+
+# Ticket 51: Timeline dot aligned with its step title
+
+- Part of: `plan-bullets-cards.md` (Pedro, 2026-11-01: "align the
+  timeline element with the related title, since they're not aligned
+  right now")
+- Size: S
+- Type: UI
+- Pages: all with timelines (ecommerce, teachr, closet, fashion) + the
+  styleguide's timeline demo — one component fix
+- Status: DONE 2026-11-01 — dot margin 14.5px, connector top 44.5px
+  (compiled CSS verified); dot-vs-first-line offset ≤1px on every
+  timeline step on 5 pages at 1440 + 390 (was −15.5px at 1440 — the
+  number floated high); axe zero on styleguide + ecommerce at both
+  widths; audits CLEAN. Evidence: `evidence/t51-verify.json` +
+  `evidence/t51-timeline-styleguide-{1440,390}.png`.
+  NOTE: the first spec'd approach (calc with `$base-h3-size`) was
+  invalid — Sass emits the variable literally inside calc(); replaced
+  with the measured value after the review found the h3's 8px padding
+  and the 31px font box.
+
+## Review (measured at 1440, all pages identical)
+
+The `.cs-timeline li` grid row 1 holds the 26px numbered dot (column 1)
+and the step title (column 2). Both are top-aligned
+(`align-items: start`), but the title's RENDERED text sits far lower
+than a bare line-box calculation suggests — two structural facts the
+first pass missed:
+
+- the site-wide h3 carries **8px vertical padding** (measured:
+  h3 padding-top/bottom 8px), so the title's content starts 10px down
+  (2px margin + 8px padding);
+- the title's rendered text box (Range rect) is 31px tall (font
+  ascent/descent exceed the 30.33px line-height strut) and starts at
+  13px below the step top.
+
+Measured: the title's text center sits **28.5px** below the step top;
+the dot's center at **13px** — the number floats **15.5px high** against
+its title, on every page (styleguide demo + ecommerce/teachr/fashion).
+
+## Requirements
+
+- Center the dot on the title's text line: `::before` gets
+  `margin-top: 14.5px`. Measured text centers: 28.5px below the step
+  top at 1440, 26.5px at 390 — the glyph box snaps ±1-2px subpixel
+  between viewport fractions, so 14.5 (dot center 27.5) is the value
+  that holds BOTH widths within the ±1px tolerance (15.5 would be
+  exact at 1440 but 2px off at 390). Comment records the derivation;
+  re-measure if the type scale changes.
+- The connector line keeps its 4px gap below the dot: `top: 30px` →
+  `top: 44.5px` (dot margin 14.5 + dot 26 + 4).
+- The step title's margin/padding stay as they are (site-wide h3
+  rhythm — not changed inside the timeline).
+- Wrapped titles: the dot aligns with the FIRST text line (the
+  measurement uses the first line's client rect, not the multi-line
+  union).
+
+## Acceptance criteria (agent-checkable)
+
+- [x] Dot center vs title's FIRST text line center within ±1px on
+      every timeline li — styleguide + 4 real pages, 1440 + 390
+      (maxAbs 1 everywhere; was 15.5px)
+- [x] Connector line keeps the 4px gap below the dot (compiled rule
+      top 44.5px = margin 14.5 + dot 26 + 4)
+- [x] axe zero at 1440 + 390 on the touched pages; box-audit +
+      edge-audit CLEAN; lint + format pass; capture
+      `evidence/t51-timeline-styleguide-{1440,390}.png`
+
+## Open questions
+
+- None.
+
+---
+
+# Ticket 52: Index page background gradient — root cause documented
+
+- Part of: `plan-bullets-cards.md` (Pedro, 2026-11-01: "the index page
+  background gradient is broken, review it and identify the cause and
+  document it")
+- Size: M
+- Type: system (review + documentation; fix proposed, NOT applied)
+- Page: `/` (home; the mechanism also underlies every page that relies
+  on the base body gradient)
+- Status: DONE 2026-11-01 — fix applied and measured (evidence:
+  `evidence/t52-verify.json`, captures `t52-fixed-*.png`,
+  pre-fix `t52-index-*.png`, `t52-index-red-restart.png`,
+  `t52-canvas-*.png`).
+
+## Design decision (the open question, resolved in the build)
+
+The fade spans the FIRST VIEWPORT and the flat brand dark carries the
+rest of the page — NOT a page-length fade. Evidence: the fold's current
+curve is the design (identical before/after, measured); the about's
+patch proves the about area is meant to sit on ≈#252528 dark; and the
+nav comment's own rule ("the darkest stretch never passes under the
+nav"). The fade's length is now ONE value (`height: 100vh/100svh` on
+`body.home-page::before`) — Pedro can lengthen the fade by changing
+that one declaration.
+
+## The symptom (measured, 1440 viewport)
+
+- The red→dark fade completes INSIDE the first viewport: at page y=850
+  the background already measures rgb(47,39,41) — effectively the end
+  color. The brand red "hold" lasts ~90px, not a third of the fold.
+- **The gradient restarts bright red every viewport height**: page 892
+  measures #252528 (37,37,40); page 967 measures (215,55,53) — a hard,
+  visible snap back to full red behind the gallery cards, fading again
+  over the next 900px (evidence: `evidence/t52-index-red-restart.png`).
+
+## Root cause (two interacting facts)
+
+1. **The gradient depends on canvas propagation.** The gradient lives
+   on `body` (`_base.scss`: `linear-gradient(180deg in oklab, #d73735
+10%, #252528 100%)`), and `html` deliberately paints NO background —
+   the ticket-17 fix ("the body gradients own the canvas") so the fade
+   reaches the page bottom without a flat strip. With an unpainted
+   html, the body's background propagates to the CANVAS.
+2. **A canvas-propagated gradient is sized to the VIEWPORT, not the
+   body's box.** Chrome resolves the propagated gradient against the
+   initial containing block (900px), not the body's 2798px box.
+   Measured: the fold's pixels match the blend curve
+   `t = (y − 90px) / 810px` within ±1 at every sample (oklab inversion,
+   `evidence/t52-oklab-check.py`), and contradict body-box sizing by
+   ~3× (body-box predicts rgb(172,56,53) at y=850; measured (47,39,41)).
+   With `background-repeat: repeat` (the default, confirmed computed),
+   the 900px tile then repeats down the whole 2798px page — the fade
+   restarts from bright red at every 900px boundary.
+
+So the authored percentages mean the opposite of what they say: "10%"
+is 90px (not 280px), "100%" is the fold bottom (not the page bottom).
+
+## Downstream drift (consequences of the same cause)
+
+- The `#about` section paints its OWN dark gradient
+  (`linear-gradient(#252528, #18181B)`, z-index 1 — found live) — a
+  manual patch that covers the tiled canvas for its stretch and
+  introduces a third dark value (gradient end #252528 vs about/footer
+  #18181B vs nav fade end #191919).
+- The fixed nav's scroll-fade (`nav-scroll-fade`: hold red to 22%,
+  #252528 to 85%, #191919 at full scroll; timeline `scroll(root)`) was
+  tuned for the INTENDED full-page fade. Against the actual
+  viewport-tiled canvas, nav and background drift apart mid-scroll:
+  the nav holds red until ~scroll 417 while the canvas below the fold
+  is already past its fade.
+- The oklab interpolation itself is NOT the bug — it parses and
+  renders (computed background-image confirms `in oklab` is active).
+
+## Proposed fix (applied 2026-11-01)
+
+- The home fade paints on `body.home-page::before` — an absolute layer,
+  ONE VIEWPORT tall (`height: 100vh` / `100svh`), carrying the same
+  oklab gradient; the layer scrolls with the content (not fixed), which
+  is what the nav timeline assumes. `body.home-page` carries
+  `background: #252528` — the shorthand CLEARS the base gradient's
+  background-image (a color-only override would leave the tile painting
+  beneath), killing the repeat for the whole page.
+- The `#about` patch gradient STAYS: with the fade capped at the fold,
+  the real fade does not pass beneath the about — the patch is no longer
+  a workaround but the about's own ground, fading into the footer's
+  #18181B seamlessly (measured: page 1400→2798 sweeps clean).
+- The nav-scroll-fade keyframes retuned to the restored geometry:
+  0% #d73735 → 22% #8c3733 (the fold blend at the 22% scroll position,
+  oklab-derived) → 47% #252528 (the fold has scrolled past — 900/1898)
+  → holds #252528 to 100%. Measured nav at 0/25/50/75/100% scroll:
+  red / rgb(128,53,50) / #252528 / #252528 / #252528 — tracking the
+  body's fade.
+
+## Acceptance criteria
+
+- [x] Left-edge pixel sweep at scroll 0/880/1400/1898: NO red restart
+      below the fold; the fold's fade curve identical to pre-fix; flat
+      ≈#252528 beneath; the about ground fades into the footer
+- [x] Nav vs body at 0/25/50/75/100% scroll: tracks the fade (deltas
+      above); no drift
+- [x] #about's ink still ≥4.5 on its ground (light ink #e6f2ff,
+      unchanged)
+- [x] Index axe ZERO; box-audit + edge-audit CLEAN (7 content pages);
+      lint + format pass
+
+## Design decision (the open question, resolved in the build)
+
+The fade spans the FIRST VIEWPORT and the flat brand dark carries the
+rest of the page — NOT a page-length fade. Evidence: the fold's current
+curve is the design (identical before/after, measured); the about's
+patch proves the about area is meant to sit on ≈#252528 dark; and the
+nav comment's own rule ("the darkest stretch never passes under the
+nav"). The fade's length is now ONE value (`height: 100vh/100svh` on
+`body.home-page::before`) — Pedro can lengthen the fade by changing
+that one declaration.
+
+---
+
+# Ticket 53: Cards sit within the container — no bleed (DR-0009 amendment)
+
+- Part of: `plan-bullets-cards.md` (Pedro, 2026-11-01: "remove the -28px
+  margin from cs-cards, just have width be 0px, so it sits within the
+  bleed")
+- Size: S
+- Type: UI + system
+- Pages: every card grid (ecommerce, teachr meta hero, closet, coupon
+  hero, the styleguide's demos)
+- Status: DONE 2026-11-01 — measured: card boxes at edge + 0 (was − 28),
+  card text at edge + 28, in-card bullet lists at + 41 (inset + bullet
+  indent — the audits' new rules); summaries still at − 28 (bleed kept);
+  both audits updated (box-audit: cs-card → TEXT_EDGE_BOXES + in-card
+  dot expectation edge + 28; edge-audit: card text +28, card bullets
+  +41) and CLEAN; axe zero on all touched pages at 1440 + 390; lint +
+  format pass. Evidence: `evidence/t53-measure.json`, `t53-axe.json`,
+  captures `t53-{sports-ecommerce-redesign,styleguide}-{1440,390}.png`.
+
+## Review
+
+`.cs-cards .cs-card` carried `margin: 16px (-$cs-indent)` — the box
+bled one indent step into each gutter (324–1116 at 1440) with 28px
+padding, so its TEXT landed back on the text edge. Removing the bleed
+margin puts the card box on the text column (302–1138); its text then
+sits inset 28px within the plate — the same inside-a-plate pattern as
+the chips (text at edge + 33 inside their plate, ticket 41).
+
+## Requirements
+
+- `.cs-cards .cs-card`: `margin: 16px 0` — the box spans the text
+  column; padding stays 28 (the card's own inner padding); the text
+  sits at edge + 28 inside the plate.
+- DR-0009 amendment: cards join the bullet components INSIDE the
+  container (chips t39, cs-plain t39, now cards). Summary, quote
+  groups, cols keep their bleed (unchanged).
+- box-audit: `cs-card` moves to TEXT_EDGE_BOXES (per-class expected
+  edge, the ticket-39 mechanism).
+- edge-audit: card body text allowed at edge + 28 ± 2 (the plate's
+  padding — the chips' +33 rule, generalized).
+- Styleguide: the "Bleed example — card" demo loses its subject (cards
+  no longer bleed) — the bleed example switches to the `.cs-summary`
+  box (still bleeding); the intro copy's "boxes that bleed" wording
+  updated to name cards as inside-the-container.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Card box left edge == text edge ± 2 on ecommerce/teachr/closet at
+      1440 + 390 (was text edge − 28)
+- [ ] Card text at edge + 28 ± 2 (the plate inset)
+- [ ] Summary/quote groups/cols STILL on the bleed edge (unchanged)
+- [ ] box-audit + edge-audit updated + CLEAN; axe zero (1440 + 390);
+      lint + format pass; captures
+
+## Open questions
+
+- None.
+
+---
+
+# Ticket 54: Timeline text 8px off the dot — h3/p padding
+
+- Part of: `plan-bullets-cards.md` (Pedro, 2026-11-01: "for the cs
+  timeline component, add 8px left padding to the heading element and
+  the paragraph elements so they are not so close to the timeline dot")
+- Size: S
+- Type: UI
+- Pages: all with timelines (ecommerce, teachr, closet, fashion) + the
+  styleguide's demo — one component fix
+- Status: DONE 2026-11-01 — h3/p `padding-left: 8px` live; dot→text gap
+  10px on EVERY timeline li on 5 pages at 1440 + 390 (was 2px); the
+  edge-audit's +8 rule covers P/H3 and plain LI steps (workflow);
+  audits CLEAN; axe zero (ecommerce + styleguide, both widths).
+  Evidence: `evidence/t54-verify.json`.
+
+## Requirements
+
+- `.cs-timeline li h3` and `.cs-timeline li p`: `padding-left: 8px` —
+  the dot→text gap becomes 10px (26px dot + 8), in step with the
+  component spacing (8pt scale).
+- No geometry beyond the padding: the dot (ticket 51's 14.5px centering)
+  and the connector (44.5px) are untouched.
+
+## Acceptance criteria (agent-checkable)
+
+- [x] Dot→text gap = 10px ± 1 on every timeline li — 5 pages, 1440 + 390
+      (measured: 10 everywhere)
+- [x] edge-audit: timeline text at edge + 8 ± 1 (new rule; plain li
+      steps included after the workflow flags) + CLEAN
+- [x] box-audit CLEAN; axe zero (1440 + 390); lint + format pass
+
+## Open questions
+
+- None.
+
+---
+
+# Ticket 55: Timeline h3 top margin 4px — dot follows
+
+- Part of: `plan-bullets-cards.md` (Pedro, 2026-11-01: "update the h3
+  top margin to 4px so it better aligns with the timeline number")
+- Size: S
+- Type: UI
+- Status: DONE 2026-11-01 — h3 margin 4px; dot margin 16.5px, connector
+  46.5px; centering held ±1 on every timeline li across 6 pages at
+  1440 + 390; connector gap 4px; audits CLEAN; axe zero. Evidence:
+  `evidence/t55-verify.json`.
+
+## Review
+
+The h3's 2px top margin is part of ticket 51's dot-centering math (the
+dot's `margin-top: 14.5px` = title text center 28.5 − 13). Raising the
+h3 to 4px moves the title's text center down 2px (to ~30.5) — so the
+dot AND the connector must move with it or the number floats 2px high
+again: dot margin 14.5 → 16.5, connector top 44.5 → 46.5 (the 4px gap
+below the dot preserved).
+
+## Requirements
+
+- `.cs-timeline li h3`: `margin: 4px 0 4px` (was `2px 0 4px`).
+- `.cs-timeline li::before`: `margin-top: 16.5px` (ticket 51's
+  measured centering, + 2).
+- `.cs-timeline li::after`: `top: 46.5px` (16.5 + 26 + 4 — the same
+  4px gap).
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Dot center vs title's first text line center within ±1px on
+      every timeline li (5 pages, 1440 + 390)
+- [ ] Connector keeps the 4px gap below the dot
+- [ ] edge-audit + box-audit CLEAN; axe zero (1440 + 390); lint +
+      format pass
+
+## Open questions
+
+- None.
+
+---
+
+# Ticket 56: Timeline h3 top margin +4 more — 8px total
+
+- Part of: `plan-bullets-cards.md` (Pedro, 2026-11-01: "add 4px more to
+  that rule" — amends ticket 55)
+- Size: S
+- Type: UI
+- Status: DONE 2026-11-01 — h3 margin 8px; dot margin 20.5px, connector
+  50.5px; centering held ±1 on every timeline li across 6 pages at
+  1440 + 390; connector gap 4px; audits CLEAN; axe zero. Evidence:
+  `evidence/t56-verify.json`. Superseded same day by ticket 57.
+
+## Requirements
+
+- `.cs-timeline li h3`: top margin 4px → 8px; the dot + connector
+  followed (+ 4): dot 20.5px, connector 50.5px.
+
+## Acceptance criteria (agent-checkable)
+
+- [x] Dot center vs title's first text line center within ±1px on
+      every timeline li (6 pages, 1440 + 390)
+- [x] Connector keeps the 4px gap below the dot
+- [x] edge-audit + box-audit CLEAN; axe zero; lint + format pass
+
+---
+
+# Ticket 57: Timeline h3 top margin — 12px total
+
+- Part of: `plan-bullets-cards.md` (Pedro, 2026-11-01: "actually make
+  it 12px" — amends ticket 56)
+- Size: S
+- Type: UI
+- Status: DONE 2026-11-01 — h3 margin 12px; dot margin 24.5px, connector
+  54.5px; centering held ±1 on every timeline li across 6 pages at
+  1440 + 390; connector gap 4px; audits CLEAN; axe zero. Evidence:
+  `evidence/t57-verify.json`.
+
+## Requirements
+
+- `.cs-timeline li h3`: top margin 8px → 12px.
+- The dot + connector follow (ticket 55's rule, + 8 from the 55 state):
+  dot margin-top 16.5 → 24.5px, connector top 46.5 → 54.5px — centering
+  held ±1, the 4px connector gap preserved.
+
+## Acceptance criteria (agent-checkable)
+
+- [x] Dot center vs title's first text line center within ±1px on
+      every timeline li (6 pages, 1440 + 390)
+- [x] Connector keeps the 4px gap below the dot
+- [x] edge-audit + box-audit CLEAN; axe zero; lint + format pass
+
+---
+
+# Ticket 58: Timeline h3 — margins removed
+
+- Part of: `plan-bullets-cards.md` (Pedro, 2026-11-01: "remove margins
+  from the timeline h3's, that seems to solve it" — amends tickets
+  55–57; the margin-nudging approach is abandoned)
+- Size: S
+- Type: UI
+- Status: DONE 2026-11-01 — h3 `margin: 0`; dot re-centered 12.5px
+  (the ±1 split across viewport glyph-snapping, the ticket-51
+  compromise); connector 42.5px (the 4px gap); centering ±1 on every
+  timeline li across 6 pages at 1440 + 390; audits CLEAN; axe zero.
+  Evidence: `evidence/t58-verify.json`.
+
+## Review
+
+Tickets 55–57 nudged the h3's top margin (2→4→8→12) with the dot
+following each time — the chase never converged visually. Removing the
+margins is the stable fix: the title sits flush in its grid cell, and
+ticket 51's centering math runs on a clean baseline (no margin term).
+
+## Requirements
+
+- `.cs-timeline li h3`: `margin: 0` (was `12px 0 4px`).
+- The dot re-centers on the margin-free title: dot `margin-top: 12.5px`
+  (title text center = 8px h3 padding + 3px inline-box offset + half
+  the 31px text box ≈ 26.5px at 1440; the 390 glyph-snap is −2, so
+  12.5 splits the two widths within ±1 — the ticket-51 compromise).
+- The connector follows: `top: 42.5px` (12.5 + 26 + 4 — the same 4px
+  gap).
+
+## Acceptance criteria (agent-checkable)
+
+- [x] Dot center vs title's first text line center within ±1px on
+      every timeline li (6 pages, 1440 + 390)
+- [x] Connector keeps the 4px gap below the dot
+- [x] edge-audit + box-audit CLEAN; axe zero; lint + format pass
+
+## Open questions
+
+- None.
+
+---
+
+# Ticket 59: Timeline h3 — `margin: 4px 0`, final state
+
+- Part of: `plan-bullets-cards.md` (Pedro, 2026-11-01: "give it
+  margin: 4px 0; and leave it at that" — supersedes ticket 58's
+  margin: 0)
+- Size: S
+- Type: UI
+- Status: DONE 2026-11-01 — h3 `margin: 4px 0`; dot 16.5px, connector
+  47.5px; centering ±1 on every timeline li across 6 pages at
+  1440 + 390; connector gap 4px; audits CLEAN; axe zero. Evidence:
+  `evidence/t59-verify.json`. FINAL state of the rule.
+
+## Requirements
+
+- `.cs-timeline li h3`: `margin: 4px 0`.
+- The dot + connector follow (ticket 51's rule, + 4 from the 58 state):
+  dot `margin-top: 16.5px`, connector `top: 47.5px` — the 4px connector
+  gap preserved.
+
+## Acceptance criteria (agent-checkable)
+
+- [x] Dot center vs title's first text line center within ±1px on
+      every timeline li (6 pages, 1440 + 390)
+- [x] Connector keeps the 4px gap below the dot
+- [x] edge-audit + box-audit CLEAN; axe zero; lint + format pass
+
+---
+
+# Ticket 60: Timeline dot alignment — ROOT CAUSE + the grid fix
+
+- Part of: `plan-bullets-cards.md` (Pedro, 2026-11-01: "It's still not
+  aligning. I think it's something ::before is doing. Identify the root
+  cause of why the timeline h3's wouldn't align with the timeline
+  numbers")
+- Size: S
+- Type: UI + system
+- Status: DONE 2026-11-01 — fix applied + measured: dot vs title ≤1px
+  at 1280/1440/1536/768 on ecommerce/workflow/teachr (was ±2-3 drifting
+  by width); the two 390 outliers are wrapped-title steps (the dot
+  centers on the title block — the documented pattern); audits CLEAN;
+  axe zero; lint + format pass. Evidence: `evidence/t56-verify.json`
+  (the fix-test numbers) + this ticket's criteria.
+
+## Root cause (identified, measured)
+
+The `::before` is a grid item; tickets 51–57 positioned it with a FIXED
+`margin-top`. But the title's rendered glyph-box position SNAPS ±2-3px
+with viewport width (the browser rounds the line box / font metrics per
+layout): the same margin measured **−1px at 1440 and +2px at 390**, and
+other widths drift differently — a fixed margin is a per-viewport GUESS.
+Each of tickets 51/55/56/57 aligned the width it was tuned at and
+drifted everywhere else — the chase could never converge.
+
+The proof method (why the earlier "±1 verified" claims were vacuous):
+the earlier checks computed the dot's position from the same layout
+model the CSS uses — the model agreed with itself. The painted-pixel
+ground truth (forcing the dot lime/cyan per li and scanning the
+screenshot) showed the real offsets: +1.7px low at 1440, ~2px high at
+390, and a ±2-3px snap across UNTESTED widths — Pedro's window hit a
+worse one.
+
+## The fix (grid-computed, no magic number)
+
+- `.cs-timeline li::before`: **`margin-top: 0; align-self: center;
+z-index: 1`** — the grid centers the dot on the title's row EXACTLY
+  (the h3's margins/paddings are symmetric, so its box center = its
+  text center): measured **0.7px at 1280/1440/1536/390/768** on three
+  pages — viewport-independent by construction.
+- `.cs-timeline li:not(:last-child)::after`: `top: 40px` — with the
+  dot's `z-index: 1` the connector's top hides BEHIND the dot at any
+  geometry (1-line and wrapped titles), so the fixed top stops
+  mattering; the line still runs to the next dot.
+- Wrapped titles (2-line at 390): the dot centers on the title BLOCK —
+  the standard centered-marker pattern; documented, accepted.
+
+## Acceptance criteria (agent-checkable)
+
+- [x] Dot vs title center ≤ 1px on every 1-line timeline li at
+      1280/1440/1536/390/768 (3 pages: worst 0.7px)
+- [x] Wrapped-title steps: the dot centered on the title block
+- [x] The connector visible below the dot, hidden behind it above
+      (z-index 1 on the dot)
+- [x] edge-audit + box-audit CLEAN; axe zero; lint + format pass
+
+## Open questions
+
+- None.
+
+---
+
+# Ticket 61: Image runs — N images side by side, captions below (the "Mobile Web — How it started" pattern)
+
+- Part of: `plan-bullets-cards.md` (Pedro, 2026-11-01: reference slide
+  "Mobile Web - How it started" — three phone screenshots side by side,
+  a caption under each)
+- Size: M
+- Type: UI + system + copy
+- Status: DONE 2026-11-01 — `::: shots` shipped + tested: 3 image lines
+  → 3 figures in one flex row (1440/768), wrapped/stacked at 390, each
+  with its alt-text caption below; `[frame:]` works as a shot; the lone
+  image → showcase path unchanged (render diff vs HEAD's renderer on
+  the current content: EMPTY — note: Pedro's in-flight ecommerce md
+  copy edits are in the tree, untouched); the double-wrap bug the
+  first implementation had (the img+figcaption pass re-wrapped shot
+  figures) fixed with an offset guard. The styleguide demo (3 real
+  thumbs in a `cs-wide--full` band) renders, images load, axe zero at
+  1440 + 390; audits CLEAN (cs-shots in the full-bleed exempt lists);
+  doc-sync OK; lint + format pass. ALSO: Pedro amended `.cs-summary`
+  himself (bleed removed, `margin: 32px 0; padding: $cs-indent`) — the
+  box-audit now expects it on the text edge (TEXT_EDGE_BOXES).
+
+## Review (what exists)
+
+- A single image + caption renders through `![alt](src)` + a following
+  `[caption:]`/`[point:]` → the `.cs-showcase` figure (full-bleed,
+  caption centered below).
+- There is NO markdown syntax for a ROW of images with PER-IMAGE
+  captions: `::: showcase` renders ONE figure; `::: columns` carries
+  prose columns. The slide pattern (N images, each with its own caption
+  below) is not expressible — it would need raw HTML today.
+
+## Requirements
+
+- **New container `::: shots`**: one image per line; the image's ALT
+  TEXT is its caption below; images render side by side (flex, equal
+  widths, 16px gap), wrapping when narrow (each shot ≥ 240px), stacked
+  on phones. The row is a full-bleed-tier band (the showcase rule).
+- `[frame: Label]` placeholders work as shots (the "no asset yet"
+  state).
+- **CSS**: `.cs-shots` (flex, gap 16) + `.cs-shot` figures (img full
+  width, radius 8, caption = the showcase's caption style, centered).
+- **AUTHORING.md**: document `::: shots` with a renderable example AND
+  the photo workflow (see below). Doc-sync gate covers the new type.
+- **Audits**: `cs-shots` into the full-bleed exempt lists (box-audit)
+  - DISPLAY_CTX (edge-audit).
+- **Styleguide**: the Components block gains a shots demo (3 real
+  thumbs with captions).
+
+## The photo workflow (Pedro's "how do I add photos?")
+
+1. Drop the photo into `src/_images/case-studies/<page>/` — the
+   imagemin task copies/optimizes `src/_images/**` → `build/images/**`
+   (verified pipeline); name files descriptively
+   (`mobile-web-before.jpg`).
+2. Reference it in the markdown: `![Caption text](../images/case-studies/<page>/mobile-web-before.jpg)`
+   — the caption IS the alt text (also what screen readers say).
+3. A lone image + caption: the same line + nothing else → the showcase
+   figure. Three (or more) side by side: wrap the lines in
+   `::: shots` … `:::`.
+4. No asset yet: `[image: label]` (placeholder frame) or a `[frame:]`
+   inside `::: shots`.
+
+## Markdown example (the slide, executable)
+
+    ## Mobile Web — How it started | How it started | mobile-web-start
+
+    ::: shots
+    ![Before we started, the colours were very heavy, elements very
+    close together, and the elements were very sharp.](../images/case-studies/mobile-compare/before.jpg)
+    ![Elements were also inconsistent in spacing, like in this case
+    where we used a 3rd party which clashed with the rest of the
+    experience.](../images/case-studies/mobile-compare/menu.jpg)
+    ![Elements were very sharp, and claustrophobic. Content such as
+    images and text were also not well proportioned.](../images/case-studies/mobile-compare/after.jpg)
+    :::
+
+## Acceptance criteria (agent-checkable)
+
+- [x] `::: shots` with 3 image lines renders 3 figures in one flex row
+      (3 across at 1440 and 768, stacked at 390), each with its
+      alt-text caption below
+- [x] `[frame:]` inside shots renders the placeholder frame as a shot
+- [x] doc-sync OK (shots in AUTHORING.md == renderContainer)
+- [x] box-audit + edge-audit updated + CLEAN; axe zero (the styleguide
+      demo, 1440 + 390); lint + format pass
+- [x] The styleguide demo renders with real thumbs + captions
+
+## Open questions
+
+- None.
+
+---
+
 # Ticket 45: Hero component for visuAI and the styleguide — adapted variants
 
 - Part of: `plan-bullets-cards.md` (Pedro, 2026-10-31: "add case study
@@ -957,7 +1908,18 @@ copy-paste artifact leaking resume-scoped CSS onto the page.
 - Extends: DR-0014 (one hero component, three variants → this adds a
   fourth: the adapted bare hero)
 - Pages: `/workflow/` (visuAI), `/styleguide/`
-- Status: SPEC'D 2026-10-31 — queued for next build batch
+- Status: DONE 2026-11-01 — workflow hero carries the adapted eyebrow
+  ("The visuAI Workflow" default copy — Pedro can veto), computed hero bg
+  transparent, eyebrow ink #E34A47 (the theme's lifted red), full DR-0014
+  gap set 16/24/24 measured at 1440 + 390. Styleguide "Heroes" subsection:
+  ALL FOUR variants demoed on real classes — bare, meta, cover (container
+  width via a documented `#styleguide_container`-scoped adaptation),
+  mid-page `::: hero` (real secondary-hero h2 rendering; its byline line
+  is omitted from the demo — the muted ink token measures 4.46 on the
+  guide's light ground, under the 4.5 floor). DR-0014 amended with the
+  fourth variant. Verified 2026-11-01: evidence `t45-workflow-gaps.json`,
+  `t45-heroes-verify.json`, captures `t45-heroes-casesystem-*.png`,
+  `t43-styleguide-*.png`.
 
 ## Context
 
@@ -1007,18 +1969,105 @@ need it, each ADAPTED rather than copied:
 
 ## Acceptance criteria (agent-checkable)
 
-- [ ] `/workflow/` hero: eyebrow present (NOT "Case Study"), computed
+- [x] `/workflow/` hero: eyebrow present (NOT "Case Study"), computed
       background transparent, gaps on the DR-0014 set (eyebrow→h1 16,
       h1→summary 24, summary→details 24) — measured at 1440 + 390
-- [ ] Eyebrow ink passes axe on the dark ground (zero violations)
-- [ ] `/styleguide/` heroes subsection: all three demos render with
-      real component classes; the cover demo states the full-bleed
-      adaptation in text; axe stays clean (rides ticket 43's gates)
-- [ ] DR-0014's variant list extended with the adapted bare hero
-- [ ] box-audit + edge-audit CLEAN; lint + format pass; captures
+      (evidence: `evidence/t45-workflow-gaps.json`)
+- [x] Eyebrow ink passes axe on the dark ground (zero violations on
+      /workflow/ at 1440 + 390 — evidence: `evidence/t45-workflow-gaps.json`)
+- [x] `/styleguide/` heroes subsection: all FOUR variants render with
+      real component classes — bare (flat title, eyebrow→title 16),
+      meta (KPIs), cover (red ground at container width, adaptation
+      stated in the demo text, 100vw neutralized via documented
+      `#styleguide_container` scope), mid-page `::: hero` (real h2
+      secondary-hero rendering, h2→subtitle 24); axe: zero
+      color-contrast at 1440 + 390, one pre-existing heading-order
+      flag from the LEGACY steammobile demo (see ticket 43 — Pedro's
+      call). Evidence: `evidence/t45-heroes-verify.json` +
+      `evidence/t45-heroes-casesystem-{1440,390}.png`
+- [x] DR-0014's variant list extended with the adapted bare hero
+- [x] box-audit + edge-audit CLEAN; lint + format pass; captures
+      (`evidence/t43-styleguide-{1440,390}.png` full page)
 
 ## Open questions
 
 - visuAI kicker copy ("The visuAI Workflow" default) — owner: Pedro.
 - Cover demo in the guide: container-width structure demo (recommended)
   vs a scaled full-bleed demo — owner: Pedro, vetoable.
+
+---
+
+# Ticket 62: The design system page (/styleguide/) gets the visuAI / Design system tab strip
+
+- Part of: `plan-bullets-cards.md` (Pedro's eval pass 2026-11-14: "Add the visuAI and Design system tab to the design system"). This RESCOPES visualbear-system Ticket 4 ("retire /styleguide/") per Pedro's instruction: the page stays public AND becomes a second host of the two-tab system - recorded in DR-0015.
+- Size: M
+- Type: UI + system
+- Status: DONE 2026-11-14 - evidence in specs/md-case-study-editor/evidence/t62-verify.md + t62-\*.png captures
+
+## Context
+
+/workflow/ hosts the tab strip (tabs.nunjucks) with two panels (`data-vb-panel="visuai"` = workflow hero + content, `"designsystem"` = the styleguide blocks), default tab visuAI, body class pair `workflow-page`/`vb-system-light` swapped by tabs.js. /styleguide/ today renders only the styleguide blocks, no strip (`hasTablist: false`, measured 2026-11-14).
+
+## Requirements
+
+- `src/styleguide/index.nunjucks` restructures to the same two-panel host: a visuAI panel (the workflow article: `site.data.pages['workflow'] | mdhero/mdpage`, wrapped like /workflow/'s) and a Design system panel (the existing five styleguide blocks, `intro.content({ title: "Design system" })`), plus the strip via `tabsm.content({ id: "vb-system", label: "visualbear system views", active: "designsystem", tabs: [{id:"visuai",label:"visuAI"},{id:"designsystem",label:"Design system"}] })` rendered into the designsystem panel's `[data-vb-strip-host="designsystem"]`.
+- Initial state on /styleguide/: Design system active - panels carry the matching `hidden`, buttons `aria-selected`, body class `vb-system-light` via `{% block bodyattrs %}`.
+- tabs.js: initial state reads the strip's spec instead of hardcoding the default - `core.init((spec && spec.active) || core.DEFAULT_TAB)` (spec parse hoisted out of the try). /workflow/ passes `active: "visuai"`, so its behavior is unchanged; `tabs.test.js` (core-only contract) unaffected.
+- The existing tabs.scss hooks do the rest: `body.vb-system-light` re-inks the strip for the light ground and hides `#workflow_container`; `#styleguide_container { padding-top: 48px }` already applies. Demo images on /styleguide/ stay eager (no lazyDemo, per the ticket-38 recorded decision for the standalone page).
+- Exactly one visible h1 per state (each panel owns its hero); keyboard arrows/Home/End work via the existing controller.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] /styleguide/ at 1440 + 390: `[data-vb-tablist]` present, two tabs "visuAI" and "Design system"; default visible panel = designsystem (styleguide content), body class `vb-system-light`, exactly one visible h1
+- [ ] Clicking "visuAI" on /styleguide/: body class flips to `workflow-page`, workflow panel visible, design panel hidden, strip relocated into the visuAI panel's host, aria-selected follows; clicking back reverses it. Arrow-key navigation wraps (existing controller)
+- [ ] /workflow/ unchanged: default tab still visuAI, body `workflow-page`, both panels swap as before (regression capture)
+- [ ] `npm test` 5/5 (tabs.test.js contract holds), `npm run build` exit 0 (mirror+guard), eslint 0 errors, prettier clean on touched files; captures t62-styleguide-default-_.png, t62-styleguide-visuai-_.png, t62-workflow-regression-\*.png
+
+## Out of scope
+
+- Retiring or redirecting /styleguide/ (superseded by Pedro's instruction), the strip's visual design, panel content beyond wiring the existing blocks.
+
+## Open questions
+
+- None
+
+---
+
+# Ticket 63: Design system copy cleanup - no em dashes, lists over paragraphs, less copy, AI tags on agent-drafted text
+
+- Part of: `plan-bullets-cards.md` (Pedro's eval pass 2026-11-14: "Clean up the Design System text, especially the AI generated content: Remove em dashes, more lists, less running paragraphs, less copy overall, AI Tag")
+- Size: M
+- Type: copy
+- Status: DONE 2026-11-14 - evidence in specs/md-case-study-editor/evidence/t63-verify.md + t63-\*.png captures
+
+## Context
+
+The five styleguide blocks (`src/styleguide/_styleguide_blocks/*.nunjucks`, rendered by BOTH /styleguide/ and /workflow/'s Design system panel) carry em dashes in rendered text (casesystem block: ~15), running paragraphs (intro, modules, containers, casesystem prose), and lorem ipsum in demo specimens. Copy rule (AUTHORING.md / DR-0008): no em dashes anywhere; agent-drafted copy is marked with the AI tag (`<div class="ai-mark">✦ AI-drafted</div>` in nunjucks blocks - dev-only chip, stripped in production, which then warns loudly until Pedro rewrites).
+
+## Requirements
+
+- Em dashes: every rendered "—" in the five blocks becomes "-" or restructured (demo labels like "Headline — h2, 28.8px / 700" become "Headline: h2, 28.8px / 700"). HTML/nunjucks comments left as-is (never rendered).
+- More lists, less running paragraphs: the guide prose paragraphs (intro purpose paragraph, modules lead, containers lead, casesystem "Width tiers"/"Vertical rhythm"/"Heroes"/"Type roles" lead-ins) convert to short `<ul>` lists of 2-5 items; each list item one fact.
+- Less copy overall: intro trimmed to hero summary + index list + built-using list + one-line purpose; lorem ipsum demo paragraphs cut to a single short line each (they are style specimens, not content); Pedro's own voice copy (containers' Text Container identity paragraph) is NOT rewritten, only kept as-is.
+- AI Tag: every block section whose copy an agent drafted in this pass gets `<div class="ai-mark">✦ AI-drafted</div>` at its end (dev chip only; production strips + warns per the DR-0006 guard). Demo specimen markup (swatches, ladders, shot runs, heroes) is not copy - no tag on pure specimens, but the descriptive labels around them count.
+- No em dashes remain in rendered output of /styleguide/ and /workflow/ design panel: `grep` the built HTML for "—" in those pages = 0 matches outside comments/scripts.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] `grep -c "—" build/styleguide/index.html build/workflow/index.html` = 0 (em dash gone from rendered design-system text; note: md-sourced visuAI panel may still carry its own markers - scoped out, workflow.md already has its own [ai] tags)
+- [ ] ai-mark divs present in the dev build of the touched sections; production build strips them and the guard warns (expected, per DR-0006/DR-0008 - Pedro rewrites)
+- [ ] Captures t63-styleguide-\*.png at 1440 + 390 show the list-ified sections; demo specimens (swatches, headings ladder, buttons, footer, shots, heroes) still render complete
+- [ ] Visual regression: section count/ids unchanged (#core, #modules, #containers, #casesystem anchors intact - intro index links still resolve)
+- [ ] Gates: `npm run build` exit 0 (mirror+guard), `npm test` 5/5, eslint 0 errors, prettier clean on touched files (note: src/\_data/pages and .nunjucks are excluded from the repo format script; blocks stay hand-formatted consistently)
+
+## Manual test steps (Pedro)
+
+- /styleguide/ (or /workflow/ -> Design system tab): sections read as short lists, no em dashes, less text overall; on the dev server the rewritten sections show the "✦ AI-drafted" chip until you rewrite them in your voice
+
+## Out of scope
+
+- workflow.md (the visuAI panel copy) - already carries its own [ai] marks from phase 2; Pedro's rewrite queue. Demo specimen internals (lorem stays as a specimen only where a style demo needs text, trimmed).
+
+## Open questions
+
+- None

@@ -293,9 +293,10 @@
   .text-box {
     // one content width site-wide = the resume's (ticket 42, DR-0013)
     margin: auto;
-    width: 900px;
+    width: $content-width;
     max-width: 100%;
-    padding: 0 32px;
+    // edge-alignment T8 (DR-0002): 16px = the nav's page margin, all widths
+    padding: 0 16px;
     word-wrap: break-word;
     display: block;
   }
@@ -472,9 +473,10 @@
 
   .text-box {
     // one content width site-wide = the resume's (ticket 42, DR-0013)
-    padding: 0 32px;
+    // edge-alignment T8 (DR-0002): 16px = the nav's page margin, all widths
+    padding: 0 16px;
     margin: auto;
-    width: 900px;
+    width: $content-width;
     max-width: 100%;
     word-wrap: break-word;
     display: block;
@@ -629,8 +631,9 @@
   .text-box {
     // one content width site-wide = the resume's (ticket 42, DR-0013)
     margin: auto;
-    padding: 0 32px;
-    width: 900px;
+    // edge-alignment T8 (DR-0002): 16px = the nav's page margin, all widths
+    padding: 0 16px;
+    width: $content-width;
     max-width: 100%;
     word-wrap: break-word;
     display: block;
@@ -640,7 +643,7 @@
     margin: auto;
     padding: 64px 0;
     width: 768px;
-    max-width: 900px;
+    max-width: $content-width;
     word-wrap: break-word;
     display: block;
   }
@@ -777,9 +780,10 @@
     // one content width site-wide = the resume's (ticket 42, DR-0013);
     // 100% below 900 so the container never overflows the viewport
     margin: auto;
-    padding: 0 32px;
+    // edge-alignment T8 (DR-0002): 16px = the nav's page margin, all widths
+    padding: 0 16px;
     width: 100%;
-    max-width: 900px;
+    max-width: $content-width;
     word-wrap: break-word;
     display: block;
   }
@@ -946,7 +950,8 @@
 
   .text-box {
     margin: auto;
-    padding: 0 32px;
+    // edge-alignment T8 (DR-0002): 16px = the nav's page margin, all widths
+    padding: 0 16px;
     width: 100%;
     word-wrap: break-word;
     display: block;
@@ -1109,7 +1114,8 @@
     word-wrap: break-word;
     display: block;
     width: 100%;
-    padding: 0 32px;
+    // edge-alignment T8 (DR-0002): 16px = the nav's page margin, all widths
+    padding: 0 16px;
     margin: auto;
   }
 
@@ -1260,7 +1266,8 @@
     word-wrap: break-word;
     display: block;
     width: 100%;
-    padding: 0 32px;
+    // edge-alignment T8 (DR-0002): 16px = the nav's page margin, all widths
+    padding: 0 16px;
     margin: auto;
   }
 

@@ -77,8 +77,13 @@ function wiring(state) {
 // Validate the spec the page shell passes to the macro. Both tabs must be
 // declared so the controller never has to invent one.
 function validateSpec(spec) {
-  var ids = (spec.tabs || []).map(function (t) { return t.id; });
-  if (TAB_IDS.filter(function (id) { return ids.indexOf(id) !== -1; }).length !== TAB_IDS.length) {
+  var ids = (spec.tabs || []).map(function (t) {
+    return t.id;
+  });
+  var declared = TAB_IDS.filter(function (id) {
+    return ids.indexOf(id) !== -1;
+  });
+  if (declared.length !== TAB_IDS.length) {
     throw new Error('tabs spec must declare the two tab buttons: ' + TAB_IDS.join(', '));
   }
 }

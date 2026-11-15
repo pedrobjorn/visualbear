@@ -6,86 +6,112 @@
 // otherwise beats the UA's `[hidden] { display: none }` (same pattern as
 // .vb-panel[hidden] in tabs.scss).
 .lightbox[hidden] {
-    display: none;
+  display: none;
 }
 
 .lightbox {
-    position: fixed;
-    inset: 0;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 // dark plate over the page
 .lightbox-backdrop {
-    position: absolute;
-    inset: 0;
-    background: rgba($vb-dark, 0.92);
-    transition: opacity 160ms ease;
+  position: absolute;
+  inset: 0;
+  background: rgba($vb-dark, 0.92);
+  transition: opacity 160ms ease;
 }
 
 .lightbox-figure {
-    position: relative;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .lightbox-img {
-    max-height: 80vh;
-    max-width: 90vw;
-    object-fit: contain;
+  max-height: 80vh;
+  max-width: 90vw;
+  object-fit: contain;
 }
 
 // small bottom-center title; $vb-light (#e6f2ff) on the $vb-dark plate is
 // ~15:1 contrast, well above the 4.5:1 floor
 .lightbox-caption {
-    position: absolute;
-    bottom: 24px;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 0;
-    font-size: 14px;
-    color: $vb-light;
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: 14px;
+  color: $vb-light;
 }
 
 // arrows reuse .btn.vb-btn (48x48); min 44x44 per the a11y floor anyway
 .lightbox-prev,
 .lightbox-next,
 .lightbox-close {
-    position: absolute;
-    min-width: 44px;
-    min-height: 44px;
+  position: absolute;
+  min-width: 44px;
+  min-height: 44px;
 }
 
 .lightbox-prev {
-    left: 16px;
-    top: 50%;
-    transform: translateY(-50%);
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .lightbox-next {
-    right: 16px;
-    top: 50%;
-    transform: translateY(-50%);
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .lightbox-close {
-    top: 16px;
-    right: 16px;
+  top: 16px;
+  right: 16px;
 }
 
-// visible keyboard focus on every lightbox control
+// play-subpages T20 (DR-0006): the controls must be visible in the dark -
+// .vb-btn's default $vb-primary glyph on the near-black backdrop measures
+// ~3.9:1 (below the 4.5:1 text floor), so inside the lightbox the buttons
+// get the light glyph + light border on a translucent dark plate (~15:1).
+.lightbox .lightbox-prev,
+.lightbox .lightbox-next,
+.lightbox .lightbox-close {
+  color: $vb-light;
+  border: 2px solid $vb-light;
+  background: rgba($vb-dark, 0.6);
+
+  &:hover {
+    color: $vb-light;
+    background-color: $vb-primary;
+    border-color: $vb-primary;
+  }
+
+  &:active,
+  &:focus {
+    color: $vb-light;
+    background-color: $vb-secondary;
+    border-color: $vb-secondary;
+  }
+}
+
+// visible keyboard focus on every lightbox control - light on the dark
+// backdrop (the brand red outline only reached ~3.9:1 there)
 .lightbox :focus-visible {
-    outline: 2px solid $vb-primary;
-    outline-offset: 2px;
+  outline: 2px solid $vb-light;
+  outline-offset: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .lightbox-backdrop {
-        transition: none;
-    }
+  .lightbox-backdrop {
+    transition: none;
+  }
 }

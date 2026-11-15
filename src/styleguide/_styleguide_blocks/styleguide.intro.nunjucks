@@ -18,10 +18,9 @@
       {# title param (ticket 6): the `/workflow/` panel renames the page
          h1 to "Design system"; the `/styleguide/` page keeps the default. #}
       <h1>{{ _title }}</h1>
-      <p class="cs-cover-summary">A collection of all the individual components and rules
-        used to build this site. I use a modified, custom version of
-        <a href="http://patternlab.io/" title="Link to Pattern Lab">Pattern Lab's</a> atomic
-        design structure, customised by me.</p>
+      <p class="cs-cover-summary">Every component and rule used to build this site.
+        Atomic structure after
+        <a href="http://patternlab.io/" title="Link to Pattern Lab">Pattern Lab</a>, customised.</p>
       <p class="cs-cover-details">Design reference ⋅ 2026</p>
     </header>
   </div>
@@ -33,11 +32,14 @@
       <li><a href="#casesystem" >Case-study system</a></li>
       <!--<li><a href="#templates" >Templates</a></li>-->
     </ul>
-    <p>The purpose of exposing this styleguide is to present my portfolio itself as part my portfolio work. What you see is what I use as a reference as I build the site, as it's imperative to good web design and development.</p>
+    <p>This guide doubles as portfolio work: what you see is the system the site is built with.</p>
     <p>Built using:</p>
     <ul>
       <li><a href="https://github.com/larsonjj/generator-yeogurt" target="_blank">Yeogurt</a></li>
       <li><a href="https://materializecss.com/sass.html" target="_blank">Materialize</a></li>
-    </ul>  
+    </ul>
+    {# T63 (DR-0015): this pass's copy is agent-drafted - the chip shows on
+       the dev server only; production strips it and warns until Pedro rewrites #}
+    <div class="ai-mark">✦ AI-drafted</div>
   </article>
   {% endmacro %}

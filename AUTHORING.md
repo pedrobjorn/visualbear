@@ -236,3 +236,7 @@ Paragraphs before the first `##` are the page intro (bare `col m12` row).
 - Real image: standard markdown `![alt](src)`.
 - Caption under an image: `[caption: text]` on the line after it - the pair
   wraps into the showcase figure.
+- The showcase tier is automatic, read from the image's own dimensions
+  (DR-0004, `specs/teachr-training/`): wide desktop captures go full-bleed,
+  phone-portrait captures render narrow at 480px, everything else sits on
+  the text measure. No variant syntax; to change a tier, change the asset.

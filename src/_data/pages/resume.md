@@ -6,25 +6,25 @@ section's own sub-title style instead of a heading. Nested lists under a
 **bold** item are the skills tree. See AUTHORING.md.
 -->
 
-I'm a Product Design Lead with 10+ years of experience in digital product design and 2+ years managing designers. I am passionate about building human-centered experiences and raising the bar of design in cross-functional teams while being hands-on and bringing stakeholders together. Recently I've focused on business strategy and service design.
+I'm a Product Design Lead with 12+ years of experience in digital product design and 2+ years managing designers. I am passionate about building human-centered experiences and raising the bar of design in cross-functional teams while being hands-on and bringing stakeholders together. Recently I've focused on business strategy and service design.
 
 ## Core Skills
 
-- **Design Leadership**
-  - Leading and coaching Product Designers in growth and craft
-  - setting product and brand design principles
-  - Design Ops: setting research, critique and delivery standards
+- **Technical**
+  - Agentic Design and Prototyping (Claude Code, Cursor, Figma AI, etc)
+  - Figma
+  - Front-end fundamentals (HTML, CSS, JavaScript)
+  - Notion, Jira
 - **Product Design**
   - User Experience (UX)
   - User Interfaces (UI)
   - Design Systems
   - Usability Research
-- **Technical**
-  - Agentic Design and Prototyping (Claude Code, Cursor, Figma AI, etc)
-  - Figma
-  - Front-end fundamentals (HTML, CSS, JavaScript)
-  - Notion
-  - Jira
+- **Design Leadership**
+  - AI-design standards, enabling non-designers to design and designers to deliver
+  - Leading and coaching Product Designers in growth and craft
+  - Setting product and brand design principles, both experience and ways of working
+  - Design Ops, setting research, critique and delivery standards
 
 ## Experience
 
@@ -34,18 +34,18 @@ At Quizrr I've been leading the Design strategy, culture and ways of working, le
 
 **Key Responsibilities**
 
+- AI Best practices and workflows
 - Design Leadership
 - Design Strategy
 - Design Operations
-- AI Best practices and workflows
 
 **Key Achievements**
 
-- Established the design direction, process and principles, leading to a reduction in design debt by 50%, and enabling discovery workflows, allowing for rapid explorations which increased the delivery speed of new user experienced by 2x.
-- Led the end-to-end user experience for Quizrr's global SaaS eLearning platform on app and web, from discovery to delivery, raising the design maturity improving our user onboarding and adoption rates by 10% year-on-year.
 - Established AI-native workflows, including design guidelines, user research and component libraries, enabling non-developers to contribute to feature delivery.
-- Implemented a design system from the ground up to cover massive SaaS Learning Management System, connecting it with code and accessibility standards
 - Advanced prototyping capabilities using Figma and AI-coding agents for rapid iteration and testing.
+- Led the end-to-end user experience for Quizrr’s global SaaS eLearning platform on app and web, from discovery to delivery, raising the design maturity improving our user onboarding and adoption rates by 10% year-on-year.
+- Established the design direction, process and principles, leading to a reduction in design debt by 50%, and enabling discovery workflows, allowing for rapid explorations which increased the delivery speed of new users experienced by 2x.
+- Implemented a design system from the ground up to cover massive SaaS Learning Management System, connecting it with code and accessibility standards
 
 ### Staff Product Designer - [H&M Hennes & Mauritz AB](https://www2.hm.com/sv_se/index.html) | 2021 / 01 - 2024 / 09
 
@@ -60,9 +60,9 @@ At H&M I've held a range of responsibilities, from working on app features centr
 
 **Key Achievements**
 
+- Co-founding the Design AI Circle and driving AI usage in design processes such as research summaries.
 - Lead the global UX revamp of the web experience, aligning dozens of teams around Web & Desktop redesigns, providing coordination of usability studies and implementation, leading to an increase of 27% in sessions moving onto other pages, and a drop of 11% in single-page sessions on the index page.
 - Lead the ideation-to-prototype for a Digital Close feature for app and webb at record speed for the company, with a time to market under 6 months and learnings at low risk.
-- Co-founding the Design AI Circle and driving AI usage in design processes such as research summaries.
 - Revamped and improved the Digital Stylist project in the app, reaching 200% more activations.
 
 ### Product Designer - [Sportamore AB](http://www.sportamore.se) | 2018 / 01 - 2020 / 12

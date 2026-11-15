@@ -4,13 +4,18 @@
   "href":"hello-world/",
   "img":"../../images/work/thumbs/gallery_thumb_prettyugly.jpg"
 },{
-  "title": "First blog post",
-  "subtitle": "14 Nov 2026",
+  "title": "Placeholder post 1",
+  "subtitle": "Draft",
+  "href":"blog1/",
+  "img":"../../images/work/thumbs/gallery_thumb_prettyugly.jpg"
+},{
+  "title": "Placeholder post 2",
+  "subtitle": "Draft",
   "href":"blog2/",
   "img":"../../images/work/thumbs/gallery_thumb_prettyugly.jpg"
 },{
-  "title": "Second blog posts",
-  "subtitle": "14 Nov 2026",
-  "href":"blog1/",
+  "title": "Placeholder post 3",
+  "subtitle": "Draft",
+  "href":"blog3/",
   "img":"../../images/work/thumbs/gallery_thumb_prettyugly.jpg"
 }]

@@ -23,7 +23,7 @@ an [ai] comment at its gallery. The headline molecule's logo mark is
 decorative next to its h1 (alt="") and its hero image takes
 `headline_img_alt` from the project data ([ai]-drafted for art-ent +
 steam-mobile, the only two that set headline_img). The
-src/visualbear/_styleguide_blocks duplication copies already carried
+src/visualbear/\_styleguide_blocks duplication copies already carried
 alts (the "Smiley face" placeholders are T32's gated asset call).
 
 Probed (29 built pages, public + mirror, both engines, 322 imgs):
@@ -35,12 +35,12 @@ name (aria-label / text / img alt / title chain).
 Shipped + pixel-probed on the REAL rendered ground (both engines,
 390 + 1440):
 
-| element | before | shipped | pixel ratio after |
-| --- | --- | --- | --- |
-| /workflow/ .cs-eyebrow 15.36px | #E34A47, 3.64 best | #EE6E73 | 4.69-5.75 |
-| .cs-metric-label (styleguide light ground) | #6E6E73, 4.47 | #66686D (T47 recipe, rule extended) | 5.21 |
-| home + /about/ body links | #D73735, ~4.12 | #D0181E scoped to body.home-page/about-page (+nav/.foot/robot guards; hover/focus/active restated) | 4.83 |
-| /workflow/ dark links (same token) | #E34A47, 3.8 | #EE6E73 | 5.43-5.50 |
+| element                                    | before             | shipped                                                                                            | pixel ratio after |
+| ------------------------------------------ | ------------------ | -------------------------------------------------------------------------------------------------- | ----------------- |
+| /workflow/ .cs-eyebrow 15.36px             | #E34A47, 3.64 best | #EE6E73                                                                                            | 4.69-5.75         |
+| .cs-metric-label (styleguide light ground) | #6E6E73, 4.47      | #66686D (T47 recipe, rule extended)                                                                | 5.21              |
+| home + /about/ body links                  | #D73735, ~4.12     | #D0181E scoped to body.home-page/about-page (+nav/.foot/robot guards; hover/focus/active restated) | 4.83              |
+| /workflow/ dark links (same token)         | #E34A47, 3.8       | #EE6E73                                                                                            | 5.43-5.50         |
 
 RECORDED DEVIATION: the ticket named #EA544F for the eyebrow (T2's
 shipped instance, "4.65 on the dark grounds"). Pixel probe on the
@@ -50,7 +50,8 @@ under the 4.5 bar. The lift therefore goes one palette step further to
 #EE6E73 (visualbear-red lighten-2, the value this file's header already
 documents as the eyebrow's 6.0:1 pick on flat #18181B) - still an
 existing palette entry, no new color. Acceptance criterion (pixel
->= 4.5 on the real ground) is met for every flagged element.
+
+> = 4.5 on the real ground) is met for every flagged element.
 
 RECORDED RESIDUAL (not fixed - Pedro's call): the tab strip's ACTIVE
 label sits higher than the eyebrow, under the spotlight's brightest

@@ -1,0 +1,12 @@
+{
+  "//": "Mirror-only cards - injected at the TOP of the selected-works home gallery, in array order. The public home (built from work.json) never carries these. img: '' renders the plain black card plate.",
+  "cards": [
+    {
+      "title": "Redesigning the learning experience",
+      "subtitle": "Teachr — the training flow, rebuilt as steps",
+      "href": "https://drive.google.com/file/d/1Z6MozllgLj4YRYZoA32NjA-4otYQxdON/view?usp=drive_link",
+      "img": "../images/work/thumbs/gallery_thumb_teachr.jpg",
+      "target": "_blank"
+    }
+  ]
+}

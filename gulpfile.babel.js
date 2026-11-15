@@ -44,29 +44,31 @@ gulp.task('default', ['clean'], () => {
 }, [process.env.NODE_ENV === 'production' ? 'production' : 'development']);
 
 // Build production-ready code
-gulp.task('build', [
+// --headless: release builds (scripts/release.sh) - no BrowserSync, no watch,
+// so a release never collides with the dev server's ports.
+let buildTasks = [
   'copy',
   'imagemin',
   // 'markdown',
   'nunjucks',
   'sass:build',
-  'browserify',
-  'browserSync',
-  'watch'
-]);
+  'browserify'
+];
+if (!args.headless) {
+  buildTasks.push('sync-mirror', 'browserSync', 'watch');
+}
+gulp.task('build', buildTasks);
 
 
 // Server tasks with watch
-gulp.task('serve', [
-  'imagemin',
-  'copy',
-  // 'markdown',
-  'nunjucks',
-  'sass:dev',
-  'browserify',
-  'browserSync',
-  'watch'
-]);
+// Under `--production` the serve pipeline targets build/ and routes every
+// rebuild through sync-mirror, so serving is 1:1 with npm run build.
+gulp.task(
+  'serve',
+  args.production
+    ? ['imagemin', 'copy', 'nunjucks', 'sass:build', 'browserify', 'browserSync', 'sync-mirror', 'watch']
+    : ['imagemin', 'copy', 'nunjucks', 'sass:dev', 'browserify', 'browserSync', 'mirror', 'watch']
+);
 
 // Testing
 gulp.task('test', ['eslint']);
