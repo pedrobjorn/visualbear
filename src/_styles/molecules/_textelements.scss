@@ -462,10 +462,22 @@
   }
 }
 
-// edge-alignment T9 (DR-0002): the nav's 16px page margin applies to body
-// content at all widths - later rule, so it beats the per-band 32px sides
-// above while their vertical rhythm stays
+// Ticket 41 (DR-0013, amended by ticket 42 / DR-0014): above 947px the root
+// .text-container carries no side padding - its content spans the
+// nav-wrapper's width ($content-width). The base rule stays an explicit 0
+// (later rule, so it beats the per-band 32px side padding above while their
+// vertical rhythm stays); deleting it would let those 32px sides back in.
 .text-container {
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+// Ticket 42 (DR-0014): at <=947px the 916 column leaves less than the 16px
+// page margin, so the container keeps 16px side padding and text never
+// touches the bleed (gap = max(column margin, 16) >= 16px at every width).
+@media (max-width: 947px) {
+  .text-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }

@@ -257,8 +257,9 @@ body.vb-system-light #workflow_container {
   }
 
   // The shell's mobile column (both tickets): full-width container with
-  // the nav's 16px page margin below 916 (edge-alignment T8/T9, DR-0002) -
-  // not the styleguide page's 90% width with 0 side padding (324px at 360).
+  // the nav's 16px page margin below 916 (edge-alignment T8/T9, DR-0002,
+  // kept by ticket 42 / DR-0014) - not the styleguide page's 90% width with
+  // 0 side padding (324px at 360).
   .text-container {
     @media (max-width: 915px) {
       width: auto;

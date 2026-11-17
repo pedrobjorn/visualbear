@@ -108,6 +108,20 @@ assert.ok(withBothStripped.indexOf('href="workflow/"') !== -1, 'the mirror-injec
 
 var navPage = '<nav><a href="/" id="logo">visualbear</a>' +
   '<a href="/#work">Work</a><a href="/#about">About</a><a href="#contact">Contact</a></nav>';
+
+// play-menu-hero T1: the play nav variant (playsitemap.json) is root-absolute
+// like the rest of the nav, so mirrored /play/ pages must relativize it too -
+// otherwise the air-lock guard fails on /play/blog/ style hrefs
+var playNav = '<nav><a href="/play/blog/">Blog</a><a href="/play/photography/">Photos</a><a href="#contact">Contact</a></nav>';
+var playRel0 = link.relativizeNavLinks(playNav, 0);
+assert.ok(playRel0.indexOf('href="play/blog/"') !== -1, 'depth 0: play Blog -> play/blog/ (in-zone)');
+assert.ok(playRel0.indexOf('href="play/photography/"') !== -1, 'depth 0: play Photos -> play/photography/ (in-zone)');
+assert.ok(playRel0.indexOf('href="/play/') === -1, 'depth 0: no public-root play link remains');
+var playRel2 = link.relativizeNavLinks(playNav, 2);
+assert.ok(playRel2.indexOf('href="../../play/blog/"') !== -1, 'depth 2: play Blog -> ../../play/blog/');
+assert.ok(playRel2.indexOf('href="../../play/photography/"') !== -1, 'depth 2: play Photos -> ../../play/photography/');
+assert.strictEqual(link.relativizeNavLinks(playRel2, 2), playRel2, 'play rewrite is idempotent');
+
 var rel0 = link.relativizeNavLinks(navPage, 0);
 assert.ok(rel0.indexOf('href="./"') !== -1, 'depth 0: logo -> ./');
 assert.ok(rel0.indexOf('href="#work"') !== -1, 'depth 0: work -> #work (in-page - the mirror home IS the work index)');
@@ -215,29 +229,10 @@ assert.strictEqual(link.stripClosetCard(demoPage), demoPage, 'the styleguide dem
 var plainPage = '<main><a href="workflow/">x</a></main>';
 assert.strictEqual(link.stripClosetCard(plainPage), plainPage, 'no-op pages pass through byte-identical');
 
-// ── play-subpages T2 (amended, DR-0003): the Play card is public-only ─────
-// The Play card now renders INSIDE the index work gallery (unique
-// id="play-teaser" on the anchor). /play/ is not mirrored, so from a
-// mirrored page its ../play href would resolve OUTSIDE the air-locked zone
-// (guard check 8). The strip is targeted on the anchor's id, never on the
-// href alone, and leaves the gallery wrapper and sibling cards alone.
-
-var teaserAnchor =
-  '<a id="play-teaser" class="card--thin" href="../play" target="">' +
-  '<div class=" row"><div class="col s12 m12"><div class="card-container card medium">' +
-  '<div class="card-container card-image" style="background-image: url(../images/work/thumbs/gallery_thumb_prettyugly.jpg)">' +
-  '<span class="card-title"><h2>Play</h2><p class="card-content">Stuff I do for fun</p></span>' +
-  '</div></div></div></div></a>';
-var galleryHome =
-  '<div id="work"><div class="content gallery"><div style="width:100%">' +
-  '<a href="https://drive.google.com/x">Fashion</a>' + teaserAnchor +
-  '</div></div></div>\n';
-var teaserStripped = link.stripPlayTeaser(galleryHome);
-assert.ok(teaserStripped.indexOf('play-teaser') === -1, 'strip removes the in-gallery Play card anchor');
-assert.ok(teaserStripped.indexOf('../play') === -1, 'strip removes the escaping ../play href');
-assert.ok(teaserStripped.indexOf('drive.google.com/x') !== -1, 'strip leaves the sibling gallery cards');
-assert.ok(teaserStripped.indexOf('content gallery') !== -1, 'strip leaves the gallery wrapper itself');
-assert.strictEqual(link.stripPlayTeaser(teaserStripped), teaserStripped, 'teaser strip is idempotent');
-assert.strictEqual(link.stripPlayTeaser(plainPage), plainPage, 'pages without the Play card pass through byte-identical');
+// ── play-consistency T1 (DR-0001): the Play teaser tile is removed ────────
+// The tile no longer renders in the gallery macro, so no id="play-teaser"
+// anchor can exist in built pages and the public-only strip is removed
+// with it (it would be dead code matching nothing).
+assert.strictEqual(link.stripPlayTeaser, undefined, 'stripPlayTeaser is removed together with the Play tile');
 
 console.log('mirror-link.test: PASS');

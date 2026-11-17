@@ -2147,3 +2147,82 @@ Ticket 4 ("retire /styleguide/, wire the references") was gated on open question
 ## Open questions
 
 - None
+
+---
+
+# Ticket 41: Root .text-container loses its side padding - content aligns with the nav-wrapper width (DR-0013)
+
+- Part of: specs/visualbear-system/plan.md (edge alignment amendment, DR-0013)
+- Depends on: none
+- Size: S
+- Type: CSS
+- Status: DONE 2026-11-15 - spec written first (DR-0013); pre-change probe + pre-change simulation proof in evidence/t41-pre-change.json; post-change probe 42/42 + 35/35 aligned, 0 scroll overflow, vertical padding unchanged; evidence/t41-verify.md + t41-\*.png captures; npm test 5/5, prettier clean
+
+## Context
+
+Measured on the served build (probe: evidence/t41-probe.py, widths 1440/1024/916/768/600/390/320, pages /workflow/, /styleguide/, /resume/): the root .text-container border box already equals the nav .content.nav-wrapper box at every width, but its CONTENT box is inset 16px per side everywhere (884 vs 916 at 1440; 358 vs 390 at 390) because of the edge-alignment T9 side padding (DR-0002). Pedro wants the padding removed so the container aligns with the nav-wrapper's width (DR-0013).
+
+## Requirements
+
+Zero the SIDE padding of .text-container in every rule that sets it (vertical padding untouched):
+
+1. src/\_styles/molecules/\_textelements.scss root rule (~line 468, all widths, beats the per-band padding:32px shorthands by source order): padding-left/right 16px -> 0. The rule must stay as an explicit 0 - deleting it would let the per-band 32px sides back in.
+2. src/\_modules/molecules/tabs/tabs.scss [data-vb-panel='designsystem'] .text-container (max-width: 915px): padding-left/right 16px -> 0 (covers /workflow/ design tab and /styleguide/ below 916).
+3. src/\_styles/templates/\_resume.scss #resume_container .text-container (id-level, all widths): padding-left/right 16px -> 0 (keep the .row/.col gutter zeroing).
+4. src/\_styles/utilities/\_grid.scss .section .text-container in the 480-767px band: padding 128px 32px -> 128px 0 (0,2,0 beats the root rule; without this the 32px sides resurface at 480-767 once rules 2-3 are zeroed).
+5. Consequence fix (measured post-change: 16-28px horizontal scroll on /styleguide/ and /workflow/ design tab at <=916, offenders .cs-metrics / .cs-quotes / .cs-timeline li): src/\_styles/templates/\_case-study.scss, scoped to #styleguide_container at max-width 971px - shift the demo bleed margins by +16 (cs-metrics -> 0, cs-timeline li / .cs-quotes / .cs-twocol .cs-col -> 8px), preserving their exact pre-change screen positions now that the container gutter is 0. Real case-study pages keep the global <=915 cap (their .text-box still carries the gutter).
+
+## Acceptance criteria (agent-checkable)
+
+- [x] Probe (evidence/t41-probe.py against the rebuilt build) on /workflow/ (both tabs), /styleguide/, /resume/ at 1440/1024/916/768/600/390/320: every root article.text-container content box left == nav .content.nav-wrapper border left AND content right == nav border right, within 0.5px (i.e. 262..1178 at 1440, 0..vw below 916)
+- [x] Computed padding-left/right of .text-container == 0 at all probed widths; padding-top/bottom unchanged from pre-change values (32/32 or 128/128 or 16/32 per band)
+- [x] No horizontal scroll (documentElement.scrollWidth <= clientWidth) on all probed pages/widths - pre-change this already failed at 916 on /styleguide/ + /workflow/ (12px, pre-existing hole); after item 5 it must be 0 everywhere probed
+- [x] .text-container border box still equals the nav-wrapper box at all widths (no width/margin regression)
+- [x] Gates: sass builds clean (gulp sass:build --production exit 0), npm test 5/5, prettier clean on touched files
+
+## Out of scope
+
+- Vertical padding/rhythm, width/max-width/margin of .text-container; the nav's own edge-text rule; .hero .content and #styleguide_container .case-study.document-text 16px insets; gallery cards; image bleeds; markup.
+
+## Open questions
+
+- None
+
+---
+
+# Ticket 42: Small breakpoints keep the .text-container side padding - text never touches the bleed (amends Ticket 41, DR-0014)
+
+- Part of: specs/visualbear-system/plan.md (amends Ticket 41 per DR-0014)
+- Depends on: Ticket 41 (shipped 2026-11-15)
+- Size: S
+- Type: CSS
+- Status: DONE 2026-11-15 - spec first (DR-0014); simulated the 947px boundary pre-change (33/33 OK); post-change probe 66/66 + 35/35 OK, text-to-edge gap >= 16px at <=947 and nav-box alignment at >=948, 0 scroll overflow incl. 916-972 sliver; evidence/t42-verify.md + t42-post-change.json; npm test 5/5, prettier clean
+
+## Context
+
+Ticket 41 zeroed the root .text-container side padding at all widths. Measured post-change: at every viewport <= 916 the container is full-bleed, so its content sits at 0px from the viewport edge (t41-post-change.json: content 0..vw at 916/768/600/390/320) - text touching the bleed, forbidden by DR-0002. Pedro: "padding is missing from text-container on smaller breakpoints. There should never be text touching bleed."
+
+## Requirements
+
+Restore 16px side padding at viewport <= 947 (keep 0 above, where the 916 column leaves at least the 16px page margin and DR-0013 alignment holds). Boundary is max-width: 947px = 916 + 2\*16 - 1: padding applies whenever the column side margin is under 16px, so the text-to-edge gap is max(margin, 16) >= 16px at every width:
+
+1. src/\_styles/molecules/\_textelements.scss: root .text-container base stays padding-left/right: 0; add a following @media (max-width: 947px) rule with 16px sides (later rule wins at <=947).
+2. src/\_modules/molecules/tabs/tabs.scss [data-vb-panel='designsystem'] .text-container: revert to 16px sides at max-width: 915px (original rule).
+3. src/\_styles/templates/\_resume.scss: #resume_container .text-container keeps 0 base, plus a @media (max-width: 947px) copy with 16px (id-level beats the root media, needs its own).
+4. src/\_styles/utilities/\_grid.scss .section .text-container (0,2,0): 480-767px band 128px 0 -> 128px 16px; 320-480px band 128px 0 -> 128px 16px.
+5. src/\_styles/templates/\_case-study.scss: remove the ticket-41 #styleguide_container bleed-cap block (the restored padding absorbs the demo bleeds below 948); move the global DR-0009 bleed cap from max-width: 915px to 971px (971 = 916 + 2\*28 - 1; the 28px bleed can cross the edge whenever column margin + padding < 28; also closes the pre-existing 12px scroll hole at 916-939).
+
+## Acceptance criteria (agent-checkable)
+
+- [x] Probe on /workflow/ (both tabs), /styleguide/, /resume/ at 1440/1024/972/948/947/916/768/600/390/320: at widths > 947 content box == nav-wrapper box (DR-0013 alignment kept); at widths <= 947 computed padding-left/right == 16 and text-to-edge gap >= 16px (never 0)
+- [x] No horizontal scroll (scrollWidth <= clientWidth) on all probed pages/widths, incl. the 916 boundary and the 917-971 sliver widths
+- [x] Vertical padding unchanged vs t41-post-change.json (sum padding-top+bottom equal per page/width)
+- [x] Gates: gulp sass:build --production exit 0, npm test 5/5, prettier clean on touched files
+
+## Out of scope
+
+- Anything at >916 (DR-0013 stands), vertical rhythm, hero/nav/.text-box/gallery, markup.
+
+## Open questions
+
+- None

@@ -1,0 +1,8 @@
+{# Play-section layout: the gallery layout with the PLAY nav variant.
+   The visualbear nav (site.data.sitemap) is untouched everywhere else -
+   only pages extending this layout get the play menu (Blog, Photos,
+   Contact). play-menu-hero T1 / DR-0001. #}
+{% extends 'gallery.nunjucks' %}
+{% import "_modules/molecules/nav/nav.nunjucks" as nav %}
+
+{% block nav %}{{nav.content({links: site.data.playsitemap})}}{% endblock %}

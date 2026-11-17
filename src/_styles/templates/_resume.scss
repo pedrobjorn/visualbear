@@ -635,14 +635,15 @@ ul.no-bullets {
   }
 }
 
-// edge-alignment T9 (DR-0002): the nav's 16px page margin applies to the
-// resume at all widths; id-level so it beats the per-band #resume_container
+// Ticket 41 (DR-0013, amended by ticket 42 / DR-0014): above 947px the
+// resume's .text-container carries no side padding, so its content spans the
+// nav-wrapper's width; id-level so it beats the per-band #resume_container
 // rules. The inner row/col grid gutter zeroes too, so resume text lands on
-// the same 16px line as every other page
+// the container's edge
 #resume_container {
   .text-container {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .row {
@@ -652,6 +653,18 @@ ul.no-bullets {
     .col {
       padding-left: 0;
       padding-right: 0;
+    }
+  }
+}
+
+// Ticket 42 (DR-0014): at <=947px the column margin is under 16px, so the
+// resume's .text-container keeps the 16px side padding - id-level media copy
+// because the id rule above beats the root media at every width
+@media (max-width: 947px) {
+  #resume_container {
+    .text-container {
+      padding-left: 16px;
+      padding-right: 16px;
     }
   }
 }

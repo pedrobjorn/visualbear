@@ -103,6 +103,13 @@ body.home-page nav.site-nav {
   background-color: $vb-primary;
 }
 
+// play-consistency T2 (DR-0002): /play/ pages sit on the one dark
+// body.page-play gradient - the nav takes the gradient's top stop
+// (#3a3a41) so no solid brand-red bar caps a dark page
+body.page-play nav.site-nav {
+  background-color: #3a3a41;
+}
+
 @supports (animation-timeline: scroll()) {
   @keyframes nav-scroll-fade {
     0% {

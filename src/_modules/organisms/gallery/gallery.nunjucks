@@ -13,24 +13,11 @@
 {% set _target = spec.target or '_self' %}
 {% set _title = spec.title or 'Default Link' %}
 {% set _subtitle = spec.subtitle or 'Default Link' %}
-{% set _showPlay = true %}
-{% if spec.showPlay == false %}
-{% set _showPlay = false %}
-{% endif %}
 {% set _showBlog = true %}
 {% if spec.showBlog == false %}
 {% set _showBlog = false %}
 {% endif %}
 
-{# play-subpages T2 (DR-0003): the in-gallery Play card. id="play-teaser"
-   is the mirror strip's target (stripPlayTeaser in scripts/mirror-link.js).
-   img defaults to an existing shipped thumb (ASSUMPTION - Pedro; H2). #}
-{% set _playCard = {
-    "title": "Play",
-    "subtitle": "Stuff I do for fun",
-    "href": "../play",
-    "img": "../images/work/thumbs/gallery_thumb_prettyugly.jpg"
-} %}
 {% set _blogCard = {
     "title": "Blog",
     "subtitle": "Ramblings",
@@ -47,7 +34,7 @@
 {# Ticket 25 (amend pass 2026-11-13b): per-entry hide flag - the data
    stays for a later re-show; covers public + mirror homes (same data) #}
 {# Ticket 25 amend (2026-11-13b, re-add): entries flagged "bottom"
-   (the re-added closet card) render AFTER the Play/Blog options -
+   (the re-added closet card) render AFTER the Blog option -
    Pedro: "at the bottom of the cards in the index" #}
 {% if not val.hidden and not val.bottom %}
 {{card.content({card:val})}}
@@ -64,13 +51,6 @@
 {{card.content({card:val})}}
 {% endif %}
 {% endfor %}
-
-{# Play gallery option: the LAST card in the gallery (play-subpages T2,
-   DR-0005). Slim via the macro's class passthrough; id="play-teaser" is
-   the mirror strip target (stripPlayTeaser) #}
-{% if _showPlay %}
-{{card.content({id:"play-teaser", class:"card--thin", card:_playCard})}}
-{% endif %}
 </div>
 
 {% elif _contentType == 'play' %}

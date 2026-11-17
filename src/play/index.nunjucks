@@ -1,4 +1,4 @@
-{% extends '_layouts/gallery.nunjucks' %}
+{% extends '_layouts/play.nunjucks' %}
 
 
 {% import "_modules/atom/link/link.nunjucks" as link %}
@@ -10,6 +10,9 @@
   {# Correct base url pathing for this page #}
   {% set baseUrl = '../' %}
 {% endblock %}
+
+{# play-consistency T2 (DR-0002): /play/ shares the one dark play gradient #}
+{% block bodyattrs %} class="page-play"{% endblock %}
 
 {% block content %}
 

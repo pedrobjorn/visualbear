@@ -1,6 +1,7 @@
-{% extends '_layouts/gallery.nunjucks' %}
+{% extends '_layouts/play.nunjucks' %}
 
 {% import "_modules/organisms/gallery/gallery.nunjucks" as gallery %}
+{% import "_modules/organisms/hero/hero.nunjucks" as hero %}
 {% import "_modules/molecules/lightbox/lightbox.nunjucks" as lightbox %}
 
 {% block config %}
@@ -8,21 +9,22 @@
   {% set baseUrl = '../../' %}
 {% endblock %}
 
-{# play-subpages T19 (DR-0006): opt this page out of the red brand body
-   gradient - body.page-photography paints the dark grey gradient instead #}
-{% block bodyattrs %} class="page-photography"{% endblock %}
+{# play-consistency T2 (DR-0002): shares the one dark play gradient;
+   play-menu-hero T2 (DR-0002): play-photos scopes the photogrid spacer #}
+{% block bodyattrs %} class="page-play play-photos"{% endblock %}
 
 {% block content %}
-{# play-subpages T14 (DR-0002): no hero on this page - just the photogrid
-   fed by site.data.photogallery (T8 folder scan, newest first). The dialog
-   markup (T13) renders hidden; the controller (T15) reads #photogrid-data.
-   T17: the view switch (grid / full size); .photoview pads under the fixed
-   48px nav and the switch bar sticks below it on scroll. #}
+{# play-menu-hero T2 (DR-0002): the page adopts the shared hero organism -
+   photohero.yml, h1 "Photography"; the old bare h1.photoview-title is
+   deleted, so the page keeps exactly one h1. The hero occupies the top, so
+   .photoview no longer pads under the nav; the switch bar stays sticky
+   below it. The hero--roomy height and hero--center modifiers land in
+   T3/T4. Below: the photogrid fed by site.data.photogallery (play-subpages
+   T8 folder scan, newest first), the hidden dialog markup (T13) read by
+   the controller (T15), and the T17 view switch. #}
+{{hero.content({content:site.data.photohero, class:'hero--roomy hero--center'})}}
 
 <div class="photoview">
-  {# play-subpages T19 (DR-0006): the page h1 - the page had no heading at
-     all; light ink so it matches the dark grey gradient ground #}
-  <h1 class="photoview-title">Photography</h1>
   <div class="photoview-switch" role="group" aria-label="Photo view">
     <button type="button" class="photoview-btn" data-view="grid" aria-pressed="true">Grid</button>
     <button type="button" class="photoview-btn" data-view="full" aria-pressed="false">Full size</button>

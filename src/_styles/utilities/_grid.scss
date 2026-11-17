@@ -213,7 +213,10 @@ section {
     max-height: 100%;
 
     .text-container {
-      padding: 128px 32px;
+      // ticket 42 (DR-0014): 16px side padding in this band - the column
+      // is full-bleed here and text must never touch the bleed (0,2,0
+      // beats the root rule, so the padding must live here too)
+      padding: 128px 16px;
     }
   }
 }
@@ -247,7 +250,9 @@ section {
     margin-right: -32px;
 
     .text-container {
-      padding: 128px 0;
+      // ticket 42 (DR-0014): keep the 16px side padding - full-bleed band,
+      // text never touches the bleed
+      padding: 128px 16px;
       margin-left: auto;
       margin-right: auto;
     }

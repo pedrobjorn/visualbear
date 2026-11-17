@@ -1,4 +1,4 @@
-{% extends "_layouts/work.nunjucks" %}
+{% extends "_layouts/play-work.nunjucks" %}
 {% import "_modules/molecules/buttonslider/buttonslider.nunjucks" as buttonslider %}
 {# New post: copy this file into a new src/play/blog/<slug>/ dir, drop
    blog-<slug>.md into src/_data/pages/ + project_blog_<slug>.json into
@@ -11,8 +11,9 @@
     {% set baseUrl = "../../../" %}
 {% endblock %}
 
-{# play-subpages T22 (DR-0007): page-anchored brand fade, no viewport tile #}
-{% block bodyattrs %} class="page-blog"{% endblock %}
+{# play-consistency T2 (DR-0002): shares the one dark play gradient.
+   play-menu-hero T2 (DR-0002): play-blog scopes the blog hero + spacer (T3) #}
+{% block bodyattrs %} class="page-play play-blog"{% endblock %}
 
 {% block content %}
     <article class="section section-top-padding case-study" id="blog-blog3_container">

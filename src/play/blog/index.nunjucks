@@ -1,4 +1,4 @@
-{% extends '_layouts/gallery.nunjucks' %}
+{% extends '_layouts/play.nunjucks' %}
 
 
 {% import "_modules/atom/link/link.nunjucks" as link %}
@@ -11,9 +11,10 @@
   {% set baseUrl = '../../' %}
 {% endblock %}
 
-{# play-subpages T22 (DR-0007): page-anchored brand fade - without this the
-   canvas gradient re-tiles every viewport and the red restarts mid-page #}
-{% block bodyattrs %} class="page-blog"{% endblock %}
+{# play-consistency T2 (DR-0002): shares the one dark play gradient
+   (body.page-play) - the page-anchored layer keeps it from re-tiling.
+   play-menu-hero T2 (DR-0002): play-blog scopes the blog hero + spacer (T3) #}
+{% block bodyattrs %} class="page-play play-blog"{% endblock %}
 
 {% block content %}
 

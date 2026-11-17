@@ -947,11 +947,16 @@ $cs-indent: 28px;
 // vw >= 908, so the 36px bump carried every band below that. Edge-alignment
 // (DR-0001): below the 916px column the container is full-bleed, so the text
 // gutter is a flat 16px - the same inner gutter the nav links have, landing
-// the text edge where the last menu label ends.
-@media (max-width: 915px) {
-  // the bleed is one indent step into the margin; below 916px the gutter is
-  // the nav's 16px page margin, so the bleed caps at 8px - bleeding boxes
-  // keep 8px clearance from the viewport edge. Nothing but image bleeds
+// the text edge where the last menu label ends. Ticket 42 (DR-0014) widens
+// the cap to <=971px (971 = 916 + 2*28 - 1): the 28px bleed can cross the
+// edge whenever column side margin + container padding < 28px, which is
+// exactly vw <= 971 - this also closes the pre-existing 12px scroll hole at
+// 916-939.
+@media (max-width: 971px) {
+  // the bleed is one indent step into the margin; the gutter is the nav's
+  // 16px page margin (or less in the 917-971 sliver, where the
+  // .text-container padding is 0), so the bleed caps at 8px - bleeding
+  // boxes keep clearance from the viewport edge. Nothing but image bleeds
   // (cs-wide--full, the photogrid) touches the bleed (DR-0002)
   .case-study {
     .cs-timeline li {

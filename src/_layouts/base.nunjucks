@@ -22,7 +22,7 @@
   </head>
   <body{% block bodyattrs %}{% endblock %}>
     <div class="vb-container">
-      {{nav.content({links: site.data.sitemap})}}
+      {% block nav %}{{nav.content({links: site.data.sitemap})}}{% endblock %}
 
       <!--[if lt IE 11]>
       <p class="browsehappy">

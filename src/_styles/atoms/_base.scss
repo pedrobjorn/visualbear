@@ -42,13 +42,21 @@ html {
   }
 }
 
+// play-consistency T4 (DR-0004): every LIVE anchor target, audited by
+// scripts/test/anchors.test.js (href fragments whose id exists in src/).
+// Dead demo links (e.g. #visual in the styleguide specimens) stay out.
 #work,
 #about,
 #contact,
 #core,
 #modules,
 #containers,
-#casesystem {
+#casesystem,
+#play,
+#discovery,
+#definition,
+#iteration,
+#implementation {
   scroll-margin-top: 48px; // the fixed nav's height
 }
 
@@ -154,11 +162,10 @@ body {
 // as the fold renders today (measured-identical curve), with the flat
 // brand dark beneath for the rest of the page. The layer scrolls with the
 // content — what the nav's scroll-fade timeline assumes.
-// play-subpages T22 (DR-0007): the blog pages share this page-anchored fade -
-// their body gradient tiled per viewport and snapped back to red at every
-// 900px boundary (measured on /play/blog/, 2026-11-14)
-body.home-page,
-body.page-blog {
+// play-subpages T22 (DR-0007): the home page's page-anchored fade - a
+// canvas-propagated body gradient tiled per viewport and snapped back to
+// red at every 900px boundary (measured on /play/blog/ before it left red)
+body.home-page {
   // the shorthand (not just background-color) clears the base gradient's
   // background-image — the tiled tile must never show beneath the layer
   background: #252528;
@@ -177,11 +184,12 @@ body.page-blog {
   }
 }
 
-// play-subpages T19 (DR-0006): the photography page opts out of the red brand
-// gradient via its bodyattrs class and sits on a dark grey gradient instead.
-// Same layer pattern as body.home-page: flat dark base + one viewport-tall
-// ::before, so the canvas-propagated gradient never tiles on long pages.
-body.page-photography {
+// play-consistency T2 (DR-0002): every /play/ page (index, blog, posts,
+// photography) shares ONE dark gradient via body.page-play - the values
+// photography shipped with (play-subpages T19/DR-0006). Same layer
+// pattern as body.home-page: flat dark base + one viewport-tall ::before,
+// so the canvas-propagated gradient never tiles on long pages.
+body.page-play {
   background: #18181b;
 
   &::before {

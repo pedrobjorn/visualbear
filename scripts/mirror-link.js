@@ -99,17 +99,9 @@ function relativizeNavLinks(html, depth) {
   return html
     .replace(/href="\/#work"/g, 'href="' + up + '#work"')
     .replace(/href="\/#about"/g, 'href="' + up + '#about"')
+    .replace(/href="\/play\/blog\/"/g, 'href="' + up + 'play/blog/"')
+    .replace(/href="\/play\/photography\/"/g, 'href="' + up + 'play/photography/"')
     .replace(/href="\/"/g, 'href="' + (up || './') + '"');
-}
-
-// play-subpages T2 (amended, DR-0003): the Play card inside the index work
-// gallery is PUBLIC-ONLY - /play/ is not part of the mirror, so from a
-// mirrored page its ../play href would resolve outside the air-locked zone
-// (release guard check 8). Targeted on the anchor's unique id="play-teaser"
-// (never on the href alone); the gallery wrapper and sibling cards stay.
-// Idempotent: a stripped page has nothing left to match.
-function stripPlayTeaser(html) {
-  return html.replace(/<a id="play-teaser"[\s\S]*?<\/a>\n?/g, '');
 }
 
 module.exports = {
@@ -117,6 +109,5 @@ module.exports = {
   relativizeNavLinks: relativizeNavLinks,
   stripClosetCard: stripClosetCard,
   stripFloatingRobot: stripFloatingRobot,
-  stripPlayTeaser: stripPlayTeaser,
   visuaiLinkFor: visuaiLinkFor
 };

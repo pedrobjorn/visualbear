@@ -22,6 +22,20 @@
   }
 }
 
+// play-consistency: the gallery's fade plate (transparent over its first
+// 256px, then solid) is the mask that hides the fixed hero title behind the
+// gallery on scroll - the gallery is position:relative, so its plate paints
+// above the z-index:0 hero. On the dark body.page-play ground the plate must
+// fade to the PAGE color #18181b, not home's #252528: the body's ::before
+// layer converges to flat #18181b by the fold, so this static plate matches
+// the ground at every scroll position (measured: the #252528 plate read as
+// a contrasting band, ~25k plate pixels at 1440; background:none let the
+// hero title show through the card gaps). Home keeps the original plate:
+// its flat base IS #252528.
+body.page-play .content.gallery {
+  background: linear-gradient(to bottom, rgba(24, 24, 27, 0) 256px, rgba(24, 24, 27, 1) 0px);
+}
+
 // On small screens the hero flows with the content (see hero.scss), so the
 // 66vh spacer that cleared the fixed hero would only leave a dead gap.
 // Ticket 9: the spacer is also what made the gallery's own fade work on
@@ -36,6 +50,13 @@
 @include mq($until: mobile) {
   .content.gallery {
     margin-top: 0;
+    background: none;
+  }
+
+  // the page-play plate above outranks the plain .content.gallery rule
+  // (0,3,1 vs 0,2,0) - on mobile the hero flows with the content, so the
+  // plate is unnecessary and its fade band would cut mid-screen; match home
+  body.page-play .content.gallery {
     background: none;
   }
 }
@@ -76,12 +97,13 @@
   }
 }
 
-// The photogrid page has no hero (plan: "no hero, just the grid"), so the
-// 66vh hero-clearing spacer on .content.gallery would be a dead gap there.
 // :has() scopes this to gallery pages that contain a photogrid only.
 // play-subpages T18 (DR-0006): the photogrid is full-bleed - the container
 // drops its 900px cap and spans the page, and 24px of padding under the
 // sticky switch bar gives the images room from the header.
+// play-menu-hero T2 (DR-0002): the photography page has the hero organism
+// again, so the hero-clearing spacer returns for it via the body.play-photos
+// rule below (74vh desktop, 0 mobile).
 .content.gallery:has(.gallery-grid) {
   margin-top: 0;
   background: none;
@@ -90,56 +112,89 @@
   padding: 24px 0 32px;
 }
 
-// play-subpages T17: the photography view switch (grid / full size).
-// Scoped to the new classes only - no existing rule touched.
-// .photoview pads the page under the fixed 48px nav (nav is fixed, z-index 2).
-.photoview {
-  padding-top: 48px;
+// play-menu-hero T2 (DR-0002): desktop spacer for the photogrid on the
+// photography page - 74vh = the roomy hero 48vh (T3) + the standard 26vh
+// gap the default 40vh hero + 66vh spacer keep. Outranks the :has() rule
+// above (0,4,1 vs 0,3,0).
+body.play-photos .content.gallery:has(.gallery-grid) {
+  margin-top: 74vh;
 }
 
-// play-subpages T19 (DR-0006): the page headline - the page had no h1 at
-// all; $vb-light (~15:1 on the dark grey gradient) so it matches the ground.
-// T24 (DR-0008): pinned to the $content-width line the other gallery pages
-// use, so the title aligns with the site's content column (grid stays
-// full-bleed)
-.photoview-title {
-  max-width: $content-width;
-  margin: 0 auto;
-  padding: 24px 16px 0;
-  color: $vb-light;
-  font-size: $base-h1-size;
+// play-menu-hero T2 (DR-0002), mobile: the hero flows with the content
+// (hero.scss), so the photogrid needs no spacer. This mq block sits AFTER
+// the 74vh rule so it wins at equal specificity (0,4,1) - the mq block near
+// the top of the file would lose to it.
+@include mq($until: mobile) {
+  body.play-photos .content.gallery:has(.gallery-grid) {
+    margin-top: 0;
+  }
 }
 
-// The switch bar sticks directly below the fixed header on scroll.
-// play-subpages T21 (DR-0007): the bar itself has NO background - the tabs
-// sit directly on the page ground (Pedro: "make the grid bar no background").
-// T24 (DR-0008): the bar is pinned to the same $content-width line as the title
+// play-subpages T17: the photography view switch (grid / full size),
+// scoped to the new classes only - no existing rule touched.
+// play-menu-hero T2 (DR-0002): .photoview no longer pads 48px under the
+// fixed nav - the hero occupies the top now; the switch bar keeps its own
+// position: sticky; top: 48px below.
+
+// The switch sticks directly below the fixed header on scroll.
+// play-consistency T3 (DR-0003): the switch wears the .vb-tabs strip look -
+// a pill plate (the chip-plate token) with the two options inside. It hides
+// on scroll down and returns on scroll up (photoview.js toggles
+// .photoview-switch--hidden). Supersedes T21's transparent bar and T24's
+// per-button solid fill (DR-0008): the background now lives on the plate.
+// play-consistency T6 (DR-0005): over scrolling photos the workflow strip's
+// white-whisper plate (alpha 0.04) left the labels at ~1:1 contrast - the
+// tabs effectively hid behind bright photos. The strip overrides the token
+// locally to a DARK translucent plate in the page color: at rest it blends
+// into the #18181b ground, and over photos it keeps >= 4.5:1 on both label
+// inks (measured on the shipped photos: alpha 0.90 is the floor, 0.92 ships
+// for margin) while staying translucent - photos ghost through, never opaque.
 .photoview-switch {
+  --cs-chip-plate: rgba(24, 24, 27, 0.92);
   position: sticky;
   top: 48px;
   z-index: 1;
   display: flex;
-  gap: 8px;
-  max-width: $content-width;
-  margin: 0 auto;
-  padding: 8px 16px;
-  background: transparent;
+  justify-content: center;
+  gap: 4px;
+  width: max-content;
+  max-width: 100%;
+  margin: 8px auto;
+  padding: 4px;
+  border-radius: 999px;
+  background-color: var(--cs-chip-plate, rgba(24, 24, 27, 0.92));
+  transition: transform 0.2s ease, opacity 0.2s ease, visibility 0.2s ease;
+}
+
+// Hidden on scroll down: faded and slid up; visibility: hidden also takes
+// the buttons out of the tab order while the bar is away.
+.photoview-switch--hidden {
+  transform: translateY(-8px);
+  opacity: 0;
+  visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photoview-switch {
+    transition: none;
+  }
 }
 
 // play-subpages T21 (DR-0007): the view buttons wear the same look as the
 // visuAI / Design system tabs on /workflow/ (`.vb-tab`, tabs.scss) - the
 // values are mirrored here, scoped to .photoview, because the switch is an
 // aria-pressed group, not a tablist (the tabs controller must not boot on
-// it). If the strip's inks ever change in tabs.scss, change them here too.
+// it). play-consistency T3 (DR-0003): buttons are transparent on the plate,
+// like .vb-tab. If the strip's inks ever change in tabs.scss, change them here too.
 .photoview-btn {
   min-height: 44px; // 12px vertical padding reaches 45px; the 44px floor holds
   padding: 12px 20px;
   border: 0;
   border-radius: 999px;
-  // play-subpages T24 (DR-0008): solid page-background color, so when the
-  // bar sticks over scrolling photos no photo shows through the option
-  background: $vb-dark;
-  color: #a6adb8; // the strip's dark-ground muted ink (7.8:1 on $vb-dark)
+  // transparent on the strip plate (the plate is the background that blocks
+  // scrolling photos - supersedes the T24/DR-0008 solid $vb-dark fill)
+  background-color: transparent;
+  color: #a6adb8; // the strip's dark-ground muted ink (7.8:1 on the dark plate)
   font-size: $middle-font-size;
   font-weight: $font-bold;
   letter-spacing: 0.18em;

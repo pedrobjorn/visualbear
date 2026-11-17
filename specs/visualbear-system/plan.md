@@ -59,6 +59,8 @@ Applied from `visuaibear-core/foundational-heuristics.md`: H1 - no destructive o
 - [x] Ticket 3 - Design system tab: move the styleguide blocks in, rename to Design system (2026-11-12, delivered by amended ticket 6: the panel renders the styleguide PAGE - blocks + own hero + pinned light ground; placeholder route retired)
 - [x] Ticket 4 - RESCOPED per DR-0015 (md-case-study-editor) + Pedro 2026-11-14: `/styleguide/` is NOT retired - it stays public as a second host of the visuAI / Design system tab strip (md-case-study-editor Ticket 62). Closed by Ticket 40 below.
 - [x] Ticket 40 - Close T4 per DR-0015: keep `/styleguide/` public, verify the reference wiring (both URLs live, robot pill intact)
+- [x] Ticket 41 - Root .text-container loses its side padding, content aligns with the nav-wrapper width (DR-0013, Pedro 2026-11-15)
+- [x] Ticket 42 - Small breakpoints (<=947) keep the .text-container 16px side padding; text never touches the bleed (DR-0014, amends T41)
 
 ## Amendment pass 2026-11-12 (Pedro's six follow-on items)
 
