@@ -364,6 +364,31 @@ $cs-indent: 28px;
     padding: 0;
   }
 
+  // Wide images container (`::: wide`, DR-0003 in specs/teachr-case-study):
+  // wider than the text measure but not edge to edge — 75% of the viewport
+  // on desktop, 85% on tablet, 90% on mobile, centred
+  .cs-wide-img {
+    width: 75vw;
+    position: relative;
+    left: 50%;
+    margin-left: -37.5vw;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    box-sizing: border-box;
+    @media (max-width: $break-medium) {
+      width: 85vw;
+      margin-left: -42.5vw;
+    }
+    @media (max-width: $break-small) {
+      width: 90vw;
+      margin-left: -45vw;
+    }
+    @media (min-width: $break-medium) {
+      margin-top: 56px;
+      margin-bottom: 56px;
+    }
+  }
+
   .cs-showcase {
     // showcase sits on the text measure by default; the tier classes
     // (set from the image's own dimensions, markdown-render.js) move
@@ -374,23 +399,32 @@ $cs-indent: 28px;
     }
 
     &.cs-showcase--wide {
-      // full bleed (DR-0009 tier): wide assets span the viewport,
-      // edge to edge, same breakout as .cs-wide--full
-      width: 100vw;
+      // wide tier: wide assets render at the Wide images width — 75% of
+      // the viewport on desktop, 85% on tablet, 90% on mobile (same as
+      // the ::: wide container, .cs-wide-img) — no longer full bleed
+      width: 75vw;
       position: relative;
       left: 50%;
-      margin-left: -50vw;
+      margin-left: -37.5vw;
       margin-top: 40px;
       margin-bottom: 40px;
       padding: 0;
       box-sizing: border-box;
+      @media (max-width: $break-medium) {
+        width: 85vw;
+        margin-left: -42.5vw;
+      }
+      @media (max-width: $break-small) {
+        width: 90vw;
+        margin-left: -45vw;
+      }
       @media (min-width: $break-medium) {
         margin-top: 56px;
         margin-bottom: 56px;
       }
 
       // the tier owns sizing: beat .text-box img's legacy 512px cap,
-      // which otherwise clamps the full-bleed image to a centred stamp
+      // which otherwise clamps the wide image to a centred stamp
       img {
         max-width: none;
       }
@@ -462,6 +496,9 @@ $cs-indent: 28px;
 
     .cs-shot {
       flex: 1 1 0;
+      // the renderer sets each shot's flex-grow to the image's own aspect
+      // ratio, so all shots in a row share one height (mobile captures
+      // render at the desktop's height next to it, just narrower)
       // each shot ≥ 240px: three across from ~770, stacked on phones
       min-width: 240px;
       margin: 0;

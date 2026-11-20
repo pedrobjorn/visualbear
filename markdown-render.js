@@ -360,15 +360,24 @@ function renderTable(lines) {
 // ticket 61: an image run — one image per line, its ALT TEXT is the
 // caption below it; N images side by side (the "how it started" slide),
 // wrapping when narrow. `[frame:]` placeholders work as shots.
-function renderShots(lines) {
+function shotsFigures(lines) {
   let inner = '';
   for (const raw of lines) {
     const t = raw.trim();
     if (!t) continue;
     let m = t.match(/^!\[([^\]]*)\]\(([^)]+)\)\s*$/);
     if (m) {
+      // shots in a band share one height: each figure's flex-grow is the
+      // image's own aspect ratio, so width_i ∝ ratio_i and every
+      // height_i = width_i / ratio_i comes out equal (a phone capture next
+      // to a desktop capture renders at the desktop's height, narrower).
+      // Falls back to the CSS default (flex: 1 1 0) when dims are unreadable.
+      const dims = showcaseDims(m[2]);
+      const grow = dims && dims.ratio > 0 ? ' style="flex-grow:' + dims.ratio.toFixed(3) + '"' : '';
       inner +=
-        '<figure class="cs-shot">' +
+        '<figure class="cs-shot"' +
+        grow +
+        '>' +
         '<img src="' +
         esc(m[2]) +
         '" alt="' +
@@ -385,8 +394,28 @@ function renderShots(lines) {
     }
     console.log('markdown ::: shots: skipped line (not an image): ' + t.slice(0, 40));
   }
+  return '<div class="cs-shots">' + inner + '</div>';
+}
+
+function renderShots(lines) {
   // full-bleed tier (DR-0009): the band spans the viewport
-  return '<div class="cs-wide cs-wide--full"><div class="cs-shots">' + inner + '</div></div>';
+  return '<div class="cs-wide cs-wide--full">' + shotsFigures(lines) + '</div>';
+}
+
+// `::: wide` — the Wide images container: the same image row as ::: shots,
+// but at 75% of the viewport width (85% on tablet, 90% on mobile) instead
+// of full bleed. Mixed content falls back to the normal flow in the band.
+function renderWide(lines) {
+  const content = lines.filter(function (l) {
+    return l.trim();
+  });
+  const allImages =
+    content.length > 0 &&
+    content.every(function (l) {
+      return /^!\[/.test(l.trim()) || /^\[(frame|image):/.test(l.trim());
+    });
+  if (allImages) return '<div class="cs-wide-img">' + shotsFigures(lines) + '</div>';
+  return '<div class="cs-wide-img">' + renderFlow(lines) + '</div>';
 }
 
 function renderContainer(type, id, lines, full) {
@@ -397,6 +426,7 @@ function renderContainer(type, id, lines, full) {
   else if (type === 'cards') html = renderCards(lines);
   else if (type === 'showcase') html = renderShowcase(lines);
   else if (type === 'shots') html = renderShots(lines);
+  else if (type === 'wide') html = renderWide(lines);
   else if (type === 'hero') html = renderHero(lines);
   else if (type === 'table') html = renderTable(lines);
   else {
@@ -719,15 +749,21 @@ function applyAiMarkers(html) {
   // (the image arrives wrapped in a paragraph — the wrapper is dropped).
   // ticket 61: figures already wrapped by ::: shots carry their own
   // caption — the pass must not re-wrap them (offset check: the text
-  // right before the match is the shot figure's open tag)
+  // right before the match is the shot figure's open tag, incl. the
+  // renderer's inline flex-grow style, so look back past the whole tag)
   html = html.replace(
     /(?:<p>\s*)?(<img[^>]*>)(?:\s*<\/p>)?\s*<figcaption>([\s\S]*?)<\/figcaption>/g,
     function (m, img, caption, offset) {
-      if (
-        typeof offset === 'number' &&
-        html.slice(Math.max(0, offset - 30), offset).indexOf('cs-shot') !== -1
-      ) {
-        return m;
+      if (typeof offset === 'number') {
+        // skip only when inside an unclosed cs-shot figure: a 'cs-shot'
+        // after the last '</figure>' in the preceding chunk means the
+        // shot's own open tag (incl. its inline flex-grow style)
+        const before = html.slice(Math.max(0, offset - 400), offset);
+        const lastClose = before.lastIndexOf('</figure>');
+        const inShot =
+          before.indexOf('cs-shot') !== -1 &&
+          (lastClose === -1 || before.indexOf('cs-shot', lastClose) !== -1);
+        if (inShot) return m;
       }
       return (
         '<figure class="cs-showcase' +

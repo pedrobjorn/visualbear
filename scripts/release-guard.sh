@@ -15,11 +15,12 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
 CONFIG="src/_data/private-path.json"
-SECRET_PAGES="teachr teachr-agent workflow"
+SECRET_PAGES="teachr teachr-agent teachr-app workflow"
 # DR-0010 (ticket 30): workflow is PUBLIC at the root since 2026-11-13 -
-# it must exist in the mirror AND at the public root; only teachr* are
-# pruned from the public root.
-PRUNED_PAGES="teachr teachr-agent"
+# it must exist in the mirror AND at the public root; the teachr case
+# study, teachr-agent and the teachr-app prototype are pruned from the
+# public root.
+PRUNED_PAGES="teachr teachr-agent teachr-app"
 
 fail() { echo "release-guard: FAIL: $1" >&2; exit 1; }
 
@@ -73,10 +74,15 @@ TOTAL=$(find "build/$MIRROR" -name index.html | wc -l | tr -d ' ')
 MARKED=$(grep -rl "air-locked: specs/release-4.0" "build/$MIRROR" --include="index.html" | wc -l | tr -d ' ')
 [ "$TOTAL" = "$MARKED" ] || fail "only $MARKED of $TOTAL mirrored pages carry noindex - re-run release-mirror.js."
 
-# 6. the visuai link (R4-9b): on every mirrored page, on no public page
-TOTAL=$(find "build/$MIRROR" -name index.html | wc -l | tr -d ' ')
-VISUAI=$(grep -rl "mirror-visuai: specs/release-4.0" "build/$MIRROR" --include="index.html" | wc -l | tr -d ' ')
+# 6. the visuai link (R4-9b): on every mirrored page EXCEPT the training
+#    app (teachr-app - release-mirror strips the robot there; the fixed
+#    pill would overlap the app's own action bar), and on no public page
+PAGES=$(find "build/$MIRROR" -name index.html -not -path "build/$MIRROR/teachr-app/*")
+TOTAL=$(printf '%s\n' "$PAGES" | wc -l | tr -d ' ')
+VISUAI=$(printf '%s\n' "$PAGES" | xargs grep -l "mirror-visuai: specs/release-4.0" 2>/dev/null | wc -l | tr -d ' ')
 [ "$TOTAL" = "$VISUAI" ] || fail "visuai link on $VISUAI of $TOTAL mirrored pages - re-run release-mirror.js."
+grep -q 'mirror-visuai\|robot-glyph' "build/$MIRROR/teachr-app/index.html" \
+  && fail "the training app page must not carry the robot link (teachr-app is robot-free)."
 grep -q 'mirror-visuai' build/index.html && fail "the visuai link leaked into the PUBLIC home page."
 # the mirror ROOT's link must stay inside the mirror (../ would 404 publicly)
 grep -q 'href="workflow/"' "build/$MIRROR/index.html" \
@@ -109,18 +115,19 @@ if [ -n "$OUT" ]; then
 fi
 echo "release-guard: OK - in-copy anchors stay inside the mirror (leak scan clean)."
 
-# 9. the closet card is public-only (specs/visualbear-system, ticket 25
-# amend 2026-11-13): re-added to the public index (bottom of the cards),
-# stripped from the mirror. Targeted on the work-gallery card's drive href
-# (unique in every gallery markup) - the styleguide casesystem DEMO (a bare
-# <figure><img> with the same thumb, no card anchor) is exempt on both
-# sides: only the card's href counts.
-CLOSET_ID='1rY9YPYkL4HQcolMwhOtlk25uNjkFSBiw'
-CLOSET_LEAK=$(find "build/$MIRROR" -type f -name '*.html' -exec grep -l "$CLOSET_ID" {} + || true)
-[ -z "$CLOSET_LEAK" ] || { echo "release-guard: FAIL: the closet card leaked into the mirror:" >&2; echo "$CLOSET_LEAK" >&2; exit 1; }
-grep -q "$CLOSET_ID" build/index.html \
-  || fail "the public index lost the re-added closet card (bottom of the cards)."
-echo "release-guard: OK - the closet card is public-index-only (bottom of the cards)."
+# 9. the three WIP case-study cards (fashion-rebrand, sports-ecommerce-
+#    redesign, digital-closet) link to their PAGES in BOTH zones: the
+#    public index and the mirror home must each carry the relative card
+#    href (work.json renders on the home only, depth 0, so the relative
+#    href resolves inside each zone: /fashion-rebrand/ publicly,
+#    /selected-works/fashion-rebrand/ in the mirror).
+for card in fashion-rebrand/ sports-ecommerce-redesign/ digital-closet/; do
+  grep -q "href=\"$card\"" build/index.html \
+    || fail "the public index lost the $card card."
+  grep -q "href=\"$card\"" "build/$MIRROR/index.html" \
+    || fail "the mirror home lost the $card card."
+done
+echo "release-guard: OK - fashion / sports-ecommerce / closet cards link to their pages in both zones."
 
 echo "release-guard: OK - air-lock holds at build/$MIRROR/ ($MARKED noindexed pages),"
 echo "release-guard: OK - secret pages absent from the public root, mirror path leaks nowhere."

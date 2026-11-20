@@ -22,18 +22,29 @@
   }
 }
 
-// play-consistency: the gallery's fade plate (transparent over its first
-// 256px, then solid) is the mask that hides the fixed hero title behind the
-// gallery on scroll - the gallery is position:relative, so its plate paints
-// above the z-index:0 hero. On the dark body.page-play ground the plate must
-// fade to the PAGE color #18181b, not home's #252528: the body's ::before
-// layer converges to flat #18181b by the fold, so this static plate matches
-// the ground at every scroll position (measured: the #252528 plate read as
-// a contrasting band, ~25k plate pixels at 1440; background:none let the
-// hero title show through the card gaps). Home keeps the original plate:
-// its flat base IS #252528.
+// play-consistency: the gallery's plate is the mask that hides the fixed hero
+// title behind the gallery on scroll - the gallery is position:relative, so
+// its plate paints above the z-index:0 hero (measured: background:none lets
+// the title peek through the card gaps while scrolling). Amended 2026-11-17
+// (Pedro: "there's still a background in the gallery"): the old static plate
+// (transparent 256px -> solid #18181b) read as a visible darker panel, because
+// with the gallery now starting at 48vh its solid edge lands above the fold,
+// where the body's ::before fade has not converged yet. The plate now
+// CONTINUES the body's own page-anchored fade (body.page-play::before in
+// _base.scss: #3a3a41 -> #18181b over one 100vh layer at document top), so it
+// is pixel-identical to the ground at every scroll position while still
+// masking the title. The 100vh fade layer is re-anchored to document top via
+// background-position against --play-gallery-top (the gallery's document
+// top); below the fold the flat #18181b layer takes over, matching the body's
+// flat base. Home keeps the original plate: its flat base IS #252528.
 body.page-play .content.gallery {
-  background: linear-gradient(to bottom, rgba(24, 24, 27, 0) 256px, rgba(24, 24, 27, 1) 0px);
+  background-image: linear-gradient(180deg, #3a3a41 0%, #18181b 100vh),
+    linear-gradient(#18181b, #18181b);
+  background-image: linear-gradient(180deg in oklab, #3a3a41 0%, #18181b 100vh),
+    linear-gradient(#18181b, #18181b);
+  background-size: 100% 100vh, 100% 100%;
+  background-position: 0 calc(0px - var(--play-gallery-top)), 0 0;
+  background-repeat: no-repeat, no-repeat;
 }
 
 // On small screens the hero flows with the content (see hero.scss), so the
@@ -103,7 +114,7 @@ body.page-play .content.gallery {
 // sticky switch bar gives the images room from the header.
 // play-menu-hero T2 (DR-0002): the photography page has the hero organism
 // again, so the hero-clearing spacer returns for it via the body.play-photos
-// rule below (74vh desktop, 0 mobile).
+// rules below (.photoview carries it on desktop, 0 mobile).
 .content.gallery:has(.gallery-grid) {
   margin-top: 0;
   background: none;
@@ -112,20 +123,49 @@ body.page-play .content.gallery {
   padding: 24px 0 32px;
 }
 
-// play-menu-hero T2 (DR-0002): desktop spacer for the photogrid on the
-// photography page - 74vh = the roomy hero 48vh (T3) + the standard 26vh
-// gap the default 40vh hero + 66vh spacer keep. Outranks the :has() rule
-// above (0,4,1 vs 0,3,0).
-body.play-photos .content.gallery:has(.gallery-grid) {
-  margin-top: 74vh;
+// play-menu-hero T7 (DR-0004): the spacer moved from the gallery to the
+// .photoview container, so the .photoview-switch (first child) sits BETWEEN
+// the hero title and the photogrid at rest - not pinned beneath the header.
+// 48vh = the end of the hero--fill region (hero.scss: 48px nav .. 48vh), so
+// the content starts exactly at the hero's bottom edge and the centered title
+// is visually centered between the header and the body. On scroll the
+// switch still sticks at top: 80px under the nav (see its rule below).
+body.play-photos .photoview {
+  margin-top: var(--play-gallery-top);
 }
 
-// play-menu-hero T2 (DR-0002), mobile: the hero flows with the content
-// (hero.scss), so the photogrid needs no spacer. This mq block sits AFTER
-// the 74vh rule so it wins at equal specificity (0,4,1) - the mq block near
-// the top of the file would lose to it.
+// play-menu-hero T7, mobile: the hero flows with the content (hero.scss),
+// so the container needs no spacer. This mq block sits AFTER the 48vh rule
+// so it wins at equal specificity (0,3,1).
 @include mq($until: mobile) {
-  body.play-photos .content.gallery:has(.gallery-grid) {
+  body.play-photos .photoview {
+    margin-top: 0;
+  }
+}
+
+// play-menu-hero T7 (DR-0004): the gallery itself gets NO spacer on the
+// photography page - the .photoview container above carries it, and this
+// zero outranks the body.page-play 48vh rule below (0,4,1 vs 0,3,1), so the
+// spacer is not doubled. The base :has() rule above already sets margin-top: 0.
+body.play-photos .content.gallery:has(.gallery-grid) {
+  margin-top: 0;
+}
+
+// play-menu-hero T7 (DR-0004): /play/ and /play/blog/ galleries start at
+// 48vh = the end of the hero--fill region, so the content begins exactly at
+// the hero's bottom edge (was the default 66vh = 40vh hero + 26vh gap - the
+// play top block is now visibly smaller than the portfolio pages'). Scoped
+// to body.page-play; the photography gallery is zeroed by the rule above.
+body.page-play .content.gallery {
+  margin-top: var(--play-gallery-top);
+}
+
+// play-menu-hero T7, mobile: the hero flows with the content (hero.scss),
+// so no spacer is needed. This mq block sits AFTER the 48vh rule so it wins
+// at equal specificity (0,3,1) - the mq block near the top of the file
+// (0,2,0) would lose to the desktop rule.
+@include mq($until: mobile) {
+  body.page-play .content.gallery {
     margin-top: 0;
   }
 }
@@ -133,8 +173,10 @@ body.play-photos .content.gallery:has(.gallery-grid) {
 // play-subpages T17: the photography view switch (grid / full size),
 // scoped to the new classes only - no existing rule touched.
 // play-menu-hero T2 (DR-0002): .photoview no longer pads 48px under the
-// fixed nav - the hero occupies the top now; the switch bar keeps its own
-// position: sticky; top: 48px below.
+// fixed nav - the hero occupies the top now.
+// play-menu-hero T7 (DR-0004): at rest the switch renders in flow BELOW the
+// hero (the .photoview spacer above), between the title and the photogrid;
+// on scroll it sticks at top: 80px (48px nav + 32px gap, see the rule).
 
 // The switch sticks directly below the fixed header on scroll.
 // play-consistency T3 (DR-0003): the switch wears the .vb-tabs strip look -
@@ -152,7 +194,12 @@ body.play-photos .content.gallery:has(.gallery-grid) {
 .photoview-switch {
   --cs-chip-plate: rgba(24, 24, 27, 0.92);
   position: sticky;
-  top: 48px;
+  // 80px = the 48px fixed header + a 32px gap, so the controls no longer
+  // sit flush under the header bar. 32px is the house rhythm for a strip
+  // under the fixed nav (tabs.scss ticket 5: 32px is a half-step of the
+  // shared rhythm; 64 would read as a section start). The sticky pin eats
+  // the margin at rest, so the gap has to live in `top` itself.
+  top: 80px;
   z-index: 1;
   display: flex;
   justify-content: center;
@@ -234,11 +281,12 @@ body.play-photos .content.gallery:has(.gallery-grid) {
 }
 
 // full-size view: stacked images on a tall stage, the page scrolls.
-// play-subpages T21 (DR-0007): each image gets ~3164px of height, contained
-// (no crop) - Pedro's resolved target; the value lives in one custom property
+// play-subpages T21 (DR-0007) originally hardcoded ~3164px per image; amended
+// by Pedro 2026-11-17: "height always matches images, but with a max height
+// of 2048px". height: auto keeps each image's own aspect ratio at full width
+// (no fixed stage height), max-height caps it at 2048px, and object-fit:
+// contain still guarantees no crop when the cap kicks in (tall portraits).
 .gallery-full {
-  --photofull-img-height: 3164px;
-
   width: 100%;
   padding: 16px;
 
@@ -249,7 +297,8 @@ body.play-photos .content.gallery:has(.gallery-grid) {
     img {
       display: block;
       width: 100%;
-      height: var(--photofull-img-height);
+      height: auto;
+      max-height: 2048px;
       object-fit: contain;
     }
 

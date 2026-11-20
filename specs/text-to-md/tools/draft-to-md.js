@@ -375,8 +375,28 @@ while (i < lines.length) {
     continue;
   }
 
-  // image reference ![...](...)
-  if (/^!\[/.test(t)) { emit(t); i += 1; continue; }
+  // image reference ![...](...) — rule 6b (specs/text-to-md/DR-0004):
+  // 2+ consecutive image lines (no blank line, no [caption:] between)
+  // are one image run -> one ::: wide band (the Wide images container,
+  // 75% of the viewport width on desktop), alt text as each caption.
+  // A solo image keeps the existing behaviour: it pairs with a following
+  // [caption:] line as a showcase figure.
+  if (/^!\[/.test(t)) {
+    const run = [];
+    while (i < lines.length && /^!\[/.test(lines[i].trim())) {
+      run.push(lines[i].trim());
+      i += 1;
+    }
+    if (run.length >= 2) {
+      flushBlanks();
+      out.push('::: wide');
+      run.forEach(function (l) { out.push(l); });
+      emit(':::');
+    } else {
+      emit(run[0]);
+    }
+    continue;
+  }
 
   // anything else: plain paragraph line (indent preserved: raw HTML
   // blocks are the escape hatch and must survive byte-for-byte)

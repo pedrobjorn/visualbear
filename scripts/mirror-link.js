@@ -49,24 +49,6 @@ function stripFloatingRobot(html) {
     .replace(/<a class="robot" data-vb-public-pill[\s\S]*?<\/a>\n?/g, '');
 }
 
-// Ticket 25 (amend, 2026-11-13b): the closet card is PUBLIC-ONLY since
-// Pedro's re-add: "re-add the closet project at the bottom of the cards
-// in the index, but leave it out in the selected works." Both zones
-// render the same gallery from work.json, so the mirror-side pass takes
-// the work-gallery card out: targeted on the closet entry's href (the
-// drive file id, unique in every gallery markup) with the card anchor's
-// exact shape (href + target="_blank"). The body is closed-shape - the
-// tempered run never crosses a </a>, so it can never swallow a
-// neighboring card - and the styleguide casesystem demo (a bare
-// <figure><img> with the same thumb, no anchor) can never match.
-// Idempotent: a stripped page has nothing left to match.
-function stripClosetCard(html) {
-  return html.replace(
-    /<a href="https:\/\/drive\.google\.com\/file\/d\/1rY9YPYkL4HQcolMwhOtlk25uNjkFSBiw\/[^"]*" target="_blank">(?:(?!<\/a>)[\s\S])*?<\/a>\n?/g,
-    ''
-  );
-}
-
 // Ticket 8 - the walled garden: the mirrored pages keep the site's nav,
 // whose logo/work/about links point at the PUBLIC zone's root (href="/",
 // "/#work", "/#about"). Rewritten depth-relative so navigation lands
@@ -104,10 +86,20 @@ function relativizeNavLinks(html, depth) {
     .replace(/href="\/"/g, 'href="' + (up || './') + '"');
 }
 
+// Removes an already-injected mirror robot: the VISUAI_MARK comment plus
+// the <a class="robot"> it introduced. Targeted on the mark (never on
+// class/href alone, which the public pill shares), so it cannot touch any
+// other link. Used for pages where the robot must not ship - the training
+// app under teachr-app/ is a full-screen app and the fixed pill would sit
+// on top of its own action bar. Idempotent: a stripped page has no mark.
+function stripInjectedRobot(html) {
+  return html.replace(/\n?<!-- mirror-visuai: specs\/release-4\.0 -->\n?<a class="robot"[\s\S]*?<\/a>\n?/g, '');
+}
+
 module.exports = {
   VISUAI_MARK: VISUAI_MARK,
   relativizeNavLinks: relativizeNavLinks,
-  stripClosetCard: stripClosetCard,
   stripFloatingRobot: stripFloatingRobot,
+  stripInjectedRobot: stripInjectedRobot,
   visuaiLinkFor: visuaiLinkFor
 };

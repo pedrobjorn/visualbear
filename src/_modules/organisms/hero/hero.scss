@@ -35,9 +35,44 @@
     }
 }
 
+// play-menu-hero T7 (DR-0004), clarified by Pedro: "visually centered between
+// the header and the body content". On the play pages the hero IS that
+// visible container - it starts below the 48px fixed nav and ends exactly
+// where the body content starts (48vh, the gallery spacer in gallery.scss).
+// The title centered in this box (top: 50%) therefore sits at the visual
+// middle of the header-to-content region. The region (48vh) is smaller than
+// the portfolio pages' (66vh spacer), and the hero box itself is smaller than
+// the default 40vh hero at any viewport taller than 400px.
+// Declared BEFORE the mobile mq block below so mobile's height: auto
+// still wins at equal specificity.
+.hero--fill {
+    top: 48px; // the fixed nav's height
+    height: calc(48vh - 48px);
+}
+
+// play-menu-hero T7 (DR-0004): center the title vertically in the hero even
+// when the content is taller than the hero - the flex item's auto margins
+// (from the global .content rule) clamp to 0 on overflow, so the title sat
+// low on /play/. Absolute centering keeps the exact middle at any viewport
+// height (measured: h1 center = hero center at 1440x900, 1440x700, 1280x720).
+// Horizontal centering is unchanged: left/right 0 + the global margin: auto
+// + max-width keep the 916px content line centered.
+// Reset in the mobile mq below, where the hero flows with the content.
+.hero--fill .content {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+}
+
 // Hide hero text on smaller breakpoints (mobile)
 @include mq($until: mobile){
     .hero .content {
+        // the hero is static here, so the fill hero's absolute centering
+        // must be undone or the content would collapse the hero
+        position: static;
+        transform: none;
         padding-top: 96px;
         padding-bottom: 32px;
     }

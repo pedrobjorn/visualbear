@@ -116,9 +116,22 @@ lines become the `figcaption`.
     :::
 
 An IMAGE RUN (ticket 61): N images side by side, each image's **alt text
-is its caption** below it. Wraps when narrow (each shot ≥ 240px, stacked
+is its caption** below it. All shots in a band share one height - the
+renderer sets each shot's flex-grow to the image's own aspect ratio, so a
+phone capture next to a desktop capture renders at the desktop's height,
+just narrower. Wraps when narrow (each shot ≥ 240px, stacked
 on phones). The band is full-bleed. `[frame: Label]` placeholders work
 as shots.
+
+    ::: wide
+    ![Detail: Course library, desktop](../images/work/fullsize/teachr/screenshot-2026-11-05-at-10.04.30-2-1.png)
+    ![Detail: Course library, mobile](../images/work/fullsize/teachr/screenshot-2026-11-05-at-10.08.03-2.png)
+    :::
+
+The WIDE IMAGES container: same image row as `::: shots` (side by side,
+shared height, alt-text captions), but at **75% of the viewport width on
+desktop, 85% on tablet, 90% on mobile** instead of full bleed. This is
+what the converter emits for an image run in a draft (rule 6b).
 
     ::: cards
     [card: Title]

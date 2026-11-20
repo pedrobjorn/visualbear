@@ -68,6 +68,7 @@ Blog page = `hero.content` + gallery with 66vh spacer. Photography = bare `h1.ph
 
 ## Ticket 3: Hero spacing - more for Photos, less for Blog
 
+- Status: SHIPPED (amended twice by Pedro 2026-11-17): first "reduce height of the Play / Blog hero" shipped a `.hero--snug` 32vh hero on /play/ + /play/blog/; then Pedro: "make the blog/photography title lower as it was, but reduce the distance from the title and the content" - the snug modifier is REVERTED (it pulled the title up from 20vh to 16vh; hero.scss back to the default 40vh, templates back to `class:hero-about`). The height reduction now lives in the spacers: `body.page-play .content.gallery { margin-top: 58vh }` + mobile zero-override in gallery.scss (40vh hero + 18vh gap, was 66vh/26vh - content 8vh closer to the title, title unmoved at 20vh), and the photography photogrid spacer `body.play-photos ... :has(.gallery-grid)` 74vh -> 64vh (40vh hero + 24vh gap). Photos' hero--roomy class stays wired with no rule.
 - Part of: specs/play-menu-hero/plan.md (DR-0002)
 - Size: S
 - Type: UI
@@ -117,6 +118,42 @@ Default hero is `height: 40vh` desktop with a 66vh gallery spacer (26vh gap). Pr
 ## Out of scope
 
 - Centering anything else; the lightbox.
+
+## Ticket 7: Play hero fills the header-to-content region, title visually centered in it + controls between title and content (DR-0004, supersedes T3's reverted snug attempt)
+
+- Status: SHIPPED 2026-11-17 per Pedro's spec: "make the hero smaller, so the text is still in the middle of the hero between the header and the body, but smaller than the portfolio pages. Also put the grid controls between the title and content, not beneath the headline." Clarified same day: "I want it to be visually centered between the header and the body content" - so the hero box IS the visible container: it starts below the 48px nav and ends where the content starts (48vh), and the title centered in that box is visually centered between header and body. Evidence in evidence/t3-verify.md + t3-\*.png captures.
+- Part of: specs/play-menu-hero/plan.md (DR-0004)
+- Size: S
+- Type: UI
+
+## Requirements
+
+- `hero.scss`: `.hero--fill { top: 48px; height: calc(48vh - 48px); }` BEFORE the mobile mq block (mobile `height: auto` wins at equal specificity), plus `.hero--fill .content` absolutely centered (`top: 50%; translateY(-50%)`) so the title stays at the exact middle even when the content overflows (flex auto margins clamp to 0 on overflow); reset to `position: static` in the mobile mq.
+- `src/play/index.nunjucks` + `src/play/blog/index.nunjucks`: hero call `class:'hero-about hero--fill'`.
+- `src/play/photography/index.nunjucks`: hero call `class:'hero--fill hero--center'` (replaces `hero--roomy`, which had no rule; the roomy idea is dropped).
+- `gallery.scss`: `body.page-play .content.gallery { margin-top: 48vh }` (= hero--fill region end, so content begins at the hero's bottom edge; was the default 66vh) + mobile zero-override after it. Photography: spacer on the container - `body.play-photos .photoview { margin-top: 48vh }` + mobile zero-override - and `body.play-photos .content.gallery:has(.gallery-grid) { margin-top: 0 }` (0,4,1) so the gallery follows the switch in flow without doubling the spacer. `.photoview-switch` keeps `position: sticky; top: 80px` (T6): in flow below the hero at rest, stuck 32px under the header on scroll.
+- Portfolio pages untouched: `/` keeps 40vh hero + 66vh spacer.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] 1440x900: on /play/, /play/blog/, /play/photography/ the h1 center-y = (nav bottom 48px + content top 432px) / 2 = 240px - the title is visually centered between the header bar and the body content; `/` hero = 360px (untouched).
+- [ ] 1440x700 and 1280x720: h1 center-y still = midpoint of nav-bottom..content-top (overflow-safe via the absolute centering).
+- [ ] 1440x900: /play/ + /play/blog/ gallery margin-top = 432px (48vh), gallery top = hero bottom (432).
+- [ ] 1440x900 /play/photography/ scroll 0: switch rest top > hero bottom (controls between title and content); grid top = switch bottom + 24px padding. Scrolled: switch stuck at 80px (32px under the nav), hides on scroll-down past 120, returns at top.
+- [ ] 390x844: hero `position: static; height: auto` on all three play pages; spacers 0; switch flows after the hero.
+- [ ] `npm test` + `npm run build` green incl. release guards.
+
+## Ticket 6: Spacing between the grid controls and the header bar
+
+- Status: SHIPPED 2026-11-17 (Pedro: "add spacing between the grid controls and the header bar") - `.photoview-switch` `top: 48px` -> `top: 80px` in gallery.scss: 48px fixed nav + a 32px gap, the house rhythm for a strip under the fixed nav (tabs.scss ticket 5). The sticky pin eats the switch's margin at rest, so the gap lives in `top` itself; it applies at rest and while stuck on scroll.
+- Part of: specs/play-menu-hero/plan.md (DR-0002)
+- Size: XS
+- Type: UI
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] 1440x900 and 390x844 on `/play/photography/`, scroll 0: switch rect top - nav rect bottom = 32px; while scrolled, the stuck switch keeps the same 32px gap.
+- [ ] `npm test` + `npm run build` green.
 
 ## Ticket 5: End-to-end verify + evidence
 

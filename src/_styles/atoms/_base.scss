@@ -192,6 +192,11 @@ body.home-page {
 body.page-play {
   background: #18181b;
 
+  // where play galleries start in document coordinates (= the hero--fill
+  // region's end, 48px nav .. 48vh). The gallery fade plate in gallery.scss
+  // positions itself against this var, so plate and spacer cannot drift apart.
+  --play-gallery-top: 48vh;
+
   &::before {
     content: '';
     position: absolute;

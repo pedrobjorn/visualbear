@@ -6,14 +6,19 @@
 hero:
   variant: "teal"
   eyebrow: "Case Study - Quizrr (mock brand)"
-  title: "Quizrr, Redesigning the Learning Experience"
-  summary: "Revamping a teaching tool used by thousands of users to make it better and faster for learning - and more scalable and accessible to build on."
+  title: "Quizrr, Rebuilding the eLearning Experience"
+  summary: "Making the learning experience easier to use for our participants."
   details: "Lead Designer ⋅ Figjam · Figma · Claude Code ⋅ 2025 – 2026"
   meta:
     - logo: "../images/work/fullsize/teachr/teachr_logo.png | Quizrr brand mark"
     - needs: "Mock up a design system, and mock up the training flow vibe-coded with Claude Code."
     - related: "Part of a pair - read next | ../teachr-agent/ | Quizrr, AI Agent in the Learning Dashboard"
-    - summary: "Summary: redesigning the training for thousands of users to make it better and faster for learning, but also more scalable and accessible."
+    - metrics: "80% | Customer support issues ↓* **"
+    - metrics: "20% | Started training after registering ↑* **"
+    - metrics: "3% | Increase in completion rate (approximate) ↑* **"
+    - metrics: "4x | Delivery speed of new learning features ↑* **"
+    - footnote: "* 2026 October vs Previous Year October · ** Due to poor benchmark data, all medium confidence"
+    - summary: "Notable improvements to registration and learning, delivery speed and iteration - and more contracts secured."
 ---
 
 <!--
@@ -26,13 +31,6 @@ AUTHORING.md.
 
 ## Outcomes & Impact | Outcomes & Impact | outcomes
 
-::: metrics
-↓80% | Customer support issues
-↑20% | Started training after registering
-↑3% | Increase in completion rate (approximate)
-↑4x | Delivery speed of new features
-:::
-
 With the goal in mind, the redesign made the registration and learning experience simpler to use, while also improving the speed of delivery and ability to iterate the product.
 
 - Established automated Atomic Research, AI-agents synthesise findings into insights and actions.
@@ -40,40 +38,113 @@ With the goal in mind, the redesign made the registration and learning experienc
 - Split registration steps, reducing information overload and user error.
 - Reduced the number of actions ensuring a faster, smoother experience.
 
-[note: This was designed and built by me in 1 week using AI Coding* as a fully interactive web prototype.]
+### Learnings
 
-[note: Although not perfect, this particular mock project took 1 week from first requirements to this case study. I also used a much weaker yet sustainable model. Using a frontier model at high reasoning levels would have been even faster and provided even better results.]
+- Without proper prior measurement it was very hard to create a solid benchmark.
+- Big changes often may lead to an early dip in performance due to learning a new interface.
+- Product changes won't always show vast improvements, but instead be a fertile ground for future improvements.
 
-[note: * This is a mock-design approximation to the real work due to NDA, but the process and decisions are representative of my work, ** 2026 October vs Previous Year October, *** Due to poor benchmark data it this has at most medium confidence]
+## Process | Context | process
+
+1. **Problem definition & Goal** - Collecting issues through various sources, such as Customer Support tickets, user behaviour metrics and user input during calls with them.
+2. **Discovery & validation** - Exploration of ideas through ideation sessions and rapid prototyping, and validation allowed us to verify the direction early on.
+3. **Design** - Defining the new Component Library to ensure a unified experience built properly from the ground up, with guidelines for developers.
+4. **Delivery** - Collaborating with developers to include tracking and testing to ensure the experience is as intended, and using Claude Code to modify token adjustments as needed.
+
+[note: * A lot of the original work was done before we had fully implemented the AI-workflow, so it was done through Figma Prototyping. The only parts that included an AI-workflow were the user research synthesis and the delivery of Design Tokens near the end. However, the recreation of the project done by me was done only with AI code.]
 
 ## The problem | Problem & Goal | problem
 
+The learning experience faced a number of issues, from registration errors to slow training times. This was due to a variety of factors, among which was the inconsistency of the experience making it very difficult to make changes to.
+
+On top of this, our participants were busy and only doing training because they had to, interrupting their job which could impact their commission. Their education was taking time from their job.
+
 **The problem:** Our participants, often of low digital literacy, had little time for lessons, and registration errors were common.
 
-**The goal:** To streamline and unify the experience, reducing human error and speeding up training whilst maintaining learning quality.
+**The goal:** To streamline and unify the experience in order to reduce human errors and speed up training whilst maintaining learning quality.
+
+## Research & Discovery | Discovery & Validation | discovery
+
+### User needs
+
+Users of our learning tools tended to be factory workers, and had low to medium digital literacy*, and in some extreme cases our app was the first software they'd ever seen. They also needed to do learning while on the job, and thus had very little time to use our product.
+
+Their needs and the needs of their supervisors are different, but they all share urgency to get the learning over with few errors.
+
+> "The registration is confusing for our employees when there's an error. It takes very long to register."
+
+[note: * Low to medium digital literacy is derived from our own desk research that evaluates market levels of education based on established studies and metrics like access to internet, literacy, etc.]
+
+### Research
+
+Aside from product performance metrics we also spoke with workplace managers and participants to get their perspectives.
+
+Our Automated Atomic Research gave us these insights:
+
+- Registration was confusing, with a lot of information on screen at a time, making it hard to solve errors quickly.
+- The lessons were slow and took time, jumping between videos, questions, and a map, which made it hard to know what to do next.
+- There wasn't a lot of information about certain lessons, making it awkward to navigate things like training in groups, switching lessons, etc.
+
+Here we used our own internal AI-research workflow to break down transcribed interviews and user studies into an atomic research workflow:
+
+::: cards
+[card: Experiments]
+Experiments are research plans, scripts, holding notes and transcriptions. These also contain related Nuggets.
+
+[card: Research Nuggets]
+Research Nuggets are facts that can be synthesised from the experiment notes and transcriptions.
+
+[card: Insights]
+Insights are then combinations of Nuggets from various experiments, with a degree of confidence.
+
+[card: Actions]
+Actions are then derived from various Insights to address either problems or opportunities.
+:::
+
+### Validation
+
+With the goal in mind and understanding of the issues, we decided to prioritize unifying the flow, ensuring registration and lessons used similar, simple and recognisable UX patterns.
+
+I analysed established eLearning experiences and explored changes to our registration and training user flows.
+
+The balance was to unify the registration and training experience, which was currently disconnected, to make it easier to iterate on but also to give the user a more cohesive and predictable experience.
+
+We validated it by testing it with some users, which enabled us to iterate on the original concepts until they were good enough to deliver.
+
+## Key Design Decisions | Design & Delivery | decisions
+
+- Break down the registration into steps to allow users to focus on one piece of information at a time, reducing information overload.
+- Unify the registration and the lesson experience so the user felt like they were in a flow, but also to make it easier to manage and iterate on from our end.
+- Reduce the number of actions taken between steps to make registration and lessons faster to complete.
+- Make the flow direction unique, with lessons vertically scrollable up so the user can review previous answers, while registration runs left-to-right so it feels distinct and like taking steps toward something.
+
+[note: Due to a Non-Disclosure Agreement, a mock brand and product called Quizrr was created. All processes, decisions and fundamental design are still present.]
 
 ## Redesigning participant registration | Detail | registration
 
-[ai]
+::: compare
+[panel: Before | Registration]
+Registration was originally a long page with a lot of options, often leading to confusion and errors.
 
-Registration was originally a long page with a lot of options, often leading to confusion and errors. The redesign split it up into steps ensuring a smoother experience.
+[panel: After | Registration]
+The redesign split it up into steps, ensuring a smoother experience.
 
 ![Registration, steps 1 to 5](../images/work/fullsize/teachr/frame-181.png)
 [caption: Detail: Redesigning participant registration]
 
-1. **Native tongue** - The first and most important step is ensuring the participant selects their native tongue..
+1. **Native tongue** - The first and most important step is ensuring the participant selects their native tongue.
 2. **Worker ID** - Worker ID's are one of the most complex details we capture, so we make sure it has clear validation and there is no chance of proceeding until it's submitted correctly.
 3. **All options visible** - Long lists of options are all visible per step and no longer hidden behind a dropdown.
 4. **Back-step auto-advance** - Going back a step highlights the selected option. Reselecting it or selecting a new option automatically moves you onto the next step.
 5. **Verify & edit** - In the end we provide a verification step so the participant can verify all their information and edit it if need be.
+:::
 
 ## Course library | Detail | library
 
+::: wide
 ![Detail: Course library, desktop](../images/work/fullsize/teachr/screenshot-2026-11-05-at-10.04.30-2-1.png)
-[caption: Detail: Course library]
-
 ![Detail: Course library, mobile](../images/work/fullsize/teachr/screenshot-2026-11-05-at-10.08.03-2.png)
-[caption: Detail: Course library, mobile]
+:::
 
 ::: compare
 [panel: Before | Course library]
@@ -95,16 +166,21 @@ The Avatar pop-out menu contains details the participant can review and edit, se
 
 Settings contains more options the participant can access at any time.
 
+::: wide
 ![Detail: Avatar pop-out menu](../images/work/fullsize/teachr/screenshot-2026-11-05-at-10.48.57-1.png)
-[caption: Detail: Avatar pop-out menu]
-
 ![Detail: Settings](../images/work/fullsize/teachr/screenshot-2026-11-05-at-11.06.28-1.png)
-[caption: Detail: Settings]
+:::
 
 ## Lessons | Detail | lessons
 
 ![Detail: Lessons - the unified lesson page](../images/work/fullsize/teachr/frame-184.png)
 [caption: Detail: Lessons]
+
+::: wide
+![Detail: Question, answered on desktop](../images/work/fullsize/teachr/screenshot-2026-11-05-at-10.01.57-2.png)
+![Detail: Question, on mobile](../images/work/fullsize/teachr/screenshot-2026-11-05-at-10.08.19-2.png)
+![Detail: The scroll to next question button](../images/work/fullsize/teachr/screenshot-2026-11-05-at-10.08.53-2.png)
+:::
 
 ::: compare
 [panel: Before | Lessons]
@@ -118,12 +194,6 @@ The lessons often start with a video introducing the participants to key concept
 Videos then may appear throughout the lesson to cover additional topics
 
 The content is kept centered and narrow to ensure focus and parity between devices, since it's not uncommon for users to switch devices. It also means fewer components to worry about and a vertical sense to the flow.
-
-A scroll to next question button ensures it's one tap away from continuing.
-
-![Detail: Question, answered on desktop](../images/work/fullsize/teachr/screenshot-2026-11-05-at-10.01.57-2.png)
-![Detail: Question, on mobile](../images/work/fullsize/teachr/screenshot-2026-11-05-at-10.08.19-2.png)
-![Detail: The scroll to next question button](../images/work/fullsize/teachr/screenshot-2026-11-05-at-10.08.53-2.png)
 :::
 
 ## Quizrr Assistant | Detail: AI Chat Support | assistant
@@ -142,9 +212,11 @@ This cannot be used to get right answers, as the AI Agent is calibrated to only 
 The old lessons had very binary feedback, correct or incorrect answers.
 
 [panel: After | Feedback]
-The new design not only provides clearer feedback, but if they get pick the incorrect answer twice, we emphasise the right answer.
+The new design not only provides clearer feedback, but if they pick the incorrect answer twice, we emphasise the right answer.
 
 Reviewing answers and videos is also an essential part of learning, so we made it easy to go back.
+
+A scroll to next question button ensures it's one tap away from continuing.
 
 ![Clearer feedback, emphasis on the right answer](../images/work/fullsize/teachr/screenshot-2026-11-05-at-10.02.56-2.png)
 [caption: Detail: Feedback and reviewing]
@@ -152,25 +224,22 @@ Reviewing answers and videos is also an essential part of learning, so we made i
 
 ## Completion | Detail: Completion | completion
 
+::: wide
+![Lesson complete, desktop](../images/work/fullsize/teachr/screenshot-2026-11-05-at-11.46.30-1.png)
+![Lesson complete, on mobile](../images/work/fullsize/teachr/screenshot-2026-11-05-at-11.46.12-1.png)
+:::
+
 ::: compare
 [panel: Before | Completion]
 The old lessons had a completion page that simply told the user they congratulations and they were done.
 
 [panel: After | Completion]
-The new design adds a bit more flare and provides stats to inform the participant of their performance. With that said, this is a page we want plan to work on a lot more to make it really special, which it isn't yet.
+The new design adds a bit more flare and provides stats to inform the participant of their performance. With that said, this is a page we plan to work on a lot more to make it really special, which it isn't yet.
 
 This stats are useful for users to feel closure, but also it gives a sense of assurance that their answers have been saved and they can proceed back to their lessons.
-
-![Lesson complete, desktop](../images/work/fullsize/teachr/screenshot-2026-11-05-at-11.46.30-1.png)
-[caption: Detail: Completion]
-
-![Lesson complete, on mobile](../images/work/fullsize/teachr/screenshot-2026-11-05-at-11.46.12-1.png)
-[caption: Detail: Completion]
 :::
 
 ## AI-workflow & Design System | Detail: AI-workflow & Design System | ai-workflow
-
-[ai]
 
 Using an AI-coding agent and my own agentic design suite* I was able to setup a standardised and repeatable workflow.
 
@@ -184,7 +253,30 @@ This enabled me to design purely in code. No Figma was used in this project, onl
 
 The design system is far from perfect, but it was the foundation to ensure the experience remained consistent at low agent effort. Although this isn't a development focused project, this also ensured the component code remained consistent and reusable.
 
+[note: Although not perfect, this particular mock project took 1 week from first requirements to this case study. I also used a much weaker yet sustainable model. Using a frontier model at high reasoning levels would have been even faster and provided even better results.]
+
 [note: * The agent used was GLM-5.3 Flash (Mistral Hoster) in Visual Studio, as well as my own visuAI agentic design suite which includes visuai-spec, visuai-design, visuai-prototype and visuai-review. More will be shared in future.]
 
 ![Design system type scale and motion tokens](../images/work/fullsize/teachr/frame-187.png)
 [caption: Detail: AI-workflow & Design System]
+
+## Conclusion & Lessons | Conclusion | conclusion
+
+### Challenges
+
+- Without proper prior measurement it was very hard to create a solid benchmark.
+- We were unable to validate our ideas with participants that struggled the most due to the difficulty of access and time crunch.
+- The prototype was originally done in Figma and, due to the complexity of presenting the scroll effect (especially for usability studies), it was a very complicated prototype.
+
+### Things I would do differently
+
+- Establish a proper benchmark and have historical metrics before making changes. We were confident in the issues, but it was very complex to validate vs. the past, however we are confident in the insights gathered.
+- Validate with participants that struggled the most to really stress test the changes.
+- Design using AI code. This was just before we implemented our current process and it took a lot longer than it needed to.
+
+::: metrics
+↓80% | Customer support issues
+↑20% | Started training after registering
+↑3% | Increase in completion rate (approximate)
+↑4x | Delivery speed of new learning features
+:::

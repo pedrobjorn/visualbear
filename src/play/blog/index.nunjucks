@@ -18,7 +18,8 @@
 
 {% block content %}
 
-{{hero.content({content:site.data.bloghero,class:hero-about})}}
+{# play-menu-hero T7 (DR-0004): fill hero - spans header to content, title visually centered between them (hero.scss) #}
+{{hero.content({content:site.data.bloghero,class:'hero-about hero--fill'})}}
 
 {{gallery.content({content:site.data.blog, contentType:'blog'})}}
 

@@ -17,12 +17,17 @@
 {# play-menu-hero T2 (DR-0002): the page adopts the shared hero organism -
    photohero.yml, h1 "Photography"; the old bare h1.photoview-title is
    deleted, so the page keeps exactly one h1. The hero occupies the top, so
-   .photoview no longer pads under the nav; the switch bar stays sticky
-   below it. The hero--roomy height and hero--center modifiers land in
-   T3/T4. Below: the photogrid fed by site.data.photogallery (play-subpages
+   .photoview no longer pads under the nav.
+   play-menu-hero T7 (DR-0004): the hero fills the region between the header
+   and the content (hero--fill, hero.scss - 48px nav .. 48vh), so the title
+   is visually centered between header and body; replaces the wired but
+   unshipped hero--roomy. The spacer lives on .photoview (gallery.scss),
+   so the switch bar renders BETWEEN the title and the photogrid at rest;
+   on scroll it stays sticky at top: 80px (48px nav + 32px gap).
+   Below: the photogrid fed by site.data.photogallery (play-subpages
    T8 folder scan, newest first), the hidden dialog markup (T13) read by
    the controller (T15), and the T17 view switch. #}
-{{hero.content({content:site.data.photohero, class:'hero--roomy hero--center'})}}
+{{hero.content({content:site.data.photohero, class:'hero--fill hero--center'})}}
 
 <div class="photoview">
   <div class="photoview-switch" role="group" aria-label="Photo view">

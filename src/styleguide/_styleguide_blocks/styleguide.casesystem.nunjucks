@@ -191,8 +191,9 @@
       <p class="cs-summary"><em>Summary box :  [summary: text]; the bleeding closing-summary of a case study.</em></p>
 
       <p style="margin-top: 16px;">Image run (ticket 61): <code>::: shots</code> :  N images
-      side by side, each image's alt text = its caption below. Wraps on
-      narrow screens.</p>
+      side by side, each image's alt text = its caption below. All shots in a
+      band share one height (widths follow each image's own aspect ratio).
+      Wraps on narrow screens.</p>
       <div class="cs-wide cs-wide--full">
         <div class="cs-shots">
           {# ticket 16 made these eager (the panel ships [hidden], so lazy
@@ -215,6 +216,22 @@
           <figure class="cs-shot">
             <img src="../images/work/thumbs/gallery_thumb_closet.jpg" alt="Digital Closet :  the third shot"{% if spec.lazyDemo %} loading="lazy"{% endif %}>
             <figcaption>Digital Closet :  the third shot's caption</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <p style="margin-top: 16px;">Wide images: <code>::: wide</code> :  the same image row
+      as <code>::: shots</code>, but at 75% of the viewport width on desktop,
+      85% on tablet, 90% on mobile — not full bleed.</p>
+      <div class="cs-wide-img">
+        <div class="cs-shots">
+          <figure class="cs-shot">
+            <img src="../images/work/thumbs/gallery_thumb_artent.jpg" alt="Art-Ent :  connecting artists and students"{% if spec.lazyDemo %} loading="lazy"{% endif %}>
+            <figcaption>Art-Ent :  wide band, shot one</figcaption>
+          </figure>
+          <figure class="cs-shot">
+            <img src="../images/work/thumbs/gallery_thumb_climateclock.jpg" alt="Climate Clock :  the second shot"{% if spec.lazyDemo %} loading="lazy"{% endif %}>
+            <figcaption>Climate Clock :  wide band, shot two</figcaption>
           </figure>
         </div>
       </div>

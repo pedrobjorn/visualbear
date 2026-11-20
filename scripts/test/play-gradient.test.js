@@ -80,18 +80,27 @@ assert.ok(
   'body.page-play nav.site-nav takes the gradient top stop #3a3a41 (no red bar on play pages)'
 );
 
-// the gallery's fade plate (transparent 256px -> solid) is the mask that
-// hides the fixed hero title behind the gallery on scroll (the gallery is
-// position:relative, so its plate paints above the z-index:0 hero). On the
-// dark page-play ground the plate must fade to the PAGE color #18181b, not
-// home's #252528 - the body layer converges to flat #18181b by the fold, so
-// the static plate matches the ground at every scroll position.
+// the gallery's plate is the mask that hides the fixed hero title behind the
+// gallery on scroll (the gallery is position:relative, so its plate paints
+// above the z-index:0 hero). Amended 2026-11-17: the plate CONTINUES the
+// body's own page-anchored fade (body.page-play::before, #3a3a41 -> #18181b
+// over one 100vh layer at document top) instead of a static transparent->solid
+// gradient, so it is pixel-identical to the ground at every scroll position -
+// no visible panel (the old plate's solid edge landed above the fold once the
+// gallery moved to 48vh). The fade layer is re-anchored to document top via
+// background-position against --play-gallery-top; a flat #18181b layer covers
+// below the fold.
 var galleryScss = fs.readFileSync(path.join(SRC, '_modules/organisms/gallery/gallery.scss'), 'utf8');
+var baseScss = fs.readFileSync(path.join(SRC, '_styles/atoms/_base.scss'), 'utf8');
 assert.ok(
-  /body\.page-play \.content\.gallery\s*\{\s*background: linear-gradient\(to bottom, rgba\(24, 24, 27, 0\) 256px, rgba\(24, 24, 27, 1\) 0px\);/.test(
+  /--play-gallery-top:\s*48vh;/.test(baseScss),
+  'body.page-play declares --play-gallery-top: 48vh (the gallery document-top, shared with the plate)'
+);
+assert.ok(
+  /body\.page-play \.content\.gallery\s*\{[^}]*background-position:\s*0 calc\(0px - var\(--play-gallery-top\)\), 0 0;/s.test(
     galleryScss
-  ),
-  'body.page-play .content.gallery keeps the fade plate in the page color #18181b (masks the hero title on scroll, matches the page ground)'
+  ) && /linear-gradient\(180deg in oklab, #3a3a41 0%, #18181b 100vh\)/.test(galleryScss),
+  'body.page-play .content.gallery plate continues the body fade page-anchored (oklab #3a3a41 -> #18181b over 100vh, positioned by --play-gallery-top) + flat #18181b below - masks the hero title, invisible against the ground'
 );
 // on mobile the hero flows with the content, so the plate is dropped there
 // (same as home) - the override must outrank the desktop plate rule

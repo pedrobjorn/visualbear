@@ -46,7 +46,7 @@ assert.ok(/width: max-content;/.test(stripRule[0]), 'strip is max-content (cente
 assert.ok(/margin: [^;]*auto;/.test(stripRule[0]), 'strip is centered via margin auto');
 assert.ok(/background-color: var\(--cs-chip-plate, rgba\(24, 24, 27, 0\.92\)\);/.test(stripRule[0]), 'strip takes the chip-plate background (locally overridden, see T6)');
 assert.ok(/transition: transform 0\.2s ease, opacity 0\.2s ease, visibility 0\.2s ease;/.test(stripRule[0]), 'strip transitions transform/opacity/visibility');
-assert.ok(/position: sticky;/.test(stripRule[0]) && /top: 48px;/.test(stripRule[0]), 'strip stays sticky below the fixed nav');
+assert.ok(/position: sticky;/.test(stripRule[0]) && /top: 80px;/.test(stripRule[0]), 'strip stays sticky 32px below the fixed nav (play-menu-hero T6: 48px nav + 32px gap)');
 
 // play-consistency T6 (DR-0005): the strip must never hide behind the photos
 // and must not be an opaque bar - it paints above the grid (z-index 1 over

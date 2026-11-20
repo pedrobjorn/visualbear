@@ -23,12 +23,13 @@ var path = require('path');
 var ROOT = path.join(__dirname, '..');
 var BUILD = path.join(ROOT, 'build');
 var CONFIG = path.join(ROOT, 'src', '_data', 'private-path.json');
-var SECRET_DIRS = ['teachr', 'teachr-agent'];
+var SECRET_DIRS = ['teachr', 'teachr-agent', 'teachr-app'];
 // 'workflow' left the prune list in DR-0010 (ticket 30, Pedro 2026-11-13):
 // the merged visualbear-system page is DUPLICATED to the public root - the
 // fresh gulp build's build/workflow/ simply ships, while the mirror keeps
-// its own rewritten copy under build/<mirrorPath>/workflow/. teachr stays
-// air-locked.
+// its own rewritten copy under build/<mirrorPath>/workflow/. The teachr
+// case study (teachr), its companion (teachr-agent) and the training app
+// (teachr-app) stay air-locked.
 
 function fail(msg) {
   console.error('release-mirror: ' + msg);
@@ -88,11 +89,19 @@ SECRET_DIRS.forEach(function (dir) {
       fail('refusing to prune build/' + dir + ' - the mirror copy is missing; nothing would serve the page.');
     }
     var removed = [];
-    fs.readdirSync(publicDir).forEach(function (name) {
-      fs.unlinkSync(path.join(publicDir, name));
-      removed.push(name);
-    });
-    fs.rmdirSync(publicDir);
+    // recursive: a secret page can carry subdirectories (e.g. teachr-app/)
+    (function rmrf(p) {
+      fs.readdirSync(p).forEach(function (name) {
+        var child = path.join(p, name);
+        if (fs.statSync(child).isDirectory()) {
+          rmrf(child);
+          return;
+        }
+        fs.unlinkSync(child);
+        removed.push(path.relative(publicDir, child));
+      });
+      fs.rmdirSync(p);
+    })(publicDir);
     console.log('release-mirror: pruned public build/' + dir + '/ (' + removed.join(', ') + ')');
   }
 });
@@ -187,11 +196,23 @@ var mirrorLink = require('./mirror-link');
 var VISUAI_MARK = mirrorLink.VISUAI_MARK;
 var NAV_REWRITES = 0;
 
-function injectVisuai(dir, depth) {
+// The training app (teachr-app) is a full-screen applet: the fixed robot
+// pill would sit on top of its own bottom action bar, and the demo must
+// not link out to the workflow page. The robot is stripped there instead
+// of injected (and any robot a previous release left behind is removed,
+// so re-runs converge). rel is the page's directory, mirror-relative.
+var ROBOT_SKIP = ['teachr-app'];
+function robotSkipped(rel) {
+  return ROBOT_SKIP.some(function (skip) {
+    return rel === skip || rel.indexOf(skip + '/') === 0;
+  });
+}
+
+function injectVisuai(dir, depth, rel) {
   fs.readdirSync(dir).forEach(function (name) {
     var p = path.join(dir, name);
     if (fs.statSync(p).isDirectory()) {
-      injectVisuai(p, depth + 1);
+      injectVisuai(p, depth + 1, rel ? rel + '/' + name : name);
       return;
     }
     if (name !== 'index.html') return;
@@ -201,9 +222,11 @@ function injectVisuai(dir, depth) {
     if (html !== before) NAV_REWRITES++;
     // the decorative public robot never renders next to the linked one
     html = mirrorLink.stripFloatingRobot(html);
-    // the closet card is public-only (ticket 25 amend): the mirror's
-    // gallery stays fashion + sports (+ this pass's own mirror cards)
-    html = mirrorLink.stripClosetCard(html);
+    if (robotSkipped(rel)) {
+      html = mirrorLink.stripInjectedRobot(html);
+      fs.writeFileSync(p, html);
+      return;
+    }
     if (html.indexOf(VISUAI_MARK) !== -1) return; // idempotent
     if (html.indexOf('</body>') === -1) fail('mirror page has no </body>: ' + p);
     html = html.replace('</body>', mirrorLink.visuaiLinkFor(depth) + '</body>');
@@ -211,6 +234,6 @@ function injectVisuai(dir, depth) {
   });
 }
 
-injectVisuai(mirror, 0);
+injectVisuai(mirror, 0, '');
 console.log('release-mirror: nav links rewritten to relative in ' + NAV_REWRITES + ' mirrored page(s) (ticket 8).');
 console.log('visuai link applied to all mirrored pages');
