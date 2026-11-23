@@ -69,7 +69,7 @@
     "serve": "NODE_ENV=production ./scripts/gulp.sh serve --production",
     "build": "NODE_ENV=production ./scripts/release.sh",
     "build:gulp": "NODE_ENV=production ./scripts/gulp.sh --production",
-    "test": "node scripts/test/mirror-link.test.js && node scripts/test/tabs.test.js && node scripts/test/play-data.test.js && node scripts/test/play-gradient.test.js && node scripts/test/gallery-order.test.js && node scripts/test/lightbox.test.js && node scripts/test/photoview.test.js && node scripts/test/anchors.test.js && node scripts/test/play-menu.test.js && node scripts/test/play-hero.test.js"
+    "test": "node scripts/test/mirror-link.test.js && node scripts/test/tabs.test.js && node scripts/test/play-data.test.js && node scripts/test/play-gradient.test.js && node scripts/test/gallery-order.test.js && node scripts/test/lightbox.test.js && node scripts/test/photoview.test.js && node scripts/test/anchors.test.js && node scripts/test/play-menu.test.js && node scripts/test/play-hero.test.js && node scripts/test/cs-nav.test.js"
   },
   "engines": {
     "node": "10.x"

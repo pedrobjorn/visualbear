@@ -841,6 +841,23 @@ function slugify(text) {
     .replace(/^-+|-+$/g, '');
 }
 
+// `## Title | Eyebrow | id` pipe parsing, shared by mdPage (section blocks)
+// and mdToc (section nav) so the nav hrefs can never drift from the rendered
+// section ids. An explicitly empty eyebrow (`## H2 | | id`) keeps the id
+// field but resolves to an empty eyebrow (mdPage then omits the eyebrow line).
+function parseH2Parts(title) {
+  const parts = title
+    .replace(/<[^>]*>/g, '')
+    .split('|')
+    .map(function (s) {
+      return s.trim();
+    });
+  const heading = parts[0];
+  const eyebrow = parts.length > 1 ? parts[1] : heading;
+  const id = parts[2] || slugify(eyebrow || heading);
+  return { heading: heading, eyebrow: eyebrow, id: id };
+}
+
 function mdPage(src) {
   // raw HTML stays out of the markdown engine until the section logic has
   // run: raw <h2>s must not split sections, and raw hero/divider blocks must
@@ -962,22 +979,14 @@ function mdPage(src) {
   // section id; an explicitly empty eyebrow (`## H2 | | id`) omits the
   // eyebrow line for sections that carry their heading only.
   rest = rest.replace(/<h2>([\s\S]*?)<\/h2>/g, function (m, title) {
-    const parts = title
-      .replace(/<[^>]*>/g, '')
-      .split('|')
-      .map(function (s) {
-        return s.trim();
-      });
-    const heading = parts[0];
-    const eyebrow = parts.length > 1 ? parts[1] : heading;
-    const id = parts[2] || slugify(eyebrow || heading);
+    const p = parseH2Parts(title);
     return (
       '</section><section class="cs-section" id="' +
-      id +
+      p.id +
       '">' +
-      (eyebrow ? '<p class="cs-eyebrow">' + eyebrow + '</p>' : '') +
+      (p.eyebrow ? '<p class="cs-eyebrow">' + p.eyebrow + '</p>' : '') +
       '<h2>' +
-      heading +
+      p.heading +
       '</h2>'
     );
   });
@@ -1004,6 +1013,34 @@ function mdPage(src) {
   // AI markers + the production guard, applied to the assembled body
   const body = out.join('\n');
   return applyAiMarkers(attachQuoteBylines(body));
+}
+
+// ── case-study section nav (specs/case-study-nav, Ticket 1) ───────────────
+// Derived from the same `## Title | Eyebrow | id` lines mdPage renders as
+// .cs-section blocks: one <li><a href="#id">Title</a></li> per section, in
+// document order. Runs the same preprocessing pipeline as mdPage so raw-HTML
+// h2s stay invisible to the nav exactly as they are to the section split.
+function mdToc(src) {
+  const split = extractRawBlocks(
+    extractPlainStarLists(parseContainers(splitFrontmatter(src).body))
+  );
+  let html = marked(split.md, { headerIds: false, renderer: listRenderer() });
+  html = html.replace(/ id="[^"]*"/g, '');
+
+  const items = [];
+  html.replace(/<h2>([\s\S]*?)<\/h2>/g, function (m, title) {
+    const p = parseH2Parts(title);
+    // link text is the plain primary title (tags stripped); the href uses the
+    // exact id mdPage assigns to the section
+    items.push('<li><a href="#' + p.id + '">' + p.heading.replace(/<[^>]*>/g, '') + '</a></li>');
+    return m;
+  });
+  if (!items.length) return '';
+  return (
+    '<nav class="cs-index" aria-label="Case study sections">\n  <ul>\n    ' +
+    items.join('\n    ') +
+    '\n  </ul>\n</nav>'
+  );
 }
 
 // ── resume ───────────────────────────────────────────────────────────────
@@ -1378,4 +1415,10 @@ function mdHero(src) {
   return out.join('\n');
 }
 
-module.exports = { mdPage: mdPage, mdResume: mdResume, mdMeta: mdMeta, mdHero: mdHero };
+module.exports = {
+  mdPage: mdPage,
+  mdResume: mdResume,
+  mdMeta: mdMeta,
+  mdHero: mdHero,
+  mdToc: mdToc
+};

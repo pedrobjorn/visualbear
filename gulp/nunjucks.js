@@ -8,7 +8,7 @@ import yaml from 'js-yaml';
 import { Transform } from 'stream';
 import markdownRender from '../markdown-render.js';
 
-const { mdPage, mdResume, mdMeta, mdHero } = markdownRender;
+const { mdPage, mdResume, mdMeta, mdHero, mdToc } = markdownRender;
 
 export default function (gulp, plugins, args, config, taskTarget, browserSync) {
   let dirs = config.directories;
@@ -106,6 +106,7 @@ export default function (gulp, plugins, args, config, taskTarget, browserSync) {
               env.addFilter('mdresume', mdResume);
               env.addFilter('mdmeta', mdMeta);
               env.addFilter('mdhero', mdHero);
+              env.addFilter('mdtoc', mdToc);
               return env;
             }
           }).on('error', function (err) {

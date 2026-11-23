@@ -22,7 +22,10 @@
                     <!-- 01 HERO, from the page md's front matter (DR-0001) -->
                     {{ site.data.pages['teachr'] | mdhero | safe }}
 
-                    					<!-- content sections: src/_data/pages/teachr.md via mdpage -->
+                    					<!-- 02 SECTION NAV, derived from the page md's ## titles (case-study-nav T1) -->
+					{{ site.data.pages['teachr'] | mdtoc | safe }}
+
+					<!-- content sections: src/_data/pages/teachr.md via mdpage -->
 					{{ site.data.pages['teachr'] | mdpage | safe }}
 
 

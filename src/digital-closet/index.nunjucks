@@ -14,6 +14,9 @@
                     <!-- 01 HERO, from the page md's front matter (DR-0001) -->
                     {{ site.data.pages['digital-closet'] | mdhero | safe }}
 
+                    <!-- 02 SECTION NAV, derived from the page md's ## titles (case-study-nav T1) -->
+                    {{ site.data.pages['digital-closet'] | mdtoc | safe }}
+
                     {{ site.data.pages['digital-closet'] | mdpage | safe }}
                 </div>
             </div>

@@ -15,6 +15,9 @@
                     <!-- 01 HERO, from the page md's front matter (DR-0001) -->
                     {{ site.data.pages['fashion-rebrand'] | mdhero | safe }}
 
+                    <!-- 02 SECTION NAV, derived from the page md's ## titles (case-study-nav T1) -->
+                    {{ site.data.pages['fashion-rebrand'] | mdtoc | safe }}
+
                     {{ site.data.pages['fashion-rebrand'] | mdpage | safe }}
                 </div>
             </div>

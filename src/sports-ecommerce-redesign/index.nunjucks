@@ -19,6 +19,9 @@
                     <!-- 01 HERO, from the page md's front matter (DR-0001) -->
                     {{ site.data.pages['sports-ecommerce-redesign'] | mdhero | safe }}
 
+                    <!-- 02 SECTION NAV, derived from the page md's ## titles (case-study-nav T1) -->
+                    {{ site.data.pages['sports-ecommerce-redesign'] | mdtoc | safe }}
+
                     {{ site.data.pages['sports-ecommerce-redesign'] | mdpage | safe }}
                 </div>
             </div>

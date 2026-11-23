@@ -10,9 +10,9 @@ Pedro 2026-11-23: "Add a navigation per new case study (fashion, ecommerce, clos
 
 Code eval 2026-11-23:
 
-1. The four new case-study pages are long vertical scrolls with no in-page index: `/fashion-rebrand/` (6 sections), `/sports-ecommerce-redesign/` (11), `/digital-closet/` (5), `/teachr/` (15). The "primary titles" are the `## Title | Eyebrow | id` H2 lines in `src/_data/drafts/{fashion-rebrand,sports-ecommerce-redesign,digital-closet,teachr}.txt`, rendered by `mdPage()` (markdown-render.js:844, section splice at :975) as `<section class="cs-section" id="..."><p class="cs-eyebrow">..</p><h2>..</h2>`.
+1. The four new case-study pages are long vertical scrolls with no in-page index: `/fashion-rebrand/` (6 sections), `/sports-ecommerce-redesign/` (10 - its 11th `##` line is the `::: hero coupon-hero` title, not a section), `/digital-closet/` (5), `/teachr/` (15). The "primary titles" are the `## Title | Eyebrow | id` H2 lines in `src/_data/drafts/{fashion-rebrand,sports-ecommerce-redesign,digital-closet,teachr}.txt`, rendered by `mdPage()` (markdown-render.js:844, section splice at :975) as `<section class="cs-section" id="..."><p class="cs-eyebrow">..</p><h2>..</h2>`.
 2. Each page template renders `{{ site.data.pages['...'] | mdhero | safe }}` then `{{ ... | mdpage | safe }}` inside `article.case-study` (e.g. src/teachr/index.nunjucks, src/fashion-rebrand/index.nunjucks) - the nav slot is between the two calls, i.e. directly below the hero block, in flow ("inline").
-3. The fixed header `nav.site-nav` is `height: 48px; position: fixed; z-index: 2` (src/_modules/molecules/nav/nav.scss:3-6), background per page via the body class: default `$vb-primary` #d73735 (digital-closet has no body class), `body.cs-pink-page` -> #d50e95, `body.cs-black-page` -> #111111, `body.cs-teal-page` -> #0e7d6f (src/_styles/templates/_case-study.scss:1250, 1319, 1523). Sticky reference already on site: `.photoview-switch` sticks at `top: 48px` under the nav (specs/play-subpages T17).
+3. The fixed header `nav.site-nav` is `height: 48px; position: fixed; z-index: 2` (src/\_modules/molecules/nav/nav.scss:3-6), background per page via the body class: default `$vb-primary` #d73735 (digital-closet has no body class), `body.cs-pink-page` -> #d50e95, `body.cs-black-page` -> #111111, `body.cs-teal-page` -> #0e7d6f (src/\_styles/templates/\_case-study.scss:1250, 1319, 1523). Sticky reference already on site: `.photoview-switch` sticks at `top: 48px` under the nav (specs/play-subpages T17).
 4. Links inside case studies are emitted by the renderer with no `target`: `::: callout` links (markdown-render.js:314; teachr `try-app` -> `../teachr-app/?view=library`), "lead | href | title" link lists (:1308), inline markdown links. `mdpage` is shared with `/workflow/` (gulp/nunjucks.js:105), so new-tab behavior must be opt-in per page, not global.
 
 ## Goal
@@ -40,8 +40,8 @@ Alternative rejected: hand-written nav per page template - duplicates the primar
 
 ## Asset requests
 
-| Asset | Position in design | Min size / format | Status |
-| ----- | ------------------ | ----------------- | ------ |
+| Asset | Position in design | Min size / format | Status                                                 |
+| ----- | ------------------ | ----------------- | ------------------------------------------------------ |
 | -     | -                  | -                 | none needed; all changes are renderer / CSS / template |
 
 ## Foundational checks
@@ -50,19 +50,20 @@ H1: no destructive file operations (edits only; no file is deleted). H3: uncerta
 
 ## Breakdown
 
-- [ ] Ticket 1 - `mdtoc` filter + insert into the 4 case-study templates (tickets.md)
+- [x] Ticket 1 - `mdtoc` filter + insert into the 4 case-study templates - DONE 2026-11-23 (evidence/t1-verify.md)
 - [ ] Ticket 2 - sticky `.cs-index` bar at top 48px, header-matched background per theme
 - [ ] Ticket 3 - `scroll-margin-top` on `.cs-section` clears the stuck bar
 - [ ] Ticket 4 - active-section highlight (`aria-current`) in `.cs-index`
 - [ ] Ticket 5 - case-study links open in new tabs (opt-in, `#` anchors excluded)
 - [ ] Ticket 6 - end-to-end verify: tests, build + guards, Playwright 1440/390, review gates
+- [ ] Ticket 7 - teachr-agent rollout LAST (DR-0003): same `mdtoc` insertion + test counts, after Tickets 1-6 verify on the four pages
 
 ## Open questions
 
-| Question | Owner | Blocks build? |
-| -------- | ----- | ------------- |
-| Include `/teachr-agent/` too? ASSUMPTION: no - Pedro listed four (fashion, ecommerce, closet, teachr); adding it is one template line | Pedro | No |
-| Sticky bar background = header color (DR-0001) vs page ground | Pedro | No - DR-0001 picks the header color per "matching the background color"; the flip is one variable |
-| "Any link from case studies" read as links ON the case-study pages (DR-0002); if Pedro meant the home cards linking TO case studies, that is a one-line `work.json`/gallery change | Pedro | No - assumption recorded |
-| Prev/next buttonslider on case-study pages stays same-tab (DR-0002) | Pedro | No |
-| Bar typography: text links ~13-14px, uppercase tracking like the nav, active = underline + lifted accent; bar height to be measured, then pinned in Ticket 3's calc - ASSUMPTION | Pedro | No - CSS-only retune |
+| Question                                                                                                                                                                           | Owner | Blocks build?                                                                                     |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ------------------------------------------------------------------------------------------------- |
+| RESOLVED 2026-11-23 (Pedro: "teachr-agent too but last"): yes, included, but rolled out LAST as Ticket 7 after the four pages verify (DR-0003)                                     | Pedro | No - answered                                                                                     |
+| Sticky bar background = header color (DR-0001) vs page ground                                                                                                                      | Pedro | No - DR-0001 picks the header color per "matching the background color"; the flip is one variable |
+| "Any link from case studies" read as links ON the case-study pages (DR-0002); if Pedro meant the home cards linking TO case studies, that is a one-line `work.json`/gallery change | Pedro | No - assumption recorded                                                                          |
+| Prev/next buttonslider on case-study pages stays same-tab (DR-0002)                                                                                                                | Pedro | No                                                                                                |
+| Bar typography: text links ~13-14px, uppercase tracking like the nav, active = underline + lifted accent; bar height to be measured, then pinned in Ticket 3's calc - ASSUMPTION   | Pedro | No - CSS-only retune                                                                              |

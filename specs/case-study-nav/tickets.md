@@ -8,11 +8,11 @@ Requirement source for every ticket in this file: Pedro's request 2026-11-23 (se
 - Depends on: -
 - Size: M
 - Type: system
-- Status: TODO
+- Status: DONE 2026-11-23 - evidence in evidence/t1-verify.md: `mdToc` exported from markdown-render.js sharing `parseH2Parts` with `mdPage` (mdPage output byte-identical on all 11 page md files), registered as `mdtoc` in gulp/nunjucks.js, inserted between mdhero/mdpage in the 4 templates; `scripts/test/cs-nav.test.js` RED->GREEN wired into `npm test` (11/11 suites pass); `npm run build` exit 0 + guards OK; built pages show `<nav class="cs-index">` after the hero, before the first `.cs-section`, 6/10/5/15 links matching section ids in order; workflow unchanged. teachr-agent deliberately excluded here; it lands in Ticket 7 per DR-0003
 
 ## Context
 
-`mdPage()` (markdown-render.js:844) turns every `## Title | Eyebrow | id` H2 into `<section class="cs-section" id="..."><p class="cs-eyebrow">..</p><h2>..</h2>` (splice at :975; id = `parts[2] || slugify(eyebrow || heading)`). The four page templates (src/fashion-rebrand/index.nunjucks, src/sports-ecommerce-redesign/index.nunjucks, src/digital-closet/index.nunjucks, src/teachr/index.nunjucks) render `{{ site.data.pages['<slug>'] | mdhero | safe }}` then `{{ ... | mdpage | safe }}` inside `article.case-study`. Filters are registered in gulp/nunjucks.js:105-108 (`mdpage`, `mdresume`, `mdmeta`, `mdhero`). Section counts in the drafts (2026-11-23): fashion-rebrand 6, sports-ecommerce-redesign 11, digital-closet 5, teachr 15.
+`mdPage()` (markdown-render.js:844) turns every `## Title | Eyebrow | id` H2 into `<section class="cs-section" id="..."><p class="cs-eyebrow">..</p><h2>..</h2>` (splice at :975; id = `parts[2] || slugify(eyebrow || heading)`). The four page templates (src/fashion-rebrand/index.nunjucks, src/sports-ecommerce-redesign/index.nunjucks, src/digital-closet/index.nunjucks, src/teachr/index.nunjucks) render `{{ site.data.pages['<slug>'] | mdhero | safe }}` then `{{ ... | mdpage | safe }}` inside `article.case-study`. Filters are registered in gulp/nunjucks.js:105-108 (`mdpage`, `mdresume`, `mdmeta`, `mdhero`). Section counts in the page md (2026-11-23): fashion-rebrand 6, sports-ecommerce-redesign 10 (11 `##` lines; `## Redesigned Coupon System` is the `::: hero coupon-hero` title, not a section), digital-closet 5, teachr 15.
 
 ## Requirements
 
@@ -29,7 +29,7 @@ Requirement source for every ticket in this file: Pedro's request 2026-11-23 (se
 
 ## Acceptance criteria (agent-checkable)
 
-- [ ] `npm test` green including a new `scripts/test/cs-nav.test.js` (wired into the `test` script in package.json) that runs `mdtoc` over each of the 4 drafts and asserts: link count = `## ` line count (6/11/5/15), each `href="#id"` matches a `cs-section` id produced by `mdPage` on the same draft, same order, link text = title field.
+- [ ] `npm test` green including a new `scripts/test/cs-nav.test.js` (wired into the `test` script in package.json) that runs `mdtoc` over each of the 4 page md files and asserts: link count = rendered `.cs-section` count (6/10/5/15), each `href="#id"` matches a `cs-section` id produced by `mdPage` on the same source, same order, link text = title field.
 - [ ] Built HTML: in each of `build/fashion-rebrand/index.html`, `build/sports-ecommerce-redesign/index.html`, `build/digital-closet/index.html`, `build/teachr/index.html`, a `<nav class="cs-index">` appears after the hero (`</header>`/`</section>` of `.cs-hero`) and before the first `<section class="cs-section">`.
 - [ ] `mdPage` output is byte-identical to before the refactor on all 4 drafts (test asserts equality of section ids).
 - [ ] `npm run build` exit 0 + release-guard OK.
@@ -55,12 +55,12 @@ Requirement source for every ticket in this file: Pedro's request 2026-11-23 (se
 
 ## Context
 
-`nav.site-nav` is `height: 48px; position: fixed; z-index: 2` (src/_modules/molecules/nav/nav.scss:3-6). Header backgrounds per page: default `$vb-primary` #d73735; `body.cs-pink-page` #d50e95, `body.cs-black-page` #111111, `body.cs-teal-page` #0e7d6f (_case-study.scss:1250/1319/1523). Existing sticky reference: `.photoview-switch` at `top: 48px`, z-index 1 (specs/play-subpages T17). All new styles scoped under `.case-study .cs-index` in src/_styles/templates/_case-study.scss.
+`nav.site-nav` is `height: 48px; position: fixed; z-index: 2` (src/\_modules/molecules/nav/nav.scss:3-6). Header backgrounds per page: default `$vb-primary` #d73735; `body.cs-pink-page` #d50e95, `body.cs-black-page` #111111, `body.cs-teal-page` #0e7d6f (\_case-study.scss:1250/1319/1523). Existing sticky reference: `.photoview-switch` at `top: 48px`, z-index 1 (specs/play-subpages T17). All new styles scoped under `.case-study .cs-index` in src/\_styles/templates/\_case-study.scss.
 
 ## Requirements
 
 - `.case-study .cs-index { position: sticky; top: 48px; z-index: 1; }` - flush under the fixed header, under it in stacking order.
-- Background per DR-0001: introduce `--cs-head-bg` on `body` (= `$vb-primary`) in nav.scss and override it in the existing `body.cs-pink-page` / `body.cs-black-page` / `body.cs-teal-page` rules in _case-study.scss; both `nav.site-nav` and `.case-study .cs-index` use `background-color: var(--cs-head-bg)`. The existing per-page nav rules keep working (same values, now via the variable).
+- Background per DR-0001: introduce `--cs-head-bg` on `body` (= `$vb-primary`) in nav.scss and override it in the existing `body.cs-pink-page` / `body.cs-black-page` / `body.cs-teal-page` rules in \_case-study.scss; both `nav.site-nav` and `.case-study .cs-index` use `background-color: var(--cs-head-bg)`. The existing per-page nav rules keep working (same values, now via the variable).
 - Opaque bar: content scrolling under the stuck bar is hidden. Hairline bottom border in the theme accent (`--cs-accent`) for separation from the header.
 - Link ink white (same as nav links on these grounds); hover/focus = underline + lifted accent (`$cs-red-lifted` #ee6e73 on dark grounds, matching nav feedback); active section link = underline (Ticket 4 adds aria-current).
 - Bar layout: flex row, gap, `overflow-x: auto; white-space: nowrap` at <=480px (390 capture) so long title lists scroll horizontally instead of wrapping; desktop wraps or scrolls at Pedro's pick - ASSUMPTION: nowrap + horizontal scroll at all widths, consistent with the photoview switch bar.
@@ -82,7 +82,7 @@ Requirement source for every ticket in this file: Pedro's request 2026-11-23 (se
 
 ## Out of scope
 
-- Nav content/links (Ticket 1), scroll-margin (Ticket 3), active state JS (Ticket 4), target=_blank (Ticket 5).
+- Nav content/links (Ticket 1), scroll-margin (Ticket 3), active state JS (Ticket 4), target=\_blank (Ticket 5).
 
 ## Open questions
 
@@ -179,7 +179,7 @@ The renderer emits `<a href>` without target in: `::: callout` links (markdown-r
 
 ## Design references
 
-- Hooks used: `mdpage`/`mdhero` filters. Principles applied: opt-in over global (DR-0002), security rel on _blank.
+- Hooks used: `mdpage`/`mdhero` filters. Principles applied: opt-in over global (DR-0002), security rel on \_blank.
 - Style refs: markdown-render.js link emission sites (:314, :1308, inline link rule).
 
 ## Acceptance criteria (agent-checkable)
@@ -229,7 +229,41 @@ House verification loop: unit/guard tests, production build with release-guard, 
 
 ## Out of scope
 
-- Any change beyond the four pages (teachr-agent stays untouched per plan open question).
+- Any change beyond the four pages (teachr-agent lands in Ticket 7 per DR-0003).
+
+## Open questions
+
+- None.
+
+---
+
+# Ticket 7: teachr-agent rollout, last (DR-0003)
+
+- Part of: specs/case-study-nav/plan.md (DR-0003 - Pedro 2026-11-23: "teachr-agent too but last")
+- Depends on: Tickets 1-6 verified on the four named pages
+- Size: S
+- Type: system
+- Status: TODO
+
+## Context
+
+`/teachr-agent/` (src/teachr-agent/index.nunjucks, `cs-teal`, 7 sections in `src/_data/pages/teachr-agent.md`) gets the identical treatment, but only after the four named pages pass Ticket 6, so any shared-renderer regression surfaces on fashion/ecommerce/closet/teachr first.
+
+## Requirements
+
+- Insert `{{ site.data.pages['teachr-agent'] | mdtoc | safe }}` between the `mdhero` and `mdpage` calls in src/teachr-agent/index.nunjucks (same comment style as the other four).
+- Extend `scripts/test/cs-nav.test.js` with teachr-agent (expected 7 sections) - and Ticket 5's target=\_blank flag on its `mdpage`/`mdhero` calls when that ticket lands.
+- Re-run Ticket 6 verification including teachr-agent in the page set.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] `build/teachr-agent/index.html` contains `<nav class="cs-index">` between the hero and the first `.cs-section`, 7 links, ids matching its `.cs-section` ids in order.
+- [ ] `npm test` (cs-nav.test.js includes teachr-agent) and `npm run build` green.
+- [ ] Playwright spot-check at 1440/390 on `/teachr-agent/` only (the other four already verified in Ticket 6).
+
+## Out of scope
+
+- Any other page.
 
 ## Open questions
 

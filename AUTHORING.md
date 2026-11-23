@@ -23,6 +23,12 @@ DR-0003.)
 No template work for standard layouts. The page shell (in
 `src/<page>/index.nunjucks`) holds the hero and chrome; everything below the
 hero is your markdown, rendered by the `mdpage` or `mdresume` filter.
+Case-study shells additionally hold
+`{{ site.data.pages['<slug>'] | mdtoc | safe }}` between the `mdhero` and
+`mdpage` lines - the `mdtoc` filter derives the `.cs-index` section nav from
+the same `## Section | Eyebrow | id` lines, so nav links and section ids
+always match (specs/case-study-nav, Ticket 1). No authoring change: the nav
+follows the `##` lines automatically.
 
 ## Code quality commands
 
