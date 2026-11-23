@@ -1,7 +1,7 @@
 # Plan: Teachr case study - full PDF folded into the vertical case-study page
 
 - Date: 2026-11-18
-- Status: done 2026-11-18 - all 12 tickets landed; verify gates green (verify-page-md PASS, npm test 10/10, release-guard OK, captures at 1440+390 in evidence/). Polish pass 2026-11-20: tickets 13-18 (DR-0004) landed and verified — see `evidence/polish-verify.md` + `evidence/teachr-{1440,390}-polish-*.png`.
+- Status: done 2026-11-18 - all 12 tickets landed; verify gates green (verify-page-md PASS, npm test 10/10, release-guard OK, captures at 1440+390 in evidence/). Polish pass 2026-11-20: tickets 13-18 (DR-0004) landed and verified — see `evidence/polish-verify.md` + `evidence/teachr-{1440,390}-polish-*.png`. Second pass same day: tickets 19-22 (DR-0005) landed — see `evidence/polish2-verify.md`.
 - Evidence: `specs/teachr-case-study/evidence/teachr-{1440,390}-*.png` (full pages + every section)
 
 ## Post-review changes (2026-11-20) — polish pass (DR-0004)
@@ -90,6 +90,10 @@ Tickets run in page scroll order; each edits `src/_data/drafts/teachr.txt`, re-c
 - [x] Ticket 16 - Shots equal height (DR-0004.4): `.cs-shots .cs-shot { min-width: 0 }` at `>= $break-medium`. Acceptance: at 1440 AND 1280, every `.cs-shots` row's `img` heights equal within 2px (before at 1440: avatar-menu 416 vs 506).
 - [x] Ticket 17 - Avatar-menu pair (DR-0004.5): `#avatar-menu .cs-shots` centered, both shots `flex: 0 1 240px`, `align-items: flex-start`. Acceptance: at 1440 both figs same width (240px), same figTop, pop-out img width == settings img width.
 - [x] Ticket 18 - App callout (DR-0004.6): add `::: callout` to `markdown-render.js` + AUTHORING.md (doc-sync) + `Callout:` rule in `draft-to-md.js`; new `## Try the mock app | Live demo | try-app` section in `teachr.txt` after `ai-workflow` with the callout linking `../teachr-app/` (copy carries `[ai]`); `.cs-callout` tile styles in `_case-study.scss`. Acceptance: doc-sync OK, verify-page-md PASS, built page has `.cs-callout a[href="../teachr-app/"]`, link 200 under the mirror, captures at 1440+390, `npm test` + `npm run build` green, visuaibear-review gates pass.
+- [x] Ticket 19 - Move the app callout up (DR-0005.1): move the `try-app` section in `teachr.txt` from after `ai-workflow` to before `## Redesigning participant registration | Detail | registration` (the jump into the designs). Acceptance: in the built page `section#try-app` precedes `section#registration`; verify-page-md PASS.
+- [x] Ticket 20 - Training deep link (DR-0005.2): callout href becomes `../teachr-app/?view=library` (wizard.js boot: `?view=library` = library tab, registration gate on first entry). Acceptance: built `.cs-callout-link[href="../teachr-app/?view=library"]`; clicking lands on the registration/language or training-list view, title not the dashboard share view.
+- [x] Ticket 21 - Design-system link hover (DR-0005.3): repeat the global link states (hover/focus light on `$vb-primary` plate, active `$vb-secondary`) at `.case-study.cs-teal a` and `.case-study .cs-related a` specificity. Acceptance: Playwright hover on `.cs-related a` gives light text on the red plate, NOT red-on-red (before: #cd3231 on #d73735).
+- [x] Ticket 22 - Stack avatar-menu shots (DR-0005.4): split the two avatar-menu image lines into solo images with `Caption:` lines (two showcases, tiers from `showcaseTier`); delete the DR-0004 `#avatar-menu .cs-shots` override. Acceptance: no `.cs-shots` inside `#avatar-menu` at 1440/390; two `.cs-showcase` figures stacked; settings shot on the tall tier (max-width 480).
 
 ## Open questions
 

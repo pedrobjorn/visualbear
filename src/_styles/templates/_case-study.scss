@@ -303,6 +303,23 @@ $cs-indent: 28px;
 
     a {
       color: inherit;
+
+      // DR-0005: repeat the global link states at this specificity — a base
+      // color alone would beat the global a:hover and leave dark text on
+      // the red hover plate (same reasoning as the home/about/styleguide
+      // recipes in _pages.scss)
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        color: $vb-light;
+        background-color: $vb-primary;
+      }
+
+      &:active {
+        text-decoration: none;
+        color: $vb-light;
+        background-color: $vb-secondary;
+      }
     }
   }
 
@@ -541,24 +558,10 @@ $cs-indent: 28px;
   // clamp a shot — the renderer sets flex-grow to the image's aspect ratio
   // so all shots in a row share one height, and the clamp breaks that
   // proportion whenever a phone shot's proportional width < 240px
-  // (measured at 1440: avatar-menu settings 240px wide -> 506px tall vs the
-  // pop-out's 416px; at 1280: completion mobile 506 vs desktop 438).
+  // (measured at 1280: completion mobile 506 vs desktop 438).
   // Below 768px the floor stays, so phones still stack.
   @media (min-width: $break-medium) {
     .cs-shots .cs-shot {
-      min-width: 0;
-    }
-  }
-
-  // DR-0004: the avatar pop-out is a phone-scale detail — same width as the
-  // settings shot next to it, tops aligned, the pair centered. The author
-  // !important beats the renderer's inline aspect-ratio flex-grow.
-  #avatar-menu .cs-shots {
-    justify-content: center;
-    align-items: flex-start;
-
-    .cs-shot {
-      flex: 0 1 240px !important;
       min-width: 0;
     }
   }
@@ -619,8 +622,20 @@ $cs-indent: 28px;
         left: 0;
       }
 
-      &:hover {
+      // DR-0005: the pill keeps its own states at this specificity — the
+      // theme-level a:hover (design-system red plate) must not recolor it
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        color: #fff;
+        background-color: var(--cs-accent-deep);
         filter: brightness(1.1);
+      }
+
+      &:active {
+        text-decoration: none;
+        color: #fff;
+        background-color: var(--cs-accent-deep);
       }
 
       &:focus-visible {
@@ -1430,9 +1445,27 @@ body.cs-pink-page nav a.icon img {
   background-color: #f0f8f6;
 
   // Global link red #d73735 measures 4.33 on this mint ground; this
-  // darker red clears 4.5 while staying the same brand red family
+  // darker red clears 4.5 while staying the same brand red family.
+  // DR-0005: the hover/focus/active states are repeated at this
+  // specificity on purpose — the base color alone would beat the global
+  // a:hover rule and leave red text on the red hover plate (measured
+  // before: #cd3231 on #d73735). States are the design-system recipe
+  // from _typography.scss, same as the home/about/styleguide recipes.
   a {
     color: #cd3231;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      color: $vb-light;
+      background-color: $vb-primary;
+    }
+
+    &:active {
+      text-decoration: none;
+      color: $vb-light;
+      background-color: $vb-secondary;
+    }
   }
 
   .cs-timeline li::before {

@@ -119,6 +119,15 @@ We validated it by testing it with some users, which enabled us to iterate on th
 
 [note: Due to a Non-Disclosure Agreement, a mock brand and product called Quizrr was created. All processes, decisions and fundamental design are still present.]
 
+## Try the mock app | Live demo | try-app
+
+::: callout
+[callout: Try the Teachr app | ../teachr-app/?view=library | Open the live mock app]
+The redesigned registration and lesson flow also runs as a static mock app built on the same design system. Walk through registration, the course library, a lesson with feedback and completion, exactly as participants experience them.
+:::
+
+[ai]
+
 ## Redesigning participant registration | Detail | registration
 
 ::: compare
@@ -165,10 +174,11 @@ The Avatar pop-out menu contains details the participant can review and edit, se
 
 Settings contains more options the participant can access at any time.
 
-::: wide
 ![Detail: Avatar pop-out menu](../images/work/fullsize/teachr/screenshot-2026-11-05-at-10.48.57-1.png)
+[caption: Detail: Avatar pop-out menu]
+
 ![Detail: Settings](../images/work/fullsize/teachr/screenshot-2026-11-05-at-11.06.28-1.png)
-:::
+[caption: Detail: Settings]
 
 ## Lessons | Detail | lessons
 
@@ -258,15 +268,6 @@ The design system is far from perfect, but it was the foundation to ensure the e
 
 ![Design system type scale and motion tokens](../images/work/fullsize/teachr/frame-187.png)
 [caption: Detail: AI-workflow & Design System]
-
-## Try the mock app | Live demo | try-app
-
-::: callout
-[callout: Try the Teachr app | ../teachr-app/ | Open the live mock app]
-The redesigned registration and lesson flow also runs as a static mock app built on the same design system. Walk through registration, the course library, a lesson with feedback and completion, exactly as participants experience them.
-:::
-
-[ai]
 
 ## Conclusion & Lessons | Conclusion | conclusion
 
