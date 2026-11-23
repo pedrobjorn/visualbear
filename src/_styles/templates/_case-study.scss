@@ -32,6 +32,9 @@ $cs-indent: 28px;
   // Core color of the page theme; defaults to the design-system grey.
   // Themes (pink/black/teal) override it; bullets pick it up
   --cs-accent: #{$vb-grey};
+  // Deep accent for solid fills with white text (callout link pill);
+  // #d0181e is the darker brand red used by .cs-tag — 5.5:1 with white
+  --cs-accent-deep: #d0181e;
 
   // The chip plate, tokenized (ticket 40, DR-0012): ONE translucent-white
   // plate for every case-study page — the reference value. Per-ground
@@ -344,6 +347,19 @@ $cs-indent: 28px;
     }
   }
 
+  // DR-0004 (teachr-case-study polish): at >=768px all KPI cards share one
+  // row — basis 0 + min-width 0 splits the 916px meta measure evenly
+  // (before: 4 x (200px basis + 32px margins) > 916px, so at 1440 the 4th
+  // card wrapped full-width, a 3+1 row). Below 768px the wrap stays.
+  @media (min-width: $break-medium) {
+    .cs-metric {
+      flex: 1 1 0;
+      min-width: 0;
+      margin: 16px 8px;
+      padding: 24px 12px;
+    }
+  }
+
   // ------------------------------------------------------------------
   // Page-wide showcase — big rounded container for wide visuals & tables
   // ------------------------------------------------------------------
@@ -518,6 +534,118 @@ $cs-indent: 28px;
       font-size: $middle-font-size;
       color: #5f6264;
       text-align: center;
+    }
+  }
+
+  // DR-0004 (teachr-case-study polish): at >=768px the 240px floor must not
+  // clamp a shot — the renderer sets flex-grow to the image's aspect ratio
+  // so all shots in a row share one height, and the clamp breaks that
+  // proportion whenever a phone shot's proportional width < 240px
+  // (measured at 1440: avatar-menu settings 240px wide -> 506px tall vs the
+  // pop-out's 416px; at 1280: completion mobile 506 vs desktop 438).
+  // Below 768px the floor stays, so phones still stack.
+  @media (min-width: $break-medium) {
+    .cs-shots .cs-shot {
+      min-width: 0;
+    }
+  }
+
+  // DR-0004: the avatar pop-out is a phone-scale detail — same width as the
+  // settings shot next to it, tops aligned, the pair centered. The author
+  // !important beats the renderer's inline aspect-ratio flex-grow.
+  #avatar-menu .cs-shots {
+    justify-content: center;
+    align-items: flex-start;
+
+    .cs-shot {
+      flex: 0 1 240px !important;
+      min-width: 0;
+    }
+  }
+
+  // ------------------------------------------------------------------
+  // Callout tile (DR-0004) — plate with an accent edge, h3 title, body and
+  // a pill link stretched over the whole tile (`::after` inset 0, so the
+  // tile is one big click target while the link stays keyboard-focusable)
+  // ------------------------------------------------------------------
+  .cs-callout {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin: 40px 0;
+    padding: $cs-indent;
+    background-color: var(--cs-chip-plate);
+    border-left: 4px solid var(--cs-accent);
+    border-radius: 16px;
+
+    .cs-callout-text {
+      flex: 1 1 auto;
+
+      h3 {
+        margin: 0 0 8px;
+        font-size: $base-h3-size;
+        font-weight: $font-bold;
+      }
+
+      > p:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .cs-callout-link {
+      flex: 0 0 auto;
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 999px;
+      background-color: var(--cs-accent-deep);
+      color: #fff;
+      font-size: $middle-font-size;
+      font-weight: $font-bold;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: filter 160ms ease;
+
+      // stretched link: covers the whole tile (the tile is the positioned
+      // ancestor — the link itself stays unpositioned)
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+
+      &:hover {
+        filter: brightness(1.1);
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--cs-accent);
+        outline-offset: 3px;
+      }
+    }
+
+    &:focus-within {
+      outline: 2px solid var(--cs-accent);
+      outline-offset: 2px;
+    }
+
+    @media (max-width: $break-medium) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    // phones: the pill goes full-width so the label never wraps
+    @media (max-width: $break-small) {
+      .cs-callout-link {
+        align-self: stretch;
+        text-align: center;
+      }
     }
   }
 
@@ -1063,6 +1191,8 @@ $cs-indent: 28px;
   }
 
   --cs-accent: #e40f9e;
+  // deep fill for white-text pills (callout link) — 4.85:1 with white
+  --cs-accent-deep: #{$cs-pink-ground};
 
   .cs-eyebrow {
     color: $cs-pink-deep;
@@ -1120,6 +1250,7 @@ body.cs-pink-page nav.site-nav {
   background-color: #f0f0f2;
 
   --cs-accent: #{$cs-black};
+  --cs-accent-deep: #{$cs-black};
 
   .cs-eyebrow {
     color: $cs-black;
@@ -1310,6 +1441,8 @@ body.cs-pink-page nav a.icon img {
   }
 
   --cs-accent: #{$cs-teal-base};
+  // deep fill for white-text pills (callout link) — 5.02:1 with white
+  --cs-accent-deep: #{$cs-teal-ground};
 
   .cs-eyebrow {
     color: $cs-teal-ground;

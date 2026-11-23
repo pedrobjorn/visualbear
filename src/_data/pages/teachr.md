@@ -10,13 +10,12 @@ hero:
   summary: "Making the learning experience easier to use for our participants."
   details: "Lead Designer ⋅ Figjam · Figma · Claude Code ⋅ 2025 – 2026"
   meta:
-    - logo: "../images/work/fullsize/teachr/teachr_logo.png | Quizrr brand mark"
     - needs: "Mock up a design system, and mock up the training flow vibe-coded with Claude Code."
     - related: "Part of a pair - read next | ../teachr-agent/ | Quizrr, AI Agent in the Learning Dashboard"
-    - metrics: "80% | Customer support issues ↓* **"
-    - metrics: "20% | Started training after registering ↑* **"
-    - metrics: "3% | Increase in completion rate (approximate) ↑* **"
-    - metrics: "4x | Delivery speed of new learning features ↑* **"
+    - metrics: "80% | Customer support issues * **"
+    - metrics: "20% | Started training after registering * **"
+    - metrics: "3% | Increase in completion rate (approximate) * **"
+    - metrics: "4x | Delivery speed of new learning features * **"
     - footnote: "* 2026 October vs Previous Year October · ** Due to poor benchmark data, all medium confidence"
     - summary: "Notable improvements to registration and learning, delivery speed and iteration - and more contracts secured."
 ---
@@ -260,6 +259,15 @@ The design system is far from perfect, but it was the foundation to ensure the e
 ![Design system type scale and motion tokens](../images/work/fullsize/teachr/frame-187.png)
 [caption: Detail: AI-workflow & Design System]
 
+## Try the mock app | Live demo | try-app
+
+::: callout
+[callout: Try the Teachr app | ../teachr-app/ | Open the live mock app]
+The redesigned registration and lesson flow also runs as a static mock app built on the same design system. Walk through registration, the course library, a lesson with feedback and completion, exactly as participants experience them.
+:::
+
+[ai]
+
 ## Conclusion & Lessons | Conclusion | conclusion
 
 ### Challenges
@@ -275,8 +283,8 @@ The design system is far from perfect, but it was the foundation to ensure the e
 - Design using AI code. This was just before we implemented our current process and it took a lot longer than it needed to.
 
 ::: metrics
-↓80% | Customer support issues
-↑20% | Started training after registering
-↑3% | Increase in completion rate (approximate)
-↑4x | Delivery speed of new learning features
+80% | Customer support issues
+20% | Started training after registering
+3% | Increase in completion rate (approximate)
+4x | Delivery speed of new learning features
 :::

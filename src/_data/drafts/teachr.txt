@@ -32,20 +32,19 @@ Key:   discovery, decisions, then the Detail deep-dives in their existing ids, t
 Key:   conclusion. Deep-dive ids are unchanged so anchors stay stable.
 Key: - Brand stays Quizrr in all copy (DR-0001); the PDF's p. 12 NDA note names the
 Key:   NDA'd product, so the page's mock-brand note reads Quizrr.
-Key: - Hero meta metrics use count-up values with the arrow in the label; the body
-Key:   metrics recap in the conclusion keeps the ↓80% value-token form.
+Key: - Hero meta metrics use count-up values; since 2026-11-20 (DR-0004) the arrows
+Key:   are removed from all KPI labels and from the conclusion value-tokens.
 Variant: teal
 Eyebrow: Case Study - Quizrr (mock brand)
 Title: Quizrr, Rebuilding the eLearning Experience
 Summary: Making the learning experience easier to use for our participants.
 Details: Lead Designer ⋅ Figjam · Figma · Claude Code ⋅ 2025 – 2026
-Logo: ../images/work/fullsize/teachr/teachr_logo.png | Quizrr brand mark
 Needs: Mock up a design system, and mock up the training flow vibe-coded with Claude Code.
 Related: Part of a pair - read next | ../teachr-agent/ | Quizrr, AI Agent in the Learning Dashboard
-Metrics: 80% | Customer support issues ↓* **
-Metrics: 20% | Started training after registering ↑* **
-Metrics: 3% | Increase in completion rate (approximate) ↑* **
-Metrics: 4x | Delivery speed of new learning features ↑* **
+Metrics: 80% | Customer support issues * **
+Metrics: 20% | Started training after registering * **
+Metrics: 3% | Increase in completion rate (approximate) * **
+Metrics: 4x | Delivery speed of new learning features * **
 Footnote: * 2026 October vs Previous Year October · ** Due to poor benchmark data, all medium confidence
 Takeaway: Notable improvements to registration and learning, delivery speed and iteration - and more contracts secured.
 
@@ -260,6 +259,13 @@ Note: * The agent used was GLM-5.3 Flash (Mistral Hoster) in Visual Studio, as w
 ![Design system type scale and motion tokens](../images/work/fullsize/teachr/frame-187.png)
 [caption: Detail: AI-workflow & Design System]
 
+## Try the mock app | Live demo | try-app
+
+Callout: Try the Teachr app | ../teachr-app/ | Open the live mock app
+The redesigned registration and lesson flow also runs as a static mock app built on the same design system. Walk through registration, the course library, a lesson with feedback and completion, exactly as participants experience them.
+
+[ai]
+
 ## Conclusion & Lessons | Conclusion | conclusion
 
 ### Challenges
@@ -274,7 +280,7 @@ Note: * The agent used was GLM-5.3 Flash (Mistral Hoster) in Visual Studio, as w
 - Validate with participants that struggled the most to really stress test the changes.
 - Design using AI code. This was just before we implemented our current process and it took a lot longer than it needed to.
 
-↓80% | Customer support issues
-↑20% | Started training after registering
-↑3% | Increase in completion rate (approximate)
-↑4x | Delivery speed of new learning features
+80% | Customer support issues
+20% | Started training after registering
+3% | Increase in completion rate (approximate)
+4x | Delivery speed of new learning features

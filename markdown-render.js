@@ -279,6 +279,47 @@ function renderCards(lines) {
   return out + '</div>';
 }
 
+// `::: callout` — a callout tile: `[callout: Title | href | Link text]` as the
+// first line, the remaining lines are the body (rendered as normal flow).
+// Output: plate tile with accent edge, h3 title, body, and a pill link that
+// is stretched over the whole tile (`.cs-callout-link::after`).
+function renderCallout(lines) {
+  let head = null;
+  const body = [];
+  for (const raw of lines) {
+    const t = raw.trim();
+    if (!t) continue;
+    if (!head) {
+      const m = t.match(/^\[callout:\s*(.*)\]$/);
+      if (m) {
+        head = m[1].split('|').map(function (s) {
+          return s.trim();
+        });
+        continue;
+      }
+      console.log('markdown ::: callout: missing [callout: Title | href | Link text] header line');
+    }
+    body.push(raw);
+  }
+  const title = head && head[0] ? head[0] : '';
+  const href = head && head[1] ? head[1] : '#';
+  const linkText = head && head[2] ? head[2] : 'Open';
+  return (
+    '<div class="cs-callout">' +
+    '<div class="cs-callout-text"><h3>' +
+    iconify(esc(title)) +
+    '</h3>' +
+    renderFlow(body) +
+    '</div>' +
+    '<a class="cs-callout-link" href="' +
+    esc(href) +
+    '">' +
+    iconify(esc(linkText)) +
+    ' <i class="ph ph-arrow-right"></i></a>' +
+    '</div>'
+  );
+}
+
 function renderShowcase(lines) {
   let inner = '';
   const caption = [];
@@ -427,6 +468,7 @@ function renderContainer(type, id, lines, full) {
   else if (type === 'showcase') html = renderShowcase(lines);
   else if (type === 'shots') html = renderShots(lines);
   else if (type === 'wide') html = renderWide(lines);
+  else if (type === 'callout') html = renderCallout(lines);
   else if (type === 'hero') html = renderHero(lines);
   else if (type === 'table') html = renderTable(lines);
   else {

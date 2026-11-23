@@ -1,0 +1,24 @@
+# Verify: Teachr polish pass (tickets 13-18, DR-0004) — 2026-11-20
+
+Page under test: `/selected-works/teachr/` (mirror build, `npm run build:gulp` + release-mirror). Playwright (Chromium 148) measurements at 1440 / 1280 / 390, images force-loaded before measuring.
+
+## Gates
+
+| Gate                          | Result | Evidence                                                                                                                                                                                                                                         |
+| ----------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| T13 logo removed              | PASS   | `.cs-hero--meta > img` absent in DOM and built HTML (0 `teachr_logo` refs); hero meta starts with `.cs-cards`                                                                                                                                    |
+| T14 KPI arrows removed        | PASS   | 0 `.ph-arrow-up`/`.ph-arrow-down` in built page; conclusion values `80%`/`20%`/`3%`/`4x` plain; count-up values intact                                                                                                                           |
+| T15 4 KPIs one row            | PASS   | 1440 + 1280: 4 `.cs-metric` cards at one y (769), 213px each in the 916px measure (before: 3x273 @y796 + 1x884 @y978). 390: still stacked 1-per-line (unchanged mobile)                                                                          |
+| T16 shots equal height        | PASS   | 1440: library 560/560, completion 511/511, lessons 624x3; 1280: library 497/497, completion 454/454 (before at 1280: 506 vs 438) — all rows' img heights equal within 2px at both widths                                                         |
+| T17 avatar-menu pair          | PASS   | 1440: both figs 240px wide, same figTop 10092, centered pair, tops aligned (pop-out img 121px tall vs settings 506px)                                                                                                                            |
+| T18 callout + try-app section | PASS   | built HTML has `.cs-callout a.cs-callout-link[href="../teachr-app/"]`; click navigates to `/selected-works/teachr-app/` (title "Dashboard                                                                                                        | Teachr"); keyboard Tab reaches the link with 2px teal outline on link + tile; 1440 tile 884x251 with pill right, 390 tile stacked with full-width one-line pill; `[ai]` renders as the ai-mark chip (same as teachr-agent's existing marker) |
+| Conversion gates              | PASS   | verify-page-md PASS (front-matter 8 meta items, no em dashes, 14 images resolve, 158/158 source lines accounted); canonicalize idempotent; doc-sync OK (callout in both sets)                                                                    |
+| npm test                      | PASS   | 10/10 (mirror-link, tabs, play-data, play-gradient, gallery-order, lightbox, photoview, anchors, play-menu, play-hero)                                                                                                                           |
+| prettier format:check         | PASS   | only pre-existing warns in `specs/freda-reference/` (untouched by this pass)                                                                                                                                                                     |
+| eslint                        | NOTED  | 755 errors repo-wide, identical on the clean tree (pre-existing, old babel-eslint vs modern syntax)                                                                                                                                              |
+| Regressions                   | PASS   | h-overflow 0px at 1440 on `/`, `/selected-works/fashion-rebrand/`, `/selected-works/teachr-agent/`; release-mirror pruned public `build/teachr*` (public `/teachr/` 404s, mirror 200 + noindex)                                                  |
+| A11y                          | PASS   | callout link white on `--cs-accent-deep` #0e7d6f = 5.02:1 (documented token); focus-visible outline 2px on link and `:focus-within` on tile; whole tile clickable via stretched `::after`, link stays in tab order; h2 -> h3 heading ladder kept |
+
+## Captures
+
+`teachr-{1440,390}-polish-{hero-meta,library,avatar-menu,completion,lessons,try-app,full}.png`, `teachr-1440-regression-{fashion-rebrand,teachr-agent,home}.png` (same folder).

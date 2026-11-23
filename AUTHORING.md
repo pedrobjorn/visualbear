@@ -164,6 +164,18 @@ A real data table (`table.cs-table`, scrollable box) spanning the
 viewport. Top-level markdown tables still render as card grids — only
 `::: table` gives you the real table.
 
+    ::: callout
+    [callout: Try the app | ../teachr-app/ | Open the live mock app]
+    Tile body text (markdown). The link pill is stretched over the tile.
+    :::
+
+The CALLOUT tile: first line is `[callout: Title | href | Link text]`,
+the remaining lines are the body. Renders one `.cs-callout` plate with an
+accent edge, an h3 title, the body, and a pill link `.cs-callout-link`
+(the whole tile is clickable). In a draft, a `Callout: Title | href |
+Link text` label line emits this block, with the following plain lines as
+the body.
+
 ### Widths: text edge, bleed, full-bleed (DR-0009)
 
 All body text sits on one text edge. Boxes (cards, fact chips, quote

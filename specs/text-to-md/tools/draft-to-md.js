@@ -19,7 +19,9 @@
 //      [byline:]/[summary:]/[caption:]; Image: X | Y -> [image: X | Y];
 //      Frame: X | Y [| Z] -> [frame: X | Y [| Z]]; Divider: X ->
 //      [divider: X]; Hero: <modifier> opens a mid-page ::: hero block
-//      (closed by the next ## heading).
+//      (closed by the next ## heading); Callout: T | href | link opens a
+//      ::: callout tile ([callout: T | href | link] + following lines as
+//      the tile body, closed by a blank line or the next heading/label).
 //
 //   3. BOLD-GROUP RULE: a bold-ONLY line ("**X**") is a block title;
 //      "**Label:** more" (bold + more text) is a normal paragraph. A run
@@ -136,7 +138,7 @@ const DIRECTIVE = {
   Byline: 'byline', 'Wrap-up': 'summary', Caption: 'caption',
   Divider: 'divider', Eyebrow: 'eyebrow', Subtitle: 'subtitle'
 };
-const LABEL_RE = /^(Intro|Note|Point|Figure|Byline|Wrap-up|Caption|Image|Frame|Subtitle|Divider|Eyebrow|Hero|Columns):\s*(.*)$/;
+const LABEL_RE = /^(Intro|Note|Point|Figure|Byline|Wrap-up|Caption|Image|Frame|Subtitle|Divider|Eyebrow|Hero|Columns|Callout):\s*(.*)$/;
 const flushBlanks = function () {
   while (pendingBlanks > 0) { out.push(''); pendingBlanks -= 1; }
 };
@@ -147,6 +149,7 @@ const emitLabel = function (line) {
   const label = m[1];
   const parts = m[2].split('|').map(function (s) { return s.trim(); }).filter(Boolean);
   if (label === 'Wrap-up') emit('[summary: ' + parts.join(' | ') + ']');
+  else if (label === 'Callout') emit('[callout: ' + parts.join(' | ') + ']');
   else if (label === 'Image' || label === 'Frame') {
     emit('[' + label.toLowerCase() + ': ' + parts.join(' | ') + ']');
   } else emit('[' + DIRECTIVE[label] + ': ' + m[2].trim() + ']');
@@ -249,6 +252,21 @@ while (i < lines.length) {
 
   // head-style label line (body directives)
   if (LABEL_RE.test(t)) {
+    // a Callout: label OUTSIDE any group opens a ::: callout tile: the label
+    // becomes [callout: Title | href | Link text], the following plain lines
+    // (until a blank/heading/label/bold) are the tile body
+    if (!group && /^Callout:/.test(t)) {
+      flushBlanks();
+      out.push('::: callout');
+      emitLabel(t);
+      i += 1;
+      while (i < lines.length && lines[i].trim() !== '' && !LABEL_RE.test(lines[i].trim()) && !isBoldOnly(lines[i].trim()) && !/^#{1,6}\s/.test(lines[i].trim())) {
+        emit(lines[i].replace(/\s+$/, ''));
+        i += 1;
+      }
+      emit(':::');
+      continue;
+    }
     // a Frame: label OUTSIDE any group is a standalone showcase: the
     // frame plus the next plain paragraph (its caption) inside one fence
     if (!group && /^(Frame|Figure):/.test(t)) {

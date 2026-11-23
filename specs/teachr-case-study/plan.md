@@ -1,8 +1,19 @@
 # Plan: Teachr case study - full PDF folded into the vertical case-study page
 
 - Date: 2026-11-18
-- Status: done 2026-11-18 - all 12 tickets landed; verify gates green (verify-page-md PASS, npm test 10/10, release-guard OK, captures at 1440+390 in evidence/)
+- Status: done 2026-11-18 - all 12 tickets landed; verify gates green (verify-page-md PASS, npm test 10/10, release-guard OK, captures at 1440+390 in evidence/). Polish pass 2026-11-20: tickets 13-18 (DR-0004) landed and verified — see `evidence/polish-verify.md` + `evidence/teachr-{1440,390}-polish-*.png`.
 - Evidence: `specs/teachr-case-study/evidence/teachr-{1440,390}-*.png` (full pages + every section)
+
+## Post-review changes (2026-11-20) — polish pass (DR-0004)
+
+Visual pass over `/selected-works/teachr/` at 1440/390 with Playwright measurements (baseline numbers in DR-0004). Six fixes, all on the teachr page + shared case-study CSS/renderer:
+
+- T13: remove the 19px logo below the hero cover (delete the `Logo:` head line in `src/_data/drafts/teachr.txt`).
+- T14: remove the `↓`/`↑` arrows from all KPI displays (4 hero `Metrics:` labels + the conclusion `::: metrics` values).
+- T15: all 4 KPIs in one row at desktop (`flex: 1 1 0; min-width: 0` at >=768px; measured 3+1 before).
+- T16: desktop+mobile shots rows keep equal image heights at every desktop width (`min-width: 0` on `.cs-shot` at >=768px; the 240px clamp was distorting the ratio-proportional widths at ~1280-1366).
+- T17: avatar-menu pair — pop-out shot same width as the phone shot next to it, tops aligned (`#avatar-menu` scoped).
+- T18: NEW `::: callout` container (renderer + AUTHORING.md + converter `Callout:` rule) + new `try-app` section after `ai-workflow` with a callout tile linking `../teachr-app/`.
 
 ## Post-review changes (2026-11-18)
 
@@ -73,6 +84,12 @@ Tickets run in page scroll order; each edits `src/_data/drafts/teachr.txt`, re-c
 - [x] Ticket 10 - Verify `ai-workflow` (p. 18): 5-step timeline present, no-Figma line, 1-week weaker-model note, agent footnote per DR-0002, frame-187 showcase.
 - [x] Ticket 11 - NEW `conclusion` section (p. 19): challenges and would-do-differently as two chip/card groups; close with the metrics recap line.
 - [x] Ticket 12 - End-to-end verify: `npm test`, `npm run build` guard green, `/selected-works/teachr/` 200 + noindexed, `/teachr/` 404, Playwright captures at 1440 + 390 for every new/changed section (visuaibear-prototype), visuaibear-review gates pass, no `selected-works` leak in public HTML/sitemap/robots.
+- [x] Ticket 13 - Remove hero logo (DR-0004.1): delete the `Logo:` line from `src/_data/drafts/teachr.txt`, re-convert. Acceptance: no `<img>` directly under `.cs-hero--meta` in built HTML; verify-page-md PASS.
+- [x] Ticket 14 - Strip KPI arrows (DR-0004.2): remove `↓`/`↑` from the 4 hero `Metrics:` labels and the conclusion metric values in `teachr.txt`, re-convert; update the Key notes. Acceptance: zero `.ph-arrow-up`/`.ph-arrow-down` in `.cs-hero--meta`, zero `↓`/`↑` chars in the conclusion `.cs-metrics`; count-up values unchanged (80/20/3/4).
+- [x] Ticket 15 - 4 KPIs in one row (DR-0004.3): `.cs-metric` `flex: 1 1 0; min-width: 0` at `>= $break-medium`. Acceptance: at 1440 all 4 `.cs-hero--meta .cs-metric` share one y (measured before: y 796 x3 + y 978 x1); at 390 still stacked.
+- [x] Ticket 16 - Shots equal height (DR-0004.4): `.cs-shots .cs-shot { min-width: 0 }` at `>= $break-medium`. Acceptance: at 1440 AND 1280, every `.cs-shots` row's `img` heights equal within 2px (before at 1440: avatar-menu 416 vs 506).
+- [x] Ticket 17 - Avatar-menu pair (DR-0004.5): `#avatar-menu .cs-shots` centered, both shots `flex: 0 1 240px`, `align-items: flex-start`. Acceptance: at 1440 both figs same width (240px), same figTop, pop-out img width == settings img width.
+- [x] Ticket 18 - App callout (DR-0004.6): add `::: callout` to `markdown-render.js` + AUTHORING.md (doc-sync) + `Callout:` rule in `draft-to-md.js`; new `## Try the mock app | Live demo | try-app` section in `teachr.txt` after `ai-workflow` with the callout linking `../teachr-app/` (copy carries `[ai]`); `.cs-callout` tile styles in `_case-study.scss`. Acceptance: doc-sync OK, verify-page-md PASS, built page has `.cs-callout a[href="../teachr-app/"]`, link 200 under the mirror, captures at 1440+390, `npm test` + `npm run build` green, visuaibear-review gates pass.
 
 ## Open questions
 
