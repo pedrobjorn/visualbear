@@ -2071,3 +2071,89 @@ The five styleguide blocks (`src/styleguide/_styleguide_blocks/*.nunjucks`, rend
 ## Open questions
 
 - None
+
+---
+
+# Ticket 64: `::: callout` container (DR-0016) — callout tile with stretched pill link
+
+- Part of: specs/md-case-study-editor/plan.md (added 2026-11-20); DR-0016
+- Size: M
+- Type: system + UI
+- Status: DONE 2026-11-20 — shipped via the teachr-case-study polish pass (specs/teachr-case-study/DR-0004, ticket 18; commits 204e63f, f1e5b8f)
+
+## Context
+
+Case studies had no prominent in-section outbound link; the teachr page needed one to `/teachr-app/`.
+
+## Requirements (all met)
+
+- `renderContainer` handles `::: callout`: first line `[callout: Title | href | Link text]`, rest = body via renderFlow; output `.cs-callout` > `.cs-callout-text`(h3+body) + `.cs-callout-link` pill with arrow icon
+- AUTHORING.md documents it (doc-sync gate green); `draft-to-md.js` emits it from a `Callout:` label line + following plain lines
+- Styles in `_case-study.scss`: plate + `--cs-accent` edge, pill on new `--cs-accent-deep` theme token (teal/pink/black/default set, white-text contrast documented), stretched `::after` click target, focus-visible/focus-within rings, pill pins its own states (DR-0017), column layout <768px, full-width pill <480px
+
+## Acceptance criteria (verified)
+
+- [x] `bash specs/md-case-study-editor/tools/doc-sync.sh` OK (callout in docs + code sets)
+- [x] verify-page-md PASS on the using page; built HTML has `.cs-callout a.cs-callout-link[href]`; Tab reaches the link (2px outline), click navigates to the target
+- [x] Captures at 1440 + 390 (`specs/teachr-case-study/evidence/teachr-{1440,390}-polish*-try-app.png`)
+- [x] `npm test` 10/10; prettier clean
+
+## Open questions
+
+- Pedro: add a callout specimen to the /styleguide/ casesystem block? (optional, not built)
+
+---
+
+# Ticket 65: link-state specificity rule (DR-0017) — theme link colors repeat the global hover/focus/active
+
+- Part of: specs/md-case-study-editor/plan.md (added 2026-11-20); DR-0017
+- Size: S
+- Type: system
+- Status: DONE 2026-11-20 — shipped via teachr-case-study pass 2 (DR-0005, ticket 21; commit f1e5b8f)
+
+## Context
+
+`.case-study.cs-teal a { color: #cd3231 }` out-specified the global `a:hover`, leaving dark-red text on the red hover plate (measured rgb(205,50,49) on rgb(215,55,53)).
+
+## Requirements (all met)
+
+- `.case-study.cs-teal a` and `.case-study .cs-related a` repeat the global `_typography.scss` states (hover/focus: `$vb-light` on `$vb-primary`, no underline; active: `$vb-secondary`) at equal/higher specificity
+- `.cs-callout .cs-callout-link` pins its own pill states so theme rules never recolor it
+- Standing rule recorded in DR-0017 for all future theme link overrides
+
+## Acceptance criteria (verified)
+
+- [x] Playwright hover: `.cs-related a` → color rgb(230,242,255), bg rgb(215,55,53), deco none; callout pill → white on teal (rgb(14,125,111))
+- [x] Evidence: `specs/teachr-case-study/evidence/polish2-verify.md` (T21)
+
+## Open questions
+
+- None
+
+---
+
+# Ticket 66: metrics 4-across + shots min-width fixes at ≥768px (DR-0018)
+
+- Part of: specs/md-case-study-editor/plan.md (added 2026-11-20); DR-0018
+- Size: S
+- Type: system
+- Status: DONE 2026-11-20 — shipped via teachr-case-study polish pass (DR-0004, tickets 15-16; commit 204e63f)
+
+## Context
+
+Measured on /selected-works/teachr/: KPI cards wrapped 3+1 at 1440 (4×232px > 916px measure); the `.cs-shot` 240px min-width clamp broke the ratio-proportional equal-height guarantee at ~1280-1366 (completion mobile 506px vs desktop 438px).
+
+## Requirements (all met)
+
+- `@media (min-width: $break-medium)`: `.cs-metric { flex: 1 1 0; min-width: 0; margin: 16px 8px; padding: 24px 12px }`
+- `@media (min-width: $break-medium)`: `.cs-shots .cs-shot { min-width: 0 }` (floor stays below 768px so phones stack)
+
+## Acceptance criteria (verified)
+
+- [x] 1440 + 1280: all 4 `.cs-metric` cards share one y (4×213px at 916px measure); every `.cs-shots` row's img heights equal within 2px; 390 unchanged (stacked)
+- [x] No horizontal overflow at 1440/390 on teachr, home, fashion-rebrand
+- [x] Evidence: `specs/teachr-case-study/evidence/polish-verify.md` (T15/T16)
+
+## Open questions
+
+- None
