@@ -51,8 +51,8 @@ H1: no destructive file operations (edits only; no file is deleted). H3: uncerta
 ## Breakdown
 
 - [x] Ticket 1 - `mdtoc` filter + insert into the 4 case-study templates - DONE 2026-11-23 (evidence/t1-verify.md)
-- [ ] Ticket 2 - sticky `.cs-index` bar at top 48px, header-matched background per theme
-- [ ] Ticket 3 - `scroll-margin-top` on `.cs-section` clears the stuck bar
+- [x] Ticket 2 - sticky `.cs-index` bar at top 48px, header-matched background per theme - DONE 2026-11-23 (evidence/t2t3-verify.md)
+- [x] Ticket 3 - `scroll-margin-top` on `.cs-section` clears the stuck bar - DONE 2026-11-23 (evidence/t2t3-verify.md)
 - [ ] Ticket 4 - active-section highlight (`aria-current`) in `.cs-index`
 - [ ] Ticket 5 - case-study links open in new tabs (opt-in, `#` anchors excluded)
 - [ ] Ticket 6 - end-to-end verify: tests, build + guards, Playwright 1440/390, review gates

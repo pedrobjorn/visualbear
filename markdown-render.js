@@ -1036,10 +1036,11 @@ function mdToc(src) {
     return m;
   });
   if (!items.length) return '';
+  // no whitespace between tags: a text node around the <ul> would open an
+  // extra line box and inflate the sticky bar's height (measured 64px
+  // instead of 37px) - the bar height is pinned via --cs-index-h
   return (
-    '<nav class="cs-index" aria-label="Case study sections">\n  <ul>\n    ' +
-    items.join('\n    ') +
-    '\n  </ul>\n</nav>'
+    '<nav class="cs-index" aria-label="Case study sections"><ul>' + items.join('') + '</ul></nav>'
   );
 }
 

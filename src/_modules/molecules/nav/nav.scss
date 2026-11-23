@@ -1,3 +1,12 @@
+// case-study-nav DR-0001: the fixed header's color is ONE variable so the
+// sticky case-study section nav (.cs-index, _case-study.scss) can match it
+// exactly. Default here; pages override the variable on their body class
+// (e.g. body.cs-pink-page in _case-study.scss, body.page-play below keeps its
+// own direct background-color rules, which still win by specificity).
+body {
+  --cs-head-bg: #{$vb-primary};
+}
+
 nav.site-nav {
   width: 100%;
   height: 48px;
@@ -7,7 +16,7 @@ nav.site-nav {
   // Materialize gives nav a drop shadow; on the dark/transparent
   // workflow header it reads as a hairline. The nav is flat.
   box-shadow: none;
-  background-color: $vb-primary;
+  background-color: var(--cs-head-bg, $vb-primary);
   font-size: $base-font-size;
 
   .content {

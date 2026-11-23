@@ -42,6 +42,12 @@ $cs-indent: 28px;
   // token, never separate chip styles.
   --cs-chip-plate: rgba(255, 255, 255, 0.45);
 
+  // Height of the sticky section nav (.cs-index), measured at 1440 and 390
+  // (case-study-nav T2/T3): 8px padding top/bottom + 20px line + 1px border.
+  // Consumed by .cs-section's scroll-margin-top so TOC jumps land below the
+  // stuck bar.
+  --cs-index-h: 37px;
+
   // ------------------------------------------------------------------
   // Hero
   // ------------------------------------------------------------------
@@ -127,10 +133,82 @@ $cs-indent: 28px;
   }
 
   // ------------------------------------------------------------------
+  // Section nav (.cs-index) — in-flow directly below the hero, sticky
+  // under the fixed header on scroll (case-study-nav T2/T3)
+  // ------------------------------------------------------------------
+  .cs-index {
+    // full-bleed like the hero cover: when stuck, the bar spans the
+    // viewport and reads as an extension of the header
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    position: sticky;
+    top: 48px; // nav.site-nav height
+    z-index: 1; // under nav.site-nav (z-index 2)
+    box-sizing: border-box;
+    // DR-0001: same variable as the fixed header, so the stuck bar matches
+    // the header color exactly on every theme; opaque, so content scrolling
+    // under it is hidden
+    background-color: var(--cs-head-bg);
+    border-bottom: 1px solid var(--cs-accent);
+    padding: 8px 0;
+    // pins the bar height deterministically (strut included):
+    // 8 + 20 + 8 + 1 border = 37px = --cs-index-h. height:auto kills
+    // Materialize's element-level `nav { height: 56px }`, which otherwise
+    // inflates the bar (measured 64px)
+    height: auto;
+    font-size: 14px;
+    line-height: 20px;
+
+    ul {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin: 0;
+      padding: 0 48px; // the hero cover's side inset
+      list-style: none;
+      // long title lists scroll horizontally instead of wrapping or
+      // widening the page (390px capture, case-study-nav T2)
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    // nav link recipe: white ink (clears 4.5:1 on all four header colors),
+    // feedback from the underline, no painted box (the bar already carries
+    // the header color)
+    a:link,
+    a:visited {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 20px; // pins the bar height: 8+8 padding + 20 + 1 border = 37px
+      letter-spacing: 0.02em;
+    }
+
+    a:hover,
+    a:focus {
+      text-decoration: underline;
+    }
+
+    a[aria-current='true'] {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    @media (max-width: $break-medium) {
+      ul {
+        gap: 16px;
+        padding: 0 24px;
+      }
+    }
+  }
+
+  // ------------------------------------------------------------------
   // Sections — left-aligned editorial headers with an orange kicker
   // ------------------------------------------------------------------
   .cs-section {
     padding: 64px 0;
+    // T3: TOC jumps land below the fixed nav AND the stuck bar
+    scroll-margin-top: calc(48px + var(--cs-index-h, 40px));
 
     h2 {
       margin: 0 0 24px;
@@ -1191,6 +1269,19 @@ $cs-indent: 28px;
 // it never applied to the variant covers (overridden by their 64/64) and
 // only ever hit the mid-page ::: hero by accident. One hero padding: 64.
 
+// T3 specificity: the global anchor list in _base.scss pins ids like
+// #definition / #discovery (which case-study sections also use, e.g. sports
+// and closet) at 48px with ID specificity (1,0,0), beating `.cs-section`
+// (0,2,0). Repeat the calc at container-id level (1,1,0) for the four
+// case-study articles so the stuck bar's height is always added.
+// (teachr-agent joins in case-study-nav T7.)
+#fashion_rebrand_container .cs-section,
+#sports_ecommerce_container .cs-section,
+#digital_closet_container .cs-section,
+#teachr_container .cs-section {
+  scroll-margin-top: calc(48px + var(--cs-index-h, 40px));
+}
+
 // ==========================================================================
 // Pink theme — sports e-commerce redesign
 // Accent and hero use magenta-pink instead of the site red; the secondary
@@ -1246,9 +1337,11 @@ $cs-indent: 28px;
 }
 
 // Fixed header matches the pink page (scoped via the page's body class).
-// #D50E95 not #E40F9E: the nav carries white links and 4.85:1 clears 4.5:1
-body.cs-pink-page nav.site-nav {
-  background-color: $cs-pink-ground;
+// #D50E95 not #E40F9E: the nav carries white links and 4.85:1 clears 4.5:1.
+// DR-0001 (case-study-nav): the color lives on --cs-head-bg so the sticky
+// .cs-index bar can match the header exactly; nav.site-nav consumes the var.
+body.cs-pink-page {
+  --cs-head-bg: #{$cs-pink-ground};
 }
 
 // ==========================================================================
@@ -1315,9 +1408,10 @@ body.cs-pink-page nav.site-nav {
   }
 }
 
-// Fixed header matches the black page (scoped via the page's body class)
-body.cs-black-page nav.site-nav {
-  background-color: $cs-black;
+// Fixed header matches the black page (scoped via the page's body class).
+// DR-0001 (case-study-nav): --cs-head-bg drives nav.site-nav and .cs-index.
+body.cs-black-page {
+  --cs-head-bg: #{$cs-black};
 }
 
 // The logo's light-blue circle hue-shifts to match the pink page
@@ -1519,9 +1613,10 @@ body.cs-pink-page nav a.icon img {
 }
 
 // Fixed header matches the teal page (scoped via the page's body class);
-// darkened like the hero so its white links pass 4.5:1
-body.cs-teal-page nav.site-nav {
-  background-color: $cs-teal-ground;
+// darkened like the hero so its white links pass 4.5:1.
+// DR-0001 (case-study-nav): --cs-head-bg drives nav.site-nav and .cs-index.
+body.cs-teal-page {
+  --cs-head-bg: #{$cs-teal-ground};
 }
 
 // Colored-hero kickers must stay white; the per-theme accent colors apply

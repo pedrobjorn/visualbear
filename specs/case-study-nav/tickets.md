@@ -51,7 +51,7 @@ Requirement source for every ticket in this file: Pedro's request 2026-11-23 (se
 - Depends on: Ticket 1
 - Size: M
 - Type: UI
-- Status: TODO
+- Status: DONE 2026-11-23 - evidence in evidence/t2t3-verify.md + captures. `.cs-index` sticky at top:48, z-index 1, full-bleed, background var(--cs-head-bg) matching the header on all 4 themes (measured rgb equal at 1440+390); bar height pinned 37px = --cs-index-h; Playwright ALL_OK. Bugs fixed en route: libsass needs #{} in custom props, Materialize nav{height} override, gulp changed() cache.
 
 ## Context
 
@@ -96,7 +96,7 @@ Requirement source for every ticket in this file: Pedro's request 2026-11-23 (se
 - Depends on: Tickets 1, 2
 - Size: S
 - Type: UI
-- Status: TODO
+- Status: DONE 2026-11-23 - evidence in evidence/t2t3-verify.md: `.cs-section` scroll-margin-top calc(48px + --cs-index-h) = 85px computed on all 4 pages (incl. #definition/#discovery via the container-id override beating \_base.scss's ID list); Playwright anchor jumps land at ~85px, clearing the stuck bar (48+37).
 
 ## Context
 
