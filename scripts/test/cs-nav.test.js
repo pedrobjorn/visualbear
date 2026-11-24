@@ -9,7 +9,8 @@
  *  2. Every nav entry id MUST match an id mdPage assigns to a .cs-section on
  *     the same source (unknown id throws; >5 entries throws) - the nav can
  *     never drift from the rendered sections.
- *  3. Every anchor carries class="btn" (design-system button, v2 DR-0003);
+ *  3. Every anchor carries class="btn" (design-system button, v2 DR-0003)
+ *     and title="<label>" (v3 DR-0001: full label survives CSS ellipsis);
  *     hrefs are in-page `#` anchors only (parent Ticket 5 must never add
  *     target=_blank to these). No whitespace between tags (bar height pin).
  *  4. every case-study page renders exactly its 5 configured condensed links
@@ -119,12 +120,13 @@ function mdPageSections(html) {
   return out;
 }
 
-// nav items as mdToc renders them: <li><a class="btn" href="#id">Label</a></li>
+// nav items as mdToc renders them (v3 DR-0001 adds title="<label>"):
+// <li><a class="btn" href="#id" title="Label">Label</a></li>
 function tocItems(nav) {
   var out = [];
-  var re = /<li><a class="btn" href="([^"]*)">([\s\S]*?)<\/a><\/li>/g;
+  var re = /<li><a class="btn" href="([^"]*)" title="([^"]*)">([\s\S]*?)<\/a><\/li>/g;
   var m;
-  while ((m = re.exec(nav))) out.push({ href: m[1], text: stripTags(m[2]) });
+  while ((m = re.exec(nav))) out.push({ href: m[1], title: m[2], text: stripTags(m[3]) });
   return out;
 }
 
@@ -215,6 +217,11 @@ SLUGS.forEach(function (slug) {
       /<a class="btn" /.test(nav),
       slug + ': every anchor carries class="btn" (v2 DR-0003)'
     );
+    assert.strictEqual(
+      item.title,
+      item.text.replace(/&/g, '&amp;').replace(/"/g, '&quot;'),
+      slug + ': every anchor carries title="<label>" (full label survives ellipsis, v3 DR-0001)'
+    );
   });
 
   assert.deepStrictEqual(
@@ -270,7 +277,8 @@ assert.throws(
 );
 // a valid 5-entry config renders in config order, labels as given
 var okNav = 'nav:\n  - label: "Second first"\n    id: b\n  - label: "A"\n    id: a\n';
-var okItems = tocItems(render.mdToc(synthSrc(okNav, '## A | | a\n\n## B | | b\n')));
+var okNavHtml = render.mdToc(synthSrc(okNav, '## A | | a\n\n## B | | b\n'));
+var okItems = tocItems(okNavHtml);
 assert.deepStrictEqual(
   okItems.map(function (it) {
     return [it.text, it.href];
@@ -280,6 +288,10 @@ assert.deepStrictEqual(
     ['A', '#a']
   ],
   'mdToc renders nav: entries in config order with the configured labels'
+);
+assert.ok(
+  /<a class="btn" href="#b" title="Second first">Second first<\/a>/.test(okNavHtml),
+  'mdToc emits title="<label>" on every anchor (v3 DR-0001: full label survives ellipsis)'
 );
 // no nav: key -> fallback = first 5 sections in document order, label = primary title
 var noNavItems = tocItems(render.mdToc(synthSrc('', sixBody)));
@@ -355,6 +367,8 @@ SLUGS.forEach(function (slug) {
 // ── 7. T2/T3 CSS contract (specs/case-study-nav tickets 2-3, DR-0001) ─────
 // Asserted on the sources; runtime behavior (stuck at 48px, bg match, jump
 // offsets) is measured by Playwright in the verify ticket.
+// v3 Ticket 2 (DR-0001) adds: no full-bleed on .cs-index, li flex 1 1 0 +
+// min-width 0, a.btn width 100% + justify-content center + ellipsis.
 var navScss = fs.readFileSync(
   path.join(__dirname, '../../src/_modules/molecules/nav/nav.scss'),
   'utf8'
@@ -403,10 +417,15 @@ assert.ok(
   /background-color:\s*var\(--cs-head-bg\);/.test(barRegion),
   'cs-index: opaque background matches the header via --cs-head-bg (DR-0001)'
 );
-assert.ok(/width:\s*100vw;/.test(barRegion), 'cs-index: full-bleed like the header');
+// v3 DR-0001 (Ticket 2): the bar is a normal block inside .document-text, so
+// it spans exactly the body content width - NO full-bleed anymore
 assert.ok(
-  /margin-left:\s*calc\(50% - 50vw\);/.test(barRegion),
-  'cs-index: full-bleed centering inside the text column'
+  !/100vw/.test(barRegion),
+  'cs-index: no width 100vw full-bleed (v3 DR-0001: bar = body content width)'
+);
+assert.ok(
+  !/calc\(50% - 50vw\)/.test(barRegion),
+  'cs-index: no full-bleed centering margin (v3 DR-0001)'
 );
 assert.ok(
   /overflow-x:\s*auto;/.test(barRegion),
@@ -434,6 +453,32 @@ assert.ok(
 assert.ok(
   /li\s*\{[^}]*display:\s*flex;/.test(barRegion),
   'cs-index li: display flex (kills Materialize nav ul li float)'
+);
+// v3 DR-0001 (Ticket 2): options expand to equal widths filling the bar;
+// the anchor fills its li, centers its label, and ellipsizes over-long text
+assert.ok(
+  /li\s*\{[^}]*flex:\s*1 1 0;/.test(barRegion),
+  'cs-index li: flex 1 1 0 (equal-width options fill the content-width bar, v3 DR-0001)'
+);
+assert.ok(
+  /li\s*\{[^}]*min-width:\s*0;/.test(barRegion),
+  'cs-index li: min-width 0 (shrink below min-content so the anchor can ellipsize)'
+);
+assert.ok(
+  /a\.btn\s*\{[^}]*width:\s*100%;/.test(barRegion),
+  'cs-index a.btn: width 100% (anchor fills its li, v3 DR-0001)'
+);
+assert.ok(
+  /a\.btn\s*\{[^}]*justify-content:\s*center;/.test(barRegion),
+  'cs-index a.btn: justify-content center (label centered in the expanded button)'
+);
+assert.ok(
+  /a\.btn\s*\{[^}]*overflow:\s*hidden;/.test(barRegion),
+  'cs-index a.btn: overflow hidden (over-long label clips, v3 DR-0001)'
+);
+assert.ok(
+  /a\.btn\s*\{[^}]*text-overflow:\s*ellipsis;/.test(barRegion),
+  'cs-index a.btn: text-overflow ellipsis (v3 DR-0001)'
 );
 assert.ok(
   /a\.btn\s*\{[^}]*padding:\s*7px 8px;/.test(barRegion),
@@ -483,6 +528,6 @@ assert.ok(
 });
 
 console.log(
-  'cs-nav.test: PASS - v2/v3 nav config (all 5 pages exact condensed 5-link lists, 28-char label cap gate) + btn anchors + ' +
-    'mdcover/mdherometa split (mdHero byte-identical) + template order + T2/T3 CSS contract'
+  'cs-nav.test: PASS - v2/v3 nav config (all 5 pages exact condensed 5-link lists, 28-char label cap gate) + btn anchors with title + ' +
+    'mdcover/mdherometa split (mdHero byte-identical) + template order + T2/T3 CSS contract + v3 T2 content-width bar / equal-fill / ellipsis contract'
 );

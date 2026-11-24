@@ -1026,7 +1026,8 @@ function mdPage(src) {
 // first 5 sections. Every id is validated against the same parsed sections
 // mdPage renders, so nav hrefs can never drift; unknown id or >5 entries
 // throw (fail the build loudly). Each anchor carries class="btn" (v2
-// DR-0003: full-bar-height design-system button).
+// DR-0003: full-bar-height design-system button) and title="<label>" (v3
+// DR-0001: the full label survives CSS ellipsis on over-long labels).
 function mdToc(src) {
   const fm = splitFrontmatter(src);
   const split = extractRawBlocks(extractPlainStarLists(parseContainers(fm.body)));
@@ -1077,7 +1078,10 @@ function mdToc(src) {
   }
 
   const items = entries.map(function (e) {
-    return '<li><a class="btn" href="#' + e.id + '">' + e.label + '</a></li>';
+    // v3 DR-0001: title carries the full label - with equal-fill buttons an
+    // over-long label ellipsizes (CSS), the title keeps the full text on hover
+    const title = String(e.label).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+    return '<li><a class="btn" href="#' + e.id + '" title="' + title + '">' + e.label + '</a></li>';
   });
   // no whitespace between tags: a text node around the <ul> would open an
   // extra line box and inflate the sticky bar's height (measured 64px
