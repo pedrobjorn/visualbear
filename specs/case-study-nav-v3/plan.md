@@ -1,7 +1,7 @@
 # Plan: Case-study section nav v3 - full-width bar with content-width link row and expanding options, red-line active state, condensed labels
 
 - Date: 2026-11-24
-- Status: draft
+- Status: shipped 2026-11-24 (all tickets done; Ticket 4 evidence: evidence/t4-verify.md, ALL_OK)
 - Evidence: Pedro's requests 2026-11-24 (the requests ARE the requirements, quoted in Problem, including the same-day correction quoted there). Code + browser measurements 2026-11-24 in `evidence/measurements-2026-11-24.md`; anything not traceable to the requests is marked ASSUMPTION.
 - Parent specs: `specs/case-study-nav/` (Tickets 1-3 shipped; Ticket 4 scroll-spy TODO, lands here as v3 Ticket 3) and `specs/case-study-nav-v2/` (Tickets 1-4 shipped as commit c225095). This plan changes only the link row's width (constrained to the body content width while the bar stays full-bleed, DR-0005), the buttons' fill, the active state, and the labels; position under the hero cover (gap 0), max-5 cap, bar full-bleed, sticky mechanics (top 48, z-index 1, header-matched bg), 35px bar height, and `scroll-margin-top` all stay.
 
@@ -63,7 +63,7 @@ H1: no destructive file operations (edits + new spec files only). H3: uncertaint
 - [x] Ticket 6 - natural-width options spread edge-to-edge in the container-width row (space-between, row = 916px container); labels condensed to simple terms like "Deepdive" (DR-0006) - DONE 2026-11-24 (evidence/t6-verify.md)
 - [x] Ticket 7 - same nav structure + decisions on the sectioned legacy case studies (art-ent, climate-clock, steam-mobile) (DR-0007) - DONE 2026-11-24 (evidence/t7-verify.md)
 - [x] Ticket 3 - scroll-spy JS + active state = `--cs-index-active` line AND underline on all 8 case-study pages (DR-0002/DR-0008; lands parent case-study-nav Ticket 4) - DONE 2026-11-24 (evidence/t3-verify.md)
-- [ ] Ticket 4 - verify: tests, build + guards, Playwright 1440/768/390, review gates, captures
+- [x] Ticket 4 - verify: tests, build + guards, Playwright 1440/768/390 on all 8 pages, review gates, captures - DONE 2026-11-24 (evidence/t4-verify.md, ALL_OK)
 
 ## Open questions
 

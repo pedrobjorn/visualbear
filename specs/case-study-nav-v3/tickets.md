@@ -140,13 +140,13 @@ v2 Ticket 3 pattern: `npm test`, `npm run build` + release-guard, Playwright 144
 
 - Run `npm test` (cs-nav.test.js updated per Tickets 1-3) - green.
 - Run `npm run build` + release-guard - exit 0.
-- Playwright at 1440x900, 768x1024 and 390x844 on all 5 pages (fashion-rebrand, sports-ecommerce-redesign, digital-closet, teachr, teachr-agent): per page assert the Ticket 5 bar/row criteria (full-bleed bar 0..viewport; ul == content edges; equal-fill touching buttons) and the Ticket 3 spy criteria (spot-check spy on teachr + fashion-rebrand at all widths, attribute presence on the rest); teachr labels still the v2 5, other pages the Ticket 1 condensed lists; gap cover->nav == 0 (measure_gap.py); sticky top 48 + bg match after 800px scroll; scroll-margin landing >= 83px; no page-level h-scroll at 390. Save captures to `evidence/`.
+- Playwright at 1440x900, 768x1024 and 390x844 on all 8 pages (5 md + art-ent, climate-clock, steam-mobile per DR-0007): per page assert the Ticket 5 BAR criteria (full-bleed bar 0..viewport, gap 0, barH 35 = `--cs-index-h`, sticky top 48 + bg match when stuck) and the Ticket 6 ROW criteria (DR-0006: ul = 916px container 262/1178 @1440, full width below; space-between; natural-width buttons, first/last touch the row edges when the row fits, internal strip scroll at 390 with no page h-scroll; no clipped buttons) plus the Ticket 3 spy criteria (all 8 pages); labels = the condensed per-page lists; gap cover->nav == 0 (measure_gap.py); scroll-margin landing >= 83px; no page-level h-scroll at 390; 0 `data-ai` on the changed pages. Save captures to `evidence/`.
 - Run visuaibear-review gates on the changed pages; record pass/fail in `evidence/t4-verify.md` together with the test/build/Playwright output (ALL_OK) and the capture list. Note the AI-attribution gate: production build must contain 0 `data-ai` attributes on the changed pages.
 
 ## Acceptance criteria (agent-checkable)
 
-- [ ] `evidence/t4-verify.md` exists with test output, build output, Playwright assertion results (ALL_OK), review-gate table, and capture file list.
-- [ ] visuaibear-review report passes (or each failure is dispositioned in the verify file).
+- [x] `evidence/t4-verify.md` exists with test output, build output, Playwright assertion results (ALL_OK), review-gate table, and capture file list. DONE 2026-11-24.
+- [x] visuaibear-review report passes (or each failure is dispositioned in the verify file). DONE 2026-11-24 - all gates PASS (one dispositioned minor note: 35px touch height inherited from the frozen v2 bar height, plan non-goal).
 
 ## Out of scope
 
