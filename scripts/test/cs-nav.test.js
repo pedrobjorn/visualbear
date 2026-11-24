@@ -1,23 +1,33 @@
 'use strict';
 /*
- * case-study-nav Ticket 1: the `mdtoc` filter derives the in-page section
- * nav from the same `## Title | Eyebrow | id` lines that mdPage renders as
- * .cs-section blocks. Contract asserted here:
+ * case-study-nav v2 Ticket 1 (specs/case-study-nav-v2): position, curated
+ * nav config, button anchors. Contract asserted here:
  *  1. mdToc(src) returns `<nav class="cs-index" aria-label="Case study sections">`
- *     with one `<li><a href="#id">Title</a></li>` per section, in document order.
- *  2. Parity: the nav's hrefs are exactly the ids mdPage assigns to
- *     .cs-section blocks on the same source, same order, same count
- *     (the two filters share one H2 parser, so they cannot drift).
- *  3. Known section counts on the four case-study pages (2026-11-23):
- *     fashion-rebrand 6, sports-ecommerce-redesign 10 (its 11th `##` line,
- *     "Redesigned Coupon System", is the `::: hero coupon-hero` title, not
- *     a section), digital-closet 5, teachr 15.
- *  4. Link text is the primary title (first pipe field, tags stripped).
- *  5. Every href starts with `#` (in-page anchor; Ticket 5 must never add
- *     target=_blank to these).
+ *     whose links come from the page md's `nav:` front-matter list
+ *     (`{ label, id }`, max 5, config order). Pages without `nav:` fall back
+ *     to the first 5 `##` sections in document order, label = primary title.
+ *  2. Every nav entry id MUST match an id mdPage assigns to a .cs-section on
+ *     the same source (unknown id throws; >5 entries throws) - the nav can
+ *     never drift from the rendered sections.
+ *  3. Every anchor carries class="btn" (design-system button, v2 DR-0003);
+ *     hrefs are in-page `#` anchors only (parent Ticket 5 must never add
+ *     target=_blank to these). No whitespace between tags (bar height pin).
+ *  4. teachr renders exactly its 5 configured links, starting at Outcomes:
+ *     Outcomes#outcomes, Context#process, Discovery & Validation#discovery,
+ *     Design & Delivery#decisions, Deepdive: Teachr Assistant#assistant
+ *     (Summary explicitly removed per Pedro 2026-11-24).
+ *  5. Position (v2 DR-0004): the case-study shells render
+ *     mdcover -> mdtoc -> mdherometa -> mdpage (nav directly under the hero
+ *     cover, before the .cs-hero--meta band); mdhero is unchanged there.
+ *  6. mdHero stays byte-identical to the pre-split output on every page md
+ *     (fixture scripts/test/fixtures/mdhero-sha256.json, captured 2026-11-24
+ *     before the split); mdCover + mdHeroMeta compose to exactly mdHero.
+ *  7. T2/T3 CSS contract from specs/case-study-nav (sticky bar at top 48px,
+ *     --cs-head-bg parity, scroll-margin-top) - unchanged by v2 Ticket 1.
  * Run: npm test
  */
 var assert = require('assert');
+var crypto = require('crypto');
 var fs = require('fs');
 var path = require('path');
 
@@ -29,19 +39,38 @@ try {
   process.exit(1);
 }
 
-assert.strictEqual(
-  typeof render.mdToc,
-  'function',
-  'mdToc must be exported from markdown-render.js (Ticket 1)'
-);
+['mdToc', 'mdCover', 'mdHeroMeta'].forEach(function (name) {
+  assert.strictEqual(
+    typeof render[name],
+    'function',
+    name + ' must be exported from markdown-render.js (v2 Ticket 1)'
+  );
+});
 
 var PAGES = path.join(__dirname, '../../src/_data/pages');
-var EXPECTED = {
+// all five case-study pages (teachr-agent joined in v2 Ticket 4 per parent
+// DR-0003 sequencing - last, after Tickets 1-3 verified on the other four)
+var SLUGS = [
+  'fashion-rebrand',
+  'sports-ecommerce-redesign',
+  'digital-closet',
+  'teachr',
+  'teachr-agent'
+];
+var SECTION_COUNTS = {
   'fashion-rebrand': 6,
   'sports-ecommerce-redesign': 10, // 11 `##` lines, one is the ::: hero coupon-hero title
   'digital-closet': 5,
-  teachr: 15
+  teachr: 15,
+  'teachr-agent': 7
 };
+var TEACHR_NAV = [
+  ['Outcomes', 'outcomes'],
+  ['Context', 'process'],
+  ['Discovery & Validation', 'discovery'],
+  ['Design & Delivery', 'decisions'],
+  ['Deepdive: Teachr Assistant', 'assistant']
+];
 
 function stripTags(s) {
   return s.replace(/<[^>]*>/g, '');
@@ -56,17 +85,47 @@ function mdPageSections(html) {
   return out;
 }
 
-// nav items as mdToc renders them: <li><a href="#id">Title</a></li>
+// nav items as mdToc renders them: <li><a class="btn" href="#id">Label</a></li>
 function tocItems(nav) {
   var out = [];
-  var re = /<li><a href="([^"]*)">([\s\S]*?)<\/a><\/li>/g;
+  var re = /<li><a class="btn" href="([^"]*)">([\s\S]*?)<\/a><\/li>/g;
   var m;
   while ((m = re.exec(nav))) out.push({ href: m[1], text: stripTags(m[2]) });
   return out;
 }
 
-Object.keys(EXPECTED).forEach(function (slug) {
-  var src = fs.readFileSync(path.join(PAGES, slug + '.md'), 'utf8');
+function readPage(slug) {
+  return fs.readFileSync(path.join(PAGES, slug + '.md'), 'utf8');
+}
+
+// ── 6. mdHero byte-identical + mdCover/mdHeroMeta composition ────────────
+var fixture = JSON.parse(
+  fs.readFileSync(path.join(__dirname, 'fixtures/mdhero-sha256.json'), 'utf8')
+);
+fs.readdirSync(PAGES)
+  .filter(function (f) {
+    return f.slice(-3) === '.md';
+  })
+  .forEach(function (f) {
+    var src = fs.readFileSync(path.join(PAGES, f), 'utf8');
+    var hash = crypto.createHash('sha256').update(render.mdHero(src)).digest('hex');
+    assert.strictEqual(
+      hash,
+      fixture[f],
+      f + ': mdHero output must be byte-identical to the pre-split fixture'
+    );
+    var cover = render.mdCover(src);
+    var meta = render.mdHeroMeta(src);
+    assert.strictEqual(
+      render.mdHero(src),
+      meta ? cover + '\n' + meta : cover,
+      f + ': mdHero must equal mdCover (+ newline + mdHeroMeta when meta exists)'
+    );
+  });
+
+// ── 1-4. nav config contract per case-study page ──────────────────────────
+SLUGS.forEach(function (slug) {
+  var src = readPage(slug);
   var page = render.mdPage(src);
   var nav = render.mdToc(src);
 
@@ -78,39 +137,150 @@ Object.keys(EXPECTED).forEach(function (slug) {
     nav.indexOf('aria-label="Case study sections"') !== -1,
     slug + ': nav must carry aria-label="Case study sections"'
   );
+  assert.ok(
+    nav.indexOf('<ul><li>') !== -1,
+    slug + ': no whitespace between <ul> and <li> (bar height pin)'
+  );
 
   var sections = mdPageSections(page);
+  var sectionIds = sections.map(function (s) {
+    return s.id;
+  });
   var items = tocItems(nav);
 
   assert.strictEqual(
     sections.length,
-    EXPECTED[slug],
-    slug + ': mdPage section count must be the known ' + EXPECTED[slug]
-  );
-  assert.strictEqual(
-    items.length,
-    sections.length,
-    slug + ': nav link count must equal mdPage section count'
+    SECTION_COUNTS[slug],
+    slug + ': mdPage section count must be the known ' + SECTION_COUNTS[slug]
   );
 
-  for (var i = 0; i < sections.length; i++) {
-    assert.strictEqual(
-      items[i].href,
-      '#' + sections[i].id,
-      slug + ': nav link ' + i + ' href must be #' + sections[i].id + ' (parity with mdPage id)'
+  var hasNavCfg = /\nnav:\n/.test(src.slice(0, src.indexOf('---', 3) + 3)) || /^nav:\n/m.test(src);
+  var expectedCount = hasNavCfg ? Math.min(5, SECTION_COUNTS[slug]) : Math.min(5, sections.length);
+  if (slug === 'teachr') expectedCount = 5; // configured list, asserted exactly below
+  assert.strictEqual(
+    items.length,
+    expectedCount,
+    slug + ': nav link count must be ' + expectedCount + ' (max 5, v2 DR-0001)'
+  );
+  assert.ok(items.length <= 5, slug + ': hard cap - nav never renders more than 5 links');
+
+  items.forEach(function (item, i) {
+    assert.ok(item.href.charAt(0) === '#', slug + ': nav hrefs are in-page anchors only');
+    assert.ok(
+      sectionIds.indexOf(item.href.slice(1)) !== -1,
+      slug +
+        ': nav link ' +
+        i +
+        ' href ' +
+        item.href +
+        ' must match a mdPage .cs-section id (parity)'
     );
-    assert.ok(items[i].href.charAt(0) === '#', slug + ': nav hrefs are in-page anchors only');
-    assert.strictEqual(
-      items[i].text,
-      sections[i].title,
-      slug + ': nav link ' + i + ' text must equal the section primary title'
+    assert.ok(
+      /<a class="btn" /.test(nav),
+      slug + ': every anchor carries class="btn" (v2 DR-0003)'
     );
+  });
+
+  if (slug === 'teachr') {
+    assert.deepStrictEqual(
+      items.map(function (it) {
+        return [it.text, it.href.slice(1)];
+      }),
+      TEACHR_NAV,
+      'teachr: nav must render exactly the 5 configured links in config order, starting at Outcomes'
+    );
+    assert.ok(
+      items.every(function (it) {
+        return it.text !== 'Summary';
+      }),
+      'teachr: no Summary link (Pedro 2026-11-24: skip the summary, start with outcomes)'
+    );
+  } else {
+    // fallback: first 5 sections in document order, label = primary title
+    var first5 = sections.slice(0, 5);
+    items.forEach(function (item, i) {
+      assert.strictEqual(
+        item.href,
+        '#' + first5[i].id,
+        slug + ': fallback nav link ' + i + ' = first-5 section'
+      );
+      assert.strictEqual(
+        item.text,
+        first5[i].title,
+        slug + ': fallback nav label ' + i + ' = primary title'
+      );
+    });
   }
 });
 
-// ── T2/T3 CSS contract (specs/case-study-nav tickets 2-3, DR-0001) ─────────
+// ── 2. throw cases: >5 entries, unknown id ────────────────────────────────
+function synthSrc(navYaml, body) {
+  return '---\nhero:\n  title: "T"\n' + navYaml + '---\n\n' + body;
+}
+var sixNav =
+  'nav:\n' +
+  ['a', 'b', 'c', 'd', 'e', 'f']
+    .map(function (id) {
+      return '  - label: "L-' + id + '"\n    id: ' + id;
+    })
+    .join('\n') +
+  '\n';
+var sixBody = '## A | | a\n\n## B | | b\n\n## C | | c\n\n## D | | d\n\n## E | | e\n\n## F | | f\n';
+assert.throws(
+  function () {
+    render.mdToc(synthSrc(sixNav, sixBody));
+  },
+  /max is 5/,
+  'mdToc must throw when nav: has more than 5 entries'
+);
+var badNav = 'nav:\n  - label: "Nope"\n    id: nope\n';
+assert.throws(
+  function () {
+    render.mdToc(synthSrc(badNav, '## A | | a\n'));
+  },
+  /nope/,
+  'mdToc must throw when a nav: id matches no ## section id'
+);
+// a valid 5-entry config renders in config order, labels as given
+var okNav = 'nav:\n  - label: "Second first"\n    id: b\n  - label: "A"\n    id: a\n';
+var okItems = tocItems(render.mdToc(synthSrc(okNav, '## A | | a\n\n## B | | b\n')));
+assert.deepStrictEqual(
+  okItems.map(function (it) {
+    return [it.text, it.href];
+  }),
+  [
+    ['Second first', '#b'],
+    ['A', '#a']
+  ],
+  'mdToc renders nav: entries in config order with the configured labels'
+);
+
+// ── 5. template order: mdcover -> mdtoc -> mdherometa -> mdpage ───────────
+var SRC = path.join(__dirname, '../../src');
+SLUGS.forEach(function (slug) {
+  var tpl = fs.readFileSync(path.join(SRC, slug, 'index.nunjucks'), 'utf8');
+  assert.ok(
+    !/\|\s*mdhero\s*\|/.test(tpl),
+    slug + ': template must not call mdhero anymore (v2 DR-0004)'
+  );
+  var iCover = tpl.indexOf('| mdcover');
+  var iToc = tpl.indexOf('| mdtoc');
+  var iMeta = tpl.indexOf('| mdherometa');
+  var iPage = tpl.indexOf('| mdpage');
+  assert.ok(
+    iCover !== -1 && iToc !== -1 && iMeta !== -1 && iPage !== -1,
+    slug + ': template must render mdcover, mdtoc, mdherometa, mdpage'
+  );
+  assert.ok(
+    iCover < iToc && iToc < iMeta && iMeta < iPage,
+    slug +
+      ': order must be mdcover -> mdtoc -> mdherometa -> mdpage (nav directly under the hero cover)'
+  );
+});
+
+// ── 7. T2/T3 CSS contract (specs/case-study-nav tickets 2-3, DR-0001) ─────
 // Asserted on the sources; runtime behavior (stuck at 48px, bg match, jump
-// offsets) is measured by Playwright in Ticket 6.
+// offsets) is measured by Playwright in the verify ticket.
 var navScss = fs.readFileSync(
   path.join(__dirname, '../../src/_modules/molecules/nav/nav.scss'),
   'utf8'
@@ -175,6 +345,41 @@ assert.ok(
   'cs-index: height auto overrides Materialize element-level nav { height }'
 );
 
+// v2 T2 (DR-0002/DR-0003/DR-0005): bar left edge on the body edge (ul padding
+// 0 at all widths), buttons touch + centered group, full-height ghost
+// buttons at 2/3 size with underline (not fill) feedback
+assert.ok(
+  /ul\s*\{[^}]*padding:\s*0;/.test(barRegion),
+  'cs-index ul: padding 0 at all widths (bar left edge = body left edge, DR-0002)'
+);
+assert.ok(/ul\s*\{[^}]*gap:\s*0;/.test(barRegion), 'cs-index ul: gap 0 (buttons touch, DR-0005)');
+assert.ok(
+  /ul\s*\{[^}]*justify-content:\s*center;/.test(barRegion),
+  'cs-index ul: justify-content center (group centered, DR-0005)'
+);
+assert.ok(
+  /li\s*\{[^}]*display:\s*flex;/.test(barRegion),
+  'cs-index li: display flex (kills Materialize nav ul li float)'
+);
+assert.ok(
+  /a\.btn\s*\{[^}]*padding:\s*7px 8px;/.test(barRegion),
+  'cs-index a.btn: padding 7px 8px (2/3 size, DR-0005)'
+);
+assert.ok(
+  /a\.btn\s*\{[^}]*height:\s*100%;/.test(barRegion),
+  'cs-index a.btn: height 100% (anchor as tall as the bar, DR-0003)'
+);
+assert.ok(
+  /a\.btn\s*\{[^}]*background-color:\s*transparent;/.test(barRegion),
+  'cs-index a.btn: transparent background (ghost, DR-0005)'
+);
+assert.ok(
+  /a\.btn[^{]*\{[\s\S]*?&:(hover|focus)[\s\S]*?background-color:\s*transparent;[\s\S]*?text-decoration:\s*underline;/.test(
+    barRegion
+  ),
+  'cs-index a.btn: hover/focus = transparent + underline (no fill, DR-0005)'
+);
+
 // T3: anchored sections land below the stuck bar (48px nav + bar height)
 var secRegion = csScss.slice(csScss.indexOf('.cs-section {'), csScss.indexOf('.cs-section-intro'));
 assert.ok(
@@ -189,7 +394,8 @@ assert.ok(
   'fashion_rebrand_container',
   'sports_ecommerce_container',
   'digital_closet_container',
-  'teachr_container'
+  'teachr_container',
+  'teachr_agent_container'
 ].forEach(function (id) {
   var re = new RegExp(
     '#' + id + ' \\.cs-section[\\s\\S]*?scroll-margin-top:\\s*calc\\(48px \\+ var\\(--cs-index-h'
@@ -203,7 +409,6 @@ assert.ok(
 });
 
 console.log(
-  'cs-nav.test: PASS - mdtoc parity on ' +
-    Object.keys(EXPECTED).length +
-    ' case-study pages + T2/T3 CSS contract'
+  'cs-nav.test: PASS - v2 nav config (max 5, teachr exact 5 from Outcomes) + btn anchors + ' +
+    'mdcover/mdherometa split (mdHero byte-identical) + template order + T2/T3 CSS contract'
 );

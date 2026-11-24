@@ -34,7 +34,8 @@ PAGES.forEach(function (slug) {
     console.log('normalize: no front matter, skipped: ' + f);
     return;
   }
-  const hero = ((yaml.safeLoad(m[1]) || {}).hero) || {};
+  const meta = yaml.safeLoad(m[1]) || {};
+  const hero = meta.hero || {};
 
   const fm = ['---'];
   fm.push('# Hero from front matter (specs/text-to-md/DR-0001): the shell renders');
@@ -52,6 +53,15 @@ PAGES.forEach(function (slug) {
     hero.meta.forEach(function (it) {
       const k = Object.keys(it)[0];
       fm.push('    - ' + k + ': ' + yq(it[k]));
+    });
+  }
+  // case-study-nav-v2 DR-0001: keep the section-nav list (pages without one
+  // are untouched, so existing files stay byte-identical)
+  if (Array.isArray(meta.nav) && meta.nav.length) {
+    fm.push('nav:');
+    meta.nav.forEach(function (it) {
+      fm.push('  - label: ' + yq(it.label));
+      fm.push('    id: ' + yq(it.id));
     });
   }
   fm.push('---');

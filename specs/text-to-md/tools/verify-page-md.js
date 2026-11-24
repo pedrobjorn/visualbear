@@ -102,6 +102,55 @@ if (!meta.hero || typeof meta.hero !== 'object') {
     );
 }
 
+// ── gate 1b: nav front matter (case-study-nav-v2 DR-0001) ────────────────
+// Top-level `nav:` key: optional list of { label, id } (label/id only), max
+// 5 entries, every id must match a `##` section id in the body (same pipe +
+// slug rules as markdown-render.js parseH2Parts/slugify).
+
+const slugify = function (s) {
+  return String(s)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+};
+const sectionIds = [];
+body.split('\n').forEach(function (l) {
+  const h = l.match(/^##\s+(.*)$/);
+  if (!h) return;
+  const parts = h[1].replace(/<[^>]*>/g, '').split('|').map(function (s) { return s.trim(); });
+  const heading = parts[0];
+  const eyebrow = parts.length > 1 ? parts[1] : heading;
+  sectionIds.push(parts[2] || slugify(eyebrow || heading));
+});
+
+if (meta.nav !== undefined) {
+  if (!Array.isArray(meta.nav)) {
+    fail('front-matter: nav must be a list of { label, id }');
+  } else if (meta.nav.length > 5) {
+    fail('front-matter: nav has ' + meta.nav.length + ' entries, max is 5');
+  } else {
+    let navOk = true;
+    meta.nav.forEach(function (item, i) {
+      const keys = item && typeof item === 'object' ? Object.keys(item).sort() : [];
+      if (keys.join(',') !== 'id,label') {
+        fail('front-matter: nav entry ' + (i + 1) + ' must have exactly label+id keys (got: ' + keys.join(',') + ')');
+        navOk = false;
+        return;
+      }
+      if (!String(item.label).trim() || !String(item.id).trim()) {
+        fail('front-matter: nav entry ' + (i + 1) + ' has an empty label or id');
+        navOk = false;
+        return;
+      }
+      if (sectionIds.indexOf(String(item.id).trim()) === -1) {
+        fail('front-matter: nav entry ' + (i + 1) + ' id "' + item.id + '" matches no ## section id (' + sectionIds.join(', ') + ')');
+        navOk = false;
+      }
+    });
+    if (navOk) pass('front-matter: nav valid (' + meta.nav.length + ' entr' + (meta.nav.length === 1 ? 'y' : 'ies') + ', all ids match ## sections)');
+  }
+}
+
 // ── gate 2: em-dash rule (source-verbatim allowance) ─────────────────────
 
 const sourceText =
@@ -207,6 +256,15 @@ if (!sourcePath || !fs.existsSync(sourcePath)) {
     }
     if (/^<!--/.test(t)) {
       if (!/^<!--.*-->/.test(t)) inComment = true;
+      return;
+    }
+    // a Nav: head line maps to front matter `nav: - label: "X" id: y`, so
+    // account for it in the same shape the output carries it (the generic
+    // label strip below would leave "label outcomes" split across words)
+    const navM = t.match(/^nav\s*:\s*(.*)$/i);
+    if (navM) {
+      const p = navM[1].split('|').map(function (s) { return s.trim(); }).filter(Boolean);
+      if (p.length === 2) srcLines.push(textify('label: "' + p[0] + '" id: "' + p[1] + '"'));
       return;
     }
     // a leading signal word (Note:/Before:/Summary:/...) becomes

@@ -43,10 +43,10 @@ $cs-indent: 28px;
   --cs-chip-plate: rgba(255, 255, 255, 0.45);
 
   // Height of the sticky section nav (.cs-index), measured at 1440 and 390
-  // (case-study-nav T2/T3): 8px padding top/bottom + 20px line + 1px border.
-  // Consumed by .cs-section's scroll-margin-top so TOC jumps land below the
-  // stuck bar.
-  --cs-index-h: 37px;
+  // (case-study-nav-v2 T2): 7px button padding top/bottom + 20px line + 1px
+  // border. Consumed by .cs-section's scroll-margin-top so TOC jumps land
+  // below the stuck bar.
+  --cs-index-h: 35px;
 
   // ------------------------------------------------------------------
   // Hero
@@ -138,7 +138,9 @@ $cs-indent: 28px;
   // ------------------------------------------------------------------
   .cs-index {
     // full-bleed like the hero cover: when stuck, the bar spans the
-    // viewport and reads as an extension of the header
+    // viewport and reads as an extension of the header. Its left edge is
+    // the body left edge (0, DR-0002 case-study-nav-v2); the link group
+    // centers itself inside the bar
     width: 100vw;
     margin-left: calc(50% - 50vw);
     position: sticky;
@@ -150,9 +152,11 @@ $cs-indent: 28px;
     // under it is hidden
     background-color: var(--cs-head-bg);
     border-bottom: 1px solid var(--cs-accent);
-    padding: 8px 0;
+    // vertical padding lives in the button's 7px (DR-0005): the anchors ARE
+    // the bar's full height
+    padding: 0;
     // pins the bar height deterministically (strut included):
-    // 8 + 20 + 8 + 1 border = 37px = --cs-index-h. height:auto kills
+    // 7 + 20 + 7 button + 1 border = 35px = --cs-index-h. height:auto kills
     // Materialize's element-level `nav { height: 56px }`, which otherwise
     // inflates the bar (measured 64px)
     height: auto;
@@ -161,10 +165,11 @@ $cs-indent: 28px;
 
     ul {
       display: flex;
-      align-items: center;
-      gap: 24px;
+      align-items: stretch;
+      justify-content: center; // button group centered in the bar (DR-0005)
+      gap: 0; // buttons touch each other (DR-0005)
       margin: 0;
-      padding: 0 48px; // the hero cover's side inset
+      padding: 0; // at all widths: bar left edge = body left edge (DR-0002)
       list-style: none;
       // long title lists scroll horizontally instead of wrapping or
       // widening the page (390px capture, case-study-nav T2)
@@ -172,33 +177,52 @@ $cs-indent: 28px;
       white-space: nowrap;
     }
 
-    // nav link recipe: white ink (clears 4.5:1 on all four header colors),
-    // feedback from the underline, no painted box (the bar already carries
-    // the header color)
-    a:link,
-    a:visited {
-      color: #fff;
-      text-decoration: none;
-      font-size: 14px;
-      line-height: 20px; // pins the bar height: 8+8 padding + 20 + 1 border = 37px
-      letter-spacing: 0.02em;
+    li {
+      display: flex; // the ul is flex, so this also neutralizes Materialize's nav ul li float
     }
 
-    a:hover,
-    a:focus {
-      text-decoration: underline;
+    // Ghost button at 2/3 size, full bar height (DR-0003 + DR-0005): the one
+    // ghost recipe for controls on the colored bars — transparent in EVERY
+    // state, white ink, underline feedback (same as the header links and
+    // .photoview-btn); no $vb-primary/$vb-secondary fill in any state.
+    // Specificity (.case-study .cs-index ul a.btn) beats Materialize's
+    // nav ul a / nav ul a.btn (padding, margins, hover fill).
+    a.btn {
+      display: flex;
+      align-items: center;
+      height: 100%; // the clickable anchor is as tall as the bar
+      margin: 0; // kills Materialize nav ul a.btn's 15px side margins (buttons touch)
+      background-color: transparent;
+      box-shadow: none;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 400;
+      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+      // 2/3 of the full-size 16px 8px: 7 + 20 + 7 = 34px, bar 35px with border
+      padding: 7px 8px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 20px;
+      text-decoration: none;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: transparent; // ghost: never a painted fill
+        text-decoration: underline;
+        text-underline-offset: 4px;
+      }
+
+      &:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: -2px;
+      }
     }
 
     a[aria-current='true'] {
       text-decoration: underline;
       text-underline-offset: 4px;
-    }
-
-    @media (max-width: $break-medium) {
-      ul {
-        gap: 16px;
-        padding: 0 24px;
-      }
     }
   }
 
@@ -1272,13 +1296,13 @@ $cs-indent: 28px;
 // T3 specificity: the global anchor list in _base.scss pins ids like
 // #definition / #discovery (which case-study sections also use, e.g. sports
 // and closet) at 48px with ID specificity (1,0,0), beating `.cs-section`
-// (0,2,0). Repeat the calc at container-id level (1,1,0) for the four
+// (0,2,0). Repeat the calc at container-id level (1,1,0) for all five
 // case-study articles so the stuck bar's height is always added.
-// (teachr-agent joins in case-study-nav T7.)
 #fashion_rebrand_container .cs-section,
 #sports_ecommerce_container .cs-section,
 #digital_closet_container .cs-section,
-#teachr_container .cs-section {
+#teachr_container .cs-section,
+#teachr_agent_container .cs-section {
   scroll-margin-top: calc(48px + var(--cs-index-h, 40px));
 }
 

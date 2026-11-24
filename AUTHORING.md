@@ -23,12 +23,21 @@ DR-0003.)
 No template work for standard layouts. The page shell (in
 `src/<page>/index.nunjucks`) holds the hero and chrome; everything below the
 hero is your markdown, rendered by the `mdpage` or `mdresume` filter.
-Case-study shells additionally hold
-`{{ site.data.pages['<slug>'] | mdtoc | safe }}` between the `mdhero` and
-`mdpage` lines - the `mdtoc` filter derives the `.cs-index` section nav from
-the same `## Section | Eyebrow | id` lines, so nav links and section ids
-always match (specs/case-study-nav, Ticket 1). No authoring change: the nav
-follows the `##` lines automatically.
+Case-study shells hold four lines in this order (case-study-nav-v2 DR-0004):
+
+    {{ site.data.pages['<slug>'] | mdcover | safe }}
+    {{ site.data.pages['<slug>'] | mdtoc | safe }}
+    {{ site.data.pages['<slug>'] | mdherometa | safe }}
+    {{ site.data.pages['<slug>'] | mdpage | safe }}
+
+`mdcover` is the hero cover, `mdherometa` the hero meta band, so the
+`.cs-index` section nav sits directly under the hero cover. The nav is NOT
+derived from every `##` line: it renders the page's `nav:` front-matter list
+(max 5 `{ label, id }` entries, config order; ids must match a `##` id).
+Pages without `nav:` fall back to their first 5 sections. In the draft txt
+head, write one `Nav: Label | id` line per entry (specs/case-study-nav-v2
+DR-0001). Nav links and section ids always match (the `mdtoc` filter validates
+every id against the same `##` parse `mdpage` uses and throws otherwise).
 
 ## Code quality commands
 
@@ -85,6 +94,31 @@ The related arrow points right (read next); a lead saying "read
 first/previous" points it left. The bounded vocabulary is enforced by
 `specs/text-to-md/tools/verify-page-md.js` (unknown keys fail). Pages
 without front matter render exactly as before.
+(Case-study shells do not call `mdhero`; they call `mdcover`/`mdherometa`
+around the `mdtoc` line - see the shell block above. `mdhero` = cover +
+meta in one call and is unchanged for every other page.)
+
+### Section nav from front matter (case-study-nav-v2 DR-0001)
+
+Case-study pages may add a top-level `nav:` list - the `.cs-index` links,
+MAX 5 entries, rendered in the order given:
+
+    ---
+    hero:
+      title: The page title
+      ...
+    nav:
+      - label: "Outcomes"        # link text
+        id: outcomes             # must match a `## Section | Eyebrow | id` id
+      - label: "Context"
+        id: process
+    ---
+
+`mdtoc` throws at build time on a 6th entry or an id no `##` line produces,
+so the nav can never drift from the rendered sections. Without `nav:` the
+nav falls back to the first 5 sections (label = primary title). In the
+draft txt head the same list is written as repeatable `Nav: Label | id`
+lines after the hero fields.
 
 ### `:::` blocks for visual components
 

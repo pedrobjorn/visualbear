@@ -41,7 +41,8 @@ const m = src.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);
 const out = [];
 
 if (m) {
-  const hero = ((yaml.safeLoad(m[1]) || {}).hero) || {};
+  const meta = yaml.safeLoad(m[1]) || {};
+  const hero = meta.hero || {};
   const label = function (k, v) {
     if (v === undefined || v === null || String(v).trim() === '') return;
     out.push(k + ': ' + String(v).trim());
@@ -58,6 +59,11 @@ if (m) {
       metrics: 'Metrics', footnote: 'Footnote', summary: 'Takeaway'
     };
     label(map[k] || k, item[k]);
+  });
+  // case-study-nav-v2 DR-0001: the `nav:` front-matter list maps back to
+  // repeatable "Nav: Label | id" head lines
+  (meta.nav || []).forEach(function (item) {
+    if (item && item.label && item.id) out.push('Nav: ' + item.label + ' | ' + item.id);
   });
 }
 

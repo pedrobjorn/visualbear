@@ -1020,22 +1020,65 @@ function mdPage(src) {
 // .cs-section blocks: one <li><a href="#id">Title</a></li> per section, in
 // document order. Runs the same preprocessing pipeline as mdPage so raw-HTML
 // h2s stay invisible to the nav exactly as they are to the section split.
+// case-study-nav-v2 DR-0001: the nav is a curated per-page list - the page md's
+// `nav:` front-matter key (a list of { label, id }, MAX 5, config order) -
+// not a mirror of every ## section. Pages without `nav:` fall back to the
+// first 5 sections. Every id is validated against the same parsed sections
+// mdPage renders, so nav hrefs can never drift; unknown id or >5 entries
+// throw (fail the build loudly). Each anchor carries class="btn" (v2
+// DR-0003: full-bar-height design-system button).
 function mdToc(src) {
-  const split = extractRawBlocks(
-    extractPlainStarLists(parseContainers(splitFrontmatter(src).body))
-  );
+  const fm = splitFrontmatter(src);
+  const split = extractRawBlocks(extractPlainStarLists(parseContainers(fm.body)));
   let html = marked(split.md, { headerIds: false, renderer: listRenderer() });
   html = html.replace(/ id="[^"]*"/g, '');
 
-  const items = [];
+  const sections = [];
   html.replace(/<h2>([\s\S]*?)<\/h2>/g, function (m, title) {
-    const p = parseH2Parts(title);
-    // link text is the plain primary title (tags stripped); the href uses the
-    // exact id mdPage assigns to the section
-    items.push('<li><a href="#' + p.id + '">' + p.heading.replace(/<[^>]*>/g, '') + '</a></li>');
+    sections.push(parseH2Parts(title));
     return m;
   });
-  if (!items.length) return '';
+  if (!sections.length) return '';
+
+  const byId = {};
+  sections.forEach(function (s) {
+    byId[s.id] = s;
+  });
+  const plainTitle = function (s) {
+    return s.heading.replace(/<[^>]*>/g, '');
+  };
+
+  let entries;
+  const navCfg = fm.meta && fm.meta.nav;
+  if (Array.isArray(navCfg) && navCfg.length) {
+    if (navCfg.length > 5) {
+      throw new Error('mdToc: nav: front-matter list has ' + navCfg.length + ' entries, max is 5');
+    }
+    entries = navCfg.map(function (item, i) {
+      const id = item && item.id;
+      const label = item && item.label;
+      if (!id || !byId[id]) {
+        throw new Error(
+          'mdToc: nav: entry ' + (i + 1) + ' id "' + id + '" matches no ## section id'
+        );
+      }
+      return {
+        id: id,
+        label:
+          label !== undefined && label !== null && String(label).trim() !== ''
+            ? String(label)
+            : plainTitle(byId[id])
+      };
+    });
+  } else {
+    entries = sections.slice(0, 5).map(function (s) {
+      return { id: s.id, label: plainTitle(s) };
+    });
+  }
+
+  const items = entries.map(function (e) {
+    return '<li><a class="btn" href="#' + e.id + '">' + e.label + '</a></li>';
+  });
   // no whitespace between tags: a text node around the <ul> would open an
   // extra line box and inflate the sticky bar's height (measured 64px
   // instead of 37px) - the bar height is pinned via --cs-index-h
@@ -1398,7 +1441,12 @@ function heroMetaHtml(items) {
   return out.join('\n');
 }
 
-function mdHero(src) {
+// case-study-nav-v2 DR-0004: the hero splits into cover + meta so the section
+// nav (mdtoc) can sit directly under the hero cover, before the meta band.
+// mdHero composes the two and stays byte-identical for every existing
+// consumer (blog, workflow, styleguide) - guarded by cs-nav.test.js against
+// a sha256 fixture captured before the split.
+function mdCover(src) {
   const hero = splitFrontmatter(src).meta.hero;
   if (!hero || typeof hero !== 'object') return '';
   const variant = hero.variant ? ' cs-hero--' + hero.variant : '';
@@ -1412,8 +1460,19 @@ function mdHero(src) {
   out.push('  </p>');
   out.push('  <p class="cs-cover-details">' + iconify(hero.details || '') + '</p>');
   out.push('</header>');
-  if (hero.meta && hero.meta.length) out.push(heroMetaHtml(hero.meta));
   return out.join('\n');
+}
+
+function mdHeroMeta(src) {
+  const hero = splitFrontmatter(src).meta.hero;
+  if (!hero || typeof hero !== 'object' || !hero.meta || !hero.meta.length) return '';
+  return heroMetaHtml(hero.meta);
+}
+
+function mdHero(src) {
+  const cover = mdCover(src);
+  const meta = mdHeroMeta(src);
+  return meta ? cover + '\n' + meta : cover;
 }
 
 module.exports = {
@@ -1421,5 +1480,7 @@ module.exports = {
   mdResume: mdResume,
   mdMeta: mdMeta,
   mdHero: mdHero,
+  mdCover: mdCover,
+  mdHeroMeta: mdHeroMeta,
   mdToc: mdToc
 };

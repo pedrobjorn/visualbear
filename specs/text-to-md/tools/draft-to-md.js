@@ -12,7 +12,9 @@
 //
 //   1. HEAD BLOCK: the first consecutive labeled lines are the hero
 //      front matter (Variant/Eyebrow/Title/Summary/Details + Logo/
-//      Needs/Related/Metrics/Footnote/Takeaway).
+//      Needs/Related/Metrics/Footnote/Takeaway) plus optional repeatable
+//      "Nav: Label | id" lines (the section-nav list, max 5, emitted as
+//      the top-level `nav:` front-matter key - case-study-nav-v2 DR-0001).
 //
 //   2. LABEL LINES become directives: Intro:/Note:/Point:/Figure:/
 //      Byline:/Wrap-up:/Caption: -> [intro:]/[note:]/[point:]/[figure:]/
@@ -75,6 +77,9 @@ const yq = function (v) {
 // ── 1. head block ────────────────────────────────────────────────────────
 
 const hero = { meta: [] };
+// case-study-nav-v2 DR-0001: `Nav: Label | id` head lines (repeatable, max 5)
+// become the page md's top-level `nav:` front-matter list consumed by mdToc
+const nav = [];
 let headEnd = 0;
 let started = false;
 for (let i = 0; i < lines.length; i++) {
@@ -90,7 +95,13 @@ for (let i = 0; i < lines.length; i++) {
     continue;
   } // Key: private notes, ignored
   const m = t.match(/^([A-Za-z][A-Za-z ]*):\s*(.*)$/);
-  if (m && KNOWN.indexOf(m[1]) !== -1 && m[2] !== '') {
+  if (m && m[1] === 'Nav' && m[2] !== '') {
+    // Nav: Label | id - head-block only; the body scan never sees it
+    const np = m[2].split('|').map(function (s) { return s.trim(); }).filter(Boolean);
+    if (np.length === 2) nav.push({ label: np[0], id: np[1] });
+    else console.error('draft-to-md: bad Nav line (want "Nav: Label | id"): ' + t);
+    headEnd = i + 1;
+  } else if (m && KNOWN.indexOf(m[1]) !== -1 && m[2] !== '') {
     if (META_FIELD[m[1]]) hero.meta.push([META_FIELD[m[1]], m[2]]);
     else hero[m[1].toLowerCase()] = m[2];
     headEnd = i + 1;
@@ -118,6 +129,13 @@ if (hero.meta.length) {
   out.push('  meta:');
   hero.meta.forEach(function (pair) {
     out.push('    - ' + pair[0] + ': ' + yq(pair[1]));
+  });
+}
+if (nav.length) {
+  out.push('nav:');
+  nav.forEach(function (entry) {
+    out.push('  - label: ' + yq(entry.label));
+    out.push('    id: ' + yq(entry.id));
   });
 }
 out.push('---');

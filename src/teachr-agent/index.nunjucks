@@ -16,8 +16,14 @@
             <div class="container">
                 <div class="document-text text-box">
 
-                    <!-- 01 HERO, from the page md's front matter (DR-0001) -->
-                    {{ site.data.pages['teachr-agent'] | mdhero | safe }}
+                    <!-- 01 HERO COVER, from the page md's front matter (DR-0001; cover split out per case-study-nav-v2 DR-0004) -->
+                    {{ site.data.pages['teachr-agent'] | mdcover | safe }}
+
+                    <!-- 02 SECTION NAV, first-5 fallback until Pedro supplies the nav: list (case-study-nav-v2 T4) -->
+                    {{ site.data.pages['teachr-agent'] | mdtoc | safe }}
+
+                    <!-- 03 HERO META band (needs/metrics), after the nav (case-study-nav-v2 DR-0004) -->
+                    {{ site.data.pages['teachr-agent'] | mdherometa | safe }}
 
                     					<!-- content sections: src/_data/pages/teachr-agent.md via mdpage -->
 					{{ site.data.pages['teachr-agent'] | mdpage | safe }}

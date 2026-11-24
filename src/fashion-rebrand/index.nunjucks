@@ -12,11 +12,14 @@
             <div class="container">
                 <div class="document-text text-box">
 
-                    <!-- 01 HERO, from the page md's front matter (DR-0001) -->
-                    {{ site.data.pages['fashion-rebrand'] | mdhero | safe }}
+                    <!-- 01 HERO COVER, from the page md's front matter (DR-0001; cover split out per case-study-nav-v2 DR-0004) -->
+                    {{ site.data.pages['fashion-rebrand'] | mdcover | safe }}
 
-                    <!-- 02 SECTION NAV, derived from the page md's ## titles (case-study-nav T1) -->
+                    <!-- 02 SECTION NAV directly under the hero cover, from the page md's nav: list (case-study-nav-v2 T1) -->
                     {{ site.data.pages['fashion-rebrand'] | mdtoc | safe }}
+
+                    <!-- 03 HERO META band (needs/metrics), after the nav -->
+                    {{ site.data.pages['fashion-rebrand'] | mdherometa | safe }}
 
                     {{ site.data.pages['fashion-rebrand'] | mdpage | safe }}
                 </div>

@@ -18,6 +18,17 @@ hero:
     - metrics: "4x | Delivery speed of new learning features * **"
     - footnote: "* 2026 October vs Previous Year October · ** Due to poor benchmark data, all medium confidence"
     - summary: "Notable improvements to registration and learning, delivery speed and iteration - and more contracts secured."
+nav:
+  - label: "Outcomes"
+    id: "outcomes"
+  - label: "Context"
+    id: "process"
+  - label: "Discovery & Validation"
+    id: "discovery"
+  - label: "Design & Delivery"
+    id: "decisions"
+  - label: "Deepdive: Teachr Assistant"
+    id: "assistant"
 ---
 
 <!--
