@@ -367,8 +367,11 @@ SLUGS.forEach(function (slug) {
 // ── 7. T2/T3 CSS contract (specs/case-study-nav tickets 2-3, DR-0001) ─────
 // Asserted on the sources; runtime behavior (stuck at 48px, bg match, jump
 // offsets) is measured by Playwright in the verify ticket.
-// v3 Ticket 2 (DR-0001) adds: no full-bleed on .cs-index, li flex 1 1 0 +
-// min-width 0, a.btn width 100% + justify-content center + ellipsis.
+// v3 Tickets 2/5 (DR-0001 row level + DR-0005 bar level): .cs-index stays
+// full-bleed (100vw + calc(50% - 50vw)); the ul link row is the content-width
+// element (width calc(100% - 32px), max-width calc($content-width - 32px),
+// margin 0 auto); li flex 1 1 0 + min-width 0; a.btn width 100% +
+// justify-content center + overflow hidden + text-overflow ellipsis.
 var navScss = fs.readFileSync(
   path.join(__dirname, '../../src/_modules/molecules/nav/nav.scss'),
   'utf8'
@@ -417,15 +420,25 @@ assert.ok(
   /background-color:\s*var\(--cs-head-bg\);/.test(barRegion),
   'cs-index: opaque background matches the header via --cs-head-bg (DR-0001)'
 );
-// v3 DR-0001 (Ticket 2): the bar is a normal block inside .document-text, so
-// it spans exactly the body content width - NO full-bleed anymore
+// v3 DR-0005 (Ticket 5): the BAR stays full-bleed (viewport width, reads as
+// the header's extension when stuck); the content-width constraint lives on
+// the ul link row, centered inside the bar
+assert.ok(/width:\s*100vw;/.test(barRegion), 'cs-index: full-bleed bar (width 100vw, DR-0005)');
 assert.ok(
-  !/100vw/.test(barRegion),
-  'cs-index: no width 100vw full-bleed (v3 DR-0001: bar = body content width)'
+  /margin-left:\s*calc\(50% - 50vw\);/.test(barRegion),
+  'cs-index: full-bleed centering inside the text column (DR-0005)'
 );
 assert.ok(
-  !/calc\(50% - 50vw\)/.test(barRegion),
-  'cs-index: no full-bleed centering margin (v3 DR-0001)'
+  /ul\s*\{[^}]*margin:\s*0 auto;/.test(barRegion),
+  'cs-index ul: margin 0 auto (link row centered in the full-bleed bar, DR-0005)'
+);
+assert.ok(
+  /ul\s*\{[^}]*width:\s*calc\(100% - 32px\);/.test(barRegion),
+  'cs-index ul: width calc(100% - 32px) (viewport minus 2x16px text-box padding, DR-0005)'
+);
+assert.ok(
+  /ul\s*\{[^}]*max-width:\s*calc\(#\{\$content-width\} - 32px\);/.test(barRegion),
+  'cs-index ul: max-width calc($content-width - 32px) (row = body content width, DR-0005)'
 );
 assert.ok(
   /overflow-x:\s*auto;/.test(barRegion),
@@ -454,11 +467,12 @@ assert.ok(
   /li\s*\{[^}]*display:\s*flex;/.test(barRegion),
   'cs-index li: display flex (kills Materialize nav ul li float)'
 );
-// v3 DR-0001 (Ticket 2): options expand to equal widths filling the bar;
-// the anchor fills its li, centers its label, and ellipsizes over-long text
+// v3 DR-0001/DR-0005 (Tickets 2/5): options expand to equal widths filling
+// the content-width link row; the anchor fills its li, centers its label,
+// and ellipsizes over-long text
 assert.ok(
   /li\s*\{[^}]*flex:\s*1 1 0;/.test(barRegion),
-  'cs-index li: flex 1 1 0 (equal-width options fill the content-width bar, v3 DR-0001)'
+  'cs-index li: flex 1 1 0 (equal-width options fill the content-width link row, DR-0005)'
 );
 assert.ok(
   /li\s*\{[^}]*min-width:\s*0;/.test(barRegion),
@@ -466,7 +480,7 @@ assert.ok(
 );
 assert.ok(
   /a\.btn\s*\{[^}]*width:\s*100%;/.test(barRegion),
-  'cs-index a.btn: width 100% (anchor fills its li, v3 DR-0001)'
+  'cs-index a.btn: width 100% (anchor fills its li share of the link row, DR-0001/DR-0005)'
 );
 assert.ok(
   /a\.btn\s*\{[^}]*justify-content:\s*center;/.test(barRegion),
@@ -529,5 +543,5 @@ assert.ok(
 
 console.log(
   'cs-nav.test: PASS - v2/v3 nav config (all 5 pages exact condensed 5-link lists, 28-char label cap gate) + btn anchors with title + ' +
-    'mdcover/mdherometa split (mdHero byte-identical) + template order + T2/T3 CSS contract + v3 T2 content-width bar / equal-fill / ellipsis contract'
+    'mdcover/mdherometa split (mdHero byte-identical) + template order + T2/T3 CSS contract + v3 full-bleed bar / content-width link row / equal-fill / ellipsis contract (DR-0005)'
 );

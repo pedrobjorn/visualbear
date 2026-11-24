@@ -59,7 +59,7 @@ H1: no destructive file operations (edits + new spec files only). H3: uncertaint
 
 - [x] Ticket 1 - condensed per-page `nav:` lists for all 4 fallback pages + 28-char label cap (DR-0004) in the verify-page-md gate + tests - DONE 2026-11-24 (evidence/t1-verify.md)
 - [x] Ticket 2 - CSS: buttons expand to fill equally + ellipsis edge + `title` on anchors (DR-0001 row level) - DONE 2026-11-24 as 4139434 (evidence/t2-verify.md); its bar-shrinks-to-content reading was corrected same day - see Ticket 5
-- [ ] Ticket 5 - full-bleed bar restored; `ul` link row constrained to the body content width and options spread to fill it (DR-0005)
+- [x] Ticket 5 - full-bleed bar restored; `ul` link row constrained to the body content width and options spread to fill it (DR-0005) - DONE 2026-11-24 (evidence/t5-verify.md)
 - [ ] Ticket 3 - scroll-spy JS + red-line active state via `--cs-index-active` (DR-0002; lands parent case-study-nav Ticket 4)
 - [ ] Ticket 4 - verify: tests, build + guards, Playwright 1440/768/390, review gates, captures
 
