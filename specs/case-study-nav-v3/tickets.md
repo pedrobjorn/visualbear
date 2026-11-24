@@ -48,6 +48,7 @@ v2 Ticket 1 built the `nav:` front-matter list (max 5, ids validated against `##
 - Depends on: Ticket 1
 - Size: M
 - Type: UI
+- Status: SHIPPED 2026-11-24 as 4139434 (evidence/t2-verify.md) - BAR-level reading corrected by Pedro same day ("the menu was correct before, it should be full width"): superseded at bar level by DR-0005, reworked in Ticket 5. The row-level rules shipped here (equal-fill li/a.btn, ellipsis + title) STAND.
 
 ## Context
 
@@ -87,7 +88,7 @@ v2 Ticket 1 built the `nav:` front-matter list (max 5, ids validated against `##
 # Ticket 3: Scroll-spy sets exactly one `aria-current="true"`; active state = 3px `--cs-index-active` red line
 
 - Part of: specs/case-study-nav-v3/plan.md (DR-0002; lands parent specs/case-study-nav/tickets.md Ticket 4, currently TODO)
-- Depends on: Ticket 2
+- Depends on: Ticket 5
 - Size: M
 - Type: UI + system
 
@@ -127,7 +128,7 @@ Measured 2026-11-24: 0 `aria-current` attributes at runtime on any page (even sc
 # Ticket 4: End-to-end verification
 
 - Part of: specs/case-study-nav-v3/plan.md
-- Depends on: Tickets 1, 2, 3
+- Depends on: Tickets 1, 3, 5
 - Size: S
 - Type: research
 
@@ -139,7 +140,7 @@ v2 Ticket 3 pattern: `npm test`, `npm run build` + release-guard, Playwright 144
 
 - Run `npm test` (cs-nav.test.js updated per Tickets 1-3) - green.
 - Run `npm run build` + release-guard - exit 0.
-- Playwright at 1440x900, 768x1024 and 390x844 on all 5 pages (fashion-rebrand, sports-ecommerce-redesign, digital-closet, teachr, teachr-agent): per page assert the Ticket 2 width/fill criteria and the Ticket 3 spy criteria (spot-check spy on teachr + fashion-rebrand at all widths, attribute presence on the rest); teachr labels still the v2 5, other pages the Ticket 1 condensed lists; gap cover->nav == 0; sticky top 48 + bg match after 800px scroll; scroll-margin landing >= 83px; no page-level h-scroll at 390. Save captures to `evidence/`.
+- Playwright at 1440x900, 768x1024 and 390x844 on all 5 pages (fashion-rebrand, sports-ecommerce-redesign, digital-closet, teachr, teachr-agent): per page assert the Ticket 5 bar/row criteria (full-bleed bar 0..viewport; ul == content edges; equal-fill touching buttons) and the Ticket 3 spy criteria (spot-check spy on teachr + fashion-rebrand at all widths, attribute presence on the rest); teachr labels still the v2 5, other pages the Ticket 1 condensed lists; gap cover->nav == 0 (measure_gap.py); sticky top 48 + bg match after 800px scroll; scroll-margin landing >= 83px; no page-level h-scroll at 390. Save captures to `evidence/`.
 - Run visuaibear-review gates on the changed pages; record pass/fail in `evidence/t4-verify.md` together with the test/build/Playwright output (ALL_OK) and the capture list. Note the AI-attribution gate: production build must contain 0 `data-ai` attributes on the changed pages.
 
 ## Acceptance criteria (agent-checkable)
@@ -150,3 +151,45 @@ v2 Ticket 3 pattern: `npm test`, `npm run build` + release-guard, Playwright 144
 ## Out of scope
 
 - Any new feature work.
+
+---
+
+# Ticket 5: Rework of Ticket 2 at bar level - full-bleed bar, link row constrained to the body content width (DR-0005)
+
+- Part of: specs/case-study-nav-v3/plan.md (DR-0005; supersedes DR-0001 at bar level, keeps its row-level rules)
+- Depends on: Ticket 2 (shipped 4139434)
+- Size: S
+- Type: UI
+
+## Context
+
+Pedro 2026-11-24: "The menu was correct before, it should be full width. The LINK OPTIONS are what should be limited to the width of the content container, and spread to take up the space." Ticket 2 shrank the `.cs-index` bar itself to the content column (4139434); this ticket restores the pre-v3 full-bleed bar and moves the content-width constraint to the `ul` link row. Current `.cs-index` block state (post-4139434): no full-bleed pair; `ul { display: flex; align-items: stretch; justify-content: center; gap: 0; margin: 0; padding: 0; list-style: none; overflow-x: auto; white-space: nowrap; }`; `li { display: flex; flex: 1 1 0; min-width: 0; }`; `a.btn { display: flex; align-items: center; justify-content: center; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; height: 100%; ... ghost recipe }`. Content column (evidence/measurements-2026-11-24.md): `.document-text` = `$content-width: 916px` border-box, `padding: 0 16px` (edge-alignment DR-0002) -> content edges 278/1162 at 1440, 16/752 at 768, 16/374 at 390. The full-bleed bar is exactly viewport-aligned (margin-left calc(50% - 50vw) inside the centered 916px container), so an auto-centered row inside it lands on the same edges as the content column.
+
+## Requirements
+
+- `.cs-index`: restore `width: 100vw;` and `margin-left: calc(50% - 50vw);` and reword the block comment to DR-0005 (bar = viewport at every width; stuck bar matches the header edge-to-edge). Every other bar property unchanged: `position: sticky; top: 48px; z-index: 1; box-sizing: border-box; background-color: var(--cs-head-bg); border-bottom: 1px solid var(--cs-accent); padding: 0; height: auto; font-size: 14px; line-height: 20px;`.
+- `ul`: change `margin: 0` to `margin: 0 auto;` and add `width: calc(100% - 32px); max-width: calc(#{$content-width} - 32px);` (32px = 2 x the 16px `.text-box` padding). Keep `display: flex; align-items: stretch; justify-content: center; gap: 0; padding: 0; list-style: none; overflow-x: auto; white-space: nowrap;`.
+- `li` and `a.btn`: NO change (Ticket 2 row-level rules stand: `flex: 1 1 0; min-width: 0` on li; `width: 100%; justify-content: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; height: 100%` + ghost recipe on a.btn).
+- No renderer change (`title="<label>"` already shipped in Ticket 2).
+- `scripts/test/cs-nav.test.js` CSS-contract block: on the `.cs-index` region require the full-bleed pair again (`width:\s*100vw;` and `margin-left:\s*calc\(50% - 50vw\);`) and drop the no-`100vw` / no-`calc(50% - 50vw)` assertions; on the `ul` region require `margin:\s*0 auto;`, `width:\s*calc\(100% - 32px\);` and `max-width:\s*calc\(#\{\$content-width\} - 32px\);`; keep all Ticket 2 li/a.btn assertions and the `title=` mdToc assertions.
+
+## Design references
+
+- Hooks: `$content-width` (`src/_styles/utilities/_variables.scss:40`), `.text-box { padding: 0 16px }` (`_gallery.scss`, edge-alignment DR-0002). Principles: one content width site-wide (DR-0013); bar = chrome, full-bleed like the fixed header and hero cover; links = content, aligned to the column.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] Playwright 1440x900, 768x1024, 390x844 on all 5 pages at page top: `.cs-index` rect == 0..viewport (1440: 0/1440 w 1440; 768: 0/768; 390: 0/390); `ul` rect left/right == first `.cs-section h2` rect left/right within 0.5px (278/1162; 16/752; 16/374); all 5 anchors equal width within 0.5px (176.8px at 1440); row width (last.right - first.left) == ul width within 0.5px; consecutive links touch within 0.5px; anchor height == bar height - 1; bar height == 35 == `--cs-index-h`.
+- [ ] Gap cover->nav == 0 at 1440x900 and 390x844 via `/tmp/measure_gap.py` on the built site (localhost:8791).
+- [ ] After `scrollTo(0, 800)`: bar top == 48, `position: sticky`, bg == `nav.site-nav` bg, bar still full-bleed 0..viewport, ul still == content edges.
+- [ ] At 390: `scrollingElement.scrollWidth <= 390`; an anchor computes `text-overflow: ellipsis` + `overflow: hidden` and carries `title` == its label.
+- [ ] `npm test` green with the flipped/added source assertions; `npm run build` + release-guard exit 0; prettier `format:check` clean on edited files.
+- [ ] Captures regenerated: `evidence/cs-nav-v3-{page}-{1440,768,390}-{top,stuck}.png`.
+
+## Out of scope
+
+- Ticket 3 scroll-spy + active line, Ticket 4 full verification, Ticket 1 labels, any change to the li/a.btn row-level rules or the mdToc renderer.
+
+## Open questions
+
+- None blocking. The `32px` in the ul calc is 2 x 16px `.text-box` padding (edge-alignment DR-0002); if that padding ever becomes a variable, the calc should consume it.
