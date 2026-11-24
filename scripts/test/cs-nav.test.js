@@ -614,8 +614,56 @@ assert.ok(
   '_case-study.scss: .cs-nav-target scroll-margin-top = 48px + bar height (DR-0007)'
 );
 
+// ── 9. Ticket 3 (DR-0002 + DR-0008): scroll-spy + active line + underline ──
+assert.ok(
+  /--cs-index-active:\s*#fff;/.test(csScss),
+  '_case-study.scss: .case-study defines --cs-index-active (white default - the default bar bg is brand red, DR-0008)'
+);
+assert.ok(
+  /body\.cs-pink-page \.case-study,\s*body\.cs-black-page \.case-study,\s*body\.cs-teal-page \.case-study\s*\{[^}]*--cs-index-active:\s*#\{\$vb-primary\};/.test(
+    csScss
+  ),
+  '_case-study.scss: themed body classes override --cs-index-active to $vb-primary on .case-study (DR-0008)'
+);
+assert.ok(
+  /a\[aria-current='true'\]\s*\{[^}]*box-shadow:\s*inset 0 -3px 0 var\(--cs-index-active\);/.test(barRegion),
+  'cs-index a[aria-current]: 3px inset line in var(--cs-index-active) (DR-0002)'
+);
+assert.ok(
+  /a\[aria-current='true'\]\s*\{[^}]*text-decoration:\s*underline;/.test(barRegion),
+  'cs-index a[aria-current]: anchor underlined when its section is active (DR-0008)'
+);
+assert.ok(
+  !/a\[aria-current='true'\]\s*\{[^}]*text-decoration:\s*none;/.test(barRegion),
+  'cs-index a[aria-current]: must NOT disable the underline (DR-0008)'
+);
+var spyPath = path.join(SRC, '_scripts/cs-index.js');
+assert.ok(fs.existsSync(spyPath), 'src/_scripts/cs-index.js exists (scroll-spy, Ticket 3)');
+var spySrc = fs.readFileSync(spyPath, 'utf8');
+assert.ok(/IntersectionObserver/.test(spySrc), 'spy uses IntersectionObserver (no library)');
+assert.ok(
+  /\.cs-section, \.cs-nav-target/.test(spySrc),
+  'spy observes .cs-section AND .cs-nav-target (legacy pages, DR-0007)'
+);
+assert.ok(/--cs-index-h/.test(spySrc), 'spy reads --cs-index-h (single height source)');
+assert.ok(/aria-current/.test(spySrc), 'spy sets aria-current');
+var mainJs = fs.readFileSync(path.join(SRC, '_scripts/main.js'), 'utf8');
+assert.ok(/require\('\.\/cs-index'\)/.test(mainJs), 'main.js requires ./cs-index');
+assert.ok(/csIndex\.init\(\)/.test(mainJs), 'main.js boots csIndex.init()');
+// no nav markup leaks into non-case-study shells
+['index', 'about', 'resume', 'workflow', 'styleguide', 'play', 'play/blog/blog1'].forEach(function (p) {
+  var tpl = path.join(SRC, p + '/index.nunjucks');
+  if (!fs.existsSync(tpl)) tpl = path.join(SRC, p + '.nunjucks');
+  if (!fs.existsSync(tpl)) return;
+  assert.ok(
+    !/cs-index/.test(fs.readFileSync(tpl, 'utf8')),
+    p + ': no cs-index markup in non-case-study shells'
+  );
+});
+
 console.log(
   'cs-nav.test: PASS - v2/v3 nav config (all 5 pages exact condensed 5-link lists, 28-char label cap gate) + btn anchors with title + ' +
     'mdcover/mdherometa split (mdHero byte-identical) + template order + T2/T3 CSS contract + v3 full-bleed bar / container-width link row / space-between natural-width options / ellipsis contract (DR-0005/DR-0006) + ' +
-    'legacy case studies art-ent/climate-clock/steam-mobile with the same cs-index nav (DR-0007)'
+    'legacy case studies art-ent/climate-clock/steam-mobile with the same cs-index nav (DR-0007) + ' +
+    'Ticket 3 scroll-spy contract (cs-index.js, --cs-index-active token, active line + underline, DR-0008)'
 );

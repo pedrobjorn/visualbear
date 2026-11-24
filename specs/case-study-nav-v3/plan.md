@@ -62,7 +62,7 @@ H1: no destructive file operations (edits + new spec files only). H3: uncertaint
 - [x] Ticket 5 - full-bleed bar restored; `ul` link row constrained to the body content width and options spread to fill it (DR-0005) - DONE 2026-11-24 (evidence/t5-verify.md)
 - [x] Ticket 6 - natural-width options spread edge-to-edge in the container-width row (space-between, row = 916px container); labels condensed to simple terms like "Deepdive" (DR-0006) - DONE 2026-11-24 (evidence/t6-verify.md)
 - [x] Ticket 7 - same nav structure + decisions on the sectioned legacy case studies (art-ent, climate-clock, steam-mobile) (DR-0007) - DONE 2026-11-24 (evidence/t7-verify.md)
-- [ ] Ticket 3 - scroll-spy JS + red-line active state via `--cs-index-active` (DR-0002; lands parent case-study-nav Ticket 4)
+- [x] Ticket 3 - scroll-spy JS + active state = `--cs-index-active` line AND underline on all 8 case-study pages (DR-0002/DR-0008; lands parent case-study-nav Ticket 4) - DONE 2026-11-24 (evidence/t3-verify.md)
 - [ ] Ticket 4 - verify: tests, build + guards, Playwright 1440/768/390, review gates, captures
 
 ## Open questions
