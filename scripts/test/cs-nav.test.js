@@ -614,24 +614,21 @@ assert.ok(
   '_case-study.scss: .cs-nav-target scroll-margin-top = 48px + bar height (DR-0007)'
 );
 
-// ── 9. Ticket 3 (DR-0002 + DR-0008): scroll-spy + active line + underline ──
+// ── 9. Ticket 3 (DR-0002 + DR-0009): scroll-spy + active UNDERLINE only ──
+// DR-0009 (Pedro 2026-11-24: "just use the text underline, don't add a
+// random red line below the focused section") supersedes the line half of
+// DR-0008: the --cs-index-active token and its themed overrides are gone.
 assert.ok(
-  /--cs-index-active:\s*#fff;/.test(csScss),
-  '_case-study.scss: .case-study defines --cs-index-active (white default - the default bar bg is brand red, DR-0008)'
-);
-assert.ok(
-  /body\.cs-pink-page \.case-study,\s*body\.cs-black-page \.case-study,\s*body\.cs-teal-page \.case-study\s*\{[^}]*--cs-index-active:\s*#\{\$vb-primary\};/.test(
-    csScss
-  ),
-  '_case-study.scss: themed body classes override --cs-index-active to $vb-primary on .case-study (DR-0008)'
-);
-assert.ok(
-  /a\[aria-current='true'\]\s*\{[^}]*box-shadow:\s*inset 0 -3px 0 var\(--cs-index-active\);/.test(barRegion),
-  'cs-index a[aria-current]: 3px inset line in var(--cs-index-active) (DR-0002)'
+  !/--cs-index-active/.test(csScss),
+  '_case-study.scss: no --cs-index-active token anywhere (removed by DR-0009)'
 );
 assert.ok(
   /a\[aria-current='true'\]\s*\{[^}]*text-decoration:\s*underline;/.test(barRegion),
-  'cs-index a[aria-current]: anchor underlined when its section is active (DR-0008)'
+  'cs-index a[aria-current]: anchor underlined when its section is active (DR-0002/DR-0008/DR-0009)'
+);
+assert.ok(
+  !/a\[aria-current='true'\]\s*\{[^}]*box-shadow/.test(barRegion),
+  'cs-index a[aria-current]: NO inset line under the active anchor (DR-0009)'
 );
 assert.ok(
   !/a\[aria-current='true'\]\s*\{[^}]*text-decoration:\s*none;/.test(barRegion),
@@ -665,5 +662,5 @@ console.log(
   'cs-nav.test: PASS - v2/v3 nav config (all 5 pages exact condensed 5-link lists, 28-char label cap gate) + btn anchors with title + ' +
     'mdcover/mdherometa split (mdHero byte-identical) + template order + T2/T3 CSS contract + v3 full-bleed bar / container-width link row / space-between natural-width options / ellipsis contract (DR-0005/DR-0006) + ' +
     'legacy case studies art-ent/climate-clock/steam-mobile with the same cs-index nav (DR-0007) + ' +
-    'Ticket 3 scroll-spy contract (cs-index.js, --cs-index-active token, active line + underline, DR-0008)'
+    'Ticket 3 scroll-spy contract (cs-index.js, aria-current active = text underline only, no line, DR-0009)'
 );

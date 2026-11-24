@@ -85,35 +85,33 @@ v2 Ticket 1 built the `nav:` front-matter list (max 5, ids validated against `##
 
 ---
 
-# Ticket 3: Scroll-spy sets exactly one `aria-current="true"`; active state = 3px `--cs-index-active` line AND underlined anchor (DR-0002 amended by DR-0008)
+# Ticket 3: Scroll-spy sets exactly one `aria-current="true"`; active state = underlined anchor ONLY (DR-0002; DR-0008 amended by DR-0009 — the 3px line was reverted same day)
 
-- Part of: specs/case-study-nav-v3/plan.md (DR-0002 + DR-0008; lands parent specs/case-study-nav/tickets.md Ticket 4, currently TODO)
+- Part of: specs/case-study-nav-v3/plan.md (DR-0002 + DR-0008 as amended by DR-0009; lands parent specs/case-study-nav/tickets.md Ticket 4, currently TODO)
 - Depends on: Ticket 7
 - Size: M
 - Type: UI + system
 
 ## Context
 
-Measured 2026-11-24: 0 `aria-current` attributes at runtime on any page (even scrolled to a section); `build/scripts/main.js` has no aria-current code; the CSS rule `a[aria-current='true'] { text-decoration: underline; text-underline-offset: 4px }` (`_case-study.scss:223`) is dead. Parent Ticket 4 specified: vanilla IntersectionObserver, rootMargin `-48px 0px -<bar> 0px`, exactly one aria-current under the stuck bar, none above the first section, script only on case-study pages. Stuck bar occupies top 48..83 (48 header + 35 bar). Pedro 2026-11-24 on top of DR-0002: "also consider having the anchor underlined when in the section" - so active = 3px inset line in `--cs-index-active` AND underline (DR-0008). Scope is now 8 pages: the 5 md case-study shells plus the 3 legacy pages from Ticket 7 (DR-0007), whose sections are `.cs-nav-target` containers, not `.cs-section`.
+Measured 2026-11-24: 0 `aria-current` attributes at runtime on any page (even scrolled to a section); `build/scripts/main.js` has no aria-current code; the CSS rule `a[aria-current='true'] { text-decoration: underline; text-underline-offset: 4px }` (`_case-study.scss:223`) is dead. Parent Ticket 4 specified: vanilla IntersectionObserver, rootMargin `-48px 0px -<bar> 0px`, exactly one aria-current under the stuck bar, none above the first section, script only on case-study pages. Stuck bar occupies top 48..83 (48 header + 35 bar). Pedro 2026-11-24 on top of DR-0002: "also consider having the anchor underlined when in the section" - so active = underline (DR-0008), later amended by DR-0009 to underline ONLY after Pedro saw the shipped line ("don't add a random red line below the focused section"). Scope is now 8 pages: the 5 md case-study shells plus the 3 legacy pages from Ticket 7 (DR-0007), whose sections are `.cs-nav-target` containers, not `.cs-section`.
 
 ## Requirements
 
 - New scoped script `src/_scripts/cs-index.js`, booted from `src/_scripts/main.js` (one require + one init call, same pattern as tabs/lightbox/photoview; the module no-ops when no `.cs-index` exists, so blog/workflow/home pages never get aria-current): IntersectionObserver on `.case-study .cs-section, .case-study .cs-nav-target` with `rootMargin: -48px 0px -<barH>px 0px` where barH is read from the `.case-study` computed `--cs-index-h` (single height source). Track intersecting sections; when at least one intersects, set `aria-current="true"` on the matching `.cs-index a[href="#id"]` for the topmost intersecting section and remove it from all other links; when none intersect (hero zone), remove from all. No library, no animation. Also set aria-current immediately on anchor click for snappy feedback.
-- CSS token (DR-0008 placement): `.case-study { --cs-index-active: #fff; }` next to `--cs-accent` - the DEFAULT bar bg is brand red (`body` `--cs-head-bg` in nav.scss) and the un-themed pages are exactly the red-bar ones (digital-closet + the 3 legacy pages), so white is the safe default; beside the existing `body.cs-pink-page / cs-black-page / cs-teal-page { --cs-head-bg }` blocks add `body.cs-pink-page .case-study, body.cs-black-page .case-study, body.cs-teal-page .case-study { --cs-index-active: #{$vb-primary}; }` (red line on pink/black/teal).
-- `a[aria-current='true']` rule becomes: `box-shadow: inset 0 -3px 0 var(--cs-index-active); text-decoration: underline; text-underline-offset: 4px;` (line + underline per DR-0008; hover/focus keep the plain white underline, the line distinguishes active). Because the anchor is full bar height, the inset line sits flush on the bar's bottom border.
-- `scripts/test/cs-nav.test.js`: source assertions - `.case-study` defines `--cs-index-active`; the 3 themed `body.<class> .case-study` overrides set `#{$vb-primary}`; the aria-current rule uses `var(--cs-index-active)` + `inset 0 -3px` + `text-decoration: underline` (no `text-decoration: none` in that rule); `src/_scripts/cs-index.js` exists, is required by `main.js`, uses IntersectionObserver over `.cs-section, .cs-nav-target`, reads `--cs-index-h`; blog/workflow/home templates contain no `.cs-index`.
+- `a[aria-current='true']` rule = `text-decoration: underline; text-underline-offset: 4px;` ONLY - no `box-shadow`, and the `--cs-index-active` token + its 3 themed overrides are REMOVED entirely (DR-0009 reverted the DR-0008 line half after Pedro saw it shipped: "just use the text underline, don't add a random red line below the focused section"). Hover/focus/active now share the single underline recipe. The spy (`cs-index.js`) is unchanged.
+- `scripts/test/cs-nav.test.js`: source assertions - NO `--cs-index-active` anywhere in the scss; the aria-current rule has `text-decoration: underline` and NO `box-shadow` (and no `text-decoration: none`); `src/_scripts/cs-index.js` exists, is required by `main.js`, uses IntersectionObserver over `.cs-section, .cs-nav-target`, reads `--cs-index-h`; blog/workflow/home templates contain no `.cs-index`.
 
 ## Design references
 
-- Hooks used: IntersectionObserver pattern from parent Ticket 4 spec; token pattern `--cs-head-bg`/`--cs-accent` on `.case-study`. Principles applied: state must not rely on color alone (line + position, and keyboard focus keeps the white outline), single height variable (`--cs-index-h` feeds both scroll-margin and the spy's rootMargin), ghost stays ghost (line, not fill, per v2 DR-0005).
+- Hooks used: IntersectionObserver pattern from parent Ticket 4 spec; token pattern `--cs-head-bg`/`--cs-accent` on `.case-study`. Principles applied: state must not rely on color alone (underline is a text decoration, not color; keyboard focus keeps the white outline), single height variable (`--cs-index-h` feeds both scroll-margin and the spy's rootMargin), ghost stays ghost (underline, not fill/line, per v2 DR-0005 + DR-0009).
 
 ## Acceptance criteria (agent-checkable)
 
-- [ ] Playwright 1440x900, 768x1024, 390x844 on ALL 8 pages (5 md + art-ent, climate-clock, steam-mobile): scrolled into a mid-page section (e.g. `#discovery`) -> exactly one `.cs-index a[aria-current="true"]`, it is `a[href="#discovery"]`, computed `box-shadow` includes the `--cs-index-active` color, `text-decoration-line` is `underline`; scroll to top -> zero aria-current; clicking a nav link sets aria-current immediately.
-- [ ] Contrast/visibility: on digital-closet AND the 3 legacy pages (red bar) computed `--cs-index-active` resolves to #ffffff; on teachr / fashion-rebrand / sports-ecommerce-redesign / teachr-agent (teal/black/pink) to #d73735.
-- [ ] `npm test` green (new source assertions), `npm run build` + release-guard exit 0.
-- [ ] Captures: `evidence/cs-nav-v3-teachr-1440-active.png` + `evidence/cs-nav-v3-art-ent-1440-active.png` (scrolled mid-page, line + underline visible) + stuck captures.
-- [ ] prettier `format:check` clean on edited js/scss.
+- [x] Playwright 1440x900, 768x1024, 390x844 on ALL 8 pages (5 md + art-ent, climate-clock, steam-mobile): scrolled into a mid-page section (e.g. `#discovery`) -> exactly one `.cs-index a[aria-current="true"]`, it is `a[href="#discovery"]`, computed `text-decoration-line` is `underline` and computed `box-shadow` is `none` (DR-0009: no line); scroll to top -> zero aria-current; clicking a nav link sets aria-current immediately. DONE 2026-11-24 (evidence/t3-verify.md, t3b-verify.md).
+- [x] `npm test` green (source assertions updated by DR-0009), `npm run build` + release-guard exit 0. DONE 2026-11-24.
+- [x] Captures: `evidence/cs-nav-v3-teachr-1440-active.png` + `evidence/cs-nav-v3-art-ent-1440-active.png` + `t3b-*-active.png` (scrolled mid-page, underline only) + stuck captures.
+- [x] prettier `format:check` clean on edited js/scss.
 
 ## Out of scope
 
@@ -121,7 +119,7 @@ Measured 2026-11-24: 0 `aria-current` attributes at runtime on any page (even sc
 
 ## Open questions
 
-- None blocking - DR-0008 resolved the token default (white on the default red bar) and the underline addition.
+- None blocking - DR-0008 added the underline; DR-0009 then removed the line, leaving underline only.
 
 ---
 

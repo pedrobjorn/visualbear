@@ -32,12 +32,6 @@ $cs-indent: 28px;
   // Core color of the page theme; defaults to the design-system grey.
   // Themes (pink/black/teal) override it; bullets pick it up
   --cs-accent: #{$vb-grey};
-  // DR-0008: active nav line color. DEFAULT WHITE because the default bar
-  // bg is brand red (body --cs-head-bg in nav.scss) and the un-themed pages
-  // (digital-closet + the 3 legacy pages, DR-0007) are exactly the red-bar
-  // ones - red-on-red would be invisible. Themed pages override to
-  // $vb-primary below, beside their --cs-head-bg blocks.
-  --cs-index-active: #fff;
   // Deep accent for solid fills with white text (callout link pill);
   // #d0181e is the darker brand red used by .cs-tag — 5.5:1 with white
   --cs-accent-deep: #d0181e;
@@ -249,14 +243,12 @@ $cs-indent: 28px;
       }
     }
 
-    // DR-0002 + DR-0008: active section = 3px inset line in
-    // --cs-index-active AND underlined anchor text (Pedro 2026-11-24:
-    // "also consider having the anchor underlined when in the section").
-    // Hover/focus keep the plain white underline; the line is what
-    // distinguishes active. The anchor is full bar height, so the inset
-    // line sits flush on the bar's bottom border.
+    // DR-0009 (supersedes the line half of DR-0008; Pedro 2026-11-24:
+    // "fix the underline on scroll: just use the text underline, don't add
+    // a random red line below the focused section"): active section =
+    // underlined anchor text ONLY, the same recipe as hover/focus above.
+    // No painted line under the bar; the old line-color token is gone entirely.
     a[aria-current='true'] {
-      box-shadow: inset 0 -3px 0 var(--cs-index-active);
       text-decoration: underline;
       text-underline-offset: 4px;
     }
@@ -1418,16 +1410,6 @@ $cs-indent: 28px;
 // .cs-index bar can match the header exactly; nav.site-nav consumes the var.
 body.cs-pink-page {
   --cs-head-bg: #{$cs-pink-ground};
-}
-
-// DR-0008: red active line on the themed bars. The token default (white) is
-// declared on `.case-study` itself, so the overrides must also target
-// `.case-study` - a body-level declaration would lose to it (a direct
-// declaration beats an inherited value).
-body.cs-pink-page .case-study,
-body.cs-black-page .case-study,
-body.cs-teal-page .case-study {
-  --cs-index-active: #{$vb-primary};
 }
 
 // ==========================================================================
