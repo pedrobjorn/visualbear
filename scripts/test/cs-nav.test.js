@@ -69,34 +69,36 @@ var SECTION_COUNTS = {
 // v3 DR-0003: every case-study page now has an explicit condensed nav: list
 // (teachr's from v2, unchanged; the other four added in v3 Ticket 1). Labels
 // are capped at 28 chars by verify-page-md gate 1b (v3 DR-0004).
+// v3 DR-0006 (Ticket 6): labels condensed to single simple terms (e.g.
+// teachr's "Deepdive") so natural-width buttons are never cut off
 var PAGE_NAV = {
   'fashion-rebrand': [
     ['Context', 'context'],
     ['Deep-Dive', 'deep-dive'],
     ['Process', 'process'],
     ['Outcomes', 'outcomes'],
-    ['Future & Learnings', 'future']
+    ['Future', 'future']
   ],
   'sports-ecommerce-redesign': [
     ['Problems', 'definition'],
-    ['Brand & Process', 'exploration'],
-    ['Site Redesign', 'site-redesign'],
+    ['Process', 'exploration'],
+    ['Redesign', 'site-redesign'],
     ['Rollout', 'site-delivery'],
     ['Outcome', 'site-outcome']
   ],
   'digital-closet': [
     ['Problem', 'definition'],
     ['Research', 'research'],
-    ['Flows & Validation', 'discovery'],
-    ['Design System', 'delivery'],
+    ['Flows', 'discovery'],
+    ['Design', 'delivery'],
     ['Outcome', 'outcome']
   ],
   teachr: [
     ['Outcomes', 'outcomes'],
     ['Context', 'process'],
-    ['Discovery & Validation', 'discovery'],
-    ['Design & Delivery', 'decisions'],
-    ['Deepdive: Teachr Assistant', 'assistant']
+    ['Discovery', 'discovery'],
+    ['Design', 'decisions'],
+    ['Deepdive', 'assistant']
   ],
   'teachr-agent': [
     ['Outcomes', 'outcomes'],
@@ -367,10 +369,11 @@ SLUGS.forEach(function (slug) {
 // ── 7. T2/T3 CSS contract (specs/case-study-nav tickets 2-3, DR-0001) ─────
 // Asserted on the sources; runtime behavior (stuck at 48px, bg match, jump
 // offsets) is measured by Playwright in the verify ticket.
-// v3 Tickets 2/5 (DR-0001 row level + DR-0005 bar level): .cs-index stays
-// full-bleed (100vw + calc(50% - 50vw)); the ul link row is the content-width
-// element (width calc(100% - 32px), max-width calc($content-width - 32px),
-// margin 0 auto); li flex 1 1 0 + min-width 0; a.btn width 100% +
+// v3 Tickets 5/6 (DR-0005 bar level + DR-0006 button level): .cs-index stays
+// full-bleed (100vw + calc(50% - 50vw)); the ul link row is limited to the
+// content container width (width 916px = $content-width, max-width 100%,
+// margin 0 auto) with justify-content space-between; li keeps natural width
+// (no flex grow / min-width 0); a.btn has no width 100% but keeps
 // justify-content center + overflow hidden + text-overflow ellipsis.
 var navScss = fs.readFileSync(
   path.join(__dirname, '../../src/_modules/molecules/nav/nav.scss'),
@@ -433,12 +436,16 @@ assert.ok(
   'cs-index ul: margin 0 auto (link row centered in the full-bleed bar, DR-0005)'
 );
 assert.ok(
-  /ul\s*\{[^}]*width:\s*calc\(100% - 32px\);/.test(barRegion),
-  'cs-index ul: width calc(100% - 32px) (viewport minus 2x16px text-box padding, DR-0005)'
+  /ul\s*\{[^}]*width:\s*916px;/.test(barRegion),
+  'cs-index ul: width 916px = $content-width, the content container border box (DR-0006)'
 );
 assert.ok(
-  /ul\s*\{[^}]*max-width:\s*calc\(#\{\$content-width\} - 32px\);/.test(barRegion),
-  'cs-index ul: max-width calc($content-width - 32px) (row = body content width, DR-0005)'
+  /ul\s*\{[^}]*max-width:\s*100%;/.test(barRegion),
+  'cs-index ul: max-width 100% (below 900 the container is full-width, DR-0006)'
+);
+assert.ok(
+  /ul\s*\{[^}]*justify-content:\s*space-between;/.test(barRegion),
+  'cs-index ul: justify-content space-between (leftmost/rightmost options touch the row edges, DR-0006)'
 );
 assert.ok(
   /overflow-x:\s*auto;/.test(barRegion),
@@ -460,31 +467,31 @@ assert.ok(
 );
 assert.ok(/ul\s*\{[^}]*gap:\s*0;/.test(barRegion), 'cs-index ul: gap 0 (buttons touch, DR-0005)');
 assert.ok(
-  /ul\s*\{[^}]*justify-content:\s*center;/.test(barRegion),
-  'cs-index ul: justify-content center (group centered, DR-0005)'
+  !/ul\s*\{[^}]*justify-content:\s*center;/.test(barRegion),
+  'cs-index ul: justify-content is space-between, not center (DR-0006)'
 );
 assert.ok(
   /li\s*\{[^}]*display:\s*flex;/.test(barRegion),
   'cs-index li: display flex (kills Materialize nav ul li float)'
 );
-// v3 DR-0001/DR-0005 (Tickets 2/5): options expand to equal widths filling
-// the content-width link row; the anchor fills its li, centers its label,
-// and ellipsizes over-long text
+// v3 DR-0006 (Ticket 6): options keep their NATURAL width - no forced equal
+// fill that would cut labels off; the anchor keeps its label centered and the
+// ellipsis trio as a no-op safety edge
 assert.ok(
-  /li\s*\{[^}]*flex:\s*1 1 0;/.test(barRegion),
-  'cs-index li: flex 1 1 0 (equal-width options fill the content-width link row, DR-0005)'
+  !/li\s*\{[^}]*flex:\s*1 1 0;/.test(barRegion),
+  'cs-index li: NO flex 1 1 0 (natural-width options, DR-0006)'
 );
 assert.ok(
-  /li\s*\{[^}]*min-width:\s*0;/.test(barRegion),
-  'cs-index li: min-width 0 (shrink below min-content so the anchor can ellipsize)'
+  !/li\s*\{[^}]*min-width:\s*0;/.test(barRegion),
+  'cs-index li: NO min-width 0 (a button is never narrower than its label, DR-0006)'
 );
 assert.ok(
-  /a\.btn\s*\{[^}]*width:\s*100%;/.test(barRegion),
-  'cs-index a.btn: width 100% (anchor fills its li share of the link row, DR-0001/DR-0005)'
+  !/a\.btn\s*\{[^}]*width:\s*100%;/.test(barRegion),
+  'cs-index a.btn: NO width 100% (natural width, not cut off, DR-0006)'
 );
 assert.ok(
   /a\.btn\s*\{[^}]*justify-content:\s*center;/.test(barRegion),
-  'cs-index a.btn: justify-content center (label centered in the expanded button)'
+  'cs-index a.btn: justify-content center (label centered in its natural-width button)'
 );
 assert.ok(
   /a\.btn\s*\{[^}]*overflow:\s*hidden;/.test(barRegion),
@@ -543,5 +550,5 @@ assert.ok(
 
 console.log(
   'cs-nav.test: PASS - v2/v3 nav config (all 5 pages exact condensed 5-link lists, 28-char label cap gate) + btn anchors with title + ' +
-    'mdcover/mdherometa split (mdHero byte-identical) + template order + T2/T3 CSS contract + v3 full-bleed bar / content-width link row / equal-fill / ellipsis contract (DR-0005)'
+    'mdcover/mdherometa split (mdHero byte-identical) + template order + T2/T3 CSS contract + v3 full-bleed bar / container-width link row / space-between natural-width options / ellipsis contract (DR-0005/DR-0006)'
 );

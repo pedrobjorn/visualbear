@@ -88,7 +88,7 @@ v2 Ticket 1 built the `nav:` front-matter list (max 5, ids validated against `##
 # Ticket 3: Scroll-spy sets exactly one `aria-current="true"`; active state = 3px `--cs-index-active` red line
 
 - Part of: specs/case-study-nav-v3/plan.md (DR-0002; lands parent specs/case-study-nav/tickets.md Ticket 4, currently TODO)
-- Depends on: Ticket 5
+- Depends on: Ticket 6
 - Size: M
 - Type: UI + system
 
@@ -128,7 +128,7 @@ Measured 2026-11-24: 0 `aria-current` attributes at runtime on any page (even sc
 # Ticket 4: End-to-end verification
 
 - Part of: specs/case-study-nav-v3/plan.md
-- Depends on: Tickets 1, 3, 5
+- Depends on: Tickets 1, 3, 5, 6
 - Size: S
 - Type: research
 
@@ -193,3 +193,41 @@ Pedro 2026-11-24: "The menu was correct before, it should be full width. The LIN
 ## Open questions
 
 - None blocking. The `32px` in the ul calc is 2 x 16px `.text-box` padding (edge-alignment DR-0002); if that padding ever becomes a variable, the calc should consume it.
+
+---
+
+# Ticket 6: Natural-width options spread edge-to-edge in the content-width row; labels condensed to simple terms (DR-0006)
+
+- Part of: specs/case-study-nav-v3/plan.md (DR-0006; supersedes the equal-fill reading of DR-0001/DR-0005 at button level)
+- Depends on: Ticket 6
+- Size: M
+- Type: UI + copy
+
+## Context
+
+Pedro 2026-11-24: "adapt the buttons inside cs-index to be better organised: left most and right most options touch the edges. Don't cut off the button widths. instead just use simple terms like Deepdive, etc". On the Ticket 5 build the equal-fill buttons clip labels mid-word at 1440 and collapse at 390 (evidence/t5-verify.md captures). Bar/row level stays as DR-0005 shipped: full-bleed bar, `ul` row constrained to the content width.
+
+## Requirements
+
+- Copy (drafts -> page mds): new `Nav:` labels - fashion-rebrand: Context, Deep-Dive, Process, Outcomes, Future; sports-ecommerce-redesign: Problems, Process, Redesign, Rollout, Outcome; digital-closet: Problem, Research, Flows, Design, Outcome; teachr: Outcomes, Context, Discovery, Design, Deepdive; teachr-agent: unchanged (Outcomes, Process, Problem, Research, Discovery). Edit the `Nav: Label | id` head lines in `src/_data/drafts/<slug>.txt` (ids unchanged), regenerate the 4 page mds via `node specs/text-to-md/tools/draft-to-md.js <draft> <slug>`, round-trip byte-identical (md-to-draft back to the draft minus note lines), `verify-page-md.sh` PASS on all 5 pages, goldens PASS.
+- CSS (`_case-study.scss` `.cs-index`): `ul` gets `justify-content: space-between` (replaces `center`) and `width: 916px; max-width: 100%;` (the content container border box = `$content-width`, Pedro's edit; below 900 the container is full-width); `li` back to plain `display: flex` - remove `flex: 1 1 0` and `min-width: 0`; `a.btn` removes `width: 100%` (keep `display: flex; align-items: center; justify-content: center`, the `overflow: hidden; text-overflow: ellipsis; white-space: nowrap` safety trio, `height: 100%`, ghost recipe). `ul` keeps `gap: 0; margin: 0 auto; padding: 0; overflow-x: auto; white-space: nowrap`. Bar block unchanged (full-bleed, sticky top 48, z-index 1, `--cs-head-bg`, 35px).
+- `scripts/test/cs-nav.test.js`: `PAGE_NAV` updated to the new label lists; CSS contract - ul requires `justify-content: space-between`, `width: 916px`, `max-width: 100%`; li must NOT contain `flex: 1 1 0` or `min-width: 0`; a.btn must NOT contain `width: 100%`; ellipsis/`title=`/full-bleed assertions stay.
+
+## Design references
+
+- Hooks: `mdToc` + `splitFrontmatter`, text-to-md tools (`draft-to-md.js`, `md-to-draft.js`, `verify-page-md.js`), `$content-width` / `.text-box` 16px padding. Principles: bounded authoring vocabulary (verify-page-md pattern), one content width (DR-0013), no blast radius (teachr-agent list untouched; bar mechanics untouched).
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] `npm test` green with the new `PAGE_NAV` lists and flipped CSS assertions; text-to-md goldens PASS; `verify-page-md` passes all 5 page mds.
+- [ ] `npm run build` exit 0 + release-guard OK; prettier `format:check` clean on edited files.
+- [ ] Playwright 1440x900, 768x1024, 390x844 on all 5 pages: ul left/right == `.document-text` border-box left/right within 0.5px (262/1178 at 1440, 0/768 at 768, 0/390 at 390); at 1440/768 first anchor left == ul left and last anchor right == ul right within 0.5px (edge options touch the edges); no anchor clipped at any width (each anchor scrollWidth <= clientWidth + 1); at 390 page scrollWidth <= 390 and first anchor flush left; li computed flex-grow == 0; bar full-bleed 0..viewport; gap cover->nav == 0 (measure_gap.py); stuck top 48 + header-matched bg; bar height 35.
+- [ ] Captures regenerated `evidence/cs-nav-v3-{page}-{1440,768,390}-{top,stuck}.png`; evidence/t6-verify.md records results.
+
+## Out of scope
+
+- Ticket 3 spy/active line, Ticket 4 full verification, bar or row width changes, header/hero changes.
+
+## Open questions
+
+- Exact final labels per page - owner Pedro; defaults above (single simple terms, ids unchanged).

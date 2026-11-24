@@ -166,28 +166,29 @@ $cs-indent: 28px;
     ul {
       display: flex;
       align-items: stretch;
-      justify-content: center; // no-op once the row fills its width (kept, harmless)
-      gap: 0; // buttons touch each other (DR-0005)
+      // DR-0006: natural-width options spread edge-to-edge in the row - the
+      // leftmost option touches the left edge, the rightmost the right edge
+      justify-content: space-between;
+      gap: 0;
       margin: 0 auto;
       padding: 0;
       list-style: none;
-      // DR-0005: the LINK ROW is the content-width element, centered in the
-      // full-bleed bar - its edges equal the .cs-section content edges at
-      // every viewport (278/1162 at 1440, 16/752 at 768, 16/374 at 390).
-      // 32px = 2 x the 16px .text-box padding (edge-alignment DR-0002);
-      // $content-width is the .document-text border box (_variables.scss:40)
-      width: calc(100% - 32px);
-      max-width: calc(#{$content-width} - 32px);
-      // fallback strip only: with equal-fill buttons the row overflows only
-      // if a single label's min-content exceeds its share (v3 DR-0001)
+      max-width: 100%;
+      // DR-0005/DR-0006: the LINK ROW is limited to the content container's
+      // width (916px = $content-width, the .document-text border box,
+      // _variables.scss:40), centered in the full-bleed bar - its edges equal
+      // the container edges at every viewport (262/1178 at 1440; full width
+      // below 900 where the container itself is full-width via max-width 100%)
+      width: 916px;
+      // fallback strip when the natural-width row overflows (390)
       overflow-x: auto;
       white-space: nowrap;
     }
 
     li {
       display: flex; // the ul is flex, so this also neutralizes Materialize's nav ul li float
-      flex: 1 1 0; // DR-0001/DR-0005: max 5 options expand to equal widths filling the row
-      min-width: 0; // allow shrinking below min-content so the anchor can ellipsize
+      // DR-0006: natural width - no flex grow, no min-width 0 - a button is
+      // never narrower than its label, so no label is cut off
     }
 
     // Ghost button at 2/3 size, full bar height (DR-0003 + DR-0005): the one
@@ -199,11 +200,10 @@ $cs-indent: 28px;
     a.btn {
       display: flex;
       align-items: center;
-      justify-content: center; // label centers in the expanded button (DR-0001)
-      width: 100%; // fill the li's equal share of the link row (DR-0001/DR-0005)
-      // overflow edge (DR-0001): an over-long label clips with an ellipsis
-      // instead of overflowing its share (full label stays available via the
-      // title attribute mdToc emits)
+      justify-content: center; // label centers in its natural-width button
+      // DR-0006: no width 100% - the button keeps its natural width (never cut
+      // off); the trio below stays only as a no-op safety edge, and the full
+      // label is always available via the title attribute mdToc emits
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;

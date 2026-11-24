@@ -49,9 +49,9 @@ Footnote: * 2026 October vs Previous Year October · ** Due to poor benchmark da
 Takeaway: Notable improvements to registration and learning, delivery speed and iteration - and more contracts secured.
 Nav: Outcomes | outcomes
 Nav: Context | process
-Nav: Discovery & Validation | discovery
-Nav: Design & Delivery | decisions
-Nav: Deepdive: Teachr Assistant | assistant
+Nav: Discovery | discovery
+Nav: Design | decisions
+Nav: Deepdive | assistant
 
 ## Outcomes & Impact | Outcomes & Impact | outcomes
 

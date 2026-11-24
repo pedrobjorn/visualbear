@@ -23,11 +23,11 @@ nav:
     id: "outcomes"
   - label: "Context"
     id: "process"
-  - label: "Discovery & Validation"
+  - label: "Discovery"
     id: "discovery"
-  - label: "Design & Delivery"
+  - label: "Design"
     id: "decisions"
-  - label: "Deepdive: Teachr Assistant"
+  - label: "Deepdive"
     id: "assistant"
 ---
 

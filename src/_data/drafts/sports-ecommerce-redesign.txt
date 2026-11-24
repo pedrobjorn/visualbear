@@ -29,8 +29,8 @@ Metrics: 15% | customer return rate ↑
 Metrics: #1 | Sports Site of the Year
 Takeaway: Increased Customer Return Rate by 15%, improved SEO and usability, and we won more awards that year for Sports Site of the Year and customers loved the changes, commenting positively on social media.
 Nav: Problems | definition
-Nav: Brand & Process | exploration
-Nav: Site Redesign | site-redesign
+Nav: Process | exploration
+Nav: Redesign | site-redesign
 Nav: Rollout | site-delivery
 Nav: Outcome | site-outcome
 

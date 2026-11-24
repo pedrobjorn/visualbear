@@ -16,9 +16,9 @@ hero:
 nav:
   - label: "Problems"
     id: "definition"
-  - label: "Brand & Process"
+  - label: "Process"
     id: "exploration"
-  - label: "Site Redesign"
+  - label: "Redesign"
     id: "site-redesign"
   - label: "Rollout"
     id: "site-delivery"

@@ -34,7 +34,7 @@ Nav: Context | context
 Nav: Deep-Dive | deep-dive
 Nav: Process | process
 Nav: Outcomes | outcomes
-Nav: Future & Learnings | future
+Nav: Future | future
 
 
 

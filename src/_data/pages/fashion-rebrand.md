@@ -24,7 +24,7 @@ nav:
     id: "process"
   - label: "Outcomes"
     id: "outcomes"
-  - label: "Future & Learnings"
+  - label: "Future"
     id: "future"
 ---
 
