@@ -88,7 +88,7 @@ v2 Ticket 1 built the `nav:` front-matter list (max 5, ids validated against `##
 # Ticket 3: Scroll-spy sets exactly one `aria-current="true"`; active state = 3px `--cs-index-active` red line
 
 - Part of: specs/case-study-nav-v3/plan.md (DR-0002; lands parent specs/case-study-nav/tickets.md Ticket 4, currently TODO)
-- Depends on: Ticket 6
+- Depends on: Ticket 7
 - Size: M
 - Type: UI + system
 
@@ -128,7 +128,7 @@ Measured 2026-11-24: 0 `aria-current` attributes at runtime on any page (even sc
 # Ticket 4: End-to-end verification
 
 - Part of: specs/case-study-nav-v3/plan.md
-- Depends on: Tickets 1, 3, 5, 6
+- Depends on: Tickets 1, 3, 5, 6, 7
 - Size: S
 - Type: research
 
@@ -199,7 +199,7 @@ Pedro 2026-11-24: "The menu was correct before, it should be full width. The LIN
 # Ticket 6: Natural-width options spread edge-to-edge in the content-width row; labels condensed to simple terms (DR-0006)
 
 - Part of: specs/case-study-nav-v3/plan.md (DR-0006; supersedes the equal-fill reading of DR-0001/DR-0005 at button level)
-- Depends on: Ticket 6
+- Depends on: Ticket 7
 - Size: M
 - Type: UI + copy
 
@@ -231,3 +231,47 @@ Pedro 2026-11-24: "adapt the buttons inside cs-index to be better organised: lef
 ## Open questions
 
 - Exact final labels per page - owner Pedro; defaults above (single simple terms, ids unchanged).
+
+---
+
+# Ticket 7: Extend the cs-index section nav to the sectioned legacy case studies (art-ent, climate-clock, steam-mobile) (DR-0007)
+
+- Part of: specs/case-study-nav-v3/plan.md (DR-0007; applies DR-0005 + DR-0006)
+- Depends on: Ticket 7
+- Size: M
+- Type: UI + system
+
+## Context
+
+The five md case studies share the nav via the `.case-study` shell + `mdtoc`. The legacy hardcoded pages art-ent, climate-clock, steam-mobile have section structure (adhops / projectile-lynx have none - out of scope, confirmed with Pedro). All `.case-study` styles target `.cs-*` classes except a bare `h1 { margin: 0 }`, which must be re-scoped under `.cs-hero` so legacy hero h1s (headline molecule) are untouched. Full md migration of these pages is the phase-4 backlog (specs/md-case-study-editor) - NOT this ticket; the nav markup is hardcoded but byte-format identical to mdToc's output so migration can drop in later.
+
+## Requirements
+
+- Templates `src/{art-ent,climate-clock,steam-mobile}/index.nunjucks`:
+  - `<article>` gains the `case-study` class (e.g. `class="section section-top-padding case-study"`).
+  - Insert the nav directly after the hero, before the first content block: `<nav class="cs-index" aria-label="Case study sections"><ul><li><a class="btn" href="#id" title="Label">Label</a></li>...</ul></nav>` (no whitespace between tags, same as mdToc).
+  - Nav lists (simple terms, max 5): art-ent = Discover#discovery, Define#definition, Iterate#iteration, Implement#implementation, Conclusion#conclusion; climate-clock = Overview#definition, Branding#iteration, Site#site, Display#display, Lessons#lessons; steam-mobile = Process#process, Research#research, Identity#identity, Results#results, Lessons#lessons.
+  - Add the missing target ids and the `cs-nav-target` class on each target container: art-ent conclusion container; climate-clock site/display/lessons containers (leave the duplicate id="iteration" block alone - not a target); steam-mobile process/research/visual/results/lessons containers. Existing ids (discovery, definition, iteration, implementation on art-ent; definition, iteration on climate-clock) also get `cs-nav-target` added to their class list.
+- `_case-study.scss`:
+  - Move the bare `h1 { margin: 0; }` (ticket 44 comment) from `.case-study` level into the `.cs-hero` block, so the selector becomes `.case-study .cs-hero h1` - the 5 md pages are unaffected (their h1 is in `.cs-hero`), legacy hero h1s keep their margins.
+  - Add inside `.case-study`, next to `.cs-section`: `.cs-nav-target { scroll-margin-top: calc(48px + var(--cs-index-h, 40px)); }`.
+  - Nothing else changes - the `.cs-index` block (full-bleed bar, 916px/max-100% space-between row, natural-width buttons, ellipsis+title) applies via the article class as-is.
+- `scripts/test/cs-nav.test.js`: new legacy block - for each of the 3 pages assert the article has `case-study`, the template contains the exact `<nav class="cs-index"...>` markup with the exact label|id list in order, the nav sits after the headline macro call, every target id exists in the template and its container carries `cs-nav-target`; scss assertions: no bare 2-space `h1 {` selector remains in \_case-study.scss, `.cs-nav-target` scroll-margin rule exists under `.case-study`, `.cs-hero` contains the `h1` rule.
+
+## Design references
+
+- Hooks: `.case-study` scoping pattern (all styles under one class, "to avoid leaking" - file header), `mdToc` markup format, `--cs-index-h` single height variable. Principles: no blast radius (legacy pages' other styles untouched - only `.cs-index` + vars activate), same structure everywhere.
+
+## Acceptance criteria (agent-checkable)
+
+- [ ] `npm test` green incl. the new legacy block; `npm run build` + release-guard exit 0; prettier `format:check` clean on edited files.
+- [ ] Playwright 1440x900, 768x1024, 390x844 on art-ent, climate-clock, steam-mobile: bar rect == 0..viewport; ul == 916px centered (262/1178 at 1440; 0/768; 0/390); at 1440/768 first anchor left == ul left and last anchor right == ul right within 0.5px; no anchor clipped at any width (scrollWidth <= clientWidth + 1); li computed flex-grow == 0; bar height 35 == `--cs-index-h`; nav is the hero's next sibling (no elements between); after scrollTo(0, 800) bar top == 48, sticky, bg == `nav.site-nav` bg; clicking each nav link lands the target at rect top >= 83 within 1px (48 + 35); page scrollWidth <= viewport at 390; legacy page hero h1 computed margin unchanged vs before (margin-top/bottom as pre-change).
+- [ ] Captures `evidence/cs-nav-v3-{art-ent,climate-clock,steam-mobile}-{1440,768,390}-{top,stuck}.png`; evidence/t7-verify.md.
+
+## Out of scope
+
+- adhops / projectile-lynx (no sections - confirmed with Pedro), full md migration of legacy pages (phase-4 backlog), Ticket 3 spy/active line, Ticket 4 full verification, any restyle of legacy page content.
+
+## Open questions
+
+- Final labels per legacy page - owner Pedro; defaults above (single simple terms).

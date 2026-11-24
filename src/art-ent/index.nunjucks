@@ -7,10 +7,13 @@
 {% endblock %}
 {% block content %}
 
-    <article class="section section-top-padding" id="artent_container">
+    <article class="section section-top-padding case-study" id="artent_container">
         <section class="gallery-container">
 
             {{headline.content({content:site.data.project_artent})}}
+
+            <!-- 02 SECTION NAV, same structure as mdToc output (case-study-nav-v3 DR-0007) -->
+            <nav class="cs-index" aria-label="Case study sections"><ul><li><a class="btn" href="#discovery" title="Discover">Discover</a></li><li><a class="btn" href="#definition" title="Define">Define</a></li><li><a class="btn" href="#iteration" title="Iterate">Iterate</a></li><li><a class="btn" href="#implementation" title="Implement">Implement</a></li><li><a class="btn" href="#conclusion" title="Conclusion">Conclusion</a></li></ul></nav>
 
             <!-- PROCESS -->
             <div class="container--padded dark-bg">
@@ -42,7 +45,7 @@
             </div>
 
             <!-- DISCOVER -->
-            <div class="container--padded" id="discovery">
+            <div class="container--padded cs-nav-target" id="discovery">
                 <div class="document-text text-box">
                     <h2 class="center-justified">Discover</h2>
                     
@@ -111,7 +114,7 @@
             </div>
 
             <!-- DEFINE -->
-            <div class="container--padded light-bg" id="definition">
+            <div class="container--padded light-bg cs-nav-target" id="definition">
                 <div class="document-text text-box">
                     <h2 class="center-justified">Define</h2>
                     <p>With some research done and the problem identified, we proceed to explore solutions, starting off with brainstorming ideas, feelings and experiences.</p>
@@ -218,7 +221,7 @@
                     </div>
                 </div>
             </div>
-             <div class="container--unpadded light-bg" id="iteration">
+             <div class="container--unpadded light-bg cs-nav-target" id="iteration">
                 <div class="document-text text-box">
                     <h2 class="center-justified">Iterate</h2>
                     <div class="paragraph-container">
@@ -298,7 +301,7 @@
                 </div>
             </div>
             <!-- IMPLEMENT -->
-            <div class="container--padded" id="implementation">
+            <div class="container--padded cs-nav-target" id="implementation">
                 <div class="document-text text-box">
                     <h2 class="center-justified">Implement</h2>
                     <p>Although this is the last chapter in this case study, we actually began with the development very early on in the process. We applied all the structural changes directly to code since we were so far in the development.</p>
@@ -473,7 +476,7 @@
                     <img alt="Art-Ent — Bottom image" src="../images/work/fullsize/artent/details/bottom-image.jpg" title="Image"  width="100%" height="100%">
                 </div>
             </div>
-            <div class="container--padded">
+            <div class="container--padded cs-nav-target" id="conclusion">
                 <div class="document-text text-box">
 
                     <h3  class="center-justified">Lessons Learnt</h3>

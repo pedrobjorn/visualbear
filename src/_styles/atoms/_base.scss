@@ -56,7 +56,16 @@ html {
 #discovery,
 #definition,
 #iteration,
-#implementation {
+#implementation,
+// case-study-nav-v3 DR-0007: legacy case-study nav targets
+#process,
+#research,
+#identity,
+#results,
+#lessons,
+#site,
+#display,
+#conclusion {
   scroll-margin-top: 48px; // the fixed nav's height
 }
 

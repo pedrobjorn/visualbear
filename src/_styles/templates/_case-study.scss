@@ -57,6 +57,12 @@ $cs-indent: 28px;
     // side inset via their full-bleed scope; meta overrides below
     padding: 64px 0;
 
+    h1 {
+      // ticket 44: the summary's mt 24 owns the title→summary gap
+      // (DR-0007: scoped here so legacy pages' headline-molecule h1 is untouched)
+      margin: 0;
+    }
+
     // an h2 in a hero is a secondary hero's title (second case study on
     // one page); it keeps the h1 look so only the tag changes
     h2 {
@@ -93,10 +99,10 @@ $cs-indent: 28px;
     margin: 0 0 16px;
   }
 
-  h1 {
-    // ticket 44: the summary's mt 24 owns the title→summary gap
-    margin: 0;
-  }
+  // DR-0007: no bare `.case-study h1` here - legacy case-study pages (art-ent,
+  // climate-clock, steam-mobile) carry the class but their hero h1 lives in the
+  // headline molecule, not in a .cs-hero; the margin rule moved into .cs-hero
+  // so only real case-study covers are affected.
 
   .cs-subtitle {
     font-size: $base-h3-size;
@@ -246,6 +252,13 @@ $cs-indent: 28px;
   // ------------------------------------------------------------------
   // Sections — left-aligned editorial headers with an orange kicker
   // ------------------------------------------------------------------
+  // DR-0007: legacy case-study pages (art-ent, climate-clock, steam-mobile)
+  // graft the cs-index nav onto their existing section containers; these get
+  // the same landing offset as .cs-section so TOC jumps clear the stuck bar
+  .cs-nav-target {
+    scroll-margin-top: calc(48px + var(--cs-index-h, 40px));
+  }
+
   .cs-section {
     padding: 64px 0;
     // T3: TOC jumps land below the fixed nav AND the stuck bar
@@ -1320,6 +1333,15 @@ $cs-indent: 28px;
 #digital_closet_container .cs-section,
 #teachr_container .cs-section,
 #teachr_agent_container .cs-section {
+  scroll-margin-top: calc(48px + var(--cs-index-h, 40px));
+}
+
+// DR-0007: same ID-level override for the legacy case-study pages' nav
+// targets (.cs-nav-target), so the stuck bar's height is always added there
+// too (their targets are plain containers, not .cs-section)
+#artent_container .cs-nav-target,
+#climateclock_container .cs-nav-target,
+#steammobile_container .cs-nav-target {
   scroll-margin-top: calc(48px + var(--cs-index-h, 40px));
 }
 

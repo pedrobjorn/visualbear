@@ -5,16 +5,18 @@
     {% set baseUrl = "../" %}
 {% endblock %}
 {% block content %}
-    <article class="section section-top-padding" id="climateclock_container">
+    <article class="section section-top-padding case-study" id="climateclock_container">
         <section class="gallery-container">
             <div class="black-bg">
-                
+
                 {{headline.content({content:site.data.project_climateclock})}}
-                
+
                 <img alt="Climate Clock — Ice pattern" src="../images/work/fullsize/climateclock/details/ice_pattern.png" title="Icecaps melting"  width="100%" height="100%" style="margin-bottom:-12px">
             </div>
+            <!-- 02 SECTION NAV, same structure as mdToc output (case-study-nav-v3 DR-0007) -->
+            <nav class="cs-index" aria-label="Case study sections"><ul><li><a class="btn" href="#definition" title="Overview">Overview</a></li><li><a class="btn" href="#iteration" title="Branding">Branding</a></li><li><a class="btn" href="#site" title="Site">Site</a></li><li><a class="btn" href="#display" title="Display">Display</a></li><li><a class="btn" href="#lessons" title="Lessons">Lessons</a></li></ul></nav>
             <!-- OVERVIEW -->
-            <div class="container" id="definition">
+            <div class="container cs-nav-target" id="definition">
                 <div class="document-text text-box">
                     <h2 class="center-justified">Overview</h2>
                     <div class="paragraph-container">
@@ -39,7 +41,7 @@
                 <img alt="Climate Clock — Mobile index splash" src="../images/work/fullsize/climateclock/details/mobile-index-splash.png" title="Image"  width="100%" height="100%">
             </div>
             <!-- BRANDING -->
-            <div class="container dark-bg" id="iteration">
+            <div class="container dark-bg cs-nav-target" id="iteration">
                 <div class="document-text text-box">
                     <h2 class="center-justified">Branding &amp; Visual Identity</h2>
                     <div class="paragraph-container">
@@ -87,7 +89,7 @@
             <div class="black-bg">
                 <img alt="Climate Clock — Ice image" src="../images/work/fullsize/climateclock/details/ice_image.png" title="Icecaps melting"  width="100%" height="100%" style="margin-bottom:-9px;">
             </div>
-            <div class="container--padded">
+            <div class="container--padded cs-nav-target" id="site">
                 <div class="document-text text-box">
                     
                     <h2 class="center-justified">The site</h2>
@@ -186,7 +188,7 @@
 
                 </div>
             </div>
-            <div class="container--padded">
+            <div class="container--padded cs-nav-target" id="display">
                 <div class="document-text text-box">
                     <div class="gallery-image">
                         <h2 class="center-justified">Display / App</h2>
@@ -301,7 +303,7 @@
             <div class="black-bg">
                 <img alt="Climate Clock — Ice pattern flipped" src="../images/work/fullsize/climateclock/details/ice_pattern-flipped.png" title="Icecaps melting"  width="100%" height="100%">
             </div>
-            <div class="container--padded black-bg">
+            <div class="container--padded black-bg cs-nav-target" id="lessons">
              <div class="document-text text-box">       
                     <h2  class="center-justified">Lessons Learnt</h2>
                     <p>

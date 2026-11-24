@@ -548,7 +548,74 @@ assert.ok(
   );
 });
 
+// ── 8. Legacy case-study pages (v3 Ticket 7, DR-0007) ────────────────────
+// art-ent, climate-clock, steam-mobile carry the case-study class and a
+// hardcoded cs-index nav (byte-format identical to mdToc output) after the
+// hero headline; targets carry cs-nav-target for the scroll-margin landing
+var LEGACY_NAV = {
+  'art-ent': [
+    ['Discover', 'discovery'],
+    ['Define', 'definition'],
+    ['Iterate', 'iteration'],
+    ['Implement', 'implementation'],
+    ['Conclusion', 'conclusion']
+  ],
+  'climate-clock': [
+    ['Overview', 'definition'],
+    ['Branding', 'iteration'],
+    ['Site', 'site'],
+    ['Display', 'display'],
+    ['Lessons', 'lessons']
+  ],
+  'steam-mobile': [
+    ['Process', 'process'],
+    ['Research', 'research'],
+    ['Identity', 'identity'],
+    ['Results', 'results'],
+    ['Lessons', 'lessons']
+  ]
+};
+Object.keys(LEGACY_NAV).forEach(function (slug) {
+  var tpl = fs.readFileSync(path.join(SRC, slug, 'index.nunjucks'), 'utf8');
+  assert.ok(
+    /<article class="[^"]*\bcase-study\b/.test(tpl),
+    slug + ': article carries the case-study class (DR-0007)'
+  );
+  var navMatch = tpl.match(/<nav class="cs-index" aria-label="Case study sections"><ul>([\s\S]*?)<\/ul><\/nav>/);
+  assert.ok(navMatch, slug + ': cs-index nav markup present');
+  var items = [];
+  var liRe = /<li><a class="btn" href="#([^"]*)" title="([^"]*)">([^<]*)<\/a><\/li>/g;
+  var mm;
+  while ((mm = liRe.exec(navMatch[1]))) {
+    assert.strictEqual(mm[2], mm[3], slug + ': anchor title == label');
+    items.push([mm[3], mm[1]]);
+  }
+  assert.deepStrictEqual(items, LEGACY_NAV[slug], slug + ': legacy nav list exact (DR-0007)');
+  var iHead = tpl.indexOf('headline.content(');
+  var iNav = tpl.indexOf('<nav class="cs-index"');
+  assert.ok(iHead !== -1 && iNav > iHead, slug + ': nav sits directly after the hero headline');
+  LEGACY_NAV[slug].forEach(function (pair) {
+    var idRe = new RegExp('class="[^"]*cs-nav-target[^"]*"[^>]*id="' + pair[1] + '"');
+    assert.ok(idRe.test(tpl), slug + ': target #' + pair[1] + ' exists and carries cs-nav-target');
+  });
+});
+// scss: the bare h1 rule is scoped under .cs-hero (legacy hero h1s untouched),
+// and .cs-nav-target gets the same landing offset as .cs-section
+assert.ok(
+  !/^  h1 \{$/m.test(csScss),
+  '_case-study.scss: no bare h1 selector at .case-study level (DR-0007)'
+);
+assert.ok(
+  /\.cs-hero\s*\{[\s\S]*?h1\s*\{[^}]*margin:\s*0;/.test(csScss),
+  '_case-study.scss: h1 margin rule lives under .cs-hero (DR-0007)'
+);
+assert.ok(
+  /\.cs-nav-target\s*\{[^}]*scroll-margin-top:\s*calc\(48px \+ var\(--cs-index-h/.test(csScss),
+  '_case-study.scss: .cs-nav-target scroll-margin-top = 48px + bar height (DR-0007)'
+);
+
 console.log(
   'cs-nav.test: PASS - v2/v3 nav config (all 5 pages exact condensed 5-link lists, 28-char label cap gate) + btn anchors with title + ' +
-    'mdcover/mdherometa split (mdHero byte-identical) + template order + T2/T3 CSS contract + v3 full-bleed bar / container-width link row / space-between natural-width options / ellipsis contract (DR-0005/DR-0006)'
+    'mdcover/mdherometa split (mdHero byte-identical) + template order + T2/T3 CSS contract + v3 full-bleed bar / container-width link row / space-between natural-width options / ellipsis contract (DR-0005/DR-0006) + ' +
+    'legacy case studies art-ent/climate-clock/steam-mobile with the same cs-index nav (DR-0007)'
 );
