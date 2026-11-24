@@ -52,7 +52,7 @@ H1: no destructive file operations (edits + new spec files only). H3: uncertaint
 
 ## Breakdown
 
-- [ ] Ticket 1 - condensed per-page `nav:` lists + 24-char label cap in the authoring gate + tests (DR-0003)
+- [x] Ticket 1 - condensed per-page `nav:` lists for all 4 fallback pages + 28-char label cap (DR-0004) in the verify-page-md gate + tests - DONE 2026-11-24 (evidence/t1-verify.md)
 - [ ] Ticket 2 - CSS: bar = body content width, buttons expand to fill it equally, ellipsis edge (DR-0001)
 - [ ] Ticket 3 - scroll-spy JS + red-line active state via `--cs-index-active` (DR-0002; lands parent case-study-nav Ticket 4)
 - [ ] Ticket 4 - verify: tests, build + guards, Playwright 1440/768/390, review gates, captures

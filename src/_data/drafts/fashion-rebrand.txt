@@ -30,6 +30,11 @@ Metrics: 14% | single-page sessions ↓**
 Metrics: 27% | new sessions ↑**
 Footnote: * for two pilot markets &nbsp;·&nbsp; ** vs last year, May 3–31, across Landing & Department pages
 Takeaway: More sessions, fewer single-page sessions and fewer exits, up to ~20k more customers per month continued down the funnel toward transaction.
+Nav: Context | context
+Nav: Deep-Dive | deep-dive
+Nav: Process | process
+Nav: Outcomes | outcomes
+Nav: Future & Learnings | future
 
 
 

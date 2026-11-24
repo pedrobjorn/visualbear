@@ -14,6 +14,17 @@ hero:
     - metrics: "↑ | sign-in correlation from the Closet page"
     - metrics: "5 mo | concept-to-delivery"
     - summary: "Outcome: stickiness validated in studies and live, a company-record 5-month delivery, and a feature that taught the team as much as it achieved."
+nav:
+  - label: "Problem"
+    id: "definition"
+  - label: "Research"
+    id: "research"
+  - label: "Flows & Validation"
+    id: "discovery"
+  - label: "Design System"
+    id: "delivery"
+  - label: "Outcome"
+    id: "outcome"
 ---
 
 <!--

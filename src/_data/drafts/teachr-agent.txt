@@ -28,6 +28,11 @@ Details: Lead Designer ⋅ Figjam · Claude Code
 Logo: ../images/work/fullsize/teachr/teachr_logo.png | Teachr brand mark
 Related: Part of a pair - read first | ../teachr/ | Teachr, Redesigning the Learning Experience
 Takeaway: Summary: unlocking the training dashboard experience for our users through agentic AI in the app.
+Nav: Outcomes | outcomes
+Nav: Process | process
+Nav: Problem | problem
+Nav: Research | research
+Nav: Discovery | discovery
 
 
 

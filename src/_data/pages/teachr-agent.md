@@ -13,6 +13,17 @@ hero:
     - logo: "../images/work/fullsize/teachr/teachr_logo.png | Teachr brand mark"
     - related: "Part of a pair - read first | ../teachr/ | Teachr, Redesigning the Learning Experience"
     - summary: "Summary: unlocking the training dashboard experience for our users through agentic AI in the app."
+nav:
+  - label: "Outcomes"
+    id: "outcomes"
+  - label: "Process"
+    id: "process"
+  - label: "Problem"
+    id: "problem"
+  - label: "Research"
+    id: "research"
+  - label: "Discovery"
+    id: "discovery"
 ---
 
 <!--

@@ -12,10 +12,11 @@
  *  3. Every anchor carries class="btn" (design-system button, v2 DR-0003);
  *     hrefs are in-page `#` anchors only (parent Ticket 5 must never add
  *     target=_blank to these). No whitespace between tags (bar height pin).
- *  4. teachr renders exactly its 5 configured links, starting at Outcomes:
- *     Outcomes#outcomes, Context#process, Discovery & Validation#discovery,
- *     Design & Delivery#decisions, Deepdive: Teachr Assistant#assistant
- *     (Summary explicitly removed per Pedro 2026-11-24).
+ *  4. every case-study page renders exactly its 5 configured condensed links
+ *     (v3 DR-0003): teachr starts at Outcomes (Summary explicitly removed per
+ *     Pedro 2026-11-24), the other four use the v3 Ticket 1 lists; labels are
+ *     capped at 28 chars by the verify-page-md gate (v3 DR-0004), asserted
+ *     here per page and on a synthetic over-cap fixture.
  *  5. Position (v2 DR-0004): the case-study shells render
  *     mdcover -> mdtoc -> mdherometa -> mdpage (nav directly under the hero
  *     cover, before the .cs-hero--meta band); mdhero is unchanged there.
@@ -64,13 +65,46 @@ var SECTION_COUNTS = {
   teachr: 15,
   'teachr-agent': 7
 };
-var TEACHR_NAV = [
-  ['Outcomes', 'outcomes'],
-  ['Context', 'process'],
-  ['Discovery & Validation', 'discovery'],
-  ['Design & Delivery', 'decisions'],
-  ['Deepdive: Teachr Assistant', 'assistant']
-];
+// v3 DR-0003: every case-study page now has an explicit condensed nav: list
+// (teachr's from v2, unchanged; the other four added in v3 Ticket 1). Labels
+// are capped at 28 chars by verify-page-md gate 1b (v3 DR-0004).
+var PAGE_NAV = {
+  'fashion-rebrand': [
+    ['Context', 'context'],
+    ['Deep-Dive', 'deep-dive'],
+    ['Process', 'process'],
+    ['Outcomes', 'outcomes'],
+    ['Future & Learnings', 'future']
+  ],
+  'sports-ecommerce-redesign': [
+    ['Problems', 'definition'],
+    ['Brand & Process', 'exploration'],
+    ['Site Redesign', 'site-redesign'],
+    ['Rollout', 'site-delivery'],
+    ['Outcome', 'site-outcome']
+  ],
+  'digital-closet': [
+    ['Problem', 'definition'],
+    ['Research', 'research'],
+    ['Flows & Validation', 'discovery'],
+    ['Design System', 'delivery'],
+    ['Outcome', 'outcome']
+  ],
+  teachr: [
+    ['Outcomes', 'outcomes'],
+    ['Context', 'process'],
+    ['Discovery & Validation', 'discovery'],
+    ['Design & Delivery', 'decisions'],
+    ['Deepdive: Teachr Assistant', 'assistant']
+  ],
+  'teachr-agent': [
+    ['Outcomes', 'outcomes'],
+    ['Process', 'process'],
+    ['Problem', 'problem'],
+    ['Research', 'research'],
+    ['Discovery', 'discovery']
+  ]
+};
 
 function stripTags(s) {
   return s.replace(/<[^>]*>/g, '');
@@ -155,12 +189,14 @@ SLUGS.forEach(function (slug) {
   );
 
   var hasNavCfg = /\nnav:\n/.test(src.slice(0, src.indexOf('---', 3) + 3)) || /^nav:\n/m.test(src);
-  var expectedCount = hasNavCfg ? Math.min(5, SECTION_COUNTS[slug]) : Math.min(5, sections.length);
-  if (slug === 'teachr') expectedCount = 5; // configured list, asserted exactly below
+  assert.ok(
+    hasNavCfg,
+    slug + ': every case-study page must carry an explicit nav: list (v3 Ticket 1)'
+  );
   assert.strictEqual(
     items.length,
-    expectedCount,
-    slug + ': nav link count must be ' + expectedCount + ' (max 5, v2 DR-0001)'
+    5,
+    slug + ': nav link count must be 5 (configured list, max 5 - v2 DR-0001 / v3 DR-0003)'
   );
   assert.ok(items.length <= 5, slug + ': hard cap - nav never renders more than 5 links');
 
@@ -181,35 +217,26 @@ SLUGS.forEach(function (slug) {
     );
   });
 
-  if (slug === 'teachr') {
-    assert.deepStrictEqual(
-      items.map(function (it) {
-        return [it.text, it.href.slice(1)];
-      }),
-      TEACHR_NAV,
-      'teachr: nav must render exactly the 5 configured links in config order, starting at Outcomes'
+  assert.deepStrictEqual(
+    items.map(function (it) {
+      return [it.text, it.href.slice(1)];
+    }),
+    PAGE_NAV[slug],
+    slug + ': nav must render exactly the configured condensed links in config order (v3 DR-0003)'
+  );
+  items.forEach(function (it) {
+    assert.ok(
+      it.text.length <= 28,
+      slug + ': nav label "' + it.text + '" within the 28-char cap (v3 DR-0004)'
     );
+  });
+  if (slug === 'teachr') {
     assert.ok(
       items.every(function (it) {
         return it.text !== 'Summary';
       }),
       'teachr: no Summary link (Pedro 2026-11-24: skip the summary, start with outcomes)'
     );
-  } else {
-    // fallback: first 5 sections in document order, label = primary title
-    var first5 = sections.slice(0, 5);
-    items.forEach(function (item, i) {
-      assert.strictEqual(
-        item.href,
-        '#' + first5[i].id,
-        slug + ': fallback nav link ' + i + ' = first-5 section'
-      );
-      assert.strictEqual(
-        item.text,
-        first5[i].title,
-        slug + ': fallback nav label ' + i + ' = primary title'
-      );
-    });
   }
 });
 
@@ -253,6 +280,53 @@ assert.deepStrictEqual(
     ['A', '#a']
   ],
   'mdToc renders nav: entries in config order with the configured labels'
+);
+// no nav: key -> fallback = first 5 sections in document order, label = primary title
+var noNavItems = tocItems(render.mdToc(synthSrc('', sixBody)));
+assert.deepStrictEqual(
+  noNavItems.map(function (it) {
+    return [it.text, it.href];
+  }),
+  [
+    ['A', '#a'],
+    ['B', '#b'],
+    ['C', '#c'],
+    ['D', '#d'],
+    ['E', '#e']
+  ],
+  'mdToc falls back to the first 5 sections with primary-title labels when no nav: key exists'
+);
+
+// ── 2b. v3 DR-0003/DR-0004: label cap enforced by the verify-page-md gate ──
+// All 5 real page mds must pass the gate; a synthetic label over 28 chars must
+// fail it (fixture: scripts/test/fixtures/nav-label-over-cap.md).
+var execFileSync = require('child_process').execFileSync;
+var VERIFY = path.join(__dirname, '../../specs/text-to-md/tools/verify-page-md.js');
+SLUGS.forEach(function (slug) {
+  var out = execFileSync(process.execPath, [VERIFY, path.join(PAGES, slug + '.md')], {
+    encoding: 'utf8'
+  });
+  assert.ok(
+    /nav valid \(5 entries/.test(out),
+    slug + ': verify-page-md gate 1b must pass with 5 valid nav entries'
+  );
+});
+var capFailed = false;
+var capOut = '';
+try {
+  capOut = execFileSync(
+    process.execPath,
+    [VERIFY, path.join(__dirname, 'fixtures/nav-label-over-cap.md')],
+    { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }
+  );
+} catch (e) {
+  capFailed = true;
+  capOut = String(e.stdout || '') + String(e.stderr || '');
+}
+assert.ok(capFailed, 'verify-page-md must reject a nav label over the 28-char cap');
+assert.ok(
+  /max is 28/.test(capOut),
+  'verify-page-md rejection must name the cap (max is 28): ' + capOut
 );
 
 // ── 5. template order: mdcover -> mdtoc -> mdherometa -> mdpage ───────────
@@ -409,6 +483,6 @@ assert.ok(
 });
 
 console.log(
-  'cs-nav.test: PASS - v2 nav config (max 5, teachr exact 5 from Outcomes) + btn anchors + ' +
+  'cs-nav.test: PASS - v2/v3 nav config (all 5 pages exact condensed 5-link lists, 28-char label cap gate) + btn anchors + ' +
     'mdcover/mdherometa split (mdHero byte-identical) + template order + T2/T3 CSS contract'
 );

@@ -102,10 +102,14 @@ if (!meta.hero || typeof meta.hero !== 'object') {
     );
 }
 
-// ── gate 1b: nav front matter (case-study-nav-v2 DR-0001) ────────────────
+// ── gate 1b: nav front matter (case-study-nav-v2 DR-0001, v3 DR-0003) ────
 // Top-level `nav:` key: optional list of { label, id } (label/id only), max
 // 5 entries, every id must match a `##` section id in the body (same pipe +
-// slug rules as markdown-render.js parseH2Parts/slugify).
+// slug rules as markdown-render.js parseH2Parts/slugify), and every label
+// must be condensed: <= NAV_LABEL_MAX chars (v3 DR-0003/DR-0004 - long full
+// section titles like "Future Improvements, Based on Learnings" must not
+// become nav links).
+const NAV_LABEL_MAX = 28; // v3 DR-0004: 28 so teachr's configured 26-char "Deepdive: Teachr Assistant" passes unedited
 
 const slugify = function (s) {
   return String(s)
@@ -117,7 +121,12 @@ const sectionIds = [];
 body.split('\n').forEach(function (l) {
   const h = l.match(/^##\s+(.*)$/);
   if (!h) return;
-  const parts = h[1].replace(/<[^>]*>/g, '').split('|').map(function (s) { return s.trim(); });
+  const parts = h[1]
+    .replace(/<[^>]*>/g, '')
+    .split('|')
+    .map(function (s) {
+      return s.trim();
+    });
   const heading = parts[0];
   const eyebrow = parts.length > 1 ? parts[1] : heading;
   sectionIds.push(parts[2] || slugify(eyebrow || heading));
@@ -133,7 +142,13 @@ if (meta.nav !== undefined) {
     meta.nav.forEach(function (item, i) {
       const keys = item && typeof item === 'object' ? Object.keys(item).sort() : [];
       if (keys.join(',') !== 'id,label') {
-        fail('front-matter: nav entry ' + (i + 1) + ' must have exactly label+id keys (got: ' + keys.join(',') + ')');
+        fail(
+          'front-matter: nav entry ' +
+            (i + 1) +
+            ' must have exactly label+id keys (got: ' +
+            keys.join(',') +
+            ')'
+        );
         navOk = false;
         return;
       }
@@ -142,12 +157,41 @@ if (meta.nav !== undefined) {
         navOk = false;
         return;
       }
+      if (String(item.label).trim().length > NAV_LABEL_MAX) {
+        fail(
+          'front-matter: nav entry ' +
+            (i + 1) +
+            ' label "' +
+            item.label +
+            '" is ' +
+            String(item.label).trim().length +
+            ' chars, max is ' +
+            NAV_LABEL_MAX +
+            ' (condense the label - case-study-nav-v3 DR-0003)'
+        );
+        navOk = false;
+      }
       if (sectionIds.indexOf(String(item.id).trim()) === -1) {
-        fail('front-matter: nav entry ' + (i + 1) + ' id "' + item.id + '" matches no ## section id (' + sectionIds.join(', ') + ')');
+        fail(
+          'front-matter: nav entry ' +
+            (i + 1) +
+            ' id "' +
+            item.id +
+            '" matches no ## section id (' +
+            sectionIds.join(', ') +
+            ')'
+        );
         navOk = false;
       }
     });
-    if (navOk) pass('front-matter: nav valid (' + meta.nav.length + ' entr' + (meta.nav.length === 1 ? 'y' : 'ies') + ', all ids match ## sections)');
+    if (navOk)
+      pass(
+        'front-matter: nav valid (' +
+          meta.nav.length +
+          ' entr' +
+          (meta.nav.length === 1 ? 'y' : 'ies') +
+          ', all ids match ## sections)'
+      );
   }
 }
 
@@ -263,7 +307,12 @@ if (!sourcePath || !fs.existsSync(sourcePath)) {
     // label strip below would leave "label outcomes" split across words)
     const navM = t.match(/^nav\s*:\s*(.*)$/i);
     if (navM) {
-      const p = navM[1].split('|').map(function (s) { return s.trim(); }).filter(Boolean);
+      const p = navM[1]
+        .split('|')
+        .map(function (s) {
+          return s.trim();
+        })
+        .filter(Boolean);
       if (p.length === 2) srcLines.push(textify('label: "' + p[0] + '" id: "' + p[1] + '"'));
       return;
     }
@@ -271,7 +320,10 @@ if (!sourcePath || !fs.existsSync(sourcePath)) {
     // structure - the rendered text carries the rest of the line
     // a "Word: value" label prefix is signal, not content
     const text = textify(
-      l.replace(/^\s*(variant|eyebrow|title|summary|details|logo|needs|related|metrics|footnote|takeaway|intro|note|point|figure|byline|wrap-up|caption|image|frame|divider|subtitle|hero|columns)\s*:\s*/i, '')
+      l.replace(
+        /^\s*(variant|eyebrow|title|summary|details|logo|needs|related|metrics|footnote|takeaway|intro|note|point|figure|byline|wrap-up|caption|image|frame|divider|subtitle|hero|columns)\s*:\s*/i,
+        ''
+      )
     );
     if (text) srcLines.push(text);
   });

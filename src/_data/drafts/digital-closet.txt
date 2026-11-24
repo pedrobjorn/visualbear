@@ -29,6 +29,11 @@ Metrics: 10% | session length increase
 Metrics: ↑ | sign-in correlation from the Closet page
 Metrics: 5 mo | concept-to-delivery
 Takeaway: Outcome: stickiness validated in studies and live, a company-record 5-month delivery, and a feature that taught the team as much as it achieved.
+Nav: Problem | definition
+Nav: Research | research
+Nav: Flows & Validation | discovery
+Nav: Design System | delivery
+Nav: Outcome | outcome
 
 
 

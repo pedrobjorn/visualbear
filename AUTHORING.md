@@ -33,11 +33,12 @@ Case-study shells hold four lines in this order (case-study-nav-v2 DR-0004):
 `mdcover` is the hero cover, `mdherometa` the hero meta band, so the
 `.cs-index` section nav sits directly under the hero cover. The nav is NOT
 derived from every `##` line: it renders the page's `nav:` front-matter list
-(max 5 `{ label, id }` entries, config order; ids must match a `##` id).
-Pages without `nav:` fall back to their first 5 sections. In the draft txt
-head, write one `Nav: Label | id` line per entry (specs/case-study-nav-v2
-DR-0001). Nav links and section ids always match (the `mdtoc` filter validates
-every id against the same `##` parse `mdpage` uses and throws otherwise).
+(max 5 `{ label, id }` entries, config order; ids must match a `##` id;
+labels condensed to max 28 chars, see below). Pages without `nav:` fall back
+to their first 5 sections. In the draft txt head, write one `Nav: Label | id`
+line per entry (specs/case-study-nav-v2 DR-0001, v3 DR-0003). Nav links and
+section ids always match (the `mdtoc` filter validates every id against the
+same `##` parse `mdpage` uses and throws otherwise).
 
 ## Code quality commands
 
@@ -119,6 +120,12 @@ so the nav can never drift from the rendered sections. Without `nav:` the
 nav falls back to the first 5 sections (label = primary title). In the
 draft txt head the same list is written as repeatable `Nav: Label | id`
 lines after the hero fields.
+
+Labels are nav chrome, not headings: keep them condensed, max 28 chars
+(case-study-nav-v3 DR-0003/DR-0004). `verify-page-md` fails the page on a
+longer label, so a full section title like "Future Improvements, Based on
+Learnings" can never become a nav link; write "Future & Learnings" instead.
+The full title still lives in the section's own `h2`.
 
 ### `:::` blocks for visual components
 

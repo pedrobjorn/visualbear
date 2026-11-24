@@ -13,6 +13,17 @@ hero:
     - metrics: "15% | customer return rate ↑"
     - metrics: "#1 | Sports Site of the Year"
     - summary: "Increased Customer Return Rate by 15%, improved SEO and usability, and we won more awards that year for Sports Site of the Year and customers loved the changes, commenting positively on social media."
+nav:
+  - label: "Problems"
+    id: "definition"
+  - label: "Brand & Process"
+    id: "exploration"
+  - label: "Site Redesign"
+    id: "site-redesign"
+  - label: "Rollout"
+    id: "site-delivery"
+  - label: "Outcome"
+    id: "site-outcome"
 ---
 
 <!--

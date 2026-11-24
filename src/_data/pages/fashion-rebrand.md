@@ -15,6 +15,17 @@ hero:
     - metrics: "27% | new sessions ↑**"
     - footnote: "* for two pilot markets &nbsp;·&nbsp; ** vs last year, May 3–31, across Landing & Department pages"
     - summary: "More sessions, fewer single-page sessions and fewer exits, up to ~20k more customers per month continued down the funnel toward transaction."
+nav:
+  - label: "Context"
+    id: "context"
+  - label: "Deep-Dive"
+    id: "deep-dive"
+  - label: "Process"
+    id: "process"
+  - label: "Outcomes"
+    id: "outcomes"
+  - label: "Future & Learnings"
+    id: "future"
 ---
 
 <!--
